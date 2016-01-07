@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module HW_revision="2.0" XML_version="1" description="JSTATE decoding" id="Hidden" hidden="true">
+  <register acronym="JSTATE3" description="Digital JTAG State Register" id="JSTATE3" offset="0x0" width="64">
+    <bitfield begin="0" description="PC" end="31" id="PC" range="" resetval="0" rwaccess="R" width="32" />
+  </register>
+</module>

@@ -1,0 +1,385 @@
+/*
+* Copyright (C) 2012 - 2015 Texas Instruments Incorporated - http://www.ti.com/
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions
+* are met:
+*
+*  Redistributions of source code must retain the above copyright
+*  notice, this list of conditions and the following disclaimer.
+*
+*  Redistributions in binary form must reproduce the above copyright
+*  notice, this list of conditions and the following disclaimer in the
+*  documentation and/or other materials provided with the
+*  distribution.
+*
+*  Neither the name of Texas Instruments Incorporated nor the names of
+*  its contributors may be used to endorse or promote products derived
+*  from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+* A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+* OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+* LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+* OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+* File creation date: 2015-01-20
+*
+*/
+
+memorymap_init()
+{
+    /*
+     * Syntax for GEL_MapAddStr.
+     * GEL_MapAddStr(address, page, length, "attribute", waitstate);
+
+    Basic Attribute Types           Derived Attribute Types
+    String      Description         String      Description
+    R           Read                NONE        No memory/protected
+    W           Write               RAM         Read and write
+    P           Port                ROM         Read only
+    EX          External            WOM         Write only
+    EM          Emulator            INPORT      Port read only
+    PR          Programmable        OUTPORT     Port write only
+    ER          Erasable            IOPORT      Port read and write
+    DA          Dual access         SARAM       Single access RAM
+    ASn         Access size         DARAM       Dual access RAM
+    SHnC        Shared              FLASH       Flash ROM
+    CACHE       Cache               EXRAM       External RAM
+    TX          Text                EXROM       External ROM
+    MN          Monitor             EPROM       Erasable write-able EPROM
+    SA          Single access       MONITOR     Monitor ROM
+    FL          Flash               PRAM        Program RAM
+    MR          Memory mapped       PROM        Program ROM
+    NULL        NULL                NULL        NULL
+
+    */
+
+    GEL_MapAddStr(0x00000000, 0, 0x00040000, "R", 0);       /* MEM_FLASH256K */
+    GEL_MapAddStr(0x00200000, 0, 0x00004000, "R", 0);       /* INFO_FLASH */
+    GEL_MapAddStr(0x01000000, 0, 0x00010000, "R|W|X", 0);   /* MEM_SRAM64K_CS */
+    GEL_MapAddStr(0x02000000, 0, 0x00100000, "ROM", 0);     /* ROM */
+    GEL_MapAddStr(0x20000000, 0, 0x00010000, "R|W", 0);     /* MEM_SRAM64K */
+    GEL_MapAddStr(0x40012000, 0, 0x00000158, "R|W|AS4", 0); /* ADC14 */
+    GEL_MapAddStr(0x40003C00, 0, 0x00000010, "R|W|AS2", 0); /* AES256 */
+    GEL_MapAddStr(0x40005400, 0, 0x00000010, "R|W|AS2", 0); /* CAPTIO0 */
+    GEL_MapAddStr(0x40005800, 0, 0x00000010, "R|W|AS2", 0); /* CAPTIO1 */
+    GEL_MapAddStr(0x40003400, 0, 0x00000010, "R|W|AS2", 0); /* COMP_E0 */
+    GEL_MapAddStr(0x40003800, 0, 0x00000010, "R|W|AS2", 0); /* COMP_E1 */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W|AS4", 0); /* COREDEBUG */
+    GEL_MapAddStr(0x40004000, 0, 0x00000020, "R|W|AS2", 0); /* CRC32 */
+    GEL_MapAddStr(0x40010400, 0, 0x00000088, "R|W|AS4", 0); /* CS */
+    GEL_MapAddStr(0x40004C00, 0, 0x00000138, "R|W|AS2", 0); /* DIO */
+    GEL_MapAddStr(0x4000E000, 0, 0x00001044, "R|W|AS4", 0); /* DMA */
+    GEL_MapAddStr(0xE0001000, 0, 0x00001000, "R|W|AS4", 0); /* DWT */
+    GEL_MapAddStr(0x40001000, 0, 0x00000020, "R|W|AS2", 0); /* EUSCI_A0 */
+    GEL_MapAddStr(0x40001400, 0, 0x00000020, "R|W|AS2", 0); /* EUSCI_A1 */
+    GEL_MapAddStr(0x40001800, 0, 0x00000020, "R|W|AS2", 0); /* EUSCI_A2 */
+    GEL_MapAddStr(0x40001C00, 0, 0x00000020, "R|W|AS2", 0); /* EUSCI_A3 */
+    GEL_MapAddStr(0x40002000, 0, 0x00000030, "R|W|AS2", 0); /* EUSCI_B0 */
+    GEL_MapAddStr(0x40002400, 0, 0x00000030, "R|W|AS2", 0); /* EUSCI_B1 */
+    GEL_MapAddStr(0x40002800, 0, 0x00000030, "R|W|AS2", 0); /* EUSCI_B2 */
+    GEL_MapAddStr(0x40002C00, 0, 0x00000030, "R|W|AS2", 0); /* EUSCI_B3 */
+    GEL_MapAddStr(0x40011000, 0, 0x00000124, "R|W|AS4", 0); /* FLCTL */
+    GEL_MapAddStr(0xE0002000, 0, 0x00001000, "R|W|AS4", 0); /* FPB */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W|AS4", 0); /* FPU */
+    GEL_MapAddStr(0xE0000000, 0, 0x00001000, "R|W|AS4", 0); /* ITM */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W|AS4", 0); /* MPU */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W|AS4", 0); /* NVIC */
+    GEL_MapAddStr(0x40010000, 0, 0x00000014, "R|W|AS4", 0); /* PCM */
+    GEL_MapAddStr(0x40005000, 0, 0x00000040, "R|W|AS2", 0); /* PMAP */
+    GEL_MapAddStr(0x40010800, 0, 0x00000044, "R|W|AS4", 0); /* PSS */
+    GEL_MapAddStr(0x40003000, 0, 0x0000000C, "R|W|AS2", 0); /* REF_A */
+    GEL_MapAddStr(0xE0042000, 0, 0x00000120, "R|W|AS4", 0); /* RSTCTL */
+    GEL_MapAddStr(0x40004400, 0, 0x00000020, "R|W|AS2", 0); /* RTC_C */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W|AS4", 0); /* SCB */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W|AS4", 0); /* SCnSCB */
+    GEL_MapAddStr(0xE0043000, 0, 0x00001024, "R|W|AS4", 0); /* SYSCTL */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W|AS4", 0); /* SYSTICK */
+    GEL_MapAddStr(0x4000C000, 0, 0x00000F0C, "R|W|AS4", 0); /* TIMER32 */
+    GEL_MapAddStr(0x40000000, 0, 0x00000030, "R|W|AS2", 0); /* TIMER_A0 */
+    GEL_MapAddStr(0x40000400, 0, 0x00000030, "R|W|AS2", 0); /* TIMER_A1 */
+    GEL_MapAddStr(0x40000800, 0, 0x00000030, "R|W|AS2", 0); /* TIMER_A2 */
+    GEL_MapAddStr(0x40000C00, 0, 0x00000030, "R|W|AS2", 0); /* TIMER_A3 */
+    GEL_MapAddStr(0x201000, 0, 0x00000094, "R|W|AS4", 0); /* TLV */
+    GEL_MapAddStr(0xE0040000, 0, 0x00001000, "R|W|AS4", 0); /* TPIU */
+    GEL_MapAddStr(0x40004800, 0, 0x0000000E, "R|W|AS2", 0); /* WDT_A */
+
+    GEL_TextOut("Memory Map Initialization Complete\n");
+}
+
+OnTargetConnect()
+{
+    GEL_MapReset();
+    memorymap_init();
+    GEL_MapOn();
+    GEL_TextOut("Halting Watchdog Timer\n");
+    *(unsigned short *)(0x4000480C) = 0x5a80;
+}
+
+// Global variable to store the low power run setting during a program load
+int gGEL_LowPowerRunMode = 0;
+
+OnPreFileLoaded()
+{
+  // Save current low power run mode setting, and disable it if enabled
+  gGEL_LowPowerRunMode  = DEBUG_GetBoolProperty( "LowPowerRunMode" );
+  if( gGEL_LowPowerRunMode )
+  {
+    DEBUG_SetBoolProperty( "LowPowerRunMode", 0 );
+  }
+  
+  GEL_AdvancedReset( "System Reset", 1 );
+}
+
+OnFileLoaded()
+{
+  // Restore low power run mode if it was previously enabled
+  if( gGEL_LowPowerRunMode )
+  {
+    DEBUG_SetBoolProperty( "LowPowerRunMode", 1 );
+  }
+}
+
+OnRestart()
+{
+  GEL_AdvancedReset( "System Reset", 1 );
+}
+
+
+/* These menu items will be available during a debug session */
+
+menuitem "MSP432 Debug Clock Control";
+
+hotmenu Freeze_All_Modules ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = 0xFFFF;
+  perihalt_overview();
+}
+hotmenu Continue_All_Modules ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = 0x0;
+  perihalt_overview();
+}
+hotmenu Freeze_T16_0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00001;
+  perihalt_overview();
+}
+hotmenu Continue_T16_0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00001;
+  perihalt_overview();
+}
+hotmenu Freeze_T16_1 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00002;
+  perihalt_overview();
+}
+hotmenu Continue_T16_1 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00002;
+  perihalt_overview();
+}
+hotmenu Freeze_T16_2 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00004;
+  perihalt_overview();
+}
+hotmenu Continue_T16_2 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00004;
+  perihalt_overview();
+}
+hotmenu Freeze_T16_3 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00008;
+  perihalt_overview();
+}
+hotmenu Continue_T16_3 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00008;
+  perihalt_overview();
+}
+hotmenu Freeze_T32_0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00010;
+  perihalt_overview();
+}
+hotmenu Continue_T32_0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00010;
+  perihalt_overview();
+}
+hotmenu Freeze_eUA0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00020;
+  perihalt_overview();
+}
+hotmenu Continue_eUA0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00020;
+  perihalt_overview();
+}
+hotmenu Freeze_eUA1 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00040;
+  perihalt_overview();
+}
+hotmenu Continue_eUA1 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00040;
+  perihalt_overview();
+}
+hotmenu Freeze_eUA2 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00080;
+  perihalt_overview();
+}
+hotmenu Continue_eUA2 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00080;
+  perihalt_overview();
+}
+hotmenu Freeze_eUA3 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00100;
+  perihalt_overview();
+}
+hotmenu Continue_eUA3 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00100;
+  perihalt_overview();
+}
+hotmenu Freeze_eUB0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00200;
+  perihalt_overview();
+}
+hotmenu Continue_eUB0 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00200;
+  perihalt_overview();
+}
+hotmenu Freeze_eUB1 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00400;
+  perihalt_overview();
+}
+hotmenu Continue_eUB1 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00400;
+  perihalt_overview();
+}
+hotmenu Freeze_eUB2 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x00800;
+  perihalt_overview();
+}
+hotmenu Continue_eUB2 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x00800;
+  perihalt_overview();
+}
+hotmenu Freeze_eUB3 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x01000;
+  perihalt_overview();
+}
+hotmenu Continue_eUB3 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x01000;
+  perihalt_overview();
+}
+hotmenu Freeze_ADC14 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x02000;
+  perihalt_overview();
+}
+hotmenu Continue_ADC14 ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x02000;
+  perihalt_overview();
+}
+hotmenu Freeze_WDT ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x04000;
+  perihalt_overview();
+}
+hotmenu Continue_WDT ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x04000;
+  perihalt_overview();
+}
+hotmenu Freeze_DMA ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp | 0x08000;
+  perihalt_overview();
+}
+hotmenu Continue_DMA ()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  *(unsigned int *)(0xE004300C) = temp & ~0x08000;
+  perihalt_overview();
+}
+perihalt_overview()
+{
+  short temp = *(unsigned int *)(0xE004300C);
+  GEL_TextOut ("The following peripherals are halted during CPU halt:\n");
+  if (temp & 0x00001) { GEL_TextOut ("T16_0\n"); }
+  if (temp & 0x00002) { GEL_TextOut ("T16_1\n"); }
+  if (temp & 0x00004) { GEL_TextOut ("T16_2\n"); }
+  if (temp & 0x00008) { GEL_TextOut ("T16_3\n"); }
+  if (temp & 0x00010) { GEL_TextOut ("T32_0\n"); }
+  if (temp & 0x00020) { GEL_TextOut ("eUA0\n"); }
+  if (temp & 0x00040) { GEL_TextOut ("eUA1\n"); }
+  if (temp & 0x00080) { GEL_TextOut ("eUA2\n"); }
+  if (temp & 0x00100) { GEL_TextOut ("eUA3\n"); }
+  if (temp & 0x00200) { GEL_TextOut ("eUB0\n"); }
+  if (temp & 0x00400) { GEL_TextOut ("eUB1\n"); }
+  if (temp & 0x00800) { GEL_TextOut ("eUB2\n"); }
+  if (temp & 0x01000) { GEL_TextOut ("eUB3\n"); }
+  if (temp & 0x02000) { GEL_TextOut ("ADC14\n"); }
+  if (temp & 0x04000) { GEL_TextOut ("WDT\n"); }
+  if (temp & 0x08000) { GEL_TextOut ("DMA\n"); }
+}
+

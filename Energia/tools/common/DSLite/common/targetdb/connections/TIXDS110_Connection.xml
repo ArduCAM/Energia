@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!-- This is a USCIF35 compatible XML.                        -->
+<!-- Copyright (c) 2014, Texas Instruments Incorporated. -->
+
+<connection id="TIXDS110" desc="Texas Instruments XDS110 USB Debug Probe" class="185076">
+
+    <connectionType Type="TIXDS110"/>
+    <property Name="Diagnostic Command" Type="hiddenfield" Value="%ccs_base%/common/uscif/dbgjtag -f %boarddatafile% -rv -o -S integrity" ID="DiagnosticCommand"/>
+    <property Name="Debug Probe Filename" Type="hiddenfield" Value="jioxds110.dll" ID="SEPK.POD_DRVR"/>
+    <property Name="Debug Probe Selection" Type="choicelist" Value="0" ID="SEPK.POD_PORT">
+        <choice Name="Only one XDS110 installed" value="0">
+        </choice>
+        <choice Name="Select by serial number"   value="0">
+            <property Name="-- Enter the serial number" Type="stringfield" Value="Use xdsdfu to get or set serial number" ID="SEPK.POD_SERIAL"/>
+        </choice>
+    </property>
+    <property Name="Title" Type="hiddenfield" Value="Texas Instruments XDS110 USB" ID="PRODUCT.TITLE"/>
+    <property Name="Alias" Type="hiddenfield" Value="TI_XDS110_USB" ID="PRODUCT.ALIAS"/>
+    <property Name="Name" Type="hiddenfield" Value="XDS110" ID="PRODUCT.NAME"/>
+    <property Name="TMS/TDO Output Timing" Type="hiddenfield" Value="FALL" ID="USCIF.TDOEDGE"/>
+    <property Name="SWD Mode Settings" Type="choicelist" Value="0" ID="SWD.MODE">
+        <choice Name="Use 1149.1 JTAG, SWD Mode is disabled" value="disabled" />
+        <choice Name="Use SWD Mode with SWO Trace disabled" value="swd_only" />
+        <choice Name="Use SWD Mode with SWO Trace enabled" value="swd+swo" />
+    </property>
+
+</connection>

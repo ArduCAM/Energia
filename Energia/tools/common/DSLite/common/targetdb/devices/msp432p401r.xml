@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright Texas Instruments 2015 - File creation date: 2015-01-20 -->
+<device description="ARM Cortex-M4F MCU" id="MSP432P401R" partnum="MSP432P401R" HW_revision="1" desc="MSP432P401R" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- Filter to list device under in project wizard -->
+    <property Type="stringfield" Value="MSP432 Family" id="FilterString" />
+    <instance XML_revision="1.2" desc="CS_DAP_0" href="routers/cs_dap.xml" id="CS_DAP_0" xml="cs_dap.xml" xmlpath="Routers"/>
+    <router HW_revision="1.0" XML_version="1.2" description="CS_DAP Router" id="CS_DAP_0" isa="CS_DAP">
+    <property Type="filepathfield" Value="../../../emulation/gel/msp432_factory_reset.gel" id="GEL File"/>
+        <subpath id="subpath_0">
+            <property Type="numericfield" Value="16" id="Port Number"/>
+            <property Type="choicelist" Value="1" id="Initial Configuration"/>
+            <property Type="choicelist" Value="1" id="Customer Configuration"/>
+            <instance XML_version="1.2" desc="CORTEX_M4_0" href="cpus/cortex_m4.xml" id="CORTEX_M4_0" xml="cortex_m4.xml" xmlpath="cpus"/>
+            <cpu HW_revision="1.0" XML_version="1.2" description="Cortex M4 CPU" id="CORTEX_M4_0" isa="CORTEX_M4">
+                <instance href="../Modules/MSP432/adc14.xml" xml="ADC14.xml" id="ADC14" xmlpath="../Modules/MSP432/" baseaddr="0x40012000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/aes256.xml" xml="AES256.xml" id="AES256" xmlpath="../Modules/MSP432/" baseaddr="0x40003C00" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/captio.xml" xml="CAPTIO.xml" id="CAPTIO0" xmlpath="../Modules/MSP432/" baseaddr="0x40005400" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/captio.xml" xml="CAPTIO.xml" id="CAPTIO1" xmlpath="../Modules/MSP432/" baseaddr="0x40005800" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/comp_e.xml" xml="COMP_E.xml" id="COMP_E0" xmlpath="../Modules/MSP432/" baseaddr="0x40003400" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/comp_e.xml" xml="COMP_E.xml" id="COMP_E1" xmlpath="../Modules/MSP432/" baseaddr="0x40003800" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/coredebug.xml" xml="COREDEBUG.xml" id="COREDEBUG" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/crc32.xml" xml="CRC32.xml" id="CRC32" xmlpath="../Modules/MSP432/" baseaddr="0x40004000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/cs.xml" xml="CS.xml" id="CS" xmlpath="../Modules/MSP432/" baseaddr="0x40010400" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/dio.xml" xml="DIO.xml" id="DIO" xmlpath="../Modules/MSP432/" baseaddr="0x40004C00" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/dma.xml" xml="DMA.xml" id="DMA" xmlpath="../Modules/MSP432/" baseaddr="0x4000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/dwt.xml" xml="DWT.xml" id="DWT" xmlpath="../Modules/MSP432/" baseaddr="0xE0001000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_a.xml" xml="eUSCI_A.xml" id="EUSCI_A0" xmlpath="../Modules/MSP432/" baseaddr="0x40001000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_a.xml" xml="eUSCI_A.xml" id="EUSCI_A1" xmlpath="../Modules/MSP432/" baseaddr="0x40001400" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_a.xml" xml="eUSCI_A.xml" id="EUSCI_A2" xmlpath="../Modules/MSP432/" baseaddr="0x40001800" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_a.xml" xml="eUSCI_A.xml" id="EUSCI_A3" xmlpath="../Modules/MSP432/" baseaddr="0x40001C00" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_b.xml" xml="eUSCI_B.xml" id="EUSCI_B0" xmlpath="../Modules/MSP432/" baseaddr="0x40002000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_b.xml" xml="eUSCI_B.xml" id="EUSCI_B1" xmlpath="../Modules/MSP432/" baseaddr="0x40002400" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_b.xml" xml="eUSCI_B.xml" id="EUSCI_B2" xmlpath="../Modules/MSP432/" baseaddr="0x40002800" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/eusci_b.xml" xml="eUSCI_B.xml" id="EUSCI_B3" xmlpath="../Modules/MSP432/" baseaddr="0x40002C00" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/flctl.xml" xml="FLCTL.xml" id="FLCTL" xmlpath="../Modules/MSP432/" baseaddr="0x40011000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/fpb.xml" xml="FPB.xml" id="FPB" xmlpath="../Modules/MSP432/" baseaddr="0xE0002000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/fpu.xml" xml="FPU.xml" id="FPU" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/itm.xml" xml="ITM.xml" id="ITM" xmlpath="../Modules/MSP432/" baseaddr="0xE0000000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/mpu.xml" xml="MPU.xml" id="MPU" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/nvic.xml" xml="NVIC.xml" id="NVIC" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/pcm.xml" xml="PCM.xml" id="PCM" xmlpath="../Modules/MSP432/" baseaddr="0x40010000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/pmap.xml" xml="PMAP.xml" id="PMAP" xmlpath="../Modules/MSP432/" baseaddr="0x40005000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/pss.xml" xml="PSS.xml" id="PSS" xmlpath="../Modules/MSP432/" baseaddr="0x40010800" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/ref_a.xml" xml="REF_A.xml" id="REF_A" xmlpath="../Modules/MSP432/" baseaddr="0x40003000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/rstctl.xml" xml="RSTCTL.xml" id="RSTCTL" xmlpath="../Modules/MSP432/" baseaddr="0xE0042000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/rtc_c.xml" xml="RTC_C.xml" id="RTC_C" xmlpath="../Modules/MSP432/" baseaddr="0x40004400" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/scb.xml" xml="SCB.xml" id="SCB" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/scnscb.xml" xml="SCnSCB.xml" id="SCnSCB" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/sysctl.xml" xml="SYSCTL.xml" id="SYSCTL" xmlpath="../Modules/MSP432/" baseaddr="0xE0043000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/systick.xml" xml="SYSTICK.xml" id="SYSTICK" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/timer32.xml" xml="Timer32.xml" id="TIMER32" xmlpath="../Modules/MSP432/" baseaddr="0x4000C000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/timer_a.xml" xml="Timer_A.xml" id="TIMER_A0" xmlpath="../Modules/MSP432/" baseaddr="0x40000000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/timer_a.xml" xml="Timer_A.xml" id="TIMER_A1" xmlpath="../Modules/MSP432/" baseaddr="0x40000400" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/timer_a.xml" xml="Timer_A.xml" id="TIMER_A2" xmlpath="../Modules/MSP432/" baseaddr="0x40000800" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/timer_a.xml" xml="Timer_A.xml" id="TIMER_A3" xmlpath="../Modules/MSP432/" baseaddr="0x40000C00" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance href="../Modules/MSP432/tlv.xml" xml="TLV.xml" id="TLV" xmlpath="../Modules/MSP432/" baseaddr="0x201000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/tpiu.xml" xml="TPIU.xml" id="TPIU" xmlpath="../Modules/MSP432/" baseaddr="0xE0040000" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/MSP432/wdt_a.xml" xml="WDT_A.xml" id="WDT_A" xmlpath="../Modules/MSP432/" baseaddr="0x40004800" endaddr="0x2000FFFF" size="0x0400" accessnumbytes="2" permissions="p" />
+                <instance HW_revision="1.0" accessnumbytes="4" baseaddr="0x0000" description="" href="../Modules/MSP432/MSP432_JSTATE_2_NotVisible.xml" id="" permissions="p" requestor="MSP432" size="00" xml="MSP432_JSTATE_2_NotVisible.xml" xmlpath="../Modules/MSP432/"></instance>
+                <!-- Project Wizard Settings -->
+                <property Type="filepathfield" Value="../../../emulation/gel/msp432p401r.gel" id="GEL File"/>
+                <property Type="stringfield" Value="msp432p401r.cmd" id="LinkerCmd"/>
+                <property Type="numericfield" Value="0x02000000" id="Access Port Designator"/>
+                <property Type="stringfield" Value=" --gcc --silicon_version=7M4 --code_state=16 --abi=eabi --float_support=FPv4SPD16 -D=__MSP432P401R__ -D=TARGET_IS_MSP432P4XX -D=ccs --include_path=${CCS_BASE_ROOT}/arm/include --include_path=${CCS_BASE_ROOT}/arm/include/CMSIS" id="CompilerBuildOptions"/>
+                <property Type="stringfield" Value=" -m=app_msp432p401r_ccs.map -stack=512 -heap=1024" id="LinkerBuildOptions"/>
+                <property Type="stringfield" Value="msp432_startup_ccs.c" id="FilesToCopy" />
+                <property Type="stringfield" Value="msp432p401r.lds" id="GNULinkerCmd"/>
+                <property Type="stringfield" Value=" -mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -g -gstrict-dwarf -Wall -mfloat-abi=hard -I${CCS_BASE_ROOT}/arm/include -I${CCS_BASE_ROOT}/arm/include/CMSIS -D__MSP432P401R__ -DTARGET_IS_FALCON -Dgcc" id="GNUCompilerBuildOptions"/>
+                <property Type="stringfield" Value="-mthumb -g -gstrict-dwarf -Wall" id="GNULinkerBuildOptions"/>
+                <property Type="stringfield" Value="msp432_startup_ccs_gcc.c" id="GNUFilesToCopy"/>
+                <property Type="stringfield" Value="libc.a" id="RTSlib"/>
+                <property Type="stringfield" Value="true" id="IsElfDefault"/>
+                <property Type="stringfield" Value="little" id="Endianness"/>
+                <property Type="stringfield" Value="4.9.0" id="MinCodegenVersion"/>
+                <property Type="stringfield" Value="TIXDS110_Connection.xml" id="DefaultConnection"/>
+                <!-- END Project Wizard Settings -->
+            </cpu>
+        </subpath>
+    </router>
+</device>
+

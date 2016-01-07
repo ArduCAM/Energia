@@ -1,0 +1,6 @@
+@ti.com/DebugServer;1 DebugServer
+@ti.com/DebugProperties;1 DebugProperties
+@ti.com/DataSnapshotDecoder;1 DataSnapshotDecoder
+@ti.com/Mdex;1 mdex
+@ti.com/DSLogger;1 XPCOMTILogger
+@ti.com/DirectoryService;1 DirectoryService

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlashPropertiesTranslator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FlashProperties name="CC25">
+		<partnum beginsWith="CC25" />
+		<partnum beginsWith="CM25" />
+	</FlashProperties>
+	<FlashProperties name="CC13">
+		<partnum beginsWith="CC13" />
+	</FlashProperties>
+	<FlashProperties name="CC26">
+		<partnum beginsWith="CC26" />
+	</FlashProperties>
+	<FlashProperties name="LMx">
+		<partnum beginsWith="LM3" />
+		<partnum beginsWith="LM4" />
+	</FlashProperties>
+	<FlashProperties name="TM4Ex">
+		<partnum beginsWith="TM4E" />
+	</FlashProperties>
+	<FlashProperties name="TM4Cx">
+		<partnum beginsWith="TM4C" />
+	</FlashProperties>
+	<FlashProperties name="TMS470MF03x">
+		<partnum beginsWith="TMS470MF03" />
+	</FlashProperties>
+	<FlashProperties name="TMS470MF06x">
+		<partnum beginsWith="TMS470MF06" />
+	</FlashProperties>
+	<FlashProperties name="TMS470MSF2x">
+		<partnum beginsWith="TMS470MSF2" />
+	</FlashProperties>
+	<FlashProperties name="TMS570LS20x">
+		<partnum beginsWith="TMS570LS20" />
+	</FlashProperties>
+	<FlashProperties name="TMS570LS10x">
+		<partnum beginsWith="TMS570LS10" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM48_3MB">
+		<partnum beginsWith="TMS570LS31" />
+		<partnum beginsWith="RM48L9" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM48_2MB">
+		<partnum beginsWith="TMS570LS21" />
+		<partnum beginsWith="RM48L7" />
+		<partnum beginsWith="RM48L5" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM46_125MB">
+		<partnum beginsWith="TMS570LS12" />
+		<partnum beginsWith="RM46L8" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM46_1MB">
+		<partnum beginsWith="TMS570LS11" />
+		<partnum beginsWith="RM46L4" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM46_768KB">
+		<partnum beginsWith="TMS570LS08" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM44_1MB">
+		<partnum beginsWith="TMS570LS09" />
+		<partnum beginsWith="RM44L9" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM44_768KB">
+		<partnum beginsWith="TMS570LS07" />
+		<partnum beginsWith="RM44L5" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM42_384KB">
+		<partnum beginsWith="TMS570LS04" />
+		<partnum beginsWith="RM42L4" />
+	</FlashProperties>
+	<FlashProperties name="TMS570xC_RM57_4MB">
+		<partnum beginsWith="TMS570LC4" />
+		<partnum beginsWith="TMS570DC4" />
+		<partnum beginsWith="RM57L8" />
+		<partnum beginsWith="RM57D8" />
+	</FlashProperties>
+	<FlashProperties name="TMS570xC_RM57_3MB">
+		<partnum beginsWith="TMS570LC3" />
+		<partnum beginsWith="TMS570DC3" />
+		<partnum beginsWith="RM57L6" />
+		<partnum beginsWith="RM57D6" />
+	</FlashProperties>
+	<FlashProperties name="TMS570_RM41_128KB">
+		<partnum beginsWith="TMS570LS02" />
+		<partnum beginsWith="RM41L2" />
+	</FlashProperties>
+	<FlashProperties name="TMS570LS033x">
+		<partnum beginsWith="TMS570LS03" />
+	</FlashProperties>
+</FlashPropertiesTranslator>
