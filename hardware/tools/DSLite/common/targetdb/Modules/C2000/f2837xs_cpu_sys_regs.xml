@@ -1,0 +1,224 @@
+<module id="CPU_SYS_REGS" HW_revision="" description="CPU SYS Registers">
+	<register id="CPUSYSLOCK1" width="32" page="1" offset="0x0" internal="0" description="Lock bit for CPUSYS registers">
+		<bitfield id="HIBBOOTMODE" description="Lock bit for HIBBOOTMODE register" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="IORESTOREADDR" description="Lock bit for IORESTOREADDR Register" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PIEVERRADDR" description="Lock bit for PIEVERRADDR Register" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR0" description="Lock bit for PCLKCR0 Register" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR1" description="Lock bit for PCLKCR1 Register" begin="4" end="4" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR2" description="Lock bit for PCLKCR2 Register" begin="5" end="5" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR3" description="Lock bit for PCLKCR3 Register" begin="6" end="6" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR4" description="Lock bit for PCLKCR4 Register" begin="7" end="7" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR5" description="Lock bit for PCLKCR5 Register" begin="8" end="8" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR6" description="Lock bit for PCLKCR6 Register" begin="9" end="9" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR7" description="Lock bit for PCLKCR7 Register" begin="10" end="10" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR8" description="Lock bit for PCLKCR8 Register" begin="11" end="11" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR9" description="Lock bit for PCLKCR9 Register" begin="12" end="12" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR10" description="Lock bit for PCLKCR10 Register" begin="13" end="13" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR11" description="Lock bit for PCLKCR11 Register" begin="14" end="14" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR12" description="Lock bit for PCLKCR12 Register" begin="15" end="15" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR13" description="Lock bit for PCLKCR13 Register" begin="16" end="16" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR14" description="Lock bit for PCLKCR14 Register" begin="17" end="17" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR15" description="Lock bit for PCLKCR15 Register" begin="18" end="18" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PCLKCR16" description="Lock bit for PCLKCR16 Register" begin="19" end="19" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="SECMSEL" description="Lock bit for SECMSEL Register" begin="20" end="20" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="LPMCR" description="Lock bit for LPMCR Register" begin="21" end="21" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="GPIOLPMSEL0" description="Lock bit for GPIOLPMSEL0 Register" begin="22" end="22" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="GPIOLPMSEL1" description="Lock bit for GPIOLPMSEL1 Register" begin="23" end="23" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="HIBBOOTMODE" width="32" page="1" offset="0x6" internal="0" description="HIB Boot Mode Register">
+		<bitfield id="BMODE" description="HIB Boot Mode" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="IORESTOREADDR" width="32" page="1" offset="0x8" internal="0" description="IORestore() routine Address Register">
+		<bitfield id="ADDR" description="restoreIO() routine address" begin="21" end="0" width="22" rwaccess="R/W"/>
+	</register>
+	<register id="PIEVERRADDR" width="32" page="1" offset="0xa" internal="0" description="PIE Vector Fetch Error Address register">
+		<bitfield id="ADDR" description="PIE Vector Fetch Error Handler Routine Address" begin="21" end="0" width="22" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR0" width="32" page="1" offset="0x22" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="CLA1" description="CLA1 Clock Enable Bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="DMA" description="DMA Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUTIMER0" description="CPUTIMER0 Clock Enable bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUTIMER1" description="CPUTIMER1 Clock Enable bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUTIMER2" description="CPUTIMER2 Clock Enable bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="HRPWM" description="HRPWM Clock Enable Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="TBCLKSYNC" description="EPWM Time Base Clock sync" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GTBCLKSYNC" description="EPWM Time Base Clock Global sync" begin="19" end="19" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR1" width="32" page="1" offset="0x24" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="EMIF1" description="EMIF1 Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EMIF2" description="EMIF2 Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR2" width="32" page="1" offset="0x26" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="EPWM1" description="EPWM1 Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM2" description="EPWM2 Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM3" description="EPWM3 Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM4" description="EPWM4 Clock Enable bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM5" description="EPWM5 Clock Enable bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM6" description="EPWM6 Clock Enable bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM7" description="EPWM7 Clock Enable bit" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM8" description="EPWM8 Clock Enable bit" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM9" description="EPWM9 Clock Enable bit" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM10" description="EPWM10 Clock Enable bit" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM11" description="EPWM11 Clock Enable bit" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM12" description="EPWM12 Clock Enable bit" begin="11" end="11" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR3" width="32" page="1" offset="0x28" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="ECAP1" description="ECAP1 Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP2" description="ECAP2 Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP3" description="ECAP3 Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP4" description="ECAP4 Clock Enable bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP5" description="ECAP5 Clock Enable bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP6" description="ECAP6 Clock Enable bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR4" width="32" page="1" offset="0x2a" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="EQEP1" description="EQEP1 Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EQEP2" description="EQEP2 Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EQEP3" description="EQEP3 Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR6" width="32" page="1" offset="0x2e" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="SD1" description="SD1 Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SD2" description="SD2 Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR7" width="32" page="1" offset="0x30" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="SCI_A" description="SCI_A Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_B" description="SCI_B Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_C" description="SCI_C Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_D" description="SCI_D Clock Enable bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR8" width="32" page="1" offset="0x32" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="SPI_A" description="SPI_A Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SPI_B" description="SPI_B Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SPI_C" description="SPI_C Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR9" width="32" page="1" offset="0x34" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="I2C_A" description="I2C_A Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="I2C_B" description="I2C_B Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR10" width="32" page="1" offset="0x36" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="CAN_A" description="CAN_A Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CAN_B" description="CAN_B Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR11" width="32" page="1" offset="0x38" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="McBSP_A" description="McBSP_A Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="McBSP_B" description="McBSP_B Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="USB_A" description="USB_A Clock Enable bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR12" width="32" page="1" offset="0x3a" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="uPP_A" description="uPP_A Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR13" width="32" page="1" offset="0x3c" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="ADC_A" description="ADC_A Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_B" description="ADC_B Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_C" description="ADC_C Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_D" description="ADC_D Clock Enable bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR14" width="32" page="1" offset="0x3e" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="CMPSS1" description="CMPSS1 Clock Enable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS2" description="CMPSS2 Clock Enable bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS3" description="CMPSS3 Clock Enable bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS4" description="CMPSS4 Clock Enable bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS5" description="CMPSS5 Clock Enable bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS6" description="CMPSS6 Clock Enable bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS7" description="CMPSS7 Clock Enable bit" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS8" description="CMPSS8 Clock Enable bit" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PCLKCR16" width="32" page="1" offset="0x42" internal="0" description="Peripheral Clock Gating Registers">
+		<bitfield id="DAC_A" description="Buffered_DAC_A Clock Enable Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="DAC_B" description="Buffered_DAC_B Clock Enable Bit" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="DAC_C" description="Buffered_DAC_C Clock Enable Bit" begin="18" end="18" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SECMSEL_1" width="32" page="1" offset="0x74" internal="0" description="Secondary Master Select register for common peripherals: Selects between CLA and DMA">
+		<bitfield id="VBUS32_1" description="Secondary Master Select for VBUS32_1 Bridge" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="VBUS32_2" description="Secondary Master Select for VBUS32_2 Bridge" begin="3" end="2" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="LPMCR" width="32" page="1" offset="0x76" internal="0" description="LPM Control Register">
+		<bitfield id="LPM" description="Low Power Mode setting" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="QUALSTDBY" description="STANDBY Wakeup Pin Qualification Setting" begin="7" end="2" width="6" rwaccess="R/W"/>
+		<bitfield id="WDINTE" description="Enable for WDINT wakeup from STANDBY" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="M0M1MODE" description="Configuration for M0 and M1 mode during HIB" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="IOISODIS" description="IO Isolation Disable" begin="31" end="31" width="1" rwaccess="R/W=1"/>
+	</register>
+	<register id="GPIOLPMSEL0" width="32" page="1" offset="0x78" internal="0" description="GPIO LPM Wakeup select registers">
+		<bitfield id="GPIO0" description="GPIO0 Enable for LPM Wakeup" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO1" description="GPIO1 Enable for LPM Wakeup" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO2" description="GPIO2 Enable for LPM Wakeup" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO3" description="GPIO3 Enable for LPM Wakeup" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO4" description="GPIO4 Enable for LPM Wakeup" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO5" description="GPIO5 Enable for LPM Wakeup" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO6" description="GPIO6 Enable for LPM Wakeup" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO7" description="GPIO7 Enable for LPM Wakeup" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO8" description="GPIO8 Enable for LPM Wakeup" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO9" description="GPIO9 Enable for LPM Wakeup" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO10" description="GPIO10 Enable for LPM Wakeup" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO11" description="GPIO11 Enable for LPM Wakeup" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO12" description="GPIO12 Enable for LPM Wakeup" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO13" description="GPIO13 Enable for LPM Wakeup" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO14" description="GPIO14 Enable for LPM Wakeup" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO15" description="GPIO15 Enable for LPM Wakeup" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO16" description="GPIO16 Enable for LPM Wakeup" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO17" description="GPIO17 Enable for LPM Wakeup" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO18" description="GPIO18 Enable for LPM Wakeup" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO19" description="GPIO19 Enable for LPM Wakeup" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO20" description="GPIO20 Enable for LPM Wakeup" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO21" description="GPIO21 Enable for LPM Wakeup" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO22" description="GPIO22 Enable for LPM Wakeup" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO23" description="GPIO23 Enable for LPM Wakeup" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO24" description="GPIO24 Enable for LPM Wakeup" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO25" description="GPIO25 Enable for LPM Wakeup" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO26" description="GPIO26 Enable for LPM Wakeup" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO27" description="GPIO27 Enable for LPM Wakeup" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO28" description="GPIO28 Enable for LPM Wakeup" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO29" description="GPIO29 Enable for LPM Wakeup" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO30" description="GPIO30 Enable for LPM Wakeup" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO31" description="GPIO31 Enable for LPM Wakeup" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPIOLPMSEL1" width="32" page="1" offset="0x7a" internal="0" description="GPIO LPM Wakeup select registers">
+		<bitfield id="GPIO32" description="GPIO32 Enable for LPM Wakeup" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO33" description="GPIO33 Enable for LPM Wakeup" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO34" description="GPIO34 Enable for LPM Wakeup" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO35" description="GPIO35 Enable for LPM Wakeup" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO36" description="GPIO36 Enable for LPM Wakeup" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO37" description="GPIO37 Enable for LPM Wakeup" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO38" description="GPIO38 Enable for LPM Wakeup" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO39" description="GPIO39 Enable for LPM Wakeup" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO40" description="GPIO40 Enable for LPM Wakeup" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO41" description="GPIO41 Enable for LPM Wakeup" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO42" description="GPIO42 Enable for LPM Wakeup" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO43" description="GPIO43 Enable for LPM Wakeup" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO44" description="GPIO44 Enable for LPM Wakeup" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO45" description="GPIO45 Enable for LPM Wakeup" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO46" description="GPIO46 Enable for LPM Wakeup" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO47" description="GPIO47 Enable for LPM Wakeup" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO48" description="GPIO48 Enable for LPM Wakeup" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO49" description="GPIO49 Enable for LPM Wakeup" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO50" description="GPIO50 Enable for LPM Wakeup" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO51" description="GPIO51 Enable for LPM Wakeup" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO52" description="GPIO52 Enable for LPM Wakeup" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO53" description="GPIO53 Enable for LPM Wakeup" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO54" description="GPIO54 Enable for LPM Wakeup" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO55" description="GPIO55 Enable for LPM Wakeup" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO56" description="GPIO56 Enable for LPM Wakeup" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO57" description="GPIO57 Enable for LPM Wakeup" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO58" description="GPIO58 Enable for LPM Wakeup" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO59" description="GPIO59 Enable for LPM Wakeup" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO60" description="GPIO60 Enable for LPM Wakeup" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO61" description="GPIO61 Enable for LPM Wakeup" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO62" description="GPIO62 Enable for LPM Wakeup" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO63" description="GPIO63 Enable for LPM Wakeup" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="TMR2CLKCTL" width="32" page="1" offset="0x7c" internal="0" description="Timer2 Clock Measurement functionality control register">
+		<bitfield id="TMR2CLKSRCSEL" description="CPU Timer 2 Clock Source Select Bit" begin="2" end="0" width="3" rwaccess="R/W"/>
+		<bitfield id="TMR2CLKPRESCALE" description="CPU Timer 2 Clock Pre-Scale Value" begin="5" end="3" width="3" rwaccess="R/W"/>
+	</register>
+	<register id="RESC" width="32" page="1" offset="0x80" internal="0" description="Reset Cause register">
+		<bitfield id="POR" description="POR Reset Cause Indication Bit" begin="0" end="0" width="1" rwaccess="R/W=1"/>
+		<bitfield id="XRSn" description="XRSn Reset Cause Indication Bit" begin="1" end="1" width="1" rwaccess="R/W=1"/>
+		<bitfield id="WDRSn" description="WDRSn Reset Cause Indication Bit" begin="2" end="2" width="1" rwaccess="R/W=1"/>
+		<bitfield id="NMIWDRSn" description="NMIWDRSn Reset Cause Indication Bit" begin="3" end="3" width="1" rwaccess="R/W=1"/>
+		<bitfield id="HWBISTn" description="HWBISTn Reset Cause Indication Bit" begin="5" end="5" width="1" rwaccess="R/W=1"/>
+		<bitfield id="HIBRESETn" description="HIBRESETn Reset Cause Indication Bit" begin="6" end="6" width="1" rwaccess="R/W=1"/>
+		<bitfield id="SCCRESETn" description="SCCRESETn Reset Cause Indication Bit" begin="8" end="8" width="1" rwaccess="R/W=1"/>
+		<bitfield id="XRSn_pin_status" description="XRSN Pin Status" begin="30" end="30" width="1" rwaccess="R"/>
+		<bitfield id="TRSTn_pin_status" description="TRSTn Status" begin="31" end="31" width="1" rwaccess="R"/>
+	</register>
+</module>

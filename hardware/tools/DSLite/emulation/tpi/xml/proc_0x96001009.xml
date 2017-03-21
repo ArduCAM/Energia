@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+
+<!-- SIMULATOR - TMS600C4X - LOKI Virtually Encoded Target Support -->
+<!-- PROCESSOR ID: 0x96001009 # This proc-id (600,0x04,1,1)-->
+
+<!-- File name is based upon the PROCID assigned to the ISA -->
+<!-- Root node for all TPI data.  id is just the PROCID in hex -->
+
+<tpi_info id="tpi">
+	<!-- machine_info node decribes the ISA details like bus widths and data sizes -->
+	<!-- id = Unique name for ISA -->
+	<!-- target_name = Unique string name for ISA -->
+	
+	<!-- *** These next 21 entries are used to fill out the Value Bits array passed from TPI to the debug tool *** -->
+	<!-- size_char = Size in bits of a 'C' char.  Value Bits index = 0 -->
+	<!-- size_short = Size in bits of a 'C' short.  Value Bits index = 1  -->
+	<!-- size_enum = Size in bits of a 'C' enum.  Value Bits index = 2  -->
+	<!-- size_int = Size in bits of a 'C' int.  Value Bits index = 3  -->
+	<!-- size_long = Size in bits of a 'C' long.  Value Bits index = 4  -->
+	<!-- size_void_ptr = Size in bits of a 'C' void pointer.  Value Bits index = 5  -->
+	<!-- size_dataNN = Size in bits of a data units NN is just the width.  Must have entries for 8/16/24/32/40/48/64.  Value Bits indexes = 6 to 12  -->
+	<!-- size_far_ptr = Size in bits of a far pointer.  Value Bits index = 13  -->
+	<!-- size_near_ptr = Size in bits of a near pointer.  Value Bits index = 14  -->
+	<!-- size_long_long = Size in bits of a longlong.  Value Bits index = 15   -->
+	<!-- size_float = Size in bits of a float.  Value Bits index = 16   -->
+	<!-- size_ieee_float = Size in bits of a IEEE float.  Value Bits index = 17   -->
+	<!-- size_double = Size in bits of a double.  Value Bits index = 18   -->
+	<!-- size_ieee_double = Size in bits of a IEEE double.  Value Bits index = 19   -->
+	<!-- size_long_double = Size in bits of a long double.  Value Bits index = 20  -->
+	
+	<!-- *** These next 7 entries are used to fill out the Register Bus Bits array passed from TPI to the debug tool *** -->
+	<!-- *** I don't think the address fiedls are used by the debugger, but this aligns with parameteres for the data pages *** -->
+	<!-- reg_addr_unit = Size in bits the addressable unit used for register access.  Reg Bus Bits index = 0  -->
+	<!-- reg_short_word = Size in bits of a register value cast as a 'C' short.  Reg Bus Bits index = 1  -->
+	<!-- reg_word = Size in bits of a register value cast as a 'C' int.  Reg Bus Bits index = 2  -->
+	<!-- reg_long_word = Size in bits of a register value cast as a 'C' long.  Reg Bus Bits index = 3  -->
+	<!-- reg_rdc_addr = Size in bits the address used to access register in reduced address mode.  Reg Bus Bits index = 4  -->
+	<!-- reg_addr = Size in bits the address used for register access.  Reg Bus Bits index = 5  -->
+	<!-- reg_ext_addr = Size in bits the address for register access in extneded address mode.  Reg Bus Bits index = 6  -->
+    <machine_info id="machine" target_name="T16" size_char="8" size_short="16" size_enum="32" size_int="32" size_long="32" size_void_ptr="32" size_data8="8" size_data16="16" size_data24="24" size_data32="32" size_data40="40" size_data48="48" size_data64="64" size_far_ptr="32" size_near_ptr="16" size_long_long="32" size_float="32" size_ieee="32" size_double="32" size_ieee_double="64" size_long_double="32" reg_addr_unit="32" reg_short_word="32" reg_word="32" reg_long_word="32" reg_rdc_addr="32" reg_addr="32" reg_ext_addr="32">
+		<!--- List of all magic numbers supported by this ISA -->
+        <magics id="magic_numbers">
+			<!-- id = indxex of the entry in the list -->
+			<!-- magic_num = the number in hex -->
+            <magic id="0" magic_num="00a2" />
+            <magic id="1" magic_num="0143" />
+        </magics>
+        <!-- List of all page descriptors for this ISA -->
+        <pages id="mem_pages">
+			<!-- id = indxex of the entry in the list -->
+			<!-- page_name = the text name of the page -->
+			<!-- page_endian = the edianess of the page BIG and LITTLE supported -->
+			<!-- page_addr_unit = Size in bits the addressable unit used for this page.  Bus Bits index = [page][0]  -->
+			<!-- page_short_word = Size in bits of a memory value cast as a 'C' short.  Bus Bits index = [page][1]  -->
+			<!-- page_word = Size in bits of a memory value cast as a 'C' int.  Bus Bits index = [page][2]  -->
+			<!-- page_long_word = Size in bits of a memory value cast as a 'C' long.  Bus Bits index = [page][3]  -->
+			<!-- page_rdc_addr = Size in bits the address used to access memory in reduced address mode.  Bus Bits index = [page][4]  -->
+			<!-- page_addr = Size in bits the address used for memory access.  Bus Bits index = [page][5]  -->
+			<!-- page_ext_addr = Size in bits the address for memory access in extneded address mode.  Bus Bits index = [page][6]  -->
+            <page id="0" page_name="Memory" page_endian="LITTLE" page_addr_unit="8" page_short_word="16" page_word="32" page_long_word="32" page_rdc_addr="32" page_addr="32" page_ext_addr="32" />
+        </pages>
+        <!-- List of delay slots, if applicable.  This information is required for assembly single stepping -->
+        <delay_slots id="dslots">
+			<!-- id = index of the entry in the list -->
+			<!-- ins_type_call = Number of delay slots in a call type of instruction -->
+			<!-- ins_type_notcall = Number of delay slots in a call type of instruction -->
+			<!-- ins_type_1 = Number of delay slots in a type 1 instruction -->
+			<!-- ins_type_2 = Number of delay slots in a type 2 instruction -->
+			<!-- ins_type_3 = Number of delay slots in a type 3 instruction -->
+			<!-- ins_type_4 = Number of delay slots in a type 4 instruction -->
+			<!-- ins_type_5 = Number of delay slots in a type 5 instruction -->
+                  <!-- ins_type_6 = Number of delay slots in a type 6 instruction -->
+            <dslot id="0" ins_type_call="1" ins_type_notcall="0" ins_type_1="1" ins_type_2="2" ins_type_3="3" ins_type_4="4" ins_type_5="5" ins_type_6="6"/>
+        </delay_slots>
+
+    <!-- Call conventions and DWARF -->
+    <!-- Define register IDs for all general purpose registers here -->
+        <callconvention_info id="callconvention" reg_pc="PC" reg_sp="SP" reg_ret="RET" reg_params="R0,R1,R2,R3" reg_args="R4,R5,R6,R7" stack_movement="down"> 
+        </callconvention_info>
+
+        <dwarf_regmap id = "regmaps"> 
+               <regmap id="0"   name="R0"  /> 
+               <regmap id="1"   name="R1"  /> 
+               <regmap id="2"   name="R2"  /> 
+               <regmap id="3"   name="R3"  /> 
+               <regmap id="4"   name="R4"  /> 
+               <regmap id="5"   name="R5"  /> 
+               <regmap id="6"   name="R6"  /> 
+               <regmap id="7"   name="R7"  />
+               <regmap id="16"  name="SP"  />
+               <regmap id="18"  name="PC"  /> 
+               <regmap id="19"  name="IRP"  /> 
+               <regmap id="20"  name="IER"  /> 
+               <regmap id="21"  name="IFR"  /> 
+               <regmap id="22"  name="NRP"  />
+               <regmap id="23"  name="SCSR"  />
+               <regmap id="24"  name="CSR"  />
+               <regmap id="25"  name="IDX0"  />
+               <regmap id="26"  name="IDX1"  />
+               <regmap id="27"  name="IDX2"  /> 
+               <regmap id="28"  name="LS0"  /> 
+               <regmap id="29"  name="LS1"  /> 
+               <regmap id="30"  name="LEXT"  /> 
+               <regmap id="31"  name="CLK"  /> 
+               <regmap id="32"  name="CR0"  /> 
+               <regmap id="33"  name="CR1"  /> 
+               <regmap id="34"  name="CIE_RETA"  /> 
+        </dwarf_regmap>
+
+    </machine_info>
+	
+    <!-- TPI nteface info that descibes the main interfaces exported by TPI -->
+    <interface_info id="interface">
+		<!-- Node name defines the interface -->
+		<!-- dll = the DLL that supports the interface -->
+		<!-- generic = true/false.  True genreic support or custom interface -->
+		<!-- db = location for XML to support a generic interface -->
+		<!-- size_bis = Size of the base instruction in bits (used during disassembly).  Simple ISAs will have a fixed BIS -->
+		<ctpidasm id="dasm" dll="disassemble_t16" generic="false" db="" size_bis="32" page_endian="LITTLE" />
+		<ctpistep id="step" dll="step_t16" />
+
+		<!-- Source: disasm_interface.h, Target integer properties -->
+		<!-- T16 Variants: T16_ISA_NONE=0, T16_ISA_V1=1, T16_ISA_V2=2, T16_ISA_EVE=3, T16_ISA_IME5=4, T16_ISA_ICONT5=5 -->
+		<!-- Configure appropriate inputs for ISA variants -->
+            <!-- NOTE: Configure isa_type = 0, if INT_PROP_SINGLE_OPCODE.  This is rare -->
+            <!-- In this case, the isa_type is INT_PROP_T16_ISA (600) and the variant is T16_ISA_V2 (2) -->
+		<intprops id="iprops" isa_type="600" isa_variant="2" />
+
+		<!-- Source: disasm_interface.h, Target boolean properties -->
+		<!-- Boolean properties: BOOL_PROP_DISPLAY_BRANCH_ADDRESS, BOOL_PROP_NO_FP_HEADER, BOOL_PROP_SINGLE_MODE, BOOL_PROP_VENC_MODE -->
+            <!-- Boolean properties: BOOL_PROP_ARM_IS_CORTEX_M3, BOOL_PROP_ARM_IS_THUMB_MODE, BOOL_PROP_ARM_IS_UAL_MODE, BOOL_PROP_LD3_HEX_NUMBERS-->
+            <!-- Boolean properties: BOOL_PROP_LD3_R35_ENCODE, BOOL_PROP_LD3_ALGEBRAIC, BOOL_PROP_LD3_IS_VECTOR, BOOL_PROP_MSP_IS_MSPX-->
+		<boolprops id="bprops" disp_baddr="true" no_fp_header="false" single_mode="false" venc_mode="true" cortexm3="false" thumb="false" ual="false" ld3_hex="false" ld3_r35="false" ld3_algebraic="false" ld3_is_vector="false" msp_is_mspx="false" />
+
+		<ctpigen id="gen" dll="tpi" generic="true" db="proc_0x96001009.xml" />
+		<!-- This interface not required for CLA -->
+		<ctpicallconv id="callconv" dll="tpi" generic="true" db="proc_0x96001009.xml" /> -->
+    </interface_info>
+ </tpi_info>

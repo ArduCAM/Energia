@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<!-- This file defines options for STMSET event trace. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Base Address</NAME>	
+ 	  <DESCRIPTION>This base address is the base address used by SW to program SMSET</DESCRIPTION>		
+	  <VALUE>0x40088000</VALUE>
+	  <PAGE>1</PAGE>	
+	</PROPERTY_LOCATION>
+
+	<PROPERTY_INTEGER>
+	  <NAME>MEMORY_ACCESS_SIZE</NAME>	
+  	  <VALUE>1</VALUE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+	  <VALUE>Trace</VALUE>
+	  <CHILDKEY>TRACE</CHILDKEY>	<!-- The key point to access size -->
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!-- Setting for SMSET event detection.                                          -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Signal Type</NAME>	
+ 	  <DESCRIPTION>The option of setting signal type for event detection</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030100</ALLOWED_ENUM>
+			<ALLOWED_STRING>Low Level</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030101</ALLOWED_ENUM>
+			<ALLOWED_STRING>High Level</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Msg Generation Type</NAME>	
+ 	  <DESCRIPTION>The option of event detection in sampling window or permanently detected</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030102</ALLOWED_ENUM>
+			<ALLOWED_KEY>SAMPLE WINDOW</ALLOWED_KEY>
+			<ALLOWED_STRING>in Sampling Window</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030103</ALLOWED_ENUM>
+			<ALLOWED_STRING>by Event Detection</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Sampling Window(cycles)</NAME>	
+ 	  <DESCRIPTION>The sampling window size expressed as clock cycles(0-0xFF)</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SAMPLE WINDOW</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>256</RANGEHI>
+  	  <VALUE>0xff</VALUE>
+	  <ENUMVALUE>0x80030110</ENUMVALUE>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_BOOL>
+	  <NAME>Start on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Start Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80030104</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Stop on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Stop Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80030105</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Selection</NAME>	
+ 	  <DESCRIPTION>Option of enabling or disable individual events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVENT GROUP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>tpcc_aet_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 0</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030001</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>tpcc_aet_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030002</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ARP32 Int4</NAME>	
+ 	  <DESCRIPTION>Selection of event 2</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030003</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ARP32 Int5</NAME>	
+ 	  <DESCRIPTION>Selection of event 3</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030004</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ARP32 Int6</NAME>	
+ 	  <DESCRIPTION>Selection of event 4</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030005</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ARP32 Int7</NAME>	
+ 	  <DESCRIPTION>Selection of event 5</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030006</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>VCOP Loop Start</NAME>	
+ 	  <DESCRIPTION>Selection of event 5</DESCRIPTION>		
+	  <KEYITEM>
+      <KEYNAME>EVENT GROUP</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030007</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>VCOP Done</NAME>	
+ 	  <DESCRIPTION>Selection of event 6</DESCRIPTION>		
+	  <KEYITEM>
+      <KEYNAME>EVENT GROUP</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030008</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ARP32 NMI</NAME>	
+ 	  <DESCRIPTION>Selection of event 7</DESCRIPTION>		
+	  <KEYITEM>
+      <KEYNAME>EVENT GROUP</KEYNAME>
+      <KEYNUMBER>11</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030009</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	
+</AET>

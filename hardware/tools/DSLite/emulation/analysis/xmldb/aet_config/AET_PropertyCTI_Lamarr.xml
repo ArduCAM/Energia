@@ -1,0 +1,1161 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Total CTI</NAME>	
+ 	  <DESCRIPTION>Total number of CTI for the device</DESCRIPTION>		
+  	  <VALUE>3</VALUE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!-- The address is based on Keystone spec and tetris_specbook                 -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Unit Address 0</NAME>	
+ 	  <DESCRIPTION>This base address is CTI 0</DESCRIPTION>		
+	  <VALUE>0x03068000</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+	<PROPERTY_LOCATION>
+	  <NAME>Unit Address 1</NAME>	
+ 	  <DESCRIPTION>This base address is CTI 0</DESCRIPTION>		
+	  <VALUE>0x03069000</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+	<PROPERTY_LOCATION>
+	  <NAME>Unit Address 2</NAME>	
+ 	  <DESCRIPTION>This base address is CTI 2</DESCRIPTION>		
+	  <VALUE>0x0306A000</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+	  <VALUE>Cross Trigger</VALUE>
+	  <CHILDKEY>CTI TOP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                            Option of Global Breakpoint only CTI             -->
+<!-- Type                                                                        -->
+<!--  |->  Cross Trigger -> Not Used                                             -->
+<!--                     -> Global Breakpoint - 0x89000000                       -->
+<!--                     -> Enable SMP Mode   - 0x89000000                       -->
+<!--                     -> Channel Config    - 0x88000000                       -->
+<!-- These two numbers should be consistent to the value hard coded in the SW    -->
+<!--=============================================================================-->
+<PROPERTY_STRING>
+	<NAME>Channel 0</NAME>	
+ 	<DESCRIPTION>The channel is reserved by global breakpoint</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP X</KEYNAME>	
+		<KEYNUMBER>0</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>CPUS AX</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Global Breakpoint</VALUE>
+	<ENUMVALUE>0x89000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 1</NAME>	
+ 	<DESCRIPTION>The channel is reserved by global breakpoint</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP X</KEYNAME>	
+		<KEYNUMBER>1</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>CPUS AX</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Global Breakpoint</VALUE>
+	<ENUMVALUE>0x89000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 2</NAME>	
+ 	<DESCRIPTION>The channel is reserved by global breakpoint</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP X</KEYNAME>	
+		<KEYNUMBER>2</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>CPUS AX</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Global Breakpoint</VALUE>
+	<ENUMVALUE>0x89000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 3</NAME>	
+ 	<DESCRIPTION>The channel is reserved by global breakpoint</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP X</KEYNAME>	
+		<KEYNUMBER>3</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>CPUS AX</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Global Breakpoint</VALUE>
+	<ENUMVALUE>0x89000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+<PROPERTY_STRING>
+	<NAME>Channel 0</NAME>	
+ 	<DESCRIPTION>The channel is reserved by sync run</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP Y</KEYNAME>	
+		<KEYNUMBER>0</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>SMP_CPUS A</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Sync Run Group</VALUE>
+	<ENUMVALUE>0x8A000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 1</NAME>	
+ 	<DESCRIPTION>The channel is reserved by sync run</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP Y</KEYNAME>	
+		<KEYNUMBER>1</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>SMP_CPUS A</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Sync Run Group</VALUE>
+	<ENUMVALUE>0x8A000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 2</NAME>	
+ 	<DESCRIPTION>The channel is reserved by sync run</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP Y</KEYNAME>	
+		<KEYNUMBER>2</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>SMP_CPUS A</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Sync Run Group</VALUE>
+	<ENUMVALUE>0x8A000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 3</NAME>	
+ 	<DESCRIPTION>The channel is reserved by sync run</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP Y</KEYNAME>	
+		<KEYNUMBER>3</KEYNUMBER>	
+	</KEYITEM>
+	<CHILDKEY>SMP_CPUS A</CHILDKEY>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>Sync Run Group</VALUE>
+	<ENUMVALUE>0x8A000000</ENUMVALUE>
+</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+<PROPERTY_STRING>
+	<NAME>Channel 0</NAME>	
+ 	<DESCRIPTION>The option to configure cross trigger function for channel 0</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP</KEYNAME>	
+		<KEYNUMBER>0</KEYNUMBER>	
+	</KEYITEM>
+	<ALLOWEDLIST>
+		<ALLOWEDITEM>
+			<ALLOWED_STRING>Available</ALLOWED_STRING>
+			<ALLOWED_ENUM>0</ALLOWED_ENUM>
+		</ALLOWEDITEM>
+		<ALLOWEDITEM>
+			<ALLOWED_KEY>CHANNEL CFG</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x88000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Channel Configured</ALLOWED_STRING>
+		</ALLOWEDITEM>
+	</ALLOWEDLIST>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 1</NAME>	
+ 	<DESCRIPTION>The option to configure cross trigger function for channel 0</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP</KEYNAME>	
+		<KEYNUMBER>1</KEYNUMBER>	
+	</KEYITEM>
+	<ALLOWEDLIST>
+		<ALLOWEDITEM>
+			<ALLOWED_STRING>Available</ALLOWED_STRING>
+			<ALLOWED_ENUM>0</ALLOWED_ENUM>
+		</ALLOWEDITEM>
+	      <ALLOWEDITEM>
+			<ALLOWED_KEY>CHANNEL CFG</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x88000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Channel Configured</ALLOWED_STRING>
+		</ALLOWEDITEM>
+	</ALLOWEDLIST>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 2</NAME>	
+	<DESCRIPTION>The option to configure cross trigger function for channel 2</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP</KEYNAME>	
+		<KEYNUMBER>2</KEYNUMBER>	
+	</KEYITEM>
+	<ALLOWEDLIST>
+		<ALLOWEDITEM>
+			<ALLOWED_STRING>Available</ALLOWED_STRING>
+			<ALLOWED_ENUM>0</ALLOWED_ENUM>
+		</ALLOWEDITEM>
+		<ALLOWEDITEM>
+			<ALLOWED_KEY>CHANNEL CFG</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x88000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Channel Configured</ALLOWED_STRING>
+		</ALLOWEDITEM>
+	</ALLOWEDLIST>
+</PROPERTY_STRING>
+
+<PROPERTY_STRING>
+	<NAME>Channel 3</NAME>	
+	<DESCRIPTION>The option to configure cross trigger function for channel 3</DESCRIPTION>	
+	<KEYITEM>
+		<KEYNAME>CTI TOP</KEYNAME>	
+		<KEYNUMBER>3</KEYNUMBER>	
+	</KEYITEM>
+	<ALLOWEDLIST>
+		<ALLOWEDITEM>
+			<ALLOWED_STRING>Available</ALLOWED_STRING>
+			<ALLOWED_ENUM>0</ALLOWED_ENUM>
+		</ALLOWEDITEM>
+ 		<ALLOWEDITEM>
+			<ALLOWED_KEY>CHANNEL CFG</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x88000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Channel Configured</ALLOWED_STRING>
+		</ALLOWEDITEM>
+	</ALLOWEDLIST>
+</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Watcher</NAME>	
+ 	  <DESCRIPTION>The option to enable event inputs for the channel</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CHANNEL CFG</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVT INS</CHILDKEY>	
+	  <ENUMVALUE>0x88100000</ENUMVALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Action Trigger</NAME>	
+ 	  <DESCRIPTION>The option to generate actions for the active events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CHANNEL CFG</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVT OUTS</CHILDKEY>	
+	  <ENUMVALUE>0x88200000</ENUMVALUE>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Cortex A15_0 Events</NAME>	
+ 	  <DESCRIPTION>The event list from Cortex A15_1</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVT INS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+    <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>CPU0 EVTS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Cortex A15_1 Events</NAME>	
+ 	  <DESCRIPTION>The event list from Cortex A15_3</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>EVT INS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>CPU1 EVTS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+	  <NAME>PTM0 Events</NAME>	
+ 	  <DESCRIPTION>The event list from PTM0</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>EVT INS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>ETM0 EVTS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>PTM1 Events</NAME>	
+ 	  <DESCRIPTION>The event list from PTM1</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>EVT INS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <EDITABLE>FALSE</EDITABLE>
+    <CHILDKEY>ETM1 EVTS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Debug Subsystem Events</NAME>	
+ 	  <DESCRIPTION>The event list from debug sub Subsystem</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>EVT INS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>DBG SYS EVTS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+
+	<PROPERTY_STRING>
+	  <NAME>Actions to Cortex A15_0</NAME>	
+ 	  <DESCRIPTION>The trigger input list for Cortex A15_1</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVT OUTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>CPU0 TRIS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Actions to Cortex A15_1</NAME>	
+ 	  <DESCRIPTION>The trigger input list for Cortex A15_3</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVT OUTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>CPU1 TRIS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+	  <NAME>Actions to PTM0</NAME>	
+ 	  <DESCRIPTION>The trigger input list for PTM0</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVT OUTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>ETM0 TRIS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Actions to PTM1</NAME>	
+ 	  <DESCRIPTION>The trigger input list for PTM1</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVT OUTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>ETM1 TRIS</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!-- The ENUMVALUE should follow the rule:                                       -->
+<!-- Global Breakpoint:                                                          -->
+<!--   0x89000xxx:                                                               -->
+<!--          |||-> index of CTITRIGIN for CPU halt event                        -->
+<!--          ||-> index of CTITRIGOUT for Stop CPU trigger                      -->
+<!--          |-> CTI unit number                                                -->
+<!-- Sync Run Mode:                                                              -->
+<!--   0x8B00xxxx:                                                               -->
+<!--         ||||-> index of CTITRIGIN for SyncRun event                         -->
+<!--         |||-> CTI-x unit number                                             -->
+<!--         ||-> index of CTITRIGOUT for Restart CPU trigger                    -->
+<!--         |-> CTI-y unit number                                               -->
+<!-- SMP Mode:                                                                   -->
+<!--   0x8Axxxxxx:                                                               -->
+<!--       ||||||-> index of CTITRIGIN for CPU halt event   (chn 0)              -->
+<!--       |||||-> index of CTITRIGOUT for Stop CPU trigger (chn 0)              -->
+<!--       ||||-> CTI-x unit number                                              -->
+<!--       |||-> index of CTITRIGIN for SyncRun event       (chn 1)              -->
+<!--       ||-> index of CTITRIGOUT for Restart CPU trigger (chn 1, CTI-x)       -->
+<!--       |->CTI-y unit number for listen to SyncRun CTITRIGIN                  -->
+<!-- Channel configuration:                                                      -->
+<!--   0x8801xxxx: CTI input event                                               -->
+<!--   0x8802xxxx: CTI output event                                              -->
+<!--          | |-> index of CTITRIGIN or CTITRIGOUT signal                      -->
+<!--          |-> CTI unit number                                                -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>CPU Halt</NAME>	
+ 	  <DESCRIPTION>CPU stop event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU0 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010000</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PM Interrupt</NAME>	
+ 	  <DESCRIPTION>Performance interrupt qurest</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU0 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010001</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>DTRTX Empty</NAME>	
+ 	  <DESCRIPTION>Target to host data transfer empty</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU0 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010004</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>DTRTX Full</NAME>	
+ 	  <DESCRIPTION>Host to target data transfer full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU0 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010005</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PTM EXTOUT0</NAME>	
+ 	  <DESCRIPTION>PTM External Output0</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM0 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010002</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PTM EXTOUT1</NAME>	
+ 	  <DESCRIPTION>PTM External Output1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM0 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010003</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PTM Trigger</NAME>	
+ 	  <DESCRIPTION>PTM trigger event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM0 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010006</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>CPU Halt</NAME>	
+ 	  <DESCRIPTION>CPU stop event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU1 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010100</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PM Interrupt</NAME>	
+ 	  <DESCRIPTION>Performance interrupt qurest</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU1 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010101</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>DTRTX Empty</NAME>	
+ 	  <DESCRIPTION>Target to host data transfer empty</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU1 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010104</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>DTRTX Full</NAME>	
+ 	  <DESCRIPTION>Host to target data transfer full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU1 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010105</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PTM EXTOUT0</NAME>	
+ 	  <DESCRIPTION>PTM External Output0</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM1 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010102</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PTM EXTOUT1</NAME>	
+ 	  <DESCRIPTION>PTM External Output1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM1 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010103</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>PTM Trigger</NAME>	
+ 	  <DESCRIPTION>PTM trigger event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM1 EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010106</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+    <NAME>CPU Halt</NAME>
+    <DESCRIPTION>CPU stop event</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU2 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010200</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PM Interrupt</NAME>
+    <DESCRIPTION>Performance interrupt qurest</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU2 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010201</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>DTRTX Empty</NAME>
+    <DESCRIPTION>Target to host data transfer empty</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU2 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010204</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>DTRTX Full</NAME>
+    <DESCRIPTION>Host to target data transfer full</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU2 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010205</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PTM EXTOUT0</NAME>
+    <DESCRIPTION>PTM External Output0</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM2 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010102</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PTM EXTOUT1</NAME>
+    <DESCRIPTION>PTM External Output1</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM2 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010203</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PTM Trigger</NAME>
+    <DESCRIPTION>PTM trigger event</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM2 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010206</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+    <NAME>CPU Halt</NAME>
+    <DESCRIPTION>CPU stop event</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU3 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010300</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PM Interrupt</NAME>
+    <DESCRIPTION>Performance interrupt qurest</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU3 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010301</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>DTRTX Empty</NAME>
+    <DESCRIPTION>Target to host data transfer empty</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU3 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010304</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>DTRTX Full</NAME>
+    <DESCRIPTION>Host to target data transfer full</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU3 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010305</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PTM EXTOUT0</NAME>
+    <DESCRIPTION>PTM External Output0</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM3 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010302</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PTM EXTOUT1</NAME>
+    <DESCRIPTION>PTM External Output1</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM3 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010303</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>PTM Trigger</NAME>
+    <DESCRIPTION>PTM trigger event</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM3 EVTS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88010306</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+
+	<PROPERTY_BOOL>
+	  <NAME>Sync Run</NAME>	
+ 	  <DESCRIPTION>Sync run command from DAP_PC</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>DBG SYS EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010400</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>TRIGOUTSW</NAME>
+    <DESCRIPTION>STM event</DESCRIPTION>
+    <KEYITEM>
+		  <KEYNAME>DBG SYS EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010406</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>TRIGOUTHETE</NAME>
+    <DESCRIPTION>STM event</DESCRIPTION>
+    <KEYITEM>
+		  <KEYNAME>DBG SYS EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010405</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ASYNCOUT</NAME>	
+ 	  <DESCRIPTION>STM event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>DBG SYS EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010404</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>TRIGOUTSPTE</NAME>
+    <DESCRIPTION>STM event</DESCRIPTION>
+    <KEYITEM>
+		  <KEYNAME>MPU SYS EVTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88010407</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Stop CPU</NAME>	
+ 	  <DESCRIPTION>Stop CPU Trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU0 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020000</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Interrupt Request</NAME>	
+ 	  <DESCRIPTION>Interrupt request</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU0 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020006</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Restart CPU</NAME>	
+ 	  <DESCRIPTION>Restart CPU trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU0 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020007</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN0</NAME>	
+ 	  <DESCRIPTION>ETM trigger 0</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM0 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020001</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN1</NAME>	
+ 	  <DESCRIPTION>ETM trigger 1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM0 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020002</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN2</NAME>	
+ 	  <DESCRIPTION>ETM trigger 2</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM0 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020003</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN3</NAME>	
+ 	  <DESCRIPTION>ETM trigger 3</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM0 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020004</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Stop CPU</NAME>	
+ 	  <DESCRIPTION>Stop CPU Trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU1 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020100</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Interrupt Request</NAME>	
+ 	  <DESCRIPTION>Interrupt request</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU1 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020106</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Restart CPU</NAME>	
+ 	  <DESCRIPTION>Restart CPU trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU1 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020107</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN0</NAME>	
+ 	  <DESCRIPTION>ETM trigger 0</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM1 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020101</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN1</NAME>	
+ 	  <DESCRIPTION>ETM trigger 1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM1 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020102</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN2</NAME>	
+ 	  <DESCRIPTION>ETM trigger 2</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM1 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020103</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Trigger PTM EXTIN3</NAME>	
+ 	  <DESCRIPTION>ETM trigger 3</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ETM1 TRIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x88020104</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+    <NAME>Stop CPU</NAME>
+    <DESCRIPTION>Stop CPU Trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU2 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020200</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Interrupt Request</NAME>
+    <DESCRIPTION>Interrupt request</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU2 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020206</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Restart CPU</NAME>
+    <DESCRIPTION>Restart CPU trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU2 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020207</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN0</NAME>
+    <DESCRIPTION>ETM trigger 0</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM2 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020201</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN1</NAME>
+    <DESCRIPTION>ETM trigger 1</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM2 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020202</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN2</NAME>
+    <DESCRIPTION>ETM trigger 2</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM2 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020203</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN3</NAME>
+    <DESCRIPTION>ETM trigger 3</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM2 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020204</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+    <NAME>Stop CPU</NAME>
+    <DESCRIPTION>Stop CPU Trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU3 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020300</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Interrupt Request</NAME>
+    <DESCRIPTION>Interrupt request</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU3 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020306</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Restart CPU</NAME>
+    <DESCRIPTION>Restart CPU trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CPU3 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020307</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN0</NAME>
+    <DESCRIPTION>ETM trigger 0</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM3 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020301</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN1</NAME>
+    <DESCRIPTION>ETM trigger 1</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM3 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020302</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN2</NAME>
+    <DESCRIPTION>ETM trigger 2</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM3 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020303</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger PTM EXTIN3</NAME>
+    <DESCRIPTION>ETM trigger 3</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETM3 TRIS</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x88020304</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+
+  <!--=============================================================================-->
+  <!-- The ENUMVALUE should follow the rule:                                       -->
+  <!-- Global Breakpoint:                                                          -->
+  <!--   0x89000xxx:                                                               -->
+  <!--          |||-> index of CTITRIGIN for CPU halt event                        -->
+  <!--          ||-> index of CTITRIGOUT for Stop CPU trigger                      -->
+  <!--          |-> CTI unit number                                                -->
+  <!-- Sync Run Mode:                                                              -->
+  <!--   0x8B00xxxx:                                                               -->
+  <!--         ||||-> index of CTITRIGIN for SyncRun event                         -->
+  <!--         |||-> CTI-x unit number                                             -->
+  <!--         ||-> index of CTITRIGOUT for Restart CPU trigger                    -->
+  <!--         |-> CTI-y unit number                                               -->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+	<NAME>Cortex A15 CPU 1</NAME>
+	<DESCRIPTION>CPU to be enabled in the sync mode</DESCRIPTION>
+	<KEYITEM>
+		<KEYNAME>SMP_CPUS A</KEYNAME>
+		<KEYNUMBER>1</KEYNUMBER>
+	</KEYITEM>
+	<ENUMVALUE>0x8A000740</ENUMVALUE>
+	<DISABLE>TRUE</DISABLE>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+	<NAME>Cortex A15 CPU 3</NAME>
+	<DESCRIPTION>CPU to be enabled in the sync mode</DESCRIPTION>
+	<KEYITEM>
+		<KEYNAME>SMP_CPUS A</KEYNAME>
+		<KEYNUMBER>1</KEYNUMBER>
+	</KEYITEM>
+	<ENUMVALUE>0x8A001740</ENUMVALUE>
+	<DISABLE>TRUE</DISABLE>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+<!--=============================================================================-->
+<PROPERTY_BOOL>
+	<NAME>Cortex A15 CPU 1</NAME>
+	<DESCRIPTION>CPU to participate in the global breakpoint</DESCRIPTION>
+	<KEYITEM>
+	  <KEYNAME>CPUS AX</KEYNAME>	
+	  <KEYNUMBER>1</KEYNUMBER>	
+	</KEYITEM>
+	<ENUMVALUE>0x89000100</ENUMVALUE>
+	<DISABLE>TRUE</DISABLE>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>0</VALUE>
+</PROPERTY_BOOL>
+	
+<PROPERTY_BOOL>
+	<NAME>Cortex A15 CPU 3</NAME>	
+	<DESCRIPTION>CPU to participate in the global breakpoint</DESCRIPTION>		
+	<KEYITEM>
+	  <KEYNAME>CPUS AX</KEYNAME>	
+	  <KEYNUMBER>1</KEYNUMBER>	
+	</KEYITEM>
+	<ENUMVALUE>0x89000200</ENUMVALUE>
+	<DISABLE>TRUE</DISABLE>
+	<EDITABLE>FALSE</EDITABLE>	
+	<VALUE>0</VALUE>
+</PROPERTY_BOOL>
+
+</AET>

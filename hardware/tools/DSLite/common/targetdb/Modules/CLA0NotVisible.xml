@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/1 $
+  Checkin $Date: August 5, 2009   17:17:06 $
+  -->
+
+<module id="Hidden" HW_revision="1" XML_version="1" description="" hidden="true" >
+	<register id="MPISRCSEL2" acronym="MPISRCSEL2" offset="0x16" width="32" description="Peripheral Interrupt Source Select Register 2"> 
+	</register> 
+	<register id="MIPCTL" acronym="MIPCTL" offset="0x27" width="16" description="Interrupt Prioriry Register"> 
+	</register> 
+	<register id="MDEBUGCTL" acronym="MDEBUGCTL" offset="0x40" width="16" description="Legacy CLA Debug Control Register"> 
+	</register> 
+	<register id="MDEBUGSS" acronym="MDEBUGSS" offset="0x41" width="16" description="Legacy CLA Debug Single Step Register"> 
+	</register> 
+	<register id="MPSACTL" acronym="MPSACTL" offset="0x42" width="16" description="CLA PSA Control Register"> 
+	</register> 
+	<register id="MPSA1" acronym="MPSA1" offset="0x44" width="32" description="CLA PSA Register 1"> 
+	</register> 
+	<register id="MPSA2" acronym="MPSA2" offset="0x46" width="32" description="CLA PSA Register 2"> 
+	</register> 
+	<register id="MHWADBGCAP" acronym="MHWADBGCAP" offset="0x50" width="32" description="TI HWA Debug Capabilities"> 
+	</register> 
+	<register id="MHWADBGCTL" acronym="MHWADBGCTL" offset="0x52" width="32" description="TI HWA Debug Control"> 
+	</register> 
+</module>

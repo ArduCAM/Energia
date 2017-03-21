@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="QEI0" HW_revision="" XML_version="1.0" description="QEI register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="QEI_CTL" width="32" description="QEI Control" id="QEI_CTL" offset="0x00000000" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable QEI" id="QEI_CTL_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Swap Signals" id="QEI_CTL_SWAP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Signal Mode" id="QEI_CTL_SIGMODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Capture Mode" id="QEI_CTL_CAPMODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Reset Mode" id="QEI_CTL_RESMODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Capture Velocity" id="QEI_CTL_VELEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="3" end="6" rwaccess="RW" description="Predivide Velocity" id="QEI_CTL_VELDIV" resetval="" >
+            <bitenum id="QEI_CTL_VELDIV_1" value="0x00000000" token="" description="QEI clock /1"/>
+            <bitenum id="QEI_CTL_VELDIV_2" value="0x00000040" token="" description="QEI clock /2"/>
+            <bitenum id="QEI_CTL_VELDIV_4" value="0x00000080" token="" description="QEI clock /4"/>
+            <bitenum id="QEI_CTL_VELDIV_8" value="0x000000C0" token="" description="QEI clock /8"/>
+            <bitenum id="QEI_CTL_VELDIV_16" value="0x00000100" token="" description="QEI clock /16"/>
+            <bitenum id="QEI_CTL_VELDIV_32" value="0x00000140" token="" description="QEI clock /32"/>
+            <bitenum id="QEI_CTL_VELDIV_64" value="0x00000180" token="" description="QEI clock /64"/>
+            <bitenum id="QEI_CTL_VELDIV_128" value="0x000001C0" token="" description="QEI clock /128"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Invert PhA" id="QEI_CTL_INVA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Invert PhB" id="QEI_CTL_INVB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Invert Index Pulse" id="QEI_CTL_INVI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Stall QEI" id="QEI_CTL_STALLEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Enable Input Filter" id="QEI_CTL_FILTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="Input Filter Prescale Count" id="QEI_CTL_FILTCNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_STAT" width="32" description="QEI Status" id="QEI_STAT" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Error Detected" id="QEI_STAT_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Direction of Rotation" id="QEI_STAT_DIRECTION" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_POS" width="32" description="QEI Position" id="QEI_POS" offset="0x00000008" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Current Position Integrator Value" id="QEI_POS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_MAXPOS" width="32" description="QEI Maximum Position" id="QEI_MAXPOS" offset="0x0000000C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Maximum Position Integrator Value" id="QEI_MAXPOS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_LOAD" width="32" description="QEI Timer Load" id="QEI_LOAD" offset="0x00000010" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Velocity Timer Load Value" id="QEI_LOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_TIME" width="32" description="QEI Timer" id="QEI_TIME" offset="0x00000014" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Velocity Timer Current Value" id="QEI_TIME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_COUNT" width="32" description="QEI Velocity Counter" id="QEI_COUNT" offset="0x00000018" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Velocity Pulse Count" id="QEI_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_SPEED" width="32" description="QEI Velocity" id="QEI_SPEED" offset="0x0000001C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Velocity" id="QEI_SPEED" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_INTEN" width="32" description="QEI Interrupt Enable" id="QEI_INTEN" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Index Pulse Detected Interrupt Enable" id="QEI_INTEN_INDEX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Timer Expires Interrupt Enable" id="QEI_INTEN_TIMER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Direction Change Interrupt Enable" id="QEI_INTEN_DIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Phase Error Interrupt Enable" id="QEI_INTEN_ERROR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_RIS" width="32" description="QEI Raw Interrupt Status" id="QEI_RIS" offset="0x00000024" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Index Pulse Asserted" id="QEI_RIS_INDEX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Velocity Timer Expired" id="QEI_RIS_TIMER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Direction Change Detected" id="QEI_RIS_DIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Phase Error Detected" id="QEI_RIS_ERROR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="QEI_ISC" width="32" description="QEI Interrupt Status and Clear" id="QEI_ISC" offset="0x00000028" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Index Pulse Interrupt" id="QEI_ISC_INDEX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Velocity Timer Expired Interrupt" id="QEI_ISC_TIMER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Direction Change Interrupt" id="QEI_ISC_DIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Phase Error Interrupt" id="QEI_ISC_ERROR" resetval="" >
+        </bitfield>
+    </register>
+</module>

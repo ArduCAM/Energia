@@ -1,0 +1,265 @@
+<module id="CAN_REGS" HW_revision="" description="CAN Registers">
+	<register id="CAN_CTL" width="32" page="1" offset="0x0" internal="0" description="CAN Control Register">
+		<bitfield id="Init" description="Initialization" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="IE0" description="Interrupt line 0 Enable Disabled" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SIE" description="Status Change Interrupt Enable Disabled" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="EIE" description="Error Interrupt Enable Disabled " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="DAR" description="Disable Automatic Retransmission" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CCE" description="Configuration Change Enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="Test" description="Test Mode Enable" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="IDS" description="Interruption Debug Support Enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="ABO" description="Auto-Bus-On Enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="PMD" description="Parity on/off" begin="13" end="10" width="4" rwaccess="R/W"/>
+		<bitfield id="SWR" description="SW Reset Enable" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="INITDBG" description="Debug Mode Status" begin="16" end="16" width="1" rwaccess="R"/>
+		<bitfield id="IE1" description="Interrupt line 1 Enable Disabled" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="PDR" description="Power Down Request Mode" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="WUBA" description="Wake Up on Bus Activity" begin="25" end="25" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_ES" width="32" page="1" offset="0x4" internal="0" description="Error and Status Register">
+		<bitfield id="LEC" description="Last Error Code" begin="2" end="0" width="3" rwaccess="R"/>
+		<bitfield id="TxOk" description="Transmission status" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="RxOk" description="Reception status" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="EPass" description="Error Passive State" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="EWarn" description="Warning State" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="BOff" description="Bus-Off State" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="PER" description="Parity Error Detected" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="WakeUpPnd" description="Wake Up Pending" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="PDA" description="Power down mode acknowledge" begin="10" end="10" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_ERRC" width="32" page="1" offset="0x8" internal="0" description="Error Counter Register">
+		<bitfield id="TEC" description="Transmit Error Counter" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="REC" description="Receive Error Counter" begin="14" end="8" width="7" rwaccess="R"/>
+		<bitfield id="RP" description="Receive Error Passive" begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_BTR" width="32" page="1" offset="0xc" internal="0" description="Bit Timing Register">
+		<bitfield id="BRP" description="Baud Rate Prescaler" begin="5" end="0" width="6" rwaccess="R/W"/>
+		<bitfield id="SJW" description="Synchronization Jump Width" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="TSEG1" description="Time segment" begin="11" end="8" width="4" rwaccess="R/W"/>
+		<bitfield id="TSEG2" description="Time segment" begin="14" end="12" width="3" rwaccess="R/W"/>
+		<bitfield id="BRPE" description="Baud Rate Prescaler Extension" begin="19" end="16" width="4" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_INT" width="32" page="1" offset="0x10" internal="0" description="Interrupt Register">
+		<bitfield id="INT0ID" description="Interrupt Identifier" begin="15" end="0" width="16" rwaccess="R"/>
+		<bitfield id="INT1ID" description="Interrupt 1 Identifier" begin="23" end="16" width="8" rwaccess="R"/>
+	</register>
+	<register id="CAN_TEST" width="32" page="1" offset="0x14" internal="0" description="Test Register">
+		<bitfield id="SILENT" description="Silent Mode" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="LBACK" description="Loopback Mode" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="TX" description="CANTX Pin Control" begin="6" end="5" width="2" rwaccess="R/W"/>
+		<bitfield id="RX" description="CANRX Pin Status" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="EXL" description="External Loopback Mode" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="RDA" description="RAM Direct Access Enable: " begin="9" end="9" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_PERR" width="32" page="1" offset="0x1c" internal="0" description="CAN Parity Error Code Register ">
+		<bitfield id="MSG_NUM" description="Message Number" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="WORD_NUM" description="Word Number" begin="10" end="8" width="3" rwaccess="R"/>
+	</register>
+	<register id="CAN_REL" width="32" page="1" offset="0x20" internal="0" description="CAN Core Release Register ">
+		<bitfield id="DAY" description="Day" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="MON" description="Month" begin="15" end="8" width="8" rwaccess="R"/>
+		<bitfield id="YEAR" description="Year" begin="19" end="16" width="4" rwaccess="R"/>
+		<bitfield id="SUBSTEP" description="Substep" begin="23" end="20" width="4" rwaccess="R"/>
+		<bitfield id="STEP" description="Step" begin="27" end="24" width="4" rwaccess="R"/>
+		<bitfield id="REL" description="Release" begin="31" end="28" width="4" rwaccess="R"/>
+	</register>
+	<register id="CAN_RAM_INIT" width="32" page="1" offset="0x40" internal="0" description="CAN RAM Initialization Register">
+		<bitfield id="KEY0" description="KEY0" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="KEY1" description="KEY1" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="KEY2" description="KEY2" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="KEY3" description="KEY3" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CAN_RAM_INIT" description="Initialize CAN Mailbox RAM" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="RAM_INIT_DONE" description="CAN RAM initialization complete" begin="5" end="5" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_GLB_INT_EN" width="32" page="1" offset="0x50" internal="0" description="CAN Global Interrupt Enable Register">
+		<bitfield id="GLBINT0_EN" description="Global Interrupt Enable for  CAN INT0" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GLBINT1_EN" description="Global Interrupt Enable for  CAN INT1" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_GLB_INT_FLG" width="32" page="1" offset="0x54" internal="0" description="CAN Global Interrupt Flag Register">
+		<bitfield id="Name" description="Global Interrupt Flag for CAN INT0" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INT1_FLG" description="Global Interrupt Flag for CAN INT1" begin="1" end="1" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_GLB_INT_CLR" width="32" page="1" offset="0x58" internal="0" description="CAN Global Interrupt Clear Register">
+		<bitfield id="INT0_FLG_CLR" description="Global Interrupt flag clear for CAN INT0" begin="0" end="0" width="1" rwaccess="W"/>
+		<bitfield id="INT1_FLG_CLR" description="Global Interrupt flag  clear for CAN INT1" begin="1" end="1" width="1" rwaccess="W"/>
+	</register>
+	<register id="CAN_ABOTR" width="32" page="1" offset="0x80" internal="0" description="Auto-Bus-On Time Register">
+		<bitfield id="ABO_Time" description="Auto-Bus-On Timer" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_TXRQ_X" width="32" page="1" offset="0x84" internal="0" description="CAN Transmission Request X Register">
+		<bitfield id="TxRqstReg1" description="Transmit Request Register 1" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="TxRqstReg2" description="Transmit Request Register 2" begin="3" end="2" width="2" rwaccess="R"/>
+	</register>
+	<register id="CAN_TXRQ_21" width="32" page="1" offset="0x88" internal="0" description="CAN Transmission Request 2_1 Register">
+		<bitfield id="TxRqst" description="Transmission Request Bits" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="CAN_NDAT_X" width="32" page="1" offset="0x98" internal="0" description="CAN New Data X Register">
+		<bitfield id="NewDatReg1" description="New Data Register 1" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="NewDatReg2" description="New Data Register 2" begin="3" end="2" width="2" rwaccess="R"/>
+	</register>
+	<register id="CAN_NDAT_21" width="32" page="1" offset="0x9c" internal="0" description="CAN New Data 2_1 Register">
+		<bitfield id="NewDat" description="New Data Bits" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="CAN_IPEN_X" width="32" page="1" offset="0xac" internal="0" description="CAN Interrupt Pending X Register">
+		<bitfield id="IntPndReg1" description="Interrupt Pending Register 1" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="IntPndReg2" description="Interrupt Pending Register 2" begin="3" end="2" width="2" rwaccess="R"/>
+	</register>
+	<register id="CAN_IPEN_21" width="32" page="1" offset="0xb0" internal="0" description="CAN Interrupt Pending 2_1 Register">
+		<bitfield id="IntPnd" description="Interrupt Pending" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="CAN_MVAL_X" width="32" page="1" offset="0xc0" internal="0" description="CAN Message Valid X Register">
+		<bitfield id="MsgValReg1" description="Message Valid Register 1" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="MsgValReg2" description="Message Valid Register 2" begin="3" end="2" width="2" rwaccess="R"/>
+	</register>
+	<register id="CAN_MVAL_21" width="32" page="1" offset="0xc4" internal="0" description="CAN Message Valid 2_1 Register">
+		<bitfield id="MsgValReg" description="Message Valid Bits " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="CAN_IP_MUX21" width="32" page="1" offset="0xd8" internal="0" description="CAN Interrupt Multiplexer 2_1 Register">
+		<bitfield id="IntMux" description="Interrupt Mux" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF1CMD" width="32" page="1" offset="0x100" internal="0" description=" IF1 Command Register">
+		<bitfield id="MSG_NUM" description="Message Number" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="Busy" description="Busy Flag " begin="15" end="15" width="1" rwaccess="R"/>
+		<bitfield id="DATA_B" description="Access Data Bytes 4-7 " begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="DATA_A" description="Access Data Bytes 0-3 " begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="TXRQST" description="Access Transmission Request Bit " begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="ClrIntPnd" description="Clear Interrupt Pending Bit" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="Control" description="Access Control Bits " begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="Arb" description="Access Arbitration Bits " begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="Mask" description="Access Mask Bits" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="DIR" description="Write/Read Direction" begin="23" end="23" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF1MSK" width="32" page="1" offset="0x104" internal="0" description="IF1 Mask Register">
+		<bitfield id="Msk" description="Identifier Mask" begin="28" end="0" width="29" rwaccess="R/W"/>
+		<bitfield id="MDir" description="Mask Message Direction " begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MXtd" description="Mask Extended Identifier " begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF1ARB" width="32" page="1" offset="0x108" internal="0" description="IF1 Arbitration Register">
+		<bitfield id="ID" description="`" begin="28" end="0" width="29" rwaccess="R/W"/>
+		<bitfield id="Dir" description="Message Direction" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="Xtd" description="Extended Identifier " begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MsgVal" description="Message Valid" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF1MCTL" width="32" page="1" offset="0x10c" internal="0" description="IF1 Message Control Register">
+		<bitfield id="DLC" description="Data length code" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="EoB" description="End of Block " begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="TxRqst" description="Transmit Request " begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="RmtEn" description="Remote Enable " begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="RxIE" description="Receive Interrupt Enable " begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="TxIE" description="Transmit Interrupt Enable " begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="UMask" description="Use Acceptance Mask " begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="IntPnd" description="Interrupt Pending " begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MsgLst" description="Message Lost " begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="NewDat" description="New Data " begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF1DATA" width="32" page="1" offset="0x110" internal="0" description=" IF1 Data A Register">
+		<bitfield id="Data_0" description="Data Byte 0" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_1" description="Data Byte 1" begin="15" end="8" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_2" description="Data Byte 2" begin="23" end="16" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_3" description="Data Byte 3" begin="31" end="24" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF1DATB" width="32" page="1" offset="0x114" internal="0" description=" IF1 Data B Register">
+		<bitfield id="Data_4" description="Data Byte 4" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_5" description="Data Byte 5" begin="15" end="8" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_6" description="Data Byte 6" begin="23" end="16" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_7" description="Data Byte 7" begin="31" end="24" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF2CMD" width="32" page="1" offset="0x120" internal="0" description="IF2 Command Register">
+		<bitfield id="MSG_NUM" description="Message Number" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="Busy" description="Busy Flag " begin="15" end="15" width="1" rwaccess="R"/>
+		<bitfield id="DATA_B" description="Access Data Bytes 4-7 " begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="DATA_A" description="Access Data Bytes 0-3 " begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="TxRqst" description="Access Transmission Request Bit " begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="ClrIntPnd" description="Clear Interrupt Pending Bit" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="Control" description="Access Control Bits " begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="Arb" description="Access Arbitration Bits " begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="Mask" description="Access Mask Bits" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="DIR" description="Write/Read Direction" begin="23" end="23" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF2MSK" width="32" page="1" offset="0x124" internal="0" description="IF2 Mask Register">
+		<bitfield id="Msk" description="Identifier Mask" begin="28" end="0" width="29" rwaccess="R/W"/>
+		<bitfield id="MDir" description="Mask Message Direction " begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MXtd" description="Mask Extended Identifier " begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF2ARB" width="32" page="1" offset="0x128" internal="0" description=" IF2 Arbitration Register">
+		<bitfield id="ID" description="Message  Identifier " begin="28" end="0" width="29" rwaccess="R/W"/>
+		<bitfield id="Dir" description="Message Direction" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="Xtd" description="Extended Identifier " begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MsgVal" description="Message Valid" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF2MCTL" width="32" page="1" offset="0x12c" internal="0" description=" IF2 Message Control Register">
+		<bitfield id="DLC" description="Data length code" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="EoB" description="End of Block " begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="TxRqst" description="Transmit Request " begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="RmtEn" description="Remote Enable " begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="RxIE" description="Receive Interrupt Enable " begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="TxIE" description="Transmit Interrupt Enable " begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="UMask" description="Use Acceptance Mask " begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="IntPnd" description="Interrupt Pending " begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MsgLst" description="Message Lost " begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="NewDat" description="New Data " begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF2DATA" width="32" page="1" offset="0x130" internal="0" description="IF2 Data A Register">
+		<bitfield id="Data_0" description="Data Byte 0" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_1" description="Data Byte 1" begin="15" end="8" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_2" description="Data Byte 2" begin="23" end="16" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_3" description="Data Byte 3" begin="31" end="24" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF2DATB" width="32" page="1" offset="0x134" internal="0" description="IF2 Data B Register">
+		<bitfield id="Data_4" description="Data Byte 4" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_5" description="Data Byte 5" begin="15" end="8" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_6" description="Data Byte 6" begin="23" end="16" width="8" rwaccess="R/W"/>
+		<bitfield id="Data_7" description="Data Byte 7" begin="31" end="24" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="CAN_IF3OBS" width="32" page="1" offset="0x140" internal="0" description="IF3 Observation Register">
+		<bitfield id="Mask" description="Mask data read observation " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="Arb" description="Arbitration data read observation " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="Ctrl" description="Ctrl read observation" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="Data_A" description="Data A read observation " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="Data_B" description="Data B read observation " begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="IF3SM" description="IF3 Status of Mask data read access" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="IF3SA" description="IF3 Status of Arbitration data read access" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="IF3SC" description="IF3 Status of Control bits read access" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="IF3SDA" description="IF3 Status of Data A read access" begin="11" end="11" width="1" rwaccess="R"/>
+		<bitfield id="IF3SDB" description="IF3 Status of Data B read access" begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="IF3Upd" description="IF3 Update Data" begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_IF3MSK" width="32" page="1" offset="0x144" internal="0" description="IF3 Mask Register">
+		<bitfield id="Msk" description="Mask" begin="28" end="0" width="29" rwaccess="R"/>
+		<bitfield id="MDir" description="Mask Message Direction" begin="30" end="30" width="1" rwaccess="R"/>
+		<bitfield id="MXtd" description="Mask Extended Identifier" begin="31" end="31" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_IF3ARB" width="32" page="1" offset="0x148" internal="0" description="IF3 Arbitration Register">
+		<bitfield id="ID" description="Message  Identifier " begin="28" end="0" width="29" rwaccess="R"/>
+		<bitfield id="Dir" description="Message Direction" begin="29" end="29" width="1" rwaccess="R"/>
+		<bitfield id="Xtd" description="Extended Identifier " begin="30" end="30" width="1" rwaccess="R"/>
+		<bitfield id="MsgVal" description="Message Valid" begin="31" end="31" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_IF3MCTL" width="32" page="1" offset="0x14c" internal="0" description="IF3 Message Control Register">
+		<bitfield id="DLC" description="Data length code" begin="3" end="0" width="4" rwaccess="R"/>
+		<bitfield id="EoB" description="End of Block " begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="TxRqst" description="Transmit Request " begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="RmtEn" description="Remote Enable " begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="RxIE" description="Receive Interrupt Enable " begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="TxIE" description="Transmit Interrupt Enable " begin="11" end="11" width="1" rwaccess="R"/>
+		<bitfield id="UMask" description="Use Acceptance Mask " begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="IntPnd" description="Interrupt Pending " begin="13" end="13" width="1" rwaccess="R"/>
+		<bitfield id="MsgLst" description="Message Lost " begin="14" end="14" width="1" rwaccess="R"/>
+		<bitfield id="NewDat" description="New Data " begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="CAN_IF3DATA" width="32" page="1" offset="0x150" internal="0" description="IF3 Data A Register">
+		<bitfield id="Data_0" description="Data Byte 0" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="Data_1" description="Data Byte 1" begin="15" end="8" width="8" rwaccess="R"/>
+		<bitfield id="Data_2" description="Data Byte 2" begin="23" end="16" width="8" rwaccess="R"/>
+		<bitfield id="Data_3" description="Data Byte 3" begin="31" end="24" width="8" rwaccess="R"/>
+	</register>
+	<register id="CAN_IF3DATB" width="32" page="1" offset="0x154" internal="0" description="IF3 Data B Register">
+		<bitfield id="Data_4" description="Data Byte 4" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="Data_5" description="Data Byte 5" begin="15" end="8" width="8" rwaccess="R"/>
+		<bitfield id="Data_6" description="Data Byte 6" begin="23" end="16" width="8" rwaccess="R"/>
+		<bitfield id="Data_7" description="Data Byte 7" begin="31" end="24" width="8" rwaccess="R"/>
+	</register>
+	<register id="CAN_IF3UPD" width="32" page="1" offset="0x160" internal="0" description=" IF3 Update Enable Register">
+		<bitfield id="IF3UpdEn" description="IF3 Update Enabled " begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+</module>

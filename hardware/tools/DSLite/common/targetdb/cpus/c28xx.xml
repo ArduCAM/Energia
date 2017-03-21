@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/1 $
+  Checkin $Date: April 24, 2009   11:33:04 $
+  -->
+
+
+<cpu id="TMS320C28XX" isa="TMS320C28XX" HW_revision="1.0" XML_version="1.0" desc="C28xx" description="C28xx CPU">
+	<register id="ACC" acronym="ACC" width="32" description="Accumulator" >
+		<bitfield id="AH" width="16" begin="31" end="16" resetval="0" description="Accumulator High" range="" rwaccess="RW" />
+		<bitfield id="AL" width="16" begin="15" end="0" resetval="0" description="Accumulator Low" range="" rwaccess="RW" />
+	</register>
+	<register id="P" acronym="P" width="32" description="Product Register" >
+		<bitfield id="PH" width="16" begin="31" end="16" resetval="0" description="Product High" range="" rwaccess="RW" />
+		<bitfield id="PL" width="16" begin="15" end="0" resetval="0" description="Product Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XT" acronym="XT" width="32" description="Multiplicand Register" >
+		<bitfield id="T" width="16" begin="31" end="16" resetval="0" description="Multiplicand High" range="" rwaccess="RW" />
+		<bitfield id="TL" width="16" begin="15" end="0" resetval="0" description="Multiplicand Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR0" acronym="XAR0" width="32" description="Auxiliary Register 0" >
+		<bitfield id="AR0H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 0 High" range="" rwaccess="RW" />
+		<bitfield id="AR0" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 0 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR1" acronym="XAR1" width="32" description="Auxiliary Register 1" >
+		<bitfield id="AR1H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 1 High" range="" rwaccess="RW" />
+		<bitfield id="AR1" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 1 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR2" acronym="XAR2" width="32" description="Auxiliary Register 2" >
+		<bitfield id="AR2H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 2 High" range="" rwaccess="RW" />
+		<bitfield id="AR2" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 2 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR3" acronym="XAR3" width="32" description="Auxiliary Register 3" >
+		<bitfield id="AR3H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 3 High" range="" rwaccess="RW" />
+		<bitfield id="AR3" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 3 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR4" acronym="XAR4" width="32" description="Auxiliary Register 4" >
+		<bitfield id="AR4H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 4 High" range="" rwaccess="RW" />
+		<bitfield id="AR4" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 4 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR5" acronym="XAR5" width="32" description="Auxiliary Register 5" >
+		<bitfield id="AR5H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 5 High" range="" rwaccess="RW" />
+		<bitfield id="AR5" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 5 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR6" acronym="XAR6" width="32" description="Auxiliary Register 6" >
+		<bitfield id="AR6H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 6 High" range="" rwaccess="RW" />
+		<bitfield id="AR6" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 6 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="XAR7" acronym="XAR7" width="32" description="Auxiliary Register 7" >
+		<bitfield id="AR7H" width="16" begin="31" end="16" resetval="0" description="Auxiliary Register 7 High" range="" rwaccess="RW" />
+		<bitfield id="AR7" width="16" begin="15" end="0" resetval="0" description="Auxiliary Register 7 Low" range="" rwaccess="RW" />
+	</register>
+	<register id="PC" acronym="PC" width="24" description="Program Counter" />
+	<register id="RPC" acronym="RPC" width="24" description="Return Program Counter" />
+	<register id="ST0" acronym="ST0" width="16" description="Status Register 0" >
+		<bitfield id="OVC" width="6" begin="15" end="10" resetval="0" description="Overflow counter" range="" rwaccess="RW" />
+		<bitfield id="PM" width="3" begin="9" end="7" resetval="0" description="Product shift mode bits" range="" rwaccess="RW" />
+		<bitfield id="V" width="1" begin="6" end="6" resetval="0" description="Overflow flag" range="" rwaccess="RW" />
+		<bitfield id="N" width="1" begin="5" end="5" resetval="0" description="Negative flag" range="" rwaccess="RW" />
+		<bitfield id="Z" width="1" begin="4" end="4" resetval="0" description="Zero flag" range="" rwaccess="RW" />
+		<bitfield id="C" width="1" begin="3" end="3" resetval="0" description= "Carry bit" range="" rwaccess="RW" />
+		<bitfield id="TC" width="1" begin="2" end="2" resetval="0" description="Test/Control flag" range="" rwaccess="RW" />
+		<bitfield id="OVM" width="1" begin="1" end="1" resetval="0" description="Overflow mode bit" range="" rwaccess="RW" />
+		<bitfield id="SXM" width="1" begin="0" end="0" resetval="0" description= "Sign-extension mode bit" range="" rwaccess="RW" />
+	</register>		
+	<register id="ST1" acronym="ST1" width="16" description="Status Register 1" >
+		<bitfield id="ARP" width="3" begin="15" end="13" resetval="0" description="Auxiliary register pointer" range="" rwaccess="RW" />
+		<bitfield id="XF" width="1" begin="12" end="12" resetval="0" description="XF status bit" range="" rwaccess="RW" />
+		<bitfield id="M0M1MAP" width="1" begin="11" end="11" resetval="1" description="M0 and M1 mapping mode bit" range="" rwaccess="RW" />
+		<bitfield id="RESV_1" width="1" begin="10" end="10" resetval="0" description="Reserved " range="" rwaccess="N"/>
+		<bitfield id="OBJMODE" width="1" begin="9" end="9" resetval="0" description="Object compatibility mode bit" range="" rwaccess="RW" />
+		<bitfield id="AMODE" width="1" begin="8" end="8" resetval="0" description="Address mode bit" range="" rwaccess="RW" />
+		<bitfield id="IDLESTAT" width="1" begin="7" end="7" resetval="0" description= "IDLE status bit" range="" rwaccess="RW" />
+		<bitfield id="EALLOW" width="1" begin="6" end="6" resetval="0" description="Emulation access enable bit" range="" rwaccess="RW" />
+		<bitfield id="LOOP" width="1" begin="5" end="5" resetval="0" description="Loop instruction status bit" range="" rwaccess="R" />
+		<bitfield id="SPA" width="1" begin="4" end="4" resetval="0" description= "Stack pointer alignment bit" range="" rwaccess="RW" />
+		<bitfield id="VMAP" width="1" begin="3" end="3" resetval="1" description= "Vector map bit" range="" rwaccess="RW" />
+		<bitfield id="PAGE0" width="1" begin="2" end="2" resetval="0" description= "PAGE0 addressing mode configuration bit" range="" rwaccess="RW" />
+		<bitfield id="DBGM" width="1" begin="1" end="1" resetval="1" description= "Debug enable mask bit" range="" rwaccess="RW" />
+		<bitfield id="INTM" width="1" begin="0" end="0" resetval="1" description= "Interrupt global mask bit" range="" rwaccess="RW" />
+	</register>
+	<register id="DP" acronym="DP" width="16" description="Data-Page Pointer" />
+	<register id="SP" acronym="SP" width="16" description="Stack Pointer" />
+	<register id="IER" acronym="IER" width="16" description="Interrupt Enable Register" >
+		<bitfield id="RTOSINT" width="1" begin="15" end="15" resetval="0" description="Real-time operating system interrupt enable bit" range="" rwaccess="RW" />
+		<bitfield id="DLOGINT" width="1" begin="14" end="14" resetval="0" description="Data log interrupt enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT14" width="1" begin="13" end="13" resetval="0" description="Interrupt 14 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT13" width="1" begin="12" end="12" resetval="0" description="Interrupt 13 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT12" width="1" begin="11" end="11" resetval="0" description="Interrupt 12 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT11" width="1" begin="10" end="10" resetval="0" description="Interrupt 11 enable bit" range="" rwaccess="RW"/>
+		<bitfield id="INT10" width="1" begin="9" end="9" resetval="0" description="Interrupt 10 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT9" width="1" begin="8" end="8" resetval="0" description= "Interrupt 9 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 enable bit" range="" rwaccess="RW" />
+	</register>
+	<register id="IFR" acronym="IFR" width="16" description="Interrupt Flag Register" >
+		<bitfield id="RTOSINT" width="1" begin="15" end="15" resetval="0" description="Real-time operating system flag" range="" rwaccess="RW" />
+		<bitfield id="DLOGINT" width="1" begin="14" end="14" resetval="0" description="Data log interrupt flag" range="" rwaccess="RW" />
+		<bitfield id="INT14" width="1" begin="13" end="13" resetval="0" description="Interrupt 14 flag" range="" rwaccess="RW" />
+		<bitfield id="INT13" width="1" begin="12" end="12" resetval="0" description="Interrupt 13 flag" range="" rwaccess="RW" />
+		<bitfield id="INT12" width="1" begin="11" end="11" resetval="0" description="Interrupt 12 flag" range="" rwaccess="RW" />
+		<bitfield id="INT11" width="1" begin="10" end="10" resetval="0" description="Interrupt 11 flag" range="" rwaccess="RW"/>
+		<bitfield id="INT10" width="1" begin="9" end="9" resetval="0" description="Interrupt 10 flag" range="" rwaccess="RW" />
+		<bitfield id="INT9" width="1" begin="8" end="8" resetval="0" description= "Interrupt 9 flag" range="" rwaccess="RW" />
+		<bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 flag" range="" rwaccess="RW" />
+		<bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 flag" range="" rwaccess="RW" />
+		<bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 flag" range="" rwaccess="RW" />
+		<bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 flag" range="" rwaccess="RW" />
+		<bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 flag" range="" rwaccess="RW" />
+		<bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 flag" range="" rwaccess="RW" />
+		<bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 flag" range="" rwaccess="RW" />
+		<bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 flag" range="" rwaccess="RW" />
+	</register>
+	<register id="DBGIER" acronym="DBGIER" width="16" description="Debug Interrupt Enable Register" >
+		<bitfield id="RTOSINT" width="1" begin="15" end="15" resetval="0" description="Real-time operating system debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="DLOGINT" width="1" begin="14" end="14" resetval="0" description="Data log debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT14" width="1" begin="13" end="13" resetval="0" description="Interrupt 14 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT13" width="1" begin="12" end="12" resetval="0" description="Interrupt 13 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT12" width="1" begin="11" end="11" resetval="0" description="Interrupt 12 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT11" width="1" begin="10" end="10" resetval="0" description="Interrupt 11 debug enable bit" range="" rwaccess="RW"/>
+		<bitfield id="INT10" width="1" begin="9" end="9" resetval="0" description="Interrupt 10 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT9" width="1" begin="8" end="8" resetval="0" description= "Interrupt 9 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 debug enable bit" range="" rwaccess="RW" />
+		<bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 debug enable bit" range="" rwaccess="RW" />
+	</register>
+	
+	<instance href="..\Modules\C28xNotVisible.xml" id="" xml="C28xNotVisible.xml" xmlpath="..\Modules\" HW_revision="1.0" description="" requestor="TMS320C28XX" baseaddr="0" size="00" accessnumbytes="4" permissions="p"/>
+
+</cpu>
+

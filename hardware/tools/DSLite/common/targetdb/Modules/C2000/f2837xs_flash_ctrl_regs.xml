@@ -1,0 +1,37 @@
+<module id="FLASH_CTRL_REGS" HW_revision="" description="FLASH CTRL Registers">
+	<register id="FRDCNTL" width="32" page="1" offset="0x0" internal="0" description="Flash Read Control Register">
+		<bitfield id="RWAIT" description="Random Read Waitstate" begin="11" end="8" width="4" rwaccess="R/W"/>
+	</register>
+	<register id="FBAC" width="32" page="1" offset="0x1e" internal="0" description="Flash Bank Access Control Register">
+		<bitfield id="VREADST" description="VREAD Setup Time Count" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="FBFALLBACK" width="32" page="1" offset="0x20" internal="0" description="Flash Bank Fallback Power Register">
+		<bitfield id="BNKPWR0" description="Bank Power Mode" begin="1" end="0" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="FBPRDY" width="32" page="1" offset="0x22" internal="0" description="Flash Bank Pump Ready Register">
+		<bitfield id="BANKRDY" description="Flash Bank Active Power State" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="PUMPRDY" description="Flash Pump Active Power Mode" begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="FPAC1" width="32" page="1" offset="0x24" internal="0" description="Flash Pump Access Control Register 1">
+		<bitfield id="PMPPWR" description="Charge Pump Fallback Power Mode" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PSLEEP" description="Pump Sleep Down Count" begin="27" end="16" width="12" rwaccess="R/W"/>
+	</register>
+	<register id="FMAC" width="32" page="1" offset="0x28" internal="0" description="Flash Module Access Control Register">
+		<bitfield id="BANK" description="Flash Bank for FSM and Software Interface Operations" begin="2" end="0" width="3" rwaccess="R"/>
+	</register>
+	<register id="FMSTAT" width="32" page="1" offset="0x2a" internal="0" description="Flash Module Status Register">
+		<bitfield id="VOLTSTAT" description="Flash Pump Power Status" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="CSTAT" description="Command Fail Status" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="INVDAT" description="Invalid Data" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="PGM" description="Program Operation Status" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="ERS" description="Erase Operation Status" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="BUSY" description="Busy Bit" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="EV" description="Erase Verify Status" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="PGV" description="Programming Verify Status" begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="ILA" description="Illegal Address Detected" begin="14" end="14" width="1" rwaccess="R"/>
+	</register>
+	<register id="FRD_INTF_CTRL" width="32" page="1" offset="0x180" internal="0" description="Flash Read Interface Control Register">
+		<bitfield id="PREFETCH_EN" description="Prefetch Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="DATA_CACHE_EN" description="Data Cache Enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+</module>

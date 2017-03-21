@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="CAN0" HW_revision="" XML_version="1.0" description="CAN register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="CAN_CTL" width="32" description="CAN Control" id="CAN_CTL" offset="0x00000000" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Initialization" id="CAN_CTL_INIT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="CAN Interrupt Enable" id="CAN_CTL_IE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Status Interrupt Enable" id="CAN_CTL_SIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Error Interrupt Enable" id="CAN_CTL_EIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Disable Automatic-Retransmission" id="CAN_CTL_DAR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Configuration Change Enable" id="CAN_CTL_CCE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Test Mode Enable" id="CAN_CTL_TEST" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_STS" width="32" description="CAN Status" id="CAN_STS" offset="0x00000004" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Last Error Code" id="CAN_STS_LEC" resetval="" >
+            <bitenum id="CAN_STS_LEC_NONE" value="0x00000000" token="" description="No Error"/>
+            <bitenum id="CAN_STS_LEC_STUFF" value="0x00000001" token="" description="Stuff Error"/>
+            <bitenum id="CAN_STS_LEC_FORM" value="0x00000002" token="" description="Format Error"/>
+            <bitenum id="CAN_STS_LEC_ACK" value="0x00000003" token="" description="ACK Error"/>
+            <bitenum id="CAN_STS_LEC_BIT1" value="0x00000004" token="" description="Bit 1 Error"/>
+            <bitenum id="CAN_STS_LEC_BIT0" value="0x00000005" token="" description="Bit 0 Error"/>
+            <bitenum id="CAN_STS_LEC_CRC" value="0x00000006" token="" description="CRC Error"/>
+            <bitenum id="CAN_STS_LEC_NOEVENT" value="0x00000007" token="" description="No Event"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Transmitted a Message Successfully" id="CAN_STS_TXOK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Received a Message Successfully" id="CAN_STS_RXOK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Error Passive" id="CAN_STS_EPASS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Warning Status" id="CAN_STS_EWARN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Bus-Off Status" id="CAN_STS_BOFF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_ERR" width="32" description="CAN Error Counter" id="CAN_ERR" offset="0x00000008" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="R" description="Transmit Error Counter" id="CAN_ERR_TEC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="7" end="8" rwaccess="R" description="Receive Error Counter" id="CAN_ERR_REC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="R" description="Received Error Passive" id="CAN_ERR_RP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_BIT" width="32" description="CAN Bit Timing" id="CAN_BIT" offset="0x0000000C" >
+        <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Baud Rate Prescaler" id="CAN_BIT_BRP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="(Re)Synchronization Jump Width" id="CAN_BIT_SJW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="Time Segment Before Sample Point" id="CAN_BIT_TSEG1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="3" end="12" rwaccess="RW" description="Time Segment after Sample Point" id="CAN_BIT_TSEG2" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_INT" width="32" description="CAN Interrupt" id="CAN_INT" offset="0x00000010" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Interrupt Identifier" id="CAN_INT_INTID" resetval="" >
+            <bitenum id="CAN_INT_INTID_NONE" value="0x00000000" token="" description="No interrupt pending"/>
+            <bitenum id="CAN_INT_INTID_STATUS" value="0x00008000" token="" description="Status Interrupt"/>
+        </bitfield>
+    </register>
+    <register acronym="CAN_TST" width="32" description="CAN Test" id="CAN_TST" offset="0x00000014" >
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Basic Mode" id="CAN_TST_BASIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Silent Mode" id="CAN_TST_SILENT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Loopback Mode" id="CAN_TST_LBACK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Transmit Control" id="CAN_TST_TX" resetval="" >
+            <bitenum id="CAN_TST_TX_CANCTL" value="0x00000000" token="" description="CAN Module Control"/>
+            <bitenum id="CAN_TST_TX_SAMPLE" value="0x00000020" token="" description="Sample Point"/>
+            <bitenum id="CAN_TST_TX_DOMINANT" value="0x00000040" token="" description="Driven Low"/>
+            <bitenum id="CAN_TST_TX_RECESSIVE" value="0x00000060" token="" description="Driven High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Receive Observation" id="CAN_TST_RX" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_BRPE" width="32" description="CAN Baud Rate Prescaler Extension" id="CAN_BRPE" offset="0x00000018" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Baud Rate Prescaler Extension" id="CAN_BRPE_BRPE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1CRQ" width="32" description="CAN IF1 Command Request" id="CAN_IF1CRQ" offset="0x00000020" >
+        <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Message Number" id="CAN_IF1CRQ_MNUM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Busy Flag" id="CAN_IF1CRQ_BUSY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1CMSK" width="32" description="CAN IF1 Command Mask" id="CAN_IF1CMSK" offset="0x00000024" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Access Data Byte 4 to 7" id="CAN_IF1CMSK_DATAB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Access Data Byte 0 to 3" id="CAN_IF1CMSK_DATAA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Access New Data" id="CAN_IF1CMSK_NEWDAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Access Transmission Request" id="CAN_IF1CMSK_TXRQST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Clear Interrupt Pending Bit" id="CAN_IF1CMSK_CLRINTPND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Access Control Bits" id="CAN_IF1CMSK_CONTROL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Access Arbitration Bits" id="CAN_IF1CMSK_ARB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Access Mask Bits" id="CAN_IF1CMSK_MASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Write, Not Read" id="CAN_IF1CMSK_WRNRD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1MSK1" width="32" description="CAN IF1 Mask 1" id="CAN_IF1MSK1" offset="0x00000028" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Identifier Mask" id="CAN_IF1MSK1_IDMSK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1MSK2" width="32" description="CAN IF1 Mask 2" id="CAN_IF1MSK2" offset="0x0000002C" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="RW" description="Identifier Mask" id="CAN_IF1MSK2_IDMSK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Mask Message Direction" id="CAN_IF1MSK2_MDIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Mask Extended Identifier" id="CAN_IF1MSK2_MXTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1ARB1" width="32" description="CAN IF1 Arbitration 1" id="CAN_IF1ARB1" offset="0x00000030" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Message Identifier" id="CAN_IF1ARB1_ID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1ARB2" width="32" description="CAN IF1 Arbitration 2" id="CAN_IF1ARB2" offset="0x00000034" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="RW" description="Message Identifier" id="CAN_IF1ARB2_ID" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Message Direction" id="CAN_IF1ARB2_DIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Extended Identifier" id="CAN_IF1ARB2_XTD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Message Valid" id="CAN_IF1ARB2_MSGVAL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1MCTL" width="32" description="CAN IF1 Message Control" id="CAN_IF1MCTL" offset="0x00000038" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data Length Code" id="CAN_IF1MCTL_DLC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="End of Buffer" id="CAN_IF1MCTL_EOB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Transmit Request" id="CAN_IF1MCTL_TXRQST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Remote Enable" id="CAN_IF1MCTL_RMTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Receive Interrupt Enable" id="CAN_IF1MCTL_RXIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Transmit Interrupt Enable" id="CAN_IF1MCTL_TXIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Use Acceptance Mask" id="CAN_IF1MCTL_UMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Interrupt Pending" id="CAN_IF1MCTL_INTPND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Message Lost" id="CAN_IF1MCTL_MSGLST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="New Data" id="CAN_IF1MCTL_NEWDAT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1DA1" width="32" description="CAN IF1 Data A1" id="CAN_IF1DA1" offset="0x0000003C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF1DA1_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1DA2" width="32" description="CAN IF1 Data A2" id="CAN_IF1DA2" offset="0x00000040" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF1DA2_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1DB1" width="32" description="CAN IF1 Data B1" id="CAN_IF1DB1" offset="0x00000044" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF1DB1_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF1DB2" width="32" description="CAN IF1 Data B2" id="CAN_IF1DB2" offset="0x00000048" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF1DB2_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2CRQ" width="32" description="CAN IF2 Command Request" id="CAN_IF2CRQ" offset="0x00000080" >
+        <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Message Number" id="CAN_IF2CRQ_MNUM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Busy Flag" id="CAN_IF2CRQ_BUSY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2CMSK" width="32" description="CAN IF2 Command Mask" id="CAN_IF2CMSK" offset="0x00000084" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Access Data Byte 4 to 7" id="CAN_IF2CMSK_DATAB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Access Data Byte 0 to 3" id="CAN_IF2CMSK_DATAA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Access New Data" id="CAN_IF2CMSK_NEWDAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Access Transmission Request" id="CAN_IF2CMSK_TXRQST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Clear Interrupt Pending Bit" id="CAN_IF2CMSK_CLRINTPND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Access Control Bits" id="CAN_IF2CMSK_CONTROL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Access Arbitration Bits" id="CAN_IF2CMSK_ARB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Access Mask Bits" id="CAN_IF2CMSK_MASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Write, Not Read" id="CAN_IF2CMSK_WRNRD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2MSK1" width="32" description="CAN IF2 Mask 1" id="CAN_IF2MSK1" offset="0x00000088" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Identifier Mask" id="CAN_IF2MSK1_IDMSK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2MSK2" width="32" description="CAN IF2 Mask 2" id="CAN_IF2MSK2" offset="0x0000008C" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="RW" description="Identifier Mask" id="CAN_IF2MSK2_IDMSK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Mask Message Direction" id="CAN_IF2MSK2_MDIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Mask Extended Identifier" id="CAN_IF2MSK2_MXTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2ARB1" width="32" description="CAN IF2 Arbitration 1" id="CAN_IF2ARB1" offset="0x00000090" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Message Identifier" id="CAN_IF2ARB1_ID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2ARB2" width="32" description="CAN IF2 Arbitration 2" id="CAN_IF2ARB2" offset="0x00000094" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="RW" description="Message Identifier" id="CAN_IF2ARB2_ID" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Message Direction" id="CAN_IF2ARB2_DIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Extended Identifier" id="CAN_IF2ARB2_XTD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Message Valid" id="CAN_IF2ARB2_MSGVAL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2MCTL" width="32" description="CAN IF2 Message Control" id="CAN_IF2MCTL" offset="0x00000098" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data Length Code" id="CAN_IF2MCTL_DLC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="End of Buffer" id="CAN_IF2MCTL_EOB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Transmit Request" id="CAN_IF2MCTL_TXRQST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Remote Enable" id="CAN_IF2MCTL_RMTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Receive Interrupt Enable" id="CAN_IF2MCTL_RXIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Transmit Interrupt Enable" id="CAN_IF2MCTL_TXIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Use Acceptance Mask" id="CAN_IF2MCTL_UMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Interrupt Pending" id="CAN_IF2MCTL_INTPND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Message Lost" id="CAN_IF2MCTL_MSGLST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="New Data" id="CAN_IF2MCTL_NEWDAT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2DA1" width="32" description="CAN IF2 Data A1" id="CAN_IF2DA1" offset="0x0000009C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF2DA1_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2DA2" width="32" description="CAN IF2 Data A2" id="CAN_IF2DA2" offset="0x000000A0" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF2DA2_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2DB1" width="32" description="CAN IF2 Data B1" id="CAN_IF2DB1" offset="0x000000A4" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF2DB1_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_IF2DB2" width="32" description="CAN IF2 Data B2" id="CAN_IF2DB2" offset="0x000000A8" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Data" id="CAN_IF2DB2_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_TXRQ1" width="32" description="CAN Transmission Request 1" id="CAN_TXRQ1" offset="0x00000100" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Transmission Request Bits" id="CAN_TXRQ1_TXRQST" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_TXRQ2" width="32" description="CAN Transmission Request 2" id="CAN_TXRQ2" offset="0x00000104" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Transmission Request Bits" id="CAN_TXRQ2_TXRQST" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_NWDA1" width="32" description="CAN New Data 1" id="CAN_NWDA1" offset="0x00000120" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="New Data Bits" id="CAN_NWDA1_NEWDAT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_NWDA2" width="32" description="CAN New Data 2" id="CAN_NWDA2" offset="0x00000124" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="New Data Bits" id="CAN_NWDA2_NEWDAT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_MSG1INT" width="32" description="CAN Message 1 Interrupt Pending" id="CAN_MSG1INT" offset="0x00000140" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Interrupt Pending Bits" id="CAN_MSG1INT_INTPND" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_MSG2INT" width="32" description="CAN Message 2 Interrupt Pending" id="CAN_MSG2INT" offset="0x00000144" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Interrupt Pending Bits" id="CAN_MSG2INT_INTPND" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_MSG1VAL" width="32" description="CAN Message 1 Valid" id="CAN_MSG1VAL" offset="0x00000160" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Message Valid Bits" id="CAN_MSG1VAL_MSGVAL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CAN_MSG2VAL" width="32" description="CAN Message 2 Valid" id="CAN_MSG2VAL" offset="0x00000164" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Message Valid Bits" id="CAN_MSG2VAL_MSGVAL" resetval="" >
+        </bitfield>
+    </register>
+</module>

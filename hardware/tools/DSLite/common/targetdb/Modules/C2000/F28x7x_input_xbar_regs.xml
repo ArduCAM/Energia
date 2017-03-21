@@ -1,0 +1,62 @@
+<module id="INPUT_XBAR_REGS" HW_revision="" description="INPUT XBAR Registers">
+	<register id="INPUT1SELECT" width="16" page="1" offset="0x0" internal="0" description="INPUT1 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT1 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT2SELECT" width="16" page="1" offset="0x1" internal="0" description="INPUT2 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT2 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT3SELECT" width="16" page="1" offset="0x2" internal="0" description="INPUT3 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT3 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT4SELECT" width="16" page="1" offset="0x3" internal="0" description="INPUT4 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT4 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT5SELECT" width="16" page="1" offset="0x4" internal="0" description="INPUT5 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT5 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT6SELECT" width="16" page="1" offset="0x5" internal="0" description="INPUT6 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT6 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT7SELECT" width="16" page="1" offset="0x6" internal="0" description="INPUT7 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT7 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT8SELECT" width="16" page="1" offset="0x7" internal="0" description="INPUT8 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT8 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT9SELECT" width="16" page="1" offset="0x8" internal="0" description="INPUT9 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT9 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT10SELECT" width="16" page="1" offset="0x9" internal="0" description="INPUT10 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT10 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT11SELECT" width="16" page="1" offset="0xa" internal="0" description="INPUT11 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT11 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT12SELECT" width="16" page="1" offset="0xb" internal="0" description="INPUT12 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT12 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT13SELECT" width="16" page="1" offset="0xc" internal="0" description="INPUT13 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT13 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUT14SELECT" width="16" page="1" offset="0xd" internal="0" description="INPUT14 Input Select Register (GPIO0 to x)">
+		<bitfield id="SELECT" description="Select GPIO for INPUT14 signal" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="INPUTSELECTLOCK" width="32" page="1" offset="0x1e" internal="0" description="Input Select Lock Register">
+		<bitfield id="INPUT1SELECT" description="Lock bit for INPUT1SEL Register" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT2SELECT" description="Lock bit for INPUT2SEL Register" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT3SELECT" description="Lock bit for INPUT3SEL Register" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT4SELECT" description="Lock bit for INPUT4SEL Register" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT5SELECT" description="Lock bit for INPUT5SEL Register" begin="4" end="4" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT6SELECT" description="Lock bit for INPUT7SEL Register" begin="5" end="5" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT7SELECT" description="Lock bit for INPUT8SEL Register" begin="6" end="6" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT8SELECT" description="Lock bit for INPUT9SEL Register" begin="7" end="7" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT9SELECT" description="Lock bit for INPUT10SEL Register" begin="8" end="8" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT10SELECT" description="Lock bit for INPUT11SEL Register" begin="9" end="9" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT11SELECT" description="Lock bit for INPUT11SEL Register" begin="10" end="10" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT12SELECT" description="Lock bit for INPUT12SEL Register" begin="11" end="11" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT13SELECT" description="Lock bit for INPUT13SEL Register" begin="12" end="12" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT14SELECT" description="Lock bit for INPUT14SEL Register" begin="13" end="13" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT15SELECT" description="Lock bit for INPUT15SEL Register" begin="14" end="14" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="INPUT16SELECT" description="Lock bit for INPUT16SEL Register" begin="15" end="15" width="1" rwaccess="R/SOnce"/>
+	</register>
+</module>

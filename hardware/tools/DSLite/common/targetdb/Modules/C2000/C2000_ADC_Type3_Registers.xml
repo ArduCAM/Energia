@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 20, 2009   13:25:17 $
+  -->
+
+<!-- TMS320C2000 ADC Type 3 Registers
+     ===================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+<module id="ADC" HW_revision="" XML_version="1" description="ADC Registers">
+ <register id="ADCCTL1" acronym="ADCCTL1" offset="0" page="1" width="16" description="ADC Control 1" />
+ <register id="ADCCTL2" acronym="ADCCTL2" offset="1" page="1" width="16" description="ADC Control 2" />
+ <!-- 2 empty -->        
+ <register id="ADCINTFLG" acronym="ADCINTFLG" offset="4" page="1" width="16" description="ADC Interrupt Flag" />
+ <register id="ADCINTFLGCLR" acronym="ADCINTFLGCLR" offset="5" page="1" width="16" description="ADC Interrupt Flag Clear" />
+ <register id="ADCINTOVF" acronym="ADCINTOVF" offset="6" page="1" width="16" description="ADC Interrupt Overflow" />
+ <register id="ADCINTOVFCLR" acronym="ADCINTOVFCLR" offset="7" page="1" width="16" description="ADC Interrupt Overflow Clear" />
+ <register id="INTSEL1N2" acronym="INTSEL1N2" offset="8" page="1" width="16" description="ADC Interrupt 1 and 2 Selection" />
+ <register id="INTSEL3N4" acronym="INTSEL3N4" offset="9" page="1" width="16" description="ADC Interrupt 3 and 4 Selection" />
+ <register id="INTSEL5N6" acronym="INTSEL5N6" offset="10" page="1" width="16" description="ADC Interrupt 5 and 6 Selection" />
+ <register id="INTSEL7N8" acronym="INTSEL7N8" offset="11" page="1" width="16" description="ADC Interrupt 7 and 8 Selection" />
+ <register id="INTSEL9N10" acronym="INTSEL9N10" offset="12" page="1" width="16" description="ADC Interrupt 9 and 10 Selection" />
+ <!-- 3 empty -->        
+ <register id="SOCPRICTL" acronym="SOCPRICTL" offset="16" page="1" width="16" description="ADC SOC Priority Control" />
+ <!-- 1 empty -->        
+ <register id="ADCSAMPLEMODE" acronym="ADCSAMPLEMODE" offset="18" page="1" width="16" description="ADC Sampling Mode" />
+ <!-- 1 empty -->        
+ <register id="ADCINTSOCSEL1" acronym="ADCINTSOCSEL1" offset="20" page="1" width="16" description="ADC Interrupt SOC Selection 1" />
+ <register id="ADCINTSOCSEL2" acronym="ADCINTSOCSEL2" offset="21" page="1" width="16" description="ADC Interrupt SOC Selection 2" />
+ <!-- 2 empty -->        
+ <register id="ADCSOCFLG1" acronym="ADCSOCFLG1" offset="24" page="1" width="16" description="ADC SOC Flag 1" />
+ <!-- 1 empty -->        
+ <register id="ADCSOCFRC1" acronym="ADCSOCFRC1" offset="26" page="1" width="16" description="ADC SOC Flag Force 1" />
+ <!-- 1 empty -->        
+ <register id="ADCSOCOVF1" acronym="ADCSOCOVF1" offset="28" page="1" width="16" description="ADC SOC Overflow 1" />
+ <!-- 1 empty -->        
+ <register id="ADCSOCOVFCLR1" acronym="ADCSOCOVFCLR1" offset="30" page="1" width="16" description="ADC SOC Overflow Clear 1" />
+ <!-- 1 empty -->        
+ <register id="ADCSOC0CTL" acronym="ADCSOC0CTL" offset="32" page="1" width="16" description="ADC SOC0 Control" />
+ <register id="ADCSOC1CTL" acronym="ADCSOC1CTL" offset="33" page="1" width="16" description="ADC SOC1 Control" />
+ <register id="ADCSOC2CTL" acronym="ADCSOC2CTL" offset="34" page="1" width="16" description="ADC SOC2 Control" />
+ <register id="ADCSOC3CTL" acronym="ADCSOC3CTL" offset="35" page="1" width="16" description="ADC SOC3 Control" />
+ <register id="ADCSOC4CTL" acronym="ADCSOC4CTL" offset="36" page="1" width="16" description="ADC SOC4 Control" />
+ <register id="ADCSOC5CTL" acronym="ADCSOC5CTL" offset="37" page="1" width="16" description="ADC SOC5 Control" />
+ <register id="ADCSOC6CTL" acronym="ADCSOC6CTL" offset="38" page="1" width="16" description="ADC SOC6 Control" />
+ <register id="ADCSOC7CTL" acronym="ADCSOC7CTL" offset="39" page="1" width="16" description="ADC SOC7 Control" />
+ <register id="ADCSOC8CTL" acronym="ADCSOC8CTL" offset="40" page="1" width="16" description="ADC SOC8 Control" />
+ <register id="ADCSOC9CTL" acronym="ADCSOC9CTL" offset="41" page="1" width="16" description="ADC SOC9 Control" />
+ <register id="ADCSOC10CTL" acronym="ADCSOC10CTL" offset="42" page="1" width="16" description="ADC SOC10 Control" />
+ <register id="ADCSOC11CTL" acronym="ADCSOC11CTL" offset="43" page="1" width="16" description="ADC SOC11 Control" />
+ <register id="ADCSOC12CTL" acronym="ADCSOC12CTL" offset="44" page="1" width="16" description="ADC SOC12 Control" />
+ <register id="ADCSOC13CTL" acronym="ADCSOC13CTL" offset="45" page="1" width="16" description="ADC SOC13 Control" />
+ <register id="ADCSOC14CTL" acronym="ADCSOC14CTL" offset="46" page="1" width="16" description="ADC SOC14 Control" />
+ <register id="ADCSOC15CTL" acronym="ADCSOC15CTL" offset="47" page="1" width="16" description="ADC SOC15 Control" />
+ <!-- 16 empty -->        
+ <register id="ADCREFTRIM" acronym="ADCREFTRIM" offset="64" page="1" width="16" description="Reference Trim Register" />
+ <register id="ADCOFFTRIM" acronym="ADCOFFTRIM" offset="65" page="1" width="16" description="Offset Trim Register" />
+ <!-- 10 empty -->
+ <register id="COMPHYSTCTL" acronym="COMPHYSTCTL" offset="76" page="1" width="16" description="Comparator Hysteresis Control Register" />
+ <!-- 3 empty --> 
+</module>

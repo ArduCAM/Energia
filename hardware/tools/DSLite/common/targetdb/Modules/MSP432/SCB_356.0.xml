@@ -1,0 +1,477 @@
+<module id="SCB" HW_revision="356.0">
+    <register id="CPUID" width="32" offset="0xD00" internal="0" description="CPUID Base Register">
+        <bitfield id="REVISION" description="Implementation defined revision number." begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="PARTNO" description="Number of processor within family." begin="15" end="4" width="12" rwaccess="R">
+        </bitfield>
+        <bitfield id="CONSTANT" description="Reads as 0xC" begin="19" end="16" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="VARIANT" description="Implementation defined variant number." begin="23" end="20" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="IMPLEMENTER" description="Implementor code." begin="31" end="24" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="ICSR" width="32" offset="0xD04" internal="0" description="Interrupt Control State Register">
+        <bitfield id="VECTACTIVE" description="Active ISR number field. Reset clears the VECTACTIVE field." begin="8" end="0" width="9" rwaccess="R">
+        </bitfield>
+        <bitfield id="RETTOBASE" description="This bit is 1 when the set of all active exceptions minus the IPSR_current_exception yields the empty set." begin="11" end="11" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="VECTPENDING" description="Pending ISR number field. VECTPENDING contains the interrupt number of the highest priority pending ISR." begin="17" end="12" width="6" rwaccess="R">
+        </bitfield>
+        <bitfield id="ISRPENDING" description="Interrupt pending flag. Excludes NMI and faults." begin="22" end="22" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="interrupt not pending"/>
+            <bitenum id="en_0b1" value="0x1" description="interrupt pending"/>
+        </bitfield>
+        <bitfield id="ISRPREEMPT" description="You must only use this at debug time. It indicates that a pending interrupt is to be taken in the next running cycle. If C_MASKINTS is clear in the Debug Halting Control and Status Register, the interrupt is serviced." begin="23" end="23" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="a pending exception is not serviced."/>
+            <bitenum id="en_0b1" value="0x1" description="a pending exception is serviced on exit from the debug halt state"/>
+        </bitfield>
+        <bitfield id="PENDSTCLR" description="Clear pending SysTick bit" begin="25" end="25" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="do not clear pending SysTick"/>
+            <bitenum id="en_0b1" value="0x1" description="clear pending SysTick"/>
+        </bitfield>
+        <bitfield id="PENDSTSET" description="Set a pending SysTick bit." begin="26" end="26" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="do not set pending SysTick"/>
+            <bitenum id="en_0b1" value="0x1" description="set pending SysTick"/>
+        </bitfield>
+        <bitfield id="PENDSVCLR" description="Clear pending pendSV bit" begin="27" end="27" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="do not clear pending pendSV"/>
+            <bitenum id="en_0b1" value="0x1" description="clear pending pendSV"/>
+        </bitfield>
+        <bitfield id="PENDSVSET" description="Set pending pendSV bit." begin="28" end="28" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="do not set pending pendSV"/>
+            <bitenum id="en_0b1" value="0x1" description="set pending PendSV"/>
+        </bitfield>
+        <bitfield id="NMIPENDSET" description="Set pending NMI bit. NMIPENDSET pends and activates an NMI. Because NMI is the highest-priority interrupt, it takes effect as soon as it registers." begin="31" end="31" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="do not set pending NMI"/>
+            <bitenum id="en_0b1" value="0x1" description="set pending NMI"/>
+        </bitfield>
+    </register>
+    <register id="VTOR" width="32" offset="0xD08" internal="0" description="Vector Table Offset Register">
+        <bitfield id="TBLOFF" description="Vector table base offset field. Contains the offset of the table base from the bottom of the SRAM or CODE space." begin="28" end="7" width="22" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TBLBASE" description="Table base is in Code (0) or RAM (1)." begin="29" end="29" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="AIRCR" width="32" offset="0xD0C" internal="0" description="Application Interrupt/Reset Control Register">
+        <bitfield id="VECTRESET" description="System Reset bit. Resets the system, with the exception of debug components. The VECTRESET bit self-clears. Reset clears the VECTRESET bit. For debugging, only write this bit when the core is halted." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="VECTCLRACTIVE" description="Clears all active state information for active NMI, fault, and interrupts.  It is the responsibility of the application to reinitialize the stack. The VECTCLRACTIVE bit is for returning to a known state during debug. The VECTCLRACTIVE bit self-clears. IPSR is not cleared by this operation. So, if used by an application, it must only be used at the base level of activation, or within a system handler whose active bit can be set." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SYSRESETREQ" description="Causes a signal to be asserted to the outer system that indicates a reset is requested. Intended to force a large system reset of all major components except for debug. Setting this bit does not prevent Halting Debug from running." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRIGROUP" description="Interrupt priority grouping field. The PRIGROUP field is a binary point position indicator for creating subpriorities for exceptions that share the same pre-emption level. It divides the PRI_n field in the Interrupt Priority Register into a pre-emption level and a subpriority level. The binary point is a left-of value. This means that the PRIGROUP value represents a point starting at the left of the Least Significant Bit (LSB). This is bit [0] of 7:0. The lowest value might not be 0 depending on the number of bits allocated for priorities, and implementation choices " begin="10" end="8" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ENDIANESS" description="Data endianness bit. ENDIANNESS is sampled from the BIGEND input port during reset. You cannot change ENDIANNESS outside of reset." begin="15" end="15" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="little endian"/>
+            <bitenum id="en_0b1" value="0x1" description="big endian"/>
+        </bitfield>
+        <bitfield id="VECTKEY" description="Register key. Writing to this register requires 0x5FA in the VECTKEY field. Otherwise the write value is ignored." begin="31" end="16" width="16" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SCR" width="32" offset="0xD10" internal="0" description="System Control Register">
+        <bitfield id="SLEEPONEXIT" description="Sleep on exit when returning from Handler mode to Thread mode. Enables interrupt driven applications to avoid returning to empty main application." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="do not sleep when returning to thread mode"/>
+            <bitenum id="en_0b1" value="0x1" description="sleep on ISR exit"/>
+        </bitfield>
+        <bitfield id="SLEEPDEEP" description="Sleep deep bit." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="not OK to turn off system clock"/>
+            <bitenum id="en_0b1" value="0x1" description="indicates to the system that Cortex-M4 clock can be stopped. Setting this bit causes the SLEEPDEEP port to be asserted when the processor can be stopped."/>
+        </bitfield>
+        <bitfield id="SEVONPEND" description="When enabled, this causes WFE to wake up when an interrupt moves from inactive to pended. Otherwise, WFE only wakes up from an event signal, external and SEV instruction generated. The event input, RXEV, is registered even when not waiting for an event, and so effects the next WFE." begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="CCR" width="32" offset="0xD14" internal="0" description="Configuration Control Register">
+        <bitfield id="NONBASETHREDENA" description="When 0, default, It is only possible to enter Thread mode when returning from the last exception. When set to 1, Thread mode can be entered from any level in Handler mode by controlled return value." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="USERSETMPEND" description="If written as 1, enables user code to write the Software Trigger Interrupt register to trigger (pend) a Main exception, which is one associated with the Main stack pointer." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UNALIGN_TRP" description="Trap for unaligned access. This enables faulting/halting on any unaligned half or full word access. Unaligned load-store multiples always fault. The relevant Usage Fault Status Register bit is UNALIGNED." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DIV_0_TRP" description="Trap on Divide by 0. This enables faulting/halting when an attempt is made to divide by 0. The relevant Usage Fault Status Register bit is DIVBYZERO." begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BFHFNMIGN" description="When enabled, this causes handlers running at priority -1 and -2 (Hard Fault, NMI, and FAULTMASK escalated handlers) to ignore Data Bus faults caused by load and store instructions. When disabled, these bus faults cause a lock-up. You must only use this enable with extreme caution. All data bus faults are ignored therefore you must only use it when the handler and its data are in absolutely safe memory. Its normal use is to probe system devices and bridges to detect control path problems and fix them." begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="STKALIGN" description="Stack alignment bit." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Only 4-byte alignment is guaranteed for the SP used prior to the exception on exception entry."/>
+            <bitenum id="en_0b1" value="0x1" description="On exception entry, the SP used prior to the exception is adjusted to be 8-byte aligned and the context to restore it is saved. The SP is restored on the associated exception return."/>
+        </bitfield>
+    </register>
+    <register id="SHPR1" width="32" offset="0xD18" internal="0" description="System Handlers 4-7 Priority Register">
+        <bitfield id="PRI_4" description="Priority of system handler 4." begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_5" description="Priority of system handler 5." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_6" description="Priority of system handler 6." begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_7" description="Priority of system handler 7." begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SHPR2" width="32" offset="0xD1C" internal="0" description="System Handlers 8-11 Priority Register">
+        <bitfield id="PRI_8" description="Priority of system handler 8." begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_9" description="Priority of system handler 9." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_10" description="Priority of system handler 10." begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_11" description="Priority of system handler 11." begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SHPR3" width="32" offset="0xD20" internal="0" description="System Handlers 12-15 Priority Register">
+        <bitfield id="PRI_12" description="Priority of system handler 12." begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_13" description="Priority of system handler 13." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_14" description="Priority of system handler 14." begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_15" description="Priority of system handler 15." begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SHCSR" width="32" offset="0xD24" internal="0" description="System Handler Control and State Register">
+        <bitfield id="MEMFAULTACT" description="MemManage active flag." begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not active"/>
+            <bitenum id="en_0b1" value="0x1" description="active"/>
+        </bitfield>
+        <bitfield id="BUSFAULTACT" description="BusFault active flag." begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not active"/>
+            <bitenum id="en_0b1" value="0x1" description="active"/>
+        </bitfield>
+        <bitfield id="USGFAULTACT" description="UsageFault active flag." begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not active"/>
+            <bitenum id="en_0b1" value="0x1" description="active"/>
+        </bitfield>
+        <bitfield id="SVCALLACT" description="SVCall active flag." begin="7" end="7" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not active"/>
+            <bitenum id="en_0b1" value="0x1" description="active"/>
+        </bitfield>
+        <bitfield id="MONITORACT" description="the Monitor active flag." begin="8" end="8" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not active"/>
+            <bitenum id="en_0b1" value="0x1" description="active"/>
+        </bitfield>
+        <bitfield id="PENDSVACT" description="PendSV active flag." begin="10" end="10" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not active"/>
+            <bitenum id="en_0b1" value="0x1" description="active"/>
+        </bitfield>
+        <bitfield id="SYSTICKACT" description="SysTick active flag." begin="11" end="11" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not active"/>
+            <bitenum id="en_0b1" value="0x1" description="active"/>
+        </bitfield>
+        <bitfield id="USGFAULTPENDED" description="usage fault pended flag." begin="12" end="12" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not pended"/>
+            <bitenum id="en_0b1" value="0x1" description="pended"/>
+        </bitfield>
+        <bitfield id="MEMFAULTPENDED" description="MemManage pended flag." begin="13" end="13" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not pended"/>
+            <bitenum id="en_0b1" value="0x1" description="pended"/>
+        </bitfield>
+        <bitfield id="BUSFAULTPENDED" description="BusFault pended flag." begin="14" end="14" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not pended"/>
+            <bitenum id="en_0b1" value="0x1" description="pended"/>
+        </bitfield>
+        <bitfield id="SVCALLPENDED" description="SVCall pended flag." begin="15" end="15" width="1" rwaccess="R">
+            <bitenum id="en_0b0" value="0x0" description="not pended"/>
+            <bitenum id="en_0b1" value="0x1" description="pended"/>
+        </bitfield>
+        <bitfield id="MEMFAULTENA" description="MemManage fault system handler enable" begin="16" end="16" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="enabled"/>
+        </bitfield>
+        <bitfield id="BUSFAULTENA" description="Bus fault system handler enable" begin="17" end="17" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="enabled"/>
+        </bitfield>
+        <bitfield id="USGFAULTENA" description="Usage fault system handler enable" begin="18" end="18" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="enabled"/>
+        </bitfield>
+    </register>
+    <register id="CFSR" width="32" offset="0xD28" internal="0" description="Configurable Fault Status Registers">
+        <bitfield id="IACCVIOL" description="Instruction access violation flag. Attempting to fetch an instruction from a location that does not permit execution sets the IACCVIOL flag. This occurs on any access to an XN region, even when the MPU is disabled or not present. The return PC points to the faulting instruction. The MMAR is not written." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DACCVIOL" description="Data access violation flag. Attempting to load or store at a location that does not permit the operation sets the DACCVIOL flag. The return PC points to the faulting instruction. This error loads MMAR with the address of the attempted access." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MUNSTKERR" description="Unstack from exception return has caused one or more access violations. This is chained to the handler, so that the original return stack is still present. SP is not adjusted from failing return and new save is not performed. The MMAR is not written." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MSTKERR" description="Stacking from exception has caused one or more access violations. The SP is still adjusted and the values in the context area on the stack might be incorrect. The MMAR is not written." begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MMARVALID" description="Memory Manage Address Register (MMAR) address valid flag. A later-arriving fault, such as a bus fault, can clear a memory manage fault.. If a MemManage fault occurs that is escalated to a Hard Fault because of priority, the Hard Fault handler must clear this bit. This prevents problems on return to a stacked active MemManage handler whose MMAR value has been overwritten." begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="IBUSERR" description="Instruction bus error flag. The IBUSERR flag is set by a prefetch error. The fault stops on the instruction, so if the error occurs under a branch shadow, no fault occurs. The BFAR is not written." begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRECISERR" description="Precise data bus error return." begin="9" end="9" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="IMPRECISERR" description="Imprecise data bus error. It is a BusFault, but the Return PC is not related to the causing instruction. This is not a synchronous fault. So, if detected when the priority of the current activation is higher than the Bus Fault, it only pends. Bus fault activates when returning to a lower priority activation. If a precise fault occurs before returning to a lower priority exception, the handler detects both IMPRECISERR set and one of the precise fault status bits set at the same time. The BFAR is not written." begin="10" end="10" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UNSTKERR" description="Unstack from exception return has caused one or more bus faults. This is chained to the handler, so that the original return stack is still present. SP is not adjusted from failing return and new save is not performed. The BFAR is not written." begin="11" end="11" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="STKERR" description="Stacking from exception has caused one or more bus faults. The SP is still adjusted and the values in the context area on the stack might be incorrect. The BFAR is not written." begin="12" end="12" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BFARVALID" description="This bit is set if the Bus Fault Address Register (BFAR) contains a valid address. This is true after a bus fault where the address is known. Other faults can clear this bit, such as a Mem Manage fault occurring later. If a Bus fault occurs that is escalated to a Hard Fault because of priority, the Hard Fault handler must clear this bit. This prevents problems if returning to a stacked active Bus fault handler whose BFAR value has been overwritten." begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UNDEFINSTR" description="The UNDEFINSTR flag is set when the processor attempts to execute an undefined instruction. This is an instruction that the processor cannot decode. The return PC points to the undefined instruction." begin="16" end="16" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="INVSTATE" description="Invalid combination of EPSR and instruction, for reasons other than UNDEFINED instruction. Return PC points to faulting instruction, with the invalid state." begin="17" end="17" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="INVPC" description="Attempt to load EXC_RETURN into PC illegally. Invalid instruction, invalid context, invalid value. The return PC points to the instruction that tried to set the PC." begin="18" end="18" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="NOCP" description="Attempt to use a coprocessor instruction. The processor does not support coprocessor instructions." begin="19" end="19" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UNALIGNED" description="When UNALIGN_TRP is enabled (see Configuration Control Register on page 8-26), and there is an attempt to make an unaligned memory access, then this fault occurs. Unaligned LDM/STM/LDRD/STRD instructions always fault irrespective of the setting of UNALIGN_TRP." begin="24" end="24" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DIVBYZERO" description="When DIV_0_TRP (see Configuration Control Register on page 8-26) is enabled and an SDIV or UDIV instruction is used with a divisor of 0, this fault occurs The instruction is executed and the return PC points to it. If DIV_0_TRP is not set, then the divide returns a quotient of 0." begin="25" end="25" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MLSPERR" description="Indicates if MemManage fault occurred during FP lazy state preservation." begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LSPERR" description="Indicates if bus fault occurred during FP lazy state preservation." begin="13" end="13" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="HFSR" width="32" offset="0xD2C" internal="0" description="Hard Fault Status Register">
+        <bitfield id="VECTTBL" description="This bit is set if there is a fault because of vector table read on exception processing (Bus Fault). This case is always a Hard Fault. The return PC points to the pre-empted instruction." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="FORCED" description="Hard Fault activated because a Configurable Fault was received and cannot activate because of priority or because the Configurable Fault is disabled. The Hard Fault handler then has to read the other fault status registers to determine cause." begin="30" end="30" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DEBUGEVT" description="This bit is set if there is a fault related to debug. This is only possible when halting debug is not enabled. For monitor enabled debug, it only happens for BKPT when the current priority is higher than the monitor. When both halting and monitor debug are disabled, it only happens for debug events that are not ignored (minimally, BKPT). The Debug Fault Status Register is updated." begin="31" end="31" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="DFSR" width="32" offset="0xD30" internal="0" description="Debug Fault Status Register">
+        <bitfield id="HALTED" description="Halt request flag. The processor is halted on the next instruction." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="no halt request"/>
+            <bitenum id="en_0b1" value="0x1" description="halt requested by NVIC, including step"/>
+        </bitfield>
+        <bitfield id="BKPT" description="BKPT flag. The BKPT flag is set by a BKPT instruction in flash patch code, and also by normal code. Return PC points to breakpoint containing instruction." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="no BKPT instruction execution"/>
+            <bitenum id="en_0b1" value="0x1" description="BKPT instruction execution"/>
+        </bitfield>
+        <bitfield id="DWTTRAP" description="Data Watchpoint and Trace (DWT) flag. The processor stops at the current instruction or at the next instruction." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="no DWT match"/>
+            <bitenum id="en_0b1" value="0x1" description="DWT match"/>
+        </bitfield>
+        <bitfield id="VCATCH" description="Vector catch flag. When the VCATCH flag is set, a flag in one of the local fault status registers is also set to indicate the type of fault." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="no vector catch occurred"/>
+            <bitenum id="en_0b1" value="0x1" description="vector catch occurred"/>
+        </bitfield>
+        <bitfield id="EXTERNAL" description="External debug request flag. The processor stops on next instruction boundary." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="EDBGRQ signal not asserted"/>
+            <bitenum id="en_0b1" value="0x1" description="EDBGRQ signal asserted"/>
+        </bitfield>
+    </register>
+    <register id="MMFAR" width="32" offset="0xD34" internal="0" description="Mem Manage Fault Address Register">
+    </register>
+    <register id="BFAR" width="32" offset="0xD38" internal="0" description="Bus Fault Address Register">
+    </register>
+    <register id="AFSR" width="32" offset="0xD3C" internal="0" description="Auxiliary Fault Status Register">
+    </register>
+    <register id="PFR0" width="32" offset="0xD40" internal="0" description="Processor Feature register0">
+        <bitfield id="STATE0" description="State0 (T-bit == 0)" begin="3" end="0" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no ARM encoding"/>
+            <bitenum id="en_0b0001" value="0x1" description="N/A"/>
+        </bitfield>
+        <bitfield id="STATE1" description="State1 (T-bit == 1)" begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="N/A"/>
+            <bitenum id="en_0b0001" value="0x1" description="N/A"/>
+            <bitenum id="en_0b0010" value="0x2" description="Thumb-2 encoding with the 16-bit basic instructions plus 32-bit Buncond/BL but no other 32-bit basic instructions (Note non-basic 32-bit instructions can be added using the appropriate instruction attribute, but other 32-bit basic instructions cannot.)"/>
+            <bitenum id="en_0b0011" value="0x3" description="Thumb-2 encoding with all Thumb-2 basic instructions"/>
+        </bitfield>
+    </register>
+    <register id="PFR1" width="32" offset="0xD44" internal="0" description="Processor Feature register1">
+        <bitfield id="MICROCONTROLLER_PROGRAMMERS_MODEL" description="Microcontroller programmer's model" begin="11" end="8" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="not supported"/>
+            <bitenum id="en_0b0010" value="0x2" description="two-stack support"/>
+        </bitfield>
+    </register>
+    <register id="DFR0" width="32" offset="0xD48" internal="0" description="Debug Feature register0">
+        <bitfield id="MICROCONTROLLER_DEBUG_MODEL" description="Microcontroller Debug Model - memory mapped" begin="23" end="20" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="not supported"/>
+            <bitenum id="en_0b0001" value="0x1" description="Microcontroller debug v1 (ITMv1, DWTv1, optional ETM)"/>
+        </bitfield>
+    </register>
+    <register id="AFR0" width="32" offset="0xD4C" internal="0" description="Auxiliary Feature register0">
+    </register>
+    <register id="MMFR0" width="32" offset="0xD50" internal="0" description="Memory Model Feature register0">
+        <bitfield id="PMSA_SUPPORT" description="PMSA support" begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="not supported"/>
+            <bitenum id="en_0b0001" value="0x1" description="IMPLEMENTATION DEFINED (N/A)"/>
+            <bitenum id="en_0b0010" value="0x2" description="PMSA base (features as defined for ARMv6) (N/A)"/>
+            <bitenum id="en_0b0011" value="0x3" description="PMSAv7 (base plus subregion support)"/>
+        </bitfield>
+        <bitfield id="CACHE_COHERENCE_SUPPORT" description="Cache coherence support" begin="11" end="8" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no shared support"/>
+            <bitenum id="en_0b0001" value="0x1" description="partial-inner-shared coherency (coherency amongst some - but not all - of the entities within an inner-coherent domain)"/>
+            <bitenum id="en_0b0010" value="0x2" description="full-inner-shared coherency (coherency amongst all of the entities within an inner-coherent domain)"/>
+            <bitenum id="en_0b0011" value="0x3" description="full coherency (coherency amongst all of the entities)"/>
+        </bitfield>
+        <bitfield id="OUTER_NON_SHARABLE_SUPPORT" description="Outer non-sharable support" begin="15" end="12" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="Outer non-sharable not supported"/>
+            <bitenum id="en_0b0001" value="0x1" description="Outer sharable supported"/>
+        </bitfield>
+        <bitfield id="AUXILIARY_REGISTER_SUPPORT" description="Auxiliary register support" begin="23" end="20" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="not supported"/>
+            <bitenum id="en_0b0001" value="0x1" description="Auxiliary control register"/>
+        </bitfield>
+    </register>
+    <register id="MMFR1" width="32" offset="0xD54" internal="0" description="Memory Model Feature register1">
+    </register>
+    <register id="MMFR2" width="32" offset="0xD58" internal="0" description="Memory Model Feature register2">
+        <bitfield id="WAIT_FOR_INTERRUPT_STALLING" description="wait for interrupt stalling" begin="27" end="24" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="not supported"/>
+            <bitenum id="en_0b0001" value="0x1" description="wait for interrupt supported"/>
+        </bitfield>
+    </register>
+    <register id="MMFR3" width="32" offset="0xD5C" internal="0" description="Memory Model Feature register3">
+    </register>
+    <register id="ISAR0" width="32" offset="0xD60" internal="0" description="ISA Feature register0">
+        <bitfield id="BITCOUNT_INSTRS" description="BitCount instructions" begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no bit-counting instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds CLZ"/>
+        </bitfield>
+        <bitfield id="BITFIELD_INSTRS" description="BitField instructions" begin="11" end="8" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no bitfield instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds BFC, BFI, SBFX, UBFX"/>
+        </bitfield>
+        <bitfield id="CMPBRANCH_INSTRS" description="CmpBranch instructions" begin="15" end="12" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no combined compare-and-branch instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds CB{N}Z"/>
+        </bitfield>
+        <bitfield id="COPROC_INSTRS" description="Coprocessor instructions" begin="19" end="16" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no coprocessor support, other than for separately attributed architectures such as CP15 or VFP"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds generic CDP, LDC, MCR, MRC, STC"/>
+            <bitenum id="en_0b0010" value="0x2" description="adds generic CDP2, LDC2, MCR2, MRC2, STC2"/>
+            <bitenum id="en_0b0011" value="0x3" description="adds generic MCRR, MRRC"/>
+            <bitenum id="en_0b0100" value="0x4" description="adds generic MCRR2, MRRC2"/>
+        </bitfield>
+        <bitfield id="DEBUG_INSTRS" description="Debug instructions" begin="23" end="20" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no debug instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds BKPT"/>
+        </bitfield>
+        <bitfield id="DIVIDE_INSTRS" description="Divide instructions" begin="27" end="24" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no divide instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds SDIV, UDIV (v1 quotient only result)"/>
+        </bitfield>
+    </register>
+    <register id="ISAR1" width="32" offset="0xD64" internal="0" description="ISA Feature register1">
+        <bitfield id="EXTEND_INSRS" description="Extend instructions. Note that the shift options on these instructions are also controlled by the WithShifts_instrs attribute." begin="15" end="12" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no scalar (i.e. non-SIMD) sign/zero-extend instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds SXTB, SXTH, UXTB, UXTH"/>
+            <bitenum id="en_0b0010" value="0x2" description="N/A"/>
+        </bitfield>
+        <bitfield id="IFTHEN_INSTRS" description="IfThen instructions" begin="19" end="16" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="IT instructions not present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds IT instructions (and IT bits in PSRs)"/>
+        </bitfield>
+        <bitfield id="IMMEDIATE_INSTRS" description="Immediate instructions" begin="23" end="20" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no special immediate-generating instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds ADDW, MOVW, MOVT, SUBW"/>
+        </bitfield>
+        <bitfield id="INTERWORK_INSTRS" description="Interwork instructions" begin="27" end="24" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no interworking instructions supported"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds BX (and T bit in PSRs)"/>
+            <bitenum id="en_0b0010" value="0x2" description="adds BLX, and PC loads have BX-like behavior"/>
+            <bitenum id="en_0b0011" value="0x3" description="N/A"/>
+        </bitfield>
+    </register>
+    <register id="ISAR2" width="32" offset="0xD68" internal="0" description="ISA Feature register2">
+        <bitfield id="LOADSTORE_INSTRS" description="LoadStore instructions" begin="3" end="0" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no additional normal load/store instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds LDRD/STRD"/>
+        </bitfield>
+        <bitfield id="MEMHINT_INSTRS" description="MemoryHint instructions" begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no memory hint instructions presen"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds PLD"/>
+            <bitenum id="en_0b0010" value="0x2" description="adds PLD (ie a repeat on value 1)"/>
+            <bitenum id="en_0b0011" value="0x3" description="adds PLI"/>
+        </bitfield>
+        <bitfield id="MULTIACCESSINT_INSTRS" description="Multi-Access interruptible instructions" begin="11" end="8" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="the (LDM/STM) instructions are non-interruptible"/>
+            <bitenum id="en_0b0001" value="0x1" description="the (LDM/STM) instructions are restartable"/>
+            <bitenum id="en_0b0010" value="0x2" description="the (LDM/STM) instructions are continuable"/>
+        </bitfield>
+        <bitfield id="MULT_INSTRS" description="Multiply instructions" begin="15" end="12" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="only MUL present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds MLA"/>
+            <bitenum id="en_0b0010" value="0x2" description="adds MLS"/>
+        </bitfield>
+        <bitfield id="MULTS_INSTRS" description="Multiply instructions (advanced, signed)" begin="19" end="16" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no signed multiply instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds SMULL, SMLAL"/>
+            <bitenum id="en_0b0010" value="0x2" description="N/A"/>
+            <bitenum id="en_0b0011" value="0x3" description="N/A"/>
+        </bitfield>
+        <bitfield id="MULTU_INSTRS" description="Multiply instructions (advanced, unsigned)" begin="23" end="20" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no unsigned multiply instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds UMULL, UMLAL"/>
+            <bitenum id="en_0b0010" value="0x2" description="N/A"/>
+        </bitfield>
+        <bitfield id="REVERSAL_INSTRS" description="Reversal instructions" begin="31" end="28" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no reversal instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds REV, REV16, REVSH"/>
+            <bitenum id="en_0b0010" value="0x2" description="adds RBIT"/>
+        </bitfield>
+    </register>
+    <register id="ISAR3" width="32" offset="0xD6C" internal="0" description="ISA Feature register3">
+        <bitfield id="SATRUATE_INSTRS" description="Saturate instructions" begin="3" end="0" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no non-SIMD saturate instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="N/A"/>
+        </bitfield>
+        <bitfield id="SIMD_INSTRS" description="SIMD instructions" begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no SIMD instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds SSAT, USAT (and the Q flag in the PSRs)"/>
+            <bitenum id="en_0b0011" value="0x3" description="N/A"/>
+        </bitfield>
+        <bitfield id="SVC_INSTRS" description="SVC instructions" begin="11" end="8" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no SVC (SWI) instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds SVC (SWI)"/>
+        </bitfield>
+        <bitfield id="SYNCPRIM_INSTRS" description="SyncPrim instructions. Note there are no LDREXD or STREXD in ARMv7-M. This attribute is used in conjunction with the SyncPrim_instrs_frac attribute in ID_ISAR4[23:20]." begin="15" end="12" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no synchronization primitives present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds LDREX, STREX"/>
+            <bitenum id="en_0b0010" value="0x2" description="adds LDREXB, LDREXH, LDREXD, STREXB, STREXH, STREXD, CLREX(N/A)"/>
+        </bitfield>
+        <bitfield id="TABBRANCH_INSTRS" description="TableBranch instructions" begin="19" end="16" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no table-branch instructions present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds TBB, TBH"/>
+        </bitfield>
+        <bitfield id="THUMBCOPY_INSTRS" description="ThumbCopy instructions" begin="23" end="20" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="Thumb MOV(register) instruction does not allow low reg - low reg"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds Thumb MOV(register) low reg - low reg and the CPY alias"/>
+        </bitfield>
+        <bitfield id="TRUENOP_INSTRS" description="TrueNOP instructions" begin="27" end="24" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="true NOP instructions not present - that is, NOP instructions with no register dependencies"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds &quot;true NOP&quot;, and the capability of additional &quot;NOP compatible hints&quot;"/>
+        </bitfield>
+    </register>
+    <register id="ISAR4" width="32" offset="0xD70" internal="0" description="ISA Feature register4">
+        <bitfield id="UNPRIV_INSTRS" description="Unprivileged instructions" begin="3" end="0" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no &quot;T variant&quot; instructions exist"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds LDRBT, LDRT, STRBT, STRT"/>
+            <bitenum id="en_0b0010" value="0x2" description="adds LDRHT, LDRSBT, LDRSHT, STRHT"/>
+        </bitfield>
+        <bitfield id="WITHSHIFTS_INSTRS" description="WithShift instructions. Note that all additions only apply in cases where the encoding supports them - e.g. there is no difference between levels 3 and 4 in the Thumb-2 instruction set. Also note that MOV instructions with shift options should instead be treated as ASR, LSL, LSR, ROR or RRX instructions." begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="non-zero shifts only support MOV and shift instructions (see notes)"/>
+            <bitenum id="en_0b0001" value="0x1" description="shifts of loads/stores over the range LSL 0-3"/>
+            <bitenum id="en_0b0010" value="0x3" description="adds other constant shift options."/>
+            <bitenum id="en_0b0100" value="0x4" description="adds register-controlled shift options."/>
+        </bitfield>
+        <bitfield id="WRITEBACK_INSTRS" description="Writeback instructions" begin="11" end="8" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="only non-writeback addressing modes present, except that LDMIA/STMDB/PUSH/POP instructions support writeback addressing."/>
+            <bitenum id="en_0b0001" value="0x1" description="adds all currently-defined writeback addressing modes (ARMv7, Thumb-2)"/>
+        </bitfield>
+        <bitfield id="BARRIER_INSTRS" description="Barrier instructions" begin="19" end="16" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no barrier instructions supported"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds DMB, DSB, ISB barrier instructions"/>
+        </bitfield>
+        <bitfield id="SYNCPRIM_INSTRS_FRAC" description="SyncPrim_instrs_frac" begin="23" end="20" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no additional support"/>
+            <bitenum id="en_0b0011" value="0x3" description="adds CLREX, LDREXB, STREXB, LDREXH, STREXH"/>
+        </bitfield>
+        <bitfield id="PSR_M_INSTRS" description="PSR_M_instrs" begin="27" end="24" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="instructions not present"/>
+            <bitenum id="en_0b0001" value="0x1" description="adds CPS, MRS, and MSR instructions (M-profile forms)"/>
+        </bitfield>
+    </register>
+    <register id="CPACR" width="32" offset="0xD88" internal="0" description="Coprocessor Access Control Register">
+        <bitfield id="CP11" description="Access privileges for coprocessor 11. The possible values of each field are: 0b00 = Access denied. Any attempted access generates a NOCP UsageFault. 0b01 = Privileged access only. An unprivileged access generates a NOCP UsageFault. 0b10 = Reserved. 0b11 = Full access. Used in conjunction with the control for CP10, this controls access to the Floating Point Coprocessor." begin="23" end="22" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CP10" description="Access privileges for coprocessor 10. The possible values of each field are: 0b00 = Access denied. Any attempted access generates a NOCP UsageFault. 0b01 = Privileged access only. An unprivileged access generates a NOCP UsageFault. 0b10 = Reserved. 0b11 = Full access. Used in conjunction with the control for CP11, this controls access to the Floating Point Coprocessor." begin="21" end="20" width="2" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>

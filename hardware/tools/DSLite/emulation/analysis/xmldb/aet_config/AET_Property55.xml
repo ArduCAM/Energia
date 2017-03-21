@@ -1,0 +1,1176 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+
+<!--*****************************************************************************-->
+<!--                       FIRST LEVEL OF FUNCTION LIST                          -->
+<!-- This property presents all the supported functions to UBM and has a default -->
+<!-- value of Breakpoint. Every time UBM creates a operation and calls           -->
+<!-- Operation::GetProperties()this property will be returned.                   -->
+<!-- The menu item showed by UBM will be look like:                              -->
+<!--                                                                             -->
+<!--     Type | Breakpoint         |                                             -->
+<!--          | Chained Breakpoint |                                             -->
+<!--          | Watchpoint         |                                             -->
+<!--          | Trace              |                                             -->
+<!--          | Count Event        |                                             -->
+<!--          | Data Access Count  |                                             -->
+<!--          | Watchdog Timer     |                                             -->
+<!--                                                                             -->
+<!-- For different device different set of functions will be listed              -->
+<!-- Mapping of The Fields:                                                      -->
+<!--    NAME         - IProperty::GetName()                                      -->
+<!--    DESCRIPTION  - IProperty::GetDescription()                               -->
+<!--    ALLOWEDLIST  - IStringProperty::GetAllowedValues()                       -->
+<!-- Other definitions:                                                          -->
+<!--    ALLOWEDITEM  - defines an item of allowed values                         -->
+<!--    ALLOWED_KEY  - defines the child key when this allowed value is selected -->
+<!--    ALLOWED_HALT - defines if the function halts CPU                         -->
+<!--    ALLOWED_STRING - allowed string value                                    -->
+<!-- Every time a allowed value is selected as the value of StringProperty, the  -->
+<!-- CHILDKEY will be changed. The new CHILDKEY will be used to update the child -->
+<!-- property of the StringProperty                                              -->
+<!--*****************************************************************************-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+ 	  <DESCRIPTION>Display all the AET functions</DESCRIPTION>	
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Watchpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>CHAINED BP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Chained Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE</ALLOWED_KEY>
+			<ALLOWED_STRING>Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>COUNT EVT</ALLOWED_KEY>
+			<ALLOWED_STRING>Count Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>COUNT DATA</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Access Count</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PROFILE_CYCLES</ALLOWED_KEY>
+			<ALLOWED_STRING>Profile Cycles</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WATCHDOG</ALLOWED_KEY>
+			<ALLOWED_STRING>Watchdog Timer</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--           Indicator of precise or imprecise breakpoint/watchpoint           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Precise Status</NAME>	
+ 	  <DESCRIPTION>Indicator of precisely or imprecisely halt CPU</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <VALUE>Imprecise</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                          Actions for Standard Trace                         -->
+<!-- The options of the action is depended on the trace type. This property      -->
+<!-- is put at the same level of Trace Type.                                     -->
+<!--         Action                                                              -->
+<!--           |--> Trace On                                                     -->
+<!--           |--> Start Trace                                                  -->
+<!--           |--> End Trace                                                    -->
+<!--           |--> Trace in Range                                               -->
+<!--           |--> Don't Trace in Range                                         -->
+<!--           |--> Insert Trace Marker                                          -->
+<!--           |--> End All Trace                                                -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Actions</NAME>	
+ 	  <DESCRIPTION>Trace action list</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TRACE</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE ON DATA</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA ALWAYS ON</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace On</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Start Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>END TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>End Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Don't Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Store Sample</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA NO WHAT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Insert Trace Marker</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA NO WHAT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>End All Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                        Trigger Type for AET Actions                         -->
+<!-- This property defines the selection of a trigger for the AET actions.       -->
+<!-- Trigger Type can be PC, Data Memory and any type of event (combination).    -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trigger Type</NAME>	
+ 	  <DESCRIPTION>Option of PC, memory address, or event as action trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER EVENT</ALLOWED_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Trigger Type</NAME>	
+ 	  <DESCRIPTION>Option of PC, memory address, or event as action trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>END TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA NO WHAT</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER PC LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>PC</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER EVENT</ALLOWED_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--****************************************************************************************-->
+<!--                                Properties for PC Access.                               -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                           PC Address Value                                  -->
+<!-- This location will be the child property for defining a location. There are -->
+<!-- some new fields defined by this unit.                                       -->
+<!--    KEYNAME   - defines the key of the unit. Parent unit will use this key   -->
+<!--                to attach sub properties.                                    -->
+<!--    KEYNUMBER - defines the position of this property in the sub property    -->
+<!--                list.                                                        -->
+<!--    ENUMVALUE - defines the enum value of the signal or action.              -->
+<!--    VALUE     - default value of the address                                 -->
+<!--    PAGE      - default page number                                          -->
+<!--                                                                             -->
+<!-- This unit defines a location property that will attach to the property      -->
+<!-- associated with the child key HWBP, HWAP, TRACE LOCATION.                   -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER PC LOCATION</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <RANGE_HI>0xffffff</RANGE_HI>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                         Chained PC Address Value 1                          -->
+<!-- This is another unit to define a location with a key of CHAINED BP. The     -->
+<!-- ENUNUMBER indicates it is the first location of a chained BP.               -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>First Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CHAINED BP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <RANGE_HI>0xffffff</RANGE_HI>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                         Chained PC Address Value 2                          -->
+<!-- This is another unit to define a location with a key of CHAINED BP. The     -->
+<!-- ENUNUMBER indicates it is the second location of a chained BP.              -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Second Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CHAINED BP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <RANGE_HI>0xffffff</RANGE_HI>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+	
+<!--=============================================================================-->
+<!--                 Skip Count Value for Trace Address Trigger                  -->
+<!--    DISPLAYTYPE - IIntegerProperty::SetDisplaySuggestion()                   -->
+<!--         Action                                                              -->
+<!--           |--> End All Trace                                                -->
+<!--         Location        |   0x######     |                                  -->
+<!--         Skip Count      |   0            |                                  -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trigger Skip/Delay</NAME>	
+ 	  <DESCRIPTION>Trigger the action by skipping a number of occurrences or after delay a number of clock cycles</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER PC LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER EVENT</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SKIP OCCURRENCES</ALLOWED_KEY>
+			<ALLOWED_STRING>Skip</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SKIP CYCLES</ALLOWED_KEY>
+			<ALLOWED_STRING>Delay</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Skip Count</NAME>	
+ 	  <DESCRIPTION>Value of occurrences to skip</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SKIP OCCURRENCES</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>1</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Cycle Count</NAME>	
+ 	  <DESCRIPTION>Value of clock cycles to delay</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SKIP CYCLES</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>1</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	</PROPERTY_INTEGER>
+
+<!--****************************************************************************************-->
+<!--                                Properties for Memory Access                            -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                                 Memory Mode                                 -->
+<!--                                                                             -->
+<!-- This unit defines the option of watch point with data value.                -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--          With Data      | No              |                                 -->
+<!--                         | Yes             |                                 -->
+<!--          Memroy Mode    | Byte Mode       |                                 -->
+<!--                         | Word Mode       |                                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Memory Mode</NAME>	
+ 	  <DESCRIPTION>Application memory mode</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>Word Mode</VALUE>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Byte Mode</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Word Mode</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+<!--=============================================================================-->
+<!--                       Point or Range Address Selection                      -->
+<!-- This is the bridge of defining a memory access type. It allows the          -->
+<!-- selection of either point or range memory access.                           -->
+<!--                                                                             -->
+<!--     Type             | Watchpoint      |                                    -->
+<!--       Location Type  | Point           |                                    -->
+<!--                      | Range           |                                    -->
+<!--                                                                             -->
+<!-- It defines a sub property for HW watch point, data action point, count      -->
+<!-- data access and trace variable function property.                           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Location Type</NAME>	
+ 	  <DESCRIPTION>Options of watch point at a point or in a range</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP AT POINT</ALLOWED_KEY>
+			<ALLOWED_STRING>Point</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP IN RANGE</ALLOWED_KEY>
+			<ALLOWED_STRING>Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+
+<!--=============================================================================-->
+<!--                           Memory Address                                    -->
+<!-- Address for point memory access.                                            -->
+<!--                                                                             -->
+<!--     Type             | Watchpoint      |                                    -->
+<!--       Location Type  | Point           |                                    -->
+<!--                      | Range           |                                    -->
+<!--          Location    | 0x00000000      |                                    -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Location</NAME>	
+ 	  <DESCRIPTION>Reference value of data memory location</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP AT POINT</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <VALUE>0</VALUE>
+	  <RANGE_HI>0xffffff</RANGE_HI>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                           Type of Access                                    -->
+<!-- Choice of read or write access. This unit defines the option for HW watch   -->
+<!-- point, data action point, data access count, data trace.                    -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Memory</NAME>	
+ 	  <DESCRIPTION>Data memory write access</DESCRIPTION>		
+  	  <VALUE>Write</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>DATAAP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Write</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Read</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                           Access Width                                      -->
+<!-- This unit defines the access width option for HW watch point, data action   -->
+<!-- point, data access count, data trace.                                       -->
+<!--     CHILDKEY - key for the sub properties attached to it.                   -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--               64 bit        X                                               -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Access Width</NAME>	
+ 	  <DESCRIPTION>Memory access type</DESCRIPTION>	
+	  <VALUE>(Open to select)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>DATAAP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <CHILDKEY>ACCESSSIZE</CHILDKEY>	<!-- The key point to access size -->
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                           Check Box of 8 Bit                                -->
+<!-- This unit defines a check box of the name "8 Bit". The default value is 1.  -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>8 Bit</NAME>	
+ 	  <DESCRIPTION>8 bit memory access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ACCESSSIZE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                           Check Box of 16 Bit                               -->
+<!-- This unit defines a check box of the name "16 Bit". The default value is 1. -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>16 Bit</NAME>	
+ 	  <DESCRIPTION>16 bit memory access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ACCESSSIZE</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                           Check Box of 32 Bit                               -->
+<!-- This unit defines a check box of the name "32 Bit". The default value is 1. -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>32 Bit</NAME>	
+ 	  <DESCRIPTION>32 bit memory access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ACCESSSIZE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                        Watch With Data Value                                -->
+<!-- This unit defines the option of watch point with data value.                -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--          With Data      | No              |                                 -->
+<!--                         | Yes             |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>With Data</NAME>	
+ 	  <DESCRIPTION>Watch memory access with defined data value</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP DATA</ALLOWED_KEY>      <!-- The key point to data and mask -->
+			<ALLOWED_SAMELEVEL_KEY>KEY FOR DATA SIZE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Yes</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                        Data Value of the Watchpoint                        -->
+<!-- This unit defines the option of data value for a watch point.               -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--          With Data      | No              |                                 -->
+<!--                         | Yes             |                                 -->
+<!--              Data Value | 0x00000000      |                                 -->
+<!--              Data Mask  | 0x00000000      |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Data Value</NAME>	
+ 	  <DESCRIPTION>Data value to watch together memory location</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP DATA</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                        Data Mask of the Watchpoint                         -->
+<!-- This unit defines the option of data mask for a watch point.                -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Data Mask</NAME>	
+ 	  <DESCRIPTION>Data mask for interested data bit</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP DATA</KEYNAME>	
+		  <KEYNUMBER>9</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0xFFFFFFFF</VALUE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                        Data Size for Memory Data                            -->
+<!-- This unit defines a reference size of memory data.                          -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8  Bit        X                                               -->
+<!--               16 Bit        X                                               -->
+<!--               32 Bit        X                                               -->
+<!--          With Data      | No              |                                 -->
+<!--                         | Yes             |                                 -->
+<!--              Data Value | 0x00000000      |                                 -->
+<!--              Data Mask  | 0x00000000      |                                 -->
+<!--          Data Size      | 8  Bit          |                                 -->
+<!--                         | 16 Bit          |                                 -->
+<!--                         | 32 Bit          |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Data Size</NAME>	
+ 	  <DESCRIPTION>Data size for memory location</DESCRIPTION>		
+  	  <VALUE>16 Bit</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>KEY FOR DATA SIZE</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>8 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>16 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>32 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                       Actions of PC/Data Action Point                       -->
+<!--                                                                             -->
+<!--     Action Type                                                             -->
+<!--        Halt CPU                                                             -->
+<!--        Drive EMU Pin                                                        -->
+<!--             |--> EMU Pin Number | EMU 0   |                                 -->
+<!--                                 | EMU 1   |                                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Action Type</NAME>	
+ 	  <DESCRIPTION>Actions to perform at the defined PC address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <CHILDKEY>APACTION</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Halt CPU</NAME>	
+ 	  <DESCRIPTION>Action of Halt CPU</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>APACTION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Drive EMU Pin</NAME>	
+ 	  <DESCRIPTION>Action of Drive EMU Pin to Low</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>APACTION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>EMUPIN_NUM</CHILDKEY>	
+	</PROPERTY_BOOL>
+
+	<PROPERTY_STRING>
+	  <NAME>EMU Pin Number</NAME>	
+ 	  <DESCRIPTION>EMU Pin to Drive</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EMUPIN_NUM</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMU0</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMU1</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--****************************************************************************************-->
+<!--                                Properties for Count                                    -->
+<!--                                                                                        -->
+<!--     Type                | Event Count     |                                            -->
+<!--       Result            | 0x00000000      |                                            -->
+<!--       Overflow            O  false                                                     -->
+<!--       Counter Size      | 32 Bit          |                                            -->
+<!--                         | 64 Bit          |                                            -->
+<!--       Global Cateory    | Memory/Stall/System  |                                       -->
+<!--           L1P Read Hit  X   True                                                       -->
+<!--             SRAM        X   True                                                       -->
+<!--             Cache       X   True                                                       -->
+<!--           L1P Read Miss O   False                                                      -->
+<!--           ......................                                                       -->
+<!--       In PC Range       | Yes(No)         |                                            -->
+<!--          Start Location | 0x00000000      |                                            -->
+<!--          End Location   | 0x00000000      |                                            -->
+<!--          Range Type     | Exclusive/Inclusive |                                        -->
+<!--                                                                                        -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                      Not Editable Counter Value                             -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Current Count</NAME>	
+ 	  <DESCRIPTION>Value of the count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	      <!-- Key of sub property for Count Data Access -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE_CYCLES</KEYNAME>	       <!-- Key for profile cycles    -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                      Not Editable Overflow Flag                             -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Overflow</NAME>	
+ 	  <DESCRIPTION>Overflow status</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	      <!-- Key of sub property for Count Data Access -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE_CYCLES</KEYNAME>	       <!-- Key for profile cycles    -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                                Count Size                                   -->
+<!-- This unit defines a count size for count data access and event profile.     -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Counter Size</NAME>	
+ 	  <DESCRIPTION>Set counter size</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	      
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>16 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>32 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                                Event List                                   -->
+<!-- This unit defines option of event to count.                                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>System Event</NAME>	
+ 	  <DESCRIPTION>Event list to count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER EVENT</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Intruction Cache Miss</ALLOWED_STRING>             
+			<ALLOWED_ENUM>91</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Pipeline Protection Unit Stall</ALLOWED_STRING>              
+			<ALLOWED_ENUM>92</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Instruction Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>93</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Data Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>94</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Instruction</ALLOWED_STRING>
+			<ALLOWED_ENUM>95</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt Acknowledge</ALLOWED_STRING>
+			<ALLOWED_ENUM>14</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>IDEL</ALLOWED_STRING>
+			<ALLOWED_ENUM>96</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Memory Access</ALLOWED_STRING>
+			<ALLOWED_ENUM>97</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Abort</ALLOWED_STRING>
+			<ALLOWED_ENUM>98</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ET0</ALLOWED_STRING>
+			<ALLOWED_ENUM>57</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ET1</ALLOWED_STRING>
+			<ALLOWED_ENUM>58</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                             In PC Range Option                              -->
+<!-- This unit defines option in PC range.                                       -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>In PC Range</NAME>	
+ 	  <DESCRIPTION>Define a PC range for counting</DESCRIPTION>		
+  	  <VALUE>No</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	                       
+		  <KEYNUMBER>20</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PC RANGE</ALLOWED_KEY>
+			<ALLOWED_STRING>Yes</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                          Start Location of PC Range                         -->
+<!-- This unit defines the start location of a PC range.                         -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Start Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PC RANGE</KEYNAME>	       <!-- Key for count in PC range -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE RANGE</KEYNAME>	   <!-- Key for trace in range    -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WATCHDOG</KEYNAME>	       <!-- Key for watchdog timer    -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP IN RANGE</KEYNAME>	   <!-- Key for range HW watch point -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE_CYCLES</KEYNAME>	       <!-- Key for profile cycles    -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                          End Location of PC Range                           -->
+<!-- This unit defines the End location of a PC range.                           -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>End Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PC RANGE</KEYNAME>	       <!-- Key for count in PC range -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE RANGE</KEYNAME>	   <!-- Key for trace in range    -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WATCHDOG</KEYNAME>	       <!-- Key for watchdog timer    -->
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE_CYCLES</KEYNAME>	       <!-- Key for profile cycles    -->
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP IN RANGE</KEYNAME>	   <!-- Key for range HW watch point -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>4</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+	
+<!--=============================================================================-->
+<!--                   Expiration Time for Watchdog Timer                        -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Expiration Time</NAME>	
+ 	  <DESCRIPTION>The clock cycle limit for the range</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>WATCHDOG</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>10</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                          Option of Range Type                               -->
+<!-- This unit defines the range type of the PC range.                           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Range Type</NAME>	
+ 	  <DESCRIPTION>Set range type for event count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PC RANGE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE_CYCLES</KEYNAME>	       <!-- Key for profile cycles    -->
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Exclusive</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Inclusive</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                Level or Edge Attribute for the System Event                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Signal Type</NAME>	
+ 	  <DESCRIPTION>Event signal type(level or edge)</DESCRIPTION>		
+  	  <VALUE>Both Edge</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER EVENT</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Both Edges</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Edge to High</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Edge to Low</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Level High</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Level Low</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+
+<!--=============================================================================-->
+<!--                         Wrapper of What to Trace List                       -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace (for Trace On)                                         -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>What to Trace</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA ALWAYS ON</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR ALL</CHILDKEY>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>What to End</NAME>	
+ 	  <DESCRIPTION>Data steams to stop tracing</DESCRIPTION>	
+	  <VALUE>(Select data to end)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>END TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR ALL</CHILDKEY>
+	</PROPERTY_STRING>
+
+
+<!--=============================================================================-->
+<!--                         Wrapper of What to Trace List                       -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace (for Trace Variable)                                   -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>What to Trace</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE VARIABLE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR VARIABLE</CHILDKEY>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                         List of What to Trace Check Box                     -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace                                                        -->
+<!--           |--> Program Address                                              -->
+<!--           |--> Time Stamp                                                   -->
+<!--           |--> Write Address                                                -->
+<!--           |--> Write Data                                                   -->
+<!--           |--> Read Address                                                 -->
+<!--           |--> Read Data                                                    -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Program Address</NAME>	
+ 	  <DESCRIPTION>Include program address in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>ADDITIONAL TRACE DATA</KEYNAME>	                 <!-- Key for additional data for event trace -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Time Stamp</NAME>	
+ 	  <DESCRIPTION>Include time stamp in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR VARIABLE</KEYNAME>	             <!-- Key for trace variable -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>ADDITIONAL TRACE DATA</KEYNAME>	                 <!-- Key for additional data for event trace -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+</AET>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TMS320C2000 ePWM Type 1 Registers
+     ===================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+<module id="EPWM" HW_revision="" XML_version="1" description="EPWM1 Registers">
+	<register id="TBCTL" acronym="TBCTL" offset="0" page="1" width="16" description="Time Base Control Register" />
+	<register id="TBSTS" acronym="TBSTS" offset="1" page="1" width="16" description="Time Base Status Register" />
+	<register id="TBPHS" acronym="TBPHS" offset="2" page="1" width="32" description="Union of TBPHS:TBPHSHR" />
+	<register id="TBCTR" acronym="TBCTR" offset="4" page="1" width="16" description="Time Base Counter" />
+	<register id="TBPRD" acronym="TBPRD" offset="5" page="1" width="16" description="Time Base Period register set" />
+	<register id="TBPRDHR" acronym="TBPRDHR" offset="6" page="1" width="16" description="Time Base Period High Res Register" />
+	<register id="CMPCTL" acronym="CMPCTL" offset="7" page="1" width="16" description="Compare control" />
+	<register id="CMPA" acronym="CMPA" offset="8" page="1" width="32" description="Union of CMPA:CMPAHR" />
+	<register id="CMPB" acronym="CMPB" offset="10" page="1" width="16" description="Compare B reg" />
+	<register id="AQCTLA" acronym="AQCTLA" offset="11" page="1" width="16" description="Action qual output A" />
+	<register id="AQCTLB" acronym="AQCTLB" offset="12" page="1" width="16" description="Action qual output B" />
+	<register id="AQSFRC" acronym="AQSFRC" offset="13" page="1" width="16" description="Action qual SW force" />
+	<register id="AQCSFRC" acronym="AQCSFRC" offset="14" page="1" width="16" description="Action qualifier continuous SW force" />
+	<register id="DBCTL" acronym="DBCTL" offset="15" page="1" width="16" description="Dead-band control" />
+	<register id="DBRED" acronym="DBRED" offset="16" page="1" width="16" description="Dead-band rising edge delay" />
+	<register id="DBFED" acronym="DBFED" offset="17" page="1" width="16" description="Dead-band falling edge delay" />
+	<register id="TZSEL" acronym="TZSEL" offset="18" page="1" width="16" description="Trip zone select" />
+	<register id="TZDCSEL" acronym="TZDCSEL" offset="19" page="1" width="16" description="Trip zone digital comparator select" />
+	<register id="TZCTL" acronym="TZCTL" offset="20" page="1" width="16" description="Trip zone control" />
+	<register id="TZEINT" acronym="TZEINT" offset="21" page="1" width="16" description="Trip zone interrupt enable" />
+	<register id="TZFLG" acronym="TZFLG" offset="22" page="1" width="16" description="Trip zone interrupt flags" />
+	<register id="TZCLR" acronym="TZCLR" offset="23" page="1" width="16" description="Trip zone clear" />
+	<register id="TZFRC" acronym="TZFRC" offset="24" page="1" width="16" description="Trip zone force interrupt" />
+	<register id="ETSEL" acronym="ETSEL" offset="25" page="1" width="16" description="Event trigger selection" />
+	<register id="ETPS" acronym="ETPS" offset="26" page="1" width="16" description="Event trigger pre-scaler" />
+	<register id="ETFLG" acronym="ETFLG" offset="27" page="1" width="16" description="Event trigger flags" />
+	<register id="ETCLR" acronym="ETCLR" offset="28" page="1" width="16" description="Event trigger clear" />
+	<register id="ETFRC" acronym="ETFRC" offset="29" page="1" width="16" description="Event trigger force" />
+	<register id="PCCTL" acronym="PCCTL" offset="30" page="1" width="16" description="PWM chopper control" />
+	<!-- 1 empty -->        
+	<register id="HRCNFG" acronym="HRCNFG" offset="32" page="1" width="16" description="HRPWM Config Reg" />
+	<register id="HRPWR" acronym="HRPWR" offset="33" page="1" width="16" description="HRPWM Power Register - N/A on F2806x devices" />
+	<!-- 4 empty -->        
+	<register id="HRMSTEP" acronym="HRMSTEP" offset="38" page="1" width="16" description="HRPWM MEP Step Register" />
+	<!-- 1 empty -->        
+	<register id="HRPCTL" acronym="HRPCTL" offset="40" page="1" width="16" description="High Resolution Period Control" />
+	<!-- 1 empty -->        
+	<register id="TBPRDM" acronym="TBPRDM" offset="42" page="1" width="32" description="Union of TBPRD:TBPRDHR mirror registers" />
+	<register id="CMPAM" acronym="CMPAM" offset="44" page="1" width="32" description="Union of CMPA:CMPAHR mirror registers" />
+	<!-- 2 empty -->        
+	<register id="DCTRIPSEL" acronym="DCTRIPSEL" offset="48" page="1" width="16" description="Digital Compare Trip Select" />
+	<register id="DCACTL" acronym="DCACTL" offset="49" page="1" width="16" description="Digital Compare A Control" />
+	<register id="DCBCTL" acronym="DCBCTL" offset="50" page="1" width="16" description="Digital Compare B Control" />
+	<register id="DCFCTL" acronym="DCFCTL" offset="51" page="1" width="16" description="Digital Compare Filter Control" />
+	<register id="DCCAPCTL" acronym="DCCAPCTL" offset="52" page="1" width="16" description="Digital Compare Capture Control" />
+	<register id="DCFOFFSET" acronym="DCFOFFSET" offset="53" page="1" width="16" description="Digital Compare Filter Offset" />
+	<register id="DCFOFFSETCNT" acronym="DCFOFFSETCNT" offset="54" page="1" width="16" description="Digital Compare Filter Offset Counter" />
+	<register id="DCFWINDOW" acronym="DCFWINDOW" offset="55" page="1" width="16" description="Digital Compare Filter Window" />
+	<register id="DCFWINDOWCNT" acronym="DCFWINDOWCNT" offset="56" page="1" width="16" description="Digital Compare Filter Window Counter" />
+	<register id="DCCAP" acronym="DCCAP" offset="57" page="1" width="16" description="Digital Compare Filter Counter Capture" />
+</module>

@@ -1,0 +1,90 @@
+<module id="PCM" HW_revision="356.0">
+    <register id="PCMCTL0" width="32" offset="0x0" internal="0" description="Control 0 Register">
+        <bitfield id="AMR" description="Active Mode Request" begin="3" end="0" width="4" rwaccess="R/W">
+            <bitenum id="AM_LDO_VCORE0" value="0x0" description="LDO based Active Mode at Core voltage setting 0."/>
+            <bitenum id="AM_LDO_VCORE1" value="0x1" description="LDO based Active Mode at Core voltage setting 1."/>
+            <bitenum id="AM_DCDC_VCORE0" value="0x4" description="DC-DC based Active Mode at Core voltage setting 0."/>
+            <bitenum id="AM_DCDC_VCORE1" value="0x5" description="DC-DC based Active Mode at Core voltage setting 1."/>
+            <bitenum id="AM_LF_VCORE0" value="0x8" description="Low-Frequency Active Mode at Core voltage setting 0."/>
+            <bitenum id="AM_LF_VCORE1" value="0x9" description="Low-Frequency Active Mode at Core voltage setting 1."/>
+        </bitfield>
+        <bitfield id="LPMR" description="Low Power Mode Request" begin="7" end="4" width="4" rwaccess="R/W">
+            <bitenum id="LPM3" value="0x0" description="LPM3. Core voltage setting is similar to the mode from which LPM3 is entered."/>
+            <bitenum id="LPM35" value="0xA" description="LPM3.5. Core voltage setting 0."/>
+            <bitenum id="LPM45" value="0xC" description="LPM4.5"/>
+        </bitfield>
+        <bitfield id="CPM" description="Current Power Mode" begin="13" end="8" width="6" rwaccess="R">
+            <bitenum id="AM_LDO_VCORE0" value="0x0" description="LDO based Active Mode at Core voltage setting 0."/>
+            <bitenum id="AM_LDO_VCORE1" value="0x1" description="LDO based Active Mode at Core voltage setting 1."/>
+            <bitenum id="AM_DCDC_VCORE0" value="0x4" description="DC-DC based Active Mode at Core voltage setting 0."/>
+            <bitenum id="AM_DCDC_VCORE1" value="0x5" description="DC-DC based Active Mode at Core voltage setting 1."/>
+            <bitenum id="AM_LF_VCORE0" value="0x8" description="Low-Frequency Active Mode at Core voltage setting 0."/>
+            <bitenum id="AM_LF_VCORE1" value="0x9" description="Low-Frequency Active Mode at Core voltage setting 1."/>
+            <bitenum id="LPM0_LDO_VCORE0" value="0x10" description="LDO based LPM0 at Core voltage setting 0."/>
+            <bitenum id="LPM0_LDO_VCORE1" value="0x11" description="LDO based LPM0 at Core voltage setting 1."/>
+            <bitenum id="LPM0_DCDC_VCORE0" value="0x14" description="DC-DC based LPM0 at Core voltage setting 0."/>
+            <bitenum id="LPM0_DCDC_VCORE1" value="0x15" description="DC-DC based LPM0 at Core voltage setting 1."/>
+            <bitenum id="LPM0_LF_VCORE0" value="0x18" description="Low-Frequency LPM0 at Core voltage setting 0."/>
+            <bitenum id="LPM0_LF_VCORE1" value="0x19" description="Low-Frequency LPM0 at Core voltage setting 1."/>
+            <bitenum id="LPM3" value="0x20" description="LPM3"/>
+        </bitfield>
+        <bitfield id="PCMKEY" description="PCM key" begin="31" end="16" width="16" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="PCMCTL1" width="32" offset="0x4" internal="0" description="Control 1 Register">
+        <bitfield id="LOCKLPM5" description="Lock LPM5" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LOCKLPM5_0" value="0x0" description="LPMx.5 configuration defaults to reset condition"/>
+            <bitenum id="LOCKLPM5_1" value="0x1" description="LPMx.5 configuration remains locked during LPMx.5 entry and exit"/>
+        </bitfield>
+        <bitfield id="LOCKBKUP" description="Lock Backup" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LOCKBKUP_0" value="0x0" description="Backup domain configuration defaults to reset condition"/>
+            <bitenum id="LOCKBKUP_1" value="0x1" description="Backup domain configuration remains locked during LPM3.5 entry and exit"/>
+        </bitfield>
+        <bitfield id="FORCE_LPM_ENTRY" description="Force LPM entry" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="FORCE_LPM_ENTRY_0" value="0x0" description="PCM aborts LPM3/LPMx.5 transition if the active clock configuration does not meet the LPM3/LPMx.5 entry criteria. PCM generates the LPM_INVALID_CLK flag on abort to LPM3/LPMx.5 entry."/>
+            <bitenum id="FORCE_LPM_ENTRY_1" value="0x1" description="PCM enters LPM3/LPMx.5 after shuting off the clocks forcefully. Application needs to ensure RTC and WDT are clocked using BCLK tree to keep these modules alive in LPM3/LPM3.5. In LPM4.5 all clocks are forcefully shutoff and the core voltage is turned off."/>
+        </bitfield>
+        <bitfield id="PMR_BUSY" description="Power mode request busy flag" begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PCMKEY" description="PCM key" begin="31" end="16" width="16" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="PCMIE" width="32" offset="0x8" internal="0" description="Interrupt Enable Register">
+        <bitfield id="LPM_INVALID_TR_IE" description="LPM invalid transition interrupt enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="LPM_INVALID_CLK_IE" description="LPM invalid clock interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="AM_INVALID_TR_IE" description="Active mode invalid transition interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DCDC_ERROR_IE" description="DC-DC error interrupt enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+    </register>
+    <register id="PCMIFG" width="32" offset="0xC" internal="0" description="Interrupt Flag Register">
+        <bitfield id="LPM_INVALID_TR_IFG" description="LPM invalid transition flag" begin="0" end="0" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="LPM_INVALID_CLK_IFG" description="LPM invalid clock flag" begin="1" end="1" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="AM_INVALID_TR_IFG" description="Active mode invalid transition flag" begin="2" end="2" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="DCDC_ERROR_IFG" description="DC-DC error flag" begin="6" end="6" width="1" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="PCMCLRIFG" width="32" offset="0x10" internal="0" description="Clear Interrupt Flag Register">
+        <bitfield id="CLR_LPM_INVALID_TR_IFG" description="Clear LPM invalid transition flag" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CLR_LPM_INVALID_CLK_IFG" description="Clear LPM invalid clock flag" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CLR_AM_INVALID_TR_IFG" description="Clear active mode invalid transition flag" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CLR_DCDC_ERROR_IFG" description="Clear DC-DC error flag" begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>

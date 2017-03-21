@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="PWM0" HW_revision="" XML_version="1.0" description="PWM register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="PWM_CTL" width="32" description="PWM Master Control" id="PWM_CTL" offset="0x00000000" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Update PWM Generator 0" id="PWM_CTL_GLOBALSYNC0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Update PWM Generator 1" id="PWM_CTL_GLOBALSYNC1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Update PWM Generator 2" id="PWM_CTL_GLOBALSYNC2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Update PWM Generator 3" id="PWM_CTL_GLOBALSYNC3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_SYNC" width="32" description="PWM Time Base Sync" id="PWM_SYNC" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Reset Generator 0 Counter" id="PWM_SYNC_SYNC0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Reset Generator 1 Counter" id="PWM_SYNC_SYNC1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Reset Generator 2 Counter" id="PWM_SYNC_SYNC2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Reset Generator 3 Counter" id="PWM_SYNC_SYNC3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_ENABLE" width="32" description="PWM Output Enable" id="PWM_ENABLE" offset="0x00000008" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="MnPWM0 Output Enable" id="PWM_ENABLE_PWM0EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="MnPWM1 Output Enable" id="PWM_ENABLE_PWM1EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="MnPWM2 Output Enable" id="PWM_ENABLE_PWM2EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="MnPWM3 Output Enable" id="PWM_ENABLE_PWM3EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="MnPWM4 Output Enable" id="PWM_ENABLE_PWM4EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="MnPWM5 Output Enable" id="PWM_ENABLE_PWM5EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="MnPWM6 Output Enable" id="PWM_ENABLE_PWM6EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="MnPWM7 Output Enable" id="PWM_ENABLE_PWM7EN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_INVERT" width="32" description="PWM Output Inversion" id="PWM_INVERT" offset="0x0000000C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Invert MnPWM0 Signal" id="PWM_INVERT_PWM0INV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Invert MnPWM1 Signal" id="PWM_INVERT_PWM1INV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Invert MnPWM2 Signal" id="PWM_INVERT_PWM2INV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Invert MnPWM3 Signal" id="PWM_INVERT_PWM3INV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Invert MnPWM4 Signal" id="PWM_INVERT_PWM4INV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Invert MnPWM5 Signal" id="PWM_INVERT_PWM5INV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Invert MnPWM6 Signal" id="PWM_INVERT_PWM6INV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Invert MnPWM7 Signal" id="PWM_INVERT_PWM7INV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_FAULT" width="32" description="PWM Output Fault" id="PWM_FAULT" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="MnPWM0 Fault" id="PWM_FAULT_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="MnPWM1 Fault" id="PWM_FAULT_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="MnPWM2 Fault" id="PWM_FAULT_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="MnPWM3 Fault" id="PWM_FAULT_FAULT3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="MnPWM4 Fault" id="PWM_FAULT_FAULT4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="MnPWM5 Fault" id="PWM_FAULT_FAULT5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="MnPWM6 Fault" id="PWM_FAULT_FAULT6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="MnPWM7 Fault" id="PWM_FAULT_FAULT7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_INTEN" width="32" description="PWM Interrupt Enable" id="PWM_INTEN" offset="0x00000014" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM0 Interrupt Enable" id="PWM_INTEN_INTPWM0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="PWM1 Interrupt Enable" id="PWM_INTEN_INTPWM1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="PWM2 Interrupt Enable" id="PWM_INTEN_INTPWM2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PWM3 Interrupt Enable" id="PWM_INTEN_INTPWM3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Interrupt Fault 0" id="PWM_INTEN_INTFAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Interrupt Fault 1" id="PWM_INTEN_INTFAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Interrupt Fault 2" id="PWM_INTEN_INTFAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Interrupt Fault 3" id="PWM_INTEN_INTFAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_RIS" width="32" description="PWM Raw Interrupt Status" id="PWM_RIS" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="PWM0 Interrupt Asserted" id="PWM_RIS_INTPWM0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="PWM1 Interrupt Asserted" id="PWM_RIS_INTPWM1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="PWM2 Interrupt Asserted" id="PWM_RIS_INTPWM2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="PWM3 Interrupt Asserted" id="PWM_RIS_INTPWM3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Interrupt Fault PWM 0" id="PWM_RIS_INTFAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="R" description="Interrupt Fault PWM 1" id="PWM_RIS_INTFAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="R" description="Interrupt Fault PWM 2" id="PWM_RIS_INTFAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="R" description="Interrupt Fault PWM 3" id="PWM_RIS_INTFAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_ISC" width="32" description="PWM Interrupt Status and Clear" id="PWM_ISC" offset="0x0000001C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM0 Interrupt Status" id="PWM_ISC_INTPWM0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="PWM1 Interrupt Status" id="PWM_ISC_INTPWM1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="PWM2 Interrupt Status" id="PWM_ISC_INTPWM2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PWM3 Interrupt Status" id="PWM_ISC_INTPWM3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="FAULT0 Interrupt Asserted" id="PWM_ISC_INTFAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="FAULT1 Interrupt Asserted" id="PWM_ISC_INTFAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="FAULT2 Interrupt Asserted" id="PWM_ISC_INTFAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="FAULT3 Interrupt Asserted" id="PWM_ISC_INTFAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_STATUS" width="32" description="PWM Status" id="PWM_STATUS" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Generator 0 Fault Status" id="PWM_STATUS_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Generator 1 Fault Status" id="PWM_STATUS_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Generator 2 Fault Status" id="PWM_STATUS_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Generator 3 Fault Status" id="PWM_STATUS_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_FAULTVAL" width="32" description="PWM Fault Condition Value" id="PWM_FAULTVAL" offset="0x00000024" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="MnPWM0 Fault Value" id="PWM_FAULTVAL_PWM0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="MnPWM1 Fault Value" id="PWM_FAULTVAL_PWM1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="MnPWM2 Fault Value" id="PWM_FAULTVAL_PWM2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="MnPWM3 Fault Value" id="PWM_FAULTVAL_PWM3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="MnPWM4 Fault Value" id="PWM_FAULTVAL_PWM4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="MnPWM5 Fault Value" id="PWM_FAULTVAL_PWM5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="MnPWM6 Fault Value" id="PWM_FAULTVAL_PWM6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="MnPWM7 Fault Value" id="PWM_FAULTVAL_PWM7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_ENUPD" width="32" description="PWM Enable Update" id="PWM_ENUPD" offset="0x00000028" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="MnPWM0 Enable Update Mode" id="PWM_ENUPD_ENUPD0" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD0_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD0_LSYNC" value="0x00000002" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD0_GSYNC" value="0x00000003" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="MnPWM1 Enable Update Mode" id="PWM_ENUPD_ENUPD1" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD1_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD1_LSYNC" value="0x00000008" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD1_GSYNC" value="0x0000000C" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="MnPWM2 Enable Update Mode" id="PWM_ENUPD_ENUPD2" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD2_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD2_LSYNC" value="0x00000020" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD2_GSYNC" value="0x00000030" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="MnPWM3 Enable Update Mode" id="PWM_ENUPD_ENUPD3" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD3_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD3_LSYNC" value="0x00000080" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD3_GSYNC" value="0x000000C0" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="MnPWM4 Enable Update Mode" id="PWM_ENUPD_ENUPD4" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD4_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD4_LSYNC" value="0x00000200" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD4_GSYNC" value="0x00000300" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="MnPWM5 Enable Update Mode" id="PWM_ENUPD_ENUPD5" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD5_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD5_LSYNC" value="0x00000800" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD5_GSYNC" value="0x00000C00" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="MnPWM6 Enable Update Mode" id="PWM_ENUPD_ENUPD6" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD6_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD6_LSYNC" value="0x00002000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD6_GSYNC" value="0x00003000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="MnPWM7 Enable Update Mode" id="PWM_ENUPD_ENUPD7" resetval="" >
+            <bitenum id="PWM_ENUPD_ENUPD7_IMM" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_ENUPD_ENUPD7_LSYNC" value="0x00008000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_ENUPD_ENUPD7_GSYNC" value="0x0000C000" token="" description="Globally Synchronized"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_CTL" width="32" description="PWM0 Control" id="PWM_0_CTL" offset="0x00000040" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Block Enable" id="PWM_0_CTL_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter Mode" id="PWM_0_CTL_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Debug Mode" id="PWM_0_CTL_DEBUG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Load Register Update Mode" id="PWM_0_CTL_LOADUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator A Update Mode" id="PWM_0_CTL_CMPAUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Update Mode" id="PWM_0_CTL_CMPBUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="PWMnGENA Update Mode" id="PWM_0_CTL_GENAUPD" resetval="" >
+            <bitenum id="PWM_0_CTL_GENAUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_0_CTL_GENAUPD_LS" value="0x00000080" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_0_CTL_GENAUPD_GS" value="0x000000C0" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="PWMnGENB Update Mode" id="PWM_0_CTL_GENBUPD" resetval="" >
+            <bitenum id="PWM_0_CTL_GENBUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_0_CTL_GENBUPD_LS" value="0x00000200" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_0_CTL_GENBUPD_GS" value="0x00000300" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="PWMnDBCTL Update Mode" id="PWM_0_CTL_DBCTLUPD" resetval="" >
+            <bitenum id="PWM_0_CTL_DBCTLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_0_CTL_DBCTLUPD_LS" value="0x00000800" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_0_CTL_DBCTLUPD_GS" value="0x00000C00" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="PWMnDBRISE Update Mode" id="PWM_0_CTL_DBRISEUPD" resetval="" >
+            <bitenum id="PWM_0_CTL_DBRISEUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_0_CTL_DBRISEUPD_LS" value="0x00002000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_0_CTL_DBRISEUPD_GS" value="0x00003000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="PWMnDBFALL Update Mode" id="PWM_0_CTL_DBFALLUPD" resetval="" >
+            <bitenum id="PWM_0_CTL_DBFALLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_0_CTL_DBFALLUPD_LS" value="0x00008000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_0_CTL_DBFALLUPD_GS" value="0x0000C000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Fault Condition Source" id="PWM_0_CTL_FLTSRC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Minimum Fault Period" id="PWM_0_CTL_MINFLTPER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Latch Fault Input" id="PWM_0_CTL_LATCH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_INTEN" width="32" description="PWM0 Interrupt and Trigger Enable" id="PWM_0_INTEN" offset="0x00000044" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Interrupt for Counter=0" id="PWM_0_INTEN_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Interrupt for Counter=PWMnLOAD" id="PWM_0_INTEN_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Up" id="PWM_0_INTEN_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Down" id="PWM_0_INTEN_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Up" id="PWM_0_INTEN_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Down" id="PWM_0_INTEN_INTCMPBD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Trigger for Counter=0" id="PWM_0_INTEN_TRCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Trigger for Counter=PWMnLOAD" id="PWM_0_INTEN_TRCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Up" id="PWM_0_INTEN_TRCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Down" id="PWM_0_INTEN_TRCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Up" id="PWM_0_INTEN_TRCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Down" id="PWM_0_INTEN_TRCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_RIS" width="32" description="PWM0 Raw Interrupt Status" id="PWM_0_RIS" offset="0x00000048" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Counter=0 Interrupt Status" id="PWM_0_RIS_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Counter=Load Interrupt Status" id="PWM_0_RIS_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Comparator A Up Interrupt Status" id="PWM_0_RIS_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Comparator A Down Interrupt Status" id="PWM_0_RIS_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Comparator B Up Interrupt Status" id="PWM_0_RIS_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Comparator B Down Interrupt Status" id="PWM_0_RIS_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_ISC" width="32" description="PWM0 Interrupt Status and Clear" id="PWM_0_ISC" offset="0x0000004C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Counter=0 Interrupt" id="PWM_0_ISC_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter=Load Interrupt" id="PWM_0_ISC_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Comparator A Up Interrupt" id="PWM_0_ISC_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Comparator A Down Interrupt" id="PWM_0_ISC_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator B Up Interrupt" id="PWM_0_ISC_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Down Interrupt" id="PWM_0_ISC_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_LOAD" width="32" description="PWM0 Load" id="PWM_0_LOAD" offset="0x00000050" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Counter Load Value" id="PWM_0_LOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_COUNT" width="32" description="PWM0 Counter" id="PWM_0_COUNT" offset="0x00000054" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Counter Value" id="PWM_0_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_CMPA" width="32" description="PWM0 Compare A" id="PWM_0_CMPA" offset="0x00000058" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator A Value" id="PWM_0_CMPA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_CMPB" width="32" description="PWM0 Compare B" id="PWM_0_CMPB" offset="0x0000005C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator B Value" id="PWM_0_CMPB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_GENA" width="32" description="PWM0 Generator A Control" id="PWM_0_GENA" offset="0x00000060" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_0_GENA_ACTZERO" resetval="" >
+            <bitenum id="PWM_0_GENA_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENA_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_0_GENA_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_0_GENA_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_0_GENA_ACTLOAD" resetval="" >
+            <bitenum id="PWM_0_GENA_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENA_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_0_GENA_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_0_GENA_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_0_GENA_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_0_GENA_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENA_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_0_GENA_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_0_GENA_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_0_GENA_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_0_GENA_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENA_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_0_GENA_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_0_GENA_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_0_GENA_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_0_GENA_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENA_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_0_GENA_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_0_GENA_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_0_GENA_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_0_GENA_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENA_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_0_GENA_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_0_GENA_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmA High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_GENB" width="32" description="PWM0 Generator B Control" id="PWM_0_GENB" offset="0x00000064" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_0_GENB_ACTZERO" resetval="" >
+            <bitenum id="PWM_0_GENB_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENB_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_0_GENB_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_0_GENB_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_0_GENB_ACTLOAD" resetval="" >
+            <bitenum id="PWM_0_GENB_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENB_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_0_GENB_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_0_GENB_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_0_GENB_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_0_GENB_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENB_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_0_GENB_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_0_GENB_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_0_GENB_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_0_GENB_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENB_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_0_GENB_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_0_GENB_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_0_GENB_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_0_GENB_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENB_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_0_GENB_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_0_GENB_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_0_GENB_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_0_GENB_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_0_GENB_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_0_GENB_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_0_GENB_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmB High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_DBCTL" width="32" description="PWM0 Dead-Band Control" id="PWM_0_DBCTL" offset="0x00000068" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Dead-Band Generator Enable" id="PWM_0_DBCTL_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_DBRISE" width="32" description="PWM0 Dead-Band Rising-Edge Delay" id="PWM_0_DBRISE" offset="0x0000006C" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Rise Delay" id="PWM_0_DBRISE_DELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_DBFALL" width="32" description="PWM0 Dead-Band Falling-Edge-Delay" id="PWM_0_DBFALL" offset="0x00000070" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Fall Delay" id="PWM_0_DBFALL_DELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_FLTSRC0" width="32" description="PWM0 Fault Source 0" id="PWM_0_FLTSRC0" offset="0x00000074" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Input" id="PWM_0_FLTSRC0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Input" id="PWM_0_FLTSRC0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Input" id="PWM_0_FLTSRC0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Input" id="PWM_0_FLTSRC0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_FLTSRC1" width="32" description="PWM0 Fault Source 1" id="PWM_0_FLTSRC1" offset="0x00000078" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Digital Comparator 0" id="PWM_0_FLTSRC1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Digital Comparator 1" id="PWM_0_FLTSRC1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Digital Comparator 2" id="PWM_0_FLTSRC1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Digital Comparator 3" id="PWM_0_FLTSRC1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Digital Comparator 4" id="PWM_0_FLTSRC1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Digital Comparator 5" id="PWM_0_FLTSRC1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Digital Comparator 6" id="PWM_0_FLTSRC1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Digital Comparator 7" id="PWM_0_FLTSRC1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_MINFLTPER" width="32" description="PWM0 Minimum Fault Period" id="PWM_0_MINFLTPER" offset="0x0000007C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Minimum Fault Period" id="PWM_0_MINFLTPER" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_CTL" width="32" description="PWM1 Control" id="PWM_1_CTL" offset="0x00000080" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Block Enable" id="PWM_1_CTL_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter Mode" id="PWM_1_CTL_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Debug Mode" id="PWM_1_CTL_DEBUG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Load Register Update Mode" id="PWM_1_CTL_LOADUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator A Update Mode" id="PWM_1_CTL_CMPAUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Update Mode" id="PWM_1_CTL_CMPBUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="PWMnGENA Update Mode" id="PWM_1_CTL_GENAUPD" resetval="" >
+            <bitenum id="PWM_1_CTL_GENAUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_1_CTL_GENAUPD_LS" value="0x00000080" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_1_CTL_GENAUPD_GS" value="0x000000C0" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="PWMnGENB Update Mode" id="PWM_1_CTL_GENBUPD" resetval="" >
+            <bitenum id="PWM_1_CTL_GENBUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_1_CTL_GENBUPD_LS" value="0x00000200" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_1_CTL_GENBUPD_GS" value="0x00000300" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="PWMnDBCTL Update Mode" id="PWM_1_CTL_DBCTLUPD" resetval="" >
+            <bitenum id="PWM_1_CTL_DBCTLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_1_CTL_DBCTLUPD_LS" value="0x00000800" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_1_CTL_DBCTLUPD_GS" value="0x00000C00" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="PWMnDBRISE Update Mode" id="PWM_1_CTL_DBRISEUPD" resetval="" >
+            <bitenum id="PWM_1_CTL_DBRISEUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_1_CTL_DBRISEUPD_LS" value="0x00002000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_1_CTL_DBRISEUPD_GS" value="0x00003000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="PWMnDBFALL Update Mode" id="PWM_1_CTL_DBFALLUPD" resetval="" >
+            <bitenum id="PWM_1_CTL_DBFALLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_1_CTL_DBFALLUPD_LS" value="0x00008000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_1_CTL_DBFALLUPD_GS" value="0x0000C000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Fault Condition Source" id="PWM_1_CTL_FLTSRC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Minimum Fault Period" id="PWM_1_CTL_MINFLTPER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Latch Fault Input" id="PWM_1_CTL_LATCH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_INTEN" width="32" description="PWM1 Interrupt and Trigger Enable" id="PWM_1_INTEN" offset="0x00000084" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Interrupt for Counter=0" id="PWM_1_INTEN_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Interrupt for Counter=PWMnLOAD" id="PWM_1_INTEN_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Up" id="PWM_1_INTEN_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Down" id="PWM_1_INTEN_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Up" id="PWM_1_INTEN_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Down" id="PWM_1_INTEN_INTCMPBD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Trigger for Counter=0" id="PWM_1_INTEN_TRCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Trigger for Counter=PWMnLOAD" id="PWM_1_INTEN_TRCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Up" id="PWM_1_INTEN_TRCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Down" id="PWM_1_INTEN_TRCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Up" id="PWM_1_INTEN_TRCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Down" id="PWM_1_INTEN_TRCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_RIS" width="32" description="PWM1 Raw Interrupt Status" id="PWM_1_RIS" offset="0x00000088" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Counter=0 Interrupt Status" id="PWM_1_RIS_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Counter=Load Interrupt Status" id="PWM_1_RIS_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Comparator A Up Interrupt Status" id="PWM_1_RIS_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Comparator A Down Interrupt Status" id="PWM_1_RIS_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Comparator B Up Interrupt Status" id="PWM_1_RIS_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Comparator B Down Interrupt Status" id="PWM_1_RIS_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_ISC" width="32" description="PWM1 Interrupt Status and Clear" id="PWM_1_ISC" offset="0x0000008C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Counter=0 Interrupt" id="PWM_1_ISC_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter=Load Interrupt" id="PWM_1_ISC_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Comparator A Up Interrupt" id="PWM_1_ISC_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Comparator A Down Interrupt" id="PWM_1_ISC_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator B Up Interrupt" id="PWM_1_ISC_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Down Interrupt" id="PWM_1_ISC_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_LOAD" width="32" description="PWM1 Load" id="PWM_1_LOAD" offset="0x00000090" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Counter Load Value" id="PWM_1_LOAD_LOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_COUNT" width="32" description="PWM1 Counter" id="PWM_1_COUNT" offset="0x00000094" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Counter Value" id="PWM_1_COUNT_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_CMPA" width="32" description="PWM1 Compare A" id="PWM_1_CMPA" offset="0x00000098" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator A Value" id="PWM_1_CMPA_COMPA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_CMPB" width="32" description="PWM1 Compare B" id="PWM_1_CMPB" offset="0x0000009C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator B Value" id="PWM_1_CMPB_COMPB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_GENA" width="32" description="PWM1 Generator A Control" id="PWM_1_GENA" offset="0x000000A0" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_1_GENA_ACTZERO" resetval="" >
+            <bitenum id="PWM_1_GENA_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENA_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_1_GENA_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_1_GENA_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_1_GENA_ACTLOAD" resetval="" >
+            <bitenum id="PWM_1_GENA_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENA_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_1_GENA_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_1_GENA_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_1_GENA_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_1_GENA_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENA_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_1_GENA_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_1_GENA_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_1_GENA_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_1_GENA_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENA_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_1_GENA_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_1_GENA_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_1_GENA_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_1_GENA_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENA_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_1_GENA_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_1_GENA_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_1_GENA_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_1_GENA_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENA_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_1_GENA_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_1_GENA_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmA High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_GENB" width="32" description="PWM1 Generator B Control" id="PWM_1_GENB" offset="0x000000A4" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_1_GENB_ACTZERO" resetval="" >
+            <bitenum id="PWM_1_GENB_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENB_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_1_GENB_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_1_GENB_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_1_GENB_ACTLOAD" resetval="" >
+            <bitenum id="PWM_1_GENB_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENB_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_1_GENB_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_1_GENB_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_1_GENB_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_1_GENB_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENB_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_1_GENB_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_1_GENB_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_1_GENB_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_1_GENB_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENB_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_1_GENB_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_1_GENB_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_1_GENB_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_1_GENB_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENB_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_1_GENB_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_1_GENB_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_1_GENB_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_1_GENB_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_1_GENB_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_1_GENB_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_1_GENB_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmB High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_DBCTL" width="32" description="PWM1 Dead-Band Control" id="PWM_1_DBCTL" offset="0x000000A8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Dead-Band Generator Enable" id="PWM_1_DBCTL_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_DBRISE" width="32" description="PWM1 Dead-Band Rising-Edge Delay" id="PWM_1_DBRISE" offset="0x000000AC" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Rise Delay" id="PWM_1_DBRISE_RISEDELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_DBFALL" width="32" description="PWM1 Dead-Band Falling-Edge-Delay" id="PWM_1_DBFALL" offset="0x000000B0" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Fall Delay" id="PWM_1_DBFALL_FALLDELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_FLTSRC0" width="32" description="PWM1 Fault Source 0" id="PWM_1_FLTSRC0" offset="0x000000B4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Input" id="PWM_1_FLTSRC0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Input" id="PWM_1_FLTSRC0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Input" id="PWM_1_FLTSRC0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Input" id="PWM_1_FLTSRC0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_FLTSRC1" width="32" description="PWM1 Fault Source 1" id="PWM_1_FLTSRC1" offset="0x000000B8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Digital Comparator 0" id="PWM_1_FLTSRC1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Digital Comparator 1" id="PWM_1_FLTSRC1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Digital Comparator 2" id="PWM_1_FLTSRC1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Digital Comparator 3" id="PWM_1_FLTSRC1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Digital Comparator 4" id="PWM_1_FLTSRC1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Digital Comparator 5" id="PWM_1_FLTSRC1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Digital Comparator 6" id="PWM_1_FLTSRC1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Digital Comparator 7" id="PWM_1_FLTSRC1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_MINFLTPER" width="32" description="PWM1 Minimum Fault Period" id="PWM_1_MINFLTPER" offset="0x000000BC" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Minimum Fault Period" id="PWM_1_MINFLTPER_MFP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_CTL" width="32" description="PWM2 Control" id="PWM_2_CTL" offset="0x000000C0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Block Enable" id="PWM_2_CTL_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter Mode" id="PWM_2_CTL_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Debug Mode" id="PWM_2_CTL_DEBUG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Load Register Update Mode" id="PWM_2_CTL_LOADUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator A Update Mode" id="PWM_2_CTL_CMPAUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Update Mode" id="PWM_2_CTL_CMPBUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="PWMnGENA Update Mode" id="PWM_2_CTL_GENAUPD" resetval="" >
+            <bitenum id="PWM_2_CTL_GENAUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_2_CTL_GENAUPD_LS" value="0x00000080" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_2_CTL_GENAUPD_GS" value="0x000000C0" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="PWMnGENB Update Mode" id="PWM_2_CTL_GENBUPD" resetval="" >
+            <bitenum id="PWM_2_CTL_GENBUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_2_CTL_GENBUPD_LS" value="0x00000200" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_2_CTL_GENBUPD_GS" value="0x00000300" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="PWMnDBCTL Update Mode" id="PWM_2_CTL_DBCTLUPD" resetval="" >
+            <bitenum id="PWM_2_CTL_DBCTLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_2_CTL_DBCTLUPD_LS" value="0x00000800" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_2_CTL_DBCTLUPD_GS" value="0x00000C00" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="PWMnDBRISE Update Mode" id="PWM_2_CTL_DBRISEUPD" resetval="" >
+            <bitenum id="PWM_2_CTL_DBRISEUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_2_CTL_DBRISEUPD_LS" value="0x00002000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_2_CTL_DBRISEUPD_GS" value="0x00003000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="PWMnDBFALL Update Mode" id="PWM_2_CTL_DBFALLUPD" resetval="" >
+            <bitenum id="PWM_2_CTL_DBFALLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_2_CTL_DBFALLUPD_LS" value="0x00008000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_2_CTL_DBFALLUPD_GS" value="0x0000C000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Fault Condition Source" id="PWM_2_CTL_FLTSRC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Minimum Fault Period" id="PWM_2_CTL_MINFLTPER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Latch Fault Input" id="PWM_2_CTL_LATCH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_INTEN" width="32" description="PWM2 Interrupt and Trigger Enable" id="PWM_2_INTEN" offset="0x000000C4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Interrupt for Counter=0" id="PWM_2_INTEN_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Interrupt for Counter=PWMnLOAD" id="PWM_2_INTEN_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Up" id="PWM_2_INTEN_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Down" id="PWM_2_INTEN_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Up" id="PWM_2_INTEN_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Down" id="PWM_2_INTEN_INTCMPBD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Trigger for Counter=0" id="PWM_2_INTEN_TRCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Trigger for Counter=PWMnLOAD" id="PWM_2_INTEN_TRCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Up" id="PWM_2_INTEN_TRCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Down" id="PWM_2_INTEN_TRCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Up" id="PWM_2_INTEN_TRCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Down" id="PWM_2_INTEN_TRCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_RIS" width="32" description="PWM2 Raw Interrupt Status" id="PWM_2_RIS" offset="0x000000C8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Counter=0 Interrupt Status" id="PWM_2_RIS_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Counter=Load Interrupt Status" id="PWM_2_RIS_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Comparator A Up Interrupt Status" id="PWM_2_RIS_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Comparator A Down Interrupt Status" id="PWM_2_RIS_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Comparator B Up Interrupt Status" id="PWM_2_RIS_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Comparator B Down Interrupt Status" id="PWM_2_RIS_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_ISC" width="32" description="PWM2 Interrupt Status and Clear" id="PWM_2_ISC" offset="0x000000CC" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Counter=0 Interrupt" id="PWM_2_ISC_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter=Load Interrupt" id="PWM_2_ISC_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Comparator A Up Interrupt" id="PWM_2_ISC_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Comparator A Down Interrupt" id="PWM_2_ISC_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator B Up Interrupt" id="PWM_2_ISC_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Down Interrupt" id="PWM_2_ISC_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_LOAD" width="32" description="PWM2 Load" id="PWM_2_LOAD" offset="0x000000D0" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Counter Load Value" id="PWM_2_LOAD_LOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_COUNT" width="32" description="PWM2 Counter" id="PWM_2_COUNT" offset="0x000000D4" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Counter Value" id="PWM_2_COUNT_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_CMPA" width="32" description="PWM2 Compare A" id="PWM_2_CMPA" offset="0x000000D8" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator A Value" id="PWM_2_CMPA_COMPA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_CMPB" width="32" description="PWM2 Compare B" id="PWM_2_CMPB" offset="0x000000DC" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator B Value" id="PWM_2_CMPB_COMPB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_GENA" width="32" description="PWM2 Generator A Control" id="PWM_2_GENA" offset="0x000000E0" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_2_GENA_ACTZERO" resetval="" >
+            <bitenum id="PWM_2_GENA_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENA_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_2_GENA_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_2_GENA_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_2_GENA_ACTLOAD" resetval="" >
+            <bitenum id="PWM_2_GENA_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENA_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_2_GENA_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_2_GENA_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_2_GENA_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_2_GENA_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENA_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_2_GENA_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_2_GENA_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_2_GENA_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_2_GENA_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENA_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_2_GENA_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_2_GENA_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_2_GENA_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_2_GENA_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENA_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_2_GENA_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_2_GENA_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_2_GENA_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_2_GENA_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENA_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_2_GENA_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_2_GENA_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmA High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_GENB" width="32" description="PWM2 Generator B Control" id="PWM_2_GENB" offset="0x000000E4" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_2_GENB_ACTZERO" resetval="" >
+            <bitenum id="PWM_2_GENB_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENB_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_2_GENB_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_2_GENB_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_2_GENB_ACTLOAD" resetval="" >
+            <bitenum id="PWM_2_GENB_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENB_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_2_GENB_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_2_GENB_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_2_GENB_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_2_GENB_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENB_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_2_GENB_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_2_GENB_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_2_GENB_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_2_GENB_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENB_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_2_GENB_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_2_GENB_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_2_GENB_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_2_GENB_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENB_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_2_GENB_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_2_GENB_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_2_GENB_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_2_GENB_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_2_GENB_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_2_GENB_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_2_GENB_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmB High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_DBCTL" width="32" description="PWM2 Dead-Band Control" id="PWM_2_DBCTL" offset="0x000000E8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Dead-Band Generator Enable" id="PWM_2_DBCTL_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_DBRISE" width="32" description="PWM2 Dead-Band Rising-Edge Delay" id="PWM_2_DBRISE" offset="0x000000EC" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Rise Delay" id="PWM_2_DBRISE_RISEDELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_DBFALL" width="32" description="PWM2 Dead-Band Falling-Edge-Delay" id="PWM_2_DBFALL" offset="0x000000F0" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Fall Delay" id="PWM_2_DBFALL_FALLDELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_FLTSRC0" width="32" description="PWM2 Fault Source 0" id="PWM_2_FLTSRC0" offset="0x000000F4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Input" id="PWM_2_FLTSRC0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Input" id="PWM_2_FLTSRC0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Input" id="PWM_2_FLTSRC0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Input" id="PWM_2_FLTSRC0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_FLTSRC1" width="32" description="PWM2 Fault Source 1" id="PWM_2_FLTSRC1" offset="0x000000F8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Digital Comparator 0" id="PWM_2_FLTSRC1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Digital Comparator 1" id="PWM_2_FLTSRC1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Digital Comparator 2" id="PWM_2_FLTSRC1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Digital Comparator 3" id="PWM_2_FLTSRC1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Digital Comparator 4" id="PWM_2_FLTSRC1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Digital Comparator 5" id="PWM_2_FLTSRC1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Digital Comparator 6" id="PWM_2_FLTSRC1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Digital Comparator 7" id="PWM_2_FLTSRC1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_MINFLTPER" width="32" description="PWM2 Minimum Fault Period" id="PWM_2_MINFLTPER" offset="0x000000FC" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Minimum Fault Period" id="PWM_2_MINFLTPER_MFP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_CTL" width="32" description="PWM3 Control" id="PWM_3_CTL" offset="0x00000100" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Block Enable" id="PWM_3_CTL_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter Mode" id="PWM_3_CTL_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Debug Mode" id="PWM_3_CTL_DEBUG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Load Register Update Mode" id="PWM_3_CTL_LOADUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator A Update Mode" id="PWM_3_CTL_CMPAUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Update Mode" id="PWM_3_CTL_CMPBUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="PWMnGENA Update Mode" id="PWM_3_CTL_GENAUPD" resetval="" >
+            <bitenum id="PWM_3_CTL_GENAUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_3_CTL_GENAUPD_LS" value="0x00000080" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_3_CTL_GENAUPD_GS" value="0x000000C0" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="PWMnGENB Update Mode" id="PWM_3_CTL_GENBUPD" resetval="" >
+            <bitenum id="PWM_3_CTL_GENBUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_3_CTL_GENBUPD_LS" value="0x00000200" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_3_CTL_GENBUPD_GS" value="0x00000300" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="PWMnDBCTL Update Mode" id="PWM_3_CTL_DBCTLUPD" resetval="" >
+            <bitenum id="PWM_3_CTL_DBCTLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_3_CTL_DBCTLUPD_LS" value="0x00000800" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_3_CTL_DBCTLUPD_GS" value="0x00000C00" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="PWMnDBRISE Update Mode" id="PWM_3_CTL_DBRISEUPD" resetval="" >
+            <bitenum id="PWM_3_CTL_DBRISEUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_3_CTL_DBRISEUPD_LS" value="0x00002000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_3_CTL_DBRISEUPD_GS" value="0x00003000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="PWMnDBFALL Update Mode" id="PWM_3_CTL_DBFALLUPD" resetval="" >
+            <bitenum id="PWM_3_CTL_DBFALLUPD_I" value="0x00000000" token="" description="Immediate"/>
+            <bitenum id="PWM_3_CTL_DBFALLUPD_LS" value="0x00008000" token="" description="Locally Synchronized"/>
+            <bitenum id="PWM_3_CTL_DBFALLUPD_GS" value="0x0000C000" token="" description="Globally Synchronized"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Fault Condition Source" id="PWM_3_CTL_FLTSRC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Minimum Fault Period" id="PWM_3_CTL_MINFLTPER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Latch Fault Input" id="PWM_3_CTL_LATCH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_INTEN" width="32" description="PWM3 Interrupt and Trigger Enable" id="PWM_3_INTEN" offset="0x00000104" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Interrupt for Counter=0" id="PWM_3_INTEN_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Interrupt for Counter=PWMnLOAD" id="PWM_3_INTEN_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Up" id="PWM_3_INTEN_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Interrupt for Counter=PWMnCMPA Down" id="PWM_3_INTEN_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Up" id="PWM_3_INTEN_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Interrupt for Counter=PWMnCMPB Down" id="PWM_3_INTEN_INTCMPBD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Trigger for Counter=0" id="PWM_3_INTEN_TRCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Trigger for Counter=PWMnLOAD" id="PWM_3_INTEN_TRCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Up" id="PWM_3_INTEN_TRCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Trigger for Counter=PWMnCMPA Down" id="PWM_3_INTEN_TRCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Up" id="PWM_3_INTEN_TRCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Trigger for Counter=PWMnCMPB Down" id="PWM_3_INTEN_TRCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_RIS" width="32" description="PWM3 Raw Interrupt Status" id="PWM_3_RIS" offset="0x00000108" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Counter=0 Interrupt Status" id="PWM_3_RIS_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Counter=Load Interrupt Status" id="PWM_3_RIS_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Comparator A Up Interrupt Status" id="PWM_3_RIS_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Comparator A Down Interrupt Status" id="PWM_3_RIS_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Comparator B Up Interrupt Status" id="PWM_3_RIS_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Comparator B Down Interrupt Status" id="PWM_3_RIS_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_ISC" width="32" description="PWM3 Interrupt Status and Clear" id="PWM_3_ISC" offset="0x0000010C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Counter=0 Interrupt" id="PWM_3_ISC_INTCNTZERO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counter=Load Interrupt" id="PWM_3_ISC_INTCNTLOAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Comparator A Up Interrupt" id="PWM_3_ISC_INTCMPAU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Comparator A Down Interrupt" id="PWM_3_ISC_INTCMPAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparator B Up Interrupt" id="PWM_3_ISC_INTCMPBU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Comparator B Down Interrupt" id="PWM_3_ISC_INTCMPBD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_LOAD" width="32" description="PWM3 Load" id="PWM_3_LOAD" offset="0x00000110" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Counter Load Value" id="PWM_3_LOAD_LOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_COUNT" width="32" description="PWM3 Counter" id="PWM_3_COUNT" offset="0x00000114" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Counter Value" id="PWM_3_COUNT_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_CMPA" width="32" description="PWM3 Compare A" id="PWM_3_CMPA" offset="0x00000118" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator A Value" id="PWM_3_CMPA_COMPA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_CMPB" width="32" description="PWM3 Compare B" id="PWM_3_CMPB" offset="0x0000011C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Comparator B Value" id="PWM_3_CMPB_COMPB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_GENA" width="32" description="PWM3 Generator A Control" id="PWM_3_GENA" offset="0x00000120" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_3_GENA_ACTZERO" resetval="" >
+            <bitenum id="PWM_3_GENA_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENA_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_3_GENA_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_3_GENA_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_3_GENA_ACTLOAD" resetval="" >
+            <bitenum id="PWM_3_GENA_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENA_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_3_GENA_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_3_GENA_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_3_GENA_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_3_GENA_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENA_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_3_GENA_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_3_GENA_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_3_GENA_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_3_GENA_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENA_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_3_GENA_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_3_GENA_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_3_GENA_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_3_GENA_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENA_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_3_GENA_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_3_GENA_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmA High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_3_GENA_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_3_GENA_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENA_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmA"/>
+            <bitenum id="PWM_3_GENA_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmA Low"/>
+            <bitenum id="PWM_3_GENA_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmA High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_GENB" width="32" description="PWM3 Generator B Control" id="PWM_3_GENB" offset="0x00000124" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Action for Counter=0" id="PWM_3_GENB_ACTZERO" resetval="" >
+            <bitenum id="PWM_3_GENB_ACTZERO_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENB_ACTZERO_INV" value="0x00000001" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_3_GENB_ACTZERO_ZERO" value="0x00000002" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_3_GENB_ACTZERO_ONE" value="0x00000003" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Action for Counter=LOAD" id="PWM_3_GENB_ACTLOAD" resetval="" >
+            <bitenum id="PWM_3_GENB_ACTLOAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENB_ACTLOAD_INV" value="0x00000004" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_3_GENB_ACTLOAD_ZERO" value="0x00000008" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_3_GENB_ACTLOAD_ONE" value="0x0000000C" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Action for Comparator A Up" id="PWM_3_GENB_ACTCMPAU" resetval="" >
+            <bitenum id="PWM_3_GENB_ACTCMPAU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENB_ACTCMPAU_INV" value="0x00000010" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_3_GENB_ACTCMPAU_ZERO" value="0x00000020" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_3_GENB_ACTCMPAU_ONE" value="0x00000030" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Action for Comparator A Down" id="PWM_3_GENB_ACTCMPAD" resetval="" >
+            <bitenum id="PWM_3_GENB_ACTCMPAD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENB_ACTCMPAD_INV" value="0x00000040" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_3_GENB_ACTCMPAD_ZERO" value="0x00000080" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_3_GENB_ACTCMPAD_ONE" value="0x000000C0" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Action for Comparator B Up" id="PWM_3_GENB_ACTCMPBU" resetval="" >
+            <bitenum id="PWM_3_GENB_ACTCMPBU_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENB_ACTCMPBU_INV" value="0x00000100" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_3_GENB_ACTCMPBU_ZERO" value="0x00000200" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_3_GENB_ACTCMPBU_ONE" value="0x00000300" token="" description="Drive pwmB High"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Action for Comparator B Down" id="PWM_3_GENB_ACTCMPBD" resetval="" >
+            <bitenum id="PWM_3_GENB_ACTCMPBD_NONE" value="0x00000000" token="" description="Do nothing"/>
+            <bitenum id="PWM_3_GENB_ACTCMPBD_INV" value="0x00000400" token="" description="Invert pwmB"/>
+            <bitenum id="PWM_3_GENB_ACTCMPBD_ZERO" value="0x00000800" token="" description="Drive pwmB Low"/>
+            <bitenum id="PWM_3_GENB_ACTCMPBD_ONE" value="0x00000C00" token="" description="Drive pwmB High"/>
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_DBCTL" width="32" description="PWM3 Dead-Band Control" id="PWM_3_DBCTL" offset="0x00000128" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Dead-Band Generator Enable" id="PWM_3_DBCTL_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_DBRISE" width="32" description="PWM3 Dead-Band Rising-Edge Delay" id="PWM_3_DBRISE" offset="0x0000012C" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Rise Delay" id="PWM_3_DBRISE_RISEDELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_DBFALL" width="32" description="PWM3 Dead-Band Falling-Edge-Delay" id="PWM_3_DBFALL" offset="0x00000130" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Dead-Band Fall Delay" id="PWM_3_DBFALL_FALLDELAY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_FLTSRC0" width="32" description="PWM3 Fault Source 0" id="PWM_3_FLTSRC0" offset="0x00000134" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Input" id="PWM_3_FLTSRC0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Input" id="PWM_3_FLTSRC0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Input" id="PWM_3_FLTSRC0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Input" id="PWM_3_FLTSRC0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_FLTSRC1" width="32" description="PWM3 Fault Source 1" id="PWM_3_FLTSRC1" offset="0x00000138" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Digital Comparator 0" id="PWM_3_FLTSRC1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Digital Comparator 1" id="PWM_3_FLTSRC1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Digital Comparator 2" id="PWM_3_FLTSRC1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Digital Comparator 3" id="PWM_3_FLTSRC1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Digital Comparator 4" id="PWM_3_FLTSRC1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Digital Comparator 5" id="PWM_3_FLTSRC1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Digital Comparator 6" id="PWM_3_FLTSRC1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Digital Comparator 7" id="PWM_3_FLTSRC1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_MINFLTPER" width="32" description="PWM3 Minimum Fault Period" id="PWM_3_MINFLTPER" offset="0x0000013C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Minimum Fault Period" id="PWM_3_MINFLTPER_MFP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_FLTSEN" width="32" description="PWM0 Fault Pin Logic Sense" id="PWM_0_FLTSEN" offset="0x00000800" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Sense" id="PWM_0_FLTSEN_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Sense" id="PWM_0_FLTSEN_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Sense" id="PWM_0_FLTSEN_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Sense" id="PWM_0_FLTSEN_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_FLTSTAT0" width="32" description="PWM0 Fault Status 0" id="PWM_0_FLTSTAT0" offset="0x00000804" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Fault Input 0" id="PWM_0_FLTSTAT0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Fault Input 1" id="PWM_0_FLTSTAT0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Fault Input 2" id="PWM_0_FLTSTAT0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Fault Input 3" id="PWM_0_FLTSTAT0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_0_FLTSTAT1" width="32" description="PWM0 Fault Status 1" id="PWM_0_FLTSTAT1" offset="0x00000808" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Digital Comparator 0 Trigger" id="PWM_0_FLTSTAT1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Digital Comparator 1 Trigger" id="PWM_0_FLTSTAT1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Digital Comparator 2 Trigger" id="PWM_0_FLTSTAT1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Digital Comparator 3 Trigger" id="PWM_0_FLTSTAT1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="N" description="Digital Comparator 4 Trigger" id="PWM_0_FLTSTAT1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="N" description="Digital Comparator 5 Trigger" id="PWM_0_FLTSTAT1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="N" description="Digital Comparator 6 Trigger" id="PWM_0_FLTSTAT1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="N" description="Digital Comparator 7 Trigger" id="PWM_0_FLTSTAT1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_FLTSEN" width="32" description="PWM1 Fault Pin Logic Sense" id="PWM_1_FLTSEN" offset="0x00000880" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Sense" id="PWM_1_FLTSEN_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Sense" id="PWM_1_FLTSEN_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Sense" id="PWM_1_FLTSEN_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Sense" id="PWM_1_FLTSEN_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_FLTSTAT0" width="32" description="PWM1 Fault Status 0" id="PWM_1_FLTSTAT0" offset="0x00000884" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Fault Input 0" id="PWM_1_FLTSTAT0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Fault Input 1" id="PWM_1_FLTSTAT0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Fault Input 2" id="PWM_1_FLTSTAT0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Fault Input 3" id="PWM_1_FLTSTAT0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_1_FLTSTAT1" width="32" description="PWM1 Fault Status 1" id="PWM_1_FLTSTAT1" offset="0x00000888" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Digital Comparator 0 Trigger" id="PWM_1_FLTSTAT1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Digital Comparator 1 Trigger" id="PWM_1_FLTSTAT1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Digital Comparator 2 Trigger" id="PWM_1_FLTSTAT1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Digital Comparator 3 Trigger" id="PWM_1_FLTSTAT1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="N" description="Digital Comparator 4 Trigger" id="PWM_1_FLTSTAT1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="N" description="Digital Comparator 5 Trigger" id="PWM_1_FLTSTAT1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="N" description="Digital Comparator 6 Trigger" id="PWM_1_FLTSTAT1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="N" description="Digital Comparator 7 Trigger" id="PWM_1_FLTSTAT1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_FLTSEN" width="32" description="PWM2 Fault Pin Logic Sense" id="PWM_2_FLTSEN" offset="0x00000900" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Sense" id="PWM_2_FLTSEN_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Sense" id="PWM_2_FLTSEN_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Sense" id="PWM_2_FLTSEN_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Sense" id="PWM_2_FLTSEN_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_FLTSTAT0" width="32" description="PWM2 Fault Status 0" id="PWM_2_FLTSTAT0" offset="0x00000904" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Fault Input 0" id="PWM_2_FLTSTAT0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Fault Input 1" id="PWM_2_FLTSTAT0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Fault Input 2" id="PWM_2_FLTSTAT0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Fault Input 3" id="PWM_2_FLTSTAT0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_2_FLTSTAT1" width="32" description="PWM2 Fault Status 1" id="PWM_2_FLTSTAT1" offset="0x00000908" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Digital Comparator 0 Trigger" id="PWM_2_FLTSTAT1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Digital Comparator 1 Trigger" id="PWM_2_FLTSTAT1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Digital Comparator 2 Trigger" id="PWM_2_FLTSTAT1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Digital Comparator 3 Trigger" id="PWM_2_FLTSTAT1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="N" description="Digital Comparator 4 Trigger" id="PWM_2_FLTSTAT1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="N" description="Digital Comparator 5 Trigger" id="PWM_2_FLTSTAT1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="N" description="Digital Comparator 6 Trigger" id="PWM_2_FLTSTAT1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="N" description="Digital Comparator 7 Trigger" id="PWM_2_FLTSTAT1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_FLTSEN" width="32" description="PWM3 Fault Pin Logic Sense" id="PWM_3_FLTSEN" offset="0x00000980" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Fault0 Sense" id="PWM_3_FLTSEN_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Fault1 Sense" id="PWM_3_FLTSEN_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Fault2 Sense" id="PWM_3_FLTSEN_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Fault3 Sense" id="PWM_3_FLTSEN_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_FLTSTAT0" width="32" description="PWM3 Fault Status 0" id="PWM_3_FLTSTAT0" offset="0x00000984" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Fault Input 0" id="PWM_3_FLTSTAT0_FAULT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Fault Input 1" id="PWM_3_FLTSTAT0_FAULT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Fault Input 2" id="PWM_3_FLTSTAT0_FAULT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Fault Input 3" id="PWM_3_FLTSTAT0_FAULT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_3_FLTSTAT1" width="32" description="PWM3 Fault Status 1" id="PWM_3_FLTSTAT1" offset="0x00000988" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="N" description="Digital Comparator 0 Trigger" id="PWM_3_FLTSTAT1_DCMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="N" description="Digital Comparator 1 Trigger" id="PWM_3_FLTSTAT1_DCMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="N" description="Digital Comparator 2 Trigger" id="PWM_3_FLTSTAT1_DCMP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="N" description="Digital Comparator 3 Trigger" id="PWM_3_FLTSTAT1_DCMP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="N" description="Digital Comparator 4 Trigger" id="PWM_3_FLTSTAT1_DCMP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="N" description="Digital Comparator 5 Trigger" id="PWM_3_FLTSTAT1_DCMP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="N" description="Digital Comparator 6 Trigger" id="PWM_3_FLTSTAT1_DCMP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="N" description="Digital Comparator 7 Trigger" id="PWM_3_FLTSTAT1_DCMP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_PP" width="32" description="PWM Peripheral Properties" id="PWM_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="Generators" id="PWM_PP_GCNT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="R" description="Fault Inputs (per PWM unit)" id="PWM_PP_FCNT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="Extended Synchronization" id="PWM_PP_ESYNC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="Extended Fault" id="PWM_PP_EFAULT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="One-Shot Mode" id="PWM_PP_ONE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="PWM_CC" width="32" description="PWM Clock Configuration" id="PWM_CC" offset="0x00000FC8" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="PWM Clock Divider" id="PWM_CC_PWMDIV" resetval="" >
+            <bitenum id="PWM_CC_PWMDIV_2" value="0x00000000" token="" description="/2"/>
+            <bitenum id="PWM_CC_PWMDIV_4" value="0x00000001" token="" description="/4"/>
+            <bitenum id="PWM_CC_PWMDIV_8" value="0x00000002" token="" description="/8"/>
+            <bitenum id="PWM_CC_PWMDIV_16" value="0x00000003" token="" description="/16"/>
+            <bitenum id="PWM_CC_PWMDIV_32" value="0x00000004" token="" description="/32"/>
+            <bitenum id="PWM_CC_PWMDIV_64" value="0x00000005" token="" description="/64"/>
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Use PWM Clock Divisor" id="PWM_CC_USEPWM" resetval="" >
+        </bitfield>
+    </register>
+</module>

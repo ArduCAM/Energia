@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:24:55 $
+  -->
+
+
+<!-- TMS320C2000 eCAN Local Acceptance Masks
+     ================+========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="ECAN_LAM" HW_revision="" XML_version="1" description="eCAN Local Acceptance Masks">
+	<register id="MBX0_LAM" acronym="MBX0_LAM" offset="0" page="1" width="32" description="eCAN Mailbox 0 Local Acceptance Mask" /> 
+	<register id="MBX1_LAM" acronym="MBX1_LAM" offset="2" page="1" width="32" description="eCAN Mailbox 1 Local Acceptance Mask" /> 
+	<register id="MBX2_LAM" acronym="MBX2_LAM" offset="4" page="1" width="32" description="eCAN Mailbox 2 Local Acceptance Mask" /> 
+	<register id="MBX3_LAM" acronym="MBX3_LAM" offset="6" page="1" width="32" description="eCAN Mailbox 3 Local Acceptance Mask" /> 
+	<register id="MBX4_LAM" acronym="MBX4_LAM" offset="8" page="1" width="32" description="eCAN Mailbox 4 Local Acceptance Mask" /> 
+	<register id="MBX5_LAM" acronym="MBX5_LAM" offset="10" page="1" width="32" description="eCAN Mailbox 5 Local Acceptance Mask" /> 
+	<register id="MBX6_LAM" acronym="MBX6_LAM" offset="12" page="1" width="32" description="eCAN Mailbox 6 Local Acceptance Mask" /> 
+	<register id="MBX7_LAM" acronym="MBX7_LAM" offset="14" page="1" width="32" description="eCAN Mailbox 7 Local Acceptance Mask" /> 
+	<register id="MBX8_LAM" acronym="MBX8_LAM" offset="16" page="1" width="32" description="eCAN Mailbox 8 Local Acceptance Mask" /> 
+	<register id="MBX9_LAM" acronym="MBX9_LAM" offset="18" page="1" width="32" description="eCAN Mailbox 9 Local Acceptance Mask" /> 
+	<register id="MBX10_LAM" acronym="MBX10_LAM" offset="20" page="1" width="32" description="eCAN Mailbox 10 Local Acceptance Mask" /> 
+	<register id="MBX11_LAM" acronym="MBX11_LAM" offset="22" page="1" width="32" description="eCAN Mailbox 11 Local Acceptance Mask" /> 
+	<register id="MBX12_LAM" acronym="MBX12_LAM" offset="24" page="1" width="32" description="eCAN Mailbox 12 Local Acceptance Mask" /> 
+	<register id="MBX13_LAM" acronym="MBX13_LAM" offset="26" page="1" width="32" description="eCAN Mailbox 13 Local Acceptance Mask" /> 
+	<register id="MBX14_LAM" acronym="MBX14_LAM" offset="28" page="1" width="32" description="eCAN Mailbox 14 Local Acceptance Mask" /> 
+	<register id="MBX15_LAM" acronym="MBX15_LAM" offset="30" page="1" width="32" description="eCAN Mailbox 15 Local Acceptance Mask" /> 
+	<register id="MBX16_LAM" acronym="MBX16_LAM" offset="32" page="1" width="32" description="eCAN Mailbox 16 Local Acceptance Mask" /> 
+	<register id="MBX17_LAM" acronym="MBX17_LAM" offset="34" page="1" width="32" description="eCAN Mailbox 17 Local Acceptance Mask" /> 
+	<register id="MBX18_LAM" acronym="MBX18_LAM" offset="36" page="1" width="32" description="eCAN Mailbox 18 Local Acceptance Mask" /> 
+	<register id="MBX19_LAM" acronym="MBX19_LAM" offset="38" page="1" width="32" description="eCAN Mailbox 19 Local Acceptance Mask" /> 
+	<register id="MBX20_LAM" acronym="MBX20_LAM" offset="40" page="1" width="32" description="eCAN Mailbox 20 Local Acceptance Mask" /> 
+	<register id="MBX21_LAM" acronym="MBX21_LAM" offset="42" page="1" width="32" description="eCAN Mailbox 21 Local Acceptance Mask" /> 
+	<register id="MBX22_LAM" acronym="MBX22_LAM" offset="44" page="1" width="32" description="eCAN Mailbox 22 Local Acceptance Mask" /> 
+	<register id="MBX23_LAM" acronym="MBX23_LAM" offset="46" page="1" width="32" description="eCAN Mailbox 23 Local Acceptance Mask" /> 
+	<register id="MBX24_LAM" acronym="MBX24_LAM" offset="48" page="1" width="32" description="eCAN Mailbox 24 Local Acceptance Mask" /> 
+	<register id="MBX25_LAM" acronym="MBX25_LAM" offset="50" page="1" width="32" description="eCAN Mailbox 25 Local Acceptance Mask" /> 
+	<register id="MBX26_LAM" acronym="MBX26_LAM" offset="52" page="1" width="32" description="eCAN Mailbox 26 Local Acceptance Mask" /> 
+	<register id="MBX27_LAM" acronym="MBX27_LAM" offset="54" page="1" width="32" description="eCAN Mailbox 27 Local Acceptance Mask" /> 
+	<register id="MBX28_LAM" acronym="MBX28_LAM" offset="56" page="1" width="32" description="eCAN Mailbox 28 Local Acceptance Mask" /> 
+	<register id="MBX29_LAM" acronym="MBX29_LAM" offset="58" page="1" width="32" description="eCAN Mailbox 29 Local Acceptance Mask" /> 
+	<register id="MBX30_LAM" acronym="MBX30_LAM" offset="60" page="1" width="32" description="eCAN Mailbox 30 Local Acceptance Mask" /> 
+	<register id="MBX31_LAM" acronym="MBX31_LAM" offset="62" page="1" width="32" description="eCAN Mailbox 31 Local Acceptance Mask" /> 
+</module>

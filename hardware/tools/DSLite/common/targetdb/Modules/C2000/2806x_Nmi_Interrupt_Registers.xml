@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: 
+  Checkin $Date: 
+  -->
+
+<!-- TMS320x2806x NMI Interrupt Registers
+     ===================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->     
+<module id="NMIINT" HW_revision="" XML_version="1" description="NMI Interrupt Registers">
+	<register id="NMICFG" acronym="NMICFG" offset="0" page="1" width="16" description="" />
+	<register id="NMIFLG" acronym="NMIFLG" offset="1" page="1" width="16" description="" />
+	<register id="NMIFLGCLR" acronym="NMIFLGCLR" offset="2" page="1" width="16" description="" />
+	<register id="NMIFLGFRC" acronym="NMIFLGFRC" offset="3" page="1" width="16" description="" />
+	<register id="NMIWDCNT" acronym="NMIWDCNT" offset="4" page="1" width="16" description="" />
+	<register id="NMIWDPRD" acronym="NMIWDPRD" offset="5" page="1" width="16" description="" />
+	<!-- 10 empty -->        
+</module>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<!-- This is a USCIF35 compatible XML.                        -->
+<!-- Copyright (c) 2011-2014, Texas Instruments Incorporated. -->
+
+<connection desc="Texas Instruments XDS100v2 USB Debug Probe" id="Texas Instruments XDS100v2 USB Emulator" class="185076">
+    <connectionType Type="TIXDS100v2"/>
+    <property Name="Diagnostic Command" Type="hiddenfield" Value="%ccs_base%/common/uscif/dbgjtag -f %boarddatafile% -rv -o -F inform,logfile=yes -S pathlength -S integrity" ID="DiagnosticCommand"/>
+    <property desc="Debug Probe Filename"  id="Emulator Filename"  Type="hiddenfield" Value="jioserdesusb.dll" ID="SEPK.POD_DRVR"/>
+    <property desc="Debug Probe Selection" id="Emulator Selection" Type="choicelist"  Value="0"                ID="SEPK.POD_PORT">
+        <choice Name="Only one XDS100 installed" value="0">
+        </choice>
+        <choice Name="Select by serial number"   value="0">
+            <property Name="-- Enter the serial number" Type="stringfield" Value="Run xds100serial to get serial number" ID="SEPK.POD_SERIAL"/>
+        </choice>
+    </property>
+    <property Name="Title" Type="hiddenfield" Value="Texas Instruments XDS100v2 USB" ID="PRODUCT.TITLE"/>
+    <property Name="Alias" Type="hiddenfield" Value="TI_XDS100v2_USB"                ID="PRODUCT.ALIAS"/>
+    <property Name="Name" Type="hiddenfield" Value="FTDI_FT2232"                     ID="PRODUCT.NAME"/>
+    <property Name="USB VID" Type="hiddenfield" Value="0x0403"                                 ID="FTDI_FT2232.USB_VID"/>
+    <property Name="USB PID" Type="hiddenfield" Value="0xa6d0"                                 ID="FTDI_FT2232.USB_PID"/>
+    <property Name="TRST" Type="hiddenfield" Value="TRSTn,Active_Low"                          ID="FTDI_FT2232.GPIO_L0"/>
+    <property Name="EMU Pin Enable" Type="hiddenfield" Value="EMU_Pin_Enable,Active_Low"       ID="FTDI_FT2232.GPIO_L1"/>
+    <property Name="EMU0" Type="hiddenfield" Value="EMU_Pin_0,Active_Low"                      ID="FTDI_FT2232.GPIO_L2"/>
+    <property Name="RTCK" Type="hiddenfield" Value="Adaptive_Clock,Active_High"                ID="FTDI_FT2232.GPIO_L3"/>
+    <property Name="SRST" Type="hiddenfield" Value="SRSTn,Active_High"                         ID="FTDI_FT2232.GPIO_H0"/>
+    <property Name="SRST In" Type="hiddenfield" Value="SRSTn_In,Active_Low"                    ID="FTDI_FT2232.GPIO_H1"/>
+    <property Name="Power Loss Detect" Type="hiddenfield" Value="Power_Loss_Detect,Active_Low" ID="FTDI_FT2232.GPIO_H2"/>
+    <property Name="Power Loss Reset" Type="hiddenfield" Value="Power_Loss_Reset,Active_High"  ID="FTDI_FT2232.GPIO_H3"/>
+    <property Name="EMU1" Type="hiddenfield" Value="EMU_Pin_1,Active_Low"                      ID="FTDI_FT2232.GPIO_H4"/>
+    <property Name="Cable Disconnect" Type="hiddenfield" Value="Cable_Disconnect,Active_High"  ID="FTDI_FT2232.GPIO_H5"/>
+    <property Name="Loopback" Type="hiddenfield" Value="Loopback,Active_High"                  ID="FTDI_FT2232.GPIO_H6"/>
+    <property Name="TMS/TDO Output Timing" Type="hiddenfield" Value="FALL" ID="USCIF.TDOEDGE"/>
+    <property Name="The JTAG nTRST Boot-Mode" Type="choicelist" Value="0"  ID="USCIF.JTAGBOOT_MODE">
+        <choice Name="Disabled - Both EMU pins remain hi-z" value="disable">
+            <property Name="unused" Type="hiddenfield" Value="hiz" ID="USCIF.JTAGBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - Both EMU pins are high" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="11"  ID="USCIF.JTAGBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - EMU1 is high, EMU0 is low" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="10"  ID="USCIF.JTAGBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - EMU1 is low, EMU0 is high" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="01"  ID="USCIF.JTAGBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - Both EMU pins are low" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="00"  ID="USCIF.JTAGBOOT_VALUE"/>
+        </choice>
+    </property>
+    <property Name="The Power-On-Reset Boot-Mode" Type="choicelist" Value="0" ID="USCIF.POWERBOOT_MODE">
+        <choice Name="Disabled - Both EMU pins remain hi-z" value="disable">
+            <property Name="unused" Type="hiddenfield" Value="hiz" ID="USCIF.POWERBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - Both EMU pins are high" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="11"  ID="USCIF.POWERBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - EMU1 is high, EMU0 is low" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="10"  ID="USCIF.POWERBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - EMU1 is low, EMU0 is high" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="01"  ID="USCIF.POWERBOOT_VALUE"/>
+        </choice>
+        <choice Name="Enabled - Both EMU pins are low" value="enable">
+            <property Name="unused" Type="hiddenfield" Value="00"  ID="USCIF.POWERBOOT_VALUE"/>
+        </choice>
+    </property>
+    <property Name="The JTAG TCLK Frequency (MHz)" Type="choicelist" Value="0" ID="USCIF.TCLK_PROGRAM">
+        <choice Name="Fixed default 1.0MHz frequency" value="SPECIFIC">
+            <property Name="unused" Type="hiddenfield" Value="1.0" ID="USCIF.TCLK_FREQUENCY"/>
+        </choice>
+        <choice Name="Fixed with user specified faster value" value="SPECIFIC">
+            <property Name="-- Enter a value from 1.0MHz to 30.0MHz" Type="stringfield" Value="1.0MHz" ID="USCIF.TCLK_FREQUENCY"/>
+        </choice>
+        <choice Name="Fixed with user specified slower value" value="SPECIFIC">
+            <property Name="-- Enter a value from 488Hz to 1.0MHz" Type="stringfield" Value="100KHz" ID="USCIF.TCLK_FREQUENCY"/>
+        </choice>
+        <choice Name="Adaptive with user specified limit" value="ADAPTIVE">
+            <property Name="-- Enter a value from 488Hz to 30.0MHz" Type="stringfield" Value="1.0MHz" ID="USCIF.TCLK_FREQUENCY"/>
+        </choice>
+    </property>
+    <property Name="Loopback Mode"  Type="hiddenfield" Value="disable" ID="USCIF.LOOPBACK_MODE"/>
+    <property Name="Loopback Value" Type="hiddenfield" Value="disable" ID="USCIF.LOOPBACK_VALUE"/>
+</connection>

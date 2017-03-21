@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register_ids id="TMS192C2028" XML_version="1.0">
+	<register_id id="EMU_INPUT_TRIG_EN_REG"   value="0x7ffffffd" address="0" page="0" />
+
+    <register_id id="DBG_CAP"              value="0x000016c0" address="0" page="0"/>
+    <register_id id="DBG_CNTL"             value="0x000016c4" address="0" page="0"/>    
+    <register_id id="DBG_HWBP_0_CNTL"      value="0x00001700" address="0" page="0"/>
+    <register_id id="DBG_HWBP_0_MB_INDEX"  value="0x00001704" address="0" page="0"/>
+    <register_id id="DBG_HWBP_0_AMASK"     value="0x0000170c" address="0" page="0"/>
+    <register_id id="DBG_HWBP_1_CNTL"      value="0x00001740" address="0" page="0"/>
+    <register_id id="DBG_HWBP_1_MB_INDEX"  value="0x00001744" address="0" page="0"/>
+    <register_id id="DBG_HWBP_1_AMASK"     value="0x0000174c" address="0" page="0"/>
+    <register_id id="SCHEDULER_STATUS"     value="0x00001760" address="0" page="0"/>
+    <register_id id="HWA_THREAD_STATUS"    value="0x000017a0" address="0" page="0"/>
+
+</register_ids>

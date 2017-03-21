@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/1 $
+  Checkin $Date: August 5, 2009   17:02:12 $
+  -->
+
+
+<!-- TMS320x2802x External Interrupt Registers
+     ========================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="XINT" HW_revision="" XML_version="1" description="External Interrupt Registers">
+	<register id="XINT1CR" acronym="XINT1CR" offset="0" page="1" width="16" description="XINT1 configuration register" /> 
+	<register id="XINT2CR" acronym="XINT2CR" offset="1" page="1" width="16" description="XINT2 configuration register" />
+	<register id="XINT3CR" acronym="XINT3CR" offset="2" page="1" width="16" description="XINT3 configuration register" />
+	<!-- 5 reserved -->	
+	<register id="XINT1CTR" acronym="XINT1CTR" offset="8" page="1" width="16" description="XINT1 counter register" />
+	<register id="XINT2CTR" acronym="XINT2CTR" offset="9" page="1" width="16" description="XINT2 counter register" />
+	<register id="XINT3CTR" acronym="XINT3CTR" offset="10" page="1" width="16" description="XINT3 counter register" />
+	<!-- 5 reserved -->
+</module>

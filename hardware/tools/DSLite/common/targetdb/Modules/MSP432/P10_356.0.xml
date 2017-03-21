@@ -1,0 +1,37 @@
+<module id="P10" HW_revision="356.0">
+    <register id="P10IV" width="16" offset="0x9E" internal="0" description="Port 10 Interrupt Vector Register">
+        <bitfield id="P10IV" description="Port 10 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P10IFG0" value="0x2" description="Interrupt Source: Port 10.0 interrupt; Interrupt Flag: P10IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P10IFG1" value="0x4" description="Interrupt Source: Port 10.1 interrupt; Interrupt Flag: P10IFG1"/>
+            <bitenum id="P10IFG2" value="0x6" description="Interrupt Source: Port 10.2 interrupt; Interrupt Flag: P10IFG2"/>
+            <bitenum id="P10IFG3" value="0x8" description="Interrupt Source: Port 10.3 interrupt; Interrupt Flag: P10IFG3"/>
+            <bitenum id="P10IFG4" value="0xA" description="Interrupt Source: Port 10.4 interrupt; Interrupt Flag: P10IFG4"/>
+            <bitenum id="P10IFG5" value="0xC" description="Interrupt Source: Port 10.5 interrupt; Interrupt Flag: P10IFG5"/>
+            <bitenum id="P10IFG6" value="0xE" description="Interrupt Source: Port 10.6 interrupt; Interrupt Flag: P10IFG6"/>
+            <bitenum id="P10IFG7" value="0x10" description="Interrupt Source: Port 10.7 interrupt; Interrupt Flag: P10IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P10IN" width="8" offset="0x81" internal="0" description="Port 10 Input">
+    </register>
+    <register id="P10OUT" width="8" offset="0x83" internal="0" description="Port 10 Output">
+    </register>
+    <register id="P10DIR" width="8" offset="0x85" internal="0" description="Port 10 Direction">
+    </register>
+    <register id="P10REN" width="8" offset="0x87" internal="0" description="Port 10 Resistor Enable">
+    </register>
+    <register id="P10DS" width="8" offset="0x89" internal="0" description="Port 10 Drive Strength">
+    </register>
+    <register id="P10SEL0" width="8" offset="0x8B" internal="0" description="Port 10 Select 0">
+    </register>
+    <register id="P10SEL1" width="8" offset="0x8D" internal="0" description="Port 10 Select 1">
+    </register>
+    <register id="P10SELC" width="8" offset="0x97" internal="0" description="Port 10 Complement Select">
+    </register>
+    <register id="P10IES" width="8" offset="0x99" internal="0" description="Port 10 Interrupt Edge Select">
+    </register>
+    <register id="P10IE" width="8" offset="0x9B" internal="0" description="Port 10 Interrupt Enable">
+    </register>
+    <register id="P10IFG" width="8" offset="0x9D" internal="0" description="Port 10 Interrupt Flag">
+    </register>
+</module>

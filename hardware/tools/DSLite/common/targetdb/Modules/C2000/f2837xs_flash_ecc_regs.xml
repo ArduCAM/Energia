@@ -1,0 +1,83 @@
+<module id="FLASH_ECC_REGS" HW_revision="" description="FLASH ECC Registers">
+	<register id="ECC_ENABLE" width="32" page="1" offset="0x0" internal="0" description="ECC Enable">
+		<bitfield id="ENABLE" description="Enable ECC" begin="3" end="0" width="4" rwaccess="R/W"/>
+	</register>
+	<register id="SINGLE_ERR_ADDR_LOW" width="32" page="1" offset="0x2" internal="0" description="Single Error Address Low">
+		<bitfield id="ERR_ADDR_L" description="Lower 64 bit Single Bit Error Address" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="SINGLE_ERR_ADDR_HIGH" width="32" page="1" offset="0x4" internal="0" description="Single Error Address High">
+		<bitfield id="ERR_ADDR_H" description="Upper 64 bit Single Bit Error Address" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="UNC_ERR_ADDR_LOW" width="32" page="1" offset="0x6" internal="0" description="Uncorrectable Error Address Low">
+		<bitfield id="UNC_ERR_ADDR_L" description="Lower 64 bit Uncorrectable Error Address" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="UNC_ERR_ADDR_HIGH" width="32" page="1" offset="0x8" internal="0" description="Uncorrectable Error Address High">
+		<bitfield id="UNC_ERR_ADDR_H" description="Upper 64 bit Uncorrectable Error Address" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="ERR_STATUS" width="32" page="1" offset="0xa" internal="0" description="Error Status">
+		<bitfield id="FAIL_0_L" description="Lower 64bits Single Bit Error Corrected Value 0" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="FAIL_1_L" description="Lower 64bits Single Bit Error Corrected Value 1" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="UNC_ERR_L" description="Lower 64 bits Uncorrectable error occurred" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="FAIL_0_H" description="Upper 64bits Single Bit Error Corrected Value 0" begin="16" end="16" width="1" rwaccess="R"/>
+		<bitfield id="FAIL_1_H" description="Upper 64bits Single Bit Error Corrected Value 1" begin="17" end="17" width="1" rwaccess="R"/>
+		<bitfield id="UNC_ERR_H" description="Upper 64 bits Uncorrectable error occurred" begin="18" end="18" width="1" rwaccess="R"/>
+	</register>
+	<register id="ERR_POS" width="32" page="1" offset="0xc" internal="0" description="Error Position">
+		<bitfield id="ERR_POS_L" description="Bit Position of Single bit Error in lower 64 bits" begin="5" end="0" width="6" rwaccess="R"/>
+		<bitfield id="ERR_TYPE_L" description="Error Type in lower 64 bits" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="ERR_POS_H" description="Bit Position of Single bit Error in upper 64 bits" begin="21" end="16" width="6" rwaccess="R"/>
+		<bitfield id="ERR_TYPE_H" description="Error Type in upper 64 bits" begin="24" end="24" width="1" rwaccess="R"/>
+	</register>
+	<register id="ERR_STATUS_CLR" width="32" page="1" offset="0xe" internal="0" description="Error Status Clear">
+		<bitfield id="FAIL_0_L_CLR" description="Lower 64bits Single Bit Error Corrected Value 0 Clear" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="FAIL_1_L_CLR" description="Lower 64bits Single Bit Error Corrected Value 1 Clear" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="UNC_ERR_L_CLR" description="Lower 64 bits Uncorrectable error occurred Clear" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="FAIL_0_H_CLR" description="Upper 64bits Single Bit Error Corrected Value 0 Clear" begin="16" end="16" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="FAIL_1_H_CLR" description="Upper 64bits Single Bit Error Corrected Value 1 Clear" begin="17" end="17" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="UNC_ERR_H_CLR" description="Upper 64 bits Uncorrectable error occurred Clear" begin="18" end="18" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="ERR_CNT" width="32" page="1" offset="0x10" internal="0" description="Error Control">
+		<bitfield id="ERR_CNT" description="Error counter" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="ERR_THRESHOLD" width="32" page="1" offset="0x12" internal="0" description="Error Threshold">
+		<bitfield id="ERR_THRESHOLD" description="Error Threshold" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="ERR_INTFLG" width="32" page="1" offset="0x14" internal="0" description="Error Interrupt Flag">
+		<bitfield id="SINGLE_ERR_INTFLG" description="Single Error Interrupt Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="UNC_ERR_INTFLG" description="Uncorrectable Interrupt Flag" begin="1" end="1" width="1" rwaccess="R"/>
+	</register>
+	<register id="ERR_INTCLR" width="32" page="1" offset="0x16" internal="0" description="Error Interrupt Flag Clear">
+		<bitfield id="SINGLE_ERR_INTCLR" description="Single Error Interrupt Flag Clear" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="UNC_ERR_INTCLR" description="Uncorrectable Interrupt Flag Clear" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="FDATAH_TEST" width="32" page="1" offset="0x18" internal="0" description="Data High Test">
+		<bitfield id="FDATAH" description="Data High Test" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="FDATAL_TEST" width="32" page="1" offset="0x1a" internal="0" description="Data Low Test">
+		<bitfield id="FDATAL" description="Data Low Test" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="FADDR_TEST" width="32" page="1" offset="0x1c" internal="0" description="ECC Test Address">
+		<bitfield id="ADDRL" description="ECC Address Low" begin="15" end="3" width="13" rwaccess="R/W"/>
+		<bitfield id="ADDRH" description="ECC Address High" begin="21" end="16" width="6" rwaccess="R/W"/>
+	</register>
+	<register id="FECC_TEST" width="32" page="1" offset="0x1e" internal="0" description="ECC Test Address">
+		<bitfield id="ECC" description="ECC Control Bits" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="FECC_CTRL" width="32" page="1" offset="0x20" internal="0" description="ECC Control">
+		<bitfield id="ECC_TEST_EN" description="Enable ECC Test Logic" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ECC_SELECT" description="ECC Bit Select" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="DO_ECC_CALC" description="Enable ECC Calculation" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="FOUTH_TEST" width="32" page="1" offset="0x22" internal="0" description="Test Data Out High">
+		<bitfield id="DATAOUTH" description="Test Data Out High" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="FOUTL_TEST" width="32" page="1" offset="0x24" internal="0" description="Test Data Out Low">
+		<bitfield id="DATAOUTL" description="Test Data Out Low" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="FECC_STATUS" width="32" page="1" offset="0x26" internal="0" description="ECC Status">
+		<bitfield id="SINGLE_ERR" description="Test Result is Single Bit Error" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="UNC_ERR" description="Test Result is Uncorrectable Error" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="DATA_ERR_POS" description="Holds Bit Position of Error" begin="7" end="2" width="6" rwaccess="R"/>
+		<bitfield id="ERR_TYPE" description="Holds Bit Position of 8 Check Bits of Error" begin="8" end="8" width="1" rwaccess="R"/>
+	</register>
+</module>

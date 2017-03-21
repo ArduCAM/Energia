@@ -1,0 +1,22 @@
+<module id="WD_REGS" HW_revision="" description="WD Registers">
+	<register id="SCSR" width="16" page="1" offset="0x22" internal="0" description="System Control and Status Register">
+		<bitfield id="WDOVERRIDE" description="WD Override for WDDIS bit" begin="0" end="0" width="1" rwaccess="R/W=1"/>
+		<bitfield id="WDENINT" description="WD Interrupt Enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="WDINTS" description="WD Interrupt Status" begin="2" end="2" width="1" rwaccess="R"/>
+	</register>
+	<register id="WDCNTR" width="16" page="1" offset="0x23" internal="0" description="Watchdog Counter Register">
+		<bitfield id="WDCNTR" description="WD Counter" begin="7" end="0" width="8" rwaccess="R"/>
+	</register>
+	<register id="WDKEY" width="16" page="1" offset="0x25" internal="0" description="Watchdog Reset Key Register">
+		<bitfield id="WDKEY" description="WD KEY" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="WDCR" width="16" page="1" offset="0x29" internal="0" description="Watchdog Control Register">
+		<bitfield id="WDPS" description="WD Clock Prescalar" begin="2" end="0" width="3" rwaccess="R/W"/>
+		<bitfield id="WDCHK" description="WD Check Bits" begin="5" end="3" width="3" rwaccess="R=0/W"/>
+		<bitfield id="WDDIS" description="WD Disable" begin="6" end="6" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="WDWCR" width="16" page="1" offset="0x2a" internal="0" description="Watchdog Windowed Control Register">
+		<bitfield id="MIN" description="WD Min Threshold setting for Windowed Watchdog functionality" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="FIRSTKEY" description="First Key Detect Flag" begin="8" end="8" width="1" rwaccess="R"/>
+	</register>
+</module>

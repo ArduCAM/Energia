@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:50:22 $
+  -->
+
+
+<!-- TMS320C2000 Multi-Channel Buffered Serial Port  Registers
+     ==========================================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="McBSP" HW_revision="" XML_version="1" description="Multi-Channel Buffered Serial Port Registers">
+	<!-- DATA REGISTERS, RECEIVE, TRANSMIT -->
+	<register id="DRR2" acronym="DRR2" offset="0" page="1" width="16" description="McBSP Data Receive Register 2" />
+	<register id="DRR1" acronym="DRR1" offset="1" page="1" width="16" description="McBSP Data Receive Register 1" />
+	<register id="DXR2" acronym="DXR2" offset="2" page="1" width="16" description="McBSP Data Transmit Register 2" />
+	<register id="DXR1" acronym="DXR1" offset="3" page="1" width="16" description="McBSP Data Transmit Register 1" />
+	<!-- McBSP CONTROL REGISTERS -->
+	<register id="SPCR2" acronym="SPCR2" offset="4" page="1" width="16" description="McBSP Serial Port Control Register 2" />
+	<register id="SPCR1" acronym="SPCR1" offset="5" page="1" width="16" description="McBSP Serial Port Control Register 1" />
+	<register id="RCR2" acronym="RCR2" offset="6" page="1" width="16" description="McBSP Receive Control Register 2" />
+	<register id="RCR1" acronym="RCR1" offset="7" page="1" width="16" description="McBSP Receive Control Register 1" />
+	<register id="XCR2" acronym="XCR2" offset="8" page="1" width="16" description="McBSP Transmit Control Register 2" />
+	<register id="XCR1" acronym="XCR1" offset="9" page="1" width="16" description="McBSP Transmit Control Register 1" />
+	<register id="SRGR2" acronym="SRGR2" offset="10" page="1" width="16" description="McBSP Sample Rate Generator Register 2" />
+	<register id="SRGR1" acronym="SRGR1" offset="11" page="1" width="16" description="McBSP Sample Rate Generator Register 1" />
+	<!-- MULTICHANNEL CONTROL REGISTERS -->
+	<register id="MCR2" acronym="MCR2" offset="12" page="1" width="16" description="McBSP Multichannel Register 2" />
+	<register id="MCR1" acronym="MCR1" offset="13" page="1" width="16" description="McBSP Multichannel Register 1" />
+	<register id="RCERA" acronym="RCERA" offset="14" page="1" width="16" description="McBSP Receive Channel Enable Register Partition A" />
+	<register id="RCERB" acronym="RCERB" offset="15" page="1" width="16" description="McBSP Receive Channel Enable Register Partition B" />
+	<register id="XCERA" acronym="XCERA" offset="16" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition A" />
+	<register id="XCERB" acronym="XCERB" offset="17" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition B" />
+	<register id="PCR" acronym="PCR" offset="18" page="1" width="16" description="McBSP Pin Control Register" />
+	<register id="RCERC" acronym="RCERC" offset="19" page="1" width="16" description="McBSP Receive Channel Enable Register Partition C" />
+	<register id="RCERD" acronym="RCERD" offset="20" page="1" width="16" description="McBSP Receive Channel Enable Register Partition D" />
+	<register id="XCERC" acronym="XCERC" offset="21" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition C" />
+	<register id="XCERD" acronym="XCERD" offset="22" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition D" />
+	<register id="RCERE" acronym="RCERE" offset="23" page="1" width="16" description="McBSP Receive Channel Enable Register Partition E" />
+	<register id="RCERF" acronym="RCERF" offset="24" page="1" width="16" description="McBSP Receive Channel Enable Register Partition F" />
+	<register id="XCERE" acronym="XCERE" offset="25" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition E" />
+	<register id="XCERF" acronym="XCERF" offset="26" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition F" />
+	<register id="RCERG" acronym="RCERG" offset="27" page="1" width="16" description="McBSP Receive Channel Enable Register Partition G" />
+	<register id="RCERH" acronym="RCERH" offset="28" page="1" width="16" description="McBSP Receive Channel Enable Register Partition H" />
+	<register id="XCERG" acronym="XCERG" offset="29" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition G" />
+	<register id="XCERH" acronym="XCERH" offset="30" page="1" width="16" description="McBSP Transmit Channel Enable Register Partition H" />
+	<register id="MFFINT" acronym="MFFINT" offset="35" page="1" width="16" description="McBSP Interrupt Enable Register" />
+</module>

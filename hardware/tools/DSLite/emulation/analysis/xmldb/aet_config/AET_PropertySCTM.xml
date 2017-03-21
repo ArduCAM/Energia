@@ -1,0 +1,384 @@
+<?xml version="1.0"?>
+<!-- This file defines options for STM power management profiling trace. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+ 	  <DESCRIPTION>Display all the AET functions</DESCRIPTION>	
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Watchpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SCTM</ALLOWED_KEY>
+			<ALLOWED_STRING>SCTM Function</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>SCTM Base Address</NAME>	
+ 	  <DESCRIPTION>This base address is the OCP base address used by SW to program SCTM</DESCRIPTION>		
+	  <VALUE>0x40000400</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!-- Configuration of SCTM functions.                                            -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Function Type</NAME>	
+ 	  <DESCRIPTION>The option of selecting counter/timer function, or route an ASIC event to CPU debug logic.</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071000</ALLOWED_ENUM>
+			<ALLOWED_SAMELEVEL_KEY>SCTM COUNTER</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Event Counter</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80072000</ALLOWED_ENUM>
+			<ALLOWED_SAMELEVEL_KEY>SCTM TIMER</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Profile Timer</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                      Not Editable Counter Value                             -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Current Count</NAME>	
+ 	  <DESCRIPTION>Value of the count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	      <!-- Key of sub property for Count Event -->
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	      <!-- Key of sub property for Timer       -->
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFFFFFFFFFF</RANGEHI>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <ENUMVALUE>0x80070010</ENUMVALUE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                      Not Editable Overflow Flag                             -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Overflow</NAME>	
+ 	  <DESCRIPTION>Overflow status</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	      <!-- Key of sub property for Count Event -->
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	      <!-- Key of sub property for Timer       -->
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <ENUMVALUE>0x80070011</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_STRING>
+	  <NAME>Counter/Timer Size</NAME>	
+ 	  <DESCRIPTION>The option of setting the size of the counter or timer</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80070002</ALLOWED_ENUM>
+			<ALLOWED_STRING>32 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80070003</ALLOWED_ENUM>
+			<ALLOWED_STRING>64 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Export STM Message</NAME>	
+ 	  <DESCRIPTION>Option of exporting STM message</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM X</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80070004</ENUMVALUE>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_STRING>
+	  <NAME>Detection Type</NAME>	
+ 	  <DESCRIPTION>The option of edge or level detection. The level type will count the duration of the event.</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80070007</ALLOWED_ENUM>
+			<ALLOWED_STRING>Edge</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80070008</ALLOWED_ENUM>
+			<ALLOWED_STRING>Level</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!-- Counter mode options.                                                       -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Type</NAME>	
+ 	  <DESCRIPTION>The option of selecting event input for the counter</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM ROUTER</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Clock Cycles</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071001</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Allocation Failed</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071002</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Replacement Occurred</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071003</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Eviction Occurred</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071004</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Waiting for Maintenance</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071008</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Waiting for Fill Buf.</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x8007100C</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cached Request</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071010</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Bank Conflict</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071014</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Allocation Going On</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071015</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Write Buf. Hit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071019</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Fill Buf. Hit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x8007101D</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Write Affected</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071021</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Read Affected</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071025</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Tag Miss</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071029</ALLOWED_ENUM>
+			<ALLOWED_STRING>Cache Tag Hit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x8007102D</ALLOWED_ENUM>
+			<ALLOWED_STRING>cortex2_DEEPSLEEP</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x8007102E</ALLOWED_ENUM>
+			<ALLOWED_STRING>cortex2_SLEEPING</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x8007102F</ALLOWED_ENUM>
+			<ALLOWED_STRING>cortex1_DEEPSLEEP</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80071030</ALLOWED_ENUM>
+			<ALLOWED_STRING>cortex1_SLEEPING</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Count During IDLE</NAME>	
+ 	  <DESCRIPTION>Option of running during processor IDLE state</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80070005</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Count During Halt</NAME>	
+ 	  <DESCRIPTION>Option of running during processor halt state</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80070006</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_STRING>
+	  <NAME>Idle Mode</NAME>	
+ 	  <DESCRIPTION>The option of setting idle mode of the function</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM COUNTER</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80080002</ALLOWED_ENUM>
+			<ALLOWED_STRING>Smart-Idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80080000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Force Idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80080001</ALLOWED_ENUM>
+			<ALLOWED_STRING>No Idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80080003</ALLOWED_ENUM>
+			<ALLOWED_STRING>Smart-Idle-Wkup</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!-- Timer mode options.                                                         -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Generate Event</NAME>	
+ 	  <DESCRIPTION>The option of generate event at a interval value</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SCTM TIMER</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TIMER INTERVAL 32BIT</ALLOWED_KEY>
+			<ALLOWED_STRING>Yes</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Generate Interrupt</NAME>	
+ 	  <DESCRIPTION>Option of generate interrupt after timer matches the interval value.</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TIMER INTERVAL 32BIT</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x8007000A</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Generate Debug Event</NAME>	
+ 	  <DESCRIPTION>Option of generate CPU debug event after timer matches the interval value.</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TIMER INTERVAL 32BIT</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x8007000B</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Interval</NAME>	
+ 	  <DESCRIPTION>The interval values in clock cycles.</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TIMER INTERVAL 32BIT</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+  	  <VALUE>0x80</VALUE>
+	  <ENUMVALUE>0x8007000C</ENUMVALUE>
+	</PROPERTY_INTEGER>
+	
+
+	<PROPERTY_BOOL>
+	  <NAME>Reset on Match</NAME>	
+ 	  <DESCRIPTION>Option of enabling reset after the match of the interval.</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TIMER INTERVAL 32BIT</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x8007000D</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+</AET>

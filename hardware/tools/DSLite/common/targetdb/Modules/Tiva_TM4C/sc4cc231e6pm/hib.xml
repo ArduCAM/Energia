@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="HIB" HW_revision="" XML_version="1.0" description="Hibernation module register addresses" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="HIB_RTCC" width="32" description="Hibernation RTC Counter" id="HIB_RTCC" offset="0x00000000" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="RTC Counter" id="HIB_RTCC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCM0" width="32" description="Hibernation RTC Match 0" id="HIB_RTCM0" offset="0x00000004" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="RTC Match 0" id="HIB_RTCM0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCLD" width="32" description="Hibernation RTC Load" id="HIB_RTCLD" offset="0x0000000C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="RTC Load" id="HIB_RTCLD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CTL" width="32" description="Hibernation Control" id="HIB_CTL" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTC Timer Enable" id="HIB_CTL_RTCEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Hibernation Request" id="HIB_CTL_HIBREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="RTC Wake-up Enable" id="HIB_CTL_RTCWEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="External Wake Pin Enable" id="HIB_CTL_PINWEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clocking Enable" id="HIB_CTL_CLK32EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Power Cut Abort Enable" id="HIB_CTL_VABORT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="VDD Powered" id="HIB_CTL_VDD3ON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Wake on Low Battery" id="HIB_CTL_BATWKEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Check Battery Status" id="HIB_CTL_BATCHK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Select for Low-Battery Comparator" id="HIB_CTL_VBATSEL" resetval="" >
+            <bitenum id="HIB_CTL_VBATSEL_1_9V" value="0x00000000" token="" description="1.9 Volts"/>
+            <bitenum id="HIB_CTL_VBATSEL_2_1V" value="0x00002000" token="" description="2.1 Volts (default)"/>
+            <bitenum id="HIB_CTL_VBATSEL_2_3V" value="0x00004000" token="" description="2.3 Volts"/>
+            <bitenum id="HIB_CTL_VBATSEL_2_5V" value="0x00006000" token="" description="2.5 Volts"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Oscillator Bypass" id="HIB_CTL_OSCBYP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Oscillator Drive Capability" id="HIB_CTL_OSCDRV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Write Complete/Capable" id="HIB_CTL_WRC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_IM" width="32" description="Hibernation Interrupt Mask" id="HIB_IM" offset="0x00000014" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTC Alert 0 Interrupt Mask" id="HIB_IM_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Low Battery Voltage Interrupt Mask" id="HIB_IM_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="External Wake-Up Interrupt Mask" id="HIB_IM_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="External Write Complete/Capable Interrupt Mask" id="HIB_IM_WC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RIS" width="32" description="Hibernation Raw Interrupt Status" id="HIB_RIS" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="RTC Alert 0 Raw Interrupt Status" id="HIB_RIS_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Low Battery Voltage Raw Interrupt Status" id="HIB_RIS_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="External Wake-Up Raw Interrupt Status" id="HIB_RIS_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Write Complete/Capable Raw Interrupt Status" id="HIB_RIS_WC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_MIS" width="32" description="Hibernation Masked Interrupt Status" id="HIB_MIS" offset="0x0000001C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="RTC Alert 0 Masked Interrupt Status" id="HIB_MIS_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Low Battery Voltage Masked Interrupt Status" id="HIB_MIS_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="External Wake-Up Masked Interrupt Status" id="HIB_MIS_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Write Complete/Capable Masked Interrupt Status" id="HIB_MIS_WC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_IC" width="32" description="Hibernation Interrupt Clear" id="HIB_IC" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTC Alert0 Masked Interrupt Clear" id="HIB_IC_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Low Battery Voltage Interrupt Clear" id="HIB_IC_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="External Wake-Up Interrupt Clear" id="HIB_IC_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Write Complete/Capable Interrupt Clear" id="HIB_IC_WC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCT" width="32" description="Hibernation RTC Trim" id="HIB_RTCT" offset="0x00000024" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="RTC Trim Value" id="HIB_RTCT_TRIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCSS" width="32" description="Hibernation RTC Sub Seconds" id="HIB_RTCSS" offset="0x00000028" >
+        <bitfield range="" begin="14" width="15" end="0" rwaccess="RW" description="RTC Sub Seconds Count" id="HIB_RTCSS_RTCSSC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="15" end="16" rwaccess="RW" description="RTC Sub Seconds Match" id="HIB_RTCSS_RTCSSM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_DATA" width="32" description="Hibernation Data" id="HIB_DATA" offset="0x00000030" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Hibernation Module NV Data" id="HIB_DATA_RTD" resetval="" >
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="GPIO_PORTA" HW_revision="" XML_version="1.0" description="GPIO register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="GPIO_DATA" width="32" description="GPIO Data" id="GPIO_DATA" offset="0x000003FC" >
+    </register>
+    <register acronym="GPIO_DIR" width="32" description="GPIO Direction" id="GPIO_DIR" offset="0x00000400" >
+    </register>
+    <register acronym="GPIO_IS" width="32" description="GPIO Interrupt Sense" id="GPIO_IS" offset="0x00000404" >
+    </register>
+    <register acronym="GPIO_IBE" width="32" description="GPIO Interrupt Both Edges" id="GPIO_IBE" offset="0x00000408" >
+    </register>
+    <register acronym="GPIO_IEV" width="32" description="GPIO Interrupt Event" id="GPIO_IEV" offset="0x0000040C" >
+    </register>
+    <register acronym="GPIO_IM" width="32" description="GPIO Interrupt Mask" id="GPIO_IM" offset="0x00000410" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="GPIO Interrupt Mask Enable" id="GPIO_IM_GPIO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_RIS" width="32" description="GPIO Raw Interrupt Status" id="GPIO_RIS" offset="0x00000414" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="R" description="GPIO Interrupt Raw Status" id="GPIO_RIS_GPIO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_MIS" width="32" description="GPIO Masked Interrupt Status" id="GPIO_MIS" offset="0x00000418" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="R" description="GPIO Masked Interrupt Status" id="GPIO_MIS_GPIO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_ICR" width="32" description="GPIO Interrupt Clear" id="GPIO_ICR" offset="0x0000041C" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="W" description="GPIO Interrupt Clear" id="GPIO_ICR_GPIO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_AFSEL" width="32" description="GPIO Alternate Function Select" id="GPIO_AFSEL" offset="0x00000420" >
+    </register>
+    <register acronym="GPIO_DR2R" width="32" description="GPIO 2-mA Drive Select" id="GPIO_DR2R" offset="0x00000500" >
+    </register>
+    <register acronym="GPIO_DR4R" width="32" description="GPIO 4-mA Drive Select" id="GPIO_DR4R" offset="0x00000504" >
+    </register>
+    <register acronym="GPIO_DR8R" width="32" description="GPIO 8-mA Drive Select" id="GPIO_DR8R" offset="0x00000508" >
+    </register>
+    <register acronym="GPIO_ODR" width="32" description="GPIO Open Drain Select" id="GPIO_ODR" offset="0x0000050C" >
+    </register>
+    <register acronym="GPIO_PUR" width="32" description="GPIO Pull-Up Select" id="GPIO_PUR" offset="0x00000510" >
+    </register>
+    <register acronym="GPIO_PDR" width="32" description="GPIO Pull-Down Select" id="GPIO_PDR" offset="0x00000514" >
+    </register>
+    <register acronym="GPIO_SLR" width="32" description="GPIO Slew Rate Control Select" id="GPIO_SLR" offset="0x00000518" >
+    </register>
+    <register acronym="GPIO_DEN" width="32" description="GPIO Digital Enable" id="GPIO_DEN" offset="0x0000051C" >
+    </register>
+    <register acronym="GPIO_LOCK" width="32" description="GPIO Lock" id="GPIO_LOCK" offset="0x00000520" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPIO Lock" id="GPIO_LOCK" resetval="" >
+            <bitenum id="GPIO_LOCK_UNLOCKED" value="0x00000000" token="" description="The GPIOCR register is unlocked and may be modified"/>
+            <bitenum id="GPIO_LOCK_LOCKED" value="0x00000001" token="" description="The GPIOCR register is locked and may not be modified"/>
+            <bitenum id="GPIO_LOCK_KEY" value="0x4C4F434B" token="" description="Unlocks the GPIO_CR register"/>
+        </bitfield>
+    </register>
+    <register acronym="GPIO_CR" width="32" description="GPIO Commit" id="GPIO_CR" offset="0x00000524" >
+    </register>
+    <register acronym="GPIO_AMSEL" width="32" description="GPIO Analog Mode Select" id="GPIO_AMSEL" offset="0x00000528" >
+    </register>
+    <register acronym="GPIO_PCTL" width="32" description="GPIO Port Control" id="GPIO_PCTL" offset="0x0000052C" >
+    </register>
+    <register acronym="GPIO_ADCCTL" width="32" description="GPIO ADC Control" id="GPIO_ADCCTL" offset="0x00000530" >
+    </register>
+    <register acronym="GPIO_DMACTL" width="32" description="GPIO DMA Control" id="GPIO_DMACTL" offset="0x00000534" >
+    </register>
+</module>

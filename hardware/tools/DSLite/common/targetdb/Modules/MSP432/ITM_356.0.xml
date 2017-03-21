@@ -1,0 +1,116 @@
+<module id="ITM" HW_revision="356.0">
+    <register id="ITM_STIM0" width="32" offset="0x0" internal="0" description="ITM Stimulus Port 0">
+    </register>
+    <register id="ITM_STIM1" width="32" offset="0x4" internal="0" description="ITM Stimulus Port 1">
+    </register>
+    <register id="ITM_STIM2" width="32" offset="0x8" internal="0" description="ITM Stimulus Port 2">
+    </register>
+    <register id="ITM_STIM3" width="32" offset="0xC" internal="0" description="ITM Stimulus Port 3">
+    </register>
+    <register id="ITM_STIM4" width="32" offset="0x10" internal="0" description="ITM Stimulus Port 4">
+    </register>
+    <register id="ITM_STIM5" width="32" offset="0x14" internal="0" description="ITM Stimulus Port 5">
+    </register>
+    <register id="ITM_STIM6" width="32" offset="0x18" internal="0" description="ITM Stimulus Port 6">
+    </register>
+    <register id="ITM_STIM7" width="32" offset="0x1C" internal="0" description="ITM Stimulus Port 7">
+    </register>
+    <register id="ITM_STIM8" width="32" offset="0x20" internal="0" description="ITM Stimulus Port 8">
+    </register>
+    <register id="ITM_STIM9" width="32" offset="0x24" internal="0" description="ITM Stimulus Port 9">
+    </register>
+    <register id="ITM_STIM10" width="32" offset="0x28" internal="0" description="ITM Stimulus Port 10">
+    </register>
+    <register id="ITM_STIM11" width="32" offset="0x2C" internal="0" description="ITM Stimulus Port 11">
+    </register>
+    <register id="ITM_STIM12" width="32" offset="0x30" internal="0" description="ITM Stimulus Port 12">
+    </register>
+    <register id="ITM_STIM13" width="32" offset="0x34" internal="0" description="ITM Stimulus Port 13">
+    </register>
+    <register id="ITM_STIM14" width="32" offset="0x38" internal="0" description="ITM Stimulus Port 14">
+    </register>
+    <register id="ITM_STIM15" width="32" offset="0x3C" internal="0" description="ITM Stimulus Port 15">
+    </register>
+    <register id="ITM_STIM16" width="32" offset="0x40" internal="0" description="ITM Stimulus Port 16">
+    </register>
+    <register id="ITM_STIM17" width="32" offset="0x44" internal="0" description="ITM Stimulus Port 17">
+    </register>
+    <register id="ITM_STIM18" width="32" offset="0x48" internal="0" description="ITM Stimulus Port 18">
+    </register>
+    <register id="ITM_STIM19" width="32" offset="0x4C" internal="0" description="ITM Stimulus Port 19">
+    </register>
+    <register id="ITM_STIM20" width="32" offset="0x50" internal="0" description="ITM Stimulus Port 20">
+    </register>
+    <register id="ITM_STIM21" width="32" offset="0x54" internal="0" description="ITM Stimulus Port 21">
+    </register>
+    <register id="ITM_STIM22" width="32" offset="0x58" internal="0" description="ITM Stimulus Port 22">
+    </register>
+    <register id="ITM_STIM23" width="32" offset="0x5C" internal="0" description="ITM Stimulus Port 23">
+    </register>
+    <register id="ITM_STIM24" width="32" offset="0x60" internal="0" description="ITM Stimulus Port 24">
+    </register>
+    <register id="ITM_STIM25" width="32" offset="0x64" internal="0" description="ITM Stimulus Port 25">
+    </register>
+    <register id="ITM_STIM26" width="32" offset="0x68" internal="0" description="ITM Stimulus Port 26">
+    </register>
+    <register id="ITM_STIM27" width="32" offset="0x6C" internal="0" description="ITM Stimulus Port 27">
+    </register>
+    <register id="ITM_STIM28" width="32" offset="0x70" internal="0" description="ITM Stimulus Port 28">
+    </register>
+    <register id="ITM_STIM29" width="32" offset="0x74" internal="0" description="ITM Stimulus Port 29">
+    </register>
+    <register id="ITM_STIM30" width="32" offset="0x78" internal="0" description="ITM Stimulus Port 30">
+    </register>
+    <register id="ITM_STIM31" width="32" offset="0x7C" internal="0" description="ITM Stimulus Port 31">
+    </register>
+    <register id="ITM_TER" width="32" offset="0xE00" internal="0" description="ITM Trace Enable Register">
+    </register>
+    <register id="ITM_TPR" width="32" offset="0xE40" internal="0" description="ITM Trace Privilege Register">
+        <bitfield id="PRIVMASK" description="Bit mask to enable tracing on ITM stimulus ports: bit [0] = stimulus ports [7:0], bit [1] = stimulus ports [15:8], bit [2] = stimulus ports [23:16], bit [3] = stimulus ports [31:24]." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="ITM_TCR" width="32" offset="0xE80" internal="0" description="ITM Trace Control Register">
+        <bitfield id="ITMENA" description="Enable ITM. This is the master enable, and must be set before ITM Stimulus and Trace Enable registers can be written." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TSENA" description="Enables differential timestamps. Differential timestamps are emitted when a packet is written to the FIFO with a non-zero timestamp counter, and when the timestamp counter overflows. Timestamps are emitted during idle times after a fixed number of two million cycles. This provides a time reference for packets and inter-packet gaps. If SWOENA (bit [4]) is set, timestamps are triggered by activity on the internal trace bus only. In this case there is no regular timestamp output when the ITM is idle." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SYNCENA" description="Enables sync packets for TPIU." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DWTENA" description="Enables the DWT stimulus." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SWOENA" description="Enables asynchronous clocking of the timestamp counter." begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TSPRESCALE" description="TSPrescale Timestamp prescaler." begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="no prescaling"/>
+            <bitenum id="en_0b01" value="0x1" description="divide by 4"/>
+            <bitenum id="en_0b10" value="0x2" description="divide by 16"/>
+            <bitenum id="en_0b11" value="0x3" description="divide by 64"/>
+        </bitfield>
+        <bitfield id="ATBID" description="ATB ID for CoreSight system." begin="22" end="16" width="7" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BUSY" description="Set when ITM events present and being drained." begin="23" end="23" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="ITM_IWR" width="32" offset="0xEF8" internal="0" description="ITM Integration Write Register">
+        <bitfield id="ATVALIDM" description="When the integration mode is set: 0 = ATVALIDM clear. 1 = ATVALIDM set." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="ATVALIDM clear"/>
+            <bitenum id="en_0b1" value="0x1" description="ATVALIDM set"/>
+        </bitfield>
+    </register>
+    <register id="ITM_IMCR" width="32" offset="0xF00" internal="0" description="ITM Integration Mode Control Register">
+        <bitfield id="INTEGRATION" description="" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="ATVALIDM normal"/>
+            <bitenum id="en_0b1" value="0x1" description="ATVALIDM driven from Integration Write Register"/>
+        </bitfield>
+    </register>
+    <register id="ITM_LAR" width="32" offset="0xFB0" internal="0" description="ITM Lock Access Register">
+    </register>
+    <register id="ITM_LSR" width="32" offset="0xFB4" internal="0" description="ITM Lock Status Register">
+        <bitfield id="PRESENT" description="Indicates that a lock mechanism exists for this component." begin="0" end="0" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="ACCESS" description="Write access to component is blocked. All writes are ignored, reads are permitted." begin="1" end="1" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="BYTEACC" description="You cannot implement 8-bit lock accesses." begin="2" end="2" width="1" rwaccess="R">
+        </bitfield>
+    </register>
+</module>

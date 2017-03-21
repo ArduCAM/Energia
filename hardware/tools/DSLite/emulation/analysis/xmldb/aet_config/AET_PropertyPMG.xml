@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<!-- This file defines options for STM power management profiling trace. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Base Address</NAME>	
+ 	  <DESCRIPTION>This base address is the base address used by SW to program PMG</DESCRIPTION>		
+	  <VALUE>0x4A307F00</VALUE>
+	  <PAGE>1</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Profling ClkCtrl Addr</NAME>	
+ 	  <DESCRIPTION>This is the address of PM profiling clkctrl register</DESCRIPTION>		
+	  <VALUE>0x4A306040</VALUE>
+	  <PAGE>1</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+	  <VALUE>Trace</VALUE>
+	  <CHILDKEY>TRACE</CHILDKEY>	<!-- The key point to access size -->
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!-- Setting for power management event detection.                                          -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Idle Mode</NAME>	
+ 	  <DESCRIPTION>The option of setting idle mode of the function</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL PM</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80040000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Force Idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80040001</ALLOWED_ENUM>
+			<ALLOWED_STRING>No Idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SMART IDLE</ALLOWED_KEY>
+			<ALLOWED_STRING>Smart-idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Wakeup Type</NAME>	
+ 	  <DESCRIPTION>The option of setting wakeup type for Smart-idle mode</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SMART IDLE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80040002</ALLOWED_ENUM>
+			<ALLOWED_STRING>No Wakeup</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80040003</ALLOWED_ENUM>
+			<ALLOWED_STRING>Capable Wakeup</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Sampling Window(cycles)</NAME>	
+ 	  <DESCRIPTION>The sampling window size expressed as clock cycles(0-0xFF)</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL PM</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>255</RANGEHI>
+  	  <VALUE>8</VALUE>
+	  <ENUMVALUE>0x80040010</ENUMVALUE>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Clock Divide Factor</NAME>	
+ 	  <DESCRIPTION>The function clock divide factor(1-16)</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL PM</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>1</RANGELO>
+	  <RANGEHI>16</RANGEHI>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80040011</ENUMVALUE>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_BOOL>
+	  <NAME>Start on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Start Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL PM</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80040020</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Stop on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Stop Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL PM</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80040021</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Class Enable</NAME>	
+ 	  <DESCRIPTION>Option of enabling or disable individule power management event class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL PM</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVENT GROUP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>LVD OPP Change</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of Logic Voltage Domain OPP change</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80040030</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>MVD OPP Change</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of Memory Voltage Domain OPP change</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80040031</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>LPD State Change</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of Logic Voltage State change</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80040032</ENUMVALUE>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>MPD State Change</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of Memory Voltage State change</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80040033</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+</AET>

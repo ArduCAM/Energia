@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:50:25 $
+  -->
+
+
+<!-- TMS320C2000 Serial Peripheral Interface Registers
+     ===================================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="SPI" HW_revision="" XML_version="1" description="Serial Peripheral Interface Registers">
+	<register id="SPICCR" acronym="SPICCR" offset="0" page="1" width="16" description="SPI Configuration Control Register" />
+	<register id="SPICTL" acronym="SPICTL" offset="1" page="1" width="16" description="SPI Operation Control Register" />
+	<register id="SPISTS" acronym="SPISTS" offset="2" page="1" width="16" description="SPI Status Register" />
+	<!-- 1 empty -->
+	<register id="SPIBRR" acronym="SPIBRR" offset="4" page="1" width="16" description="SPI Baud Rate Register" />
+	<!-- 1 empty -->
+	<register id="SPIRXEMU" acronym="SPIRXEMU" offset="6" page="1" width="16" description="SPI Receive Emulation Buffer Register" />
+	<register id="SPIRXBUF" acronym="SPIRXBUF" offset="7" page="1" width="16" description="SPI Serial Input Buffer Register" />
+	<register id="SPITXBUF" acronym="SPITXBUF" offset="8" page="1" width="16" description="SPI Serial Output Buffer Register" />
+	<register id="SPIDAT" acronym="SPIDAT" offset="9" page="1" width="16" description="SPI Serial Data Register" />
+	<register id="SPIFFTX" acronym="SPIFFTX" offset="10" page="1" width="16" description="SPI FIFO Transmit Register" />
+	<register id="SPIFFRX" acronym="SPIFFRX" offset="11" page="1" width="16" description="SPI FIFO Receive Register" />
+	<register id="SPIFFCT" acronym="SPIFFCT" offset="12" page="1" width="16" description="SPI FIFO Control Register" />
+	<!-- 2 empty -->
+	<register id="SPIPRI" acronym="SPIPRI" offset="15" page="1" width="16" description="SPI Priority Control Register" />
+</module>

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="HIB" HW_revision="" XML_version="1.0" description="Hibernation module register addresses" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="HIB_RTCC" width="32" description="Hibernation RTC Counter" id="HIB_RTCC" offset="0x00000000" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="RTC Counter" id="HIB_RTCC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCM0" width="32" description="Hibernation RTC Match 0" id="HIB_RTCM0" offset="0x00000004" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="RTC Match 0" id="HIB_RTCM0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCLD" width="32" description="Hibernation RTC Load" id="HIB_RTCLD" offset="0x0000000C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="RTC Load" id="HIB_RTCLD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CTL" width="32" description="Hibernation Control" id="HIB_CTL" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTC Timer Enable" id="HIB_CTL_RTCEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Hibernation Request" id="HIB_CTL_HIBREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="RTC Wake-up Enable" id="HIB_CTL_RTCWEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="External Wake Pin Enable" id="HIB_CTL_PINWEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clocking Enable" id="HIB_CTL_CLK32EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Power Cut Abort Enable" id="HIB_CTL_VABORT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="VDD Powered" id="HIB_CTL_VDD3ON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Wake on Low Battery" id="HIB_CTL_BATWKEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Check Battery Status" id="HIB_CTL_BATCHK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Select for Low-Battery Comparator" id="HIB_CTL_VBATSEL" resetval="" >
+            <bitenum id="HIB_CTL_VBATSEL_1_9V" value="0x00000000" token="" description="1.9 Volts"/>
+            <bitenum id="HIB_CTL_VBATSEL_2_1V" value="0x00002000" token="" description="2.1 Volts (default)"/>
+            <bitenum id="HIB_CTL_VBATSEL_2_3V" value="0x00004000" token="" description="2.3 Volts"/>
+            <bitenum id="HIB_CTL_VBATSEL_2_5V" value="0x00006000" token="" description="2.5 Volts"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Oscillator Bypass" id="HIB_CTL_OSCBYP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Oscillator Drive Capability" id="HIB_CTL_OSCDRV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Oscillator Select" id="HIB_CTL_OSCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="GPIO Retention/Clear" id="HIB_CTL_RETCLR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Write Complete/Capable" id="HIB_CTL_WRC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_IM" width="32" description="Hibernation Interrupt Mask" id="HIB_IM" offset="0x00000014" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTC Alert 0 Interrupt Mask" id="HIB_IM_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Low Battery Voltage Interrupt Mask" id="HIB_IM_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="External Wake-Up Interrupt Mask" id="HIB_IM_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="External Write Complete/Capable Interrupt Mask" id="HIB_IM_WC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Pad I/O Wake-Up Interrupt Mask" id="HIB_IM_PADIOWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Reset Pad I/O Wake-Up Interrupt Mask" id="HIB_IM_RSTWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="VDD Fail Interrupt Mask" id="HIB_IM_VDDFAIL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RIS" width="32" description="Hibernation Raw Interrupt Status" id="HIB_RIS" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="RTC Alert 0 Raw Interrupt Status" id="HIB_RIS_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Low Battery Voltage Raw Interrupt Status" id="HIB_RIS_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="External Wake-Up Raw Interrupt Status" id="HIB_RIS_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Write Complete/Capable Raw Interrupt Status" id="HIB_RIS_WC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Pad I/O Wake-Up Raw Interrupt Status" id="HIB_RIS_PADIOWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="Reset Pad I/O Wake-Up Raw Interrupt Status" id="HIB_RIS_RSTWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="VDD Fail Raw Interrupt Status" id="HIB_RIS_VDDFAIL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_MIS" width="32" description="Hibernation Masked Interrupt Status" id="HIB_MIS" offset="0x0000001C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="RTC Alert 0 Masked Interrupt Status" id="HIB_MIS_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Low Battery Voltage Masked Interrupt Status" id="HIB_MIS_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="External Wake-Up Masked Interrupt Status" id="HIB_MIS_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Write Complete/Capable Masked Interrupt Status" id="HIB_MIS_WC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Pad I/O Wake-Up Interrupt Mask" id="HIB_MIS_PADIOWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="Reset Pad I/O Wake-Up Interrupt Mask" id="HIB_MIS_RSTWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="VDD Fail Interrupt Mask" id="HIB_MIS_VDDFAIL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_IC" width="32" description="Hibernation Interrupt Clear" id="HIB_IC" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTC Alert0 Masked Interrupt Clear" id="HIB_IC_RTCALT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Low Battery Voltage Interrupt Clear" id="HIB_IC_LOWBAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="External Wake-Up Interrupt Clear" id="HIB_IC_EXTW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Write Complete/Capable Interrupt Clear" id="HIB_IC_WC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Pad I/O Wake-Up Interrupt Clear" id="HIB_IC_PADIOWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Reset Pad I/O Wake-Up Interrupt Clear" id="HIB_IC_RSTWK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="VDD Fail Interrupt Clear" id="HIB_IC_VDDFAIL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCT" width="32" description="Hibernation RTC Trim" id="HIB_RTCT" offset="0x00000024" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="RTC Trim Value" id="HIB_RTCT_TRIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_RTCSS" width="32" description="Hibernation RTC Sub Seconds" id="HIB_RTCSS" offset="0x00000028" >
+        <bitfield range="" begin="14" width="15" end="0" rwaccess="RW" description="RTC Sub Seconds Count" id="HIB_RTCSS_RTCSSC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="15" end="16" rwaccess="RW" description="RTC Sub Seconds Match" id="HIB_RTCSS_RTCSSM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_IO" width="32" description="Hibernation IO Configuration" id="HIB_IO" offset="0x0000002C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I/O Wake Pad Configuration Enable" id="HIB_IO_WUUNLK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Reset Wake Source Enable" id="HIB_IO_WURSTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="I/O Write Complete" id="HIB_IO_IOWRC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_DATA" width="32" description="Hibernation Data" id="HIB_DATA" offset="0x00000030" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Hibernation Module NV Data" id="HIB_DATA_RTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CALCTL" width="32" description="Hibernation Calendar Control" id="HIB_CALCTL" offset="0x00000300" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTC Calendar/Counter Mode Select" id="HIB_CALCTL_CALEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Calendar Mode" id="HIB_CALCTL_CAL24" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CAL0" width="32" description="Hibernation Calendar 0" id="HIB_CAL0" offset="0x00000310" >
+        <bitfield range="" begin="5" width="6" end="0" rwaccess="R" description="Seconds" id="HIB_CAL0_SEC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="6" end="8" rwaccess="R" description="Minutes" id="HIB_CAL0_MIN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="5" end="16" rwaccess="R" description="Hours" id="HIB_CAL0_HR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="R" description="AM/PM Designation" id="HIB_CAL0_AMPM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="R" description="Valid Calendar Load" id="HIB_CAL0_VALID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CAL1" width="32" description="Hibernation Calendar 1" id="HIB_CAL1" offset="0x00000314" >
+        <bitfield range="" begin="4" width="5" end="0" rwaccess="R" description="Day of Month" id="HIB_CAL1_DOM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="R" description="Month" id="HIB_CAL1_MON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="7" end="16" rwaccess="R" description="Year Value" id="HIB_CAL1_YEAR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="3" end="24" rwaccess="R" description="Day of Week" id="HIB_CAL1_DOW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="R" description="Valid Calendar Load" id="HIB_CAL1_VALID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CALLD0" width="32" description="Hibernation Calendar Load 0" id="HIB_CALLD0" offset="0x00000320" >
+        <bitfield range="" begin="5" width="6" end="0" rwaccess="W" description="Seconds" id="HIB_CALLD0_SEC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="6" end="8" rwaccess="W" description="Minutes" id="HIB_CALLD0_MIN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="5" end="16" rwaccess="W" description="Hours" id="HIB_CALLD0_HR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="W" description="AM/PM Designation" id="HIB_CALLD0_AMPM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CALLD1" width="32" description="Hibernation Calendar Load" id="HIB_CALLD1" offset="0x00000324" >
+        <bitfield range="" begin="4" width="5" end="0" rwaccess="W" description="Day of Month" id="HIB_CALLD1_DOM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="W" description="Month" id="HIB_CALLD1_MON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="7" end="16" rwaccess="W" description="Year Value" id="HIB_CALLD1_YEAR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="3" end="24" rwaccess="W" description="Day of Week" id="HIB_CALLD1_DOW" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CALM0" width="32" description="Hibernation Calendar Match 0" id="HIB_CALM0" offset="0x00000330" >
+        <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Seconds" id="HIB_CALM0_SEC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="Minutes" id="HIB_CALM0_MIN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="5" end="16" rwaccess="RW" description="Hours" id="HIB_CALM0_HR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="AM/PM Designation" id="HIB_CALM0_AMPM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CALM1" width="32" description="Hibernation Calendar Match 1" id="HIB_CALM1" offset="0x00000334" >
+        <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="Day of Month" id="HIB_CALM1_DOM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_LOCK" width="32" description="Hibernation Lock" id="HIB_LOCK" offset="0x00000360" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="HIbernate Lock" id="HIB_LOCK_HIBLOCK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPCTL" width="32" description="HIB Tamper Control" id="HIB_TPCTL" offset="0x00000400" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Tamper Module Enable" id="HIB_TPCTL_TPEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Tamper Event Clear" id="HIB_TPCTL_TPCLR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="HIB Memory Clear on Tamper Event" id="HIB_TPCTL_MEMCLR" resetval="" >
+            <bitenum id="HIB_TPCTL_MEMCLR_NONE" value="0x00000000" token="" description="Do not Clear HIB memory on tamper event"/>
+            <bitenum id="HIB_TPCTL_MEMCLR_LOW32" value="0x00000100" token="" description="Clear Lower 32 Bytes of HIB memory on tamper event"/>
+            <bitenum id="HIB_TPCTL_MEMCLR_HIGH32" value="0x00000200" token="" description="Clear upper 32 Bytes of HIB memory on tamper event"/>
+            <bitenum id="HIB_TPCTL_MEMCLR_ALL" value="0x00000300" token="" description="Clear all HIB memory on tamper event"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Wake from Hibernate on a Tamper Event" id="HIB_TPCTL_WAKE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPSTAT" width="32" description="HIB Tamper Status" id="HIB_TPSTAT" offset="0x00000404" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="External Oscillator Failure" id="HIB_TPSTAT_XOSCFAIL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="External Oscillator Status" id="HIB_TPSTAT_XOSCST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Tamper Module Status" id="HIB_TPSTAT_STATE" resetval="" >
+            <bitenum id="HIB_TPSTAT_STATE_DISABLED" value="0x00000000" token="" description="Tamper disabled"/>
+            <bitenum id="HIB_TPSTAT_STATE_CONFIGED" value="0x00000004" token="" description="Tamper configured"/>
+            <bitenum id="HIB_TPSTAT_STATE_ERROR" value="0x00000008" token="" description="Tamper pin event occurred"/>
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPIO" width="32" description="HIB Tamper I/O Control" id="HIB_TPIO" offset="0x00000410" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="TMPR0 Enable" id="HIB_TPIO_EN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="TMPR0 Trigger Level" id="HIB_TPIO_LEV0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="TMPR0 Internal Weak Pull-up Enable" id="HIB_TPIO_PUEN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="TMPR0 Glitch Filtering" id="HIB_TPIO_GFLTR0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="TMPR1Enable" id="HIB_TPIO_EN1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="TMPR1 Trigger Level" id="HIB_TPIO_LEV1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="TMPR1 Internal Weak Pull-up Enable" id="HIB_TPIO_PUEN1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="TMPR1 Glitch Filtering" id="HIB_TPIO_GFLTR1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="TMPR2 Enable" id="HIB_TPIO_EN2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="TMPR2 Trigger Level" id="HIB_TPIO_LEV2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="TMPR2 Internal Weak Pull-up Enable" id="HIB_TPIO_PUEN2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="TMPR2 Glitch Filtering" id="HIB_TPIO_GFLTR2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="TMPR3 Enable" id="HIB_TPIO_EN3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="TMPR3 Trigger Level" id="HIB_TPIO_LEV3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="TMPR3 Internal Weak Pull-up Enable" id="HIB_TPIO_PUEN3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="TMPR3 Glitch Filtering" id="HIB_TPIO_GFLTR3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG0" width="32" description="HIB Tamper Log 0" id="HIB_TPLOG0" offset="0x000004E0" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Tamper Log Calendar Information" id="HIB_TPLOG0_TIME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG1" width="32" description="HIB Tamper Log 1" id="HIB_TPLOG1" offset="0x000004E4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Status of TMPR[0] Trigger" id="HIB_TPLOG1_TRIG0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Status of TMPR[1] Trigger" id="HIB_TPLOG1_TRIG1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Status of TMPR[2] Trigger" id="HIB_TPLOG1_TRIG2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Status of TMPR[3] Trigger" id="HIB_TPLOG1_TRIG3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Status of external 32" id="HIB_TPLOG1_XOSC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG2" width="32" description="HIB Tamper Log 2" id="HIB_TPLOG2" offset="0x000004E8" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Tamper Log Calendar Information" id="HIB_TPLOG2_TIME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG3" width="32" description="HIB Tamper Log 3" id="HIB_TPLOG3" offset="0x000004EC" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Status of TMPR[0] Trigger" id="HIB_TPLOG3_TRIG0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Status of TMPR[1] Trigger" id="HIB_TPLOG3_TRIG1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Status of TMPR[2] Trigger" id="HIB_TPLOG3_TRIG2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Status of TMPR[3] Trigger" id="HIB_TPLOG3_TRIG3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Status of external 32" id="HIB_TPLOG3_XOSC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG4" width="32" description="HIB Tamper Log 4" id="HIB_TPLOG4" offset="0x000004F0" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Tamper Log Calendar Information" id="HIB_TPLOG4_TIME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG5" width="32" description="HIB Tamper Log 5" id="HIB_TPLOG5" offset="0x000004F4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Status of TMPR[0] Trigger" id="HIB_TPLOG5_TRIG0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Status of TMPR[1] Trigger" id="HIB_TPLOG5_TRIG1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Status of TMPR[2] Trigger" id="HIB_TPLOG5_TRIG2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Status of TMPR[3] Trigger" id="HIB_TPLOG5_TRIG3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Status of external 32" id="HIB_TPLOG5_XOSC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG6" width="32" description="HIB Tamper Log 6" id="HIB_TPLOG6" offset="0x000004F8" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Tamper Log Calendar Information" id="HIB_TPLOG6_TIME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_TPLOG7" width="32" description="HIB Tamper Log 7" id="HIB_TPLOG7" offset="0x000004FC" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Status of TMPR[0] Trigger" id="HIB_TPLOG7_TRIG0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Status of TMPR[1] Trigger" id="HIB_TPLOG7_TRIG1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Status of TMPR[2] Trigger" id="HIB_TPLOG7_TRIG2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Status of TMPR[3] Trigger" id="HIB_TPLOG7_TRIG3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Status of external 32" id="HIB_TPLOG7_XOSC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_PP" width="32" description="Hibernation Peripheral Properties" id="HIB_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Wake Pin Presence" id="HIB_PP_WAKENC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Tamper Pin Presence" id="HIB_PP_TAMPER" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="HIB_CC" width="32" description="Hibernation Clock Control" id="HIB_CC" offset="0x00000FC8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RTCOSC to System Clock Enable" id="HIB_CC_SYSCLKEN" resetval="" >
+        </bitfield>
+    </register>
+</module>

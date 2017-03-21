@@ -1,0 +1,4740 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+
+<!--*****************************************************************************-->
+<!--                       FIRST LEVEL OF FUNCTION LIST                          -->
+<!-- This property presents all the supported functions to UBM and has a default -->
+<!-- value of Breakpoint. Every time UBM creates a operation and calls           -->
+<!-- Operation::GetProperties()this property will be returned.                   -->
+<!-- The menu item showed by UBM will be look like:                              -->
+<!--                                                                             -->
+<!--     Type | Breakpoint         |                                             -->
+<!--          | Chained Breakpoint |                                             -->
+<!--          | Watchpoint         |                                             -->
+<!--          | Trace              |                                             -->
+<!--          | Count Event        |                                             -->
+<!--          | Data Access Count  |                                             -->
+<!--          | Watchdog Timer     |                                             -->
+<!--                                                                             -->
+<!-- For different device different set of functions will be listed              -->
+<!-- Mapping of The Fields:                                                      -->
+<!--    NAME         - IProperty::GetName()                                      -->
+<!--    DESCRIPTION  - IProperty::GetDescription()                               -->
+<!--    ALLOWEDLIST  - IStringProperty::GetAllowedValues()                       -->
+<!-- Other definitions:                                                          -->
+<!--    ALLOWEDITEM  - defines an item of allowed values                         -->
+<!--    ALLOWED_KEY  - defines the child key when this allowed value is selected -->
+<!--    ALLOWED_HALT - defines if the function halts CPU                         -->
+<!--    ALLOWED_STRING - allowed string value                                    -->
+<!-- Every time a allowed value is selected as the value of StringProperty, the  -->
+<!-- CHILDKEY will be changed. The new CHILDKEY will be used to update the child -->
+<!-- property of the StringProperty                                              -->
+<!--*****************************************************************************-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+ 	  <DESCRIPTION>Display all the AET functions</DESCRIPTION>	
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Watchpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>CHAINED BP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Chained Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE</ALLOWED_KEY>
+			<ALLOWED_STRING>Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>COUNT EVT</ALLOWED_KEY>
+			<ALLOWED_STRING>Count Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>COUNT DATA</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Access Count</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PROFILE CYCLES</ALLOWED_KEY>
+			<ALLOWED_STRING>Profile Cycles</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WATCHDOG</ALLOWED_KEY>
+			<ALLOWED_STRING>Watchdog Timer</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SETUP AEGEVT</ALLOWED_KEY>
+			<ALLOWED_STRING>Set AEGEVT/External(8)</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--           Indicator of precise or imprecise breakpoint/watchpoint           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Precise Status</NAME>	
+ 	  <DESCRIPTION>Indicator of precisely or inprecisely halt CPU</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <VALUE>Imprecise</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>
+	</PROPERTY_STRING>
+
+<!--****************************************************************************************-->
+<!--                            Event hierarchy for Trace Setting                           -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                            Option of Standard or Event Trace                -->
+<!--        Trace Type                                                           -->
+<!--           |--> Standard                                                     -->
+<!--           |--> Event                                                        -->
+<!--        Action                                                               -->
+<!--        What to Trace                                                        -->
+<!--                                                                             -->
+<!-- ALLOWD_DAMELEVEL - It is a second key used by some other property that      -->
+<!--                    will use this key to put itself at the same level of     -->
+<!--                    this property instead of as the child of a property.     -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trace Type</NAME>	
+ 	  <DESCRIPTION>Data or event trace</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TRACE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>DUMMY</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>SAME AS DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Standard</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>Event</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>SAME AS EVENT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                          Actions for Standard Trace                         -->
+<!-- The options of the action is depended on the trace type. This property      -->
+<!-- is put at the same level of Trace Type.                                     -->
+<!--         Action                                                              -->
+<!--           |--> Trace On                                                     -->
+<!--           |--> Start Trace                                                  -->
+<!--           |--> End Trace                                                    -->
+<!--           |--> Trace in Range                                               -->
+<!--           |--> Don't Trace in Range                                         -->
+<!--           |--> Trace Variable                                               -->
+<!--           |--> Insert Trace Marker                                          -->
+<!--           |--> End All Trace                                                -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Actions</NAME>	
+ 	  <DESCRIPTION>Trace action list</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SAME AS DATA</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE ON DATA</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA ALWAYS ON</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace On</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Start Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>END TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>End Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA IN RANGE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA IN RANGE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Don't Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE VARIABLE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace Variable</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Store Sample</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>NOT STORE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Don't Store Sample</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA NO WHAT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Insert Trace Marker</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA NO WHAT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>End All Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE SCRIPTS</ALLOWED_KEY>
+			<ALLOWED_STRING>User Script</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                       Watermark Mode for Count Event                        -->
+<!-- Mode can be Not Watermak, Max Watermark or Min Watermarker.                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Script Type</NAME>	
+ 	  <DESCRIPTION>The type of predefined script. The script is the combination of the trace functions.</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE SCRIPTS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SPECIAL PROFILE</ALLOWED_KEY>
+			<ALLOWED_STRING>Statistical Profile</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>THREAD GRAPH</ALLOWED_KEY>
+			<ALLOWED_STRING>Dynamic Thread Aware Call Graph</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PIPELINE ANALYSIS</ALLOWED_KEY>
+			<ALLOWED_STRING>Pipeline Stall Analysis</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>INTERRUPT ANALYSIS</ALLOWED_KEY>
+			<ALLOWED_STRING>Interrupt Analysis</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>THREAD PROFILE</ALLOWED_KEY>
+			<ALLOWED_STRING>Thread Aware Profiling</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>INTERRUPT LATENCY</ALLOWED_KEY>
+			<ALLOWED_STRING>Worst Case Interrupt Latency</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>EVENT ANALYSIS</ALLOWED_KEY>
+			<ALLOWED_STRING>Event Analysis</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                          Actions for Event Trace                            -->
+<!-- The options of the action is depended on the trace type. This property      -->
+<!-- is put at the same level of Trace Type.                                     -->
+<!--         Action                                                              -->
+<!--           |--> Trace On                                                     -->
+<!--           |--> Start Trace                                                  -->
+<!--           |--> End Trace                                                    -->
+<!--           |--> Trace in Range                                               -->
+<!--           |--> Don't Trace in Range                                         -->
+<!--           |--> Trace Variable                                               -->
+<!--           |--> Insert Trace Marker                                          -->
+<!--           |--> End All Trace                                                -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Actions</NAME>	
+ 	  <DESCRIPTION>Trace action list</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SAME AS EVENT</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE EVENT ALWAYS ON</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace On</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE EVENT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Start Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>END TRACE EVENT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>End Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE EVENT IN RANGE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE EVENT IN RANGE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Don't Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE EVENT NO WHAT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Insert Trace Marker</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>TRACE EVENT NO WHAT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>End All Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                       Watermark Mode for Count Event                        -->
+<!-- Mode can be Not Watermak, Max Watermark or Min Watermarker.                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Watermark Mode</NAME>	
+ 	  <DESCRIPTION>Set the watermark mode of the counter</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WATER MARKER TRIGGER</ALLOWED_KEY>
+			<ALLOWED_STRING>Max</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WATER MARKER TRIGGER</ALLOWED_KEY>
+			<ALLOWED_STRING>Min</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                          Trigger Type to Start WM                           -->
+<!-- All the trigger type will not include skip count.                           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Start WM On</NAME>	
+ 	  <DESCRIPTION>Set the trigger for start watermark</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>WATER MARKER TRIGGER</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WM TRIGGER PC LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>PC</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WM TRIGGER MEM LOCATION</ALLOWED_KEY>    
+			<ALLOWED_STRING>Data Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WM TRIGGER CATEGORY</ALLOWED_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+<!--=============================================================================-->
+<!--                          Trigger Type to Stop WM                            -->
+<!-- All the trigger type will not include skip count.                           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Stop WM On</NAME>	
+ 	  <DESCRIPTION>Set the trigger for start watermark</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>WATER MARKER TRIGGER</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WM TRIGGER PC LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>PC</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WM TRIGGER MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>WM TRIGGER CATEGORY</ALLOWED_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+<!--=============================================================================-->
+<!--                        Trigger Type for AET Actions                         -->
+<!-- This property defines the selection of a trigger for the AET actions.       -->
+<!-- Trigger Type can be PC, Data Memory and any type of event (combination).    -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trigger Type</NAME>	
+ 	  <DESCRIPTION>Option of PC, or event as action trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER CATEGORY</ALLOWED_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Trigger Type</NAME>	
+ 	  <DESCRIPTION>Option of PC, memory address, or event as action trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>END TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA NO WHAT</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>NOT STORE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER PC LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>PC</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER CATEGORY</ALLOWED_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Trigger Type</NAME>	
+ 	  <DESCRIPTION>Option of PC, memory address, or event as action trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE EVENT</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>END TRACE EVENT</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE EVENT NO WHAT</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER PC LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>PC</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRIGGER MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_STRING>Data Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PULL DOWN SYSTEM EVENT LIST</ALLOWED_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+<!--=============================================================================-->
+<!--                         Chained PC Address Value 1                          -->
+<!-- This is another unit to define a location with a key of CHAINED BP. The     -->
+<!-- ENUNUMBER indicates it is the first location of a chained BP.               -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>First Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CHAINED BP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                         Chained PC Address Value 2                          -->
+<!-- This is another unit to define a location with a key of CHAINED BP. The     -->
+<!-- ENUNUMBER indicates it is the second location of a chained BP.              -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Second Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CHAINED BP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>4</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+	
+<!--****************************************************************************************-->
+<!--                                Properties for Memory Access                            -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                       Point or Range Address Selection                      -->
+<!-- This is the bridge of defining a memory access type. It allows the          -->
+<!-- selection of either point or range memory access.                           -->
+<!--                                                                             -->
+<!--     Type             | Watchpoint      |                                    -->
+<!--       Location Type  | Point           |                                    -->
+<!--                      | Range           |                                    -->
+<!--                                                                             -->
+<!-- It defines a sub property for HW Watchpoint, data action point, count      -->
+<!-- data access and trace variable function property.                           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Location Type</NAME>	
+ 	  <DESCRIPTION>Options of watch point at a point or in a range</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER PC LOCATION</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WM TRIGGER PC LOCATION</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WM TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP AT POINT</ALLOWED_KEY>
+			<ALLOWED_STRING>Point</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP IN RANGE</ALLOWED_KEY>
+			<ALLOWED_STRING>Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                           Memory Address                                    -->
+<!-- Address for point memory access.                                            -->
+<!--                                                                             -->
+<!--     Type             | Watchpoint      |                                    -->
+<!--       Location Type  | Point           |                                    -->
+<!--                      | Range           |                                    -->
+<!--          Location    | 0x00000000      |                                    -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Location</NAME>	
+ 	  <DESCRIPTION>Reference value of the address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP AT POINT</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                           Type of Access                                    -->
+<!-- Choice of read or write access. This unit defines the option for HW watch   -->
+<!-- point, data action point, data access count, data trace.                    -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Memory</NAME>	
+ 	  <DESCRIPTION>Data memory write access</DESCRIPTION>		
+  	  <VALUE>Write</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WM TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>LOCATION MEMORY</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION NO SC</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Write</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Read</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                  Type of Access for Trace Variable                          -->
+<!-- Choice of read or write access. It allows to chose both read and write.     -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Memory Read</NAME>	
+ 	  <DESCRIPTION>Memory read access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Memory Write</NAME>	
+ 	  <DESCRIPTION>Memory write access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+
+<!--=============================================================================-->
+<!--                           Access Width                                      -->
+<!-- This unit defines the access width option for HW watch point, data action   -->
+<!-- point, data access count, data trace.                                       -->
+<!--     CHILDKEY - key for the sub properties attached to it.                   -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--               64 bit        X                                               -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Access Width</NAME>	
+ 	  <DESCRIPTION>Memory access type</DESCRIPTION>	
+	  <VALUE>(Open to select)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WM TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>LOCATION MEMORY</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION NO SC</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>THREAD GRAPH</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>THREAD PROFILE</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <CHILDKEY>ACCESSSIZE</CHILDKEY>	<!-- The key point to access size -->
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                           Check Box of 8 Bit                                -->
+<!-- This unit defines a check box of the name "8 Bit". The default value is 1.  -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>8 Bit</NAME>	
+ 	  <DESCRIPTION>8 bit memory access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ACCESSSIZE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                           Check Box of 16 Bit                               -->
+<!-- This unit defines a check box of the name "16 Bit". The default value is 1. -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>16 Bit</NAME>	
+ 	  <DESCRIPTION>16 bit memory access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ACCESSSIZE</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                           Check Box of 32 Bit                               -->
+<!-- This unit defines a check box of the name "32 Bit". The default value is 1. -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>32 Bit</NAME>	
+ 	  <DESCRIPTION>32 bit memory access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ACCESSSIZE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                           Check Box of 64 Bit                               -->
+<!-- This unit defines a check box of the name "64 Bit". The default value is 1. -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>64 Bit</NAME>	
+ 	  <DESCRIPTION>64 bit memory access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>ACCESSSIZE</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                        Watch With Data Value                                -->
+<!-- This unit defines the option of watch point with data value.                -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--               64 bit        X                                               -->
+<!--          With Data      | No              |                                 -->
+<!--                         | Yes             |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+
+<!--=============================================================================-->
+<!-- Include Data Size option only for watch with data                           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>With Data</NAME>	
+ 	  <DESCRIPTION>Watch memory access with defined data value</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WM TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION NO SC</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP DATA</ALLOWED_KEY>      <!-- The key point to data and mask -->
+			<ALLOWED_SAMELEVEL_KEY>KEY FOR DATA SIZE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Yes</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                        Data Value of the Watchpoint                        -->
+<!-- This unit defines the option of data value for a watch point.               -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--               64 bit        X                                               -->
+<!--          With Data      | No              |                                 -->
+<!--                         | Yes             |                                 -->
+<!--              Data Value | 0x00000000      |                                 -->
+<!--              Data Mask  | 0xFFFFFFFF      |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Data Value</NAME>	
+ 	  <DESCRIPTION>Data value to watch together memory location</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP DATA</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFFFFFFFFFF</RANGEHI>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                        Data Mask of the Watchpoint                         -->
+<!-- This unit defines the option of data mask for a watch point.                -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Data Mask</NAME>	
+ 	  <DESCRIPTION>Data mask for interested data bit</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP DATA</KEYNAME>	
+		  <KEYNUMBER>9</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFFFFFFFFFF</RANGEHI>
+  	  <VALUE>0xFFFFFFFFFFFFFFFF</VALUE>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                        Data Size for Memory Data                            -->
+<!-- This unit defines a reference size of memory data.                          -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8  Bit        X                                               -->
+<!--               16 Bit        X                                               -->
+<!--               32 Bit        X                                               -->
+<!--               64 Bit        X                                               -->
+<!--          With Data      | No              |                                 -->
+<!--                         | Yes             |                                 -->
+<!--              Data Value | 0x00000000      |                                 -->
+<!--              Data Mask  | 0x00000000      |                                 -->
+<!--          Data Size      | 8  Bit          |                                 -->
+<!--                         | 16 Bit          |                                 -->
+<!--                         | 32 Bit          |                                 -->
+<!--                         | 64 Bit          |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Data Size</NAME>	
+ 	  <DESCRIPTION>Data size for memory location</DESCRIPTION>		
+  	  <VALUE>32 Bit</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>KEY FOR DATA SIZE</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>8 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>16 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>32 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>64 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                       Actions of PC/Data Action Point                       -->
+<!--                                                                             -->
+<!--     Action Type                                                             -->
+<!--        Halt CPU                                                             -->
+<!--        Drive EMU Pin                                                        -->
+<!--             |--> EMU Pin Number | EMU 0   |                                 -->
+<!--                                 | EMU 1   |                                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Action Type</NAME>	
+ 	  <DESCRIPTION>Actions to perform at the defined PC address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <CHILDKEY>APACTION</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Halt CPU</NAME>	
+ 	  <DESCRIPTION>Action of Halt CPU</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>APACTION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Drive EMU Pin</NAME>	
+ 	  <DESCRIPTION>Action of toggle EMU pin</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>APACTION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>EMUPIN_NUM</CHILDKEY>	
+	</PROPERTY_BOOL>
+
+	<PROPERTY_STRING>
+	  <NAME>EMU Pin Number</NAME>	
+ 	  <DESCRIPTION>EMU pin to toggle</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EMUPIN_NUM</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMU0</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMU1</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>RTOS Interrupt</NAME>	
+ 	  <DESCRIPTION>Action of generating RTOS interrupt</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>APACTION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+<!--****************************************************************************************-->
+<!--                                Properties for Count                                    -->
+<!--                                                                                        -->
+<!--     Type                | Event Count     |                                            -->
+<!--       Result            | 0x00000000      |                                            -->
+<!--       Overflow            O  false                                                     -->
+<!--       Counter Size      | 32 Bit          |                                            -->
+<!--                         | 64 Bit          |                                            -->
+<!--       Global Cateory    | Memory/Stall/System  |                                       -->
+<!--           L1P Read Hit  X   True                                                       -->
+<!--             SRAM        X   True                                                       -->
+<!--             Cache       X   True                                                       -->
+<!--           L1P Read Miss O   False                                                      -->
+<!--           ......................                                                       -->
+<!--       In PC Range       | Yes(No)         |                                            -->
+<!--          Start Location | 0x00000000      |                                            -->
+<!--          End Location   | 0x00000000      |                                            -->
+<!--          Range Type     | Exclusive/Inclusive |                                        -->
+<!--                                                                                        -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                      Not Editable Counter Value                             -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Current Count</NAME>	
+ 	  <DESCRIPTION>Value of the count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	      <!-- Key of sub property for Count Data Access -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE CYCLES</KEYNAME>	      <!-- Key of sub property for profile cycles       -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                      Not Editable Overflow Flag                             -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Overflow</NAME>	
+ 	  <DESCRIPTION>Overflow status</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA</KEYNAME>	      <!-- Key of sub property for Count Data Access -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE CYCLES</KEYNAME>	      <!-- Key of sub property for profile cycles       -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                                Count Size                                   -->
+<!-- This unit defines a count size for count data access and event profile.     -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Counter Size</NAME>	
+ 	  <DESCRIPTION>Set counter size</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>NOT USED NOW</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>32 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>64 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                             Global Category                                 -->
+<!-- This unit defines option of event category for profile. The difference      -->
+<!-- between this category and the one for event trigger is it links to the      -->
+<!-- list of system event that includes Clock Cycles event.                      -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Category</NAME>	
+ 	  <DESCRIPTION>Global setting of event category</DESCRIPTION>		
+	  <VALUE>Memory</VALUE>	
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>MEMORY GROUP FOR PROFILE</ALLOWED_KEY> <!-- Key for Memory Cache event group -->
+			<ALLOWED_STRING>Memory</ALLOWED_STRING>             
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>STALL GROUP FOR PROFILE</ALLOWED_KEY>  <!-- Key for Stall event group -->
+			<ALLOWED_STRING>Stall</ALLOWED_STRING>              
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SYSTEM GROUP FOR PROFILE X</ALLOWED_KEY> <!-- Key for System event group. Use pull down menu to only allow select one event -->
+			<ALLOWED_STRING>System</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                             In PC Range Option                              -->
+<!-- This unit defines option in PC range.                                       -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>In PC Range</NAME>	
+ 	  <DESCRIPTION>Define a PC range for counting</DESCRIPTION>		
+  	  <VALUE>No</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	                       
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PC RANGE</ALLOWED_KEY>
+			<ALLOWED_STRING>Yes</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                          Start Location of PC Range                         -->
+<!-- This unit defines the start location of a PC range.                         -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Start Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PC RANGE</KEYNAME>	       <!-- Key for count in PC range -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE RANGE</KEYNAME>	   <!-- Key for trace in range    -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WATCHDOG</KEYNAME>	       <!-- Key for watchdog timer    -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWBP IN RANGE</KEYNAME>	   <!-- Key for range HW watch point -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE CYCLES</KEYNAME>	       <!-- Key for profile cyeles -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                          End Location of PC Range                           -->
+<!-- This unit defines the End location of a PC range.                           -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>End Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PC RANGE</KEYNAME>	       <!-- Key for count in PC range -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE RANGE</KEYNAME>	   <!-- Key for trace in range    -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WATCHDOG</KEYNAME>	       <!-- Key for watchdog timer    -->
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWBP IN RANGE</KEYNAME>	   <!-- Key for range HW watch point -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE CYCLES</KEYNAME>	       <!-- Key for profile cyeles -->
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>4</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+	
+<!--=============================================================================-->
+<!--                          Option of Range Type                               -->
+<!-- This unit defines the range type of the PC range.                           -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Range Type</NAME>	
+ 	  <DESCRIPTION>Set range type for event count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PC RANGE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>PROFILE CYCLES</KEYNAME>	      <!-- Key of sub property for profile cycles       -->
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Exclude Subroutine</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Include Subroutine</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--****************************************************************************************-->
+<!--                            Event hierarchy for CPU stall                               -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for CPU Stall Event                 -->
+<!-- The Boolean unit is defined by:                                             -->
+<!--    Key(KEYNAME)       :  CPU - pointed by the unit that has a CPU CHILDKEY  -->
+<!--    Postion(KEYNUMBER) :  Position in the check box list                     -->
+<!--    ID(ENUMVALUE)      :  Value to encode the event                          -->
+<!--                          2xxx - Stall Event                                 -->
+<!--                          1xxx - Memory Cache Event                          -->
+<!--        CPU Stall                                                            -->
+<!--           |--> CPU Pipeline                                                 -->
+<!--           |--> Cross Path                                                   -->
+<!--           |--> Branch to Spanning Exec Packet                               -->
+<!--           |--> External Fucntional Interface                                -->
+<!--           |--> MVC                                                          -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>CPU Pipeline</NAME>	
+ 	  <DESCRIPTION>CPU pipeline stall</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2000</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Cross Path</NAME>	
+ 	  <DESCRIPTION>CPU cross path stall</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2001</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Branch to Spanning Exec Pkt</NAME>	
+ 	  <DESCRIPTION>Branch to Spanning Execute Packet</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2002</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>External Functional Interface</NAME>	
+ 	  <DESCRIPTION>External Functional Interface</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CPU</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2003</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>MVC</NAME>	
+	  <KEYITEM>
+		  <KEYNAME>CPU</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2004</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1P Stall Event                 -->
+<!--        L1P Stall                                                            -->
+<!--           |--> L1P Miss                                                     -->
+<!--           |--> L1P Wait State                                               -->
+<!--           |--> L1P Other                                                    -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>L1P Miss</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache miss</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2008</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1P Wait State</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache wait</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2006</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1P Other</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache other stall</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2005</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1D Stall Event                 -->
+<!--        L1D Stall                                                            -->
+<!--           |--> L1D Bank Conflict                                            -->
+<!--           |--> L1D Read Miss                                                -->
+<!--           |--> L1D Write Buf Full                                           -->
+<!--           |--> L1D Tag Update Buf Full                                      -->
+<!--           |--> L1D DMA Conflict                                             -->
+<!--           |--> L1D Snoop Conflict                                           -->
+<!--           |--> L1D Coherence OP Conflict                                    -->
+<!--           |--> L1D Other                                                    -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>L1D Bank Conflict</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache bank conflict</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2011</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Read Miss</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache read miss</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2015</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Write Buf Full</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache read buffer full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2013</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Tag Update Buf Full</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache tag update buffer full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2014</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D DMA Conflict</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache DMA conflict</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2012</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Snoop Conflict</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache snoop conflict</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2021</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Coherence Op Conflict</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache coherence operation conflict</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2022</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Tag Update on Write Buf Full</NAME>	
+ 	  <DESCRIPTION>Stall on a write buffer full while the tag update buffer is being flushed</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2019</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Other</NAME>	
+ 	  <DESCRIPTION>Level 1 memory cache other stall</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D</KEYNAME>	
+		  <KEYNUMBER>9</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>2010</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>L1D Line Fill Stall B</NAME>	
+ 		<DESCRIPTION>Read miss on B while the read miss data is being fetched from the lower memory level</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>LID READ MISS</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>1</VALUE>
+		<ENUMVALUE>2015</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>L1D Line Fill Stall A</NAME>	
+ 		<DESCRIPTION>Read miss on A while the read miss data is being fetched from the lower memory level</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>LID READ MISS</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>1</VALUE>
+		<ENUMVALUE>2016</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>L1D Write Buf Flush</NAME>	
+ 		<DESCRIPTION>Stall on a read miss while the write buffer is being flushed</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>LID READ MISS</KEYNAME>	
+			<KEYNUMBER>3</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>1</VALUE>
+		<ENUMVALUE>2017</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>L1D Victim Buf Flush</NAME>	
+ 		<DESCRIPTION>Stall on a read miss while the victim buffer is being flushed</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>LID READ MISS</KEYNAME>	
+			<KEYNUMBER>4</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>1</VALUE>
+		<ENUMVALUE>2018</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>L1D Tage Update Buf Flush</NAME>	
+ 		<DESCRIPTION>Stall on a read miss while the tag buffer is being flushed</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>LID READ MISS</KEYNAME>	
+			<KEYNUMBER>5</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>1</VALUE>
+		<ENUMVALUE>2020</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+
+<!--****************************************************************************************-->
+<!--                            Event hierarchy for memory cache                            -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1P Read Hit                    -->
+<!--        L1P Read Hit                                                         -->
+<!--           |--> SRAM                                                         -->
+<!--           |--> Cache                                                        -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>SRAM</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache read hit SRAM</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P Read Hit</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1025</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Cache</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache hit cache</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P Read Hit</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1026</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1P Read Miss                   -->
+<!--        L1P Read Miss                                                        -->
+<!--           |--> Hits L2 SRAM                                                 -->
+<!--           |--> Hits L2 Cache                                                -->
+<!--           |--> Hits External                                                -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Hits L2 SRAM</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache read miss and hit L2 SRAM</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P Read Miss</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1027</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Hits L2 Cache</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache read miss and hit L2 cache</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P Read Miss</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1028</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Hits External</NAME>	
+ 	  <DESCRIPTION>Level 1 program cache read miss and hit external cacheable memory</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1P Read Miss</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1029</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1D Read Hit                    -->
+<!--       L1D Read Hit                                                          -->
+<!--           |--> SRAM                                                         -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--           |--> Cache                                                        -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>SRAM</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read hit SRAM</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Hit A</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Hit B</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1000</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Cache</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read hit cache</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Hit A</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Hit B</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1002</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1D Write Hit                   -->
+<!--       L1D Write Hit                                                         -->
+<!--           |--> Tag Buf Not Full                                             -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--           |--> Tag Buf Full                                                 -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Tag Buf Not Full</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache write hit, tag buffer not full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Hit A</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Hit B</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1004</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Tag Buf Full</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache write hit, tag buffer full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Hit A</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Hit B</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1006</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1D Read Miss                   -->
+<!--       L1D Read Miss                                                         -->
+<!--           |--> Hits L2 SRAM                                                 -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--           |--> Hits L2 Cache                                                -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--           |--> Hits External                                                -->
+<!--           |--> Cacheable                                                    -->
+<!--           |--> Non-Cacheable                                                -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Hits L2 SRAM</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read miss, hit SRAM</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss A</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss B</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1008</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Hits L2 Cache</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read miss, hit cache A</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss A</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss B</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1010</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Hits External Cacheable</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read miss, hit external</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss A</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss B</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1012</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Hits External non-Cacheable</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read miss, hit external</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss A</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <KEYITEM>
+		  <KEYNAME>L1D Read Miss B</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1014</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                    List of Boolean Unit for L1D Write Miss                  -->
+<!--       L1D Write Miss                                                        -->
+<!--           |--> Write Buf Not Full                                           -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--           |--> Write Buf Full                                               -->
+<!--                 |--> Path A                                                 -->
+<!--                 |--> Path B                                                 -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Write Buf Not Full</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache write miss, write buffer not full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Miss A</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Miss B</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1016</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Write Buf Full</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache write miss, write buffer full</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Miss A</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>L1D Write Miss B</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>1018</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                Level or Edge Attribute for the System Event                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Signal Type</NAME>	
+ 	  <DESCRIPTION>Event signal type(level or edge)</DESCRIPTION>		
+  	  <VALUE>Both Edge</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	
+		  <KEYNUMBER>20</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER CATEGORY</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Edge to High</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Edge to Low</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Both Edges</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Level High</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Level Low</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                         Auto or Manual Reset Option                         -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Reset Option</NAME>	
+ 	  <DESCRIPTION>Auto or manual reset after each halt</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT x</KEYNAME>	
+		  <KEYNUMBER>21</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>COUNT DATA x</KEYNAME>	      <!-- Key of sub property for Count Data Access -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Manual</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Auto</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+
+
+<!--=============================================================================-->
+<!--                    Global Category for Event Trigger                        -->
+<!-- This unit defines option of event category.                                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Category</NAME>	
+ 	  <DESCRIPTION>Global setting of event category</DESCRIPTION>		
+	  <VALUE>Memory</VALUE>	
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER CATEGORY</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>WM TRIGGER CATEGORY</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>EVENT ANALYSIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>MEMORY GROUP FOR PROFILE</ALLOWED_KEY> <!-- Key for Memory Cache event group -->
+			<ALLOWED_STRING>Memory</ALLOWED_STRING>             
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>STALL GROUP FOR PROFILE</ALLOWED_KEY>  <!-- Key for Stall event group -->
+			<ALLOWED_STRING>Stall</ALLOWED_STRING>              
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SYSTEM EVENT LIST FOR TRIGGER NO SC</ALLOWED_KEY> <!-- Key for System event group. Use pull down menu to only allow select one event -->
+			<ALLOWED_STRING>System</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                         Wrapper of What to Trace List                       -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace (for Trace On)                                         -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>What to Trace</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA ALWAYS ON</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA IN RANGE</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR ALL</CHILDKEY>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>What to End</NAME>	
+ 	  <DESCRIPTION>Data steams to stop tracing</DESCRIPTION>	
+	  <VALUE>(Select data to end)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>END TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR ALL</CHILDKEY>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                         Wrapper of What to Trace List                       -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace (for Trace Variable)                                   -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>What to Trace</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE VARIABLE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR VARIABLE</CHILDKEY>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                    Wrapper of What to Not Store List                        -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace (for Trace Variable)                                   -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>What to Not Store</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>NOT STORE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR NOT STORE</CHILDKEY>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                        Event List to Trigger Trace                          -->
+<!-- The list of event is targeted to use SAE as trigger so that the enum number -->
+<!-- are the enum input for SAE.                                                 -->
+<!--         Action                                                              -->
+<!--           |--> Start Trace                                                  -->
+<!--         Trigger Type    | Program Address|                                  -->
+<!--                         | Memory Address |                                  -->
+<!--                         | Events         |                                  -->
+<!--         Event           | Interrupt ACK  |                                  -->
+<!--=============================================================================-->
+<!--////////////////////////////////////////////////////////-->
+<!--                    CPU Cycles check box                -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>CPU Cycles</NAME>	
+ 	  <DESCRIPTION>Group of CPU cycles events</DESCRIPTION>		
+	  <KEYITEM>
+		<KEYNAME>SYSTEM GROUP FOR PROFILE X</KEYNAME>	
+		<KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>CPU CYCLES</CHILDKEY>
+	</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>CPU Execute Cycles</NAME>	
+ 		<DESCRIPTION>CPU execute clock cycles</DESCRIPTION>		
+  		<VALUE>0</VALUE>
+		<KEYITEM>
+		  <KEYNAME>CPU CYCLES</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+		<ENUMVALUE>10100</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>CPU pipeline stall</NAME>	
+ 		<DESCRIPTION>CPU pipeline stall clock cycles</DESCRIPTION>		
+		<KEYITEM>
+		  <KEYNAME>CPU CYCLES</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+		<KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+		<KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER NO SC</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+ 		<VALUE>0</VALUE>
+		<ENUMVALUE>10101</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                    CPU Interrupt check box             -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>CPU Interrupt/Exception</NAME>	
+ 	  <DESCRIPTION>Group of CPU interrupt and exception events</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER NO SC</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+	 	  <KEYNAME>SYSTEM GROUP FOR PROFILE X</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>CPU INTERRUPT</CHILDKEY>
+	</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Interrupt ACK</NAME>	
+ 		<DESCRIPTION>Interrupt acknowledge event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>CPU INTERRUPT</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10108</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+
+		<PROPERTY_BOOL>
+		<NAME>NMI</NAME>	
+ 		<DESCRIPTION>None maskable interrupt event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>CPU INTERRUPT</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10119</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Exception ACK</NAME>	
+ 		<DESCRIPTION>Exception acknowledge event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>CPU INTERRUPT</KEYNAME>	
+			<KEYNUMBER>3</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10118</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Exception</NAME>	
+ 		<DESCRIPTION>Signals exception to the CPU</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>CPU INTERRUPT</KEYNAME>	
+			<KEYNUMBER>4</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10117</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                 MARK instruction check box             -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>MARK Instruction</NAME>	
+ 	  <DESCRIPTION>Group of MARK instruction events</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER NO SC</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+	 	  <KEYNAME>SYSTEM GROUP FOR PROFILE X</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>MARK</CHILDKEY>
+	</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>MARK 0</NAME>	
+ 		<DESCRIPTION>MARK 0 instruction event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>MARK</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10102</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>MARK 1</NAME>	
+ 		<DESCRIPTION>MARK 1 instruction event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>MARK</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10103</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>MARK 2</NAME>	
+ 		<DESCRIPTION>MARK 2 instruction event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>MARK</KEYNAME>	
+			<KEYNUMBER>3</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10104</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>MARK 3</NAME>	
+ 		<DESCRIPTION>MARK 3 instruction event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>MARK</KEYNAME>	
+			<KEYNUMBER>4</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10105</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                 MARK instruction check box             -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>Interrupt Controller</NAME>	
+ 	  <DESCRIPTION>System events via interrupt controller</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER NO SC</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+	 	  <KEYNAME>SYSTEM GROUP FOR PROFILE X</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>AEGEVT</CHILDKEY>
+	</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 0</NAME>	
+ 		<DESCRIPTION>Event 0 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10109</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 1</NAME>	
+ 		<DESCRIPTION>Event 1 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10110</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 2</NAME>	
+ 		<DESCRIPTION>Event 2 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>3</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10111</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 3</NAME>	
+ 		<DESCRIPTION>Event 3 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>4</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10112</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 4</NAME>	
+ 		<DESCRIPTION>Event 4 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>5</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10113</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 5</NAME>	
+ 		<DESCRIPTION>Event 5 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>6</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10114</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 6</NAME>	
+ 		<DESCRIPTION>Event 6 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>7</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10115</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>AEGEVT 7</NAME>	
+ 		<DESCRIPTION>Event 7 from interrupt controller</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>AEGEVT</KEYNAME>	
+			<KEYNUMBER>8</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10116</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                 MARK instruction check box             -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>External Pin Input</NAME>	
+ 	  <DESCRIPTION>EMU pin input event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER NO SC</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+	 	  <KEYNAME>SYSTEM GROUP FOR PROFILE X</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>EMU PIN</CHILDKEY>
+	</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>EMU 0</NAME>	
+ 		<DESCRIPTION>EMU 0 input</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>EMU PIN</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10106</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>EMU 1</NAME>	
+ 		<DESCRIPTION>EMU 1 input</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>EMU PIN</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+  		<VALUE>0</VALUE>
+		<ENUMVALUE>10107</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                 MARK instruction check box             -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>Memory Events</NAME>	
+ 	  <DESCRIPTION>Group of memory cache events</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER NO SC</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+	 	  <KEYNAME>SYSTEM GROUP FOR PROFILE X</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>MEM CACHE</CHILDKEY>
+	 </PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		 <NAME>L1D Write Miss</NAME>	
+ 		 <DESCRIPTION>L1D write miss event</DESCRIPTION>		
+		 <KEYITEM>
+			<KEYNAME>MEM CACHE</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		 </KEYITEM>
+  		 <VALUE>0</VALUE>
+		 <CHILDKEY>L1D WR MISS</CHILDKEY>
+		</PROPERTY_BOOL>
+
+			<PROPERTY_BOOL>
+			<NAME>Hits L2 SRAM</NAME>	
+ 			<DESCRIPTION>L1D write miss, hits L2 SRAM event</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>L1D WR MISS</KEYNAME>	
+				<KEYNUMBER>1</KEYNUMBER>	
+			</KEYITEM>
+  			<VALUE>0</VALUE>
+			<ENUMVALUE>10123</ENUMVALUE>
+			</PROPERTY_BOOL>
+
+			<PROPERTY_BOOL>
+			<NAME>Hits L2 Cache</NAME>	
+ 			<DESCRIPTION>L1D write miss, hits L2 cache event</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>L1D WR MISS</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+  			<VALUE>0</VALUE>
+			<ENUMVALUE>10124</ENUMVALUE>
+			</PROPERTY_BOOL>
+
+			<PROPERTY_BOOL>
+			<NAME>Hits Cacheable External</NAME>	
+ 			<DESCRIPTION>L1D write miss, hits exteranl, cacheable</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>L1D WR MISS</KEYNAME>	
+				<KEYNUMBER>3</KEYNUMBER>	
+			</KEYITEM>
+  			<VALUE>0</VALUE>
+			<ENUMVALUE>10125</ENUMVALUE>
+			</PROPERTY_BOOL>
+
+			<PROPERTY_BOOL>
+			<NAME>Hits Non-Cacheable External</NAME>	
+ 			<DESCRIPTION>L1D write miss, hits exteranl, non-cacheable</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>L1D WR MISS</KEYNAME>	
+				<KEYNUMBER>4</KEYNUMBER>	
+			</KEYITEM>
+  			<VALUE>0</VALUE>
+			<ENUMVALUE>10126</ENUMVALUE>
+			</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+ 		 <NAME>DMA Snoop Read</NAME>	
+ 		 <DESCRIPTION>DMA snoop read event</DESCRIPTION>		
+		 <KEYITEM>
+			<KEYNAME>MEM CACHE</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		 </KEYITEM>
+  		 <VALUE>0</VALUE>
+		 <ENUMVALUE>10128</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+ 		 <NAME>DMA Snoop Write</NAME>	
+ 		 <DESCRIPTION>DMA snoop write event</DESCRIPTION>		
+		 <KEYITEM>
+			<KEYNAME>MEM CACHE</KEYNAME>	
+			<KEYNUMBER>3</KEYNUMBER>	
+		 </KEYITEM>
+  		 <VALUE>0</VALUE>
+		 <ENUMVALUE>10129</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+ 		 <NAME>Dirty Victim</NAME>	
+ 		 <DESCRIPTION>Dirty victim event</DESCRIPTION>		
+		 <KEYITEM>
+			<KEYNAME>MEM CACHE</KEYNAME>	
+			<KEYNUMBER>4</KEYNUMBER>	
+		 </KEYITEM>
+  		 <VALUE>0</VALUE>
+		 <CHILDKEY>DIRTY VIC</CHILDKEY>
+		</PROPERTY_BOOL>
+
+			<PROPERTY_BOOL>
+			<NAME>Writeback from L1D</NAME>	
+ 			<DESCRIPTION>Dirty victim write back from L1D</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>DIRTY VIC</KEYNAME>	
+				<KEYNUMBER>1</KEYNUMBER>	
+			</KEYITEM>
+  			<VALUE>0</VALUE>
+			<ENUMVALUE>10131</ENUMVALUE>
+			</PROPERTY_BOOL>
+
+			<PROPERTY_BOOL>
+			<NAME>Writeback from L2</NAME>	
+ 			<DESCRIPTION>Dirty victim write back from L2</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>DIRTY VIC</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+  			<VALUE>0</VALUE>
+			<ENUMVALUE>10127</ENUMVALUE>
+			</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+ 		 <NAME>Tag Update</NAME>	
+ 		 <DESCRIPTION>Tag update queued tag update buffer</DESCRIPTION>		
+		 <KEYITEM>
+			<KEYNAME>MEM CACHE</KEYNAME>	
+			<KEYNUMBER>5</KEYNUMBER>	
+		 </KEYITEM>
+  		 <VALUE>0</VALUE>
+		 <ENUMVALUE>10130</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Emulation</NAME>	
+ 	  <DESCRIPTION>RTDX and DT-DMA events</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER NO SC</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+	 	  <KEYNAME>SYSTEM GROUP FOR PROFILE X</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>EMULATION</CHILDKEY>
+	 </PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>RTDX RCV End</NAME>	
+		<DESCRIPTION>RTDX receive end event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>EMULATION</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+		<VALUE>0</VALUE>
+		<ENUMVALUE>10120</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>RTDX XMTR End</NAME>	
+		<DESCRIPTION>RTDX transmit end event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>EMULATION</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+		<VALUE>0</VALUE>
+		<ENUMVALUE>10121</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>DT-DMA End</NAME>	
+		<DESCRIPTION>DT-DMA activity end event</DESCRIPTION>		
+		<KEYITEM>
+			<KEYNAME>EMULATION</KEYNAME>	
+			<KEYNUMBER>3</KEYNUMBER>	
+		</KEYITEM>
+		<VALUE>0</VALUE>
+		<ENUMVALUE>10122</ENUMVALUE>
+		</PROPERTY_BOOL>
+
+
+<!--=============================================================================-->
+<!--                 Skip Count Value for Trace Address Trigger                  -->
+<!--    DISPLAYTYPE - IIntegerProperty::SetDisplaySuggestion()                   -->
+<!--         Action                                                              -->
+<!--           |--> End All Trace                                                -->
+<!--         Location        |   0x######     |                                  -->
+<!--         Skip Count      |   0            |                                  -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trigger Skip/Delay</NAME>	
+ 	  <DESCRIPTION>Trigger the action by skipping a number of occurrences or after delay a number of clock cycles</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER PC LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRIGGER CATEGORY</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SYSTEM EVENT LIST FOR TRIGGER</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>No</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SKIP OCCURRENCES</ALLOWED_KEY>
+			<ALLOWED_STRING>Skip</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SKIP CYCLES</ALLOWED_KEY>
+			<ALLOWED_STRING>Delay</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Skip Count</NAME>	
+ 	  <DESCRIPTION>Value of occurrences to skip</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SKIP OCCURRENCES</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>1</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Cycle Count</NAME>	
+ 	  <DESCRIPTION>Value of clock cycles to delay</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SKIP CYCLES</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>SPECIAL PROFILE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>1</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	</PROPERTY_INTEGER>
+
+<!--=============================================================================-->
+<!--                         Menu Items for Event Category                       -->
+<!--                                                                             -->
+<!--     Trace Type          | Event           |                                 -->
+<!--     Actions             | Trace On        |                                 -->
+<!--     Event Category      | Stall           |                                 -->
+<!--                         | Memory          |                                 -->
+<!--                         | Predication     |                                 -->
+<!--                         | External(8)     |                                 -->
+<!--     Event  1                                                                -->
+<!--     Event  2                                                                -->
+<!--     Event  3                                                                -->
+<!--     Event  4                                                                -->
+<!--     Advanced                                                                -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Global Category</NAME>	
+ 	  <DESCRIPTION>Global setting of event category</DESCRIPTION>		
+	  <VALUE>Stall</VALUE>	
+	  <KEYITEM>
+		  <KEYNAME>TRACE EVENT</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE EVENT IN RANGE</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE EVENT ALWAYS ON</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>CATEGORY STALL FOR TRACE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Stall</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>CATEGORY MEMORY FOR TRACE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Memory</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>CATEGORY PREDICATION FOR TRACE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Predication</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_SAMELEVEL_KEY>CATEGORY EXTERNAL FOR TRACE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>External(8)</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                 Wrapper of Advanced Settings for Event Trace                -->
+<!--        Encoding Mode      | Generic          |                              -->
+<!--                           | Prioritized      |                              -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Advanced</NAME>	
+ 	  <DESCRIPTION>Advance setting for event trace</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Stall</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>Memory</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>System</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <CHILDKEY>ADVANCED</CHILDKEY>
+	</PROPERTY_STRING>
+
+
+<!--////////////////////////////////////////////////////////-->
+<!--            Pull down menu for advance setting          -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Encoding Mode</NAME>	
+ 	  <DESCRIPTION>Encoding mode for stall and memory event trace</DESCRIPTION>		
+	  <VALUE>Generic</VALUE>	
+	  <KEYITEM>
+		  <KEYNAME>ADVANCED</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Generic</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Prioritized</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                         Wrapper Unit For Stall Category                     -->
+<!--                                                                             -->
+<!--     Event Category      | Stall           |                                 -->
+<!--     Event  1                                                                -->
+<!--          |--> CPU Stall                                                     -->
+<!--     Event  2                                                                -->
+<!--     Event  3                                                                -->
+<!--     Event  4                                                                -->
+<!--=============================================================================-->
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 1 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 1</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Stall</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>STALL GROUP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 2 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 2</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 2</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Stall</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>STALL GROUP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 3 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 3</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 3</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Stall</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+    <CHILDKEY>STALL GROUP</CHILDKEY>
+  </PROPERTY_STRING>
+
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 4 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 4</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 4</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Stall</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+    <CHILDKEY>STALL GROUP</CHILDKEY>
+  </PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                         List of Event Groups for Stall Event                -->
+<!--  The list will be included in Event Trace and Count Event property hiearchy -->
+<!--                                                                             -->
+<!--     Event Category      | Stall           |                                 -->
+<!--     Event  1                                                                -->
+<!--          |--> CPU Stall                                                     -->
+<!--               |--> CHILDKEY = CPU                                           -->
+<!--          |--> L1P Stalls                                                    -->
+<!--               |--> CHILDKEY = L1P                                           -->
+<!--          |--> L1D Stalls                                                    -->
+<!--               |--> CHILDKEY = L1D                                           -->
+<!--     Event  2                                                                -->
+<!--     Event  3                                                                -->
+<!--     Event  4                                                                -->
+<!--=============================================================================-->
+<!--////////////////////////////////////////////////////////-->
+<!--                    CPU stall check box                 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>CPU Stalls</NAME>	
+ 	  <DESCRIPTION>Group of CPU stall event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>STALL GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>STALL GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>CPU</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                    L1P stall check box                 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1P Stalls</NAME>	
+ 	  <DESCRIPTION>Group of L1P stall event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>STALL GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>STALL GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>L1P</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                    L1D stall check box                 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1D Stalls</NAME>	
+ 	  <DESCRIPTION>Group of L1D stall event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>STALL GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>STALL GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>L1D</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                         Wrapper Unit For Memory Category                    -->
+<!--                                                                             -->
+<!--     Event Category      | Memory           |                                -->
+<!--     Event  1                                                                -->
+<!--          |--> L1P Read Hit                                                  -->
+<!--     Event  2                                                                -->
+<!--     Event  3                                                                -->
+<!--     Event  4                                                                -->
+<!--=============================================================================-->
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 1 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 1</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Memory</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>MEMORY GROUP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 2 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 2</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 2</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Memory</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>MEMORY GROUP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 3 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 3</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 3</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Memory</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+    <CHILDKEY>MEMORY GROUP</CHILDKEY>
+  </PROPERTY_STRING>
+
+<!--////////////////////////////////////////////////////////-->
+<!--   Wrapper of stall event group checkbox list for bit 4 -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_STRING>
+	  <NAME>Event 4</NAME>	
+ 	  <DESCRIPTION>The event selection for event trace bit 4</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Memory</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+    <CHILDKEY>MEMORY GROUP</CHILDKEY>
+  </PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                       List of Event Groups for Memory Event                 -->
+<!--  The list will be included in Event Trace and Count Event property hiearchy -->
+<!--                                                                             -->
+<!--     Event Category      | Memory          |                                 -->
+<!--     Event  1                                                                -->
+<!--          |--> L1P Read Hit                                                  -->
+<!--               |--> CHILDKEY = L1P Read Hit                                  -->
+<!--          |--> L1P Read Miss                                                 -->
+<!--               |--> CHILDKEY = L1P Read Miss                                 -->
+<!--          |--> L1D Read Hit                                                  -->
+<!--               |--> CHILDKEY = L1D Read Hit                                  -->
+<!--          |--> L1D Write Hit                                                 -->
+<!--               |--> CHILDKEY = L1D Write Hit                                 -->
+<!--          |--> L1D Read Miss                                                 -->
+<!--               |--> CHILDKEY = L1D Read Miss                                 -->
+<!--          |--> L1D Write Miss                                                -->
+<!--               |--> CHILDKEY = L1D Write Miss                                -->
+<!--          |--> Tag/Victim/Write Buf Flush                                    -->
+<!--               |--> CHILDKEY = PATH A-B                                      -->
+<!--          |--> CPU-CPU Bank Conflict                                         -->
+<!--          |--> CPU-Snoop Conflict                                            -->
+<!--          |--> CPU-CPU-IDMA/EDMA Bank Conflict                               -->
+<!--     Event  2                                                                -->
+<!--     Event  3                                                                -->
+<!--     Event  4                                                                -->
+<!--=============================================================================-->
+<!--////////////////////////////////////////////////////////-->
+<!--              Memory L1P read hit event group           -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1P Read Hit</NAME>	
+ 	  <DESCRIPTION>Group of L1P read hit event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>L1P Read Hit</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--              Memory L1P read miss event group          -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1P Read Miss</NAME>	
+ 	  <DESCRIPTION>Group of L1P read miss event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>L1P Read Miss</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--              Memory L1D read hit event group           -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1D Read Hit Path A</NAME>	
+ 	  <DESCRIPTION>Group of L1D read hit path A event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-1</ENUMVALUE>
+	  <CHILDKEY>L1D Read Hit A</CHILDKEY>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Read Hit Path B</NAME>	
+ 	  <DESCRIPTION>Group of L1D read hit path B event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-2</ENUMVALUE>
+	  <CHILDKEY>L1D Read Hit B</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--              Memory L1D write hit event group          -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1D Write Hit Path A</NAME>	
+ 	  <DESCRIPTION>Group of L1D write hit path A event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-1</ENUMVALUE>
+	  <CHILDKEY>L1D Write Hit A</CHILDKEY>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Write Hit Path B</NAME>	
+ 	  <DESCRIPTION>Group of L1D write hit path B event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-2</ENUMVALUE>
+	  <CHILDKEY>L1D Write Hit B</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--              Memory L1D read miss event group          -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1D Read Miss Path A</NAME>	
+ 	  <DESCRIPTION>Group of L1D read miss path A event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>9</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-1</ENUMVALUE>
+	  <CHILDKEY>L1D Read Miss A</CHILDKEY>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Read Miss Path B</NAME>	
+ 	  <DESCRIPTION>Group of L1D read miss path B event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>9</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-2</ENUMVALUE>
+	  <CHILDKEY>L1D Read Miss B</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--              Memory L1D write miss event group         -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>L1D Write Miss Path A</NAME>	
+ 	  <DESCRIPTION>Group of L1D write miss path A event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-1</ENUMVALUE>
+	  <CHILDKEY>L1D Write Miss A</CHILDKEY>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>L1D Write Miss Path B</NAME>	
+ 	  <DESCRIPTION>Group of L1D write miss path B event</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>-2</ENUMVALUE>
+	  <CHILDKEY>L1D Write Miss B</CHILDKEY>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--          Memory L1D Conflicts/Flush event group        -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>Tag/Victim/Write Buf Flush A</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read miss, Tag/Victim/Write Buf Flush A</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>11</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1020</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Tag/Victim/Write Buf Flush B</NAME>	
+ 	  <DESCRIPTION>Level 1 data cache read miss, Tag/Victim/Write Buf Flush B</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>11</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1019</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--////////////////////////////////////////////////////////-->
+<!--     Checkbox list of L1D conflicts/buffer flushes      -->
+<!--////////////////////////////////////////////////////////-->
+	<PROPERTY_BOOL>
+	  <NAME>CPU-CPU Bank Conflict</NAME>	
+ 	  <DESCRIPTION>CPU-CPU Bank Conflict</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>12</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <ENUMVALUE>1023</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>CPU-Snoop Conflict</NAME>	
+ 	  <DESCRIPTION>CPU-Snoop Conflict</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>9</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>13</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>0</VALUE>
+	  <ENUMVALUE>1023</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>CPU-IDMA/EDMA Bank Conflict</NAME>	
+ 	  <DESCRIPTION>CPU-IDMA/EDMA back conflict</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <KEYITEM>
+		  <KEYNAME>MEMORY GROUP FOR PROFILE</KEYNAME>	
+		  <KEYNUMBER>14</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>0</VALUE>
+	  <ENUMVALUE>1024</ENUMVALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                  Option of Addtion Data for Predication Trace               -->
+<!--                                                                             -->
+<!--     Global Category      | Predication    |                                 -->
+<!--     Additional Data      | O  Timing      |                                 -->
+<!--                          | 0  DW          |                                 -->
+<!--                          | 0  DR          |                                 -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Additional Data</NAME>	
+ 	  <DESCRIPTION>Additional data attached to event trace</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CATEGORY PREDICATION FOR TRACE</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+	  <CHILDKEY>OPTIONAL DATA FOR PREDICATION</CHILDKEY>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                         List of What to Trace Check Box                     -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace                                                        -->
+<!--           |--> Program Address                                              -->
+<!--           |--> Time Stamp                                                   -->
+<!--           |--> Write Address                                                -->
+<!--           |--> Write Data                                                   -->
+<!--           |--> Read Address                                                 -->
+<!--           |--> Read Data                                                    -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Program Address</NAME>	
+ 	  <DESCRIPTION>Include program address in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>ADDITIONAL TRACE DATA</KEYNAME>	                 <!-- Key for additional data for event trace -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Time Stamp</NAME>	
+ 	  <DESCRIPTION>Include time stamp in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR VARIABLE</KEYNAME>	             <!-- Key for trace variable -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>ADDITIONAL TRACE DATA</KEYNAME>	                 <!-- Key for additional data for event trace -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>OPTIONAL DATA FOR PREDICATION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Write Address</NAME>	
+ 	  <DESCRIPTION>Include memory write address in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>OPTIONAL DATA ADDRESS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR NOT STORE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Write Data</NAME>	
+ 	  <DESCRIPTION>Include memory write data in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR NOT STORE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Read Address</NAME>	
+ 	  <DESCRIPTION>Include memory read address in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>OPTIONAL DATA ADDRESS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR NOT STORE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Read Data</NAME>	
+ 	  <DESCRIPTION>Include memory read data in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR NOT STORE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>PC with Data</NAME>	
+ 	  <DESCRIPTION>Attach program address to the memory address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR VARIABLE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR NOT STORE</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Data</NAME>	
+ 	  <DESCRIPTION>Attach program address to the memory address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR VARIABLE</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--                   Expiration Time for Watchdog Timer                        -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Expiration Time</NAME>	
+ 	  <DESCRIPTION>The clock cycle limit for the range</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>WATCHDOG</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+  	  <VALUE>10</VALUE>
+	</PROPERTY_INTEGER>
+
+
+<!--****************************************************************************************-->
+<!--                       Event hierarchy for AEGEVT/External(8) Event                     -->
+<!--****************************************************************************************-->
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 0</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 0</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000000</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 1</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000001</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 2</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 2</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000002</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 3</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 3</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000003</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 4</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 4</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000004</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 5</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 5</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000005</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 6</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 6</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000006</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT/External 7</NAME>	
+ 	  <DESCRIPTION>Set external event number (0-255) for AEGEVT/External event 7</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SETUP AEGEVT</KEYNAME>	      
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x89000007</ENUMVALUE>
+  	  <VALUE>Not Connected</VALUE>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>AEGEVT Type</NAME>	
+ 	  <DESCRIPTION>Option of event connected to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EXTERNAL EVT</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Not Connected</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt from CPU</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Memory Protection Faults</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>IDMA Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3 Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UTOPIA-PDMA Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RapidIO Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>GPIO Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Emulation Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Event Combiners Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Ethernet MAC Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>SMC Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UMC,PMC,EMC Error Interrupt</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Dropped CPU Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>96</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Power Down Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>118</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UTPOIA Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>56</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Power and Sleep Cntr Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>65</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>I2C Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>72</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Inter-DSP Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>84</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Host Common Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>85</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>L2 Wake Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>93</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>PBIST Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>98</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Interrupt Event</NAME>	
+ 	  <DESCRIPTION>CPU interrupt connect to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Interrupt from CPU</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>From CPU0</ALLOWED_STRING>
+			<ALLOWED_ENUM>87</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>From CPU1</ALLOWED_STRING>
+			<ALLOWED_ENUM>88</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>From CPU2</ALLOWED_STRING>
+			<ALLOWED_ENUM>89</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>From CPU3</ALLOWED_STRING>
+			<ALLOWED_ENUM>90</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>From CPU4</ALLOWED_STRING>
+			<ALLOWED_ENUM>91</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>From CPU5</ALLOWED_STRING>
+			<ALLOWED_ENUM>92</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+	<PROPERTY_STRING>
+	  <NAME>Protection Fault Type</NAME>	
+ 	  <DESCRIPTION>Protection fault event connected to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Memory Protection Faults</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>PMC_CMPA</ALLOWED_STRING>
+			<ALLOWED_ENUM>120</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>PMC_DMPA</ALLOWED_STRING>
+			<ALLOWED_ENUM>121</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DMC_CMPA</ALLOWED_STRING>
+			<ALLOWED_ENUM>122</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DMC_DMPA</ALLOWED_STRING>
+			<ALLOWED_ENUM>123</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UMC_CMPA</ALLOWED_STRING>
+			<ALLOWED_ENUM>124</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UMC_DMPA</ALLOWED_STRING>
+			<ALLOWED_ENUM>125</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMC_CMPA</ALLOWED_STRING>
+			<ALLOWED_ENUM>126</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+	<PROPERTY_STRING>
+	  <NAME>IDMA Type</NAME>	
+ 	  <DESCRIPTION>IDMA interrupt event type connected to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>IDMA Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>IDMA Ch.0 Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>13</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>IDMA Ch.1 Interrupt</ALLOWED_STRING>
+			<ALLOWED_ENUM>14</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+	<PROPERTY_STRING>
+	  <NAME>EDMA3 Interrupt Type</NAME>	
+ 	  <DESCRIPTION>EDMA3 interrupt event list</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>EDMA3 Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3CC Individual Completion</ALLOWED_STRING>
+			<ALLOWED_ENUM>15</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3CC Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>57</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3CC Memory Protection</ALLOWED_STRING>
+			<ALLOWED_ENUM>58</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC0 Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>59</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC1 Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>60</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC2 Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>61</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC3 Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>62</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC3 AET Event</ALLOWED_STRING>
+			<ALLOWED_ENUM>66</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC3 Completion - Mask 6</ALLOWED_STRING>
+			<ALLOWED_ENUM>67</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC3 Completion - Mask 7</ALLOWED_STRING>
+			<ALLOWED_ENUM>68</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EDMA3TC3_GINT</ALLOWED_STRING>
+			<ALLOWED_ENUM>69</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>RapidIO Interrupt Type</NAME>	
+ 	  <DESCRIPTION>RapidIO interrupt event type connected to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>RapidIO Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RIOINT_LOCAL</ALLOWED_STRING>
+			<ALLOWED_ENUM>4</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RIOINT6</ALLOWED_STRING>
+			<ALLOWED_ENUM>44</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RIOINT7</ALLOWED_STRING>
+			<ALLOWED_ENUM>45</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+	<PROPERTY_STRING>
+	  <NAME>GPIO Interrupt Type</NAME>	
+ 	  <DESCRIPTION>GPIO interrupt event type connected to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GPIO Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>GPIO Local</ALLOWED_STRING>
+			<ALLOWED_ENUM>73</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 6</ALLOWED_STRING>
+			<ALLOWED_ENUM>74</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 7</ALLOWED_STRING>
+			<ALLOWED_ENUM>75</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 8</ALLOWED_STRING>
+			<ALLOWED_ENUM>76</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 9</ALLOWED_STRING>
+			<ALLOWED_ENUM>77</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 10</ALLOWED_STRING>
+			<ALLOWED_ENUM>78</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 11</ALLOWED_STRING>
+			<ALLOWED_ENUM>79</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 12</ALLOWED_STRING>
+			<ALLOWED_ENUM>80</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 13</ALLOWED_STRING>
+			<ALLOWED_ENUM>81</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 14</ALLOWED_STRING>
+			<ALLOWED_ENUM>82</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt 15</ALLOWED_STRING>
+			<ALLOWED_ENUM>83</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+	<PROPERTY_STRING>
+	  <NAME>Timer Interrupt Type</NAME>	
+ 	  <DESCRIPTION>Timer interrupt event type connected to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Timer Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Local Timer Low</ALLOWED_STRING>
+			<ALLOWED_ENUM>16</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Local Timer High</ALLOWED_STRING>
+			<ALLOWED_ENUM>17</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 6 Low</ALLOWED_STRING>
+			<ALLOWED_ENUM>18</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 6 High</ALLOWED_STRING>
+			<ALLOWED_ENUM>19</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 7 Low</ALLOWED_STRING>
+			<ALLOWED_ENUM>20</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 7 High</ALLOWED_STRING>
+			<ALLOWED_ENUM>21</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 8 Low</ALLOWED_STRING>
+			<ALLOWED_ENUM>22</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 8 High</ALLOWED_STRING>
+			<ALLOWED_ENUM>23</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 9 Low</ALLOWED_STRING>
+			<ALLOWED_ENUM>24</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 9 High</ALLOWED_STRING>
+			<ALLOWED_ENUM>25</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 10 Low</ALLOWED_STRING>
+			<ALLOWED_ENUM>26</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 10 High</ALLOWED_STRING>
+			<ALLOWED_ENUM>27</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 11 Low</ALLOWED_STRING>
+			<ALLOWED_ENUM>28</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Timer 11 High</ALLOWED_STRING>
+			<ALLOWED_ENUM>29</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>UMC,PMC,EMC Error Type</NAME>	
+ 	  <DESCRIPTION>Error interrupt type list</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>UMC,PMC,EMC Error Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Single Bit Error During DMA Read</ALLOWED_STRING>
+			<ALLOWED_ENUM>113</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UMC Corrected Bit Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>116</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UMC Uncorrected Bit Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>118</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Invalid IDMA Parameters</ALLOWED_STRING>
+			<ALLOWED_ENUM>97</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Bus Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>127</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+		
+	<PROPERTY_STRING>
+	  <NAME>SMC Type</NAME>	
+ 	  <DESCRIPTION>SMC interrupt type list</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SMC Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>SMC Memory Protection</ALLOWED_STRING>
+			<ALLOWED_ENUM>63</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>SMC Profile Consolidated</ALLOWED_STRING>
+			<ALLOWED_ENUM>64</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+		
+	<PROPERTY_STRING>
+	  <NAME>Emulation Event Type</NAME>	
+ 	  <DESCRIPTION>Emulation event type connected to AEGEVT</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Emulation Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMU_D</ALLOWED_STRING>
+			<ALLOWED_ENUM>9</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RTDX Receive End</ALLOWED_STRING>
+			<ALLOWED_ENUM>11</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RTDX Receive End</ALLOWED_STRING>
+			<ALLOWED_ENUM>12</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+	<PROPERTY_STRING>
+	  <NAME>Combiner Type</NAME>	
+ 	  <DESCRIPTION>Event combiner type list</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Event Combiners Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Combiner 0</ALLOWED_STRING>
+			<ALLOWED_ENUM>0</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Combiner 1</ALLOWED_STRING>
+			<ALLOWED_ENUM>1</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Combiner 2</ALLOWED_STRING>
+			<ALLOWED_ENUM>2</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Combiner 3</ALLOWED_STRING>
+			<ALLOWED_ENUM>3</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+	
+
+	<PROPERTY_STRING>
+	  <NAME>MAC Type</NAME>	
+ 	  <DESCRIPTION>Ethernet MAC type list</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>Ethernet MAC Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MAC0 Receive</ALLOWED_STRING>
+			<ALLOWED_ENUM>5</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MAC0 Transmit</ALLOWED_STRING>
+			<ALLOWED_ENUM>6</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MAC1 Receive</ALLOWED_STRING>
+			<ALLOWED_ENUM>7</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MACINT0</ALLOWED_STRING>
+			<ALLOWED_ENUM>70</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MACINT1</ALLOWED_STRING>
+			<ALLOWED_ENUM>71</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	
+	<PROPERTY_STRING>
+	  <NAME>UTOPIA-PDMA Type</NAME>	
+ 	  <DESCRIPTION>UTOPIA type list</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>UTOPIA-PDMA Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UTOPIA-PDMA Receive</ALLOWED_STRING>
+			<ALLOWED_ENUM>30</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>UTOPIA-PDMA Transmit</ALLOWED_STRING>
+			<ALLOWED_ENUM>31</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>TSIP Type</NAME>	
+ 	  <DESCRIPTION>TSIP interrupt type list</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TSIP Interrupt</KEYNAME>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP0 Receive Frame Sync</ALLOWED_STRING>
+			<ALLOWED_ENUM>32</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP0 Receive Super Frame</ALLOWED_STRING>
+			<ALLOWED_ENUM>33</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP0 Transmit Frame Sync</ALLOWED_STRING>
+			<ALLOWED_ENUM>34</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP0 Transmit Super Frame</ALLOWED_STRING>
+			<ALLOWED_ENUM>35</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP0 Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>50</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP1 Receive Frame Sync</ALLOWED_STRING>
+			<ALLOWED_ENUM>36</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP1 Receive Super Frame</ALLOWED_STRING>
+			<ALLOWED_ENUM>37</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP1 Transmit Frame Sync</ALLOWED_STRING>
+			<ALLOWED_ENUM>38</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP1 Transmit Super Frame</ALLOWED_STRING>
+			<ALLOWED_ENUM>39</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP1 Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>52</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP2 Receive Frame Sync</ALLOWED_STRING>
+			<ALLOWED_ENUM>40</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP2 Receive Super Frame</ALLOWED_STRING>
+			<ALLOWED_ENUM>41</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP2 Transmit Frame Sync</ALLOWED_STRING>
+			<ALLOWED_ENUM>42</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP2 Transmit Super Frame</ALLOWED_STRING>
+			<ALLOWED_ENUM>43</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TSIP2 Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>54</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--========================================================-->
+<!--                 Event information list                 -->
+<!--========================================================-->
+<!--////////////////////////////////////////////////////////-->
+<!--                 Category of memory events              -->
+<!--////////////////////////////////////////////////////////-->
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Read Hit.SRAM</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>25</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Read Hit.Cache</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>26</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Read Miss.Hits L2 SRAM</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>27</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Read Miss.Hits L2 Cache</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>28</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Read Miss.Hits L2 External</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>29</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Hit.DRAM.Path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>0</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Hit.DRAM.Path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>1</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Hit.Cache.Path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>2</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Hit.Cache.Path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>3</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Hit.Tag Buf Not Full.Path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>4</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Hit.Tag Buf Not Full.Path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>5</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Hit.Tag Buf Full.Path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>6</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Hit.Tag Buf Full.Path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>7</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 SRAM.Path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>8</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 SRAM.Path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>9</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 Cache.Path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>10</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 Cache.Path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>11</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 External.Cacheale.path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>12</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 External.Cacheale.path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>13</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 External.Non-cacheale.path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>14</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Read Miss.Hits L2 External.Non-Cacheale.path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>15</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Miss.Write Buf Not Full.path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>16</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Miss.Write Buf Not Full.path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>17</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Miss.Write Buf Full.path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>18</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Write Miss.Write Buf Full.path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>19</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>Tag/Victim/Write Buf Flush.path A</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>20</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>Tag/Victim/Write Buf Flush.path B</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>21</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU-CPU Bank Conflict</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>22</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU-Snoop Conflict</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>23</EVENT_ID>
+	</EVENT_ITEM>
+	
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU-IDMA/EDMA Bank Conflict</EVENT_NAME>	
+	  <EVENT_CATEGORY>1</EVENT_CATEGORY>
+  	  <EVENT_ID>23</EVENT_ID>
+	</EVENT_ITEM>
+
+<!--////////////////////////////////////////////////////////-->
+<!--                 Category of stall events               -->
+<!--////////////////////////////////////////////////////////-->
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU Stalls.Pipeline</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>0</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU Stalls.Cross</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>1</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU Stalls.Branch to Spanning Exec Pkt</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>2</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU Stalls.External Functional Interface</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>3</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU Stalls.MVC</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>4</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Stalls.L1P Miss</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>8</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Stalls.L1P Wait State</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>6</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1P Stalls.L1P Other</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>5</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.L1D Bank Conflict</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>11</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.L1D Read Miss</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>15</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.Write Buf Full</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>13</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.L1D Tag Update Buf Full</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>14</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.L1D DMA Conflict</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>12</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.Snoop Conflict</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>21</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.L1D Coherence Op Conflict</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>22</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Stalls.L1D Other</EVENT_NAME>	
+	  <EVENT_CATEGORY>2</EVENT_CATEGORY>
+  	  <EVENT_ID>10</EVENT_ID>
+	</EVENT_ITEM>
+
+<!--////////////////////////////////////////////////////////-->
+<!--              Category of miscellaneous events          -->
+<!--////////////////////////////////////////////////////////-->
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU Execute Cycles</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>0</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>CPU Pipeline Stalls</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>1</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>Interrupt ACK</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>8</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>MARK 0</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>2</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>MARK 1</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>3</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>MARK 2</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>4</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>MARK 3</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>5</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>EMU 0</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>6</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>EMU 1</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>7</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 0</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>9</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 1</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>10</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 2</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>11</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 3</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>12</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 4</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>13</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 5</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>14</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 6</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>15</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>AEGEVT 7</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>16</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>Exception</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>17</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>Exception ACK</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>18</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>NMI</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>19</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>RTDX Receive End</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>20</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>RTDX Transmit End</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>21</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>DT-DMA End</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>22</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D W. Miss, Hit L2 SRAM</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>23</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D W. Miss, Hit L2 Cache</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>24</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D W. Miss, Hit L2 Ext. Cacheable</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>25</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D W. Miss, Hit L2 Ext. non-Cacheable</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>26</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L2 Dirty Victim W. Back</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>27</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>DMA Snoop Read</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>28</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>DMA Snoop Write</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>29</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>Tag Update Quered Tag Update Buf</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>30</EVENT_ID>
+	</EVENT_ITEM>
+
+	<EVENT_ITEM>
+	  <EVENT_NAME>L1D Dirty Victim W. Back</EVENT_NAME>	
+	  <EVENT_CATEGORY>3</EVENT_CATEGORY>
+  	  <EVENT_ID>31</EVENT_ID>
+	</EVENT_ITEM>
+
+<!--=============================================================================-->
+<!--                START PROPERTY DEFINITION FOR TRACE SCRIPTS.                 -->         
+<!--=============================================================================-->
+<!--=============================================================================-->
+<!--            Property for Dynamic Thread Aware Call Graph/Profiling           -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Memory Write Address</NAME>	
+ 	  <DESCRIPTION>Address of thread change write</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>THREAD GRAPH</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>THREAD PROFILE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                       Property for Pipeline Stall Analysis                  -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>PC to Start Profile</NAME>	
+ 	  <DESCRIPTION>Address of to start profiling</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PIPELINE ANALYSIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                         Property for Interrupt Analysis                     -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Interrupt Vector Address</NAME>	
+ 	  <DESCRIPTION>Address of interrupt vector table</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>INTERRUPT ANALYSIS</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                    Property for worst case interrupt latency                -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Interrupt Type</NAME>	
+ 	  <DESCRIPTION>Option for the interrupts</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>INTERRUPT LATENCY</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 4</ALLOWED_STRING>
+			<ALLOWED_ENUM>196</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 5</ALLOWED_STRING>
+			<ALLOWED_ENUM>197</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 6</ALLOWED_STRING>
+			<ALLOWED_ENUM>198</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 7</ALLOWED_STRING>
+			<ALLOWED_ENUM>199</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 8</ALLOWED_STRING>
+			<ALLOWED_ENUM>200</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 9</ALLOWED_STRING>
+			<ALLOWED_ENUM>201</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 10</ALLOWED_STRING>
+			<ALLOWED_ENUM>202</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 11</ALLOWED_STRING>
+			<ALLOWED_ENUM>203</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 12</ALLOWED_STRING>
+			<ALLOWED_ENUM>204</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 13</ALLOWED_STRING>
+			<ALLOWED_ENUM>205</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 14</ALLOWED_STRING>
+			<ALLOWED_ENUM>206</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU Interrupt 15</ALLOWED_STRING>
+			<ALLOWED_ENUM>207</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_LOCATION>
+	  <NAME>Address of ISR</NAME>	
+ 	  <DESCRIPTION>Address of interrupt service routine</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>INTERRUPT LATENCY</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--****************************************************************************************-->
+<!--                            Event hierarchy for System Event                            -->
+<!--****************************************************************************************-->
+	<PROPERTY_STRING>
+	  <NAME>System Event</NAME>	
+ 	  <DESCRIPTION>Select the event for profile</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>PULL DOWN SYSTEM EVENT LIST</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPU pipeline stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>10101</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Interrupt ACK</ALLOWED_STRING>
+			<ALLOWED_ENUM>10108</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>NMI</ALLOWED_STRING>
+			<ALLOWED_ENUM>10119</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Exception</ALLOWED_STRING>
+			<ALLOWED_ENUM>10117</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Exception ACK</ALLOWED_STRING>
+			<ALLOWED_ENUM>10118</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MARK 0</ALLOWED_STRING>
+			<ALLOWED_ENUM>10102</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MARK 1</ALLOWED_STRING>
+			<ALLOWED_ENUM>10103</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MARK 2</ALLOWED_STRING>
+			<ALLOWED_ENUM>10104</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>MARK 3</ALLOWED_STRING>
+			<ALLOWED_ENUM>10105</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 0</ALLOWED_STRING>
+			<ALLOWED_ENUM>10109</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 1</ALLOWED_STRING>
+			<ALLOWED_ENUM>10110</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 2</ALLOWED_STRING>
+			<ALLOWED_ENUM>10111</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 3</ALLOWED_STRING>
+			<ALLOWED_ENUM>10112</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 4</ALLOWED_STRING>
+			<ALLOWED_ENUM>10113</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 5</ALLOWED_STRING>
+			<ALLOWED_ENUM>10114</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 6</ALLOWED_STRING>
+			<ALLOWED_ENUM>10115</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>AEGEVT 7</ALLOWED_STRING>
+			<ALLOWED_ENUM>10116</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMU 0</ALLOWED_STRING>
+			<ALLOWED_ENUM>10106</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>EMU 1</ALLOWED_STRING>
+			<ALLOWED_ENUM>10107</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RTDX Receive End</ALLOWED_STRING>
+			<ALLOWED_ENUM>10120</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>RTDX Transmit End</ALLOWED_STRING>
+			<ALLOWED_ENUM>10121</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DT-DMA End</ALLOWED_STRING>
+			<ALLOWED_ENUM>10122</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>L1D WR Miss, , hits L2 SRAM</ALLOWED_STRING>
+			<ALLOWED_ENUM>10123</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>L1D WR Miss, Hits L2 Cache</ALLOWED_STRING>
+			<ALLOWED_ENUM>10124</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>L1D WR Miss, Hits L2 Extl Cacheable</ALLOWED_STRING>
+			<ALLOWED_ENUM>10125</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>L1D WR Miss, Hits L2 Extl Non-cacheable</ALLOWED_STRING>
+			<ALLOWED_ENUM>10126</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Dirty Victim WR Back from L2</ALLOWED_STRING>
+			<ALLOWED_ENUM>10127</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DMA Snoop Read</ALLOWED_STRING>
+			<ALLOWED_ENUM>10128</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DMA Snoop Write</ALLOWED_STRING>
+			<ALLOWED_ENUM>10129</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Tag Update Queued Tag Update Buffer</ALLOWED_STRING>
+			<ALLOWED_ENUM>10130</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Dirty Victim WR Back from L1D</ALLOWED_STRING>
+			<ALLOWED_ENUM>10131</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+		
+</AET>

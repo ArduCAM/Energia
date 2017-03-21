@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<device id="C28xx" partnum="TMS320F28377S" HW_revision="1" XML_version="2" desc="TMS320F28377S" description="">
+  <!-- Filter to list device under in project wizard -->
+  <property Type="stringfield" Value="2837xS Delfino" id="FilterString" />
+  <instance XML_version="1.2" desc="IcePick_C_0" href="routers/icepick_c.xml" id="IcePick_C_0" xml="icepick_c.xml" xmlpath="routers" />
+  <router HW_revision="1.0" XML_version="1.2" description="ICEPick_C router" id="IcePick_C_0" isa="ICEPICK_C">
+    <subpath id="Subpath_0">
+      <instance XML_version="1.2" desc="C28xx_CPU1" href="cpus/c28xx.xml" id="C28xx_CPU1" xml="c28xx.xml" xmlpath="cpus" />
+      <property Type="numericfield" Value="0x10" id="Port Number" />
+      <cpu HW_revision="1.0" XML_version="1.2" description="C28xx CPU" id="C28xx_CPU1" isa="TMS320C28XX">
+          <property Type="filepathfield" Value="../../emulation/gel/f28377s.gel" id="GEL File" />
+
+         <!-- Project Wizard Settings -->
+         <property Type="stringfield" Value="--large_memory_model --unified_memory --silicon_version=28 --float_support=fpu32 --cla_support=cla1 --vcu_support=vcu2 --tmu_support=tmu0" id="CompilerBuildOptions" /> 
+         <property Type="stringfield" Value="--stack_size=0x200" id="LinkerBuildOptions" />
+         <property Type="stringfield" Value="28377S_FLASH_lnk.cmd" id="LinkerCmd" />
+         <!-- END Project Wizard Settings -->
+		<instance href="../Modules/C2000/C2000_FPU32_Registers.xml"              		id="FPU"        	xml="C2000_FPU32_Registers.xml"               			xmlpath="../Modules/C2000/" HW_version="" description="FPU Registers"                   		requestor="" baseaddr="0x000F00" endaddr="0x000FFF" size="0x0100" 	accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/C2000_VCU_Type2_Registers.xml"  id="VCU"  xml="C2000_VCU_Type2_Registers.xml"     xmlpath="../Modules/C2000/" HW_version="" description="VCU Registers"   requestor="" baseaddr="0x1200" endaddr="0x12EE" size="0x00EF" 	accessnumbytes="4" permissions="p" />		
+		<instance href="../Modules/C2000/F28x7x_access_protection_regs.xml" xml="F28x7x_access_protection_regs.xml" id="AccessProtectionRegs" xmlpath="../Modules/C2000/" baseaddr="0x5F4C0" endaddr="0x0005F4FF" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_adc_result_regs.xml" xml="f2837xs_adc_result_regs.xml" id="AdcaResultRegs" xmlpath="../Modules/C2000/" baseaddr="0xB00" endaddr="0x00000B1F" size="0x0020" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/f2837xs_adc_result_regs.xml" xml="f2837xs_adc_result_regs.xml" id="AdcbResultRegs" xmlpath="../Modules/C2000/" baseaddr="0xB20" endaddr="0x00000B3F" size="0x0020" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/f2837xs_adc_result_regs.xml" xml="f2837xs_adc_result_regs.xml" id="AdccResultRegs" xmlpath="../Modules/C2000/" baseaddr="0xB40" endaddr="0x00000B5F" size="0x0020" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/f2837xs_adc_result_regs.xml" xml="f2837xs_adc_result_regs.xml" id="AdcdResultRegs" xmlpath="../Modules/C2000/" baseaddr="0xB60" endaddr="0x00000B7F" size="0x0020" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/f2837xs_adc_regs.xml" xml="f2837xs_adc_regs.xml" id="AdcaRegs" xmlpath="../Modules/C2000/" baseaddr="0x7400" endaddr="0x0000747F" size="0x0080" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/f2837xs_adc_regs.xml" xml="f2837xs_adc_regs.xml" id="AdcbRegs" xmlpath="../Modules/C2000/" baseaddr="0x7480" endaddr="0x000074FF" size="0x0080" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/f2837xs_adc_regs.xml" xml="f2837xs_adc_regs.xml" id="AdccRegs" xmlpath="../Modules/C2000/" baseaddr="0x7500" endaddr="0x0000757F" size="0x0080" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/f2837xs_adc_regs.xml" xml="f2837xs_adc_regs.xml" id="AdcdRegs" xmlpath="../Modules/C2000/" baseaddr="0x7580" endaddr="0x000075FF" size="0x0080" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/F28x7x_analog_subsys_regs.xml" xml="F28x7x_analog_subsys_regs.xml" id="AnalogSubsysRegs" xmlpath="../Modules/C2000/" baseaddr="0x5D1A0" endaddr="0x0005D1FF" size="0x060" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_can_regs.xml" xml="F28x7x_can_regs.xml" id="CanaRegs" xmlpath="../Modules/C2000/" baseaddr="0x48000" endaddr="0x000487FF" size="0x0800" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_can_regs.xml" xml="F28x7x_can_regs.xml" id="CanbRegs" xmlpath="../Modules/C2000/" baseaddr="0x4A000" endaddr="0x0004A7FF" size="0x0800" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/F28x7x_cla_regs.xml" xml="F28x7x_cla_regs.xml" id="Cla1Regs" xmlpath="../Modules/C2000/" baseaddr="0x1400" endaddr="0x0000147F" size="0x0080" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_clk_cfg_regs.xml" xml="f2837xs_clk_cfg_regs.xml" id="ClkCfgRegs" xmlpath="../Modules/C2000/" baseaddr="0x5D200" endaddr="0x0005D2FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss1Regs" xmlpath="../Modules/C2000/" baseaddr="0x5C80" endaddr="0x00005C9F" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss2Regs" xmlpath="../Modules/C2000/" baseaddr="0x5CA0" endaddr="0x00005CBF" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss3Regs" xmlpath="../Modules/C2000/" baseaddr="0x5CC0" endaddr="0x00005CDF" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss4Regs" xmlpath="../Modules/C2000/" baseaddr="0x5CE0" endaddr="0x00005CFF" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss5Regs" xmlpath="../Modules/C2000/" baseaddr="0x5D00" endaddr="0x00005D1F" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss6Regs" xmlpath="../Modules/C2000/" baseaddr="0x5D20" endaddr="0x00005D3F" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss7Regs" xmlpath="../Modules/C2000/" baseaddr="0x5D40" endaddr="0x00005D5F" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cmpss_regs.xml" xml="F28x7x_cmpss_regs.xml" id="Cmpss8Regs" xmlpath="../Modules/C2000/" baseaddr="0x5D60" endaddr="0x00005D7F" size="0x020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_cpu_sys_regs.xml" xml="f2837xs_cpu_sys_regs.xml" id="CpuSysRegs" xmlpath="../Modules/C2000/" baseaddr="0x5D300" endaddr="0x0005D3FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cputimer_regs.xml" xml="F28x7x_cputimer_regs.xml" id="CpuTimer0Regs" xmlpath="../Modules/C2000/" baseaddr="0xC00" endaddr="0x00000C07" size="0x0008" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cputimer_regs.xml" xml="F28x7x_cputimer_regs.xml" id="CpuTimer1Regs" xmlpath="../Modules/C2000/" baseaddr="0xC08" endaddr="0x00000C0F" size="0x0008" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_cputimer_regs.xml" xml="F28x7x_cputimer_regs.xml" id="CpuTimer2Regs" xmlpath="../Modules/C2000/" baseaddr="0xC10" endaddr="0x00000C17" size="0x0008" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_dac_regs.xml" xml="F28x7x_dac_regs.xml" id="DacaRegs" xmlpath="../Modules/C2000/" baseaddr="0x5C00" endaddr="0x00005C0F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_dac_regs.xml" xml="F28x7x_dac_regs.xml" id="DacbRegs" xmlpath="../Modules/C2000/" baseaddr="0x5C10" endaddr="0x00005C1F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_dac_regs.xml" xml="F28x7x_dac_regs.xml" id="DaccRegs" xmlpath="../Modules/C2000/" baseaddr="0x5C20" endaddr="0x00005C2F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_dcsm_common_regs.xml" xml="F28x7x_dcsm_common_regs.xml" id="DcsmCommonRegs" xmlpath="../Modules/C2000/" baseaddr="0x5F070" endaddr="0x0005F07F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_dcsm_z1_regs.xml" xml="F28x7x_dcsm_z1_regs.xml" id="DcsmZ1Regs" xmlpath="../Modules/C2000/" baseaddr="0x5F000" endaddr="0x0005F02F" size="0x0030" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_dcsm_z2_regs.xml" xml="F28x7x_dcsm_z2_regs.xml" id="DcsmZ2Regs" xmlpath="../Modules/C2000/" baseaddr="0x5F040" endaddr="0x0005F05F" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_dev_cfg_regs.xml" xml="f2837xs_dev_cfg_regs.xml" id="DevCfgRegs" xmlpath="../Modules/C2000/" baseaddr="0x5D000" endaddr="0x0005D19F" size="0x01A0" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_dma_cla_src_sel_regs.xml" xml="f2837xs_dma_cla_src_sel_regs.xml" id="DmaClaSrcSelRegs" xmlpath="../Modules/C2000/" baseaddr="0x7980" endaddr="0x000079BF" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/C2000_DMA_Type0_Registers.xml" xml="C2000_DMA_Type0_Registers.xml" id="DmaRegs" xmlpath="../Modules/C2000/" baseaddr="0x1000" endaddr="0x000011FF" size="0x0200" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_ecap_regs.xml" xml="F28x7x_ecap_regs.xml" id="ECap1Regs" xmlpath="../Modules/C2000/" baseaddr="0x5000" endaddr="0x0000501F" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_ecap_regs.xml" xml="F28x7x_ecap_regs.xml" id="ECap2Regs" xmlpath="../Modules/C2000/" baseaddr="0x5020" endaddr="0x0000503F" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_ecap_regs.xml" xml="F28x7x_ecap_regs.xml" id="ECap3Regs" xmlpath="../Modules/C2000/" baseaddr="0x5040" endaddr="0x0000505F" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_ecap_regs.xml" xml="F28x7x_ecap_regs.xml" id="ECap4Regs" xmlpath="../Modules/C2000/" baseaddr="0x5060" endaddr="0x0000507F" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_ecap_regs.xml" xml="F28x7x_ecap_regs.xml" id="ECap5Regs" xmlpath="../Modules/C2000/" baseaddr="0x5080" endaddr="0x0000509F" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_ecap_regs.xml" xml="F28x7x_ecap_regs.xml" id="ECap6Regs" xmlpath="../Modules/C2000/" baseaddr="0x50A0" endaddr="0x000050BF" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_emif1_singlecore_config_regs.xml" xml="F28x7x_emif1_singlecore_config_regs.xml" id="Emif1ConfigRegs" xmlpath="../Modules/C2000/" baseaddr="0x5F480" endaddr="0x0005F49F" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_emif2_config_regs.xml" xml="F28x7x_emif2_config_regs.xml" id="Emif2ConfigRegs" xmlpath="../Modules/C2000/" baseaddr="0x5F4A0" endaddr="0x0005F4BF" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_emif_regs.xml" xml="F28x7x_emif_regs.xml" id="Emif1Regs" xmlpath="../Modules/C2000/" baseaddr="0x47000" endaddr="0x0004706F" size="0x0070" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_emif_regs.xml" xml="F28x7x_emif_regs.xml" id="Emif2Regs" xmlpath="../Modules/C2000/" baseaddr="0x47800" endaddr="0x0004786F" size="0x0070" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm1Regs" xmlpath="../Modules/C2000/" baseaddr="0x4000" endaddr="0x000040FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm2Regs" xmlpath="../Modules/C2000/" baseaddr="0x4100" endaddr="0x000041FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm3Regs" xmlpath="../Modules/C2000/" baseaddr="0x4200" endaddr="0x000042FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm4Regs" xmlpath="../Modules/C2000/" baseaddr="0x4300" endaddr="0x000043FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm5Regs" xmlpath="../Modules/C2000/" baseaddr="0x4400" endaddr="0x000044FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm6Regs" xmlpath="../Modules/C2000/" baseaddr="0x4500" endaddr="0x000045FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm7Regs" xmlpath="../Modules/C2000/" baseaddr="0x4600" endaddr="0x000046FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm8Regs" xmlpath="../Modules/C2000/" baseaddr="0x4700" endaddr="0x000047FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm9Regs" xmlpath="../Modules/C2000/" baseaddr="0x4800" endaddr="0x000048FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm10Regs" xmlpath="../Modules/C2000/" baseaddr="0x4900" endaddr="0x000049FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm11Regs" xmlpath="../Modules/C2000/" baseaddr="0x4A00" endaddr="0x00004AFF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_regs.xml" xml="F28x7x_epwm_regs.xml" id="EPwm12Regs" xmlpath="../Modules/C2000/" baseaddr="0x4B00" endaddr="0x00004BFF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_epwm_xbar_regs.xml" xml="F28x7x_epwm_xbar_regs.xml" id="EPwmXbarRegs" xmlpath="../Modules/C2000/" baseaddr="0x7A00" endaddr="0x00007A3F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_eqep_regs.xml" xml="F28x7x_eqep_regs.xml" id="EQep1Regs" xmlpath="../Modules/C2000/" baseaddr="0x5100" endaddr="0x0000513F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_eqep_regs.xml" xml="F28x7x_eqep_regs.xml" id="EQep2Regs" xmlpath="../Modules/C2000/" baseaddr="0x5140" endaddr="0x0000517F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_eqep_regs.xml" xml="F28x7x_eqep_regs.xml" id="EQep3Regs" xmlpath="../Modules/C2000/" baseaddr="0x5180" endaddr="0x000051BF" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_flash_ctrl_regs.xml" xml="f2837xs_flash_ctrl_regs.xml" id="Flash0CtrlRegs" xmlpath="../Modules/C2000/" baseaddr="0x5F800" endaddr="0x0005FAFF" size="0x0300" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_flash_ecc_regs.xml" xml="f2837xs_flash_ecc_regs.xml" id="Flash0EccRegs" xmlpath="../Modules/C2000/" baseaddr="0x5FB00" endaddr="0x0005FB3F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_flash_ctrl_regs.xml" xml="f2837xs_flash_ctrl_regs.xml" id="Flash1CtrlRegs" xmlpath="../Modules/C2000/" baseaddr="0x5FC00" endaddr="0x0005FEFF" size="0x0300" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_flash_ecc_regs.xml" xml="f2837xs_flash_ecc_regs.xml" id="Flash1EccRegs" xmlpath="../Modules/C2000/" baseaddr="0x5FF00" endaddr="0x0005FF3F" size="0x0040" accessnumbytes="4" permissions="p" />		
+		<instance href="../Modules/C2000/f2837xs_flash_pump_semaphore_regs.xml" xml="f2837xs_flash_pump_semaphore_regs.xml" id="FlashPumpSemaphoreRegs" xmlpath="../Modules/C2000/" baseaddr="0x50024" endaddr="0x00050025" size="0x0002" accessnumbytes="4" permissions="p" />		
+        <instance href="../Modules/C2000/f2837xs_gpio_ctrl_regs.xml" xml="f2837xs_gpio_ctrl_regs.xml" id="GpioCtrlRegs" xmlpath="../Modules/C2000/" baseaddr="0x7C00" endaddr="0x00007D7F" size="0x0180" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_gpio_data_regs.xml" xml="f2837xs_gpio_data_regs.xml" id="GpioDataRegs" xmlpath="../Modules/C2000/" baseaddr="0x7F00" endaddr="0x00007F2F" size="0x0030" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_i2c_regs.xml" xml="F28x7x_i2c_regs.xml" id="I2caRegs" xmlpath="../Modules/C2000/" baseaddr="0x7300" endaddr="0x0000733F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_i2c_regs.xml" xml="F28x7x_i2c_regs.xml" id="I2cbRegs" xmlpath="../Modules/C2000/" baseaddr="0x7340" endaddr="0x0000737F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_mcbsp_regs.xml" xml="F28x7x_mcbsp_regs.xml" id="McbspaRegs" xmlpath="../Modules/C2000/" baseaddr="0x6000" endaddr="0x0000603F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_mcbsp_regs.xml" xml="F28x7x_mcbsp_regs.xml" id="McbspbRegs" xmlpath="../Modules/C2000/" baseaddr="0x6040" endaddr="0x0000607F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_mem_cfg_regs.xml" xml="F28x7x_mem_cfg_regs.xml" id="MemCfgRegs" xmlpath="../Modules/C2000/" baseaddr="0x5F400" endaddr="0x0005F47F" size="0x0080" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_nmi_intrupt_regs.xml" xml="F28x7x_nmi_intrupt_regs.xml" id="NmiIntruptRegs" xmlpath="../Modules/C2000/" baseaddr="0x7060" endaddr="0x0000706F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_output_xbar_regs.xml" xml="F28x7x_output_xbar_regs.xml" id="OutputXbarRegs" xmlpath="../Modules/C2000/" baseaddr="0x7A80" endaddr="0x00007ABF" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_pie_ctrl_regs.xml" xml="F28x7x_pie_ctrl_regs.xml" id="PieCtrlRegs" xmlpath="../Modules/C2000/" baseaddr="0xCE0" endaddr="0x00000CFF" size="0x0020" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_rom_prefetch_regs.xml" xml="F28x7x_rom_prefetch_regs.xml" id="RomPrefetchRegs" xmlpath="../Modules/C2000/" baseaddr="0x5E608" endaddr="0x0005E609" size="0x0002" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_rom_wait_state_regs.xml" xml="F28x7x_rom_wait_state_regs.xml" id="RomWaitStateRegs" xmlpath="../Modules/C2000/" baseaddr="0x5F540" endaddr="0x0005F41" size="0x0002" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_sci_regs.xml" xml="F28x7x_sci_regs.xml" id="SciaRegs" xmlpath="../Modules/C2000/" baseaddr="0x7200" endaddr="0x0000720F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_sci_regs.xml" xml="F28x7x_sci_regs.xml" id="ScibRegs" xmlpath="../Modules/C2000/" baseaddr="0x7210" endaddr="0x0000721F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_sci_regs.xml" xml="F28x7x_sci_regs.xml" id="ScicRegs" xmlpath="../Modules/C2000/" baseaddr="0x7220" endaddr="0x0000722F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_sci_regs.xml" xml="F28x7x_sci_regs.xml" id="ScidRegs" xmlpath="../Modules/C2000/" baseaddr="0x7230" endaddr="0x0000723F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_sdfm_regs.xml" xml="F28x7x_sdfm_regs.xml" id="Sdfm1Regs" xmlpath="../Modules/C2000/" baseaddr="0x5E00" endaddr="0x00005E7F" size="0x0080" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_sdfm_regs.xml" xml="F28x7x_sdfm_regs.xml" id="Sdfm2Regs" xmlpath="../Modules/C2000/" baseaddr="0x5E80" endaddr="0x00005EFF" size="0x0080" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_spi_regs.xml" xml="F28x7x_spi_regs.xml" id="SpiaRegs" xmlpath="../Modules/C2000/" baseaddr="0x6100" endaddr="0x0000610F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_spi_regs.xml" xml="F28x7x_spi_regs.xml" id="SpibRegs" xmlpath="../Modules/C2000/" baseaddr="0x6110" endaddr="0x0000611F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_spi_regs.xml" xml="F28x7x_spi_regs.xml" id="SpicRegs" xmlpath="../Modules/C2000/" baseaddr="0x6120" endaddr="0x0000612F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_sync_soc_regs.xml" xml="f2837xs_sync_soc_regs.xml" id="SyncSocRegs" xmlpath="../Modules/C2000/" baseaddr="0x7940" endaddr="0x0000794F" size="0x0010" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_upp_regs.xml" xml="F28x7x_upp_regs.xml" id="UppRegs" xmlpath="../Modules/C2000/" baseaddr="0x6200" endaddr="0x000062FF" size="0x0100" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/C2000_USB_Type0_Registers.xml" xml="C2000_USB_Type0_Registers.xml" id="UsbaRegs" xmlpath="../Modules/C2000/" baseaddr="0x40000" endaddr="0x00040FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/f2837xs_wd_regs.xml" xml="f2837xs_wd_regs.xml" id="WdRegs" xmlpath="../Modules/C2000/" baseaddr="0x7000" endaddr="0x0000703F" size="0x0040" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/C2000/F28x7x_input_xbar_regs.xml" xml="F28x7x_input_xbar_regs.xml" id="InputXbarRegs" xmlpath="../Modules/C2000/" baseaddr="0x7900" endaddr="0x0000793F" size="0x0040" accessnumbytes="4" permissions="p" />
+		<instance href="../Modules/C2000/F28x7x_xint_regs.xml" xml="F28x7x_xint_regs.xml" id="XintRegs" xmlpath="../Modules/C2000/" baseaddr="0x7070" endaddr="0x0000707F" size="0x0010" accessnumbytes="4" permissions="p" />
+        
+      </cpu>
+	  <instance href="../cpus/cla1.xml" id="CPU1_CLA1" xml="cla1.xml" xmlpath="../cpus/" isa="TMS192C2007"/>
+	  <!--property Type="numericfield" Value="0x1" id="Port Number" /-->
+      <cpu HW_revision="1.0" XML_version="1.2" description="CLA Accelerator" id="CPU1_CLA1" isa="TMS192C2007">
+          <instance href="../Modules/C2000/C2000_CLA_Type0_Registers.xml"    id="CPU1_CLA1"   xml="C2000_CLA_Type0_Registers.xml"     xmlpath="../Modules/C2000/" HW_version="" description="CLA1 Registers"      requestor="" baseaddr="0x001400" endaddr="0x00147F" size="0x0080" accessnumbytes="4" permissions="p" />  
+          <instance href="../Modules/CLA0NotVisible.xml" id="" xml="CLA0NotVisible.xml" xmlpath="../Modules/" HW_revision="1.0" description="" requestor="TMS192C2007" baseaddr="0x1400" size="0x007F" accessnumbytes="4" permissions="p"/>
+          <property id="debugParent" Type="hiddenfield" Value="C28xx_CPU1" />
+      </cpu>
+	  <!-- Cross Triggering Settings -->
+      <instance XML_version="1.2" desc="cs_child_0" href="cpus/cs_child.xml" id="cs_child_0" xml="cs_child.xml" xmlpath="cpus" />
+      <cpu HW_revision="1.0" XML_version="1.2" description="cs_child" deviceSim="false" id="cs_child_0" isa="cs_child">
+        <property Type="numericfield" Value="0x4bc44c09" id="Identity" />
+        <property Type="numericfield" Value="0xE0042000" id="Address" />
+      </cpu>
+    </subpath>
+  </router>
+</device>

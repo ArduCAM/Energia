@@ -1,0 +1,93 @@
+<module id="CMPSS_REGS" HW_revision="" description="CMPSS Registers">
+	<register id="COMPCTL" width="16" page="1" offset="0x0" internal="0" description="CMPSS Comparator Control Register">
+		<bitfield id="COMPHSOURCE" description="High Comparator Source Select" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="COMPHINV" description="High Comparator Invert Select" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CTRIPHSEL" description="High Comparator Trip Select" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="CTRIPOUTHSEL" description="High Comparator Trip Output Select" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="ASYNCHEN" description="High Comparator Asynchronous Path Enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="COMPLSOURCE" description="Low Comparator Source Select" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="COMPLINV" description="Low Comparator Invert Select" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="CTRIPLSEL" description="Low Comparator Trip Select" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="CTRIPOUTLSEL" description="Low Comparator Trip Output Select" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="ASYNCLEN" description="Low Comparator Asynchronous Path Enable" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="COMPDACE" description="Comparator/DAC Enable" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="COMPHYSCTL" width="16" page="1" offset="0x1" internal="0" description="CMPSS Comparator Hysteresis Control Register">
+		<bitfield id="COMPHYS" description="Comparator Hysteresis Trim" begin="2" end="0" width="3" rwaccess="R/W"/>
+	</register>
+	<register id="COMPSTS" width="16" page="1" offset="0x2" internal="0" description="CMPSS Comparator Status Register">
+		<bitfield id="COMPHSTS" description="High Comparator Status" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="COMPHLATCH" description="High Comparator Latched Status" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="COMPLSTS" description="Low Comparator Status" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="COMPLLATCH" description="Low Comparator Latched Status" begin="9" end="9" width="1" rwaccess="R"/>
+	</register>
+	<register id="COMPSTSCLR" width="16" page="1" offset="0x3" internal="0" description="CMPSS Comparator Status Clear Register">
+		<bitfield id="HLATCHCLR" description="High Comparator Latched Status Clear" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="HSYNCCLREN" description="High Comparator PWMSYNC Clear Enable" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="LLATCHCLR" description="Low Comparator Latched Status Clear" begin="9" end="9" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="LSYNCCLREN" description="Low Comparator PWMSYNC Clear Enable" begin="10" end="10" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="COMPDACCTL" width="16" page="1" offset="0x4" internal="0" description="CMPSS DAC Control Register">
+		<bitfield id="DACSOURCE" description="DAC Source Control" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="RAMPSOURCE" description="Ramp Generator Source Control" begin="4" end="1" width="4" rwaccess="R/W"/>
+		<bitfield id="SELREF" description="DAC Reference Select" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="RAMPLOADSEL" description="Ramp Load Select" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="SWLOADSEL" description="Software Load Select" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="FREESOFT" description="Free/Soft Emulation Bits" begin="15" end="14" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="DACHVALS" width="16" page="1" offset="0x6" internal="0" description="CMPSS High DAC Value Shadow Register">
+		<bitfield id="DACVAL" description="DAC Value Control" begin="11" end="0" width="12" rwaccess="R/W"/>
+	</register>
+	<register id="DACHVALA" width="16" page="1" offset="0x7" internal="0" description="CMPSS High DAC Value Active Register">
+		<bitfield id="DACVAL" description="DAC Value Control" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="RAMPMAXREFA" width="16" page="1" offset="0x8" internal="0" description="CMPSS Ramp Max Reference Active Register">
+		<bitfield id="RAMPMAXREF" description="Ramp Maximum Reference Active" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="RAMPMAXREFS" width="16" page="1" offset="0xa" internal="0" description="CMPSS Ramp Max Reference Shadow Register">
+		<bitfield id="RAMPMAXREF" description="Ramp Maximum Reference Shadow" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RAMPDECVALA" width="16" page="1" offset="0xc" internal="0" description="CMPSS Ramp Decrement Value Active Register">
+		<bitfield id="RAMPDECVAL" description="Ramp Decrement Value Active" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="RAMPDECVALS" width="16" page="1" offset="0xe" internal="0" description="CMPSS Ramp Decrement Value Shadow Register">
+		<bitfield id="RAMPDECVAL" description="Ramp Decrement Value Shadow" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RAMPSTS" width="16" page="1" offset="0x10" internal="0" description="CMPSS Ramp Status Register">
+		<bitfield id="RAMPVALUE" description="Ramp Value" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="DACLVALS" width="16" page="1" offset="0x12" internal="0" description="CMPSS Low DAC Value Shadow Register">
+		<bitfield id="DACVAL" description="DAC Value Control" begin="11" end="0" width="12" rwaccess="R/W"/>
+	</register>
+	<register id="DACLVALA" width="16" page="1" offset="0x13" internal="0" description="CMPSS Low DAC Value Active Register">
+		<bitfield id="DACVAL" description="DAC Value Control" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="RAMPDLYA" width="16" page="1" offset="0x14" internal="0" description="CMPSS Ramp Delay Active Register">
+		<bitfield id="DELAY" description="Ramp Delay Value" begin="12" end="0" width="13" rwaccess="R"/>
+	</register>
+	<register id="RAMPDLYS" width="16" page="1" offset="0x15" internal="0" description="CMPSS Ramp Delay Shadow Register">
+		<bitfield id="DELAY" description="Ramp Delay Value" begin="12" end="0" width="13" rwaccess="R/W"/>
+	</register>
+	<register id="CTRIPLFILCTL" width="16" page="1" offset="0x16" internal="0" description="CTRIPL Filter Control Register">
+		<bitfield id="SAMPWIN" description="Sample Window" begin="8" end="4" width="5" rwaccess="R/W"/>
+		<bitfield id="THRESH" description="Majority Voting Threshold" begin="13" end="9" width="5" rwaccess="R/W"/>
+		<bitfield id="FILINIT" description="Filter Initialization Bit" begin="15" end="15" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="CTRIPLFILCLKCTL" width="16" page="1" offset="0x17" internal="0" description="CTRIPL Filter Clock Control Register">
+		<bitfield id="CLKPRESCALE" description="Sample Clock Prescale" begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="CTRIPHFILCTL" width="16" page="1" offset="0x18" internal="0" description="CTRIPH Filter Control Register">
+		<bitfield id="SAMPWIN" description="Sample Window" begin="8" end="4" width="5" rwaccess="R/W"/>
+		<bitfield id="THRESH" description="Majority Voting Threshold" begin="13" end="9" width="5" rwaccess="R/W"/>
+		<bitfield id="FILINIT" description="Filter Initialization Bit" begin="15" end="15" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="CTRIPHFILCLKCTL" width="16" page="1" offset="0x19" internal="0" description="CTRIPH Filter Clock Control Register">
+		<bitfield id="CLKPRESCALE" description="Sample Clock Prescale" begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="COMPLOCK" width="16" page="1" offset="0x1a" internal="0" description="CMPSS Lock Register">
+		<bitfield id="COMPCTL" description="COMPCTL Lock" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMPHYSCTL" description="COMPHYSCTL Lock" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="DACCTL" description="DACCTL Lock" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CTRIP" description="CTRIP Lock" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+	</register>
+</module>

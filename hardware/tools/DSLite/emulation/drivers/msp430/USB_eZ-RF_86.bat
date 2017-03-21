@@ -1,0 +1,1 @@
+dpinst_86_eng.exe /SW /SA /path ccs_base/emulation/drivers/msp430/USB_eZ-RF

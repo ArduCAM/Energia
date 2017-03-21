@@ -1,0 +1,726 @@
+<module id="GPIO_DATA_REGS" HW_revision="" description="GPIO DATA Registers">
+	<register id="GPADAT" width="32" page="1" offset="0x0" internal="0" description="GPIO A Data Register (GPIO0 to 31)">
+		<bitfield id="GPIO0" description="Data Register for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO1" description="Data Register for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO2" description="Data Register for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO3" description="Data Register for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO4" description="Data Register for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO5" description="Data Register for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO6" description="Data Register for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO7" description="Data Register for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO8" description="Data Register for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO9" description="Data Register for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO10" description="Data Register for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO11" description="Data Register for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO12" description="Data Register for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO13" description="Data Register for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO14" description="Data Register for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO15" description="Data Register for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO16" description="Data Register for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO17" description="Data Register for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO18" description="Data Register for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO19" description="Data Register for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO20" description="Data Register for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO21" description="Data Register for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO22" description="Data Register for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO23" description="Data Register for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO24" description="Data Register for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO25" description="Data Register for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO26" description="Data Register for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO27" description="Data Register for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO28" description="Data Register for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO29" description="Data Register for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO30" description="Data Register for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO31" description="Data Register for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPASET" width="32" page="1" offset="0x2" internal="0" description="GPIO A Data Set Register (GPIO0 to 31)">
+		<bitfield id="GPIO0" description="Output Set bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO1" description="Output Set bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO2" description="Output Set bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO3" description="Output Set bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO4" description="Output Set bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO5" description="Output Set bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO6" description="Output Set bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO7" description="Output Set bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO8" description="Output Set bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO9" description="Output Set bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO10" description="Output Set bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO11" description="Output Set bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO12" description="Output Set bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO13" description="Output Set bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO14" description="Output Set bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO15" description="Output Set bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO16" description="Output Set bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO17" description="Output Set bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO18" description="Output Set bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO19" description="Output Set bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO20" description="Output Set bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO21" description="Output Set bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO22" description="Output Set bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO23" description="Output Set bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO24" description="Output Set bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO25" description="Output Set bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO26" description="Output Set bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO27" description="Output Set bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO28" description="Output Set bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO29" description="Output Set bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO30" description="Output Set bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO31" description="Output Set bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPACLEAR" width="32" page="1" offset="0x4" internal="0" description="GPIO A Data Clear Register (GPIO0 to 31)">
+		<bitfield id="GPIO0" description="Output Clear bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO1" description="Output Clear bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO2" description="Output Clear bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO3" description="Output Clear bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO4" description="Output Clear bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO5" description="Output Clear bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO6" description="Output Clear bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO7" description="Output Clear bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO8" description="Output Clear bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO9" description="Output Clear bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO10" description="Output Clear bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO11" description="Output Clear bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO12" description="Output Clear bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO13" description="Output Clear bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO14" description="Output Clear bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO15" description="Output Clear bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO16" description="Output Clear bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO17" description="Output Clear bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO18" description="Output Clear bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO19" description="Output Clear bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO20" description="Output Clear bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO21" description="Output Clear bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO22" description="Output Clear bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO23" description="Output Clear bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO24" description="Output Clear bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO25" description="Output Clear bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO26" description="Output Clear bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO27" description="Output Clear bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO28" description="Output Clear bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO29" description="Output Clear bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO30" description="Output Clear bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO31" description="Output Clear bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPATOGGLE" width="32" page="1" offset="0x6" internal="0" description="GPIO A Data Toggle Register (GPIO0 to 31) ">
+		<bitfield id="GPIO0" description="Output Toggle bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO1" description="Output Toggle bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO2" description="Output Toggle bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO3" description="Output Toggle bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO4" description="Output Toggle bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO5" description="Output Toggle bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO6" description="Output Toggle bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO7" description="Output Toggle bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO8" description="Output Toggle bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO9" description="Output Toggle bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO10" description="Output Toggle bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO11" description="Output Toggle bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO12" description="Output Toggle bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO13" description="Output Toggle bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO14" description="Output Toggle bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO15" description="Output Toggle bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO16" description="Output Toggle bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO17" description="Output Toggle bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO18" description="Output Toggle bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO19" description="Output Toggle bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO20" description="Output Toggle bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO21" description="Output Toggle bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO22" description="Output Toggle bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO23" description="Output Toggle bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO24" description="Output Toggle bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO25" description="Output Toggle bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO26" description="Output Toggle bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO27" description="Output Toggle bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO28" description="Output Toggle bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO29" description="Output Toggle bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO30" description="Output Toggle bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO31" description="Output Toggle bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPBDAT" width="32" page="1" offset="0x8" internal="0" description="GPIO B Data Register (GPIO32 to 63)">
+		<bitfield id="GPIO32" description="Data Register for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO33" description="Data Register for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO34" description="Data Register for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO35" description="Data Register for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO36" description="Data Register for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO37" description="Data Register for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO38" description="Data Register for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO39" description="Data Register for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO40" description="Data Register for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO41" description="Data Register for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO42" description="Data Register for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO43" description="Data Register for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO44" description="Data Register for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO45" description="Data Register for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO46" description="Data Register for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO47" description="Data Register for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO48" description="Data Register for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO49" description="Data Register for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO50" description="Data Register for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO51" description="Data Register for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO52" description="Data Register for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO53" description="Data Register for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO54" description="Data Register for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO55" description="Data Register for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO56" description="Data Register for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO57" description="Data Register for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO58" description="Data Register for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO59" description="Data Register for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO60" description="Data Register for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO61" description="Data Register for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO62" description="Data Register for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO63" description="Data Register for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPBSET" width="32" page="1" offset="0xa" internal="0" description="GPIO B Data Set Register (GPIO32 to 63)">
+		<bitfield id="GPIO32" description="Output Set bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO33" description="Output Set bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO34" description="Output Set bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO35" description="Output Set bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO36" description="Output Set bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO37" description="Output Set bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO38" description="Output Set bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO39" description="Output Set bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO40" description="Output Set bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO41" description="Output Set bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO42" description="Output Set bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO43" description="Output Set bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO44" description="Output Set bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO45" description="Output Set bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO46" description="Output Set bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO47" description="Output Set bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO48" description="Output Set bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO49" description="Output Set bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO50" description="Output Set bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO51" description="Output Set bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO52" description="Output Set bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO53" description="Output Set bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO54" description="Output Set bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO55" description="Output Set bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO56" description="Output Set bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO57" description="Output Set bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO58" description="Output Set bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO59" description="Output Set bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO60" description="Output Set bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO61" description="Output Set bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO62" description="Output Set bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO63" description="Output Set bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPBCLEAR" width="32" page="1" offset="0xc" internal="0" description="GPIO B Data Clear Register (GPIO32 to 63)">
+		<bitfield id="GPIO32" description="Output Clear bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO33" description="Output Clear bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO34" description="Output Clear bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO35" description="Output Clear bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO36" description="Output Clear bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO37" description="Output Clear bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO38" description="Output Clear bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO39" description="Output Clear bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO40" description="Output Clear bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO41" description="Output Clear bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO42" description="Output Clear bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO43" description="Output Clear bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO44" description="Output Clear bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO45" description="Output Clear bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO46" description="Output Clear bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO47" description="Output Clear bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO48" description="Output Clear bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO49" description="Output Clear bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO50" description="Output Clear bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO51" description="Output Clear bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO52" description="Output Clear bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO53" description="Output Clear bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO54" description="Output Clear bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO55" description="Output Clear bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO56" description="Output Clear bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO57" description="Output Clear bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO58" description="Output Clear bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO59" description="Output Clear bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO60" description="Output Clear bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO61" description="Output Clear bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO62" description="Output Clear bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO63" description="Output Clear bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPBTOGGLE" width="32" page="1" offset="0xe" internal="0" description="GPIO B Data Toggle Register (GPIO32 to 63) ">
+		<bitfield id="GPIO32" description="Output Toggle bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO33" description="Output Toggle bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO34" description="Output Toggle bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO35" description="Output Toggle bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO36" description="Output Toggle bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO37" description="Output Toggle bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO38" description="Output Toggle bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO39" description="Output Toggle bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO40" description="Output Toggle bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO41" description="Output Toggle bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO42" description="Output Toggle bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO43" description="Output Toggle bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO44" description="Output Toggle bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO45" description="Output Toggle bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO46" description="Output Toggle bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO47" description="Output Toggle bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO48" description="Output Toggle bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO49" description="Output Toggle bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO50" description="Output Toggle bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO51" description="Output Toggle bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO52" description="Output Toggle bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO53" description="Output Toggle bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO54" description="Output Toggle bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO55" description="Output Toggle bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO56" description="Output Toggle bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO57" description="Output Toggle bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO58" description="Output Toggle bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO59" description="Output Toggle bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO60" description="Output Toggle bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO61" description="Output Toggle bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO62" description="Output Toggle bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO63" description="Output Toggle bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPCDAT" width="32" page="1" offset="0x10" internal="0" description="GPIO C Data Register (GPIO64 to 95)">
+		<bitfield id="GPIO64" description="Data Register for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO65" description="Data Register for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO66" description="Data Register for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO67" description="Data Register for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO68" description="Data Register for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO69" description="Data Register for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO70" description="Data Register for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO71" description="Data Register for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO72" description="Data Register for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO73" description="Data Register for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO74" description="Data Register for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO75" description="Data Register for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO76" description="Data Register for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO77" description="Data Register for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO78" description="Data Register for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO79" description="Data Register for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO80" description="Data Register for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO81" description="Data Register for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO82" description="Data Register for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO83" description="Data Register for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO84" description="Data Register for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO85" description="Data Register for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO86" description="Data Register for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO87" description="Data Register for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO88" description="Data Register for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO89" description="Data Register for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO90" description="Data Register for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO91" description="Data Register for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO92" description="Data Register for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO93" description="Data Register for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO94" description="Data Register for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO95" description="Data Register for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPCSET" width="32" page="1" offset="0x12" internal="0" description="GPIO C Data Set Register (GPIO64 to 95)">
+		<bitfield id="GPIO64" description="Output Set bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO65" description="Output Set bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO66" description="Output Set bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO67" description="Output Set bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO68" description="Output Set bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO69" description="Output Set bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO70" description="Output Set bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO71" description="Output Set bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO72" description="Output Set bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO73" description="Output Set bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO74" description="Output Set bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO75" description="Output Set bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO76" description="Output Set bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO77" description="Output Set bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO78" description="Output Set bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO79" description="Output Set bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO80" description="Output Set bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO81" description="Output Set bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO82" description="Output Set bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO83" description="Output Set bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO84" description="Output Set bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO85" description="Output Set bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO86" description="Output Set bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO87" description="Output Set bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO88" description="Output Set bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO89" description="Output Set bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO90" description="Output Set bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO91" description="Output Set bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO92" description="Output Set bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO93" description="Output Set bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO94" description="Output Set bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO95" description="Output Set bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPCCLEAR" width="32" page="1" offset="0x14" internal="0" description="GPIO C Data Clear Register (GPIO64 to 95)">
+		<bitfield id="GPIO64" description="Output Clear bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO65" description="Output Clear bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO66" description="Output Clear bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO67" description="Output Clear bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO68" description="Output Clear bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO69" description="Output Clear bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO70" description="Output Clear bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO71" description="Output Clear bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO72" description="Output Clear bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO73" description="Output Clear bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO74" description="Output Clear bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO75" description="Output Clear bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO76" description="Output Clear bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO77" description="Output Clear bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO78" description="Output Clear bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO79" description="Output Clear bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO80" description="Output Clear bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO81" description="Output Clear bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO82" description="Output Clear bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO83" description="Output Clear bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO84" description="Output Clear bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO85" description="Output Clear bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO86" description="Output Clear bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO87" description="Output Clear bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO88" description="Output Clear bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO89" description="Output Clear bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO90" description="Output Clear bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO91" description="Output Clear bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO92" description="Output Clear bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO93" description="Output Clear bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO94" description="Output Clear bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO95" description="Output Clear bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPCTOGGLE" width="32" page="1" offset="0x16" internal="0" description="GPIO C Data Toggle Register (GPIO64 to 95) ">
+		<bitfield id="GPIO64" description="Output Toggle bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO65" description="Output Toggle bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO66" description="Output Toggle bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO67" description="Output Toggle bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO68" description="Output Toggle bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO69" description="Output Toggle bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO70" description="Output Toggle bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO71" description="Output Toggle bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO72" description="Output Toggle bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO73" description="Output Toggle bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO74" description="Output Toggle bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO75" description="Output Toggle bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO76" description="Output Toggle bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO77" description="Output Toggle bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO78" description="Output Toggle bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO79" description="Output Toggle bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO80" description="Output Toggle bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO81" description="Output Toggle bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO82" description="Output Toggle bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO83" description="Output Toggle bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO84" description="Output Toggle bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO85" description="Output Toggle bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO86" description="Output Toggle bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO87" description="Output Toggle bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO88" description="Output Toggle bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO89" description="Output Toggle bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO90" description="Output Toggle bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO91" description="Output Toggle bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO92" description="Output Toggle bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO93" description="Output Toggle bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO94" description="Output Toggle bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO95" description="Output Toggle bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPDDAT" width="32" page="1" offset="0x18" internal="0" description="GPIO D Data Register (GPIO96 to 127)">
+		<bitfield id="GPIO96" description="Data Register for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO97" description="Data Register for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO98" description="Data Register for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO99" description="Data Register for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO100" description="Data Register for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO101" description="Data Register for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO102" description="Data Register for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO103" description="Data Register for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO104" description="Data Register for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO105" description="Data Register for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO106" description="Data Register for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO107" description="Data Register for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO108" description="Data Register for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO109" description="Data Register for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO110" description="Data Register for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO111" description="Data Register for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO112" description="Data Register for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO113" description="Data Register for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO114" description="Data Register for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO115" description="Data Register for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO116" description="Data Register for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO117" description="Data Register for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO118" description="Data Register for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO119" description="Data Register for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO120" description="Data Register for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO121" description="Data Register for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO122" description="Data Register for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO123" description="Data Register for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO124" description="Data Register for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO125" description="Data Register for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO126" description="Data Register for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO127" description="Data Register for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPDSET" width="32" page="1" offset="0x1a" internal="0" description="GPIO D Data Set Register (GPIO96 to 127)">
+		<bitfield id="GPIO96" description="Output Set bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO97" description="Output Set bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO98" description="Output Set bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO99" description="Output Set bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO100" description="Output Set bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO101" description="Output Set bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO102" description="Output Set bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO103" description="Output Set bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO104" description="Output Set bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO105" description="Output Set bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO106" description="Output Set bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO107" description="Output Set bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO108" description="Output Set bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO109" description="Output Set bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO110" description="Output Set bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO111" description="Output Set bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO112" description="Output Set bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO113" description="Output Set bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO114" description="Output Set bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO115" description="Output Set bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO116" description="Output Set bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO117" description="Output Set bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO118" description="Output Set bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO119" description="Output Set bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO120" description="Output Set bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO121" description="Output Set bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO122" description="Output Set bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO123" description="Output Set bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO124" description="Output Set bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO125" description="Output Set bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO126" description="Output Set bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO127" description="Output Set bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPDCLEAR" width="32" page="1" offset="0x1c" internal="0" description="GPIO D Data Clear Register (GPIO96 to 127)">
+		<bitfield id="GPIO96" description="Output Clear bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO97" description="Output Clear bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO98" description="Output Clear bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO99" description="Output Clear bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO100" description="Output Clear bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO101" description="Output Clear bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO102" description="Output Clear bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO103" description="Output Clear bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO104" description="Output Clear bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO105" description="Output Clear bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO106" description="Output Clear bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO107" description="Output Clear bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO108" description="Output Clear bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO109" description="Output Clear bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO110" description="Output Clear bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO111" description="Output Clear bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO112" description="Output Clear bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO113" description="Output Clear bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO114" description="Output Clear bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO115" description="Output Clear bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO116" description="Output Clear bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO117" description="Output Clear bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO118" description="Output Clear bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO119" description="Output Clear bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO120" description="Output Clear bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO121" description="Output Clear bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO122" description="Output Clear bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO123" description="Output Clear bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO124" description="Output Clear bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO125" description="Output Clear bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO126" description="Output Clear bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO127" description="Output Clear bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPDTOGGLE" width="32" page="1" offset="0x1e" internal="0" description="GPIO D Data Toggle Register (GPIO96 to 127) ">
+		<bitfield id="GPIO96" description="Output Toggle bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO97" description="Output Toggle bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO98" description="Output Toggle bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO99" description="Output Toggle bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO100" description="Output Toggle bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO101" description="Output Toggle bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO102" description="Output Toggle bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO103" description="Output Toggle bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO104" description="Output Toggle bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO105" description="Output Toggle bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO106" description="Output Toggle bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO107" description="Output Toggle bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO108" description="Output Toggle bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO109" description="Output Toggle bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO110" description="Output Toggle bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO111" description="Output Toggle bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO112" description="Output Toggle bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO113" description="Output Toggle bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO114" description="Output Toggle bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO115" description="Output Toggle bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO116" description="Output Toggle bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO117" description="Output Toggle bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO118" description="Output Toggle bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO119" description="Output Toggle bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO120" description="Output Toggle bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO121" description="Output Toggle bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO122" description="Output Toggle bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO123" description="Output Toggle bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO124" description="Output Toggle bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO125" description="Output Toggle bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO126" description="Output Toggle bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO127" description="Output Toggle bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPEDAT" width="32" page="1" offset="0x20" internal="0" description="GPIO E Data Register (GPIO128 to 159)">
+		<bitfield id="GPIO128" description="Data Register for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO129" description="Data Register for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO130" description="Data Register for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO131" description="Data Register for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO132" description="Data Register for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO133" description="Data Register for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO134" description="Data Register for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO135" description="Data Register for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO136" description="Data Register for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO137" description="Data Register for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO138" description="Data Register for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO139" description="Data Register for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO140" description="Data Register for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO141" description="Data Register for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO142" description="Data Register for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO143" description="Data Register for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO144" description="Data Register for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO145" description="Data Register for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO146" description="Data Register for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO147" description="Data Register for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO148" description="Data Register for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO149" description="Data Register for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO150" description="Data Register for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO151" description="Data Register for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO152" description="Data Register for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO153" description="Data Register for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO154" description="Data Register for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO155" description="Data Register for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO156" description="Data Register for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO157" description="Data Register for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO158" description="Data Register for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO159" description="Data Register for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPESET" width="32" page="1" offset="0x22" internal="0" description="GPIO E Data Set Register (GPIO128 to 159)">
+		<bitfield id="GPIO128" description="Output Set bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO129" description="Output Set bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO130" description="Output Set bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO131" description="Output Set bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO132" description="Output Set bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO133" description="Output Set bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO134" description="Output Set bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO135" description="Output Set bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO136" description="Output Set bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO137" description="Output Set bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO138" description="Output Set bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO139" description="Output Set bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO140" description="Output Set bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO141" description="Output Set bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO142" description="Output Set bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO143" description="Output Set bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO144" description="Output Set bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO145" description="Output Set bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO146" description="Output Set bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO147" description="Output Set bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO148" description="Output Set bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO149" description="Output Set bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO150" description="Output Set bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO151" description="Output Set bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO152" description="Output Set bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO153" description="Output Set bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO154" description="Output Set bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO155" description="Output Set bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO156" description="Output Set bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO157" description="Output Set bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO158" description="Output Set bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO159" description="Output Set bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPECLEAR" width="32" page="1" offset="0x24" internal="0" description="GPIO E Data Clear Register (GPIO128 to 159)">
+		<bitfield id="GPIO128" description="Output Clear bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO129" description="Output Clear bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO130" description="Output Clear bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO131" description="Output Clear bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO132" description="Output Clear bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO133" description="Output Clear bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO134" description="Output Clear bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO135" description="Output Clear bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO136" description="Output Clear bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO137" description="Output Clear bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO138" description="Output Clear bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO139" description="Output Clear bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO140" description="Output Clear bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO141" description="Output Clear bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO142" description="Output Clear bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO143" description="Output Clear bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO144" description="Output Clear bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO145" description="Output Clear bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO146" description="Output Clear bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO147" description="Output Clear bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO148" description="Output Clear bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO149" description="Output Clear bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO150" description="Output Clear bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO151" description="Output Clear bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO152" description="Output Clear bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO153" description="Output Clear bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO154" description="Output Clear bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO155" description="Output Clear bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO156" description="Output Clear bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO157" description="Output Clear bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO158" description="Output Clear bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO159" description="Output Clear bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPETOGGLE" width="32" page="1" offset="0x26" internal="0" description="GPIO E Data Toggle Register (GPIO128 to 159) ">
+		<bitfield id="GPIO128" description="Output Toggle bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO129" description="Output Toggle bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO130" description="Output Toggle bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO131" description="Output Toggle bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO132" description="Output Toggle bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO133" description="Output Toggle bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO134" description="Output Toggle bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO135" description="Output Toggle bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO136" description="Output Toggle bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO137" description="Output Toggle bit for this pin" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO138" description="Output Toggle bit for this pin" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO139" description="Output Toggle bit for this pin" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO140" description="Output Toggle bit for this pin" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO141" description="Output Toggle bit for this pin" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO142" description="Output Toggle bit for this pin" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO143" description="Output Toggle bit for this pin" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO144" description="Output Toggle bit for this pin" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO145" description="Output Toggle bit for this pin" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO146" description="Output Toggle bit for this pin" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO147" description="Output Toggle bit for this pin" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO148" description="Output Toggle bit for this pin" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO149" description="Output Toggle bit for this pin" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO150" description="Output Toggle bit for this pin" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO151" description="Output Toggle bit for this pin" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO152" description="Output Toggle bit for this pin" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO153" description="Output Toggle bit for this pin" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO154" description="Output Toggle bit for this pin" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO155" description="Output Toggle bit for this pin" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO156" description="Output Toggle bit for this pin" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO157" description="Output Toggle bit for this pin" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO158" description="Output Toggle bit for this pin" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO159" description="Output Toggle bit for this pin" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPFDAT" width="32" page="1" offset="0x28" internal="0" description="GPIO F Data Register (GPIO160 to 168)">
+		<bitfield id="GPIO160" description="Data Register for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO161" description="Data Register for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO162" description="Data Register for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO163" description="Data Register for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO164" description="Data Register for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO165" description="Data Register for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO166" description="Data Register for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO167" description="Data Register for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO168" description="Data Register for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPFSET" width="32" page="1" offset="0x2a" internal="0" description="GPIO F Data Set Register (GPIO160 to 168)">
+		<bitfield id="GPIO160" description="Output Set bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO161" description="Output Set bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO162" description="Output Set bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO163" description="Output Set bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO164" description="Output Set bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO165" description="Output Set bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO166" description="Output Set bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO167" description="Output Set bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO168" description="Output Set bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPFCLEAR" width="32" page="1" offset="0x2c" internal="0" description="GPIO F Data Clear Register (GPIO160 to 168)">
+		<bitfield id="GPIO160" description="Output Clear bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO161" description="Output Clear bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO162" description="Output Clear bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO163" description="Output Clear bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO164" description="Output Clear bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO165" description="Output Clear bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO166" description="Output Clear bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO167" description="Output Clear bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO168" description="Output Clear bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GPFTOGGLE" width="32" page="1" offset="0x2e" internal="0" description="GPIO F Data Toggle Register (GPIO160 to 168) ">
+		<bitfield id="GPIO160" description="Output Toggle bit for this pin" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO161" description="Output Toggle bit for this pin" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO162" description="Output Toggle bit for this pin" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO163" description="Output Toggle bit for this pin" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO164" description="Output Toggle bit for this pin" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO165" description="Output Toggle bit for this pin" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO166" description="Output Toggle bit for this pin" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO167" description="Output Toggle bit for this pin" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="GPIO168" description="Output Toggle bit for this pin" begin="8" end="8" width="1" rwaccess="R/W"/>
+	</register>
+</module>

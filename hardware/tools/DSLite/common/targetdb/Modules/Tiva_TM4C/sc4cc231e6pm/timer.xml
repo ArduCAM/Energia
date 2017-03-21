@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="TIMER0" HW_revision="" XML_version="1.0" description="Timer register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="TIMER_CFG" width="32" description="GPTM Configuration" id="TIMER_CFG" offset="0x00000000" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="GPTM Configuration" id="TIMER_CFG" resetval="" >
+            <bitenum id="TIMER_CFG_32_BIT_TIMER" value="0x00000000" token="" description="For a 16/32-bit timer, this value selects the 32-bit timer configuration"/>
+            <bitenum id="TIMER_CFG_32_BIT_RTC" value="0x00000001" token="" description="For a 16/32-bit timer, this value selects the 32-bit real-time clock (RTC) counter configuration"/>
+            <bitenum id="TIMER_CFG_16_BIT" value="0x00000004" token="" description="For a 16/32-bit timer, this value selects the 16-bit timer configuration"/>
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAMR" width="32" description="GPTM Timer A Mode" id="TIMER_TAMR" offset="0x00000004" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="GPTM Timer A Mode" id="TIMER_TAMR_TAMR" resetval="" >
+            <bitenum id="TIMER_TAMR_TAMR_1_SHOT" value="0x00000001" token="" description="One-Shot Timer mode"/>
+            <bitenum id="TIMER_TAMR_TAMR_PERIOD" value="0x00000002" token="" description="Periodic Timer mode"/>
+            <bitenum id="TIMER_TAMR_TAMR_CAP" value="0x00000003" token="" description="Capture mode"/>
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPTM Timer A Capture Mode" id="TIMER_TAMR_TACMR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPTM Timer A Alternate Mode Select" id="TIMER_TAMR_TAAMS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPTM Timer A Count Direction" id="TIMER_TAMR_TACDIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPTM Timer A Match Interrupt Enable" id="TIMER_TAMR_TAMIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPTM Timer A Wait-on-Trigger" id="TIMER_TAMR_TAWOT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="GPTM Timer A Snap-Shot Mode" id="TIMER_TAMR_TASNAPS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPTM Timer A Interval Load Write" id="TIMER_TAMR_TAILD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPTM Timer A PWM Interrupt Enable" id="TIMER_TAMR_TAPWMIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPTM Timer A Match Register Update" id="TIMER_TAMR_TAMRSU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPTM Timer A PWM Legacy Operation" id="TIMER_TAMR_TAPLO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBMR" width="32" description="GPTM Timer B Mode" id="TIMER_TBMR" offset="0x00000008" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="GPTM Timer B Mode" id="TIMER_TBMR_TBMR" resetval="" >
+            <bitenum id="TIMER_TBMR_TBMR_1_SHOT" value="0x00000001" token="" description="One-Shot Timer mode"/>
+            <bitenum id="TIMER_TBMR_TBMR_PERIOD" value="0x00000002" token="" description="Periodic Timer mode"/>
+            <bitenum id="TIMER_TBMR_TBMR_CAP" value="0x00000003" token="" description="Capture mode"/>
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPTM Timer B Capture Mode" id="TIMER_TBMR_TBCMR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPTM Timer B Alternate Mode Select" id="TIMER_TBMR_TBAMS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPTM Timer B Count Direction" id="TIMER_TBMR_TBCDIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPTM Timer B Match Interrupt Enable" id="TIMER_TBMR_TBMIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPTM Timer B Wait-on-Trigger" id="TIMER_TBMR_TBWOT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="GPTM Timer B Snap-Shot Mode" id="TIMER_TBMR_TBSNAPS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPTM Timer B Interval Load Write" id="TIMER_TBMR_TBILD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPTM Timer B PWM Interrupt Enable" id="TIMER_TBMR_TBPWMIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPTM Timer B Match Register Update" id="TIMER_TBMR_TBMRSU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPTM Timer B PWM Legacy Operation" id="TIMER_TBMR_TBPLO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_CTL" width="32" description="GPTM Control" id="TIMER_CTL" offset="0x0000000C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="GPTM Timer A Enable" id="TIMER_CTL_TAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="GPTM Timer A Stall Enable" id="TIMER_CTL_TASTALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="GPTM Timer A Event Mode" id="TIMER_CTL_TAEVENT" resetval="" >
+            <bitenum id="TIMER_CTL_TAEVENT_POS" value="0x00000000" token="" description="Positive edge"/>
+            <bitenum id="TIMER_CTL_TAEVENT_NEG" value="0x00000004" token="" description="Negative edge"/>
+            <bitenum id="TIMER_CTL_TAEVENT_BOTH" value="0x0000000C" token="" description="Both edges"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPTM RTC Stall Enable" id="TIMER_CTL_RTCEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPTM Timer A Output Trigger Enable" id="TIMER_CTL_TAOTE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPTM Timer A PWM Output Level" id="TIMER_CTL_TAPWML" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPTM Timer B Enable" id="TIMER_CTL_TBEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPTM Timer B Stall Enable" id="TIMER_CTL_TBSTALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="GPTM Timer B Event Mode" id="TIMER_CTL_TBEVENT" resetval="" >
+            <bitenum id="TIMER_CTL_TBEVENT_POS" value="0x00000000" token="" description="Positive edge"/>
+            <bitenum id="TIMER_CTL_TBEVENT_NEG" value="0x00000400" token="" description="Negative edge"/>
+            <bitenum id="TIMER_CTL_TBEVENT_BOTH" value="0x00000C00" token="" description="Both edges"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="GPTM Timer B Output Trigger Enable" id="TIMER_CTL_TBOTE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="GPTM Timer B PWM Output Level" id="TIMER_CTL_TBPWML" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_SYNC" width="32" description="GPTM Synchronize" id="TIMER_SYNC" offset="0x00000010" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Synchronize GPTM Timer 0" id="TIMER_SYNC_SYNCT0" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCT0_NONE" value="0x00000000" token="" description="GPTM0 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCT0_TA" value="0x00000001" token="" description="A timeout event for Timer A of GPTM0 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT0_TB" value="0x00000002" token="" description="A timeout event for Timer B of GPTM0 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT0_TATB" value="0x00000003" token="" description="A timeout event for both Timer A and Timer B of GPTM0 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Synchronize GPTM Timer 1" id="TIMER_SYNC_SYNCT1" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCT1_NONE" value="0x00000000" token="" description="GPTM1 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCT1_TA" value="0x00000004" token="" description="A timeout event for Timer A of GPTM1 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT1_TB" value="0x00000008" token="" description="A timeout event for Timer B of GPTM1 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT1_TATB" value="0x0000000C" token="" description="A timeout event for both Timer A and Timer B of GPTM1 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Synchronize GPTM Timer 2" id="TIMER_SYNC_SYNCT2" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCT2_NONE" value="0x00000000" token="" description="GPTM2 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCT2_TA" value="0x00000010" token="" description="A timeout event for Timer A of GPTM2 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT2_TB" value="0x00000020" token="" description="A timeout event for Timer B of GPTM2 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT2_TATB" value="0x00000030" token="" description="A timeout event for both Timer A and Timer B of GPTM2 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Synchronize GPTM Timer 3" id="TIMER_SYNC_SYNCT3" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCT3_NONE" value="0x00000000" token="" description="GPTM3 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCT3_TA" value="0x00000040" token="" description="A timeout event for Timer A of GPTM3 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT3_TB" value="0x00000080" token="" description="A timeout event for Timer B of GPTM3 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT3_TATB" value="0x000000C0" token="" description="A timeout event for both Timer A and Timer B of GPTM3 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Synchronize GPTM Timer 4" id="TIMER_SYNC_SYNCT4" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCT4_NONE" value="0x00000000" token="" description="GPTM4 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCT4_TA" value="0x00000100" token="" description="A timeout event for Timer A of GPTM4 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT4_TB" value="0x00000200" token="" description="A timeout event for Timer B of GPTM4 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT4_TATB" value="0x00000300" token="" description="A timeout event for both Timer A and Timer B of GPTM4 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Synchronize GPTM Timer 5" id="TIMER_SYNC_SYNCT5" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCT5_NONE" value="0x00000000" token="" description="GPTM5 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCT5_TA" value="0x00000400" token="" description="A timeout event for Timer A of GPTM5 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT5_TB" value="0x00000800" token="" description="A timeout event for Timer B of GPTM5 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCT5_TATB" value="0x00000C00" token="" description="A timeout event for both Timer A and Timer B of GPTM5 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="Synchronize GPTM 32/64-Bit Timer 0" id="TIMER_SYNC_SYNCWT0" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCWT0_NONE" value="0x00000000" token="" description="GPTM 32/64-Bit Timer 0 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCWT0_TA" value="0x00001000" token="" description="A timeout event for Timer A of GPTM 32/64-Bit Timer 0 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT0_TB" value="0x00002000" token="" description="A timeout event for Timer B of GPTM 32/64-Bit Timer 0 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT0_TATB" value="0x00003000" token="" description="A timeout event for both Timer A and Timer B of GPTM 32/64-Bit Timer 0 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Synchronize GPTM 32/64-Bit Timer 1" id="TIMER_SYNC_SYNCWT1" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCWT1_NONE" value="0x00000000" token="" description="GPTM 32/64-Bit Timer 1 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCWT1_TA" value="0x00004000" token="" description="A timeout event for Timer A of GPTM 32/64-Bit Timer 1 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT1_TB" value="0x00008000" token="" description="A timeout event for Timer B of GPTM 32/64-Bit Timer 1 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT1_TATB" value="0x0000C000" token="" description="A timeout event for both Timer A and Timer B of GPTM 32/64-Bit Timer 1 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Synchronize GPTM 32/64-Bit Timer 2" id="TIMER_SYNC_SYNCWT2" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCWT2_NONE" value="0x00000000" token="" description="GPTM 32/64-Bit Timer 2 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCWT2_TA" value="0x00010000" token="" description="A timeout event for Timer A of GPTM 32/64-Bit Timer 2 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT2_TB" value="0x00020000" token="" description="A timeout event for Timer B of GPTM 32/64-Bit Timer 2 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT2_TATB" value="0x00030000" token="" description="A timeout event for both Timer A and Timer B of GPTM 32/64-Bit Timer 2 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="2" end="18" rwaccess="RW" description="Synchronize GPTM 32/64-Bit Timer 3" id="TIMER_SYNC_SYNCWT3" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCWT3_NONE" value="0x00000000" token="" description="GPTM 32/64-Bit Timer 3 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCWT3_TA" value="0x00040000" token="" description="A timeout event for Timer A of GPTM 32/64-Bit Timer 3 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT3_TB" value="0x00080000" token="" description="A timeout event for Timer B of GPTM 32/64-Bit Timer 3 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT3_TATB" value="0x000C0000" token="" description="A timeout event for both Timer A and Timer B of GPTM 32/64-Bit Timer 3 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Synchronize GPTM 32/64-Bit Timer 4" id="TIMER_SYNC_SYNCWT4" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCWT4_NONE" value="0x00000000" token="" description="GPTM 32/64-Bit Timer 4 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCWT4_TA" value="0x00100000" token="" description="A timeout event for Timer A of GPTM 32/64-Bit Timer 4 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT4_TB" value="0x00200000" token="" description="A timeout event for Timer B of GPTM 32/64-Bit Timer 4 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT4_TATB" value="0x00300000" token="" description="A timeout event for both Timer A and Timer B of GPTM 32/64-Bit Timer 4 is triggered"/>
+        </bitfield>
+        <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Synchronize GPTM 32/64-Bit Timer 5" id="TIMER_SYNC_SYNCWT5" resetval="" >
+            <bitenum id="TIMER_SYNC_SYNCWT5_NONE" value="0x00000000" token="" description="GPTM 32/64-Bit Timer 5 is not affected"/>
+            <bitenum id="TIMER_SYNC_SYNCWT5_TA" value="0x00400000" token="" description="A timeout event for Timer A of GPTM 32/64-Bit Timer 5 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT5_TB" value="0x00800000" token="" description="A timeout event for Timer B of GPTM 32/64-Bit Timer 5 is triggered"/>
+            <bitenum id="TIMER_SYNC_SYNCWT5_TATB" value="0x00C00000" token="" description="A timeout event for both Timer A and Timer B of GPTM 32/64-Bit Timer 5 is triggered"/>
+        </bitfield>
+    </register>
+    <register acronym="TIMER_IMR" width="32" description="GPTM Interrupt Mask" id="TIMER_IMR" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="GPTM Timer A Time-Out Interrupt Mask" id="TIMER_IMR_TATOIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="GPTM Timer A Capture Mode Match Interrupt Mask" id="TIMER_IMR_CAMIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPTM Timer A Capture Mode Event Interrupt Mask" id="TIMER_IMR_CAEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPTM RTC Interrupt Mask" id="TIMER_IMR_RTCIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPTM Timer A Match Interrupt Mask" id="TIMER_IMR_TAMIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPTM Timer B Time-Out Interrupt Mask" id="TIMER_IMR_TBTOIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPTM Timer B Capture Mode Match Interrupt Mask" id="TIMER_IMR_CBMIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPTM Timer B Capture Mode Event Interrupt Mask" id="TIMER_IMR_CBEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPTM Timer B Match Interrupt Mask" id="TIMER_IMR_TBMIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="32/64-Bit Wide GPTM Write Update Error Interrupt Mask" id="TIMER_IMR_WUEIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_RIS" width="32" description="GPTM Raw Interrupt Status" id="TIMER_RIS" offset="0x0000001C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="GPTM Timer A Time-Out Raw Interrupt" id="TIMER_RIS_TATORIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="GPTM Timer A Capture Mode Match Raw Interrupt" id="TIMER_RIS_CAMRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="GPTM Timer A Capture Mode Event Raw Interrupt" id="TIMER_RIS_CAERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="GPTM RTC Raw Interrupt" id="TIMER_RIS_RTCRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="GPTM Timer A Match Raw Interrupt" id="TIMER_RIS_TAMRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="GPTM Timer B Time-Out Raw Interrupt" id="TIMER_RIS_TBTORIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="GPTM Timer B Capture Mode Match Raw Interrupt" id="TIMER_RIS_CBMRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="GPTM Timer B Capture Mode Event Raw Interrupt" id="TIMER_RIS_CBERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="GPTM Timer B Match Raw Interrupt" id="TIMER_RIS_TBMRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="32/64-Bit Wide GPTM Write Update Error Raw Interrupt Status" id="TIMER_RIS_WUERIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_MIS" width="32" description="GPTM Masked Interrupt Status" id="TIMER_MIS" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="GPTM Timer A Time-Out Masked Interrupt" id="TIMER_MIS_TATOMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="GPTM Timer A Capture Mode Match Masked Interrupt" id="TIMER_MIS_CAMMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="GPTM Timer A Capture Mode Event Masked Interrupt" id="TIMER_MIS_CAEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="GPTM RTC Masked Interrupt" id="TIMER_MIS_RTCMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="GPTM Timer A Match Masked Interrupt" id="TIMER_MIS_TAMMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="GPTM Timer B Time-Out Masked Interrupt" id="TIMER_MIS_TBTOMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="GPTM Timer B Capture Mode Match Masked Interrupt" id="TIMER_MIS_CBMMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="GPTM Timer B Capture Mode Event Masked Interrupt" id="TIMER_MIS_CBEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="GPTM Timer B Match Masked Interrupt" id="TIMER_MIS_TBMMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="32/64-Bit Wide GPTM Write Update Error Masked Interrupt Status" id="TIMER_MIS_WUEMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_ICR" width="32" description="GPTM Interrupt Clear" id="TIMER_ICR" offset="0x00000024" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="GPTM Timer A Time-Out Raw Interrupt" id="TIMER_ICR_TATOCINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="GPTM Timer A Capture Mode Match Interrupt Clear" id="TIMER_ICR_CAMCINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="W" description="GPTM Timer A Capture Mode Event Interrupt Clear" id="TIMER_ICR_CAECINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="W" description="GPTM RTC Interrupt Clear" id="TIMER_ICR_RTCCINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="GPTM Timer A Match Interrupt Clear" id="TIMER_ICR_TAMCINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="W" description="GPTM Timer B Time-Out Interrupt Clear" id="TIMER_ICR_TBTOCINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="W" description="GPTM Timer B Capture Mode Match Interrupt Clear" id="TIMER_ICR_CBMCINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="W" description="GPTM Timer B Capture Mode Event Interrupt Clear" id="TIMER_ICR_CBECINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="W" description="GPTM Timer B Match Interrupt Clear" id="TIMER_ICR_TBMCINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="W" description="32/64-Bit Wide GPTM Write Update Error Interrupt Clear" id="TIMER_ICR_WUECINT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAILR" width="32" description="GPTM Timer A Interval Load" id="TIMER_TAILR" offset="0x00000028" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPTM Timer A Interval Load Register" id="TIMER_TAILR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBILR" width="32" description="GPTM Timer B Interval Load" id="TIMER_TBILR" offset="0x0000002C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPTM Timer B Interval Load Register" id="TIMER_TBILR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAMATCHR" width="32" description="GPTM Timer A Match" id="TIMER_TAMATCHR" offset="0x00000030" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPTM Timer A Match Register" id="TIMER_TAMATCHR_TAMR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBMATCHR" width="32" description="GPTM Timer B Match" id="TIMER_TBMATCHR" offset="0x00000034" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPTM Timer B Match Register" id="TIMER_TBMATCHR_TBMR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAPR" width="32" description="GPTM Timer A Prescale" id="TIMER_TAPR" offset="0x00000038" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="GPTM Timer A Prescale" id="TIMER_TAPR_TAPSR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="GPTM Timer A Prescale High Byte" id="TIMER_TAPR_TAPSRH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBPR" width="32" description="GPTM Timer B Prescale" id="TIMER_TBPR" offset="0x0000003C" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="GPTM Timer B Prescale" id="TIMER_TBPR_TBPSR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="GPTM Timer B Prescale High Byte" id="TIMER_TBPR_TBPSRH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAPMR" width="32" description="GPTM TimerA Prescale Match" id="TIMER_TAPMR" offset="0x00000040" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="GPTM TimerA Prescale Match" id="TIMER_TAPMR_TAPSMR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="GPTM Timer A Prescale Match High Byte" id="TIMER_TAPMR_TAPSMRH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBPMR" width="32" description="GPTM TimerB Prescale Match" id="TIMER_TBPMR" offset="0x00000044" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="GPTM TimerB Prescale Match" id="TIMER_TBPMR_TBPSMR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="GPTM Timer B Prescale Match High Byte" id="TIMER_TBPMR_TBPSMRH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAR" width="32" description="GPTM Timer A" id="TIMER_TAR" offset="0x00000048" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="GPTM Timer A Register" id="TIMER_TAR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBR" width="32" description="GPTM Timer B" id="TIMER_TBR" offset="0x0000004C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="GPTM Timer B Register" id="TIMER_TBR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAV" width="32" description="GPTM Timer A Value" id="TIMER_TAV" offset="0x00000050" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPTM Timer A Value" id="TIMER_TAV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBV" width="32" description="GPTM Timer B Value" id="TIMER_TBV" offset="0x00000054" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPTM Timer B Value" id="TIMER_TBV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_RTCPD" width="32" description="GPTM RTC Predivide" id="TIMER_RTCPD" offset="0x00000058" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="RTC Predivide Counter Value" id="TIMER_RTCPD_RTCPD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAPS" width="32" description="GPTM Timer A Prescale Snapshot" id="TIMER_TAPS" offset="0x0000005C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="GPTM Timer A Prescaler Snapshot" id="TIMER_TAPS_PSS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBPS" width="32" description="GPTM Timer B Prescale Snapshot" id="TIMER_TBPS" offset="0x00000060" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="GPTM Timer A Prescaler Value" id="TIMER_TBPS_PSS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TAPV" width="32" description="GPTM Timer A Prescale Value" id="TIMER_TAPV" offset="0x00000064" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="GPTM Timer A Prescaler Value" id="TIMER_TAPV_PSV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_TBPV" width="32" description="GPTM Timer B Prescale Value" id="TIMER_TBPV" offset="0x00000068" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="GPTM Timer B Prescaler Value" id="TIMER_TBPV_PSV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="TIMER_PP" width="32" description="GPTM Peripheral Properties" id="TIMER_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="Count Size" id="TIMER_PP_SIZE" resetval="" >
+            <bitenum id="TIMER_PP_SIZE_16" value="0x00000000" token="" description="Timer A and Timer B counters are 16 bits each with an 8-bit prescale counter"/>
+            <bitenum id="TIMER_PP_SIZE_32" value="0x00000001" token="" description="Timer A and Timer B counters are 32 bits each with a 16-bit prescale counter"/>
+        </bitfield>
+    </register>
+</module>

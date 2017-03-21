@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="UART0" HW_revision="" XML_version="1.0" description="UART register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="UART_DR" width="32" description="UART Data" id="UART_DR" offset="0x00000000" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Data Transmitted or Received" id="UART_DR_DATA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="UART Framing Error" id="UART_DR_FE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="UART Parity Error" id="UART_DR_PE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="UART Break Error" id="UART_DR_BE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="UART Overrun Error" id="UART_DR_OE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_RSR" width="32" description="UART Receive Status/Error Clear" id="UART_RSR" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Framing Error" id="UART_RSR_FE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Parity Error" id="UART_RSR_PE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART Break Error" id="UART_RSR_BE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="UART Overrun Error" id="UART_RSR_OE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_ECR" width="32" description="UART Receive Status/Error Clear" id="UART_ECR" offset="0x00000004" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Error Clear" id="UART_ECR_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_FR" width="32" description="UART Flag" id="UART_FR" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Clear To Send" id="UART_FR_CTS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="UART Busy" id="UART_FR_BUSY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="UART Receive FIFO Empty" id="UART_FR_RXFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="UART Transmit FIFO Full" id="UART_FR_TXFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="UART Receive FIFO Full" id="UART_FR_RXFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="UART Transmit FIFO Empty" id="UART_FR_TXFE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_ILPR" width="32" description="UART IrDA Low-Power Register" id="UART_ILPR" offset="0x00000020" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="IrDA Low-Power Divisor" id="UART_ILPR_ILPDVSR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_IBRD" width="32" description="UART Integer Baud-Rate Divisor" id="UART_IBRD" offset="0x00000024" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Integer Baud-Rate Divisor" id="UART_IBRD_DIVINT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_FBRD" width="32" description="UART Fractional Baud-Rate Divisor" id="UART_FBRD" offset="0x00000028" >
+        <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Fractional Baud-Rate Divisor" id="UART_FBRD_DIVFRAC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_LCRH" width="32" description="UART Line Control" id="UART_LCRH" offset="0x0000002C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Send Break" id="UART_LCRH_BRK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Parity Enable" id="UART_LCRH_PEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART Even Parity Select" id="UART_LCRH_EPS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="UART Two Stop Bits Select" id="UART_LCRH_STP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="UART Enable FIFOs" id="UART_LCRH_FEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="UART Word Length" id="UART_LCRH_WLEN" resetval="" >
+            <bitenum id="UART_LCRH_WLEN_5" value="0x00000000" token="" description="5 bits (default)"/>
+            <bitenum id="UART_LCRH_WLEN_6" value="0x00000020" token="" description="6 bits"/>
+            <bitenum id="UART_LCRH_WLEN_7" value="0x00000040" token="" description="7 bits"/>
+            <bitenum id="UART_LCRH_WLEN_8" value="0x00000060" token="" description="8 bits"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Stick Parity Select" id="UART_LCRH_SPS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_CTL" width="32" description="UART Control" id="UART_CTL" offset="0x00000030" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Enable" id="UART_CTL_UARTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART SIR Enable" id="UART_CTL_SIREN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART SIR Low-Power Mode" id="UART_CTL_SIRLP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="ISO 7816 Smart Card Support" id="UART_CTL_SMART" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="End of Transmission" id="UART_CTL_EOT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="High-Speed Enable" id="UART_CTL_HSE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Loop Back Enable" id="UART_CTL_LBE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="UART Transmit Enable" id="UART_CTL_TXE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="UART Receive Enable" id="UART_CTL_RXE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Request to Send" id="UART_CTL_RTS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Enable Request to Send" id="UART_CTL_RTSEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Enable Clear To Send" id="UART_CTL_CTSEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_IFLS" width="32" description="UART Interrupt FIFO Level Select" id="UART_IFLS" offset="0x00000034" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="UART Transmit Interrupt FIFO Level Select" id="UART_IFLS_TX" resetval="" >
+            <bitenum id="UART_IFLS_TX1_8" value="0x00000000" token="" description="TX FIFO &amp;lt;= 1/8 full"/>
+            <bitenum id="UART_IFLS_TX2_8" value="0x00000001" token="" description="TX FIFO &amp;lt;= 1/4 full"/>
+            <bitenum id="UART_IFLS_TX4_8" value="0x00000002" token="" description="TX FIFO &amp;lt;= 1/2 full (default)"/>
+            <bitenum id="UART_IFLS_TX6_8" value="0x00000003" token="" description="TX FIFO &amp;lt;= 3/4 full"/>
+            <bitenum id="UART_IFLS_TX7_8" value="0x00000004" token="" description="TX FIFO &amp;lt;= 7/8 full"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="3" end="3" rwaccess="RW" description="UART Receive Interrupt FIFO Level Select" id="UART_IFLS_RX" resetval="" >
+            <bitenum id="UART_IFLS_RX1_8" value="0x00000000" token="" description="RX FIFO >= 1/8 full"/>
+            <bitenum id="UART_IFLS_RX2_8" value="0x00000008" token="" description="RX FIFO >= 1/4 full"/>
+            <bitenum id="UART_IFLS_RX4_8" value="0x00000010" token="" description="RX FIFO >= 1/2 full (default)"/>
+            <bitenum id="UART_IFLS_RX6_8" value="0x00000018" token="" description="RX FIFO >= 3/4 full"/>
+            <bitenum id="UART_IFLS_RX7_8" value="0x00000020" token="" description="RX FIFO >= 7/8 full"/>
+        </bitfield>
+    </register>
+    <register acronym="UART_IM" width="32" description="UART Interrupt Mask" id="UART_IM" offset="0x00000038" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Clear to Send Modem Interrupt Mask" id="UART_IM_CTSMIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="UART Receive Interrupt Mask" id="UART_IM_RXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="UART Transmit Interrupt Mask" id="UART_IM_TXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="UART Receive Time-Out Interrupt Mask" id="UART_IM_RTIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Framing Error Interrupt Mask" id="UART_IM_FEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="UART Parity Error Interrupt Mask" id="UART_IM_PEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="UART Break Error Interrupt Mask" id="UART_IM_BEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="UART Overrun Error Interrupt Mask" id="UART_IM_OEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="9-Bit Mode Interrupt Mask" id="UART_IM_9BITIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_RIS" width="32" description="UART Raw Interrupt Status" id="UART_RIS" offset="0x0000003C" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="UART Clear to Send Modem Raw Interrupt Status" id="UART_RIS_CTSRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="UART Receive Raw Interrupt Status" id="UART_RIS_RXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="UART Transmit Raw Interrupt Status" id="UART_RIS_TXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="UART Receive Time-Out Raw Interrupt Status" id="UART_RIS_RTRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="UART Framing Error Raw Interrupt Status" id="UART_RIS_FERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="UART Parity Error Raw Interrupt Status" id="UART_RIS_PERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="UART Break Error Raw Interrupt Status" id="UART_RIS_BERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="UART Overrun Error Raw Interrupt Status" id="UART_RIS_OERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="9-Bit Mode Raw Interrupt Status" id="UART_RIS_9BITRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_MIS" width="32" description="UART Masked Interrupt Status" id="UART_MIS" offset="0x00000040" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="UART Clear to Send Modem Masked Interrupt Status" id="UART_MIS_CTSMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="UART Receive Masked Interrupt Status" id="UART_MIS_RXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="UART Transmit Masked Interrupt Status" id="UART_MIS_TXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="UART Receive Time-Out Masked Interrupt Status" id="UART_MIS_RTMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="UART Framing Error Masked Interrupt Status" id="UART_MIS_FEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="UART Parity Error Masked Interrupt Status" id="UART_MIS_PEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="UART Break Error Masked Interrupt Status" id="UART_MIS_BEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="UART Overrun Error Masked Interrupt Status" id="UART_MIS_OEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="9-Bit Mode Masked Interrupt Status" id="UART_MIS_9BITMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_ICR" width="32" description="UART Interrupt Clear" id="UART_ICR" offset="0x00000044" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="UART Clear to Send Modem Interrupt Clear" id="UART_ICR_CTSMIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="Receive Interrupt Clear" id="UART_ICR_RXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="W" description="Transmit Interrupt Clear" id="UART_ICR_TXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="W" description="Receive Time-Out Interrupt Clear" id="UART_ICR_RTIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="W" description="Framing Error Interrupt Clear" id="UART_ICR_FEIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="W" description="Parity Error Interrupt Clear" id="UART_ICR_PEIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="W" description="Break Error Interrupt Clear" id="UART_ICR_BEIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="W" description="Overrun Error Interrupt Clear" id="UART_ICR_OEIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="W" description="9-Bit Mode Interrupt Clear" id="UART_ICR_9BITIC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_DMACTL" width="32" description="UART DMA Control" id="UART_DMACTL" offset="0x00000048" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive DMA Enable" id="UART_DMACTL_RXDMAE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Transmit DMA Enable" id="UART_DMACTL_TXDMAE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA on Error" id="UART_DMACTL_DMAERR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_9BITADDR" width="32" description="UART 9-Bit Self Address" id="UART_9BITADDR" offset="0x000000A4" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Self Address for 9-Bit Mode" id="UART_9BITADDR_ADDR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Enable 9-Bit Mode" id="UART_9BITADDR_9BITEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_9BITAMASK" width="32" description="UART 9-Bit Self Address Mask" id="UART_9BITAMASK" offset="0x000000A8" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Self Address Mask for 9-Bit Mode" id="UART_9BITAMASK_MASK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_PP" width="32" description="UART Peripheral Properties" id="UART_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Smart Card Support" id="UART_PP_SC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="9-Bit Support" id="UART_PP_NB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UART_CC" width="32" description="UART Clock Configuration" id="UART_CC" offset="0x00000FC8" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="UART Baud Clock Source" id="UART_CC_CS" resetval="" >
+            <bitenum id="UART_CC_CS_SYSCLK" value="0x00000000" token="" description="System clock (based on clock source and divisor factor)"/>
+            <bitenum id="UART_CC_CS_PIOSC" value="0x00000005" token="" description="PIOSC"/>
+        </bitfield>
+    </register>
+</module>

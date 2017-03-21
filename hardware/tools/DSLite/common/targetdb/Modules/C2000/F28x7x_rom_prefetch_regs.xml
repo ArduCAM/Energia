@@ -1,0 +1,5 @@
+<module id="ROM_PREFETCH_REGS" HW_revision="" description="ROM PREFETCH Registers">
+	<register id="ROMPREFETCH" width="32" page="1" offset="0x0" internal="0" description="ROM Prefetch Configuration Register">
+		<bitfield id="PFENABLE" description="ROM Prefetch Enable/Disable Control" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+</module>

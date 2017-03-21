@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="FLASH_CTRL" HW_revision="" XML_version="1.0" description="FLASH register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="FLASH_FMA" width="32" description="Flash Memory Address" id="FLASH_FMA" offset="0x00000000" >
+        <bitfield range="" begin="19" width="20" end="0" rwaccess="RW" description="Address Offset" id="FLASH_FMA_OFFSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMD" width="32" description="Flash Memory Data" id="FLASH_FMD" offset="0x00000004" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Data Value" id="FLASH_FMD_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMC" width="32" description="Flash Memory Control" id="FLASH_FMC" offset="0x00000008" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Write a Word into Flash Memory" id="FLASH_FMC_WRITE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Erase a Page of Flash Memory" id="FLASH_FMC_ERASE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Mass Erase Flash Memory" id="FLASH_FMC_MERASE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Commit Register Value" id="FLASH_FMC_COMT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="15" end="17" rwaccess="RW" description="FLASH write key" id="FLASH_FMC_WRKEY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FCRIS" width="32" description="Flash Controller Raw Interrupt Status" id="FLASH_FCRIS" offset="0x0000000C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Access Raw Interrupt Status" id="FLASH_FCRIS_ARIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Programming Raw Interrupt Status" id="FLASH_FCRIS_PRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="EEPROM Raw Interrupt Status" id="FLASH_FCRIS_ERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="Pump Voltage Raw Interrupt Status" id="FLASH_FCRIS_VOLTRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="Invalid Data Raw Interrupt Status" id="FLASH_FCRIS_INVDRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="Erase Verify Error Raw Interrupt Status" id="FLASH_FCRIS_ERRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="R" description="Program Verify Error Raw Interrupt Status" id="FLASH_FCRIS_PROGRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FCIM" width="32" description="Flash Controller Interrupt Mask" id="FLASH_FCIM" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Access Interrupt Mask" id="FLASH_FCIM_AMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Programming Interrupt Mask" id="FLASH_FCIM_PMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="EEPROM Interrupt Mask" id="FLASH_FCIM_EMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="VOLT Interrupt Mask" id="FLASH_FCIM_VOLTMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Invalid Data Interrupt Mask" id="FLASH_FCIM_INVDMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="ERVER Interrupt Mask" id="FLASH_FCIM_ERMASK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="PROGVER Interrupt Mask" id="FLASH_FCIM_PROGMASK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FCMISC" width="32" description="Flash Controller Masked Interrupt Status and Clear" id="FLASH_FCMISC" offset="0x00000014" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Access Masked Interrupt Status and Clear" id="FLASH_FCMISC_AMISC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Programming Masked Interrupt Status and Clear" id="FLASH_FCMISC_PMISC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="EEPROM Masked Interrupt Status and Clear" id="FLASH_FCMISC_EMISC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="VOLT Masked Interrupt Status and Clear" id="FLASH_FCMISC_VOLTMISC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Invalid Data Masked Interrupt Status and Clear" id="FLASH_FCMISC_INVDMISC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="ERVER Masked Interrupt Status and Clear" id="FLASH_FCMISC_ERMISC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="PROGVER Masked Interrupt Status and Clear" id="FLASH_FCMISC_PROGMISC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMC2" width="32" description="Flash Memory Control 2" id="FLASH_FMC2" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Buffered Flash Memory Write" id="FLASH_FMC2_WRBUF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FWBVAL" width="32" description="Flash Write Buffer Valid" id="FLASH_FWBVAL" offset="0x00000030" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Memory Write Buffer" id="FLASH_FWBVAL_FWB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FLPEKEY" width="32" description="Flash Program/Erase Key" id="FLASH_FLPEKEY" offset="0x0000003C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R/W" description="Key Value" id="FLASH_FLPEKEY_PEKEY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FWBN" width="32" description="Flash Write Buffer n" id="FLASH_FWBN" offset="0x00000100" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Data" id="FLASH_FWBN_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_PP" width="32" description="Flash Peripheral Properties" id="FLASH_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Flash Size" id="FLASH_PP_SIZE" resetval="" >
+            <bitenum id="FLASH_PP_SIZE_1MB" value="0x000001FF" token="" description="1024 KB of Flash"/>
+        </bitfield>
+        <bitfield range="" begin="18" width="3" end="16" rwaccess="R" description="Flash Sector Size of the physical bank" id="FLASH_PP_MAINSS" resetval="" >
+            <bitenum id="FLASH_PP_MAINSS_1KB" value="0x00000000" token="" description="1 KB"/>
+            <bitenum id="FLASH_PP_MAINSS_2KB" value="0x00010000" token="" description="2 KB"/>
+            <bitenum id="FLASH_PP_MAINSS_4KB" value="0x00020000" token="" description="4 KB"/>
+            <bitenum id="FLASH_PP_MAINSS_8KB" value="0x00030000" token="" description="8 KB"/>
+            <bitenum id="FLASH_PP_MAINSS_16KB" value="0x00040000" token="" description="16 KB"/>
+        </bitfield>
+        <bitfield range="" begin="22" width="4" end="19" rwaccess="R" description="EEPROM Sector Size of the physical bank" id="FLASH_PP_EESS" resetval="" >
+            <bitenum id="FLASH_PP_EESS_1KB" value="0x00000000" token="" description="1 KB"/>
+            <bitenum id="FLASH_PP_EESS_2KB" value="0x00080000" token="" description="2 KB"/>
+            <bitenum id="FLASH_PP_EESS_4KB" value="0x00100000" token="" description="4 KB"/>
+            <bitenum id="FLASH_PP_EESS_8KB" value="0x00180000" token="" description="8 KB"/>
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="R" description="DMA Flash Access" id="FLASH_PP_DFA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="R" description="Flash Mirror Mode" id="FLASH_PP_FMM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="R" description="Prefetch Buffer Mode" id="FLASH_PP_PFC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_SSIZE" width="32" description="SRAM Size" id="FLASH_SSIZE" offset="0x00000FC4" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="SRAM Size" id="FLASH_SSIZE_SIZE" resetval="" >
+            <bitenum id="FLASH_SSIZE_SIZE_256KB" value="0x000003FF" token="" description="256 KB of SRAM"/>
+        </bitfield>
+    </register>
+    <register acronym="FLASH_CONF" width="32" description="Flash Configuration Register" id="FLASH_CONF" offset="0x00000FC8" >
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Force Prefetch Off" id="FLASH_CONF_FPFOFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Force Prefetch On" id="FLASH_CONF_FPFON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Clear Valid Tags" id="FLASH_CONF_CLRTV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Single Prefetch Mode Enable" id="FLASH_CONF_SPFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Flash Mirror Mode Enable" id="FLASH_CONF_FMME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_ROMSWMAP" width="32" description="ROM Software Map" id="FLASH_ROMSWMAP" offset="0x00000FCC" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="R" description="ROM SW Region 0 Availability" id="FLASH_ROMSWMAP_SW0EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW0EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW0EN_CORE" value="0x00000001" token="" description="Region available to core"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="R" description="ROM SW Region 1 Availability" id="FLASH_ROMSWMAP_SW1EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW1EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW1EN_CORE" value="0x00000004" token="" description="Region available to core"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="R" description="ROM SW Region 2 Availability" id="FLASH_ROMSWMAP_SW2EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW2EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW2EN_CORE" value="0x00000010" token="" description="Region available to core"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="R" description="ROM SW Region 3 Availability" id="FLASH_ROMSWMAP_SW3EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW3EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW3EN_CORE" value="0x00000040" token="" description="Region available to core"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="R" description="ROM SW Region 4 Availability" id="FLASH_ROMSWMAP_SW4EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW4EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW4EN_CORE" value="0x00000100" token="" description="Region available to core"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="R" description="ROM SW Region 5 Availability" id="FLASH_ROMSWMAP_SW5EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW5EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW5EN_CORE" value="0x00000400" token="" description="Region available to core"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="R" description="ROM SW Region 6 Availability" id="FLASH_ROMSWMAP_SW6EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW6EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW6EN_CORE" value="0x00001000" token="" description="Region available to core"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="R" description="ROM SW Region 7 Availability" id="FLASH_ROMSWMAP_SW7EN" resetval="" >
+            <bitenum id="FLASH_ROMSWMAP_SW7EN_NOTVIS" value="0x00000000" token="" description="Software region not available to the core"/>
+            <bitenum id="FLASH_ROMSWMAP_SW7EN_CORE" value="0x00004000" token="" description="Region available to core"/>
+        </bitfield>
+    </register>
+    <register acronym="FLASH_DMASZ" width="32" description="Flash DMA Address Size" id="FLASH_DMASZ" offset="0x00000FD0" >
+        <bitfield range="" begin="17" width="18" end="0" rwaccess="RW" description="uDMA-accessible Memory Size" id="FLASH_DMASZ_SIZE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_DMAST" width="32" description="Flash DMA Starting Address" id="FLASH_DMAST" offset="0x00000FD4" >
+        <bitfield range="" begin="28" width="18" end="11" rwaccess="RW" description="Contains the starting address of the flash region accessible by uDMA if the FLASHPP register DFA bit is set" id="FLASH_DMAST_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_RVP" width="32" description="Reset Vector Pointer" id="FLASH_RVP" offset="0x000010D4" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R/W" description="Reset Vector Pointer Address" id="FLASH_RVP_RV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_BOOTCFG" width="32" description="Boot Configuration" id="FLASH_BOOTCFG" offset="0x000011D0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Debug Control 0" id="FLASH_BOOTCFG_DBG0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Debug Control 1" id="FLASH_BOOTCFG_DBG1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="KEY Select" id="FLASH_BOOTCFG_KEY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="Boot GPIO Enable" id="FLASH_BOOTCFG_EN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="Boot GPIO Polarity" id="FLASH_BOOTCFG_POL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="3" end="10" rwaccess="R" description="Boot GPIO Pin" id="FLASH_BOOTCFG_PIN" resetval="" >
+            <bitenum id="FLASH_BOOTCFG_PIN_0" value="0x00000000" token="" description="Pin 0"/>
+            <bitenum id="FLASH_BOOTCFG_PIN_1" value="0x00000400" token="" description="Pin 1"/>
+            <bitenum id="FLASH_BOOTCFG_PIN_2" value="0x00000800" token="" description="Pin 2"/>
+            <bitenum id="FLASH_BOOTCFG_PIN_3" value="0x00000C00" token="" description="Pin 3"/>
+            <bitenum id="FLASH_BOOTCFG_PIN_4" value="0x00001000" token="" description="Pin 4"/>
+            <bitenum id="FLASH_BOOTCFG_PIN_5" value="0x00001400" token="" description="Pin 5"/>
+            <bitenum id="FLASH_BOOTCFG_PIN_6" value="0x00001800" token="" description="Pin 6"/>
+            <bitenum id="FLASH_BOOTCFG_PIN_7" value="0x00001C00" token="" description="Pin 7"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="R" description="Boot GPIO Port" id="FLASH_BOOTCFG_PORT" resetval="" >
+            <bitenum id="FLASH_BOOTCFG_PORT_A" value="0x00000000" token="" description="Port A"/>
+            <bitenum id="FLASH_BOOTCFG_PORT_B" value="0x00002000" token="" description="Port B"/>
+            <bitenum id="FLASH_BOOTCFG_PORT_C" value="0x00004000" token="" description="Port C"/>
+            <bitenum id="FLASH_BOOTCFG_PORT_D" value="0x00006000" token="" description="Port D"/>
+            <bitenum id="FLASH_BOOTCFG_PORT_E" value="0x00008000" token="" description="Port E"/>
+            <bitenum id="FLASH_BOOTCFG_PORT_F" value="0x0000A000" token="" description="Port F"/>
+            <bitenum id="FLASH_BOOTCFG_PORT_G" value="0x0000C000" token="" description="Port G"/>
+            <bitenum id="FLASH_BOOTCFG_PORT_H" value="0x0000E000" token="" description="Port H"/>
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="R" description="Not Written" id="FLASH_BOOTCFG_NW" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_USERREG0" width="32" description="User Register 0" id="FLASH_USERREG0" offset="0x000011E0" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="User Data" id="FLASH_USERREG0_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_USERREG1" width="32" description="User Register 1" id="FLASH_USERREG1" offset="0x000011E4" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="User Data" id="FLASH_USERREG1_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_USERREG2" width="32" description="User Register 2" id="FLASH_USERREG2" offset="0x000011E8" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="User Data" id="FLASH_USERREG2_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_USERREG3" width="32" description="User Register 3" id="FLASH_USERREG3" offset="0x000011EC" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="User Data" id="FLASH_USERREG3_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE0" width="32" description="Flash Memory Protection Read Enable 0" id="FLASH_FMPRE0" offset="0x00001200" >
+    </register>
+    <register acronym="FLASH_FMPRE1" width="32" description="Flash Memory Protection Read Enable 1" id="FLASH_FMPRE1" offset="0x00001204" >
+    </register>
+    <register acronym="FLASH_FMPRE2" width="32" description="Flash Memory Protection Read Enable 2" id="FLASH_FMPRE2" offset="0x00001208" >
+    </register>
+    <register acronym="FLASH_FMPRE3" width="32" description="Flash Memory Protection Read Enable 3" id="FLASH_FMPRE3" offset="0x0000120C" >
+    </register>
+    <register acronym="FLASH_FMPRE4" width="32" description="Flash Memory Protection Read Enable 4" id="FLASH_FMPRE4" offset="0x00001210" >
+    </register>
+    <register acronym="FLASH_FMPRE5" width="32" description="Flash Memory Protection Read Enable 5" id="FLASH_FMPRE5" offset="0x00001214" >
+    </register>
+    <register acronym="FLASH_FMPRE6" width="32" description="Flash Memory Protection Read Enable 6" id="FLASH_FMPRE6" offset="0x00001218" >
+    </register>
+    <register acronym="FLASH_FMPRE7" width="32" description="Flash Memory Protection Read Enable 7" id="FLASH_FMPRE7" offset="0x0000121C" >
+    </register>
+    <register acronym="FLASH_FMPRE8" width="32" description="Flash Memory Protection Read Enable 8" id="FLASH_FMPRE8" offset="0x00001220" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE8_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE9" width="32" description="Flash Memory Protection Read Enable 9" id="FLASH_FMPRE9" offset="0x00001224" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE9_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE10" width="32" description="Flash Memory Protection Read Enable 10" id="FLASH_FMPRE10" offset="0x00001228" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE10_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE11" width="32" description="Flash Memory Protection Read Enable 11" id="FLASH_FMPRE11" offset="0x0000122C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE11_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE12" width="32" description="Flash Memory Protection Read Enable 12" id="FLASH_FMPRE12" offset="0x00001230" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE12_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE13" width="32" description="Flash Memory Protection Read Enable 13" id="FLASH_FMPRE13" offset="0x00001234" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE13_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE14" width="32" description="Flash Memory Protection Read Enable 14" id="FLASH_FMPRE14" offset="0x00001238" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE14_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPRE15" width="32" description="Flash Memory Protection Read Enable 15" id="FLASH_FMPRE15" offset="0x0000123C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Read Enable" id="FLASH_FMPRE15_READ_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE0" width="32" description="Flash Memory Protection Program Enable 0" id="FLASH_FMPPE0" offset="0x00001400" >
+    </register>
+    <register acronym="FLASH_FMPPE1" width="32" description="Flash Memory Protection Program Enable 1" id="FLASH_FMPPE1" offset="0x00001404" >
+    </register>
+    <register acronym="FLASH_FMPPE2" width="32" description="Flash Memory Protection Program Enable 2" id="FLASH_FMPPE2" offset="0x00001408" >
+    </register>
+    <register acronym="FLASH_FMPPE3" width="32" description="Flash Memory Protection Program Enable 3" id="FLASH_FMPPE3" offset="0x0000140C" >
+    </register>
+    <register acronym="FLASH_FMPPE4" width="32" description="Flash Memory Protection Program Enable 4" id="FLASH_FMPPE4" offset="0x00001410" >
+    </register>
+    <register acronym="FLASH_FMPPE5" width="32" description="Flash Memory Protection Program Enable 5" id="FLASH_FMPPE5" offset="0x00001414" >
+    </register>
+    <register acronym="FLASH_FMPPE6" width="32" description="Flash Memory Protection Program Enable 6" id="FLASH_FMPPE6" offset="0x00001418" >
+    </register>
+    <register acronym="FLASH_FMPPE7" width="32" description="Flash Memory Protection Program Enable 7" id="FLASH_FMPPE7" offset="0x0000141C" >
+    </register>
+    <register acronym="FLASH_FMPPE8" width="32" description="Flash Memory Protection Program Enable 8" id="FLASH_FMPPE8" offset="0x00001420" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE8_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE9" width="32" description="Flash Memory Protection Program Enable 9" id="FLASH_FMPPE9" offset="0x00001424" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE9_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE10" width="32" description="Flash Memory Protection Program Enable 10" id="FLASH_FMPPE10" offset="0x00001428" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE10_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE11" width="32" description="Flash Memory Protection Program Enable 11" id="FLASH_FMPPE11" offset="0x0000142C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE11_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE12" width="32" description="Flash Memory Protection Program Enable 12" id="FLASH_FMPPE12" offset="0x00001430" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE12_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE13" width="32" description="Flash Memory Protection Program Enable 13" id="FLASH_FMPPE13" offset="0x00001434" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE13_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE14" width="32" description="Flash Memory Protection Program Enable 14" id="FLASH_FMPPE14" offset="0x00001438" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE14_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="FLASH_FMPPE15" width="32" description="Flash Memory Protection Program Enable 15" id="FLASH_FMPPE15" offset="0x0000143C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash Programming Enable" id="FLASH_FMPPE15_PROG_ENABLE" resetval="" >
+        </bitfield>
+    </register>
+</module>

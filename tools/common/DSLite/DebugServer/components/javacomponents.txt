@@ -1,1 +1,0 @@
-@ti.com/JavaToGTIAdapter;1 com.ti.debug.javatogtiadapter.impl.TargetCommTransportAdapter

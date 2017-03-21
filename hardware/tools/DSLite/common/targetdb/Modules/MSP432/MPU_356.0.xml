@@ -1,0 +1,109 @@
+<module id="MPU" HW_revision="356.0">
+    <register id="MPU_TYPE" width="32" offset="0xD90" internal="0" description="MPU Type Register">
+        <bitfield id="SEPARATE" description="Because the processor core uses only a unified MPU, SEPARATE is always 0." begin="0" end="0" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="DREGION" description="Number of supported MPU regions field. DREGION contains 0x08 if the implementation contains an MPU indicating eight MPU regions, otherwise it contains 0x00." begin="15" end="8" width="8" rwaccess="R">
+        </bitfield>
+        <bitfield id="IREGION" description="Because the processor core uses only a unified MPU, IREGION always contains 0x00." begin="23" end="16" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="MPU_CTRL" width="32" offset="0xD94" internal="0" description="MPU Control Register">
+        <bitfield id="ENABLE" description="MPU enable bit. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="disable MPU"/>
+            <bitenum id="en_0b1" value="0x1" description="enable MPU"/>
+        </bitfield>
+        <bitfield id="HFNMIENA" description="This bit enables the MPU when in Hard Fault, NMI, and FAULTMASK escalated handlers. If this bit = 1 and the ENABLE bit = 1, the MPU is enabled when in these handlers. If this bit = 0, the MPU is disabled when in these handlers, regardless of the value of ENABLE. If this bit =1 and ENABLE = 0, behavior is Unpredictable. Reset clears the HFNMIENA bit." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRIVDEFENA" description="This bit enables the default memory map for privileged access, as a background region, when the MPU is enabled. The background region acts as if it was region number 1 before any settable regions. Any region that is set up overlays this default map, and overrides it. If this bit = 0, the default memory map is disabled, and memory not covered by a region faults. This applies to memory type, Execute Never (XN), cache and shareable rules. However, this only applies to privileged mode (fetch and data access). User mode code faults unless a region has been set up for its code and data. When the MPU is disabled, the default map acts on both privileged and user mode code. XN and SO rules always apply to the System partition whether this enable is set or not. If the MPU is disabled, this bit is ignored. Reset clears the PRIVDEFENA bit." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MPU_RNR" width="32" offset="0xD98" internal="0" description="MPU Region Number Register">
+        <bitfield id="REGION" description="Region select field. Selects the region to operate on when using the Region Attribute and Size Register and the Region Base Address Register. It must be written first except when the address VALID + REGION fields are written, which overwrites this." begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MPU_RBAR" width="32" offset="0xD9C" internal="0" description="MPU Region Base Address Register">
+        <bitfield id="REGION" description="MPU region override field." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="VALID" description="MPU Region Number valid bit." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="MPU Region Number Register remains unchanged and is interpreted."/>
+            <bitenum id="en_0b1" value="0x1" description="MPU Region Number Register is overwritten by bits 3:0 (the REGION value)."/>
+        </bitfield>
+        <bitfield id="ADDR" description="Region base address field. The position of the LSB depends on the region size, so that the base address is aligned according to an even multiple of size. The power of 2 size specified by the SZENABLE field of the MPU Region Attribute and Size Register defines how many bits of base address are used." begin="31" end="5" width="27" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MPU_RASR" width="32" offset="0xDA0" internal="0" description="MPU Region Attribute and Size Register">
+        <bitfield id="ENABLE" description="Region enable bit." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SIZE" description="MPU Protection Region Size Field." begin="5" end="1" width="5" rwaccess="R/W">
+            <bitenum id="en_0b01011" value="0x0" description="4KB"/>
+            <bitenum id="en_0b11011" value="0x1" description="256MB"/>
+            <bitenum id="en_0b00100" value="0x4" description="32B"/>
+            <bitenum id="en_0b00101" value="0x5" description="64B"/>
+            <bitenum id="en_0b00110" value="0x6" description="128B"/>
+            <bitenum id="en_0b00111" value="0x7" description="256B"/>
+            <bitenum id="en_0b01000" value="0x8" description="512B"/>
+            <bitenum id="en_0b01001" value="0x9" description="1KB"/>
+            <bitenum id="en_0b01010" value="0xA" description="2KB"/>
+            <bitenum id="en_0b01100" value="0xC" description="8KB"/>
+            <bitenum id="en_0b01101" value="0xD" description="16KB"/>
+            <bitenum id="en_0b01110" value="0xE" description="32KB"/>
+            <bitenum id="en_0b01111" value="0xF" description="64KB"/>
+            <bitenum id="en_0b10000" value="0x10" description="128KB"/>
+            <bitenum id="en_0b10001" value="0x11" description="256KB"/>
+            <bitenum id="en_0b10010" value="0x12" description="512KB"/>
+            <bitenum id="en_0b10011" value="0x13" description="1MB"/>
+            <bitenum id="en_0b10100" value="0x14" description="2MB"/>
+            <bitenum id="en_0b10101" value="0x15" description="4MB"/>
+            <bitenum id="en_0b10110" value="0x16" description="8MB"/>
+            <bitenum id="en_0b10111" value="0x17" description="16MB"/>
+            <bitenum id="en_0b11000" value="0x18" description="32MB"/>
+            <bitenum id="en_0b11001" value="0x19" description="64MB"/>
+            <bitenum id="en_0b11010" value="0x1A" description="128MB"/>
+            <bitenum id="en_0b11100" value="0x1C" description="512MB"/>
+            <bitenum id="en_0b11101" value="0x1D" description="1GB"/>
+            <bitenum id="en_0b11110" value="0x1E" description="2GB"/>
+            <bitenum id="en_0b11111" value="0x1F" description="4GB"/>
+        </bitfield>
+        <bitfield id="SRD" description="Sub-Region Disable (SRD) field. Setting an SRD bit disables the corresponding sub-region. Regions are split into eight equal-sized sub-regions. Sub-regions are not supported for region sizes of 128 bytes and less." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="B" description="Bufferable bit" begin="16" end="16" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="not bufferable"/>
+            <bitenum id="en_0b1" value="0x1" description="bufferable"/>
+        </bitfield>
+        <bitfield id="C" description="Cacheable bit" begin="17" end="17" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="not cacheable"/>
+            <bitenum id="en_0b1" value="0x1" description="cacheable"/>
+        </bitfield>
+        <bitfield id="S" description="Shareable bit" begin="18" end="18" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="not shareable"/>
+            <bitenum id="en_0b1" value="0x1" description="shareable"/>
+        </bitfield>
+        <bitfield id="TEX" description="Type extension field" begin="21" end="19" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AP" description="Data access permission field" begin="26" end="24" width="3" rwaccess="R/W">
+            <bitenum id="en_0b000" value="0x0" description="Priviliged permissions: No access. User permissions: No access."/>
+            <bitenum id="en_0b001" value="0x1" description="Priviliged permissions: Read-write. User permissions: No access."/>
+            <bitenum id="en_0b010" value="0x2" description="Priviliged permissions: Read-write. User permissions: Read-only."/>
+            <bitenum id="en_0b011" value="0x3" description="Priviliged permissions: Read-write. User permissions: Read-write."/>
+            <bitenum id="en_0b101" value="0x5" description="Priviliged permissions: Read-only. User permissions: No access."/>
+            <bitenum id="en_0b110" value="0x6" description="Priviliged permissions: Read-only. User permissions: Read-only."/>
+            <bitenum id="en_0b111" value="0x7" description="Priviliged permissions: Read-only. User permissions: Read-only."/>
+        </bitfield>
+        <bitfield id="XN" description="Instruction access disable bit" begin="28" end="28" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="enable instruction fetches"/>
+            <bitenum id="en_0b1" value="0x1" description="disable instruction fetches"/>
+        </bitfield>
+    </register>
+    <register id="MPU_RBAR_A1" width="32" offset="0xDA4" internal="0" description="MPU Alias 1 Region Base Address register">
+    </register>
+    <register id="MPU_RASR_A1" width="32" offset="0xDA8" internal="0" description="MPU Alias 1 Region Attribute and Size register">
+    </register>
+    <register id="MPU_RBAR_A2" width="32" offset="0xDAC" internal="0" description="MPU Alias 2 Region Base Address register">
+    </register>
+    <register id="MPU_RASR_A2" width="32" offset="0xDB0" internal="0" description="MPU Alias 2 Region Attribute and Size register">
+    </register>
+    <register id="MPU_RBAR_A3" width="32" offset="0xDB4" internal="0" description="MPU Alias 3 Region Base Address register">
+    </register>
+    <register id="MPU_RASR_A3" width="32" offset="0xDB8" internal="0" description="MPU Alias 3 Region Attribute and Size register">
+    </register>
+</module>

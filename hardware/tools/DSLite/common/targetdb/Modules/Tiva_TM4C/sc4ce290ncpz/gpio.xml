@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="GPIO_PORTA_AHB" HW_revision="" XML_version="1.0" description="GPIO register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="GPIO_DATA" width="32" description="GPIO Data" id="GPIO_DATA" offset="0x000003FC" >
+    </register>
+    <register acronym="GPIO_DIR" width="32" description="GPIO Direction" id="GPIO_DIR" offset="0x00000400" >
+    </register>
+    <register acronym="GPIO_IS" width="32" description="GPIO Interrupt Sense" id="GPIO_IS" offset="0x00000404" >
+    </register>
+    <register acronym="GPIO_IBE" width="32" description="GPIO Interrupt Both Edges" id="GPIO_IBE" offset="0x00000408" >
+    </register>
+    <register acronym="GPIO_IEV" width="32" description="GPIO Interrupt Event" id="GPIO_IEV" offset="0x0000040C" >
+    </register>
+    <register acronym="GPIO_IM" width="32" description="GPIO Interrupt Mask" id="GPIO_IM" offset="0x00000410" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="GPIO Interrupt Mask Enable" id="GPIO_IM_GPIO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPIO uDMA Done Interrupt Mask Enable" id="GPIO_IM_DMAIME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_RIS" width="32" description="GPIO Raw Interrupt Status" id="GPIO_RIS" offset="0x00000414" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="R" description="GPIO Interrupt Raw Status" id="GPIO_RIS_GPIO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="GPIO uDMA Done Interrupt Raw Status" id="GPIO_RIS_DMARIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_MIS" width="32" description="GPIO Masked Interrupt Status" id="GPIO_MIS" offset="0x00000418" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="R" description="GPIO Masked Interrupt Status" id="GPIO_MIS_GPIO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="GPIO uDMA Done Masked Interrupt Status" id="GPIO_MIS_DMAMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_ICR" width="32" description="GPIO Interrupt Clear" id="GPIO_ICR" offset="0x0000041C" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="W" description="GPIO Interrupt Clear" id="GPIO_ICR_GPIO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="W" description="GPIO uDMA Interrupt Clear" id="GPIO_ICR_DMAIC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_AFSEL" width="32" description="GPIO Alternate Function Select" id="GPIO_AFSEL" offset="0x00000420" >
+    </register>
+    <register acronym="GPIO_DR2R" width="32" description="GPIO 2-mA Drive Select" id="GPIO_DR2R" offset="0x00000500" >
+    </register>
+    <register acronym="GPIO_DR4R" width="32" description="GPIO 4-mA Drive Select" id="GPIO_DR4R" offset="0x00000504" >
+    </register>
+    <register acronym="GPIO_DR8R" width="32" description="GPIO 8-mA Drive Select" id="GPIO_DR8R" offset="0x00000508" >
+    </register>
+    <register acronym="GPIO_ODR" width="32" description="GPIO Open Drain Select" id="GPIO_ODR" offset="0x0000050C" >
+    </register>
+    <register acronym="GPIO_PUR" width="32" description="GPIO Pull-Up Select" id="GPIO_PUR" offset="0x00000510" >
+    </register>
+    <register acronym="GPIO_PDR" width="32" description="GPIO Pull-Down Select" id="GPIO_PDR" offset="0x00000514" >
+    </register>
+    <register acronym="GPIO_SLR" width="32" description="GPIO Slew Rate Control Select" id="GPIO_SLR" offset="0x00000518" >
+    </register>
+    <register acronym="GPIO_DEN" width="32" description="GPIO Digital Enable" id="GPIO_DEN" offset="0x0000051C" >
+    </register>
+    <register acronym="GPIO_LOCK" width="32" description="GPIO Lock" id="GPIO_LOCK" offset="0x00000520" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="GPIO Lock" id="GPIO_LOCK" resetval="" >
+            <bitenum id="GPIO_LOCK_UNLOCKED" value="0x00000000" token="" description="The GPIOCR register is unlocked and may be modified"/>
+            <bitenum id="GPIO_LOCK_LOCKED" value="0x00000001" token="" description="The GPIOCR register is locked and may not be modified"/>
+            <bitenum id="GPIO_LOCK_KEY" value="0x4C4F434B" token="" description="Unlocks the GPIO_CR register"/>
+        </bitfield>
+    </register>
+    <register acronym="GPIO_CR" width="32" description="GPIO Commit" id="GPIO_CR" offset="0x00000524" >
+    </register>
+    <register acronym="GPIO_AMSEL" width="32" description="GPIO Analog Mode Select" id="GPIO_AMSEL" offset="0x00000528" >
+    </register>
+    <register acronym="GPIO_PCTL" width="32" description="GPIO Port Control" id="GPIO_PCTL" offset="0x0000052C" >
+    </register>
+    <register acronym="GPIO_ADCCTL" width="32" description="GPIO ADC Control" id="GPIO_ADCCTL" offset="0x00000530" >
+    </register>
+    <register acronym="GPIO_DMACTL" width="32" description="GPIO DMA Control" id="GPIO_DMACTL" offset="0x00000534" >
+    </register>
+    <register acronym="GPIO_SI" width="32" description="GPIO Select Interrupt" id="GPIO_SI" offset="0x00000538" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Summary Interrupt" id="GPIO_SI_SUM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_DR12R" width="32" description="GPIO 12-mA Drive Select" id="GPIO_DR12R" offset="0x0000053C" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Output Pad 12-mA Drive Enable" id="GPIO_DR12R_DRV12" resetval="" >
+            <bitenum id="GPIO_DR12R_DRV12_12MA" value="0x00000001" token="" description="The corresponding GPIO pin has 12-mA drive. This encoding is only valid if the GPIOPP EDE bit is set and the appropriate GPIOPC EDM bit field is programmed to 0x3"/>
+        </bitfield>
+    </register>
+    <register acronym="GPIO_WAKEPEN" width="32" description="GPIO Wake Pin Enable" id="GPIO_WAKEPEN" offset="0x00000540" >
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="P[4] Wake Enable" id="GPIO_WAKEPEN_WAKEP4" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_WAKELVL" width="32" description="GPIO Wake Level" id="GPIO_WAKELVL" offset="0x00000544" >
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="P[4] Wake Level" id="GPIO_WAKELVL_WAKELVL4" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_WAKESTAT" width="32" description="GPIO Wake Status" id="GPIO_WAKESTAT" offset="0x00000548" >
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="P[4] Wake Status" id="GPIO_WAKESTAT_STAT4" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_PP" width="32" description="GPIO Peripheral Property" id="GPIO_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Extended Drive Enable" id="GPIO_PP_EDE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="GPIO_PC" width="32" description="GPIO Peripheral Configuration" id="GPIO_PC" offset="0x00000FC4" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Extended Drive Mode Bit 0" id="GPIO_PC_EDM0" resetval="" >
+            <bitenum id="GPIO_PC_EDM0_DISABLE" value="0x00000000" token="" description="Drive values of 2, 4 and 8 mA are maintained. GPIO n Drive Select (GPIODRnR) registers function as normal"/>
+            <bitenum id="GPIO_PC_EDM0_6MA" value="0x00000001" token="" description="An additional 6 mA option is provided"/>
+            <bitenum id="GPIO_PC_EDM0_PLUS2MA" value="0x00000003" token="" description="A 2 mA driver is always enabled; setting the corresponding GPIODR4R register bit adds 2 mA and setting the corresponding GPIODR8R of GPIODR12R register bit adds an additional 4 mA"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Extended Drive Mode Bit 1" id="GPIO_PC_EDM1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Extended Drive Mode Bit 2" id="GPIO_PC_EDM2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Extended Drive Mode Bit 3" id="GPIO_PC_EDM3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Extended Drive Mode Bit 4" id="GPIO_PC_EDM4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Extended Drive Mode Bit 5" id="GPIO_PC_EDM5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="Extended Drive Mode Bit 6" id="GPIO_PC_EDM6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Extended Drive Mode Bit 7" id="GPIO_PC_EDM7" resetval="" >
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/1 $
+  Checkin $Date: April 24, 2009   11:29:53 $
+  -->
+
+
+<!-- TMS320C2000 CPU Timer Registers
+     ===============================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+<module id="CPUTIMER" HW_revision="" XML_version="1" description="CPU Timer Registers">
+
+	<!-- CPU-Timer 0 -->
+	<register id="TIMER0TIM" acronym="TIMER0TIM" offset="0" page="1" width="16" description="CPU-Timer 0, Counter Register" /> 
+	<register id="TIMER0TIMH" acronym="TIMER0TIMH" offset="1" page="1" width="16" description="CPU-Timer 0, Counter Register High" /> 
+	<register id="TIMER0PRD" acronym="TIMER0PRD" offset="2" page="1" width="16" description="CPU-Timer 0, Period Register" /> 
+	<register id="TIMER0PRDH" acronym="TIMER0PRDH" offset="3" page="1" width="16" description="CPU-Timer 0, Period Register High" /> 
+	<register id="TIMER0TCR" acronym="TIMER0TCR" offset="4" page="1" width="16" description="CPU-Timer 0, Control Register" /> 
+	<!-- 1 reserved -->
+	<register id="TIMER0TPR" acronym="TIMER0TPR" offset="6" page="1" width="16" description="CPU-Timer 0, Prescale Register" /> 
+	<register id="TIMER0TPRH" acronym="TIMER0TPRH" offset="7" page="1" width="16" description="CPU-Timer 0, Prescale Register High" />
+	<!-- CPU-Timer 1 -->
+	<register id="TIMER1TIM" acronym="TIMER1TIM" offset="8" page="1" width="16" description="CPU-Timer 1, Counter Register" /> 
+	<register id="TIMER1TIMH" acronym="TIMER1TIMH" offset="9" page="1" width="16" description="CPU-Timer 1, Counter Register High" /> 
+	<register id="TIMER1PRD" acronym="TIMER1PRD" offset="10" page="1" width="16" description="CPU-Timer 1, Period Register" /> 
+	<register id="TIMER1PRDH" acronym="TIMER1PRDH" offset="11" page="1" width="16" description="CPU-Timer 1, Period Register High" /> 
+	<register id="TIMER1TCR" acronym="TIMER1TCR" offset="12" page="1" width="16" description="CPU-Timer 1, Control Register" /> 
+	<!-- 1 reserved -->
+	<register id="TIMER1TPR" acronym="TIMER1TPR" offset="14" page="1" width="16" description="CPU-Timer 1, Prescale Register" /> 
+	<register id="TIMER1TPRH" acronym="TIMER1TPRH" offset="15" page="1" width="16" description="CPU-Timer 1, Prescale Register High" /> 
+	<!-- CPU-Timer 2 -->
+	<register id="TIMER2TIM" acronym="TIMER2TIM" offset="16" page="1" width="16" description="CPU-Timer 2, Counter Register" /> 
+	<register id="TIMER2TIMH" acronym="TIMER2TIMH" offset="17" page="1" width="16" description="CPU-Timer 2, Counter Register High" /> 
+	<register id="TIMER2PRD" acronym="TIMER2PRD" offset="18" page="1" width="16" description="CPU-Timer 2, Period Register" /> 
+	<register id="TIMER2PRDH" acronym="TIMER2PRDH" offset="19" page="1" width="16" description="CPU-Timer 2, Period Register High" /> 
+	<register id="TIMER2TCR" acronym="TIMER2TCR" offset="20" page="1" width="16" description="CPU-Timer 2, Control Register" /> 
+	<!-- 1 reserved -->
+	<register id="TIMER2TPR" acronym="TIMER2TPR" offset="22" page="1" width="16" description="CPU-Timer 2, Prescale Register" /> 
+	<register id="TIMER2TPRH" acronym="TIMER2TPRH" offset="23" page="1" width="16" description="CPU-Timer 2, Prescale Register High" /> 
+
+</module>

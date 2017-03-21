@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+  TI File $Revision: 
+  Checkin $Date: 
+  --> 
+
+<!--  TMS320C2000 USB Type 0 Registers 
+     =================================== 
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     --> 
+<module id="USB0" HW_revision="" XML_version="1" description="USB Registers">
+	
+	<register id="USB_FADDR_POWER" acronym="USBFADDR:POWER" offset="0" page="1" width="16" description="USB FADDR and POWER" >
+  		<bitfield id="USBFADDR" width="8" begin="7" end="0" resetval="0" description="USB Device Functional Address" range="" rwaccess="RW" /> 
+  		<bitfield id="USBFPOWER" width="8" begin="15" end="8" resetval="0" description="USB Power" range="" rwaccess="RW" />
+
+	</register>
+
+    <register id="USBTXIS" acronym="USBTXIS" offset="2" page="1" width="16" description="USB Transmit Interrupt Status" />
+    <register id="USBRXIS" acronym="USBRXIS" offset="4" page="1" width="16" description="USB Receive Interrupt Status" />
+    <register id="USBTXIE" acronym="USBTXIE" offset="6" page="1" width="16" description="USB Transmit Interrupt Enable" />
+    <register id="USBRXIE" acronym="USBRXIE" offset="8" page="1" width="16" description="USB Receive Interrupt Enable" />
+
+    
+    	<register id="USB_IS_IE" acronym="USB_IS_IE" offset="10" page="1" width="16" description="USB IS and IE" >
+  		<bitfield id="USBIS" width="8" begin="7" end="0" resetval="0" description="USB General Interrupt Status" range="" rwaccess="RW" /> 
+  		<bitfield id="USBIE" width="8" begin="15" end="8" resetval="0" description="USB Interrupt Enable" range="" rwaccess="RW" />
+
+	</register>
+
+	<register id="USBFRAME" acronym="USBFRAME" offset="12" page="1" width="16" description="USB Frame Value" />
+
+	<register id="USB_EPIDX_TEST" acronym="USB_EPIDX_TEST" offset="14" width="16" description="USB EPIDX and TEST" >
+		<bitfield id="USBEPIDX" width="8" begin="7" end="0" resetval="0" description="USB Endpoint Index" range="" rwaccess="RW" />
+		<bitfield id="USBTEST" width="8" begin="15" end="8" resetval="0" description="USB Test Mode" range="" rwaccess="RW" />
+    	</register>
+
+    <!--  16 empty  -->
+    <register id="USBFIFO0" acronym="USBFIFO0" offset="32" page="1" width="32" description="USB FIFO Endpoint 0" />
+    <register id="USBFIFO1" acronym="USBFIFO1" offset="36" page="1" width="32" description="USB FIFO Endpoint 1" />
+    <register id="USBFIFO2" acronym="USBFIFO2" offset="40" page="1" width="32" description="USB FIFO Endpoint 2" />
+    <register id="USBFIFO3" acronym="USBFIFO3" offset="44" page="1" width="32" description="USB FIFO Endpoint 3" />
+    <!--  48 empty  -->
+    	<register id="USBDEVCTL" acronym="USBDEVCTL" offset="96" width="16" description="USB DEVCTL" >
+		<bitfield id="USBDEVCTL" width="8" begin="7" end="0" resetval="0" description="USB Endpoint Index" range="" rwaccess="RW" />
+    	</register>
+
+	<register id="USB_TXFIFOSZ_RXFIFSZ" acronym="USB_TXFIFOSZ_RXFIFSZ" offset="98" width="16" description="USB TXFIFOSZ and RXFIFSZ" >
+		<bitfield id="USBTXFIFOSZ" width="8" begin="7" end="0" resetval="0" description="USB Transmit Dynamic FIFO Sizing" range="" rwaccess="RW" />
+		<bitfield id="USBRXFIFOSZ" width="8" begin="15" end="8" resetval="0" description="USB Receive Dynamic FIFO Sizing" range="" rwaccess="RW" />
+    	</register>
+
+    <register id="USBTXFIFOADD" acronym="USBTXFIFOADD" offset="100" page="1" width="16" description="USB Transmit FIFO Start Address" />
+    <register id="USBRXFIFOADD" acronym="USBRXFIFOADD" offset="102" page="1" width="16" description="USB Receive FIFO Start Address" />
+    <!--  18 empty  -->
+    	<register id="USB_CONTIM_VPLEN" acronym="USB_CONTIM_VPLEN" offset="122" width="16" description="USB CONTIM and VPLEN" >
+		<bitfield id="USBCONTIM" width="8" begin="7" end="0" resetval="0" description="USB Connect Timin" range="" rwaccess="RW" />
+		<bitfield id="USBVPLEN" width="8" begin="15" end="8" resetval="0" description="USB OTG VBUS Pulse Timing" range="" rwaccess="RW" />
+    	</register>
+	<!--  1 empty  -->
+	<register id="USBFSEOF" acronym="USBFSEOF" offset="124" width="16" description="USBFSEOFF" >
+		<bitfield id="USBFSEOF" width="8" begin="15" end="8" resetval="0" description="USB Full-Speed Last Transaction to End of Frame Timing" range="" rwaccess="RW" />
+	</register>
+
+	<register id="USBLSEOF" acronym="USBLSEOF" offset="126" width="16" description="USBLSEOF" >
+		<bitfield id="USBLSEOF" width="8" begin="7" end="0" resetval="0" description="USB Low-Speed Last Transaction to End of Frame Timing" range="" rwaccess="RW" />
+	</register>
+    <!--  1 empty  -->
+    	<register id="USBTXFUNCADDR0" acronym="USBTXFUNCADDR0" offset="128" width="16" description="USBTXFUNCADDR0" >
+		<bitfield id="USBTXFUNCADDR0" width="8" begin="7" end="0" resetval="0" description="USB Transmit Functional Address Endpoint 0" range="" rwaccess="RW" />
+	</register>
+    <!--  1 empty  -->
+        <register id="USB_TXHUBADDR0_TXHUBPORT0" acronym="USB_TXHUBADDR0_TXHUBPORT0" offset="130" width="16" description="USB TXHUBADDR0 and TXHUBPORT0" >
+		<bitfield id="USBTXHUBADDR0" width="8" begin="7" end="0" resetval="0" description="USB Transmit Hub Address Endpoint 0" range="" rwaccess="RW" />
+		<bitfield id="USBTXHUBPORT0" width="8" begin="15" end="8" resetval="0" description="USB Transmit Hub Port Endpoint 0" range="" rwaccess="RW" />
+    	</register>
+	<!--  4 empty  -->
+        <register id="USBTXFUNCADDR1" acronym="USBTXFUNCADDR1" offset="136" width="16" description="USBTXFUNCADDR1" >
+		<bitfield id="USBTXFUNCADDR1" width="8" begin="7" end="0" resetval="0" description="USB Transmit Functional Address Endpoint 1" range="" rwaccess="RW" />
+	</register>
+	<!--  1 empty  -->
+	<register id="USB_TXHUBADDR1_TXHUBPORT1" acronym="USB_TXHUBADDR1_TXHUBPORT1" offset="138" width="16" description="USB TXHUBADDR1 and TXHUBPORT1" >
+		<bitfield id="USBTXHUBADDR1" width="8" begin="7" end="0" resetval="0" description="USB Transmit Hub Address Endpoint 1" range="" rwaccess="RW" />
+		<bitfield id="USBTXHUBPORT1" width="8" begin="15" end="8" resetval="0" description="USB Transmit Hub Port Endpoint 1" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USBRXFUNCADDR1" acronym="USBRXFUNCADDR1" offset="140" width="16" description="USBRXFUNCADDR1" >
+		<bitfield id="USBTXFUNCADDR1" width="8" begin="7" end="0" resetval="0" description="USB Receive Functional Address Endpoint 1" range="" rwaccess="RW" />
+	</register>
+	<!--  1 empty  -->
+	<register id="USB_RXHUBADDR1_RXHUBPORT1" acronym="USB_RXHUBADDR1_RXHUBPORT1" offset="142" width="16" description="USB RXHUBADDR1 and RXHUBPORT1" >
+		<bitfield id="USBRXHUBADDR1" width="8" begin="7" end="0" resetval="0" description="USB Receive Hub Address Endpoint 1" range="" rwaccess="RW" />
+		<bitfield id="USBRXHUBPORT1" width="8" begin="15" end="8" resetval="0" description="USB Receive Hub Port Endpoint 1" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USBTXFUNCADDR2" acronym="USBTXFUNCADDR2" offset="144" width="16" description="USBTXFUNCADDR2" >
+		<bitfield id="USBTXFUNCADDR2" width="8" begin="7" end="0" resetval="0" description="USB Transmit Functional Address Endpoint 2" range="" rwaccess="RW" />
+	</register>
+	<!--  1 empty  -->
+	<register id="USB_TXHUBADDR2_TXHUBPORT2" acronym="USB_TXHUBADDR2_TXHUBPORT2" offset="146" width="16" description="USB TXHUBADDR2 and TXHUBPORT2" >
+		<bitfield id="USBTXHUBADDR2" width="8" begin="7" end="0" resetval="0" description="USB Transmit Hub Address Endpoint 2" range="" rwaccess="RW" />
+		<bitfield id="USBTXHUBPORT2" width="8" begin="15" end="8" resetval="0" description="USB Transmit Hub Port Endpoint 2" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USBRXFUNCADDR2" acronym="USBRXFUNCADDR2" offset="148" width="16" description="USBRXFUNCADDR2" >
+		<bitfield id="USBTXFUNCADDR2" width="8" begin="7" end="0" resetval="0" description="USB Receive Functional Address Endpoint 2" range="" rwaccess="RW" />
+	</register>
+	<!--  1 empty  -->
+	<register id="USB_RXHUBADDR2_RXHUBPORT2" acronym="USB_RXHUBADDR2_RXHUBPORT2" offset="150" width="16" description="USB RXHUBADDR2 and RXHUBPORT2" >
+		<bitfield id="USBRXHUBADDR2" width="8" begin="7" end="0" resetval="0" description="USB Receive Hub Address Endpoint 2" range="" rwaccess="RW" />
+		<bitfield id="USBRXHUBPORT2" width="8" begin="15" end="8" resetval="0" description="USB Receive Hub Port Endpoint 2" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USBTXFUNCADDR3" acronym="USBTXFUNCADDR3" offset="152" width="16" description="USBTXFUNCADDR3" >
+		<bitfield id="USBTXFUNCADDR3" width="8" begin="7" end="0" resetval="0" description="USB Transmit Functional Address Endpoint 3" range="" rwaccess="RW" />
+	</register>
+	<!--  1 empty  -->
+	<register id="USB_TXHUBADDR3_TXHUBPORT3" acronym="USB_TXHUBADDR3_TXHUBPORT3" offset="154" width="16" description="USB TXHUBADDR3 and TXHUBPORT3" >
+		<bitfield id="USBTXHUBADDR3" width="8" begin="7" end="0" resetval="0" description="USB Transmit Hub Address Endpoint 3" range="" rwaccess="RW" />
+		<bitfield id="USBTXHUBPORT3" width="8" begin="15" end="8" resetval="0" description="USB Transmit Hub Port Endpoint 3" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USBRXFUNCADDR3" acronym="USBRXFUNCADDR3" offset="156" width="16" description="USBRXFUNCADDR3" >
+		<bitfield id="USBTXFUNCADDR3" width="8" begin="7" end="0" resetval="0" description="USB Receive Functional Address Endpoint 3" range="" rwaccess="RW" />
+	</register>
+	<!--  1 empty  -->
+	<register id="USB_RXHUBADDR3_RXHUBPORT3" acronym="USB_RXHUBADDR3_RXHUBPORT3" offset="158" width="16" description="USB RXHUBADDR3 and RXHUBPORT3" >
+		<bitfield id="USBRXHUBADDR3" width="8" begin="7" end="0" resetval="0" description="USB Receive Hub Address Endpoint 3" range="" rwaccess="RW" />
+		<bitfield id="USBRXHUBPORT3" width="8" begin="15" end="8" resetval="0" description="USB Receive Hub Port Endpoint 3" range="" rwaccess="RW" />
+    	</register>
+
+
+	<!--  98 empty  -->
+	<register id="USB_CSRL0_CSRH0" acronym="USB_CSRL0_CSRH0" offset="258" width="16" description="USB CSRL0 and CSRH0" >
+		<bitfield id="USBCSRL0" width="8" begin="7" end="0" resetval="0" description="USB Control and Status Endpoint 0 Low" range="" rwaccess="RW" />
+		<bitfield id="USBCSRH0" width="8" begin="15" end="8" resetval="0" description="USB Control and Status Endpoint 0 High" range="" rwaccess="RW" />
+    	</register>
+	<!--  2 empty  -->
+	<register id="USBCOUNT0" acronym="USBCOUNT0" offset="262" width="16" description="USBCOUNT0" >
+		<bitfield id="USBCOUNT0" width="8" begin="7" end="0" resetval="0" description="USB Receive Byte Count Endpoint 0" range="" rwaccess="RW" />
+	</register>
+	<!--  1 empty  -->
+	<register id="USB_TYPE0_NAKLMT" acronym="USB_TYPE0_NAKLMT" offset="264" width="16" description="USB TYPE0 and NAKLMT" >
+		<bitfield id="USBTYPE0" width="8" begin="7" end="0" resetval="0" description="USB Type Endpoint 0" range="" rwaccess="RW" />
+		<bitfield id="USBNAKLMT" width="8" begin="15" end="8" resetval="0" description="USB NAK Limit" range="" rwaccess="RW" />
+    	</register>
+    <!--  6 empty  -->
+    <register id="USBTXMAXP1" acronym="USBTXMAXP1" offset="272" page="1" width="16" description="USB Maximum Transmit Data Endpoint 1" />
+
+    	<register id="USB_TXCSRL1_TXCSRH1" acronym="USB_TXCSRL1_TXCSRH1" offset="274" width="16" description="USB TXCSRL1 and TXCSRH1" >
+		<bitfield id="USBTXCSRL1" width="8" begin="7" end="0" resetval="0" description="USB Transmit Control and Status Endpoint 1 Low" range="" rwaccess="RW" />
+		<bitfield id="USBTXCSRH1" width="8" begin="15" end="8" resetval="0" description="USB Transmit Control and Status Endpoint 1 High" range="" rwaccess="RW" />
+    	</register>
+
+    <register id="USBRXMAXP1" acronym="USBRXMAXP1" offset="276" page="1" width="16" description="USB Maximum Receive Data Endpoint 1" />
+
+        <register id="USB_RXCSRL1_RXCSRH1" acronym="USB_RXCSRL1_RXCSRH1" offset="278" width="16" description="USB RXCSRL1 and RXCSRH1" >
+		<bitfield id="USBRXCSRL1" width="8" begin="7" end="0" resetval="0" description="USB Receive Control and Status Endpoint 1 Low" range="" rwaccess="RW" />
+		<bitfield id="USBRXCSRH1" width="8" begin="15" end="8" resetval="0" description="USB Receive Control and Status Endpoint 1 High" range="" rwaccess="RW" />
+    	</register>
+
+    <register id="USBRXCOUNT1" acronym="USBRXCOUNT1" offset="280" page="1" width="16" description="USB Receive Byte Count Endpoint 1" />
+
+        <register id="USB_TXTYPE1_TXINTERVAL1" acronym="USB_TXTYPE1_TXINTERVAL1" offset="282" width="16" description="USB TXTYPE1 and TXINTERVAL1" >
+		<bitfield id="USBTXTYPE1" width="8" begin="7" end="0" resetval="0" description="USB Host Transmit Configure Type Endpoint 1" range="" rwaccess="RW" />
+		<bitfield id="USBTXINTERVAL1" width="8" begin="15" end="8" resetval="0" description="USB Host Transmit Interval Endpoint 1" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USB_RXTYPE1_RXINTERVAL1" acronym="USB_RXTYPE1_RXINTERVAL1" offset="284" width="16" description="USB RXTYPE1 and RXINTERVAL1" >
+		<bitfield id="USBRXTYPE1" width="8" begin="7" end="0" resetval="0" description="USB Host Receive Configure Type Endpoint 1" range="" rwaccess="RW" />
+		<bitfield id="USBRXINTERVAL1" width="8" begin="15" end="8" resetval="0" description="USB Host Receive Interval Endpoint 1" range="" rwaccess="RW" />
+    	</register>
+    <!--  2 empty  -->
+	<register id="USBTXMAXP2" acronym="USBTXMAXP2" offset="288" page="1" width="16" description="USB Maximum Transmit Data Endpoint 2" />
+
+    	<register id="USB_TXCSRL2_TXCSRH2" acronym="USB_TXCSRL2_TXCSRH2" offset="290" width="16" description="USB TXCSRL2 and TXCSRH2" >
+		<bitfield id="USBTXCSRL2" width="8" begin="7" end="0" resetval="0" description="USB Transmit Control and Status Endpoint 2 Low" range="" rwaccess="RW" />
+		<bitfield id="USBTXCSRH2" width="8" begin="15" end="8" resetval="0" description="USB Transmit Control and Status Endpoint 2 High" range="" rwaccess="RW" />
+    	</register>
+
+    <register id="USBRXMAXP2" acronym="USBRXMAXP2" offset="292" page="1" width="16" description="USB Maximum Receive Data Endpoint 2" />
+
+        <register id="USB_RXCSRL2_RXCSRH2" acronym="USB_RXCSRL2_RXCSRH2" offset="294" width="16" description="USB RXCSRL2 and RXCSRH2" >
+		<bitfield id="USBRXCSRL2" width="8" begin="7" end="0" resetval="0" description="USB Receive Control and Status Endpoint 2 Low" range="" rwaccess="RW" />
+		<bitfield id="USBRXCSRH2" width="8" begin="15" end="8" resetval="0" description="USB Receive Control and Status Endpoint 2 High" range="" rwaccess="RW" />
+    	</register>
+
+    <register id="USBRXCOUNT2" acronym="USBRXCOUNT2" offset="296" page="1" width="16" description="USB Receive Byte Count Endpoint 2" />
+
+        <register id="USB_TXTYPE2_TXINTERVAL2" acronym="USB_TXTYPE2_TXINTERVAL2" offset="298" width="16" description="USB TXTYPE2 and TXINTERVAL2" >
+		<bitfield id="USBTXTYPE2" width="8" begin="7" end="0" resetval="0" description="USB Host Transmit Configure Type Endpoint 2" range="" rwaccess="RW" />
+		<bitfield id="USBTXINTERVAL2" width="8" begin="15" end="8" resetval="0" description="USB Host Transmit Interval Endpoint 2" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USB_RXTYPE2_RXINTERVAL2" acronym="USB_RXTYPE2_RXINTERVAL2" offset="300" width="16" description="USB RXTYPE2 and RXINTERVAL2" >
+		<bitfield id="USBRXTYPE2" width="8" begin="7" end="0" resetval="0" description="USB Host Receive Configure Type Endpoint 2" range="" rwaccess="RW" />
+		<bitfield id="USBRXINTERVAL2" width="8" begin="15" end="8" resetval="0" description="USB Host Receive Interval Endpoint 2" range="" rwaccess="RW" />
+    	</register>
+    <!--  2 empty  -->
+	<register id="USBTXMAXP3" acronym="USBTXMAXP3" offset="304" page="1" width="16" description="USB Maximum Transmit Data Endpoint 3" />
+
+    	<register id="USB_TXCSRL3_TXCSRH3" acronym="USB_TXCSRL3_TXCSRH3" offset="306" width="16" description="USB TXCSRL32 and TXCSRH3" >
+		<bitfield id="USBTXCSRL3" width="8" begin="7" end="0" resetval="0" description="USB Transmit Control and Status Endpoint 3 Low" range="" rwaccess="RW" />
+		<bitfield id="USBTXCSRH3" width="8" begin="15" end="8" resetval="0" description="USB Transmit Control and Status Endpoint 3 High" range="" rwaccess="RW" />
+    	</register>
+
+    <register id="USBRXMAXP3" acronym="USBRXMAXP3" offset="308" page="1" width="16" description="USB Maximum Receive Data Endpoint 3" />
+
+        <register id="USB_RXCSRL3_RXCSRH3" acronym="USB_RXCSRL3_RXCSRH3" offset="310" width="16" description="USB RXCSRL3 and RXCSRH3" >
+		<bitfield id="USBRXCSRL3" width="8" begin="7" end="0" resetval="0" description="USB Receive Control and Status Endpoint 3 Low" range="" rwaccess="RW" />
+		<bitfield id="USBRXCSRH3" width="8" begin="15" end="8" resetval="0" description="USB Receive Control and Status Endpoint 3 High" range="" rwaccess="RW" />
+    	</register>
+
+    <register id="USBRXCOUNT3" acronym="USBRXCOUNT3" offset="312" page="1" width="16" description="USB Receive Byte Count Endpoint 3" />
+
+        <register id="USB_TXTYPE3_TXINTERVAL3" acronym="USB_TXTYPE3_TXINTERVAL3" offset="314" width="16" description="USB TXTYPE3 and TXINTERVAL3" >
+		<bitfield id="USBTXTYPE3" width="8" begin="7" end="0" resetval="0" description="USB Host Transmit Configure Type Endpoint 3" range="" rwaccess="RW" />
+		<bitfield id="USBTXINTERVAL3" width="8" begin="15" end="8" resetval="0" description="USB Host Transmit Interval Endpoint 3" range="" rwaccess="RW" />
+    	</register>
+
+        <register id="USB_RXTYPE3_RXINTERVAL3" acronym="USB_RXTYPE3_RXINTERVAL3" offset="316" width="16" description="USB RXTYPE3 and RXINTERVAL3" >
+		<bitfield id="USBRXTYPE3" width="8" begin="7" end="0" resetval="0" description="USB Host Receive Configure Type Endpoint 3" range="" rwaccess="RW" />
+		<bitfield id="USBRXINTERVAL3" width="8" begin="15" end="8" resetval="0" description="USB Host Receive Interval Endpoint 3" range="" rwaccess="RW" />
+    	</register>
+    <!--  454 empty  -->
+    <register id="USBRQPKTCOUNT1" acronym="USBRQPKTCOUNT1" offset="772" page="1" width="16" description="USB Request Packet Count in Block Transfer Endpoint 1" />
+    <!--  2 empty  -->
+    <register id="USBRQPKTCOUNT2" acronym="USBRQPKTCOUNT2" offset="776" page="1" width="16" description="USB Request Packet Count in Block Transfer Endpoint 2" />
+    <!--  2 empty  -->
+    <register id="USBRQPKTCOUNT3" acronym="USBRQPKTCOUNT3" offset="780" page="1" width="16" description="USB Request Packet Count in Block Transfer Endpoint 3" />
+    <!--  50 empty  -->
+    <register id="USBRXDPKTBUFDIS" acronym="USBRXDPKTBUFDIS" offset="832" page="1" width="16" description="USB Receive Double Packet Buffer Disable" />
+    <register id="USBTXDPKTBUFDIS" acronym="USBTXDPKTBUFDIS" offset="834" page="1" width="16" description="USB Transmit Double Packet Buffer Disable" />
+    <!--  188 empty  -->
+    <register id="USBEPC" acronym="USBEPC" offset="1024" page="1" width="32" description="USB External Power Control" />
+    <register id="USBEPCRIS" acronym="USBEPCRIS" offset="1028" page="1" width="32" description="USB External Power Control Raw Interrupt Status" />
+    <register id="USBEPCIM" acronym="USBEPCIM" offset="1032" page="1" width="32" description="USB External Power Control Interrupt Mask" />
+    <register id="USBEPCISC" acronym="USBEPCISC" offset="1036" page="1" width="32" description="USB External Power Control Interrupt Status and Clear" />
+    <register id="USBDRRIS" acronym="USBDRRIS" offset="1040" page="1" width="32" description="USB Device RESUME Raw Interrupt Status" />
+    <register id="USBDRIM" acronym="USBDRIM" offset="1044" page="1" width="32" description="USB Device RESUME Interrupt Mask" />
+    <register id="USBDRISC" acronym="USBDRISC" offset="1048" page="1" width="32" description="USB Device RESUME Interrupt Status and Clear" />
+    <register id="USBGPCS" acronym="USBGPCS" offset="1052" page="1" width="32" description="USB General-Purpose Control and Status" />
+    <!--  16 empty  -->
+    <register id="USBVDC" acronym="USBVDC" offset="1072" page="1" width="32" description="USB VBUS Droop Control" />
+    <register id="USBVDCRIS" acronym="USBVDCRIS" offset="1076" page="1" width="32" description="USB VBUS Droop Control Raw Interrupt Status" />
+    <register id="USBVDCIM" acronym="USBVDCIM" offset="1080" page="1" width="32" description="USB VBUS Droop Control Interrupt Mask" />
+    <register id="USBVDCISC" acronym="USBVDCISC" offset="1084" page="1" width="32" description="USB VBUS Droop Control Interrupt Status and Clear" />
+    <!--  4 empty  -->
+    <register id="USBIDVRIS" acronym="USBIDVRIS" offset="1092" page="1" width="32" description="USB ID Valid Detect Raw Interrupt Status" />
+    <register id="USBIDVIM" acronym="USBIDVIM" offset="1096" page="1" width="32" description="USB ID Valid Detect Interrupt Mask" />
+    <register id="USBIDVISC" acronym="USBIDVISC" offset="1100" page="1" width="32" description="USB ID Valid Detect Interrupt Status and Clear" />
+    <register id="USBDMASEL" acronym="USBDMASEL" offset="1104" page="1" width="32" description="USB DMA Select" />
+</module>

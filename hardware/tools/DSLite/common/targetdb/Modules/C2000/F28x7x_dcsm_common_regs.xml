@@ -1,0 +1,34 @@
+<module id="DCSM_COMMON_REGS" HW_revision="" description="DCSM COMMON Registers">
+	<register id="FLSEM" width="32" page="1" offset="0x0" internal="0" description="Flash Wrapper Semaphore Register">
+		<bitfield id="SEM" description="Flash Semaphore Bit" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="KEY" description="Semaphore Key" begin="15" end="8" width="8" rwaccess="R=0/W"/>
+	</register>
+	<register id="SECTSTAT" width="32" page="1" offset="0x2" internal="0" description="Sectors Status Register">
+		<bitfield id="STATUS_SECTA" description="Zone Status Flash Sector A" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTB" description="Zone Status Flash Sector B" begin="3" end="2" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTC" description="Zone Status Flash Sector C" begin="5" end="4" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTD" description="Zone Status Flash Sector D " begin="7" end="6" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTE" description="Zone Status Flash Sector E" begin="9" end="8" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTF" description="Zone Status Flash Sector F " begin="11" end="10" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTG" description="Zone Status Flash Sector G " begin="13" end="12" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTH" description="Zone Status Flash Sector H" begin="15" end="14" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTI" description="Zone Status Flash Sector I" begin="17" end="16" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTJ" description="Zone Status Flash Sector J" begin="19" end="18" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTK" description="Zone Status Flash Sector K" begin="21" end="20" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTL" description="Zone Status Flash Sector L" begin="23" end="22" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTM" description="Zone Status Flash Sector M" begin="25" end="24" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_SECTN" description="Zone Status Flash Sector N" begin="27" end="26" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_BANK1" description="Zone Status Flash BANK1" begin="29" end="28" width="2" rwaccess="R"/>
+	</register>
+	<register id="RAMSTAT" width="32" page="1" offset="0x4" internal="0" description="RAM Status Register">
+		<bitfield id="STATUS_RAM0" description="Zone Status RAM LS0" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_RAM1" description="Zone Status RAM LS1" begin="3" end="2" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_RAM2" description="Zone Status RAM LS2" begin="5" end="4" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_RAM3" description="Zone Status RAM LS3" begin="7" end="6" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_RAM4" description="Zone Status RAM LS4" begin="9" end="8" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_RAM5" description="Zone Status RAM LS5" begin="11" end="10" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_RAM6" description="Zone Status RAM D0" begin="13" end="12" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_RAM7" description="Zone Status RAM D1" begin="15" end="14" width="2" rwaccess="R"/>
+		<bitfield id="STATUS_CLA1" description="Zone Status CLA1" begin="29" end="28" width="2" rwaccess="R"/>
+	</register>
+</module>

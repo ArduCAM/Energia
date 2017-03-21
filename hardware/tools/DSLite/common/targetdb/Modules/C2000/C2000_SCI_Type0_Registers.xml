@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:50:24 $
+  -->
+
+
+<!-- TMS320C2000 Serial Communication Interface Registers
+     =====================================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="SCI" HW_revision="" XML_version="1" description="Serial Communication Interface Registers">
+	<register id="SCICCR" acronym="SCICCR" offset="0" page="1" width="16" description="SCI Communications Control Register" /> 
+	<register id="SCICTL1" acronym="SCICTL1" offset="1" page="1" width="16" description="SCI Control Register 1" />
+	<register id="SCIHBAUD" acronym="SCIHBAUD" offset="2" page="1" width="16" description="SCI Baud Register, High Bits" />
+	<register id="SCILBAUD" acronym="SCILBAUD" offset="3" page="1" width="16" description="SCI Baud Register, Low Bits" />
+	<register id="SCICTL2" acronym="SCICTL2" offset="4" page="1" width="16" description="SCI Control Register 2" />
+	<register id="SCIRXST" acronym="SCIRXST" offset="5" page="1" width="16" description="SCI Receive Status Register" />
+	<register id="SCIRXEMU" acronym="SCIRXEMU" offset="6" page="1" width="16" description="SCI Receive Emulation Data Buffer Register" />
+	<register id="SCIRXBUF" acronym="SCIRXBUF" offset="7" page="1" width="16" description="SCI Receive Data Buffer Register" />
+   	<!-- 1 empty -->
+	<register id="SCITXBUF" acronym="SCITXBUF" offset="9" page="1" width="16" description="SCI Transmit Data Buffer Register" />
+	<register id="SCIFFTX" acronym="SCIFFTX" offset="10" page="1" width="16" description="SCI FIFO Transmit Register" />
+	<register id="SCIFFRX" acronym="SCIFFRX" offset="11" page="1" width="16" description="SCI FIFO Receive Register" />
+	<register id="SCIFFCT" acronym="SCIFFCT" offset="12" page="1" width="16" description="SCI FIFO Control Register" />
+	<!-- 2 empty -->
+	<register id="SCIPRI" acronym="SCIPRI" offset="15" page="1" width="16" description="SCI Priority Control Register" />
+</module>

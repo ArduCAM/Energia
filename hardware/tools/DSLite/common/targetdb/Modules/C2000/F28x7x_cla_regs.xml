@@ -1,0 +1,132 @@
+<module id="CLA_REGS" HW_revision="" description="CLA Registers">
+	<register id="MVECT1" width="16" page="1" offset="0x0" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MVECT2" width="16" page="1" offset="0x1" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MVECT3" width="16" page="1" offset="0x2" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MVECT4" width="16" page="1" offset="0x3" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MVECT5" width="16" page="1" offset="0x4" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MVECT6" width="16" page="1" offset="0x5" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MVECT7" width="16" page="1" offset="0x6" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MVECT8" width="16" page="1" offset="0x7" internal="0" description="Task Interrupt Vector">
+		<bitfield id="MVECT" description="Offset of the first instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MCTL" width="16" page="1" offset="0x10" internal="0" description="Control Register">
+		<bitfield id="HARDRESET" description="Hard Reset" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SOFTRESET" description="Soft Reset" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="IACKE" description="IACK enable" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="MIFR" width="16" page="1" offset="0x20" internal="0" description="Interrupt Flag Register">
+		<bitfield id="INT1" description="Task 1 Interrupt Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INT2" description="Task 2 Interrupt Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INT3" description="Task 3 Interrupt Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="INT4" description="Task 4 Interrupt Flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="INT5" description="Task 5 Interrupt Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="INT6" description="Task 6 Interrupt Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="INT7" description="Task 7 Interrupt Flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="INT8" description="Task 8 Interrupt Flag" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="MIOVF" width="16" page="1" offset="0x21" internal="0" description="Interrupt Overflow Flag Register">
+		<bitfield id="INT1" description="Task 1 Interrupt Overflow Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INT2" description="Task 2 Interrupt Overflow Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INT3" description="Task 3 Interrupt Overflow Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="INT4" description="Task 4 Interrupt Overflow Flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="INT5" description="Task 5 Interrupt Overflow Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="INT6" description="Task 6 Interrupt Overflow Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="INT7" description="Task 7 Interrupt Overflow Flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="INT8" description="Task 8 Interrupt Overflow Flag" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="MIFRC" width="16" page="1" offset="0x22" internal="0" description="Interrupt Force Register">
+		<bitfield id="INT1" description="Task 1 Interrupt Force" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INT2" description="Task 2 Interrupt Force" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INT3" description="Task 3 Interrupt Force" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INT4" description="Task 4 Interrupt Force" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INT5" description="Task 5 Interrupt Force" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INT6" description="Task 6 Interrupt Force" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INT7" description="Task 7 Interrupt Force" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INT8" description="Task 8 Interrupt Force" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="MICLR" width="16" page="1" offset="0x23" internal="0" description="Interrupt Flag Clear Register">
+		<bitfield id="INT1" description="Task 1 Interrupt Flag Clear" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INT2" description="Task 2 Interrupt Flag Clear" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INT3" description="Task 3 Interrupt Flag Clear" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INT4" description="Task 4 Interrupt Flag Clear" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INT5" description="Task 5 Interrupt Flag Clear" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INT6" description="Task 6 Interrupt Flag Clear" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INT7" description="Task 7 Interrupt Flag Clear" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INT8" description="Task 8 Interrupt Flag Clear" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="MICLROVF" width="16" page="1" offset="0x24" internal="0" description="Interrupt Overflow Flag Clear Register">
+		<bitfield id="INT1" description="Task 1 Interrupt Overflow Flag Clear" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INT2" description="Task 2 Interrupt Overflow Flag Clear" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INT3" description="Task 3 Interrupt Overflow Flag Clear" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INT4" description="Task 4 Interrupt Overflow Flag Clear" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INT5" description="Task 5 Interrupt Overflow Flag Clear" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INT6" description="Task 6 Interrupt Overflow Flag Clear" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INT7" description="Task 7 Interrupt Overflow Flag Clear" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INT8" description="Task 8 Interrupt Overflow Flag Clear" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="MIER" width="16" page="1" offset="0x25" internal="0" description="Interrupt Enable Register">
+		<bitfield id="INT1" description="Task 1 Interrupt Enable" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INT2" description="Task 2 Interrupt Enable" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INT3" description="Task 3 Interrupt Enable" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="INT4" description="Task 4 Interrupt Enable" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="INT5" description="Task 5 Interrupt Enable" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="INT6" description="Task 6 Interrupt Enable" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="INT7" description="Task 7 Interrupt Enable" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="INT8" description="Task 8 Interrupt Enable" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="MIRUN" width="16" page="1" offset="0x26" internal="0" description="Interrupt Run Status Register">
+		<bitfield id="INT1" description="Task 1 Run Status" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INT2" description="Task 2 Run Status" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INT3" description="Task 3 Run Status" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="INT4" description="Task 4 Run Status" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="INT5" description="Task 5 Run Status" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="INT6" description="Task 6 Run Status" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="INT7" description="Task 7 Run Status" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="INT8" description="Task 8 Run Status" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="_MPC" width="16" page="1" offset="0x28" internal="0" description="CLA Program Counter">
+		<bitfield id="_MPC" description="Points to the instruction" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="_MAR0" width="16" page="1" offset="0x2a" internal="0" description="CLA Auxiliary Register 0">
+		<bitfield id="_MAR0" description="CLA Auxillary Register 0" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="_MAR1" width="16" page="1" offset="0x2b" internal="0" description="CLA Auxiliary Register 1">
+		<bitfield id="_MAR1" description="CLA Auxillary Register 1" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="_MSTF" width="32" page="1" offset="0x2e" internal="0" description="CLA Floating-Point Status Register">
+		<bitfield id="LVF" description="Latched Overflow Flag " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="LUF" description="Latched Underflow Flag " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="NF" description="Negative Float Flag " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ZF" description="Zero Float Flag" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="TF" description="Test Flag " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="RNDF32" description="Round 32-bit Floating-Point Mode" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MEALLOW" description="MEALLOW Status" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="_RPC" description="Return PC" begin="27" end="12" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="_MR0" width="32" page="1" offset="0x30" internal="0" description="CLA Floating-Point Result Register 0">
+		<bitfield id="i32" description="CLA Result Register 0" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="_MR1" width="32" page="1" offset="0x34" internal="0" description="CLA Floating-Point Result Register 1">
+		<bitfield id="i32" description="CLA Result Register 1" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="_MR2" width="32" page="1" offset="0x38" internal="0" description="CLA Floating-Point Result Register 2">
+		<bitfield id="i32" description="CLA Result Register 2" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="_MR3" width="32" page="1" offset="0x3c" internal="0" description="CLA Floating-Point Result Register 3">
+		<bitfield id="i32" description="CLA Result Register 3" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+</module>

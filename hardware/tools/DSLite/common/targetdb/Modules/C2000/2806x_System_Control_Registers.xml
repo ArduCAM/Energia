@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+  TI File $Revision: 
+  Checkin $Date: 
+  --> 
+
+<!--  TMS320x2806x System Control Registers 
+     =================================== 
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     --> 
+<module id="SYSCTRL" HW_revision="" XML_version="1" description="System Control Registers">
+    <register id="XCLK" acronym="XCLK" offset="0" page="1" width="16" description="XCLKOUT Control" />
+    <register id="PLLSTS" acronym="PLLSTS" offset="1" page="1" width="16" description="PLL Status Register" />
+    <register id="CLKCTL" acronym="CLKCTL" offset="2" page="1" width="16" description="Clock Control Register" />
+    <register id="PLLLOCKPRD" acronym="PLLLOCKPRD" offset="3" page="1" width="16" description="PLL Lock Period Register" />
+    <register id="INTOSC1TRIM" acronym="INTOSC1TRIM" offset="4" page="1" width="16" description="Internal Oscillator 1 Trim Register" />
+    <!--  1 empty  -->
+    <register id="INTOSC2TRIM" acronym="INTOSC2TRIM" offset="6" page="1" width="16" description="Internal 32KHz Oscillator 2 Trim Register" />
+    <!--  2 empty  -->
+    <register id="PCLKCR2" acronym="PCLKCR2" offset="9" page="1" width="16" description="Peripheral Clock Control Register 2" />
+    <!--  1 empty  -->
+    <register id="LOSPCP" acronym="LOSPCP" offset="11" page="1" width="16" description="Low-Speed Peripheral Clock Pre-Scaler Register" />
+    <register id="PCLKCR0" acronym="PCLKCR0" offset="12" page="1" width="16" description="Peripheral Clock Control Register 0" />
+    <register id="PCLKCR1" acronym="PCLKCR1" offset="13" page="1" width="16" description="Peripheral Clock Control Register 1" />
+    <register id="LPMCR0" acronym="LPMCR0" offset="14" page="1" width="16" description="Low Power Mode Control Register 0" />
+    <!--  1 empty  -->
+    <register id="PCLKCR3" acronym="PCLKCR3" offset="16" page="1" width="16" description="Peripheral Clock Control Register 3" />
+    <register id="PLLCR" acronym="PLLCR" offset="17" page="1" width="16" description="PLL Control Register" />
+    <register id="SCSR" acronym="SCSR" offset="18" page="1" width="16" description="System Control and Status Register" />
+    <register id="WDCNTR" acronym="WDCNTR" offset="19" page="1" width="16" description="Watchdog Counter Register" />
+    <!--  1 empty  -->
+    <register id="WDKEY" acronym="WDKEY" offset="21" page="1" width="16" description="Watchdog Reset Key Register" />
+    <!--  3 empty  -->
+    <register id="WDCR" acronym="WDCR" offset="25" page="1" width="16" description="Watchdog Control Register" />
+    <register id="JTAGDEBUG" acronym="JTAGDEBUG" offset="26" page="1" width="16" description="JTAG Port Debug Register" />
+    <!--  5 empty  -->
+    <register id="PLL2CTL" acronym="PLL2CTL" offset="32" page="1" width="16" description="PLL2 Configuration Register" />
+    <!--  1 empty  -->
+    <register id="PLL2MULT" acronym="PLL2MULT" offset="34" page="1" width="16" description="PLL2 Multiplier Register" />
+    <!--  1 empty  -->
+    <register id="PLL2STS" acronym="PLL2STS" offset="36" page="1" width="16" description="PLL2 Lock Status Register" />
+    <!--  1 empty  -->
+    <register id="SYSCLK2CNTR" acronym="SYSCLK2CNTR" offset="38" page="1" width="16" description="Sys Clock 2 Counter Register" />
+    <!--  3 empty  -->
+    <register id="EPWMCFG" acronym="EPWMCFG" offset="42" page="1" width="16" description="EPWM DMA/CLA Configuration Register" />
+    <!--  5 empty  -->
+</module>

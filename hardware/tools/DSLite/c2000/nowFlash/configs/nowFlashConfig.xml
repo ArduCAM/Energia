@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="file:../schema/nowFlashConfig.xsd">
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="nowFlashLibraries.xml"/>
+    <Devices>
+        <!-- C2000 F021 devices -->
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="F28M35x.C28x.xml"/>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="F28M35x.M3.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="F28M36x.C28x.xml"/>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="F28M36x.M3.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="F2837xD.CPU1.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="F2837xD.CPU2.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="TMS320F2837xS.xml"/>
+    </Devices>
+</Config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<drivers id="CORTEX_M4">
+	<isa Type="CORTEX_M4_CC" ProcID="0x75803800">
+		<driver file="../../../DebugServer/drivers/icdi_emu.dvr">
+			<property Type="hiddenfield" Value="DebugLib.dll" id="dllName" />
+			<property Type="stringfield" Value="500000" id="JTAG Frequency (Hz)" />
+			<property Name="Port" desc="Port" Type="choicelist" id="debugPort" Value="0">
+				<choice Name="JTAG" value="0"/>
+				<choice Name="SWD" value="1"/>
+			</property>
+			<connectionType Type="LM_ICDI"/>
+		</driver>
+	</isa>
+</drivers>

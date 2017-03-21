@@ -1,0 +1,100 @@
+<module id="EMIF_REGS" HW_revision="" description="EMIF Registers">
+	<register id="RCSR" width="32" page="1" offset="0x0" internal="0" description="Revision Code and Status Register">
+		<bitfield id="MINOR_REVISION" description="Minor Revision. " begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="MAJOR_REVISION" description="Major Revision. " begin="15" end="8" width="8" rwaccess="R"/>
+		<bitfield id="MODULE_ID" description="EMIF module ID." begin="29" end="16" width="14" rwaccess="R"/>
+		<bitfield id="FR" description="EMIF is running in full rate or half rate." begin="30" end="30" width="1" rwaccess="R"/>
+		<bitfield id="BE" description="EMIF endian mode." begin="31" end="31" width="1" rwaccess="R"/>
+	</register>
+	<register id="ASYNC_WCCR" width="32" page="1" offset="0x2" internal="0" description="Async Wait Cycle Config Register">
+		<bitfield id="MAX_EXT_WAIT" description="Maximum Extended Wait cycles." begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="WP0" description=" Polarity for EMxWAIT." begin="28" end="28" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SDRAM_CR" width="32" page="1" offset="0x4" internal="0" description="SDRAM (EMxCS0n) Config Register">
+		<bitfield id="PAGESIGE" description="Page Size." begin="2" end="0" width="3" rwaccess="R/W"/>
+		<bitfield id="IBANK" description="Internal Bank setup of SDRAM devices." begin="6" end="4" width="3" rwaccess="R/W"/>
+		<bitfield id="BIT_11_9_LOCK" description="Bits 11 to 9 are writable only if this bit is set." begin="8" end="8" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CL" description="CAS Latency." begin="11" end="9" width="3" rwaccess="R/W"/>
+		<bitfield id="NM" description="Narrow Mode." begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="PDWR" description="Perform refreshes during Power Down." begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="PD" description="Power Down." begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="SR" description="Self Refresh." begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SDRAM_RCR" width="32" page="1" offset="0x6" internal="0" description="SDRAM Refresh Control Register">
+		<bitfield id="REFRESH_RATE" description="Refresh Rate." begin="12" end="0" width="13" rwaccess="R/W"/>
+	</register>
+	<register id="ASYNC_CS2_CR" width="32" page="1" offset="0x8" internal="0" description="Async 1 (EMxCS2n) Config Register">
+		<bitfield id="ASIZE" description="Asynchronous Memory Size." begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="TA" description="Turn Around cycles." begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="R_HOLD" description="Read Strobe Hold cycles." begin="6" end="4" width="3" rwaccess="R/W"/>
+		<bitfield id="R_STROBE" description="Read Strobe Duration cycles." begin="12" end="7" width="6" rwaccess="R/W"/>
+		<bitfield id="R_SETUP" description="Read Strobe Setup cycles." begin="16" end="13" width="4" rwaccess="R/W"/>
+		<bitfield id="W_HOLD" description="Write Strobe Hold cycles." begin="19" end="17" width="3" rwaccess="R/W"/>
+		<bitfield id="W_STROBE" description="Write Strobe Duration cycles." begin="25" end="20" width="6" rwaccess="R/W"/>
+		<bitfield id="W_SETUP" description="Write Strobe Setup cycles." begin="29" end="26" width="4" rwaccess="R/W"/>
+		<bitfield id="EW" description="Extend Wait mode." begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="SS" description="Select Strobe mode." begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ASYNC_CS3_CR" width="32" page="1" offset="0xa" internal="0" description="Async 2 (EMxCS3n) Config Register">
+		<bitfield id="ASIZE" description="Asynchronous Memory Size." begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="TA" description="Turn Around cycles." begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="R_HOLD" description="Read Strobe Hold cycles." begin="6" end="4" width="3" rwaccess="R/W"/>
+		<bitfield id="R_STROBE" description="Read Strobe Duration cycles." begin="12" end="7" width="6" rwaccess="R/W"/>
+		<bitfield id="R_SETUP" description="Read Strobe Setup cycles." begin="16" end="13" width="4" rwaccess="R/W"/>
+		<bitfield id="W_HOLD" description="Write Strobe Hold cycles." begin="19" end="17" width="3" rwaccess="R/W"/>
+		<bitfield id="W_STROBE" description="Write Strobe Duration cycles." begin="25" end="20" width="6" rwaccess="R/W"/>
+		<bitfield id="W_SETUP" description="Write Strobe Setup cycles." begin="29" end="26" width="4" rwaccess="R/W"/>
+		<bitfield id="EW" description="Extend Wait mode." begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="SS" description="Select Strobe mode." begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ASYNC_CS4_CR" width="32" page="1" offset="0xc" internal="0" description="Async 3 (EMxCS4n) Config Register">
+		<bitfield id="ASIZE" description="Asynchronous Memory Size." begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="TA" description="Turn Around cycles." begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="R_HOLD" description="Read Strobe Hold cycles." begin="6" end="4" width="3" rwaccess="R/W"/>
+		<bitfield id="R_STROBE" description="Read Strobe Duration cycles." begin="12" end="7" width="6" rwaccess="R/W"/>
+		<bitfield id="R_SETUP" description="Read Strobe Setup cycles." begin="16" end="13" width="4" rwaccess="R/W"/>
+		<bitfield id="W_HOLD" description="Write Strobe Hold cycles." begin="19" end="17" width="3" rwaccess="R/W"/>
+		<bitfield id="W_STROBE" description="Write Strobe Duration cycles." begin="25" end="20" width="6" rwaccess="R/W"/>
+		<bitfield id="W_SETUP" description="Write Strobe Setup cycles." begin="29" end="26" width="4" rwaccess="R/W"/>
+		<bitfield id="EW" description="Extend Wait mode." begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="SS" description="Select Strobe mode." begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SDRAM_TR" width="32" page="1" offset="0x10" internal="0" description="SDRAM Timing Register">
+		<bitfield id="T_RRD" description="Activate to Activate timing for different bank." begin="6" end="4" width="3" rwaccess="R/W"/>
+		<bitfield id="T_RC" description="Activate to Activate timing ." begin="11" end="8" width="4" rwaccess="R/W"/>
+		<bitfield id="T_RAS" description="Activate to Precharge timing." begin="15" end="12" width="4" rwaccess="R/W"/>
+		<bitfield id="T_WR" description="Last Write to Precharge timing." begin="18" end="16" width="3" rwaccess="R/W"/>
+		<bitfield id="T_RCD" description="Activate to Read/Write timing." begin="22" end="20" width="3" rwaccess="R/W"/>
+		<bitfield id="T_RP" description="Precharge to Activate/Refresh timing." begin="26" end="24" width="3" rwaccess="R/W"/>
+		<bitfield id="T_RFC" description="Refresh/Load Mode to Refresh/Activate timing" begin="31" end="27" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="TOTAL_SDRAM_AR" width="32" page="1" offset="0x18" internal="0" description="Total SDRAM Accesses Register">
+		<bitfield id="TOTAL_SDRAM_AR" description="Total number of  accesses to SDRAM from master side" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="TOTAL_SDRAM_ACTR" width="32" page="1" offset="0x1a" internal="0" description="Total SDRAM Activate Register">
+		<bitfield id="TOTAL_SDRAM_ACTR" description="Number of SDRAM accesses which required an activate command." begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="SDR_EXT_TMNG" width="32" page="1" offset="0x1e" internal="0" description="SDRAM SR/PD Exit Timing Register">
+		<bitfield id="T_XS" description="Self Refresh exit to new command timing." begin="4" end="0" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="INT_RAW" width="32" page="1" offset="0x20" internal="0" description="Interrupt Raw Register">
+		<bitfield id="AT" description="Asynchronous Timeout." begin="0" end="0" width="1" rwaccess="R/W=1"/>
+		<bitfield id="LT" description="Line Trap." begin="1" end="1" width="1" rwaccess="R/W=1"/>
+		<bitfield id="WR" description="Wait Rise." begin="5" end="2" width="4" rwaccess="R/W=1"/>
+	</register>
+	<register id="INT_MSK" width="32" page="1" offset="0x22" internal="0" description="Interrupt Masked Register">
+		<bitfield id="AT_MASKED" description="Asynchronous Timeout." begin="0" end="0" width="1" rwaccess="R/W=1"/>
+		<bitfield id="LT_MASKED" description="Line Trap." begin="1" end="1" width="1" rwaccess="R/W=1"/>
+		<bitfield id="WR_MASKED" description="Wait Rise." begin="5" end="2" width="4" rwaccess="R/W=1"/>
+	</register>
+	<register id="INT_MSK_SET" width="32" page="1" offset="0x24" internal="0" description="Interrupt Mask Set Register">
+		<bitfield id="AT_MASK_SET" description="Asynchronous Timeout." begin="0" end="0" width="1" rwaccess="R/W=1"/>
+		<bitfield id="LT_MASK_SET" description="Line Trap." begin="1" end="1" width="1" rwaccess="R/W=1"/>
+		<bitfield id="WR_MASK_SET" description="Wait Rise." begin="5" end="2" width="4" rwaccess="R/W=1"/>
+	</register>
+	<register id="INT_MSK_CLR" width="32" page="1" offset="0x26" internal="0" description="Interrupt Mask Clear Register">
+		<bitfield id="AT_MASK_CLR" description="Asynchronous Timeout." begin="0" end="0" width="1" rwaccess="R/W=1"/>
+		<bitfield id="LT_MASK_CLR" description="Line Trap." begin="1" end="1" width="1" rwaccess="R/W=1"/>
+		<bitfield id="WR_MASK_CLR" description="Wait Rise." begin="5" end="2" width="4" rwaccess="R/W=1"/>
+	</register>
+</module>

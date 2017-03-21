@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AON_SYSCTL" HW_revision="" XML_version="1.0" description="This component controls AON_SYSCTL, which is the device&#39;s system controller.
+
+Note: This module is only supporting 32 bit ReadWrite access from MCU
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="PWRCTL" width="32" description="Power Management
+
+This register controls bitfields for setting low level power management features such as selection of  regulator for VDDR supply and control of IO ring where certain segments can be enabled / disabled.
+ " id="PWRCTL" offset="0x0">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Select to use DCDC regulator for VDDR in active mode 
+
+0: Use GLDO for regulation of VDDRin active mode. 
+1: Use DCDC for regulation of VDDRin active mode. 
+
+" id="DCDC_ACTIVE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Status of source for VDDRsupply:
+
+0: DCDC/GLDO are generating VDDR
+1: DCDC/GLDO are bypassed, external regulator supplies VDDR
+
+" id="EXT_REG_MODE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Select to use DCDC regulator during recharge of VDDR
+
+0: Use GLDO for recharge of VDDR
+1: Use DCDC for recharge of VDDR
+
+Note: This bitfield should be set to the same as DCDC_ACTIVE
+" id="DCDC_EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RESETCTL" width="32" description="Reset Management
+
+This register contains bitfields releated to system reset such as reset source and reset request  and control of brown out resets.  
+" id="RESETCTL" offset="0x4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="WO" description="Cold reset register. Writing 1 to this bitfield will reset the entire chip and cause boot code to run again.
+
+0: No effect
+1: Generate system reset. Appears as SYSRESET in RESET_SRC.
+
+" id="SYSRESET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="5" end="26" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED26" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BOOT_DET_1_CLR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BOOT_DET_0_CLR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="6" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BOOT_DET_1_SET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BOOT_DET_0_SET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="A Wakeup from SHUTDOWN on an IO event has occurred, or a wakeup from SHUTDOWN has occurred as a result of the debugger being attached.. (TCK pin being forced low) 
+
+Please refer to [IOC:IOCFGn,.WU_CFG] for configuring the IO&#39;s as wakeup sources.
+
+0: Wakeup occurred from cold reset or brown out as seen in RESET_SRC
+1: A wakeup has occurred from SHUTDOWN
+
+Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset
+" id="WU_FROM_SD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="A wakeup from SHUTDOWN on an IO event has occurred 
+
+Please refer to [IOC:IOCFGn,.WU_CFG] for configuring the IO&#39;s as wakeup sources.
+
+0: The wakeup did not occur from SHUTDOWN on an IO event
+1: A wakeup from SHUTDOWN occurred from an IO event
+
+The case where WU_FROM_SD is asserted but this bitfield is not asserted will only occur in a debug session. The boot code will not proceed with wakeup from SHUTDOWN procedure until this bitfield is asserted as well.
+
+Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset
+" id="GPIO_WU_FROM_SD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="BOOT_DET_1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="BOOT_DET_0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Override of VDDS_LOSS_EN
+
+0: Brown out detect of VDDS is ignored, unless VDDS_LOSS_EN=1
+1: Brown out detect of VDDS generates system reset (regardless of  VDDS_LOSS_EN)
+
+This bit can be locked
+" id="VDDS_LOSS_EN_OVR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Override of VDDR_LOSS_EN
+
+0: Brown out detect of VDDR is ignored, unless VDDR_LOSS_EN=1
+1: Brown out detect of VDDR generates system reset (regardless of  VDDR_LOSS_EN)
+
+This bit can be locked
+" id="VDDR_LOSS_EN_OVR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Override of VDD_LOSS_EN
+
+0: Brown out detect of VDD is ignored, unless VDD_LOSS_EN=1
+1: Brown out detect of VDD generates system reset (regardless of  VDD_LOSS_EN)
+
+This bit can be locked
+" id="VDD_LOSS_EN_OVR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Controls reset generation in case VDDS is lost
+
+0: Brown out detect of VDDS is ignored, unless VDDS_LOSS_EN_OVR=1
+1: Brown out detect of VDDS generates system reset 
+
+" id="VDDS_LOSS_EN" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Controls reset generation in case VDDR is lost 
+
+0: Brown out detect of VDDR is ignored, unless VDDR_LOSS_EN_OVR=1
+1: Brown out detect of VDDR generates system reset
+
+" id="VDDR_LOSS_EN" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Controls reset generation in case VDD is lost
+
+0: Brown out detect of VDD is ignored, unless VDD_LOSS_EN_OVR=1
+1: Brown out detect of VDD generates system reset
+
+" id="VDD_LOSS_EN" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Controls reset generation in case SCLK_LF is lost.  (provided that clock loss detection is enabled by DDI_0_OSC:CTL0.CLK_LOSS_EN)
+
+Note: Clock loss reset generation must be disabled before SCLK_LF clock source is changed in  DDI_0_OSC:CTL0.SCLK_LF_SRC_SEL and remain disabled untill the change is confirmed in DDI_0_OSC:STAT0.SCLK_LF_SRC. Failure to do so may result in a spurious system reset. Clock loss reset generation can be disabled through this bitfield or by clearing  DDI_0_OSC:CTL0.CLK_LOSS_EN
+ 
+0: Clock loss is ignored
+1: Clock loss generates system reset
+
+" id="CLK_LOSS_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RO" description="Shows the source of the last system reset:
+Occurrence of one of the reset sources may trigger several other reset sources as essential parts of the system are undergoing reset. This field will report the root cause of the reset (not the other resets that are consequence of the system reset). 
+To support this feature the actual register is not captured before the reset source being released. If a new reset source is triggered, in a window of four  32 kHz periods after the previous has been released,  this register may indicate Power on reset as source.
+
+" id="RESET_SRC" resetval="0x0">
+         <bitenum id="WARMRESET" value="7" token="Software reset via PRCM warm reset request" description="Software reset via PRCM warm reset request"/>
+         <bitenum id="SYSRESET" value="6" token="Software reset via SYSRESET register" description="Software reset via SYSRESET register"/>
+         <bitenum id="CLK_LOSS" value="5" token="Clock loss detect" description="Clock loss detect"/>
+         <bitenum id="VDDR_LOSS" value="4" token="Brown out detect on VDDR" description="Brown out detect on VDDR"/>
+         <bitenum id="VDD_LOSS" value="3" token="Brown out detect on VDD" description="Brown out detect on VDD"/>
+         <bitenum id="VDDS_LOSS" value="2" token="Brown out detect on VDDS" description="Brown out detect on VDDS"/>
+         <bitenum id="PIN_RESET" value="1" token="Reset pin" description="Reset pin"/>
+         <bitenum id="PWR_ON" value="0" token="Power on reset" description="Power on reset"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SLEEPCTL" width="32" description="Sleep Mode
+
+This register is used to unfreeze the IO pad ring after waking up from SHUTDOWN
+" id="SLEEPCTL" offset="0x8">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Controls the I/O pad sleep mode. The boot code will set this bitfield automatically unless waking up from a SHUTDOWN ( RESETCTL.WU_FROM_SD is set ).  
+
+0: I/O pad sleep mode is enabled, ie all pads are latched and can not toggle.
+1: I/O pad sleep mode is disabled
+
+Application software may want to reconfigure the state for all IO&#39;s before setting this bitfield upon waking up from a SHUTDOWN.
+
+" id="IO_PAD_SLEEP_DIS" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

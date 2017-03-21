@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--                            Option of Standard or Event Trace                -->
+<!--        Trace Type                                                           -->
+<!--           |--> Standard                                                     -->
+<!--           |--> Event                                                        -->
+<!--        Action                                                               -->
+<!--        What to Trace                                                        -->
+<!--                                                                             -->
+<!-- ALLOWD_DAMELEVEL - It is a second key used by some other property that      -->
+<!--                    will use this key to put itself at the same level of     -->
+<!--                    this property instead of as the child of a property.     -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trace Type 0</NAME>	
+ 	  <DESCRIPTION>Data or event trace</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TRACE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>DUMMY</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>SAME AS DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Standard</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>Event</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>SAME AS EVENT</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>STM TRACE</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x80000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>System</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+		
+<!--=============================================================================-->
+<!--                  Options for the case there is only data trace              -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trace Type 1</NAME>	
+ 	  <DESCRIPTION>Data or event trace</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TRACE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>DUMMY</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>SAME AS DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Standard</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>STM TRACE</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x80000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>System</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>	
+		
+<!--=============================================================================-->
+<!--                  Options for the case there is no trace at all              -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Trace Type 2</NAME>	
+ 	  <DESCRIPTION>Data or event trace</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>STM TRACE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <VALUE>STM Trace</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>
+	</PROPERTY_STRING>
+		
+<!--=============================================================================-->
+<!--                  Options for the case there is no trace at all              -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>STM Trace Type</NAME>	
+ 	  <DESCRIPTION>Data or event trace</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>STM TRACE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>OCP DATA</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x80000002</ALLOWED_ENUM>
+			<ALLOWED_STRING>OCP Traffic Monitoring</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>CONTROL SMSET</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x80000005</ALLOWED_ENUM>
+			<ALLOWED_STRING>IVA_HD0 SMSET</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PERFORMANCE</ALLOWED_KEY>
+			<ALLOWED_ENUM>0xC000000A</ALLOWED_ENUM>
+			<ALLOWED_STRING>Performance Probe</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>PORT CONFIG</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x8000000F</ALLOWED_ENUM>
+			<ALLOWED_STRING>Trace Export Configuration</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+		
+</AET>

@@ -1,0 +1,92 @@
+<module id="DCSM_Z1_REGS" HW_revision="" description="DCSM Z1 Registers">
+	<register id="Z1_LINKPOINTER" width="32" page="1" offset="0x0" internal="0" description="Zone 1 Link Pointer">
+		<bitfield id="LINKPOINTER" description="Zone1 LINK Pointer." begin="28" end="0" width="29" rwaccess="R"/>
+	</register>
+	<register id="Z1_OTPSECLOCK" width="32" page="1" offset="0x2" internal="0" description="Zone 1 OTP Secure JTAG lock">
+		<bitfield id="PSWDLOCK" description="Zone1 Password Lock." begin="7" end="4" width="4" rwaccess="R"/>
+		<bitfield id="CRCLOCK" description="Zone1 CRC Lock." begin="11" end="8" width="4" rwaccess="R"/>
+	</register>
+	<register id="Z1_BOOTCTRL" width="32" page="1" offset="0x4" internal="0" description="Boot Mode">
+		<bitfield id="KEY" description="OTP Boot Key" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="BMODE" description="OTP Boot Mode" begin="15" end="8" width="8" rwaccess="R"/>
+		<bitfield id="BOOTPIN0" description="OTP Boot Pin 0 Mapping" begin="23" end="16" width="8" rwaccess="R"/>
+		<bitfield id="BOOTPIN1" description="OTP Boot Pin 1 Mapping" begin="31" end="24" width="8" rwaccess="R"/>
+	</register>
+	<register id="Z1_LINKPOINTERERR" width="32" page="1" offset="0x6" internal="0" description="Link Pointer Error">
+		<bitfield id="Z1_LINKPOINTERERR" description="Formation of the resolved Link-Pointer error bits" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="Z1_CSMKEY0" width="32" page="1" offset="0x10" internal="0" description="Zone 1 CSM Key 0">
+		<bitfield id="Z1_CSMKEY0" description="Zone 1 CSM Key 0" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="Z1_CSMKEY1" width="32" page="1" offset="0x12" internal="0" description="Zone 1 CSM Key 1">
+		<bitfield id="Z1_CSMKEY1" description="Zone 1 CSM Key 1" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="Z1_CSMKEY2" width="32" page="1" offset="0x14" internal="0" description="Zone 1 CSM Key 2">
+		<bitfield id="Z1_CSMKEY2" description="Zone 1 CSM Key 2" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="Z1_CSMKEY3" width="32" page="1" offset="0x16" internal="0" description="Zone 1 CSM Key 3">
+		<bitfield id="Z1_CSMKEY3" description="Zone 1 CSM Key 3" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="Z1_CR" width="16" page="1" offset="0x19" internal="0" description="Zone 1 CSM Control Register">
+		<bitfield id="ALLZERO" description="CSMPSWD All Zeros" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="ALLONE" description="CSMPSWD All Ones" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="UNSECURE" description="CSMPSWD Match CSMKEY" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="ARMED" description="CSM Armed" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="FORCESEC" description="Force Secure" begin="15" end="15" width="1" rwaccess="R=0/W"/>
+	</register>
+	<register id="Z1_GRABSECTR" width="32" page="1" offset="0x1a" internal="0" description="Zone 1 Grab Flash Sectors Register">
+		<bitfield id="GRAB_SECTA" description="Grab Flash Sector A" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTB" description="Grab Flash Sector B" begin="3" end="2" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTC" description="Grab Flash Sector C" begin="5" end="4" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTD" description="Grab Flash Sector D" begin="7" end="6" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTE" description="Grab Flash Sector E" begin="9" end="8" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTF" description="Grab Flash Sector F" begin="11" end="10" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTG" description="Grab Flash Sector G" begin="13" end="12" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTH" description="Grab Flash Sector H" begin="15" end="14" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTI" description="Grab Flash Sector I" begin="17" end="16" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTJ" description="Grab Flash Sector J" begin="19" end="18" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTK" description="Grab Flash Sector K" begin="21" end="20" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTL" description="Grab Flash Sector L" begin="23" end="22" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTM" description="Grab Flash Sector M" begin="25" end="24" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_SECTN" description="Grab Flash Sector N" begin="27" end="26" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_BANK1" description="Grab BANK1 (all sectors of bank 1)" begin="29" end="28" width="2" rwaccess="R"/>
+	</register>
+	<register id="Z1_GRABRAMR" width="32" page="1" offset="0x1c" internal="0" description="Zone 1 Grab RAM Blocks Register">
+		<bitfield id="GRAB_RAM0" description="Grab RAM LS0" begin="1" end="0" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_RAM1" description="Grab RAM LS1" begin="3" end="2" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_RAM2" description="Grab RAM LS2" begin="5" end="4" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_RAM3" description="Grab RAM LS3" begin="7" end="6" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_RAM4" description="Grab RAM LS4" begin="9" end="8" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_RAM5" description="Grab RAM LS5" begin="11" end="10" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_RAM6" description="Grab RAM D0" begin="13" end="12" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_RAM7" description="Grab RAM D1" begin="15" end="14" width="2" rwaccess="R"/>
+		<bitfield id="GRAB_CLA1" description="Grab CLA1" begin="29" end="28" width="2" rwaccess="R"/>
+	</register>
+	<register id="Z1_EXEONLYSECTR" width="32" page="1" offset="0x1e" internal="0" description="Zone 1 Flash Execute_Only Sector Register">
+		<bitfield id="EXEONLY_SECTA" description="Execute-Only Flash Sector A" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTB" description="Execute-Only Flash Sector B" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTC" description="Execute-Only Flash Sector C" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTD" description="Execute-Only Flash Sector D " begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTE" description="Execute-Only Flash Sector E" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTF" description="Execute-Only Flash Sector F " begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTG" description="Execute-Only Flash Sector G " begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTH" description="Execute-Only Flash Sector H" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTI" description="Execute-Only Flash Sector I" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTJ" description="Execute-Only Flash Sector J" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTK" description="Execute-Only Flash Sector K" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTL" description="Execute-Only Flash Sector L" begin="11" end="11" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTM" description="Execute-Only Flash Sector M" begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_SECTN" description="Execute-Only Flash Sector N" begin="13" end="13" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_BANK1" description="Execute-Only Flash BANK1" begin="14" end="14" width="1" rwaccess="R"/>
+	</register>
+	<register id="Z1_EXEONLYRAMR" width="32" page="1" offset="0x20" internal="0" description="Zone 1 RAM Execute_Only Block Register">
+		<bitfield id="EXEONLY_RAM0" description="Execute-Only RAM LS0" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_RAM1" description="Execute-Only RAM LS1" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_RAM2" description="Execute-Only RAM LS2" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_RAM3" description="Execute-Only RAM LS3" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_RAM4" description="Execute-Only RAM LS4" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_RAM5" description="Execute-Only RAM LS5" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_RAM6" description="Execute-Only RAM D0" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="EXEONLY_RAM7" description="Execute-Only RAM D1" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+</module>

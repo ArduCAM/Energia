@@ -1,0 +1,55 @@
+/*******************************************************************/ 
+/* This GEL file is loaded on the command line of Code Composer    */
+/*                                                                 */
+/* History:                                                        */
+/* Version  Author         Date        Comments                    */
+/* 1.0      Kamal Nehal    Unknown     Initial Version AEC/Aries   */
+/* 1.1      Krishna Allam  11/30/2009  Removed use of GEL_WatchAdd */
+/*                                     It is not supported in CCSv4*/
+/*******************************************************************/
+
+#define MPU_ON    0x00000001
+#define MPU_OFF   ~MPU_ON
+
+
+menuitem "MPU"
+
+hotmenu Enable_MPU()
+{
+   int status;
+
+    status =  MPU_CONTROL;
+    status |= MPU_ON;
+    MPU_CONTROL = status;
+
+    status = MPU_CONTROL;
+
+    if ( (status & MPU_ON) == MPU_ON )
+    {
+        GEL_TextOut("MPU is ON. \n\n");
+    }
+   else
+   {
+       GEL_TextOut("MPU is OFF. \n\n");
+   }
+}
+
+hotmenu Disable_MPU()
+{
+    int status;
+
+    status =  MPU_CONTROL;
+    status &= MPU_OFF;
+    MPU_CONTROL= status;
+
+    status = MPU_CONTROL;
+
+    if ( (status & MPU_ON) == MPU_ON )
+    {
+        GEL_TextOut("MPU Is ON. \n\n");
+    }
+    else
+    {
+       GEL_TextOut("MPU Is OFF. \n\n");
+    }
+}

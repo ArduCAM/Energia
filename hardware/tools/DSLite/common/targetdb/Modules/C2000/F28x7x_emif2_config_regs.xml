@@ -1,0 +1,12 @@
+<module id="EMIF2_CONFIG_REGS" HW_revision="" description="EMIF2 CONFIG Registers">
+	<register id="EMIF2LOCK" width="32" page="1" offset="0x0" internal="0" description="EMIF2 Config Lock Register">
+		<bitfield id="LOCK_EMIF2" description="EMIF2 access protection and master select permanent lock" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="EMIF2COMMIT" width="32" page="1" offset="0x2" internal="0" description="EMIF2 Config Lock Commit Register">
+		<bitfield id="COMMIT_EMIF2" description="EMIF2 access protection and master select permanent lock" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="EMIF2ACCPROT0" width="32" page="1" offset="0x8" internal="0" description="EMIF2 Config Register 0">
+		<bitfield id="FETCHPROT_EMIF1" description="Fetch Protection For EMIF2" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_EMIF1" description="CPU WR Protection For EMIF2" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+</module>

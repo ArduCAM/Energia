@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+  TI File $Revision: 
+  Checkin $Date: 
+  --> 
+
+<!--  TMS320C2000 VCU Registers 
+     =================================== 
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     --> 
+<module id="VCU" HW_revision="" XML_version="1" description="VCU Registers">
+    <register id="VR0" acronym="VR0" offset="0" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR1" acronym="VR1" offset="2" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR2" acronym="VR2" offset="4" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR3" acronym="VR3" offset="6" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR4" acronym="VR4" offset="8" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR5" acronym="VR5" offset="10" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR6" acronym="VR6" offset="12" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR7" acronym="VR7" offset="14" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR8" acronym="VR8" offset="16" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VT0" acronym="VT0" offset="18" page="1" width="32" description="Transition Bit register" />
+    <register id="VT1" acronym="VT1" offset="20" page="1" width="32" description="Transition Bit register" />
+    <!--  10 empty  -->
+    <register id="VSTATUS" acronym="VSTATUS" offset="32" page="1" width="32" description="VCU Status Register" />
+    <register id="VCRC" acronym="VCRC" offset="34" page="1" width="32" description="CRC Result register for un-secured memories" />
+</module>

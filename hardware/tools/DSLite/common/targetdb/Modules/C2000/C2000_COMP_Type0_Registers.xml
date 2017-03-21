@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:29:51 $
+  -->
+
+<!-- TMS320C2000 COMP Type 0 Registers
+     ===================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+<module id="COMP" HW_revision="" XML_version="1" description="Comparator Registers">
+	<register id="COMPCTL" acronym="COMPCTL" offset="0" page="1" width="16" description="Comparator Control Register" />
+	<!-- 1 empty -->        
+	<register id="COMPSTS" acronym="COMPSTS" offset="2" page="1" width="16" description="Comparator Status Register" />
+	<!-- 1 empty -->    	
+	<register id="DACCTL" acronym="DACCTL" offset="4" page="1" width="16" description="DAC Control Register" />
+	<!-- 1 empty -->        
+	<register id="DACVAL" acronym="DACVAL" offset="6" page="1" width="16" description="DAC Value Register" />
+	<!-- 1 empty -->        
+	<register id="RAMPMAXREF_ACTIVE" acronym="RAMPMAXREF_ACTIVE" offset="8" page="1" width="16" description="Ramp Generator Maximum Reference (Active)" />
+	<!-- 1 empty -->    
+	<register id="RAMPMAXREF_SHDW" acronym="RAMPMAXREF_SHDW" offset="10" page="1" width="16" description="Ramp Generator Maximum Reference (Shadow)" />
+	<!-- 1 empty -->    
+	<register id="RAMPDECVAL_ACTIVE" acronym="RAMPDECVAL_ACTIVE" offset="12" page="1" width="16" description="Ramp Generator Decrement Value (Active)" />
+	<!-- 1 empty -->    
+	<register id="RAMPDECVAL_SHDW" acronym="RAMPDECVAL_SHDW" offset="14" page="1" width="16" description="Ramp Generator Decrement Value (Shadow)" />
+	<!-- 1 empty -->    
+	<register id="RAMPSTS" acronym="RAMPSTS" offset="16" page="1" width="16" description="Ramp Generator Status" />
+	<!-- 14 empty -->    
+</module>

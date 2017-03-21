@@ -1,0 +1,13 @@
+<module id="EMIF1_CONFIG_REGS" HW_revision="" description="EMIF1 Configuration Registers">
+  <register id="EMIF1LOCK" width="32" page="1" offset="0x0" internal="0" description="EMIF1 Config Lock Register">
+    <bitfield id="LOCK_EMIF1" description="EMIF1 access protection and master select fields lock bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="EMIF1COMMIT" width="32" page="1" offset="0x2" internal="0" description="EMIF1 Config Lock Commit Register">
+    <bitfield id="COMMIT_EMIF1" description="EMIF1 access protection and master select permanent lock" begin="0" end="0" width="1" rwaccess="R/W"/>
+  </register>
+  <register id="EMIF1ACCPROT0" width="32" page="1" offset="0x8" internal="0" description="EMIF1 Config Register 0">
+    <bitfield id="FETCHPROT_EMIF1" description="Fetch Protection For EMIF1" begin="0" end="0" width="1" rwaccess="R/W"/>
+    <bitfield id="CPUWRPROT_EMIF1" description="CPU WR Protection For EMIF1" begin="1" end="1" width="1" rwaccess="R/W"/>
+    <bitfield id="DMAWRPROT_EMIF1" description="DMA WR Protection For EMIF1" begin="2" end="2" width="1" rwaccess="R/W"/>
+  </register>
+</module>

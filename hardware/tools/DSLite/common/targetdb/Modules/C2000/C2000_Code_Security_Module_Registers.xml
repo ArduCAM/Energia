@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/1 $
+  Checkin $Date: April 24, 2009   11:29:56 $
+  -->
+
+
+
+<!-- TMS320C2000 Code Security Module Registers
+     ==========================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="CSM" HW_revision="" XML_version="1" description="Code Security Module">
+	<register id="KEY0" acronym="KEY0" offset="0" page="1" width="16" description="CSM Key 0 Register" /> 
+	<register id="KEY1" acronym="KEY1" offset="1" page="1" width="16" description="CSM Key 1 Register" /> 
+	<register id="KEY2" acronym="KEY2" offset="2" page="1" width="16" description="CSM Key 2 Register" /> 
+	<register id="KEY3" acronym="KEY3" offset="3" page="1" width="16" description="CSM Key 3 Register" /> 
+	<register id="KEY4" acronym="KEY4" offset="4" page="1" width="16" description="CSM Key 4 Register" /> 
+	<register id="KEY5" acronym="KEY5" offset="5" page="1" width="16" description="CSM Key 5 Register" /> 
+	<register id="KEY6" acronym="KEY6" offset="6" page="1" width="16" description="CSM Key 6 Register" /> 
+	<register id="KEY7" acronym="KEY7" offset="7" page="1" width="16" description="CSM Key 7 Register" /> 
+	
+	<register id="CSMSCR" acronym="CSMSCR" offset="15" page="1" width="16" description="CSMSCR" > 
+		<bitfield id="FORCESEC" width="1" begin="15" end="15" resetval="0" description="Force Secure bit" range="" rwaccess="RW" />
+		<bitfield id="SECURE" width="1" begin="0" end="0" resetval="0" description="Secure bit" range="" rwaccess="RW" />
+	</register>
+</module>

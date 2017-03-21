@@ -1,0 +1,89 @@
+<module id="I2C_REGS" HW_revision="" description="I2C Registers">
+	<register id="I2COAR" width="16" page="1" offset="0x0" internal="0" description="I2C Own address ">
+		<bitfield id="OAR" description="I2C Own address " begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="I2CIER" width="16" page="1" offset="0x1" internal="0" description="I2C Interrupt Enable ">
+		<bitfield id="ARBL" description="Arbitration-lost interrupt enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="NACK" description="No-acknowledgment interrupt enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ARDY" description="Register-access-ready interrupt enable" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="RRDY" description="Receive-data-ready interrupt enable" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="XRDY" description="Transmit-data-ready interrupt enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="SCD" description="Stop condition detected interrupt enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="AAS" description="Addressed as slave interrupt enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="I2CSTR" width="16" page="1" offset="0x2" internal="0" description="I2C Status">
+		<bitfield id="ARBL" description="Arbitration-lost interrupt flag bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="NACK" description="No-acknowledgment interrupt flag bit." begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ARDY" description="Register-access-ready interrupt flag bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="RRDY" description="Receive-data-ready interrupt flag bit." begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="XRDY" description="Transmit-data-ready interrupt flag bit." begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="SCD" description="Stop condition detected bit." begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="AD0" description="Address 0 bits" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="AAS" description="Addressed-as-slave bit" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="XSMT" description="Transmit shift register empty bit." begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="RSFULL" description="Receive shift register full bit." begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="BB" description="Bus busy bit." begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="NACKSNT" description="NACK sent bit." begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="SDIR" description="Slave direction bit" begin="14" end="14" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="I2CCLKL" width="16" page="1" offset="0x3" internal="0" description="I2C Clock low-time divider ">
+		<bitfield id="I2CCLKL" description="Clock low-time divide-down value." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="I2CCLKH" width="16" page="1" offset="0x4" internal="0" description="I2C Clock high-time divider ">
+		<bitfield id="I2CCLKH" description="Clock high-time divide-down value." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="I2CCNT" width="16" page="1" offset="0x5" internal="0" description="I2C Data count">
+		<bitfield id="I2CCNT" description="Data count value." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="I2CDRR" width="16" page="1" offset="0x6" internal="0" description="I2C Data receive">
+		<bitfield id="DATA" description="Receive data" begin="7" end="0" width="8" rwaccess="R"/>
+	</register>
+	<register id="I2CSAR" width="16" page="1" offset="0x7" internal="0" description="I2C Slave address">
+		<bitfield id="SAR" description="Slave Address" begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="I2CDXR" width="16" page="1" offset="0x8" internal="0" description="I2C Data Transmit ">
+		<bitfield id="DATA" description="Transmit data" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="I2CMDR" width="16" page="1" offset="0x9" internal="0" description="I2C Mode ">
+		<bitfield id="BC" description="Bit count bits." begin="2" end="0" width="3" rwaccess="R/W"/>
+		<bitfield id="FDF" description="Free Data Format " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="STB" description="START Byte Mode" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="IRS" description="I2C Module Reset " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="DLB" description="Digital Loopback Mode " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="RM" description="Repeat Mode" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="XA" description="Expanded Address Mode " begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="TRX" description="Transmitter Mode " begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MST" description="Master Mode " begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="STP" description="STOP Condition " begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="STT" description="START condition bit" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="FREE" description="Debug Action" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="NACKMOD" description="NACK mode bit" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="I2CISRC" width="16" page="1" offset="0xa" internal="0" description="I2C Interrupt Source">
+		<bitfield id="INTCODE" description="Interrupt code bits." begin="2" end="0" width="3" rwaccess="R"/>
+		<bitfield id="WRITE_ZEROS" description="Reserved" begin="11" end="8" width="4" rwaccess="R/W"/>
+	</register>
+	<register id="I2CEMDR" width="16" page="1" offset="0xb" internal="0" description="I2C Extended Mode ">
+		<bitfield id="BC" description="Backwards compatibility mode" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="I2CPSC" width="16" page="1" offset="0xc" internal="0" description="I2C Prescaler ">
+		<bitfield id="IPSC" description="I2C Prescaler Divide Down " begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="I2CFFTX" width="16" page="1" offset="0x20" internal="0" description="I2C FIFO Transmit ">
+		<bitfield id="TXFFIL" description="Transmit FIFO Interrupt Level " begin="4" end="0" width="5" rwaccess="R/W"/>
+		<bitfield id="TXFFIENA" description="Transmit FIFO Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="TXFFINTCLR" description="Transmit FIFO Interrupt Flag Clear " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="TXFFINT" description="Transmit FIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="TXFFST" description="Transmit FIFO Status " begin="12" end="8" width="5" rwaccess="R"/>
+		<bitfield id="TXFFRST" description="Transmit FIFO Reset " begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="I2CFFEN" description="Transmit FIFO Enable " begin="14" end="14" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="I2CFFRX" width="16" page="1" offset="0x21" internal="0" description="I2C FIFO Receive ">
+		<bitfield id="RXFFIL" description="Receive FIFO Interrupt Level " begin="4" end="0" width="5" rwaccess="R/W"/>
+		<bitfield id="RXFFIENA" description="Receive FIFO Interrupt Enable " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="RXFFINTCLR" description="Receive FIFO Interrupt Flag Clear " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="RXFFINT" description="Receive FIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="RXFFST" description="Receive FIFO Status " begin="12" end="8" width="5" rwaccess="R"/>
+		<bitfield id="RXFFRST" description="Receive FIFO Reset " begin="13" end="13" width="1" rwaccess="R/W"/>
+	</register>
+</module>

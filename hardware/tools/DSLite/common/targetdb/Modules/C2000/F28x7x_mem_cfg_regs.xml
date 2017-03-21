@@ -1,0 +1,285 @@
+<module id="MEM_CFG_REGS" HW_revision="" description="MEM CFG Registers">
+	<register id="DxLOCK" width="32" page="1" offset="0x0" internal="0" description="Dedicated RAM Config Lock Register">
+		<bitfield id="LOCK_D0" description="D0 RAM access protection and master select fields lock bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_D1" description="D1 RAM access protection and master select fields lock bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="DxCOMMIT" width="32" page="1" offset="0x2" internal="0" description="Dedicated RAM Config Lock Commit Register">
+		<bitfield id="COMMIT_D0" description="D0 RAM access protection and master select permanent lock" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_D1" description="D1 RAM access protection and master select permanent lock" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="DxACCPROT0" width="32" page="1" offset="0x8" internal="0" description="Dedicated RAM Config Register">
+		<bitfield id="FETCHPROT_D0" description="Fetch Protection For D0 RAM" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_D0" description="CPU WR Protection For D0 RAM" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_D1" description="Fetch Protection For D1 RAM" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_D1" description="CPU WR Protection For D1 RAM" begin="25" end="25" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="DxTEST" width="32" page="1" offset="0x10" internal="0" description="Dedicated RAM TEST Register">
+		<bitfield id="TEST_M0" description="Selects the different modes for M0 RAM" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_M1" description="Selects the different modes for M1 RAM" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_D0" description="Selects the different modes for D0 RAM" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_D1" description="Selects the different modes for D1 RAM" begin="7" end="6" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="DxINIT" width="32" page="1" offset="0x12" internal="0" description="Dedicated RAM Init Register">
+		<bitfield id="INIT_M0" description="RAM Initialization control for M0 RAM." begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_M1" description="RAM Initialization control for M1 RAM." begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_D0" description="RAM Initialization control for D0 RAM." begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_D1" description="RAM Initialization control for D1 RAM." begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="DxINITDONE" width="32" page="1" offset="0x14" internal="0" description="Dedicated RAM InitDone Status Register">
+		<bitfield id="INITDONE_M0" description="RAM Initialization status for M0 RAM." begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_M1" description="RAM Initialization status for M1 RAM." begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_D0" description="RAM Initialization status for D0 RAM." begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_D1" description="RAM Initialization status for D1 RAM." begin="3" end="3" width="1" rwaccess="R"/>
+	</register>
+	<register id="LSxLOCK" width="32" page="1" offset="0x20" internal="0" description="Local Shared RAM Config Lock Register">
+		<bitfield id="LOCK_LS0" description="LS0 RAM access protection and master select fields lock bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_LS1" description="LS1 RAM access protection and master select fields lock bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_LS2" description="LS2 RAM access protection and master select fields lock bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_LS3" description="LS3 RAM access protection and master select fields lock bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_LS4" description="LS4 RAM access protection and master select fields lock bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_LS5" description="LS5 RAM access protection and master select fields lock bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="LSxCOMMIT" width="32" page="1" offset="0x22" internal="0" description="Local Shared RAM Config Lock Commit Register">
+		<bitfield id="COMMIT_LS0" description="LS0 RAM access protection and master select permanent lock" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_LS1" description="LS1 RAM access protection and master select permanent lock" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_LS2" description="LS2 RAM access protection and master select permanent lock" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_LS3" description="LS3 RAM access protection and master select permanent lock" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_LS4" description="LS4 RAM access protection and master select permanent lock" begin="4" end="4" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_LS5" description="LS5 RAM access protection and master select permanent lock" begin="5" end="5" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="LSxMSEL" width="32" page="1" offset="0x24" internal="0" description="Local Shared RAM Master Sel Register">
+		<bitfield id="MSEL_LS0" description="Master Select for LS0 RAM" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MSEL_LS1" description="Master Select for LS1 RAM" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MSEL_LS2" description="Master Select for LS2 RAM" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MSEL_LS3" description="Master Select for LS3 RAM" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MSEL_LS4" description="Master Select for LS4 RAM" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MSEL_LS5" description="Master Select for LS5 RAM" begin="11" end="10" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="LSxCLAPGM" width="32" page="1" offset="0x26" internal="0" description="Local Shared RAM Prog/Exe control Register">
+		<bitfield id="CLAPGM_LS0" description="Selects LS0 RAM as program vs data memory for CLA" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CLAPGM_LS1" description="Selects LS1 RAM as program vs data memory for CLA" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CLAPGM_LS2" description="Selects LS2 RAM as program vs data memory for CLA" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CLAPGM_LS3" description="Selects LS3 RAM as program vs data memory for CLA" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CLAPGM_LS4" description="Selects LS4 RAM as program vs data memory for CLA" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CLAPGM_LS5" description="Selects LS5 RAM as program vs data memory for CLA" begin="5" end="5" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="LSxACCPROT0" width="32" page="1" offset="0x28" internal="0" description="Local Shared RAM Config Register 0">
+		<bitfield id="FETCHPROT_LS0" description="Fetch Protection For LS0 RAM" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_LS0" description="CPU WR Protection For LS0 RAM" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_LS1" description="Fetch Protection For LS1 RAM" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_LS1" description="CPU WR Protection For LS1 RAM" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_LS2" description="Fetch Protection For LS2 RAM" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_LS2" description="CPU WR Protection For LS2 RAM" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_LS3" description="Fetch Protection For LS3 RAM" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_LS3" description="CPU WR Protection For LS3 RAM" begin="25" end="25" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="LSxACCPROT1" width="32" page="1" offset="0x2a" internal="0" description="Local Shared RAM Config Register 1">
+		<bitfield id="FETCHPROT_LS4" description="Fetch Protection For LS4 RAM" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_LS4" description="CPU WR Protection For LS4 RAM" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_LS5" description="Fetch Protection For LS5 RAM" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_LS5" description="CPU WR Protection For LS5 RAM" begin="9" end="9" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="LSxTEST" width="32" page="1" offset="0x30" internal="0" description="Local Shared RAM TEST Register">
+		<bitfield id="TEST_LS0" description="Selects the different modes for LS0 RAM" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_LS1" description="Selects the different modes for LS1 RAM" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_LS2" description="Selects the different modes for LS2 RAM" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_LS3" description="Selects the different modes for LS3 RAM" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_LS4" description="Selects the different modes for LS4 RAM" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_LS5" description="Selects the different modes for LS5 RAM" begin="11" end="10" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="LSxINIT" width="32" page="1" offset="0x32" internal="0" description="Local Shared RAM Init Register">
+		<bitfield id="INIT_LS0" description="RAM Initialization control for LS0 RAM." begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_LS1" description="RAM Initialization control for LS1 RAM." begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_LS2" description="RAM Initialization control for LS2 RAM." begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_LS3" description="RAM Initialization control for LS3 RAM." begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_LS4" description="RAM Initialization control for LS4 RAM." begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_LS5" description="RAM Initialization control for LS5 RAM." begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="LSxINITDONE" width="32" page="1" offset="0x34" internal="0" description="Local Shared RAM InitDone Status Register">
+		<bitfield id="INITDONE_LS0" description="RAM Initialization status for LS0 RAM." begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_LS1" description="RAM Initialization status for LS1 RAM." begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_LS2" description="RAM Initialization status for LS2 RAM." begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_LS3" description="RAM Initialization status for LS3 RAM." begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_LS4" description="RAM Initialization status for LS4 RAM." begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_LS5" description="RAM Initialization status for LS5 RAM." begin="5" end="5" width="1" rwaccess="R"/>
+	</register>
+	<register id="GSxLOCK" width="32" page="1" offset="0x40" internal="0" description="Global Shared RAM Config Lock Register">
+		<bitfield id="LOCK_GS0" description="GS0 RAM access protection and master select fields lock bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS1" description="GS1 RAM access protection and master select fields lock bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS2" description="GS2 RAM access protection and master select fields lock bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS3" description="GS3 RAM access protection and master select fields lock bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS4" description="GS4 RAM access protection and master select fields lock bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS5" description="GS5 RAM access protection and master select fields lock bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS6" description="GS6 RAM access protection and master select fields lock bit" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS7" description="GS7 RAM access protection and master select fields lock bit" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS8" description="GS8 RAM access protection and master select fields lock bit" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS9" description="GS9 RAM access protection and master select fields lock bit" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS10" description="GS10 RAM access protection and master select fields lock bit" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS11" description="GS11 RAM access protection and master select fields lock bit" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS12" description="GS12 RAM access protection and master select fields lock bit" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS13" description="GS13 RAM access protection and master select fields lock bit" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS14" description="GS14 RAM access protection and master select fields lock bit" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="LOCK_GS15" description="GS15 RAM access protection and master select fields lock bit" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GSxCOMMIT" width="32" page="1" offset="0x42" internal="0" description="Global Shared RAM Config Lock Commit Register">
+		<bitfield id="COMMIT_GS0" description="GS0 RAM access protection and master select permanent lock" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS1" description="GS1 RAM access protection and master select permanent lock" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS2" description="GS2 RAM access protection and master select permanent lock" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS3" description="GS3 RAM access protection and master select permanent lock" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS4" description="GS4 RAM access protection and master select permanent lock" begin="4" end="4" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS5" description="GS5 RAM access protection and master select permanent lock" begin="5" end="5" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS6" description="GS6 RAM access protection and master select permanent lock" begin="6" end="6" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS7" description="GS7 RAM access protection and master select permanent lock" begin="7" end="7" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS8" description="GS8 RAM access protection and master select permanent lock" begin="8" end="8" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS9" description="GS9 RAM access protection and master select permanent lock" begin="9" end="9" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS10" description="GS10 RAM access protection and master select permanent lock" begin="10" end="10" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS11" description="GS11 RAM access protection and master select permanent lock" begin="11" end="11" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS12" description="GS12 RAM access protection and master select permanent lock" begin="12" end="12" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS13" description="GS13 RAM access protection and master select permanent lock" begin="13" end="13" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS14" description="GS14 RAM access protection and master select permanent lock" begin="14" end="14" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="COMMIT_GS15" description="GS15 RAM access protection and master select permanent lock" begin="15" end="15" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="GSxMSEL" width="32" page="1" offset="0x44" internal="0" description="Global Shared RAM Master Sel Register">
+		<bitfield id="MSEL_GS0" description="Master Select for GS0 RAM" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS1" description="Master Select for GS1 RAM" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS2" description="Master Select for GS2 RAM" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS3" description="Master Select for GS3 RAM" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS4" description="Master Select for GS4 RAM" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS5" description="Master Select for GS5 RAM" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS6" description="Master Select for GS6 RAM" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS7" description="Master Select for GS7 RAM" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS8" description="Master Select for GS8 RAM" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS9" description="Master Select for GS9 RAM" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS10" description="Master Select for GS10 RAM" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS11" description="Master Select for GS11 RAM" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS12" description="Master Select for GS12 RAM" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS13" description="Master Select for GS13 RAM" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS14" description="Master Select for GS14 RAM" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MSEL_GS15" description="Master Select for GS15 RAM" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GSxACCPROT0" width="32" page="1" offset="0x48" internal="0" description="Global Shared RAM Config Register 0">
+		<bitfield id="FETCHPROT_GS0" description="Fetch Protection For GS0 RAM" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS0" description="CPU WR Protection For GS0 RAM" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS0" description="DMA WR Protection For GS0 RAM" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS1" description="Fetch Protection For GS1 RAM" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS1" description="CPU WR Protection For GS1 RAM" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS1" description="DMA WR Protection For GS1 RAM" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS2" description="Fetch Protection For GS2 RAM" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS2" description="CPU WR Protection For GS2 RAM" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS2" description="DMA WR Protection For GS2 RAM" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS3" description="Fetch Protection For GS3 RAM" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS3" description="CPU WR Protection For GS3 RAM" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS3" description="DMA WR Protection For GS3 RAM" begin="26" end="26" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GSxACCPROT1" width="32" page="1" offset="0x4a" internal="0" description="Global Shared RAM Config Register 1">
+		<bitfield id="FETCHPROT_GS4" description="Fetch Protection For GS4 RAM" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS4" description="CPU WR Protection For GS4 RAM" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS4" description="DMA WR Protection For GS4 RAM" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS5" description="Fetch Protection For GS5 RAM" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS5" description="CPU WR Protection For GS5 RAM" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS5" description="DMA WR Protection For GS5RAM" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS6" description="Fetch Protection For GS6 RAM" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS6" description="CPU WR Protection For GS6 RAM" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS6" description="DMA WR Protection For GS6RAM" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS7" description="Fetch Protection For GS7 RAM" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS7" description="CPU WR Protection For GS7 RAM" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS7" description="DMA WR Protection For GS7RAM" begin="26" end="26" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GSxACCPROT2" width="32" page="1" offset="0x4c" internal="0" description="Global Shared RAM Config Register 2">
+		<bitfield id="FETCHPROT_GS8" description="Fetch Protection For GS8 RAM" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS8" description="CPU WR Protection For GS8 RAM" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS8" description="DMA WR Protection For GS8 RAM" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS9" description="Fetch Protection For GS9 RAM" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS9" description="CPU WR Protection For GS9 RAM" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS9" description="DMA WR Protection For GS9RAM" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS10" description="Fetch Protection For GS10 RAM" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS10" description="CPU WR Protection For GS10 RAM" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS10" description="DMA WR Protection For GS10RAM" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS11" description="Fetch Protection For GS11 RAM" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS11" description="CPU WR Protection For GS11 RAM" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS11" description="DMA WR Protection For GS11RAM" begin="26" end="26" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GSxACCPROT3" width="32" page="1" offset="0x4e" internal="0" description="Global Shared RAM Config Register 3">
+		<bitfield id="FETCHPROT_GS12" description="Fetch Protection For GS12 RAM" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS12" description="CPU WR Protection For GS12 RAM" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS12" description="DMA WR Protection For GS12 RAM" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS13" description="Fetch Protection For GS13 RAM" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS13" description="CPU WR Protection For GS13 RAM" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS13" description="DMA WR Protection For GS13RAM" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS14" description="Fetch Protection For GS14 RAM" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS14" description="CPU WR Protection For GS14 RAM" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS14" description="DMA WR Protection For GS14RAM" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="FETCHPROT_GS15" description="Fetch Protection For GS15 RAM" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRPROT_GS15" description="CPU WR Protection For GS15 RAM" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRPROT_GS15" description="DMA WR Protection For GS15RAM" begin="26" end="26" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GSxTEST" width="32" page="1" offset="0x50" internal="0" description="Global Shared RAM TEST Register">
+		<bitfield id="TEST_GS0" description="Selects the different modes for GS0 RAM" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS1" description="Selects the different modes for GS1 RAM" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS2" description="Selects the different modes for GS2 RAM" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS3" description="Selects the different modes for GS3 RAM" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS4" description="Selects the different modes for GS4 RAM" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS5" description="Selects the different modes for GS5 RAM" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS6" description="Selects the different modes for GS6 RAM" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS7" description="Selects the different modes for GS7 RAM" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS8" description="Selects the different modes for GS8 RAM" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS9" description="Selects the different modes for GS9 RAM" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS10" description="Selects the different modes for GS10 RAM" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS11" description="Selects the different modes for GS11 RAM" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS12" description="Selects the different modes for GS12 RAM" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS13" description="Selects the different modes for GS13 RAM" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS14" description="Selects the different modes for GS14 RAM" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_GS15" description="Selects the different modes for GS15 RAM" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="GSxINIT" width="32" page="1" offset="0x52" internal="0" description="Global Shared RAM Init Register">
+		<bitfield id="INIT_GS0" description="RAM Initialization control for GS0 RAM." begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS1" description="RAM Initialization control for GS1 RAM." begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS2" description="RAM Initialization control for GS2 RAM." begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS3" description="RAM Initialization control for GS3 RAM." begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS4" description="RAM Initialization control for GS4 RAM." begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS5" description="RAM Initialization control for GS5 RAM." begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS6" description="RAM Initialization control for GS6 RAM." begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS7" description="RAM Initialization control for GS7 RAM." begin="7" end="7" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS8" description="RAM Initialization control for GS8 RAM." begin="8" end="8" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS9" description="RAM Initialization control for GS9 RAM." begin="9" end="9" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS10" description="RAM Initialization control for GS10 RAM." begin="10" end="10" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS11" description="RAM Initialization control for GS11 RAM." begin="11" end="11" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS12" description="RAM Initialization control for GS12 RAM." begin="12" end="12" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS13" description="RAM Initialization control for GS13 RAM." begin="13" end="13" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS14" description="RAM Initialization control for GS14 RAM." begin="14" end="14" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_GS15" description="RAM Initialization control for GS15 RAM." begin="15" end="15" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="GSxINITDONE" width="32" page="1" offset="0x54" internal="0" description="Global Shared RAM InitDone Status Register">
+		<bitfield id="INITDONE_GS0" description="RAM Initialization status for GS0 RAM." begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS1" description="RAM Initialization status for GS1 RAM." begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS2" description="RAM Initialization status for GS2 RAM." begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS3" description="RAM Initialization status for GS3 RAM." begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS4" description="RAM Initialization status for GS4 RAM." begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS5" description="RAM Initialization status for GS5 RAM." begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS6" description="RAM Initialization status for GS6 RAM." begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS7" description="RAM Initialization status for GS7 RAM." begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS8" description="RAM Initialization status for GS8 RAM." begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS9" description="RAM Initialization status for GS9 RAM." begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS10" description="RAM Initialization status for GS10 RAM." begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS11" description="RAM Initialization status for GS11 RAM." begin="11" end="11" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS12" description="RAM Initialization status for GS12 RAM." begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS13" description="RAM Initialization status for GS13 RAM." begin="13" end="13" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS14" description="RAM Initialization status for GS14 RAM." begin="14" end="14" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_GS15" description="RAM Initialization status for GS15 RAM." begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="MSGxTEST" width="32" page="1" offset="0x70" internal="0" description="Message RAM TEST Register">
+		<bitfield id="TEST_CPUTOCPU" description="CPU to CPU Mode Select" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_CPUTOCLA1" description="CPU to CLA1 MSG RAM Mode Select" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="TEST_CLA1TOCPU" description="CLA1 to CPU MSG RAM Mode Select" begin="5" end="4" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="MSGxINIT" width="32" page="1" offset="0x72" internal="0" description="Message RAM Init Register">
+		<bitfield id="INIT_CPUTOCPU" description="Initialization control for CPU to CPU MSG RAM" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_CPUTOCLA1" description="Initialization control for CPUTOCLA1 MSG RAM" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="INIT_CLA1TOCPU" description="Initialization control for CLA1TOCPU MSG RAM" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="MSGxINITDONE" width="32" page="1" offset="0x74" internal="0" description="Message RAM InitDone Status Register">
+		<bitfield id="INITDONE_CPUTOCPU" description="Initialization status for CPU to CPU MSG RAM" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_CPUTOCLA1" description="Initialization status for CPU to CLA1 MSG RAM" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="INITDONE_CLA1TOCPU" description="Initialization status for CLA1 to CPU MSG RAM" begin="2" end="2" width="1" rwaccess="R"/>
+	</register>
+</module>

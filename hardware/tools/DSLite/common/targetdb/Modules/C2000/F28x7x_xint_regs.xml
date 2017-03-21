@@ -1,0 +1,31 @@
+<module id="XINT_REGS" HW_revision="" description="XINT Registers">
+	<register id="XINT1CR" width="16" page="1" offset="0x0" internal="0" description="XINT1 configuration register">
+		<bitfield id="ENABLE" description="XINT1 Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="POLARITY" description="XINT1 Polarity" begin="3" end="2" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="XINT2CR" width="16" page="1" offset="0x1" internal="0" description="XINT2 configuration register">
+		<bitfield id="ENABLE" description="XINT2 Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="POLARITY" description="XINT2 Polarity" begin="3" end="2" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="XINT3CR" width="16" page="1" offset="0x2" internal="0" description="XINT3 configuration register">
+		<bitfield id="ENABLE" description="XINT3 Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="POLARITY" description="XINT3 Polarity" begin="3" end="2" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="XINT4CR" width="16" page="1" offset="0x3" internal="0" description="XINT4 configuration register">
+		<bitfield id="ENABLE" description="XINT4 Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="POLARITY" description="XINT4 Polarity" begin="3" end="2" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="XINT5CR" width="16" page="1" offset="0x4" internal="0" description="XINT5 configuration register">
+		<bitfield id="ENABLE" description="XINT5 Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="POLARITY" description="XINT5 Polarity" begin="3" end="2" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="XINT1CTR" width="16" page="1" offset="0x8" internal="0" description="XINT1 counter register">
+		<bitfield id="INTCTR" description="XINT1 Counter" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="XINT2CTR" width="16" page="1" offset="0x9" internal="0" description="XINT2 counter register">
+		<bitfield id="INTCTR" description="XINT2 Counter" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="XINT3CTR" width="16" page="1" offset="0xa" internal="0" description="XINT3 counter register">
+		<bitfield id="INTCTR" description="XINT3 Counter" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+</module>

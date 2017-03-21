@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="M4_FPU" HW_revision="" XML_version="1" description="Cortex M4 FPU Registers">
+    
+    <register id="FPU_S0" acronym="FPU_S0" width="32" description=""/>
+    <register id="FPU_S1" acronym="FPU_S1" width="32" description=""/>
+    <register id="FPU_S2" acronym="FPU_S2" width="32" description=""/>
+    <register id="FPU_S3" acronym="FPU_S3" width="32" description=""/>
+    <register id="FPU_S4" acronym="FPU_S4" width="32" description=""/>
+    <register id="FPU_S5" acronym="FPU_S5" width="32" description=""/>
+    <register id="FPU_S6" acronym="FPU_S6" width="32" description=""/>
+    <register id="FPU_S7" acronym="FPU_S7" width="32" description=""/>
+    <register id="FPU_S8" acronym="FPU_S8" width="32" description=""/>
+    <register id="FPU_S9" acronym="FPU_S9" width="32" description=""/>
+    <register id="FPU_S10" acronym="FPU_S10" width="32" description=""/>
+    <register id="FPU_S11" acronym="FPU_S11" width="32" description=""/>
+    <register id="FPU_S12" acronym="FPU_S12" width="32" description=""/>
+    <register id="FPU_S13" acronym="FPU_S13" width="32" description=""/>
+    <register id="FPU_S14" acronym="FPU_S14" width="32" description=""/>
+    <register id="FPU_S15" acronym="FPU_S15" width="32" description=""/>
+    <register id="FPU_S16" acronym="FPU_S16" width="32" description=""/>
+    <register id="FPU_S17" acronym="FPU_S17" width="32" description=""/>
+    <register id="FPU_S18" acronym="FPU_S18" width="32" description=""/>
+    <register id="FPU_S19" acronym="FPU_S19" width="32" description=""/>
+    <register id="FPU_S20" acronym="FPU_S20" width="32" description=""/>
+    <register id="FPU_S21" acronym="FPU_S21" width="32" description=""/>
+    <register id="FPU_S22" acronym="FPU_S22" width="32" description=""/>
+    <register id="FPU_S23" acronym="FPU_S23" width="32" description=""/>
+    <register id="FPU_S24" acronym="FPU_S24" width="32" description=""/>
+    <register id="FPU_S25" acronym="FPU_S25" width="32" description=""/>
+    <register id="FPU_S26" acronym="FPU_S26" width="32" description=""/>
+    <register id="FPU_S27" acronym="FPU_S27" width="32" description=""/>
+    <register id="FPU_S28" acronym="FPU_S28" width="32" description=""/>
+    <register id="FPU_S29" acronym="FPU_S29" width="32" description=""/>
+    <register id="FPU_S30" acronym="FPU_S30" width="32" description=""/>
+    <register id="FPU_S31" acronym="FPU_S31" width="32" description=""/>
+    
+    <register id="FPU_D0" acronym="FPU_D0" width="64" description=""/>
+    <register id="FPU_D1" acronym="FPU_D1" width="64" description=""/>
+    <register id="FPU_D2" acronym="FPU_D2" width="64" description=""/>
+    <register id="FPU_D3" acronym="FPU_D3" width="64" description=""/>
+    <register id="FPU_D4" acronym="FPU_D4" width="64" description=""/>
+    <register id="FPU_D5" acronym="FPU_D5" width="64" description=""/>
+    <register id="FPU_D6" acronym="FPU_D6" width="64" description=""/>
+    <register id="FPU_D7" acronym="FPU_D7" width="64" description=""/>
+    <register id="FPU_D8" acronym="FPU_D8" width="64" description=""/>
+    <register id="FPU_D9" acronym="FPU_D9" width="64" description=""/>
+    <register id="FPU_D10" acronym="FPU_D10" width="64" description=""/>
+    <register id="FPU_D11" acronym="FPU_D11" width="64" description=""/>
+    <register id="FPU_D12" acronym="FPU_D12" width="64" description=""/>
+    <register id="FPU_D13" acronym="FPU_D13" width="64" description=""/>
+    <register id="FPU_D14" acronym="FPU_D14" width="64" description=""/>
+    <register id="FPU_D15" acronym="FPU_D15" width="64" description=""/>
+    
+    <register id="FPU_FPSCR" acronym="FPU_FPSCR" width="32" description=""/>
+    <register id="FPU_FPCCR" acronym="FPU_FPCCR" width="32" description=""/>
+	<register id="FPU_FPCAR" acronym="FPU_FPCAR" width="32" description=""/>
+	<register id="FPU_FPDSCR" acronym="FPU_FPDSCR" width="32" description=""/>
+	<register id="FPU_MVFR0" acronym="FPU_MVFR0" width="32" description=""/>
+	<register id="FPU_MVFR1" acronym="FPU_MVFR1" width="32" description=""/>
+</module>

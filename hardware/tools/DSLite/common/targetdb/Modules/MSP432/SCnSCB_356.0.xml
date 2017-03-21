@@ -1,0 +1,14 @@
+<module id="SCnSCB" HW_revision="356.0">
+    <register id="ICTR" width="32" offset="0x4" internal="0" description="Interrupt Control Type Register">
+        <bitfield id="INTLINESNUM" description="Total number of interrupt lines in groups of 32." begin="4" end="0" width="5" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="ACTLR" width="32" offset="0x8" internal="0" description="Auxiliary Control Register">
+        <bitfield id="DISMCYCINT" description="Disables interruption of multi-cycle instructions. This increases the interrupt latency of the processor becuase LDM/STM completes before interrupt stacking occurs." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DISDEFWBUF" description="Disables write buffer us during default memorty map accesses. This causes all bus faults to be precise bus faults but decreases the performance of the processor because the stores to memory have to complete before the next instruction can be executed." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DISFOLD" description="Disables IT folding." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>

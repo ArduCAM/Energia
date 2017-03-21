@@ -1,0 +1,1646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="USB0" HW_revision="" XML_version="1.0" description="Univeral Serial Bus register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="USB_FADDR" width="8" description="USB Device Functional Address" id="USB_FADDR" offset="0x00000000" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Function Address" id="USB_FADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_POWER" width="8" description="USB Power" id="USB_POWER" offset="0x00000001" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Power Down PHY" id="USB_POWER_PWRDNPHY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SUSPEND Mode" id="USB_POWER_SUSPEND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="RESUME Signaling" id="USB_POWER_RESUME" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="RESET Signaling" id="USB_POWER_RESET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Soft Connect/Disconnect" id="USB_POWER_SOFTCONN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Isochronous Update" id="USB_POWER_ISOUP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXIS" width="16" description="USB Transmit Interrupt Status" id="USB_TXIS" offset="0x00000002" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="TX and RX Endpoint 0 Interrupt" id="USB_TXIS_EP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="TX Endpoint 1 Interrupt" id="USB_TXIS_EP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="TX Endpoint 2 Interrupt" id="USB_TXIS_EP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="TX Endpoint 3 Interrupt" id="USB_TXIS_EP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="TX Endpoint 4 Interrupt" id="USB_TXIS_EP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="TX Endpoint 5 Interrupt" id="USB_TXIS_EP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="TX Endpoint 6 Interrupt" id="USB_TXIS_EP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="TX Endpoint 7 Interrupt" id="USB_TXIS_EP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXIS" width="16" description="USB Receive Interrupt Status" id="USB_RXIS" offset="0x00000004" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="RX Endpoint 1 Interrupt" id="USB_RXIS_EP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="RX Endpoint 2 Interrupt" id="USB_RXIS_EP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="RX Endpoint 3 Interrupt" id="USB_RXIS_EP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="RX Endpoint 4 Interrupt" id="USB_RXIS_EP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="RX Endpoint 5 Interrupt" id="USB_RXIS_EP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="RX Endpoint 6 Interrupt" id="USB_RXIS_EP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="RX Endpoint 7 Interrupt" id="USB_RXIS_EP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXIE" width="16" description="USB Transmit Interrupt Enable" id="USB_TXIE" offset="0x00000006" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="TX and RX Endpoint 0 Interrupt Enable" id="USB_TXIE_EP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="TX Endpoint 1 Interrupt Enable" id="USB_TXIE_EP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="TX Endpoint 2 Interrupt Enable" id="USB_TXIE_EP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="TX Endpoint 3 Interrupt Enable" id="USB_TXIE_EP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="TX Endpoint 4 Interrupt Enable" id="USB_TXIE_EP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="TX Endpoint 5 Interrupt Enable" id="USB_TXIE_EP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="TX Endpoint 6 Interrupt Enable" id="USB_TXIE_EP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="TX Endpoint 7 Interrupt Enable" id="USB_TXIE_EP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXIE" width="16" description="USB Receive Interrupt Enable" id="USB_RXIE" offset="0x00000008" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="RX Endpoint 1 Interrupt Enable" id="USB_RXIE_EP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="RX Endpoint 2 Interrupt Enable" id="USB_RXIE_EP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="RX Endpoint 3 Interrupt Enable" id="USB_RXIE_EP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="RX Endpoint 4 Interrupt Enable" id="USB_RXIE_EP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="RX Endpoint 5 Interrupt Enable" id="USB_RXIE_EP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="RX Endpoint 6 Interrupt Enable" id="USB_RXIE_EP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="RX Endpoint 7 Interrupt Enable" id="USB_RXIE_EP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_IS" width="8" description="USB General Interrupt Status" id="USB_IS" offset="0x0000000A" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="SUSPEND Signaling Detected" id="USB_IS_SUSPEND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="RESUME Signaling Detected" id="USB_IS_RESUME" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Babble Detected" id="USB_IS_BABBLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="RESET Signaling Detected" id="USB_IS_RESET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Start of Frame" id="USB_IS_SOF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Session Connect" id="USB_IS_CONN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Session Disconnect (OTG only)" id="USB_IS_DISCON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="SESSION REQUEST (OTG only)" id="USB_IS_SESREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="VBUS Error (OTG only)" id="USB_IS_VBUSERR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_IE" width="8" description="USB Interrupt Enable" id="USB_IE" offset="0x0000000B" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable SUSPEND Interrupt" id="USB_IE_SUSPND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enable RESUME Interrupt" id="USB_IE_RESUME" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enable Babble Interrupt" id="USB_IE_BABBLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enable RESET Interrupt" id="USB_IE_RESET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enable Start-of-Frame Interrupt" id="USB_IE_SOF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Enable Connect Interrupt" id="USB_IE_CONN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Enable Disconnect Interrupt" id="USB_IE_DISCON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Enable Session Request (OTG only)" id="USB_IE_SESREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Enable VBUS Error Interrupt (OTG only)" id="USB_IE_VBUSERR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FRAME" width="16" description="USB Frame Value" id="USB_FRAME" offset="0x0000000C" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="R" description="Frame Number" id="USB_FRAME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_EPIDX" width="8" description="USB Endpoint Index" id="USB_EPIDX" offset="0x0000000E" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Endpoint Index" id="USB_EPIDX_EPIDX" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TEST" width="8" description="USB Test Mode" id="USB_TEST" offset="0x0000000F" >
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Force Full-Speed Mode" id="USB_TEST_FORCEFS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="FIFO Access" id="USB_TEST_FIFOACC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Force Host Mode" id="USB_TEST_FORCEH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO0" width="32" description="USB FIFO Endpoint 0" id="USB_FIFO0" offset="0x00000020" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO0_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO1" width="32" description="USB FIFO Endpoint 1" id="USB_FIFO1" offset="0x00000024" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO1_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO2" width="32" description="USB FIFO Endpoint 2" id="USB_FIFO2" offset="0x00000028" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO2_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO3" width="32" description="USB FIFO Endpoint 3" id="USB_FIFO3" offset="0x0000002C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO3_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO4" width="32" description="USB FIFO Endpoint 4" id="USB_FIFO4" offset="0x00000030" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO4_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO5" width="32" description="USB FIFO Endpoint 5" id="USB_FIFO5" offset="0x00000034" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO5_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO6" width="32" description="USB FIFO Endpoint 6" id="USB_FIFO6" offset="0x00000038" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO6_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FIFO7" width="32" description="USB FIFO Endpoint 7" id="USB_FIFO7" offset="0x0000003C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Endpoint Data" id="USB_FIFO7_EPDATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_DEVCTL" width="8" description="USB Device Control" id="USB_DEVCTL" offset="0x00000060" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Session Start/End (OTG only)" id="USB_DEVCTL_SESSION" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Host Request (OTG only)" id="USB_DEVCTL_HOSTREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Host Mode" id="USB_DEVCTL_HOST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="VBUS Level (OTG only)" id="USB_DEVCTL_VBUS" resetval="" >
+            <bitenum id="USB_DEVCTL_VBUS_NONE" value="0x00000000" token="" description="Below SessionEnd"/>
+            <bitenum id="USB_DEVCTL_VBUS_SEND" value="0x00000008" token="" description="Above SessionEnd, below AValid"/>
+            <bitenum id="USB_DEVCTL_VBUS_AVALID" value="0x00000010" token="" description="Above AValid, below VBUSValid"/>
+            <bitenum id="USB_DEVCTL_VBUS_VALID" value="0x00000018" token="" description="Above VBUSValid"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Low-Speed Device Detected" id="USB_DEVCTL_LSDEV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Full-Speed Device Detected" id="USB_DEVCTL_FSDEV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Device Mode (OTG only)" id="USB_DEVCTL_DEV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFIFOSZ" width="8" description="USB Transmit Dynamic FIFO Sizing" id="USB_TXFIFOSZ" offset="0x00000062" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Max Packet Size" id="USB_TXFIFOSZ_SIZE" resetval="" >
+            <bitenum id="USB_TXFIFOSZ_SIZE_8" value="0x00000000" token="" description="8"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_16" value="0x00000001" token="" description="16"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_32" value="0x00000002" token="" description="32"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_64" value="0x00000003" token="" description="64"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_128" value="0x00000004" token="" description="128"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_256" value="0x00000005" token="" description="256"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_512" value="0x00000006" token="" description="512"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_1024" value="0x00000007" token="" description="1024"/>
+            <bitenum id="USB_TXFIFOSZ_SIZE_2048" value="0x00000008" token="" description="2048"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Double Packet Buffer Support" id="USB_TXFIFOSZ_DPB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFIFOSZ" width="8" description="USB Receive Dynamic FIFO Sizing" id="USB_RXFIFOSZ" offset="0x00000063" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Max Packet Size" id="USB_RXFIFOSZ_SIZE" resetval="" >
+            <bitenum id="USB_RXFIFOSZ_SIZE_8" value="0x00000000" token="" description="8"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_16" value="0x00000001" token="" description="16"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_32" value="0x00000002" token="" description="32"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_64" value="0x00000003" token="" description="64"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_128" value="0x00000004" token="" description="128"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_256" value="0x00000005" token="" description="256"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_512" value="0x00000006" token="" description="512"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_1024" value="0x00000007" token="" description="1024"/>
+            <bitenum id="USB_RXFIFOSZ_SIZE_2048" value="0x00000008" token="" description="2048"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Double Packet Buffer Support" id="USB_RXFIFOSZ_DPB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFIFOADD" width="16" description="USB Transmit FIFO Start Address" id="USB_TXFIFOADD" offset="0x00000064" >
+        <bitfield range="" begin="8" width="9" end="0" rwaccess="RW" description="Transmit/Receive Start Address" id="USB_TXFIFOADD_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFIFOADD" width="16" description="USB Receive FIFO Start Address" id="USB_RXFIFOADD" offset="0x00000066" >
+        <bitfield range="" begin="8" width="9" end="0" rwaccess="RW" description="Transmit/Receive Start Address" id="USB_RXFIFOADD_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_CONTIM" width="8" description="USB Connect Timing" id="USB_CONTIM" offset="0x0000007A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Wait ID" id="USB_CONTIM_WTID" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Connect Wait" id="USB_CONTIM_WTCON" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_VPLEN" width="8" description="USB OTG VBUS Pulse Timing" id="USB_VPLEN" offset="0x0000007B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="VBUS Pulse Length" id="USB_VPLEN_VPLEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_FSEOF" width="8" description="USB Full-Speed Last Transaction to End of Frame Timing" id="USB_FSEOF" offset="0x0000007D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Full-Speed End-of-Frame Gap" id="USB_FSEOF_FSEOFG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_LSEOF" width="8" description="USB Low-Speed Last Transaction to End of Frame Timing" id="USB_LSEOF" offset="0x0000007E" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Low-Speed End-of-Frame Gap" id="USB_LSEOF_LSEOFG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR0" width="8" description="USB Transmit Functional Address Endpoint 0" id="USB_TXFUNCADDR0" offset="0x00000080" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR0_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR0" width="8" description="USB Transmit Hub Address Endpoint 0" id="USB_TXHUBADDR0" offset="0x00000082" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR0_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT0" width="8" description="USB Transmit Hub Port Endpoint 0" id="USB_TXHUBPORT0" offset="0x00000083" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT0_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR1" width="8" description="USB Transmit Functional Address Endpoint 1" id="USB_TXFUNCADDR1" offset="0x00000088" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR1_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR1" width="8" description="USB Transmit Hub Address Endpoint 1" id="USB_TXHUBADDR1" offset="0x0000008A" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR1_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT1" width="8" description="USB Transmit Hub Port Endpoint 1" id="USB_TXHUBPORT1" offset="0x0000008B" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT1_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFUNCADDR1" width="8" description="USB Receive Functional Address Endpoint 1" id="USB_RXFUNCADDR1" offset="0x0000008C" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_RXFUNCADDR1_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBADDR1" width="8" description="USB Receive Hub Address Endpoint 1" id="USB_RXHUBADDR1" offset="0x0000008E" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_RXHUBADDR1_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBPORT1" width="8" description="USB Receive Hub Port Endpoint 1" id="USB_RXHUBPORT1" offset="0x0000008F" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_RXHUBPORT1_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR2" width="8" description="USB Transmit Functional Address Endpoint 2" id="USB_TXFUNCADDR2" offset="0x00000090" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR2_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR2" width="8" description="USB Transmit Hub Address Endpoint 2" id="USB_TXHUBADDR2" offset="0x00000092" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR2_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT2" width="8" description="USB Transmit Hub Port Endpoint 2" id="USB_TXHUBPORT2" offset="0x00000093" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT2_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFUNCADDR2" width="8" description="USB Receive Functional Address Endpoint 2" id="USB_RXFUNCADDR2" offset="0x00000094" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_RXFUNCADDR2_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBADDR2" width="8" description="USB Receive Hub Address Endpoint 2" id="USB_RXHUBADDR2" offset="0x00000096" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_RXHUBADDR2_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBPORT2" width="8" description="USB Receive Hub Port Endpoint 2" id="USB_RXHUBPORT2" offset="0x00000097" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_RXHUBPORT2_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR3" width="8" description="USB Transmit Functional Address Endpoint 3" id="USB_TXFUNCADDR3" offset="0x00000098" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR3_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR3" width="8" description="USB Transmit Hub Address Endpoint 3" id="USB_TXHUBADDR3" offset="0x0000009A" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR3_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT3" width="8" description="USB Transmit Hub Port Endpoint 3" id="USB_TXHUBPORT3" offset="0x0000009B" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT3_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFUNCADDR3" width="8" description="USB Receive Functional Address Endpoint 3" id="USB_RXFUNCADDR3" offset="0x0000009C" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_RXFUNCADDR3_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBADDR3" width="8" description="USB Receive Hub Address Endpoint 3" id="USB_RXHUBADDR3" offset="0x0000009E" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_RXHUBADDR3_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBPORT3" width="8" description="USB Receive Hub Port Endpoint 3" id="USB_RXHUBPORT3" offset="0x0000009F" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_RXHUBPORT3_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR4" width="8" description="USB Transmit Functional Address Endpoint 4" id="USB_TXFUNCADDR4" offset="0x000000A0" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR4_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR4" width="8" description="USB Transmit Hub Address Endpoint 4" id="USB_TXHUBADDR4" offset="0x000000A2" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR4_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT4" width="8" description="USB Transmit Hub Port Endpoint 4" id="USB_TXHUBPORT4" offset="0x000000A3" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT4_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFUNCADDR4" width="8" description="USB Receive Functional Address Endpoint 4" id="USB_RXFUNCADDR4" offset="0x000000A4" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_RXFUNCADDR4_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBADDR4" width="8" description="USB Receive Hub Address Endpoint 4" id="USB_RXHUBADDR4" offset="0x000000A6" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_RXHUBADDR4_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBPORT4" width="8" description="USB Receive Hub Port Endpoint 4" id="USB_RXHUBPORT4" offset="0x000000A7" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_RXHUBPORT4_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR5" width="8" description="USB Transmit Functional Address Endpoint 5" id="USB_TXFUNCADDR5" offset="0x000000A8" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR5_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR5" width="8" description="USB Transmit Hub Address Endpoint 5" id="USB_TXHUBADDR5" offset="0x000000AA" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR5_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT5" width="8" description="USB Transmit Hub Port Endpoint 5" id="USB_TXHUBPORT5" offset="0x000000AB" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT5_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFUNCADDR5" width="8" description="USB Receive Functional Address Endpoint 5" id="USB_RXFUNCADDR5" offset="0x000000AC" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_RXFUNCADDR5_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBADDR5" width="8" description="USB Receive Hub Address Endpoint 5" id="USB_RXHUBADDR5" offset="0x000000AE" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_RXHUBADDR5_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBPORT5" width="8" description="USB Receive Hub Port Endpoint 5" id="USB_RXHUBPORT5" offset="0x000000AF" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_RXHUBPORT5_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR6" width="8" description="USB Transmit Functional Address Endpoint 6" id="USB_TXFUNCADDR6" offset="0x000000B0" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR6_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR6" width="8" description="USB Transmit Hub Address Endpoint 6" id="USB_TXHUBADDR6" offset="0x000000B2" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR6_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT6" width="8" description="USB Transmit Hub Port Endpoint 6" id="USB_TXHUBPORT6" offset="0x000000B3" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT6_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFUNCADDR6" width="8" description="USB Receive Functional Address Endpoint 6" id="USB_RXFUNCADDR6" offset="0x000000B4" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_RXFUNCADDR6_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBADDR6" width="8" description="USB Receive Hub Address Endpoint 6" id="USB_RXHUBADDR6" offset="0x000000B6" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_RXHUBADDR6_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBPORT6" width="8" description="USB Receive Hub Port Endpoint 6" id="USB_RXHUBPORT6" offset="0x000000B7" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_RXHUBPORT6_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXFUNCADDR7" width="8" description="USB Transmit Functional Address Endpoint 7" id="USB_TXFUNCADDR7" offset="0x000000B8" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_TXFUNCADDR7_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBADDR7" width="8" description="USB Transmit Hub Address Endpoint 7" id="USB_TXHUBADDR7" offset="0x000000BA" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_TXHUBADDR7_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXHUBPORT7" width="8" description="USB Transmit Hub Port Endpoint 7" id="USB_TXHUBPORT7" offset="0x000000BB" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_TXHUBPORT7_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXFUNCADDR7" width="8" description="USB Receive Functional Address Endpoint 7" id="USB_RXFUNCADDR7" offset="0x000000BC" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Device Address" id="USB_RXFUNCADDR7_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBADDR7" width="8" description="USB Receive Hub Address Endpoint 7" id="USB_RXHUBADDR7" offset="0x000000BE" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Address" id="USB_RXHUBADDR7_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXHUBPORT7" width="8" description="USB Receive Hub Port Endpoint 7" id="USB_RXHUBPORT7" offset="0x000000BF" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Hub Port" id="USB_RXHUBPORT7_PORT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_CSRL0" width="8" description="USB Control and Status Endpoint 0 Low" id="USB_CSRL0" offset="0x00000102" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="Receive Packet Ready" id="USB_CSRL0_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="Transmit Packet Ready" id="USB_CSRL0_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="W" description="Endpoint Stalled" id="USB_CSRL0_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="W" description="Data End" id="USB_CSRL0_DATAEND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="W" description="Setup Packet" id="USB_CSRL0_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="Setup End" id="USB_CSRL0_SETEND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="Error" id="USB_CSRL0_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="W" description="Request Packet" id="USB_CSRL0_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="W" description="Send Stall" id="USB_CSRL0_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="W" description="STATUS Packet" id="USB_CSRL0_STATUS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="W" description="RXRDY Clear" id="USB_CSRL0_RXRDYC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="W" description="NAK Timeout" id="USB_CSRL0_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="W" description="Setup End Clear" id="USB_CSRL0_SETENDC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_CSRH0" width="8" description="USB Control and Status Endpoint 0 High" id="USB_CSRH0" offset="0x00000103" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="Flush FIFO" id="USB_CSRH0_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="Data Toggle" id="USB_CSRH0_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="W" description="Data Toggle Write Enable" id="USB_CSRH0_DTWE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_COUNT0" width="8" description="USB Receive Byte Count Endpoint 0" id="USB_COUNT0" offset="0x00000108" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="R" description="FIFO Count" id="USB_COUNT0_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TYPE0" width="8" description="USB Type Endpoint 0" id="USB_TYPE0" offset="0x0000010A" >
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TYPE0_SPEED" resetval="" >
+            <bitenum id="USB_TYPE0_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TYPE0_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_NAKLMT" width="8" description="USB NAK Limit" id="USB_NAKLMT" offset="0x0000010B" >
+        <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="EP0 NAK Limit" id="USB_NAKLMT_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXMAXP1" width="16" description="USB Maximum Transmit Data Endpoint 1" id="USB_TXMAXP1" offset="0x00000110" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_TXMAXP1_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRL1" width="8" description="USB Transmit Control and Status Endpoint 1 Low" id="USB_TXCSRL1" offset="0x00000112" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Packet Ready" id="USB_TXCSRL1_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Not Empty" id="USB_TXCSRL1_FIFONE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_TXCSRL1_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Underrun" id="USB_TXCSRL1_UNDRN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Flush FIFO" id="USB_TXCSRL1_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send STALL" id="USB_TXCSRL1_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Setup Packet" id="USB_TXCSRL1_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Endpoint Stalled" id="USB_TXCSRL1_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear Data Toggle" id="USB_TXCSRL1_CLRDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="NAK Timeout" id="USB_TXCSRL1_NAKTO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRH1" width="8" description="USB Transmit Control and Status Endpoint 1 High" id="USB_TXCSRH1" offset="0x00000113" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Toggle" id="USB_TXCSRH1_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle Write Enable" id="USB_TXCSRH1_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Request Mode" id="USB_TXCSRH1_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Force Data Toggle" id="USB_TXCSRH1_FDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="DMA Request Enable" id="USB_TXCSRH1_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Mode" id="USB_TXCSRH1_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_TXCSRH1_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Set" id="USB_TXCSRH1_AUTOSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXMAXP1" width="16" description="USB Maximum Receive Data Endpoint 1" id="USB_RXMAXP1" offset="0x00000114" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_RXMAXP1_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRL1" width="8" description="USB Receive Control and Status Endpoint 1 Low" id="USB_RXCSRL1" offset="0x00000116" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive Packet Ready" id="USB_RXCSRL1_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Full" id="USB_RXCSRL1_FULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Overrun" id="USB_RXCSRL1_OVER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_RXCSRL1_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Error" id="USB_RXCSRL1_DATAERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="NAK Timeout" id="USB_RXCSRL1_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flush FIFO" id="USB_RXCSRL1_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Send STALL" id="USB_RXCSRL1_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Request Packet" id="USB_RXCSRL1_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Endpoint Stalled" id="USB_RXCSRL1_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear Data Toggle" id="USB_RXCSRL1_CLRDT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRH1" width="8" description="USB Receive Control and Status Endpoint 1 High" id="USB_RXCSRH1" offset="0x00000117" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle" id="USB_RXCSRH1_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Toggle Write Enable" id="USB_RXCSRH1_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Request Mode" id="USB_RXCSRH1_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable NYET" id="USB_RXCSRH1_DISNYET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="PID Error" id="USB_RXCSRH1_PIDERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="DMA Request Enable" id="USB_RXCSRH1_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Auto Request" id="USB_RXCSRH1_AUTORQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_RXCSRH1_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Clear" id="USB_RXCSRH1_AUTOCL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCOUNT1" width="16" description="USB Receive Byte Count Endpoint 1" id="USB_RXCOUNT1" offset="0x00000118" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="R" description="Receive Packet Count" id="USB_RXCOUNT1_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXTYPE1" width="8" description="USB Host Transmit Configure Type Endpoint 1" id="USB_TXTYPE1" offset="0x0000011A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_TXTYPE1_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_TXTYPE1_PROTO" resetval="" >
+            <bitenum id="USB_TXTYPE1_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_TXTYPE1_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_TXTYPE1_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_TXTYPE1_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TXTYPE1_SPEED" resetval="" >
+            <bitenum id="USB_TXTYPE1_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_TXTYPE1_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TXTYPE1_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL1" width="8" description="USB Host Transmit Interval Endpoint 1" id="USB_TXINTERVAL1" offset="0x0000011B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="TX Polling" id="USB_TXINTERVAL1_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL1" width="8" description="USB Host Transmit Interval Endpoint 1" id="USB_TXINTERVAL1" offset="0x0000011B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_TXINTERVAL1_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXTYPE1" width="8" description="USB Host Configure Receive Type Endpoint 1" id="USB_RXTYPE1" offset="0x0000011C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_RXTYPE1_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_RXTYPE1_PROTO" resetval="" >
+            <bitenum id="USB_RXTYPE1_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_RXTYPE1_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_RXTYPE1_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_RXTYPE1_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_RXTYPE1_SPEED" resetval="" >
+            <bitenum id="USB_RXTYPE1_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_RXTYPE1_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_RXTYPE1_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL1" width="8" description="USB Host Receive Polling Interval Endpoint 1" id="USB_RXINTERVAL1" offset="0x0000011D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="RX Polling" id="USB_RXINTERVAL1_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL1" width="8" description="USB Host Receive Polling Interval Endpoint 1" id="USB_RXINTERVAL1" offset="0x0000011D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_RXINTERVAL1_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXMAXP2" width="16" description="USB Maximum Transmit Data Endpoint 2" id="USB_TXMAXP2" offset="0x00000120" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_TXMAXP2_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRL2" width="8" description="USB Transmit Control and Status Endpoint 2 Low" id="USB_TXCSRL2" offset="0x00000122" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Packet Ready" id="USB_TXCSRL2_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Not Empty" id="USB_TXCSRL2_FIFONE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_TXCSRL2_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Underrun" id="USB_TXCSRL2_UNDRN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Flush FIFO" id="USB_TXCSRL2_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Setup Packet" id="USB_TXCSRL2_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send STALL" id="USB_TXCSRL2_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Endpoint Stalled" id="USB_TXCSRL2_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear Data Toggle" id="USB_TXCSRL2_CLRDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="NAK Timeout" id="USB_TXCSRL2_NAKTO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRH2" width="8" description="USB Transmit Control and Status Endpoint 2 High" id="USB_TXCSRH2" offset="0x00000123" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Toggle" id="USB_TXCSRH2_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle Write Enable" id="USB_TXCSRH2_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Request Mode" id="USB_TXCSRH2_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Force Data Toggle" id="USB_TXCSRH2_FDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="DMA Request Enable" id="USB_TXCSRH2_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Mode" id="USB_TXCSRH2_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_TXCSRH2_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Set" id="USB_TXCSRH2_AUTOSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXMAXP2" width="16" description="USB Maximum Receive Data Endpoint 2" id="USB_RXMAXP2" offset="0x00000124" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_RXMAXP2_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRL2" width="8" description="USB Receive Control and Status Endpoint 2 Low" id="USB_RXCSRL2" offset="0x00000126" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive Packet Ready" id="USB_RXCSRL2_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Full" id="USB_RXCSRL2_FULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_RXCSRL2_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Overrun" id="USB_RXCSRL2_OVER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Error" id="USB_RXCSRL2_DATAERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="NAK Timeout" id="USB_RXCSRL2_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flush FIFO" id="USB_RXCSRL2_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Request Packet" id="USB_RXCSRL2_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Send STALL" id="USB_RXCSRL2_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Endpoint Stalled" id="USB_RXCSRL2_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear Data Toggle" id="USB_RXCSRL2_CLRDT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRH2" width="8" description="USB Receive Control and Status Endpoint 2 High" id="USB_RXCSRH2" offset="0x00000127" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle" id="USB_RXCSRH2_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Toggle Write Enable" id="USB_RXCSRH2_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Request Mode" id="USB_RXCSRH2_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable NYET" id="USB_RXCSRH2_DISNYET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="PID Error" id="USB_RXCSRH2_PIDERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="DMA Request Enable" id="USB_RXCSRH2_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Auto Request" id="USB_RXCSRH2_AUTORQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_RXCSRH2_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Clear" id="USB_RXCSRH2_AUTOCL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCOUNT2" width="16" description="USB Receive Byte Count Endpoint 2" id="USB_RXCOUNT2" offset="0x00000128" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="R" description="Receive Packet Count" id="USB_RXCOUNT2_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXTYPE2" width="8" description="USB Host Transmit Configure Type Endpoint 2" id="USB_TXTYPE2" offset="0x0000012A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_TXTYPE2_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_TXTYPE2_PROTO" resetval="" >
+            <bitenum id="USB_TXTYPE2_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_TXTYPE2_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_TXTYPE2_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_TXTYPE2_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TXTYPE2_SPEED" resetval="" >
+            <bitenum id="USB_TXTYPE2_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_TXTYPE2_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TXTYPE2_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL2" width="8" description="USB Host Transmit Interval Endpoint 2" id="USB_TXINTERVAL2" offset="0x0000012B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="TX Polling" id="USB_TXINTERVAL2_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL2" width="8" description="USB Host Transmit Interval Endpoint 2" id="USB_TXINTERVAL2" offset="0x0000012B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_TXINTERVAL2_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXTYPE2" width="8" description="USB Host Configure Receive Type Endpoint 2" id="USB_RXTYPE2" offset="0x0000012C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_RXTYPE2_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_RXTYPE2_PROTO" resetval="" >
+            <bitenum id="USB_RXTYPE2_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_RXTYPE2_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_RXTYPE2_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_RXTYPE2_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_RXTYPE2_SPEED" resetval="" >
+            <bitenum id="USB_RXTYPE2_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_RXTYPE2_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_RXTYPE2_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL2" width="8" description="USB Host Receive Polling Interval Endpoint 2" id="USB_RXINTERVAL2" offset="0x0000012D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="RX Polling" id="USB_RXINTERVAL2_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL2" width="8" description="USB Host Receive Polling Interval Endpoint 2" id="USB_RXINTERVAL2" offset="0x0000012D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_RXINTERVAL2_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXMAXP3" width="16" description="USB Maximum Transmit Data Endpoint 3" id="USB_TXMAXP3" offset="0x00000130" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_TXMAXP3_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRL3" width="8" description="USB Transmit Control and Status Endpoint 3 Low" id="USB_TXCSRL3" offset="0x00000132" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Packet Ready" id="USB_TXCSRL3_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Not Empty" id="USB_TXCSRL3_FIFONE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_TXCSRL3_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Underrun" id="USB_TXCSRL3_UNDRN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Flush FIFO" id="USB_TXCSRL3_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Setup Packet" id="USB_TXCSRL3_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send STALL" id="USB_TXCSRL3_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Endpoint Stalled" id="USB_TXCSRL3_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear Data Toggle" id="USB_TXCSRL3_CLRDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="NAK Timeout" id="USB_TXCSRL3_NAKTO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRH3" width="8" description="USB Transmit Control and Status Endpoint 3 High" id="USB_TXCSRH3" offset="0x00000133" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Toggle" id="USB_TXCSRH3_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle Write Enable" id="USB_TXCSRH3_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Request Mode" id="USB_TXCSRH3_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Force Data Toggle" id="USB_TXCSRH3_FDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="DMA Request Enable" id="USB_TXCSRH3_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Mode" id="USB_TXCSRH3_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_TXCSRH3_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Set" id="USB_TXCSRH3_AUTOSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXMAXP3" width="16" description="USB Maximum Receive Data Endpoint 3" id="USB_RXMAXP3" offset="0x00000134" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_RXMAXP3_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRL3" width="8" description="USB Receive Control and Status Endpoint 3 Low" id="USB_RXCSRL3" offset="0x00000136" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive Packet Ready" id="USB_RXCSRL3_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Full" id="USB_RXCSRL3_FULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_RXCSRL3_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Overrun" id="USB_RXCSRL3_OVER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Error" id="USB_RXCSRL3_DATAERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="NAK Timeout" id="USB_RXCSRL3_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flush FIFO" id="USB_RXCSRL3_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Send STALL" id="USB_RXCSRL3_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Request Packet" id="USB_RXCSRL3_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Endpoint Stalled" id="USB_RXCSRL3_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear Data Toggle" id="USB_RXCSRL3_CLRDT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRH3" width="8" description="USB Receive Control and Status Endpoint 3 High" id="USB_RXCSRH3" offset="0x00000137" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle" id="USB_RXCSRH3_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Toggle Write Enable" id="USB_RXCSRH3_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Request Mode" id="USB_RXCSRH3_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable NYET" id="USB_RXCSRH3_DISNYET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="PID Error" id="USB_RXCSRH3_PIDERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="DMA Request Enable" id="USB_RXCSRH3_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Auto Request" id="USB_RXCSRH3_AUTORQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_RXCSRH3_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Clear" id="USB_RXCSRH3_AUTOCL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCOUNT3" width="16" description="USB Receive Byte Count Endpoint 3" id="USB_RXCOUNT3" offset="0x00000138" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="R" description="Receive Packet Count" id="USB_RXCOUNT3_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXTYPE3" width="8" description="USB Host Transmit Configure Type Endpoint 3" id="USB_TXTYPE3" offset="0x0000013A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_TXTYPE3_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_TXTYPE3_PROTO" resetval="" >
+            <bitenum id="USB_TXTYPE3_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_TXTYPE3_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_TXTYPE3_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_TXTYPE3_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TXTYPE3_SPEED" resetval="" >
+            <bitenum id="USB_TXTYPE3_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_TXTYPE3_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TXTYPE3_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL3" width="8" description="USB Host Transmit Interval Endpoint 3" id="USB_TXINTERVAL3" offset="0x0000013B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="TX Polling" id="USB_TXINTERVAL3_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL3" width="8" description="USB Host Transmit Interval Endpoint 3" id="USB_TXINTERVAL3" offset="0x0000013B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_TXINTERVAL3_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXTYPE3" width="8" description="USB Host Configure Receive Type Endpoint 3" id="USB_RXTYPE3" offset="0x0000013C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_RXTYPE3_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_RXTYPE3_PROTO" resetval="" >
+            <bitenum id="USB_RXTYPE3_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_RXTYPE3_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_RXTYPE3_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_RXTYPE3_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_RXTYPE3_SPEED" resetval="" >
+            <bitenum id="USB_RXTYPE3_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_RXTYPE3_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_RXTYPE3_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL3" width="8" description="USB Host Receive Polling Interval Endpoint 3" id="USB_RXINTERVAL3" offset="0x0000013D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="RX Polling" id="USB_RXINTERVAL3_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL3" width="8" description="USB Host Receive Polling Interval Endpoint 3" id="USB_RXINTERVAL3" offset="0x0000013D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_RXINTERVAL3_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXMAXP4" width="16" description="USB Maximum Transmit Data Endpoint 4" id="USB_TXMAXP4" offset="0x00000140" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_TXMAXP4_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRL4" width="8" description="USB Transmit Control and Status Endpoint 4 Low" id="USB_TXCSRL4" offset="0x00000142" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Packet Ready" id="USB_TXCSRL4_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Not Empty" id="USB_TXCSRL4_FIFONE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_TXCSRL4_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Underrun" id="USB_TXCSRL4_UNDRN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Flush FIFO" id="USB_TXCSRL4_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Setup Packet" id="USB_TXCSRL4_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send STALL" id="USB_TXCSRL4_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Endpoint Stalled" id="USB_TXCSRL4_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear Data Toggle" id="USB_TXCSRL4_CLRDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="NAK Timeout" id="USB_TXCSRL4_NAKTO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRH4" width="8" description="USB Transmit Control and Status Endpoint 4 High" id="USB_TXCSRH4" offset="0x00000143" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Toggle" id="USB_TXCSRH4_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle Write Enable" id="USB_TXCSRH4_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Request Mode" id="USB_TXCSRH4_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Force Data Toggle" id="USB_TXCSRH4_FDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="DMA Request Enable" id="USB_TXCSRH4_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Mode" id="USB_TXCSRH4_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_TXCSRH4_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Set" id="USB_TXCSRH4_AUTOSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXMAXP4" width="16" description="USB Maximum Receive Data Endpoint 4" id="USB_RXMAXP4" offset="0x00000144" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_RXMAXP4_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRL4" width="8" description="USB Receive Control and Status Endpoint 4 Low" id="USB_RXCSRL4" offset="0x00000146" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive Packet Ready" id="USB_RXCSRL4_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Full" id="USB_RXCSRL4_FULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Overrun" id="USB_RXCSRL4_OVER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_RXCSRL4_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="NAK Timeout" id="USB_RXCSRL4_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Error" id="USB_RXCSRL4_DATAERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flush FIFO" id="USB_RXCSRL4_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Send STALL" id="USB_RXCSRL4_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Request Packet" id="USB_RXCSRL4_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Endpoint Stalled" id="USB_RXCSRL4_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear Data Toggle" id="USB_RXCSRL4_CLRDT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRH4" width="8" description="USB Receive Control and Status Endpoint 4 High" id="USB_RXCSRH4" offset="0x00000147" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle" id="USB_RXCSRH4_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Toggle Write Enable" id="USB_RXCSRH4_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Request Mode" id="USB_RXCSRH4_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable NYET" id="USB_RXCSRH4_DISNYET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="PID Error" id="USB_RXCSRH4_PIDERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="DMA Request Enable" id="USB_RXCSRH4_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Auto Request" id="USB_RXCSRH4_AUTORQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_RXCSRH4_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Clear" id="USB_RXCSRH4_AUTOCL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCOUNT4" width="16" description="USB Receive Byte Count Endpoint 4" id="USB_RXCOUNT4" offset="0x00000148" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="R" description="Receive Packet Count" id="USB_RXCOUNT4_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXTYPE4" width="8" description="USB Host Transmit Configure Type Endpoint 4" id="USB_TXTYPE4" offset="0x0000014A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_TXTYPE4_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_TXTYPE4_PROTO" resetval="" >
+            <bitenum id="USB_TXTYPE4_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_TXTYPE4_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_TXTYPE4_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_TXTYPE4_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TXTYPE4_SPEED" resetval="" >
+            <bitenum id="USB_TXTYPE4_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_TXTYPE4_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TXTYPE4_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL4" width="8" description="USB Host Transmit Interval Endpoint 4" id="USB_TXINTERVAL4" offset="0x0000014B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="TX Polling" id="USB_TXINTERVAL4_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL4" width="8" description="USB Host Transmit Interval Endpoint 4" id="USB_TXINTERVAL4" offset="0x0000014B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_TXINTERVAL4_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXTYPE4" width="8" description="USB Host Configure Receive Type Endpoint 4" id="USB_RXTYPE4" offset="0x0000014C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_RXTYPE4_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_RXTYPE4_PROTO" resetval="" >
+            <bitenum id="USB_RXTYPE4_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_RXTYPE4_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_RXTYPE4_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_RXTYPE4_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_RXTYPE4_SPEED" resetval="" >
+            <bitenum id="USB_RXTYPE4_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_RXTYPE4_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_RXTYPE4_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL4" width="8" description="USB Host Receive Polling Interval Endpoint 4" id="USB_RXINTERVAL4" offset="0x0000014D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="RX Polling" id="USB_RXINTERVAL4_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL4" width="8" description="USB Host Receive Polling Interval Endpoint 4" id="USB_RXINTERVAL4" offset="0x0000014D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_RXINTERVAL4_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXMAXP5" width="16" description="USB Maximum Transmit Data Endpoint 5" id="USB_TXMAXP5" offset="0x00000150" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_TXMAXP5_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRL5" width="8" description="USB Transmit Control and Status Endpoint 5 Low" id="USB_TXCSRL5" offset="0x00000152" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Packet Ready" id="USB_TXCSRL5_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Not Empty" id="USB_TXCSRL5_FIFONE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_TXCSRL5_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Underrun" id="USB_TXCSRL5_UNDRN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Flush FIFO" id="USB_TXCSRL5_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Setup Packet" id="USB_TXCSRL5_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send STALL" id="USB_TXCSRL5_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Endpoint Stalled" id="USB_TXCSRL5_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear Data Toggle" id="USB_TXCSRL5_CLRDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="NAK Timeout" id="USB_TXCSRL5_NAKTO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRH5" width="8" description="USB Transmit Control and Status Endpoint 5 High" id="USB_TXCSRH5" offset="0x00000153" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Toggle" id="USB_TXCSRH5_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle Write Enable" id="USB_TXCSRH5_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Request Mode" id="USB_TXCSRH5_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Force Data Toggle" id="USB_TXCSRH5_FDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="DMA Request Enable" id="USB_TXCSRH5_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Mode" id="USB_TXCSRH5_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_TXCSRH5_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Set" id="USB_TXCSRH5_AUTOSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXMAXP5" width="16" description="USB Maximum Receive Data Endpoint 5" id="USB_RXMAXP5" offset="0x00000154" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_RXMAXP5_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRL5" width="8" description="USB Receive Control and Status Endpoint 5 Low" id="USB_RXCSRL5" offset="0x00000156" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive Packet Ready" id="USB_RXCSRL5_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Full" id="USB_RXCSRL5_FULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_RXCSRL5_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Overrun" id="USB_RXCSRL5_OVER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="NAK Timeout" id="USB_RXCSRL5_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Error" id="USB_RXCSRL5_DATAERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flush FIFO" id="USB_RXCSRL5_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Send STALL" id="USB_RXCSRL5_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Request Packet" id="USB_RXCSRL5_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Endpoint Stalled" id="USB_RXCSRL5_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear Data Toggle" id="USB_RXCSRL5_CLRDT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRH5" width="8" description="USB Receive Control and Status Endpoint 5 High" id="USB_RXCSRH5" offset="0x00000157" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle" id="USB_RXCSRH5_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Toggle Write Enable" id="USB_RXCSRH5_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Request Mode" id="USB_RXCSRH5_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable NYET" id="USB_RXCSRH5_DISNYET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="PID Error" id="USB_RXCSRH5_PIDERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="DMA Request Enable" id="USB_RXCSRH5_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Auto Request" id="USB_RXCSRH5_AUTORQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_RXCSRH5_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Clear" id="USB_RXCSRH5_AUTOCL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCOUNT5" width="16" description="USB Receive Byte Count Endpoint 5" id="USB_RXCOUNT5" offset="0x00000158" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="R" description="Receive Packet Count" id="USB_RXCOUNT5_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXTYPE5" width="8" description="USB Host Transmit Configure Type Endpoint 5" id="USB_TXTYPE5" offset="0x0000015A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_TXTYPE5_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_TXTYPE5_PROTO" resetval="" >
+            <bitenum id="USB_TXTYPE5_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_TXTYPE5_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_TXTYPE5_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_TXTYPE5_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TXTYPE5_SPEED" resetval="" >
+            <bitenum id="USB_TXTYPE5_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_TXTYPE5_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TXTYPE5_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL5" width="8" description="USB Host Transmit Interval Endpoint 5" id="USB_TXINTERVAL5" offset="0x0000015B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="TX Polling" id="USB_TXINTERVAL5_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL5" width="8" description="USB Host Transmit Interval Endpoint 5" id="USB_TXINTERVAL5" offset="0x0000015B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_TXINTERVAL5_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXTYPE5" width="8" description="USB Host Configure Receive Type Endpoint 5" id="USB_RXTYPE5" offset="0x0000015C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_RXTYPE5_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_RXTYPE5_PROTO" resetval="" >
+            <bitenum id="USB_RXTYPE5_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_RXTYPE5_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_RXTYPE5_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_RXTYPE5_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_RXTYPE5_SPEED" resetval="" >
+            <bitenum id="USB_RXTYPE5_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_RXTYPE5_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_RXTYPE5_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL5" width="8" description="USB Host Receive Polling Interval Endpoint 5" id="USB_RXINTERVAL5" offset="0x0000015D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="RX Polling" id="USB_RXINTERVAL5_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL5" width="8" description="USB Host Receive Polling Interval Endpoint 5" id="USB_RXINTERVAL5" offset="0x0000015D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_RXINTERVAL5_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXMAXP6" width="16" description="USB Maximum Transmit Data Endpoint 6" id="USB_TXMAXP6" offset="0x00000160" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_TXMAXP6_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRL6" width="8" description="USB Transmit Control and Status Endpoint 6 Low" id="USB_TXCSRL6" offset="0x00000162" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Packet Ready" id="USB_TXCSRL6_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Not Empty" id="USB_TXCSRL6_FIFONE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_TXCSRL6_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Underrun" id="USB_TXCSRL6_UNDRN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Flush FIFO" id="USB_TXCSRL6_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send STALL" id="USB_TXCSRL6_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Setup Packet" id="USB_TXCSRL6_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Endpoint Stalled" id="USB_TXCSRL6_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear Data Toggle" id="USB_TXCSRL6_CLRDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="NAK Timeout" id="USB_TXCSRL6_NAKTO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRH6" width="8" description="USB Transmit Control and Status Endpoint 6 High" id="USB_TXCSRH6" offset="0x00000163" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Toggle" id="USB_TXCSRH6_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle Write Enable" id="USB_TXCSRH6_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Request Mode" id="USB_TXCSRH6_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Force Data Toggle" id="USB_TXCSRH6_FDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="DMA Request Enable" id="USB_TXCSRH6_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Mode" id="USB_TXCSRH6_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_TXCSRH6_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Set" id="USB_TXCSRH6_AUTOSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXMAXP6" width="16" description="USB Maximum Receive Data Endpoint 6" id="USB_RXMAXP6" offset="0x00000164" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_RXMAXP6_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRL6" width="8" description="USB Receive Control and Status Endpoint 6 Low" id="USB_RXCSRL6" offset="0x00000166" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive Packet Ready" id="USB_RXCSRL6_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Full" id="USB_RXCSRL6_FULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_RXCSRL6_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Overrun" id="USB_RXCSRL6_OVER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="NAK Timeout" id="USB_RXCSRL6_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Error" id="USB_RXCSRL6_DATAERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flush FIFO" id="USB_RXCSRL6_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Request Packet" id="USB_RXCSRL6_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Send STALL" id="USB_RXCSRL6_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Endpoint Stalled" id="USB_RXCSRL6_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear Data Toggle" id="USB_RXCSRL6_CLRDT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRH6" width="8" description="USB Receive Control and Status Endpoint 6 High" id="USB_RXCSRH6" offset="0x00000167" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle" id="USB_RXCSRH6_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Toggle Write Enable" id="USB_RXCSRH6_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Request Mode" id="USB_RXCSRH6_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable NYET" id="USB_RXCSRH6_DISNYET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="PID Error" id="USB_RXCSRH6_PIDERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="DMA Request Enable" id="USB_RXCSRH6_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Auto Request" id="USB_RXCSRH6_AUTORQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_RXCSRH6_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Clear" id="USB_RXCSRH6_AUTOCL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCOUNT6" width="16" description="USB Receive Byte Count Endpoint 6" id="USB_RXCOUNT6" offset="0x00000168" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="R" description="Receive Packet Count" id="USB_RXCOUNT6_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXTYPE6" width="8" description="USB Host Transmit Configure Type Endpoint 6" id="USB_TXTYPE6" offset="0x0000016A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_TXTYPE6_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_TXTYPE6_PROTO" resetval="" >
+            <bitenum id="USB_TXTYPE6_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_TXTYPE6_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_TXTYPE6_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_TXTYPE6_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TXTYPE6_SPEED" resetval="" >
+            <bitenum id="USB_TXTYPE6_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_TXTYPE6_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TXTYPE6_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL6" width="8" description="USB Host Transmit Interval Endpoint 6" id="USB_TXINTERVAL6" offset="0x0000016B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="TX Polling" id="USB_TXINTERVAL6_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL6" width="8" description="USB Host Transmit Interval Endpoint 6" id="USB_TXINTERVAL6" offset="0x0000016B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_TXINTERVAL6_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXTYPE6" width="8" description="USB Host Configure Receive Type Endpoint 6" id="USB_RXTYPE6" offset="0x0000016C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_RXTYPE6_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_RXTYPE6_PROTO" resetval="" >
+            <bitenum id="USB_RXTYPE6_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_RXTYPE6_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_RXTYPE6_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_RXTYPE6_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_RXTYPE6_SPEED" resetval="" >
+            <bitenum id="USB_RXTYPE6_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_RXTYPE6_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_RXTYPE6_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL6" width="8" description="USB Host Receive Polling Interval Endpoint 6" id="USB_RXINTERVAL6" offset="0x0000016D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="RX Polling" id="USB_RXINTERVAL6_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL6" width="8" description="USB Host Receive Polling Interval Endpoint 6" id="USB_RXINTERVAL6" offset="0x0000016D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_RXINTERVAL6_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXMAXP7" width="16" description="USB Maximum Transmit Data Endpoint 7" id="USB_TXMAXP7" offset="0x00000170" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_TXMAXP7_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRL7" width="8" description="USB Transmit Control and Status Endpoint 7 Low" id="USB_TXCSRL7" offset="0x00000172" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Packet Ready" id="USB_TXCSRL7_TXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Not Empty" id="USB_TXCSRL7_FIFONE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_TXCSRL7_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Underrun" id="USB_TXCSRL7_UNDRN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Flush FIFO" id="USB_TXCSRL7_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send STALL" id="USB_TXCSRL7_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Setup Packet" id="USB_TXCSRL7_SETUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Endpoint Stalled" id="USB_TXCSRL7_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear Data Toggle" id="USB_TXCSRL7_CLRDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="NAK Timeout" id="USB_TXCSRL7_NAKTO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXCSRH7" width="8" description="USB Transmit Control and Status Endpoint 7 High" id="USB_TXCSRH7" offset="0x00000173" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Toggle" id="USB_TXCSRH7_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle Write Enable" id="USB_TXCSRH7_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Request Mode" id="USB_TXCSRH7_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Force Data Toggle" id="USB_TXCSRH7_FDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="DMA Request Enable" id="USB_TXCSRH7_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Mode" id="USB_TXCSRH7_MODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_TXCSRH7_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Set" id="USB_TXCSRH7_AUTOSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXMAXP7" width="16" description="USB Maximum Receive Data Endpoint 7" id="USB_RXMAXP7" offset="0x00000174" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Maximum Payload" id="USB_RXMAXP7_MAXLOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRL7" width="8" description="USB Receive Control and Status Endpoint 7 Low" id="USB_RXCSRL7" offset="0x00000176" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive Packet Ready" id="USB_RXCSRL7_RXRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="FIFO Full" id="USB_RXCSRL7_FULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Error" id="USB_RXCSRL7_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Overrun" id="USB_RXCSRL7_OVER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Error" id="USB_RXCSRL7_DATAERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="NAK Timeout" id="USB_RXCSRL7_NAKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flush FIFO" id="USB_RXCSRL7_FLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Request Packet" id="USB_RXCSRL7_REQPKT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Send STALL" id="USB_RXCSRL7_STALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Endpoint Stalled" id="USB_RXCSRL7_STALLED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear Data Toggle" id="USB_RXCSRL7_CLRDT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCSRH7" width="8" description="USB Receive Control and Status Endpoint 7 High" id="USB_RXCSRH7" offset="0x00000177" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Toggle" id="USB_RXCSRH7_DT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Toggle Write Enable" id="USB_RXCSRH7_DTWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Request Mode" id="USB_RXCSRH7_DMAMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="PID Error" id="USB_RXCSRH7_PIDERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable NYET" id="USB_RXCSRH7_DISNYET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="DMA Request Enable" id="USB_RXCSRH7_DMAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Isochronous Transfers" id="USB_RXCSRH7_ISO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Auto Request" id="USB_RXCSRH7_AUTORQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Auto Clear" id="USB_RXCSRH7_AUTOCL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXCOUNT7" width="16" description="USB Receive Byte Count Endpoint 7" id="USB_RXCOUNT7" offset="0x00000178" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="R" description="Receive Packet Count" id="USB_RXCOUNT7_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXTYPE7" width="8" description="USB Host Transmit Configure Type Endpoint 7" id="USB_TXTYPE7" offset="0x0000017A" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_TXTYPE7_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_TXTYPE7_PROTO" resetval="" >
+            <bitenum id="USB_TXTYPE7_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_TXTYPE7_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_TXTYPE7_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_TXTYPE7_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_TXTYPE7_SPEED" resetval="" >
+            <bitenum id="USB_TXTYPE7_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_TXTYPE7_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_TXTYPE7_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL7" width="8" description="USB Host Transmit Interval Endpoint 7" id="USB_TXINTERVAL7" offset="0x0000017B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="TX Polling" id="USB_TXINTERVAL7_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXINTERVAL7" width="8" description="USB Host Transmit Interval Endpoint 7" id="USB_TXINTERVAL7" offset="0x0000017B" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_TXINTERVAL7_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXTYPE7" width="8" description="USB Host Configure Receive Type Endpoint 7" id="USB_RXTYPE7" offset="0x0000017C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Target Endpoint Number" id="USB_RXTYPE7_TEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Protocol" id="USB_RXTYPE7_PROTO" resetval="" >
+            <bitenum id="USB_RXTYPE7_PROTO_CTRL" value="0x00000000" token="" description="Control"/>
+            <bitenum id="USB_RXTYPE7_PROTO_ISOC" value="0x00000010" token="" description="Isochronous"/>
+            <bitenum id="USB_RXTYPE7_PROTO_BULK" value="0x00000020" token="" description="Bulk"/>
+            <bitenum id="USB_RXTYPE7_PROTO_INT" value="0x00000030" token="" description="Interrupt"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Operating Speed" id="USB_RXTYPE7_SPEED" resetval="" >
+            <bitenum id="USB_RXTYPE7_SPEED_DFLT" value="0x00000000" token="" description="Default"/>
+            <bitenum id="USB_RXTYPE7_SPEED_FULL" value="0x00000080" token="" description="Full"/>
+            <bitenum id="USB_RXTYPE7_SPEED_LOW" value="0x000000C0" token="" description="Low"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL7" width="8" description="USB Host Receive Polling Interval Endpoint 7" id="USB_RXINTERVAL7" offset="0x0000017D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="RX Polling" id="USB_RXINTERVAL7_TXPOLL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXINTERVAL7" width="8" description="USB Host Receive Polling Interval Endpoint 7" id="USB_RXINTERVAL7" offset="0x0000017D" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="NAK Limit" id="USB_RXINTERVAL7_NAKLMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RQPKTCOUNT1" width="16" description="USB Request Packet Count in Block Transfer Endpoint 1" id="USB_RQPKTCOUNT1" offset="0x00000304" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Block Transfer Packet Count" id="USB_RQPKTCOUNT1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RQPKTCOUNT2" width="16" description="USB Request Packet Count in Block Transfer Endpoint 2" id="USB_RQPKTCOUNT2" offset="0x00000308" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Block Transfer Packet Count" id="USB_RQPKTCOUNT2" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RQPKTCOUNT3" width="16" description="USB Request Packet Count in Block Transfer Endpoint 3" id="USB_RQPKTCOUNT3" offset="0x0000030C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Block Transfer Packet Count" id="USB_RQPKTCOUNT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RQPKTCOUNT4" width="16" description="USB Request Packet Count in Block Transfer Endpoint 4" id="USB_RQPKTCOUNT4" offset="0x00000310" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Block Transfer Packet Count" id="USB_RQPKTCOUNT4_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RQPKTCOUNT5" width="16" description="USB Request Packet Count in Block Transfer Endpoint 5" id="USB_RQPKTCOUNT5" offset="0x00000314" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Block Transfer Packet Count" id="USB_RQPKTCOUNT5_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RQPKTCOUNT6" width="16" description="USB Request Packet Count in Block Transfer Endpoint 6" id="USB_RQPKTCOUNT6" offset="0x00000318" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Block Transfer Packet Count" id="USB_RQPKTCOUNT6_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RQPKTCOUNT7" width="16" description="USB Request Packet Count in Block Transfer Endpoint 7" id="USB_RQPKTCOUNT7" offset="0x0000031C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Block Transfer Packet Count" id="USB_RQPKTCOUNT7_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_RXDPKTBUFDIS" width="16" description="USB Receive Double Packet Buffer Disable" id="USB_RXDPKTBUFDIS" offset="0x00000340" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="EP1 RX Double-Packet Buffer Disable" id="USB_RXDPKTBUFDIS_EP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="EP2 RX Double-Packet Buffer Disable" id="USB_RXDPKTBUFDIS_EP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="EP3 RX Double-Packet Buffer Disable" id="USB_RXDPKTBUFDIS_EP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="EP4 RX Double-Packet Buffer Disable" id="USB_RXDPKTBUFDIS_EP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="EP5 RX Double-Packet Buffer Disable" id="USB_RXDPKTBUFDIS_EP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="EP6 RX Double-Packet Buffer Disable" id="USB_RXDPKTBUFDIS_EP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="EP7 RX Double-Packet Buffer Disable" id="USB_RXDPKTBUFDIS_EP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_TXDPKTBUFDIS" width="16" description="USB Transmit Double Packet Buffer Disable" id="USB_TXDPKTBUFDIS" offset="0x00000342" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="EP1 TX Double-Packet Buffer Disable" id="USB_TXDPKTBUFDIS_EP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="EP2 TX Double-Packet Buffer Disable" id="USB_TXDPKTBUFDIS_EP2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="EP3 TX Double-Packet Buffer Disable" id="USB_TXDPKTBUFDIS_EP3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="EP4 TX Double-Packet Buffer Disable" id="USB_TXDPKTBUFDIS_EP4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="EP5 TX Double-Packet Buffer Disable" id="USB_TXDPKTBUFDIS_EP5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="EP6 TX Double-Packet Buffer Disable" id="USB_TXDPKTBUFDIS_EP6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="EP7 TX Double-Packet Buffer Disable" id="USB_TXDPKTBUFDIS_EP7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_EPC" width="32" description="USB External Power Control" id="USB_EPC" offset="0x00000400" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="External Power Supply Enable Configuration" id="USB_EPC_EPEN" resetval="" >
+            <bitenum id="USB_EPC_EPEN_LOW" value="0x00000000" token="" description="Power Enable Active Low"/>
+            <bitenum id="USB_EPC_EPEN_HIGH" value="0x00000001" token="" description="Power Enable Active High"/>
+            <bitenum id="USB_EPC_EPEN_VBLOW" value="0x00000002" token="" description="Power Enable High if VBUS Low (OTG only)"/>
+            <bitenum id="USB_EPC_EPEN_VBHIGH" value="0x00000003" token="" description="Power Enable High if VBUS High (OTG only)"/>
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="EPEN Drive Enable" id="USB_EPC_EPENDE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Power Fault Input Enable" id="USB_EPC_PFLTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Power Fault Sense" id="USB_EPC_PFLTSEN_HIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Power Fault Action Enable" id="USB_EPC_PFLTAEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Power Fault Action" id="USB_EPC_PFLTACT" resetval="" >
+            <bitenum id="USB_EPC_PFLTACT_UNCHG" value="0x00000000" token="" description="Unchanged"/>
+            <bitenum id="USB_EPC_PFLTACT_TRIS" value="0x00000100" token="" description="Tristate"/>
+            <bitenum id="USB_EPC_PFLTACT_LOW" value="0x00000200" token="" description="Low"/>
+            <bitenum id="USB_EPC_PFLTACT_HIGH" value="0x00000300" token="" description="High"/>
+        </bitfield>
+    </register>
+    <register acronym="USB_EPCRIS" width="32" description="USB External Power Control Raw Interrupt Status" id="USB_EPCRIS" offset="0x00000404" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="USB Power Fault Interrupt Status" id="USB_EPCRIS_PF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_EPCIM" width="32" description="USB External Power Control Interrupt Mask" id="USB_EPCIM" offset="0x00000408" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="USB Power Fault Interrupt Mask" id="USB_EPCIM_PF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_EPCISC" width="32" description="USB External Power Control Interrupt Status and Clear" id="USB_EPCISC" offset="0x0000040C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="USB Power Fault Interrupt Status and Clear" id="USB_EPCISC_PF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_DRRIS" width="32" description="USB Device RESUME Raw Interrupt Status" id="USB_DRRIS" offset="0x00000410" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="RESUME Interrupt Status" id="USB_DRRIS_RESUME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_DRIM" width="32" description="USB Device RESUME Interrupt Mask" id="USB_DRIM" offset="0x00000414" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RESUME Interrupt Mask" id="USB_DRIM_RESUME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_DRISC" width="32" description="USB Device RESUME Interrupt Status and Clear" id="USB_DRISC" offset="0x00000418" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="RESUME Interrupt Status and Clear" id="USB_DRISC_RESUME" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_GPCS" width="32" description="USB General-Purpose Control and Status" id="USB_GPCS" offset="0x0000041C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Device Mode" id="USB_GPCS_DEVMOD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enable Device Mode" id="USB_GPCS_DEVMODOTG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_VDC" width="32" description="USB VBUS Droop Control" id="USB_VDC" offset="0x00000430" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="VBUS Droop Enable" id="USB_VDC_VBDEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_VDCRIS" width="32" description="USB VBUS Droop Control Raw Interrupt Status" id="USB_VDCRIS" offset="0x00000434" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="VBUS Droop Raw Interrupt Status" id="USB_VDCRIS_VD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_VDCIM" width="32" description="USB VBUS Droop Control Interrupt Mask" id="USB_VDCIM" offset="0x00000438" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="VBUS Droop Interrupt Mask" id="USB_VDCIM_VD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_VDCISC" width="32" description="USB VBUS Droop Control Interrupt Status and Clear" id="USB_VDCISC" offset="0x0000043C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="VBUS Droop Interrupt Status and Clear" id="USB_VDCISC_VD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_IDVRIS" width="32" description="USB ID Valid Detect Raw Interrupt Status" id="USB_IDVRIS" offset="0x00000444" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="ID Valid Detect Raw Interrupt Status" id="USB_IDVRIS_ID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_IDVIM" width="32" description="USB ID Valid Detect Interrupt Mask" id="USB_IDVIM" offset="0x00000448" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ID Valid Detect Interrupt Mask" id="USB_IDVIM_ID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_IDVISC" width="32" description="USB ID Valid Detect Interrupt Status and Clear" id="USB_IDVISC" offset="0x0000044C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ID Valid Detect Interrupt Status and Clear" id="USB_IDVISC_ID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_DMASEL" width="32" description="USB DMA Select" id="USB_DMASEL" offset="0x00000450" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="DMA A RX Select" id="USB_DMASEL_DMAARX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="DMA A TX Select" id="USB_DMASEL_DMAATX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="DMA B RX Select" id="USB_DMASEL_DMABRX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="DMA B TX Select" id="USB_DMASEL_DMABTX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="DMA C RX Select" id="USB_DMASEL_DMACRX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="DMA C TX Select" id="USB_DMASEL_DMACTX" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="USB_PP" width="32" description="USB Peripheral Properties" id="USB_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="Controller Type" id="USB_PP_TYPE" resetval="" >
+            <bitenum id="USB_PP_TYPE_0" value="0x00000000" token="" description="The first-generation USB controller"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="PHY Present" id="USB_PP_PHY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="R" description="USB Capability" id="USB_PP_USB" resetval="" >
+            <bitenum id="USB_PP_USB_DEVICE" value="0x00000040" token="" description="DEVICE"/>
+            <bitenum id="USB_PP_USB_HOSTDEVICE" value="0x00000080" token="" description="HOST"/>
+            <bitenum id="USB_PP_USB_OTG" value="0x000000C0" token="" description="OTG"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="R" description="Endpoint Count" id="USB_PP_ECNT" resetval="" >
+        </bitfield>
+    </register>
+</module>

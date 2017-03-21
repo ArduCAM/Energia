@@ -1,0 +1,616 @@
+<module id="OUTPUT_XBAR_REGS" HW_revision="" description="OUTPUT XBAR Registers">
+	<register id="OUTPUT1MUX0TO15CFG" width="32" page="1" offset="0x0" internal="0" description="Output X-BAR Mux Configuration for Output 1">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT1MUX16TO31CFG" width="32" page="1" offset="0x2" internal="0" description="Output X-BAR Mux Configuration for Output 1">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT1 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT2MUX0TO15CFG" width="32" page="1" offset="0x4" internal="0" description="Output X-BAR Mux Configuration for Output 2">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT2MUX16TO31CFG" width="32" page="1" offset="0x6" internal="0" description="Output X-BAR Mux Configuration for Output 2">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT2 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT3MUX0TO15CFG" width="32" page="1" offset="0x8" internal="0" description="Output X-BAR Mux Configuration for Output 3">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT3MUX16TO31CFG" width="32" page="1" offset="0xa" internal="0" description="Output X-BAR Mux Configuration for Output 3">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT3 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT4MUX0TO15CFG" width="32" page="1" offset="0xc" internal="0" description="Output X-BAR Mux Configuration for Output 4">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT4MUX16TO31CFG" width="32" page="1" offset="0xe" internal="0" description="Output X-BAR Mux Configuration for Output 4">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT4 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT5MUX0TO15CFG" width="32" page="1" offset="0x10" internal="0" description="Output X-BAR Mux Configuration for Output 5">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT5MUX16TO31CFG" width="32" page="1" offset="0x12" internal="0" description="Output X-BAR Mux Configuration for Output 5">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT5 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT6MUX0TO15CFG" width="32" page="1" offset="0x14" internal="0" description="Output X-BAR Mux Configuration for Output 6">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT6MUX16TO31CFG" width="32" page="1" offset="0x16" internal="0" description="Output X-BAR Mux Configuration for Output 6">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT6 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT7MUX0TO15CFG" width="32" page="1" offset="0x18" internal="0" description="Output X-BAR Mux Configuration for Output 7">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT7MUX16TO31CFG" width="32" page="1" offset="0x1a" internal="0" description="Output X-BAR Mux Configuration for Output 7">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT7 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT8MUX0TO15CFG" width="32" page="1" offset="0x1c" internal="0" description="Output X-BAR Mux Configuration for Output 8">
+		<bitfield id="MUX0" description="Mux0 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT8MUX16TO31CFG" width="32" page="1" offset="0x1e" internal="0" description="Output X-BAR Mux Configuration for Output 8">
+		<bitfield id="MUX16" description="Mux16 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="15" end="14" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="17" end="16" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="19" end="18" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="21" end="20" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="23" end="22" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="25" end="24" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="27" end="26" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="29" end="28" width="2" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 Configuration for OUTPUT8 of OUTPUT-XBAR" begin="31" end="30" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT1MUXENABLE" width="32" page="1" offset="0x20" internal="0" description="Output X-BAR Mux Enable  for Output 1">
+		<bitfield id="MUX0" description="Mux0 to drive OUTPUT1 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT1 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT1 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT1 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT1 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT1 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT1 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT1 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT1 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT1 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT1 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT1 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT1 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT1 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT1 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT1 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to drive OUTPUT1 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT1 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT1 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT1 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT1 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT1 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT1 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT1 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT1 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT1 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT1 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT1 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT1 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT1 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT1 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT1 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT2MUXENABLE" width="32" page="1" offset="0x22" internal="0" description="Output X-BAR Mux Enable  for Output 2">
+		<bitfield id="MUX0" description="mux0 to drive OUTPUT2 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT2 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT2 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT2 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT2 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT2 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT2 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT2 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT2 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT2 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT2 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT2 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT2 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT2 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT2 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT2 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to drive OUTPUT2 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT2 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT2 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT2 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT2 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT2 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT2 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT2 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT2 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT2 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT2 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT2 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT2 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT2 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT2 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT2 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT3MUXENABLE" width="32" page="1" offset="0x24" internal="0" description="Output X-BAR Mux Enable  for Output 3">
+		<bitfield id="MUX0" description="mux0 to drive OUTPUT3 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT3 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT3 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT3 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT3 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT3 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT3 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT3 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT3 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT3 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT3 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT3 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT3 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT3 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT3 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT3 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to drive OUTPUT3 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT3 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT3 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT3 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT3 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT3 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT3 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT3 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT3 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT3 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT3 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT3 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT3 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT3 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT3 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT3 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT4MUXENABLE" width="32" page="1" offset="0x26" internal="0" description="Output X-BAR Mux Enable  for Output 4">
+		<bitfield id="MUX0" description="mux0 to drive OUTPUT4 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT4 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT4 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT4 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT4 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT4 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT4 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT4 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT4 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT4 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT4 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT4 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT4 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT4 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT4 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT4 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to drive OUTPUT4 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT4 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT4 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT4 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT4 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT4 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT4 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT4 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT4 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT4 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT4 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT4 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT4 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT4 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT4 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT4 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT5MUXENABLE" width="32" page="1" offset="0x28" internal="0" description="Output X-BAR Mux Enable  for Output 5">
+		<bitfield id="MUX0" description="mux0 to drive OUTPUT5 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT5 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT5 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT5 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT5 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT5 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT5 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT5 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT5 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT5 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT5 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT5 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT5 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT5 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT5 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT5 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to drive OUTPUT5 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT5 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT5 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT5 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT5 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT5 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT5 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT5 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT5 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT5 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT5 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT5 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT5 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT5 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT5 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT5 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT6MUXENABLE" width="32" page="1" offset="0x2a" internal="0" description="Output X-BAR Mux Enable  for Output 6">
+		<bitfield id="MUX0" description="mux0 to drive OUTPUT6 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT6 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT6 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT6 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT6 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT6 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT6 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT6 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT6 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT6 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT6 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT6 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT6 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT6 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT6 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT6 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to OUTPUT6 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT6 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT6 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT6 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT6 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT6 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT6 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT6 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT6 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT6 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT6 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT6 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT6 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT6 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT6 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT6 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT7MUXENABLE" width="32" page="1" offset="0x2c" internal="0" description="Output X-BAR Mux Enable  for Output 7">
+		<bitfield id="MUX0" description="mux0 to drive OUTPUT7 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT7 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT7 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT7 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT7 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT7 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT7 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT7 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT7 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT7 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT7 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT7 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT7 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT7 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT7 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT7 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to drive OUTPUT7 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT7 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT7 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT7 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT7 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT7 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT7 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT7 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT7 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT7 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT7 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT7 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT7 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT7 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT7 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT7 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUT8MUXENABLE" width="32" page="1" offset="0x2e" internal="0" description="Output X-BAR Mux Enable  for Output 8">
+		<bitfield id="MUX0" description="mux0 to drive OUTPUT8 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX1" description="Mux1 to drive OUTPUT8 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX2" description="Mux2 to drive OUTPUT8 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX3" description="Mux3 to drive OUTPUT8 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX4" description="Mux4 to drive OUTPUT8 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX5" description="Mux5 to drive OUTPUT8 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX6" description="Mux6 to drive OUTPUT8 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX7" description="Mux7 to drive OUTPUT8 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX8" description="Mux8 to drive OUTPUT8 of OUTPUT-XBAR" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX9" description="Mux9 to drive OUTPUT8 of OUTPUT-XBAR" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX10" description="Mux10 to drive OUTPUT8 of OUTPUT-XBAR" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX11" description="Mux11 to drive OUTPUT8 of OUTPUT-XBAR" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX12" description="Mux12 to drive OUTPUT8 of OUTPUT-XBAR" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX13" description="Mux13 to drive OUTPUT8 of OUTPUT-XBAR" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX14" description="Mux14 to drive OUTPUT8 of OUTPUT-XBAR" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX15" description="Mux15 to drive OUTPUT8 of OUTPUT-XBAR" begin="15" end="15" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX16" description="Mux16 to drive OUTPUT8 of OUTPUT-XBAR" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX17" description="Mux17 to drive OUTPUT8 of OUTPUT-XBAR" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX18" description="Mux18 to drive OUTPUT8 of OUTPUT-XBAR" begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX19" description="Mux19 to drive OUTPUT8 of OUTPUT-XBAR" begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX20" description="Mux20 to drive OUTPUT8 of OUTPUT-XBAR" begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX21" description="Mux21 to drive OUTPUT8 of OUTPUT-XBAR" begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX22" description="Mux22 to drive OUTPUT8 of OUTPUT-XBAR" begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX23" description="Mux23 to drive OUTPUT8 of OUTPUT-XBAR" begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX24" description="Mux24 to drive OUTPUT8 of OUTPUT-XBAR" begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX25" description="Mux25 to drive OUTPUT8 of OUTPUT-XBAR" begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX26" description="Mux26 to drive OUTPUT8 of OUTPUT-XBAR" begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX27" description="Mux27 to drive OUTPUT8 of OUTPUT-XBAR" begin="27" end="27" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX28" description="Mux28 to drive OUTPUT8 of OUTPUT-XBAR" begin="28" end="28" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX29" description="Mux29 to drive OUTPUT8 of OUTPUT-XBAR" begin="29" end="29" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX30" description="Mux30 to drive OUTPUT8 of OUTPUT-XBAR" begin="30" end="30" width="1" rwaccess="R/W"/>
+		<bitfield id="MUX31" description="Mux31 to drive OUTPUT8 of OUTPUT-XBAR" begin="31" end="31" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUTLATCH" width="32" page="1" offset="0x30" internal="0" description="Output X-BAR Output Latch ">
+		<bitfield id="OUTPUT1" description="Records the OUTPUT1 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="OUTPUT2" description="Records the OUTPUT2 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="OUTPUT3" description="Records the OUTPUT3 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="OUTPUT4" description="Records the OUTPUT4 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="OUTPUT5" description="Records the OUTPUT5 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="OUTPUT6" description="Records the OUTPUT6 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="OUTPUT7" description="Records the OUTPUT7 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="OUTPUT8" description="Records the OUTPUT8 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="OUTPUTLATCHCLR" width="32" page="1" offset="0x32" internal="0" description="Output X-BAR Output Latch Clear ">
+		<bitfield id="OUTPUT1" description="Clears the Output-Latch for OUTPUT1 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT2" description="Clears the Output-Latch for OUTPUT2 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT3" description="Clears the Output-Latch for OUTPUT3 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT4" description="Clears the Output-Latch for OUTPUT4 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT5" description="Clears the Output-Latch for OUTPUT5 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT6" description="Clears the Output-Latch for OUTPUT6 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT7" description="Clears the Output-Latch for OUTPUT7 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT8" description="Clears the Output-Latch for OUTPUT8 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="OUTPUTLATCHFRC" width="32" page="1" offset="0x34" internal="0" description="Output X-BAR Output Latch Clear ">
+		<bitfield id="OUTPUT1" description="Sets the Output-Latch for OUTPUT1 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT2" description="Sets the Output-Latch for OUTPUT2 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT3" description="Sets the Output-Latch for OUTPUT3 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT4" description="Sets the Output-Latch for OUTPUT4 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT5" description="Sets the Output-Latch for OUTPUT5 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT6" description="Sets the Output-Latch for OUTPUT6 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT7" description="Sets the Output-Latch for OUTPUT7 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OUTPUT8" description="Sets the Output-Latch for OUTPUT8 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="OUTPUTLATCHENABLE" width="32" page="1" offset="0x36" internal="0" description="Output X-BAR Output Latch Enable ">
+		<bitfield id="OUTPUT1" description="Selects the output latch to drive OUTPUT1 for OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT2" description="Selects the output latch to drive output1 for OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT3" description="Selects the output latch to drive output2 for OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT4" description="Selects the output latch to drive output3 for OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT5" description="Selects the output latch to drive output4 for OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT6" description="Selects the output latch to drive output5 for OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT7" description="Selects the output latch to drive output6 for OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT8" description="Selects the output latch to drive output7 for OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUTINV" width="32" page="1" offset="0x38" internal="0" description="Output X-BAR Output Inversion ">
+		<bitfield id="OUTPUT1" description="Selects polarity for OUTPUT1 of OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT2" description="Selects polarity for OUTPUT2 of OUTPUT-XBAR" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT3" description="Selects polarity for OUTPUT3 of OUTPUT-XBAR" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT4" description="Selects polarity for OUTPUT4 of OUTPUT-XBAR" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT5" description="Selects polarity for OUTPUT5 of OUTPUT-XBAR" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT6" description="Selects polarity for OUTPUT6 of OUTPUT-XBAR" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT7" description="Selects polarity for OUTPUT7 of OUTPUT-XBAR" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="OUTPUT8" description="Selects polarity for OUTPUT8 of OUTPUT-XBAR" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="OUTPUTLOCK" width="32" page="1" offset="0x3e" internal="0" description="Output X-BAR Configuration Lock register">
+		<bitfield id="LOCK" description="Locks the configuration for OUTPUT-XBAR" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="KEY" description="Write Protection KEY" begin="31" end="16" width="16" rwaccess="R=0/W=1"/>
+	</register>
+</module>

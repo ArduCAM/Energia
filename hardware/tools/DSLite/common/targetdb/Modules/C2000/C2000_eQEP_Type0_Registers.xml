@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:29:29 $
+  -->
+
+
+<!-- TMS320C2000 eQEP Registers
+     ===========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="EQEP" HW_revision="" XML_version="1" description="eQEP Control and Status Registers">
+	<register id="QPOSCNT" acronym="QPOSCNT" offset="0" page="1" width="32" description="eQEP Position Counter" /> 
+	<register id="QPOSINIT" acronym="QPOSINIT" offset="2" page="1" width="32" description="eQEP Initialization Position Count" />
+	<register id="QPOSMAX" acronym="QPOSMAX" offset="4" page="1" width="32" description="eQEP Maximum Position Count" />
+	<register id="QPOSCMP" acronym="QPOSCMP" offset="6" page="1" width="32" description="eQEP Position-compare" />
+	<register id="QPOSILAT" acronym="QPOSILAT" offset="8" page="1" width="32" description="eQEP Index Position Latch" />
+	<register id="QPOSSLAT" acronym="QPOSSLAT" offset="10" page="1" width="32" description="eQEP Strobe Position Latch" />
+	<register id="QPOSLAT" acronym="QPOSLAT" offset="12" page="1" width="32" description="eQEP Position Latch" />
+	<register id="QUTMR" acronym="QUTMR" offset="14" page="1" width="32" description="eQEP Unit Timer" />
+	<register id="QUPRD" acronym="QUPRD" offset="16" page="1" width="32" description="eQEP Unit Period Register" />
+	<register id="QWDTMR" acronym="QWDTMR" offset="18" page="1" width="16" description="eQEP Watchdog Timer" />
+	<register id="QWDPRD" acronym="QWDPRD" offset="19" page="1" width="16" description="eQEP Watchdog Period Register" />
+	<register id="QDECCTL" acronym="QDECCTL" offset="20" page="1" width="16" description="eQEP Decoder Control Register" />
+	<register id="QEPCTL" acronym="QEPCTL" offset="21" page="1" width="16" description="eQEP Control Register" />
+	<register id="QCAPCTL" acronym="QCAPCTL" offset="22" page="1" width="16" description="eQEP Capture Control Register" />
+	<register id="QPOSCTL" acronym="QPOSCTL" offset="23" page="1" width="16" description="eQEP Position-compare Control Register" />
+	<register id="QEINT" acronym="QEINT" offset="24" page="1" width="16" description="eQEP Interrupt Enable Register" />
+	<register id="QFLG" acronym="QFLG" offset="25" page="1" width="16" description="eQEP Interrupt Flag Register" />
+	<register id="QCLR" acronym="QCLR" offset="26" page="1" width="16" description="eQEP Interrupt Clear Register" />
+	<register id="QFRC" acronym="QFRC" offset="27" page="1" width="16" description="eQEP Interrupt Force Register" />
+	<register id="QEPSTS" acronym="QEPSTS" offset="28" page="1" width="16" description="eQEP Status Register" />
+	<register id="QCTMR" acronym="QCTMR" offset="29" page="1" width="16" description="eQEP Capture Timer" />
+	<register id="QCPRD" acronym="QCPRD" offset="30" page="1" width="16" description="eQEP Capture Period Register" />
+	<register id="QCTMRLAT" acronym="QCTMRLAT" offset="31" page="1" width="16" description="eQEP Capture Timer Latch" />
+	<register id="QCPRDLAT" acronym="QCPRDLAT" offset="32" page="1" width="16" description="eQEP Capture Period Latch" />
+</module>

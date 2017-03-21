@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register_ids id="TMS192C2029" XML_version="1.0">
+	<register_id id="EMU_INPUT_TRIG_EN_REG"   value="0x7ffffffd" address="0" page="0" />
+	
+    <register_id id="DBG_CAP"  			  value="0x00000700" address="0" page="0"/>
+    <register_id id="DBG_CNTL" 			  value="0x00000704" address="0" page="0"/>   
+    <register_id id="DBG_HWBP_0_CNTL"     value="0x00000740" address="0" page="0"/>
+    <register_id id="DBG_HWBP_0_MB_INDEX" value="0x00000744" address="0" page="0"/>
+    <register_id id="DBG_HWBP_0_AMASK"    value="0x0000074c" address="0" page="0"/>
+    <register_id id="LF_DEBUG0"           value="0x00000760" address="0" page="0"/>
+    <register_id id="DESIGN_RESERVED"     value="0x00000764" address="0" page="0"/>
+
+</register_ids>

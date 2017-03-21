@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="SSI0" HW_revision="" XML_version="1.0" description="SSI register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="SSI_CR0" width="32" description="SSI Control 0" id="SSI_CR0" offset="0x00000000" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="SSI Data Size Select" id="SSI_CR0_DSS" resetval="" >
+            <bitenum id="SSI_CR0_DSS_4" value="0x00000003" token="" description="4-bit data"/>
+            <bitenum id="SSI_CR0_DSS_5" value="0x00000004" token="" description="5-bit data"/>
+            <bitenum id="SSI_CR0_DSS_6" value="0x00000005" token="" description="6-bit data"/>
+            <bitenum id="SSI_CR0_DSS_7" value="0x00000006" token="" description="7-bit data"/>
+            <bitenum id="SSI_CR0_DSS_8" value="0x00000007" token="" description="8-bit data"/>
+            <bitenum id="SSI_CR0_DSS_9" value="0x00000008" token="" description="9-bit data"/>
+            <bitenum id="SSI_CR0_DSS_10" value="0x00000009" token="" description="10-bit data"/>
+            <bitenum id="SSI_CR0_DSS_11" value="0x0000000A" token="" description="11-bit data"/>
+            <bitenum id="SSI_CR0_DSS_12" value="0x0000000B" token="" description="12-bit data"/>
+            <bitenum id="SSI_CR0_DSS_13" value="0x0000000C" token="" description="13-bit data"/>
+            <bitenum id="SSI_CR0_DSS_14" value="0x0000000D" token="" description="14-bit data"/>
+            <bitenum id="SSI_CR0_DSS_15" value="0x0000000E" token="" description="15-bit data"/>
+            <bitenum id="SSI_CR0_DSS_16" value="0x0000000F" token="" description="16-bit data"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="SSI Frame Format Select" id="SSI_CR0_FRF" resetval="" >
+            <bitenum id="SSI_CR0_FRF_MOTO" value="0x00000000" token="" description="Freescale SPI Frame Format"/>
+            <bitenum id="SSI_CR0_FRF_TI" value="0x00000010" token="" description="Synchronous Serial Frame Format"/>
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="SSI Serial Clock Polarity" id="SSI_CR0_SPO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="SSI Serial Clock Phase" id="SSI_CR0_SPH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="SSI Serial Clock Rate" id="SSI_CR0_SCR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_CR1" width="32" description="SSI Control 1" id="SSI_CR1" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SSI Loopback Mode" id="SSI_CR1_LBM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SSI Synchronous Serial Port Enable" id="SSI_CR1_SSE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SSI Master/Slave Select" id="SSI_CR1_MS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="End of Transmission" id="SSI_CR1_EOT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="SSI Mode" id="SSI_CR1_MODE" resetval="" >
+            <bitenum id="SSI_CR1_MODE_LEGACY" value="0x00000000" token="" description="Legacy SSI mode"/>
+            <bitenum id="SSI_CR1_MODE_BI" value="0x00000040" token="" description="Bi-SSI mode"/>
+            <bitenum id="SSI_CR1_MODE_QUAD" value="0x00000080" token="" description="Quad-SSI Mode"/>
+            <bitenum id="SSI_CR1_MODE_ADVANCED" value="0x000000C0" token="" description="Advanced SSI Mode with 8-bit packet size"/>
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="SSI Direction of Operation" id="SSI_CR1_DIR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="High Speed Clock Enable" id="SSI_CR1_HSCLKEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="FSS Hold Frame" id="SSI_CR1_FSSHLDFRM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Stop Frame (End of Message)" id="SSI_CR1_EOM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_DR" width="32" description="SSI Data" id="SSI_DR" offset="0x00000008" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="SSI Receive/Transmit Data" id="SSI_DR_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_SR" width="32" description="SSI Status" id="SSI_SR" offset="0x0000000C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="SSI Transmit FIFO Empty" id="SSI_SR_TFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="SSI Transmit FIFO Not Full" id="SSI_SR_TNF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="SSI Receive FIFO Not Empty" id="SSI_SR_RNE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="SSI Receive FIFO Full" id="SSI_SR_RFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="SSI Busy Bit" id="SSI_SR_BSY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_CPSR" width="32" description="SSI Clock Prescale" id="SSI_CPSR" offset="0x00000010" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="SSI Clock Prescale Divisor" id="SSI_CPSR_CPSDVSR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_IM" width="32" description="SSI Interrupt Mask" id="SSI_IM" offset="0x00000014" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SSI Receive Overrun Interrupt Mask" id="SSI_IM_RORIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SSI Receive Time-Out Interrupt Mask" id="SSI_IM_RTIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SSI Receive FIFO Interrupt Mask" id="SSI_IM_RXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SSI Transmit FIFO Interrupt Mask" id="SSI_IM_TXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="SSI Receive DMA Interrupt Mask" id="SSI_IM_DMARXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="SSI Transmit DMA Interrupt Mask" id="SSI_IM_DMATXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="End of Transmit Interrupt Mask" id="SSI_IM_EOTIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_RIS" width="32" description="SSI Raw Interrupt Status" id="SSI_RIS" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="SSI Receive Overrun Raw Interrupt Status" id="SSI_RIS_RORRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="SSI Receive Time-Out Raw Interrupt Status" id="SSI_RIS_RTRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="SSI Receive FIFO Raw Interrupt Status" id="SSI_RIS_RXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="SSI Transmit FIFO Raw Interrupt Status" id="SSI_RIS_TXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="SSI Receive DMA Raw Interrupt Status" id="SSI_RIS_DMARXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="SSI Transmit DMA Raw Interrupt Status" id="SSI_RIS_DMATXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="End of Transmit Raw Interrupt Status" id="SSI_RIS_EOTRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_MIS" width="32" description="SSI Masked Interrupt Status" id="SSI_MIS" offset="0x0000001C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="SSI Receive Overrun Masked Interrupt Status" id="SSI_MIS_RORMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="SSI Receive Time-Out Masked Interrupt Status" id="SSI_MIS_RTMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="SSI Receive FIFO Masked Interrupt Status" id="SSI_MIS_RXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="SSI Transmit FIFO Masked Interrupt Status" id="SSI_MIS_TXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="SSI Receive DMA Masked Interrupt Status" id="SSI_MIS_DMARXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="SSI Transmit DMA Masked Interrupt Status" id="SSI_MIS_DMATXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="End of Transmit Masked Interrupt Status" id="SSI_MIS_EOTMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_ICR" width="32" description="SSI Interrupt Clear" id="SSI_ICR" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="SSI Receive Overrun Interrupt Clear" id="SSI_ICR_RORIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="SSI Receive Time-Out Interrupt Clear" id="SSI_ICR_RTIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="SSI Receive DMA Interrupt Clear" id="SSI_ICR_DMARXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="W" description="SSI Transmit DMA Interrupt Clear" id="SSI_ICR_DMATXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="W" description="End of Transmit Interrupt Clear" id="SSI_ICR_EOTIC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_DMACTL" width="32" description="SSI DMA Control" id="SSI_DMACTL" offset="0x00000024" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive DMA Enable" id="SSI_DMACTL_RXDMAE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Transmit DMA Enable" id="SSI_DMACTL_TXDMAE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_PP" width="32" description="SSI Peripheral Properties" id="SSI_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="High Speed Capability" id="SSI_PP_HSCLK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="2" end="1" rwaccess="R" description="Mode of Operation" id="SSI_PP_MODE" resetval="" >
+            <bitenum id="SSI_PP_MODE_LEGACY" value="0x00000000" token="" description="Legacy SSI mode"/>
+            <bitenum id="SSI_PP_MODE_ADVBI" value="0x00000002" token="" description="Legacy mode, Advanced SSI mode and Bi-SSI mode enabled"/>
+            <bitenum id="SSI_PP_MODE_ADVBIQUAD" value="0x00000004" token="" description="Legacy mode, Advanced mode, Bi-SSI and Quad-SSI mode enabled"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="FSS Hold Frame Capability" id="SSI_PP_FSSHLDFRM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SSI_CC" width="32" description="SSI Clock Configuration" id="SSI_CC" offset="0x00000FC8" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="SSI Baud Clock Source" id="SSI_CC_CS" resetval="" >
+            <bitenum id="SSI_CC_CS_SYSPLL" value="0x00000000" token="" description="System clock (based on clock source and divisor factor)"/>
+            <bitenum id="SSI_CC_CS_PIOSC" value="0x00000005" token="" description="PIOSC"/>
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CRYPTO" HW_revision="" XML_version="1.0" description="Crypto core with DMA capability and local key storage
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DMACH0CTL" width="32" description="DMA Channel 0 Control" id="DMACH0CTL" offset="0x0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Channel priority:
+
+A channel with high priority will be served before a channel with low priority in cases with simultaneous access requests. If both channels have the same priority access of the channels to the external port is arbitrated using a Round Robin scheme." id="PRIO" resetval="0x0">
+         <bitenum id="HIGH" value="1" token="Priority high" description="Priority high"/>
+         <bitenum id="LOW" value="0" token="Priority low" description="Priority low"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="DMA Channel 0 Control" id="EN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel enabled" description="Channel enabled"/>
+         <bitenum id="DIS" value="0" token="Channel disabled" description="Channel disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="DMACH0EXTADDR" width="32" description="DMA Channel 0 External Address" id="DMACH0EXTADDR" offset="0x4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel external address value.
+Holds the last updated external address after being sent to the master interface." id="ADDR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMACH0LEN" width="32" description="DMA Channel 0 Length" id="DMACH0LEN" offset="0xc">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="DMA transfer length in bytes.
+During configuration, this register contains the DMA transfer length in bytes. During operation, it contains the last updated value of the DMA transfer length after being sent to the master interface.
+Note: Writing a non-zero value to this register field starts the transfer if the channel is enabled by setting DMACH0CTL.EN." id="LEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMASTAT" width="32" description="DMA Controller Status" id="DMASTAT" offset="0x18">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Reflects possible transfer errors on the AHB port." id="PORT_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="15" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="This register field indicates if DMA channel 1 is active or not.
+0: Not active
+1: Active" id="CH1_ACTIVE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="This register field indicates if DMA channel 0 is active or not.
+0: Not active
+1: Active" id="CH0_ACTIVE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMASWRESET" width="32" description="DMA Controller Software Reset" id="DMASWRESET" offset="0x1c">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Software reset enable 
+
+0:  Disable
+1:  Enable (self-cleared to zero).
+
+Note: Completion of the software reset must be checked in DMASTAT.CH0_ACTIVE and DMASTAT.CH1_ACTIVE." id="RESET" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMACH1CTL" width="32" description="DMA Channel 1 Control" id="DMACH1CTL" offset="0x20">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Channel priority:
+
+A channel with high priority will be served before a channel with low priority in cases with simultaneous access requests. If both channels have the same priority access of the channels to the external port is arbitrated using a Round Robin scheme." id="PRIO" resetval="0x0">
+         <bitenum id="HIGH" value="1" token="Priority high" description="Priority high"/>
+         <bitenum id="LOW" value="0" token="Priority low" description="Priority low"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Channel enable:
+
+Note: Disabling an active channel will interrupt the DMA operation. The ongoing block transfer will be completed, but no new transfers will be requested." id="EN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel enabled" description="Channel enabled"/>
+         <bitenum id="DIS" value="0" token="Channel disabled" description="Channel disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="DMACH1EXTADDR" width="32" description="DMA Channel 1 External Address" id="DMACH1EXTADDR" offset="0x24">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel external address value.
+Holds the last updated external address after being sent to the master interface." id="ADDR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMACH1LEN" width="32" description="DMA Channel 1 Length" id="DMACH1LEN" offset="0x2c">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="DMA transfer length in bytes.
+During configuration, this register contains the DMA transfer length in bytes. During operation, it contains the last updated value of the DMA transfer length after being sent to the master interface.
+Note: Writing a non-zero value to this register field starts the transfer if the channel is enabled by setting DMACH1CTL.EN." id="LEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMABUSCFG" width="32" description="DMA Controller Master Configuration" id="DMABUSCFG" offset="0x78">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Maximum burst size that can be performed on the AHB bus" id="AHB_MST1_BURST_SIZE" resetval="0x2">
+         <bitenum id="64_BYTE" value="6" token="64 bytes " description="64 bytes "/>
+         <bitenum id="32_BYTE" value="5" token="32 bytes " description="32 bytes "/>
+         <bitenum id="16_BYTE" value="4" token="16 bytes " description="16 bytes "/>
+         <bitenum id="8_BYTE" value="3" token="8 bytes " description="8 bytes "/>
+         <bitenum id="4_BYTE" value="2" token="4 bytes" description="4 bytes"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Idle transfer insertion between consecutive burst transfers on AHB" id="AHB_MST1_IDLE_EN" resetval="0x0">
+         <bitenum id="IDLE" value="1" token="Idle transfer insertion enabled" description="Idle transfer insertion enabled"/>
+         <bitenum id="NO_IDLE" value="0" token="Do not insert idle transfers." description="Do not insert idle transfers."/>
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Burst length type of AHB transfer" id="AHB_MST1_INCR_EN" resetval="0x1">
+         <bitenum id="SPECIFIED" value="1" token="Fixed length bursts or single transfers" description="Fixed length bursts or single transfers"/>
+         <bitenum id="UNSPECIFIED" value="0" token="Unspecified length burst transfers" description="Unspecified length burst transfers"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Locked transform on AHB
+" id="AHB_MST1_LOCK_EN" resetval="0x0">
+         <bitenum id="LOCKED" value="1" token="Transfers are locked" description="Transfers are locked"/>
+         <bitenum id="NOT_LOCKED" value="0" token="Transfers are not locked" description="Transfers are not locked"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Endianess for the AHB master
+" id="AHB_MST1_BIGEND" resetval="0x0">
+         <bitenum id="BIG_ENDIAN" value="1" token="Big Endian" description="Big Endian"/>
+         <bitenum id="LITTLE_ENDIAN" value="0" token="Little Endian" description="Little Endian"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMAPORTERR" width="32" description="DMA Controller Port Error" id="DMAPORTERR" offset="0x7c">
+      <bitfield range="" begin="31" width="19" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="A 1 indicates that the Crypto peripheral has detected an AHB bus error" id="AHB_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Indicates which channel was serviced last (channel 0 or channel 1) by the AHB master port." id="LAST_CH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="9" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMAHWVER" width="32" description="DMA Controller Version" id="DMAHWVER" offset="0xfc">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED28" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RO" description="Major version number" id="HW_MAJOR_VER" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="Minor version number" id="HW_MINOR_VER" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Patch level." id="HW_PATCH_LVL" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Bit-by-bit complement of the VER_NUM field bits." id="VER_NUM_COMPL" resetval="0x2e">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Version number of the DMA Controller (209)" id="VER_NUM" resetval="0xd1">
+      </bitfield>
+   </register>
+   <register acronym="KEYWRITEAREA" width="32" description="Key Write Area" id="KEYWRITEAREA" offset="0x400">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA7" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA6" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA5" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA4" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA3" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA2" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA1" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Represents an area of 128 bits.
+Select the key store RAM area(s) where the key(s) needs to be written.
+
+Writing to multiple RAM locations is only possible when the selected RAM areas are sequential." id="RAM_AREA0" resetval="0x0">
+         <bitenum id="SEL" value="1" token="This RAM area is selected to be written" description="This RAM area is selected to be written"/>
+         <bitenum id="NOT_SEL" value="0" token="This RAM area is not selected to be written" description="This RAM area is not selected to be written"/>
+      </bitfield>
+   </register>
+   <register acronym="KEYWRITTENAREA" width="32" description="Key Written Area Status
+This register shows which areas of the key store RAM contain valid written keys.
+When a new key needs to be written to the key store, on a location that is already occupied by a valid key, this key area must be cleared first. This can be done by writing this register before the new key is written to the key store memory.
+Attempting to write to a key area that already contains a valid key is not allowed and will result in an error." id="KEYWRITTENAREA" offset="0x404">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="On read this bit returns the key area written status.
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN7" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="On read this bit returns the key area written status.
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN6" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="On read this bit returns the key area written status.
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN5" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="On read this bit returns the key area written status.
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN4" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="On read this bit returns the key area written status.
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN3" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="On read this bit returns the key area written status.
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN2" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="On read this bit returns the key area written status.
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN1" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="On read this bit returns the key area written status.
+
+
+This bit can be reset by writing a 1.
+
+Note: This register will be reset on a soft reset initiated by writing to DMASWRESET.RESET. After a soft reset, all keys must be rewritten to the key store memory." id="RAM_AREA_WRITTEN0" resetval="0x0">
+         <bitenum id="WRITTEN" value="1" token="This RAM area is written with valid key information" description="This RAM area is written with valid key information"/>
+         <bitenum id="NOT_WRITTEN" value="0" token="This RAM area is not written with valid key information" description="This RAM area is not written with valid key information"/>
+      </bitfield>
+   </register>
+   <register acronym="KEYSIZE" width="32" description="Key Size
+This register defines the size of the keys that are written with DMA." id="KEYSIZE" offset="0x408">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Key size
+
+When writing to this register, KEYWRITTENAREA will be reset.
+
+Note: For the Crypto peripheral this field is fixed to 128 bits. For software compatibility KEYWRITTENAREA will  be reset when writing to this register." id="SIZE" resetval="0x1">
+         <bitenum id="256_BIT" value="3" token="Not supported" description="Not supported"/>
+         <bitenum id="192_BIT" value="2" token="Not supported" description="Not supported"/>
+         <bitenum id="128_BIT" value="1" token="128 bits" description="128 bits"/>
+      </bitfield>
+   </register>
+   <register acronym="KEYREADAREA" width="32" description="Key Read Area" id="KEYREADAREA" offset="0x40c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Key store operation busy status flag (read only)
+
+0: operation is completed.
+1: operation is not completed and the key store is busy." id="BUSY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Selects the area of the key store RAM from where the key needs to be read that will be written to the AES engine.
+
+Only RAM areas that contain valid written keys can be selected." id="RAM_AREA" resetval="0x8">
+         <bitenum id="NO_RAM" value="8" token="No RAM" description="No RAM"/>
+         <bitenum id="RAM_AREA7" value="7" token="RAM Area 7" description="RAM Area 7"/>
+         <bitenum id="RAM_AREA6" value="6" token="RAM Area 6" description="RAM Area 6"/>
+         <bitenum id="RAM_AREA5" value="5" token="RAM Area 5" description="RAM Area 5"/>
+         <bitenum id="RAM_AREA4" value="4" token="RAM Area 4" description="RAM Area 4"/>
+         <bitenum id="RAM_AREA3" value="3" token="RAM Area 3" description="RAM Area 3"/>
+         <bitenum id="RAM_AREA2" value="2" token="RAM Area 2" description="RAM Area 2"/>
+         <bitenum id="RAM_AREA1" value="1" token="RAM Area 1" description="RAM Area 1"/>
+         <bitenum id="RAM_AREA0" value="0" token="RAM Area 0" description="RAM Area 0"/>
+      </bitfield>
+   </register>
+   <register acronym="AESKEY2" width="32" description="Clear AES_KEY2/GHASH Key" id="AESKEY2" offset="0x500">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="AESKEY2.* bits 31+x:0+x or AES_GHASH_H.* bits 31+x:0+x, where x = 0, 32, 64, 96 ordered from the LSW entry of this 4-deep register array.
+The interpretation of this field depends on the crypto operation mode.
+
+" id="KEY2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESKEY3" width="32" description="Clear AES_KEY3" id="AESKEY3" offset="0x510">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="AESKEY3.* bits 31+x:0+x or AESKEY2.* bits 159+x:128+x, where x = 0, 32, 64, 96 ordered from the LSW entry of this 4-deep register arrary.
+The interpretation of this field depends on the crypto operation mode.
+
+" id="KEY3" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESIV" width="32" description="AES Initialization Vector" id="AESIV" offset="0x540">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="The interpretation of this field depends on the crypto operation mode.
+
+" id="IV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESCTL" width="32" description="AES Input/Output Buffer Control" id="AESCTL" offset="0x550">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="If 1, this status bit indicates that the context data registers can be overwritten and the Host is permitted to write the next context.  Writing a context means writing either a mode, the crypto length or AESDATALEN1.LEN_MSW, AESDATALEN0.LEN_LSW length registers" id="CONTEXT_RDY" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="If read as 1, this status bit indicates that an AES authentication TAG and/or IV block(s) is/are available for the Host to retrieve. This bit is only asserted if SAVE_CONTEXT is set to 1. The bit is mutually exclusive with CONTEXT_RDY.
+
+Writing 1 clears the bit to zero, indicating the Crypto peripheral can start its next operation. This bit is also cleared when the 4th word of the output TAG and/or IV is read.
+
+Note: All other mode bit writes will be ignored when this mode bit is written with 1.
+
+Note: This bit is controlled automatically by the Crypto peripheral for TAG read DMA operations.
+
+For typical use, this bit does NOT need to be written, but is used for status reading only. In this case, this status bit is automatically maintained by the Crypto peripheral." id="SAVED_CONTEXT_RDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="IV must be read before the AES engine can start a new operation." id="SAVE_CONTEXT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="4" end="25" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="3" end="22" rwaccess="RW" description="Defines M that indicates the length of the authentication field for CCM operations; the authentication field length equals two times the value of CCM_M plus one.
+Note: The Crypto peripheral always returns a 128-bit authentication field, of which the M least significant bytes are valid. All values are supported." id="CCM_M" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="3" end="19" rwaccess="RW" description="Defines L that indicates the width of the length field for CCM operations; the length field in bytes equals the value of CMM_L plus one. All values are supported." id="CCM_L" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="AES-CCM mode enable.
+AES-CCM is a combined mode, using AES for both authentication and encryption.
+Note: Selecting AES-CCM mode requires writing of AESDATALEN1.LEN_MSW and AESDATALEN0.LEN_LSW  after all other registers.
+Note: The CTR mode bit in this register must also be set to 1 to enable AES-CTR; selecting other AES modes than CTR mode is invalid." id="CCM" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="MAC mode enable.
+The DIR bit must be set to 1 for this mode.
+Selecting this mode requires writing the AESDATALEN1.LEN_MSW and AESDATALEN0.LEN_LSW registers after all other registers." id="CBC_MAC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="6" end="9" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="2" end="7" rwaccess="RW" description="Specifies the counter width for AES-CTR mode
+" id="CTR_WIDTH" resetval="0x0">
+         <bitenum id="128_BIT" value="3" token="128 bits" description="128 bits"/>
+         <bitenum id="96_BIT" value="2" token="96 bits" description="96 bits"/>
+         <bitenum id="64_BIT" value="1" token="64 bits" description="64 bits"/>
+         <bitenum id="32_BIT" value="0" token="32 bits" description="32 bits"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="AES-CTR mode enable
+This bit must also be set for CCM, when encryption/decryption is required." id="CTR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="CBC mode enable" id="CBC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RO" description="This field specifies the key size.
+The key size is automatically configured when a new key is loaded via the key store module.
+00 = N/A - reserved
+01 = 128 bits
+10 = N/A - reserved
+11 = N/A - reserved
+For the Crypto peripheral this field is fixed to 128 bits." id="KEY_SIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Direction.
+0 : Decrypt operation is performed.
+1 : Encrypt operation is performed.
+
+This bit must be written with a 1 when CBC-MAC is selected." id="DIR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="If read as 1, this status bit indicates that the 16-byte AES input buffer is empty. The Host is permitted to write the next block of data.
+
+Writing a 0 clears the bit to zero and indicates that the AES engine can use the provided input data block.
+
+Writing a 1 to this bit will be ignored.
+
+Note: For DMA operations, this bit is automatically controlled by the Crypto peripheral.
+After reset, this bit is 0. After writing a context (note 1), this bit will become 1.
+
+For typical use, this bit does NOT need to be written, but is used for status reading only. In this case, this status bit is automatically maintained by the Crypto peripheral." id="INPUT_RDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="If read as 1, this status bit indicates that an AES output block is available to be retrieved by the Host.
+
+Writing a 0 clears the bit to zero and indicates that output data is read by the Host. The AES engine can provide a next output data block.
+
+Writing a 1 to this bit will be ignored.
+
+Note: For DMA operations, this bit is automatically controlled by the Crypto peripheral.
+
+For typical use, this bit does NOT need to be written, but is used for status reading only. In this case, this status bit is automatically maintained by the Crypto peripheral." id="OUTPUT_RDY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATALEN0" width="32" description="Crypto Data Length LSW" id="AESDATALEN0" offset="0x554">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Used to write the Length values to the Crypto peripheral.  
+
+This register contains bits [31:0] of the combined data length." id="LEN_LSW" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATALEN1" width="32" description="Crypto Data Length MSW" id="AESDATALEN1" offset="0x558">
+      <bitfield range="" begin="31" width="3" end="29" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="29" end="0" rwaccess="WO" description="Bits [60:32] of the combined data length.
+
+Bits [60:0] of the crypto length registers AESDATALEN1 and AESDATALEN0 store the cryptographic data length in bytes for all modes. Once processing with this context is started, this length decrements to zero. Data lengths up to (2^61 - 1) bytes are allowed.
+For GCM, any value up to 2^36 - 32 bytes can be used. This is because a 32-bit counter mode is used; the maximum number of 128-bit blocks is 2^32 - 2, resulting in a maximum number of bytes of 2^36 - 32.
+Writing to this register triggers the engine to start using this context. This is valid for all modes except GCM and CCM.
+Note: For the combined modes (GCM and CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN.LEN.
+All modes must have a length &#62; 0. For the combined modes, it is allowed to have one of the lengths equal to zero.
+For the basic encryption modes (ECB/CBC/CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite.
+All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the Crypto peripheral. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes." id="LEN_MSW" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESAUTHLEN" width="32" description="AES Authentication Length" id="AESAUTHLEN" offset="0x55c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Authentication data length in bytes for combined mode, CCM only.
+Supported AAD-lengths for CCM are from 0 to (216 - 28) bytes. Once processing with this context is started, this length decrements to zero.
+Writing this register triggers the engine to start using this context for CCM." id="LEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAOUT0" width="32" description="Data Input/Output" id="AESDATAOUT0" offset="0x560">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Data register 0 for output block data from the Crypto peripheral.
+These bits = AES Output Data[31:0] of {127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host read operation, these registers contain the 128-bit output block from the latest AES operation. Reading from a word-aligned offset within this address range will read one word (4 bytes) of data out the 4-word deep (16 bytes = 128-bits AES block) data output buffer. The words (4 words, one full block) should be read before the core will move the next block to the data output buffer. To empty the data output buffer, AESCTL.OUTPUT_RDY must be written.
+For the modes with authentication (CBC-MAC, GCM and CCM), the invalid (message) bytes/words can be written with any data.
+
+Note: The AAD / authentication only data is not copied to the output buffer but only used for authentication." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAIN0" width="32" description="AES Data Input/Output 0" id="AESDATAIN0" offset="0x560">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Data registers for input block data to the Crypto peripheral.
+These bits = AES Input Data[31:0]  of [127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host write operation, these registers must be written with the 128-bit input block for the next AES operation. Writing at a word-aligned offset within this address range will store the word (4 bytes) of data into the corresponding position of 4-word deep (16 bytes = 128-bit AES block) data input buffer. This buffer is used for the next AES operation. If the last data block is not completely filled with valid data (see notes below), it is allowed to write only the words with valid data. Next AES operation is triggered by writing to AESCTL.INPUT_RDY.
+
+Note: AES typically operates on 128 bits block multiple input data. The CTR, GCM and CCM modes form an exception. The last block of a CTR-mode message may contain less than 128 bits (refer to [NIST 800-38A]): 0 &#60; n &#60;= 128 bits. For GCM/CCM, the last block of both AAD and message data may contain less than 128 bits (refer to [NIST 800-38D]). The Crypto peripheral automatically pads or masks misaligned ending data blocks with zeroes for GCM, CCM and CBC-MAC. For CTR mode, the remaining data in an unaligned data block is ignored." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAOUT1" width="32" description="AES Data Input/Output 3" id="AESDATAOUT1" offset="0x564">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Data registers for output block data from the Crypto peripheral.
+These bits = AES Output Data[63:32] of [127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host read operation, these registers contain the 128-bit output block from the latest AES operation. Reading from a word-aligned offset within this address range will read one word (4 bytes) of data out the 4-word deep (16 bytes = 128-bits AES block) data output buffer. The words (4 words, one full block) should be read before the core will move the next block to the data output buffer. To empty the data output buffer, AESCTL.OUTPUT_RDY must be written.
+For the modes with authentication (CBC-MAC, GCM and CCM), the invalid (message) bytes/words can be written with any data.
+
+Note: The AAD / authentication only data is not copied to the output buffer but only used for authentication." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAIN1" width="32" description="AES Data Input/Output 1" id="AESDATAIN1" offset="0x564">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Data registers for input block data to the Crypto peripheral.
+These bits = AES Input Data[63:32]  of [127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host write operation, these registers must be written with the 128-bit input block for the next AES operation. Writing at a word-aligned offset within this address range will store the word (4 bytes) of data into the corresponding position of 4-word deep (16 bytes = 128-bit AES block) data input buffer. This buffer is used for the next AES operation. If the last data block is not completely filled with valid data (see notes below), it is allowed to write only the words with valid data. Next AES operation is triggered by writing to AESCTL.INPUT_RDY.
+
+Note: AES typically operates on 128 bits block multiple input data. The CTR, GCM and CCM modes form an exception. The last block of a CTR-mode message may contain less than 128 bits (refer to [NIST 800-38A]): 0 &#60; n &#60;= 128 bits. For GCM/CCM, the last block of both AAD and message data may contain less than 128 bits (refer to [NIST 800-38D]). The Crypto peripheral automatically pads or masks misaligned ending data blocks with zeroes for GCM, CCM and CBC-MAC. For CTR mode, the remaining data in an unaligned data block is ignored." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAOUT2" width="32" description="AES Data Input/Output 2" id="AESDATAOUT2" offset="0x568">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Data registers for output block data from the Crypto peripheral.
+These bits = AES Output Data[95:64] of [127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host read operation, these registers contain the 128-bit output block from the latest AES operation. Reading from a word-aligned offset within this address range will read one word (4 bytes) of data out the 4-word deep (16 bytes = 128-bits AES block) data output buffer. The words (4 words, one full block) should be read before the core will move the next block to the data output buffer. To empty the data output buffer, AESCTL.OUTPUT_RDY must be written.
+For the modes with authentication (CBC-MAC, GCM and CCM), the invalid (message) bytes/words can be written with any data.
+
+Note: The AAD / authentication only data is not copied to the output buffer but only used for authentication." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAIN2" width="32" description="AES Data Input/Output 2" id="AESDATAIN2" offset="0x568">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Data registers for input block data to the Crypto peripheral.
+These bits = AES Input Data[95:64]  of [127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host write operation, these registers must be written with the 128-bit input block for the next AES operation. Writing at a word-aligned offset within this address range will store the word (4 bytes) of data into the corresponding position of 4-word deep (16 bytes = 128-bit AES block) data input buffer. This buffer is used for the next AES operation. If the last data block is not completely filled with valid data (see notes below), it is allowed to write only the words with valid data. Next AES operation is triggered by writing to AESCTL.INPUT_RDY.
+
+Note: AES typically operates on 128 bits block multiple input data. The CTR, GCM and CCM modes form an exception. The last block of a CTR-mode message may contain less than 128 bits (refer to [NIST 800-38A]): 0 &#60; n &#60;= 128 bits. For GCM/CCM, the last block of both AAD and message data may contain less than 128 bits (refer to [NIST 800-38D]). The Crypto peripheral automatically pads or masks misaligned ending data blocks with zeroes for GCM, CCM and CBC-MAC. For CTR mode, the remaining data in an unaligned data block is ignored." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAOUT3" width="32" description="AES Data Input/Output 3" id="AESDATAOUT3" offset="0x56c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Data registers for output block data from the Crypto peripheral.
+These bits = AES Output Data[127:96] of [127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host read operation, these registers contain the 128-bit output block from the latest AES operation. Reading from a word-aligned offset within this address range will read one word (4 bytes) of data out the 4-word deep (16 bytes = 128-bits AES block) data output buffer. The words (4 words, one full block) should be read before the core will move the next block to the data output buffer. To empty the data output buffer, AESCTL.OUTPUT_RDY must be written.
+For the modes with authentication (CBC-MAC, GCM and CCM), the invalid (message) bytes/words can be written with any data.
+
+Note: The AAD / authentication only data is not copied to the output buffer but only used for authentication." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESDATAIN3" width="32" description="Data Input/Output" id="AESDATAIN3" offset="0x56c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Data registers for input block data to the Crypto peripheral.
+These bits = AES Input Data[127:96] of [127:0]
+
+For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA.
+
+For a Host write operation, these registers must be written with the 128-bit input block for the next AES operation. Writing at a word-aligned offset within this address range will store the word (4 bytes) of data into the corresponding position of 4-word deep (16 bytes = 128-bit AES block) data input buffer. This buffer is used for the next AES operation. If the last data block is not completely filled with valid data (see notes below), it is allowed to write only the words with valid data. Next AES operation is triggered by writing to AESCTL.INPUT_RDY.
+
+Note: AES typically operates on 128 bits block multiple input data. The CTR, GCM and CCM modes form an exception. The last block of a CTR-mode message may contain less than 128 bits (refer to [NIST 800-38A]): 0 &#60; n &#60;= 128 bits. For GCM/CCM, the last block of both AAD and message data may contain less than 128 bits (refer to [NIST 800-38D]). The Crypto peripheral automatically pads or masks misaligned ending data blocks with zeroes for GCM, CCM and CBC-MAC. For CTR mode, the remaining data in an unaligned data block is ignored." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AESTAGOUT" width="32" description="AES Tag Output" id="AESTAGOUT" offset="0x570">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="This register contains the authentication TAG for the combined and authentication-only modes." id="TAG" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ALGSEL" width="32" description="Master Algorithm Select
+This register configures the internal destination of the DMA controller." id="ALGSEL" offset="0x700">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="If this bit is cleared to 0, the DMA operation involves only data.
+If this bit is set, the DMA operation includes a TAG (Authentication Result / Digest)." id="TAG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="29" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="If set to 1,  the AES data is loaded via DMA
+Both Read and Write maximum transfer size to DMA engine is set to 16 bytes" id="AES" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="If set to 1, selects the Key Store to be loaded via DMA.
+The maximum transfer size to DMA engine is set to 32 bytes (however transfers of 16, 24 and 32 bytes are allowed)" id="KEY_STORE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMAPROTCTL" width="32" description="Master Protection Control" id="DMAPROTCTL" offset="0x704">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Select AHB transfer protection control for DMA transfers using the key store area as destination.
+0 : transfers use &#39;USER&#39; type access.
+1 : transfers use &#39;PRIVILEGED&#39; type access." id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SWRESET" width="32" description="Software Reset" id="SWRESET" offset="0x740">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="If this bit is set to 1, the following modules are reset:
+- Master control internal state is reset. That includes interrupt, error status register and result available interrupt generation FSM.
+- Key store module state is reset. That includes clearing the Written Area flags; therefore the keys must be reloaded to the key store module.
+Writing 0 has no effect.
+The bit is self cleared after executing the reset." id="RESET" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IRQTYPE" width="32" description="Interrupt Configuration" id="IRQTYPE" offset="0x780">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Interrupt enable. This bit must be set to 1 to enable interrupts from the Crypto peripheral.
+0 : All interrupts are disabled enabled.
+1 : All interrupts are enabled." id="IEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IRQEN" width="32" description="Interrupt Enable" id="IRQEN" offset="0x784">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="This bit enables IRQSTAT.DMA_IN_DONE as source for IRQ." id="DMA_IN_DONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="This bit enables IRQSTAT.RESULT_AVAIL as source for IRQ." id="RESULT_AVAIL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IRQCLR" width="32" description="Interrupt Clear" id="IRQCLR" offset="0x788">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="WO" description="If 1 is written to this bit, IRQSTAT.DMA_BUS_ERR is cleared." id="DMA_BUS_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="WO" description="If 1 is written to this bit, IRQSTAT.KEY_ST_WR_ERR is cleared." id="KEY_ST_WR_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="WO" description="If 1 is written to this bit, IRQSTAT.KEY_ST_RD_ERR is cleared." id="KEY_ST_RD_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="27" end="2" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="If 1 is written to this bit, IRQSTAT.DMA_IN_DONE is cleared." id="DMA_IN_DONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="If 1 is written to this bit, IRQSTAT.RESULT_AVAIL is cleared." id="RESULT_AVAIL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IRQSET" width="32" description="Interrupt Set" id="IRQSET" offset="0x78c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="If 1 is written to this bit, IRQSTAT.DMA_IN_DONE is set.
+Writing 0 has no effect." id="DMA_IN_DONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="If 1 is written to this bit, IRQSTAT.RESULT_AVAIL is set.
+Writing 0 has no effect." id="RESULT_AVAIL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IRQSTAT" width="32" description="Interrupt Status" id="IRQSTAT" offset="0x790">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="This bit is set when a DMA bus error is detected during a DMA operation. The value of this register is held until it is cleared via IRQCLR.DMA_BUS_ERR
+Note: This error is asserted if an error is detected on the AHB master interface during a DMA operation.
+Note: This is not an interrupt source." id="DMA_BUS_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="This bit is set when a write error is detected during the DMA write operation to the key store memory. The value of this register is held until it is cleared via IRQCLR.KEY_ST_WR_ERR
+Note: This error is asserted if a DMA operation does not cover a full key area or more areas are written than expected.
+Note: This is not an interrupt source." id="KEY_ST_WR_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="This bit will be set when a read error is detected during the read of a key from the key store, while copying it to the AES engine. The value of this register is held until it is cleared via IRQCLR.KEY_ST_RD_ERR.
+Note: This error is asserted if a key location is selected in the key store that is not available.
+Note: This is not an interrupt source." id="KEY_ST_RD_ERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="27" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="This bit returns the status of DMA data in done interrupt." id="DMA_IN_DONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="This bit is set high when the Crypto peripheral has a result available." id="RESULT_AVAIL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="HWVER" width="32" description="CTRL Module Version" id="HWVER" offset="0x7fc">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED28" resetval="0x9">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RO" description="Major version number" id="HW_MAJOR_VER" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="Minor version number" id="HW_MINOR_VER" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Patch level, starts at 0 at first delivery of this version." id="HW_PATCH_LVL" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="These bits simply contain the complement of VER_NUM (0x87), used by a driver to ascertain that the Crypto peripheral register is indeed read." id="VER_NUM_COMPL" resetval="0x87">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="The version number for the Crypto peripheral, this field contains the value 120 (decimal) or 0x78." id="VER_NUM" resetval="0x78">
+      </bitfield>
+   </register>
+</module>

@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="ADC0" HW_revision="" XML_version="1.0" description="ADC register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="ADC_ACTSS" width="32" description="ADC Active Sample Sequencer" id="ADC_ACTSS" offset="0x00000000" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ADC SS0 Enable" id="ADC_ACTSS_ASEN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="ADC SS1 Enable" id="ADC_ACTSS_ASEN1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="ADC SS2 Enable" id="ADC_ACTSS_ASEN2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="ADC SS3 Enable" id="ADC_ACTSS_ASEN3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="ADC SS1 DMA Enable" id="ADC_ACTSS_ADEN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="ADC SS1 DMA Enable" id="ADC_ACTSS_ADEN1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="ADC SS2 DMA Enable" id="ADC_ACTSS_ADEN2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="ADC SS3 DMA Enable" id="ADC_ACTSS_ADEN3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="ADC Busy" id="ADC_ACTSS_BUSY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_RIS" width="32" description="ADC Raw Interrupt Status" id="ADC_RIS" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="SS0 Raw Interrupt Status" id="ADC_RIS_INR0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="SS1 Raw Interrupt Status" id="ADC_RIS_INR1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="SS2 Raw Interrupt Status" id="ADC_RIS_INR2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="SS3 Raw Interrupt Status" id="ADC_RIS_INR3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="SS0 DMA Raw Interrupt Status" id="ADC_RIS_DMAINR0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="SS1 DMA Raw Interrupt Status" id="ADC_RIS_DMAINR1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="SS2 DMA Raw Interrupt Status" id="ADC_RIS_DMAINR2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="SS3 DMA Raw Interrupt Status" id="ADC_RIS_DMAINR3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Digital Comparator Raw Interrupt Status" id="ADC_RIS_INRDC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_IM" width="32" description="ADC Interrupt Mask" id="ADC_IM" offset="0x00000008" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SS0 Interrupt Mask" id="ADC_IM_MASK0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SS1 Interrupt Mask" id="ADC_IM_MASK1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SS2 Interrupt Mask" id="ADC_IM_MASK2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SS3 Interrupt Mask" id="ADC_IM_MASK3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="SS0 DMA Interrupt Mask" id="ADC_IM_DMAMASK0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="SS1 DMA Interrupt Mask" id="ADC_IM_DMAMASK1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="SS2 DMA Interrupt Mask" id="ADC_IM_DMAMASK2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="SS3 DMA Interrupt Mask" id="ADC_IM_DMAMASK3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Digital Comparator Interrupt on SS0" id="ADC_IM_DCONSS0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Digital Comparator Interrupt on SS1" id="ADC_IM_DCONSS1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Digital Comparator Interrupt on SS2" id="ADC_IM_DCONSS2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Digital Comparator Interrupt on SS3" id="ADC_IM_DCONSS3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_ISC" width="32" description="ADC Interrupt Status and Clear" id="ADC_ISC" offset="0x0000000C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SS0 Interrupt Status and Clear" id="ADC_ISC_IN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SS1 Interrupt Status and Clear" id="ADC_ISC_IN1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SS2 Interrupt Status and Clear" id="ADC_ISC_IN2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SS3 Interrupt Status and Clear" id="ADC_ISC_IN3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="SS0 DMA Interrupt Status and Clear" id="ADC_ISC_DMAIN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="SS1 DMA Interrupt Status and Clear" id="ADC_ISC_DMAIN1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="SS2 DMA Interrupt Status and Clear" id="ADC_ISC_DMAIN2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="SS3 DMA Interrupt Status and Clear" id="ADC_ISC_DMAIN3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Digital Comparator Interrupt Status on SS0" id="ADC_ISC_DCINSS0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Digital Comparator Interrupt Status on SS1" id="ADC_ISC_DCINSS1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Digital Comparator Interrupt Status on SS2" id="ADC_ISC_DCINSS2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Digital Comparator Interrupt Status on SS3" id="ADC_ISC_DCINSS3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_OSTAT" width="32" description="ADC Overflow Status" id="ADC_OSTAT" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SS0 FIFO Overflow" id="ADC_OSTAT_OV0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SS1 FIFO Overflow" id="ADC_OSTAT_OV1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SS2 FIFO Overflow" id="ADC_OSTAT_OV2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SS3 FIFO Overflow" id="ADC_OSTAT_OV3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_EMUX" width="32" description="ADC Event Multiplexer Select" id="ADC_EMUX" offset="0x00000014" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="SS0 Trigger Select" id="ADC_EMUX_EM0" resetval="" >
+            <bitenum id="ADC_EMUX_EM0_PROCESSOR" value="0x00000000" token="" description="Processor (default)"/>
+            <bitenum id="ADC_EMUX_EM0_COMP0" value="0x00000001" token="" description="Analog Comparator 0"/>
+            <bitenum id="ADC_EMUX_EM0_COMP1" value="0x00000002" token="" description="Analog Comparator 1"/>
+            <bitenum id="ADC_EMUX_EM0_COMP2" value="0x00000003" token="" description="Analog Comparator 2"/>
+            <bitenum id="ADC_EMUX_EM0_EXTERNAL" value="0x00000004" token="" description="External (GPIO Pins)"/>
+            <bitenum id="ADC_EMUX_EM0_TIMER" value="0x00000005" token="" description="Timer"/>
+            <bitenum id="ADC_EMUX_EM0_PWM0" value="0x00000006" token="" description="PWM generator 0"/>
+            <bitenum id="ADC_EMUX_EM0_PWM1" value="0x00000007" token="" description="PWM generator 1"/>
+            <bitenum id="ADC_EMUX_EM0_PWM2" value="0x00000008" token="" description="PWM generator 2"/>
+            <bitenum id="ADC_EMUX_EM0_PWM3" value="0x00000009" token="" description="PWM generator 3"/>
+            <bitenum id="ADC_EMUX_EM0_NEVER" value="0x0000000E" token="" description="Never Trigger"/>
+            <bitenum id="ADC_EMUX_EM0_ALWAYS" value="0x0000000F" token="" description="Always (continuously sample)"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="SS1 Trigger Select" id="ADC_EMUX_EM1" resetval="" >
+            <bitenum id="ADC_EMUX_EM1_PROCESSOR" value="0x00000000" token="" description="Processor (default)"/>
+            <bitenum id="ADC_EMUX_EM1_COMP0" value="0x00000010" token="" description="Analog Comparator 0"/>
+            <bitenum id="ADC_EMUX_EM1_COMP1" value="0x00000020" token="" description="Analog Comparator 1"/>
+            <bitenum id="ADC_EMUX_EM1_COMP2" value="0x00000030" token="" description="Analog Comparator 2"/>
+            <bitenum id="ADC_EMUX_EM1_EXTERNAL" value="0x00000040" token="" description="External (GPIO Pins)"/>
+            <bitenum id="ADC_EMUX_EM1_TIMER" value="0x00000050" token="" description="Timer"/>
+            <bitenum id="ADC_EMUX_EM1_PWM0" value="0x00000060" token="" description="PWM generator 0"/>
+            <bitenum id="ADC_EMUX_EM1_PWM1" value="0x00000070" token="" description="PWM generator 1"/>
+            <bitenum id="ADC_EMUX_EM1_PWM2" value="0x00000080" token="" description="PWM generator 2"/>
+            <bitenum id="ADC_EMUX_EM1_PWM3" value="0x00000090" token="" description="PWM generator 3"/>
+            <bitenum id="ADC_EMUX_EM1_NEVER" value="0x000000E0" token="" description="Never Trigger"/>
+            <bitenum id="ADC_EMUX_EM1_ALWAYS" value="0x000000F0" token="" description="Always (continuously sample)"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="SS2 Trigger Select" id="ADC_EMUX_EM2" resetval="" >
+            <bitenum id="ADC_EMUX_EM2_PROCESSOR" value="0x00000000" token="" description="Processor (default)"/>
+            <bitenum id="ADC_EMUX_EM2_COMP0" value="0x00000100" token="" description="Analog Comparator 0"/>
+            <bitenum id="ADC_EMUX_EM2_COMP1" value="0x00000200" token="" description="Analog Comparator 1"/>
+            <bitenum id="ADC_EMUX_EM2_COMP2" value="0x00000300" token="" description="Analog Comparator 2"/>
+            <bitenum id="ADC_EMUX_EM2_EXTERNAL" value="0x00000400" token="" description="External (GPIO Pins)"/>
+            <bitenum id="ADC_EMUX_EM2_TIMER" value="0x00000500" token="" description="Timer"/>
+            <bitenum id="ADC_EMUX_EM2_PWM0" value="0x00000600" token="" description="PWM generator 0"/>
+            <bitenum id="ADC_EMUX_EM2_PWM1" value="0x00000700" token="" description="PWM generator 1"/>
+            <bitenum id="ADC_EMUX_EM2_PWM2" value="0x00000800" token="" description="PWM generator 2"/>
+            <bitenum id="ADC_EMUX_EM2_PWM3" value="0x00000900" token="" description="PWM generator 3"/>
+            <bitenum id="ADC_EMUX_EM2_NEVER" value="0x00000E00" token="" description="Never Trigger"/>
+            <bitenum id="ADC_EMUX_EM2_ALWAYS" value="0x00000F00" token="" description="Always (continuously sample)"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="SS3 Trigger Select" id="ADC_EMUX_EM3" resetval="" >
+            <bitenum id="ADC_EMUX_EM3_PROCESSOR" value="0x00000000" token="" description="Processor (default)"/>
+            <bitenum id="ADC_EMUX_EM3_COMP0" value="0x00001000" token="" description="Analog Comparator 0"/>
+            <bitenum id="ADC_EMUX_EM3_COMP1" value="0x00002000" token="" description="Analog Comparator 1"/>
+            <bitenum id="ADC_EMUX_EM3_COMP2" value="0x00003000" token="" description="Analog Comparator 2"/>
+            <bitenum id="ADC_EMUX_EM3_EXTERNAL" value="0x00004000" token="" description="External (GPIO Pins)"/>
+            <bitenum id="ADC_EMUX_EM3_TIMER" value="0x00005000" token="" description="Timer"/>
+            <bitenum id="ADC_EMUX_EM3_PWM0" value="0x00006000" token="" description="PWM generator 0"/>
+            <bitenum id="ADC_EMUX_EM3_PWM1" value="0x00007000" token="" description="PWM generator 1"/>
+            <bitenum id="ADC_EMUX_EM3_PWM2" value="0x00008000" token="" description="PWM generator 2"/>
+            <bitenum id="ADC_EMUX_EM3_PWM3" value="0x00009000" token="" description="PWM generator 3"/>
+            <bitenum id="ADC_EMUX_EM3_NEVER" value="0x0000E000" token="" description="Never Trigger"/>
+            <bitenum id="ADC_EMUX_EM3_ALWAYS" value="0x0000F000" token="" description="Always (continuously sample)"/>
+        </bitfield>
+    </register>
+    <register acronym="ADC_USTAT" width="32" description="ADC Underflow Status" id="ADC_USTAT" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SS0 FIFO Underflow" id="ADC_USTAT_UV0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SS1 FIFO Underflow" id="ADC_USTAT_UV1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SS2 FIFO Underflow" id="ADC_USTAT_UV2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SS3 FIFO Underflow" id="ADC_USTAT_UV3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_TSSEL" width="32" description="ADC Trigger Source Select" id="ADC_TSSEL" offset="0x0000001C" >
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Generator 0 PWM Module Trigger Select" id="ADC_TSSEL_PS0" resetval="" >
+            <bitenum id="ADC_TSSEL_PS0_0" value="0x00000000" token="" description="Use Generator 0 (and its trigger) in PWM module 0"/>
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="Generator 1 PWM Module Trigger Select" id="ADC_TSSEL_PS1" resetval="" >
+            <bitenum id="ADC_TSSEL_PS1_0" value="0x00000000" token="" description="Use Generator 1 (and its trigger) in PWM module 0"/>
+        </bitfield>
+        <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Generator 2 PWM Module Trigger Select" id="ADC_TSSEL_PS2" resetval="" >
+            <bitenum id="ADC_TSSEL_PS2_0" value="0x00000000" token="" description="Use Generator 2 (and its trigger) in PWM module 0"/>
+        </bitfield>
+        <bitfield range="" begin="29" width="2" end="28" rwaccess="RW" description="Generator 3 PWM Module Trigger Select" id="ADC_TSSEL_PS3" resetval="" >
+            <bitenum id="ADC_TSSEL_PS3_0" value="0x00000000" token="" description="Use Generator 3 (and its trigger) in PWM module 0"/>
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSPRI" width="32" description="ADC Sample Sequencer Priority" id="ADC_SSPRI" offset="0x00000020" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="SS0 Priority" id="ADC_SSPRI_SS0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="SS1 Priority" id="ADC_SSPRI_SS1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="SS2 Priority" id="ADC_SSPRI_SS2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="SS3 Priority" id="ADC_SSPRI_SS3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SPC" width="32" description="ADC Sample Phase Control" id="ADC_SPC" offset="0x00000024" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Phase Difference" id="ADC_SPC_PHASE" resetval="" >
+            <bitenum id="ADC_SPC_PHASE_0" value="0x00000000" token="" description="ADC sample lags by 0.0"/>
+            <bitenum id="ADC_SPC_PHASE_22_5" value="0x00000001" token="" description="ADC sample lags by 22.5"/>
+            <bitenum id="ADC_SPC_PHASE_45" value="0x00000002" token="" description="ADC sample lags by 45.0"/>
+            <bitenum id="ADC_SPC_PHASE_67_5" value="0x00000003" token="" description="ADC sample lags by 67.5"/>
+            <bitenum id="ADC_SPC_PHASE_90" value="0x00000004" token="" description="ADC sample lags by 90.0"/>
+            <bitenum id="ADC_SPC_PHASE_112_5" value="0x00000005" token="" description="ADC sample lags by 112.5"/>
+            <bitenum id="ADC_SPC_PHASE_135" value="0x00000006" token="" description="ADC sample lags by 135.0"/>
+            <bitenum id="ADC_SPC_PHASE_157_5" value="0x00000007" token="" description="ADC sample lags by 157.5"/>
+            <bitenum id="ADC_SPC_PHASE_180" value="0x00000008" token="" description="ADC sample lags by 180.0"/>
+            <bitenum id="ADC_SPC_PHASE_202_5" value="0x00000009" token="" description="ADC sample lags by 202.5"/>
+            <bitenum id="ADC_SPC_PHASE_225" value="0x0000000A" token="" description="ADC sample lags by 225.0"/>
+            <bitenum id="ADC_SPC_PHASE_247_5" value="0x0000000B" token="" description="ADC sample lags by 247.5"/>
+            <bitenum id="ADC_SPC_PHASE_270" value="0x0000000C" token="" description="ADC sample lags by 270.0"/>
+            <bitenum id="ADC_SPC_PHASE_292_5" value="0x0000000D" token="" description="ADC sample lags by 292.5"/>
+            <bitenum id="ADC_SPC_PHASE_315" value="0x0000000E" token="" description="ADC sample lags by 315.0"/>
+            <bitenum id="ADC_SPC_PHASE_337_5" value="0x0000000F" token="" description="ADC sample lags by 337.5"/>
+        </bitfield>
+    </register>
+    <register acronym="ADC_PSSI" width="32" description="ADC Processor Sample Sequence Initiate" id="ADC_PSSI" offset="0x00000028" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SS0 Initiate" id="ADC_PSSI_SS0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SS1 Initiate" id="ADC_PSSI_SS1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SS2 Initiate" id="ADC_PSSI_SS2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SS3 Initiate" id="ADC_PSSI_SS3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="Synchronize Wait" id="ADC_PSSI_SYNCWAIT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Global Synchronize" id="ADC_PSSI_GSYNC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SAC" width="32" description="ADC Sample Averaging Control" id="ADC_SAC" offset="0x00000030" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Hardware Averaging Control" id="ADC_SAC_AVG" resetval="" >
+            <bitenum id="ADC_SAC_AVG_OFF" value="0x00000000" token="" description="No hardware oversampling"/>
+            <bitenum id="ADC_SAC_AVG_2X" value="0x00000001" token="" description="2x hardware oversampling"/>
+            <bitenum id="ADC_SAC_AVG_4X" value="0x00000002" token="" description="4x hardware oversampling"/>
+            <bitenum id="ADC_SAC_AVG_8X" value="0x00000003" token="" description="8x hardware oversampling"/>
+            <bitenum id="ADC_SAC_AVG_16X" value="0x00000004" token="" description="16x hardware oversampling"/>
+            <bitenum id="ADC_SAC_AVG_32X" value="0x00000005" token="" description="32x hardware oversampling"/>
+            <bitenum id="ADC_SAC_AVG_64X" value="0x00000006" token="" description="64x hardware oversampling"/>
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCISC" width="32" description="ADC Digital Comparator Interrupt Status and Clear" id="ADC_DCISC" offset="0x00000034" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Digital Comparator 0 Interrupt Status and Clear" id="ADC_DCISC_DCINT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Digital Comparator 1 Interrupt Status and Clear" id="ADC_DCISC_DCINT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Digital Comparator 2 Interrupt Status and Clear" id="ADC_DCISC_DCINT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Digital Comparator 3 Interrupt Status and Clear" id="ADC_DCISC_DCINT3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Digital Comparator 4 Interrupt Status and Clear" id="ADC_DCISC_DCINT4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Digital Comparator 5 Interrupt Status and Clear" id="ADC_DCISC_DCINT5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Digital Comparator 6 Interrupt Status and Clear" id="ADC_DCISC_DCINT6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Digital Comparator 7 Interrupt Status and Clear" id="ADC_DCISC_DCINT7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_CTL" width="32" description="ADC Control" id="ADC_CTL" offset="0x00000038" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Voltage Reference Select" id="ADC_CTL_VREF" resetval="" >
+            <bitenum id="ADC_CTL_VREF_INTERNAL" value="0x00000000" token="" description="VDDA and GNDA are the voltage references"/>
+            <bitenum id="ADC_CTL_VREF_EXT_3V" value="0x00000001" token="" description="The external VREFA+ and VREFA- inputs are the voltage references"/>
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSMUX0" width="32" description="ADC Sample Sequence Input Multiplexer Select 0" id="ADC_SSMUX0" offset="0x00000040" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample Input Select" id="ADC_SSMUX0_MUX0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="2nd Sample Input Select" id="ADC_SSMUX0_MUX1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="3rd Sample Input Select" id="ADC_SSMUX0_MUX2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="4th Sample Input Select" id="ADC_SSMUX0_MUX3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="5th Sample Input Select" id="ADC_SSMUX0_MUX4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="6th Sample Input Select" id="ADC_SSMUX0_MUX5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="7th Sample Input Select" id="ADC_SSMUX0_MUX6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="8th Sample Input Select" id="ADC_SSMUX0_MUX7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSCTL0" width="32" description="ADC Sample Sequence Control 0" id="ADC_SSCTL0" offset="0x00000044" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="1st Sample Differential Input Select" id="ADC_SSCTL0_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="1st Sample is End of Sequence" id="ADC_SSCTL0_END0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="1st Sample Interrupt Enable" id="ADC_SSCTL0_IE0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="1st Sample Temp Sensor Select" id="ADC_SSCTL0_TS0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="2nd Sample Differential Input Select" id="ADC_SSCTL0_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="2nd Sample is End of Sequence" id="ADC_SSCTL0_END1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="2nd Sample Interrupt Enable" id="ADC_SSCTL0_IE1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="2nd Sample Temp Sensor Select" id="ADC_SSCTL0_TS1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="3rd Sample Differential Input Select" id="ADC_SSCTL0_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="3rd Sample is End of Sequence" id="ADC_SSCTL0_END2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="3rd Sample Interrupt Enable" id="ADC_SSCTL0_IE2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="3rd Sample Temp Sensor Select" id="ADC_SSCTL0_TS2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="4th Sample Differential Input Select" id="ADC_SSCTL0_D3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="4th Sample is End of Sequence" id="ADC_SSCTL0_END3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="4th Sample Interrupt Enable" id="ADC_SSCTL0_IE3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="4th Sample Temp Sensor Select" id="ADC_SSCTL0_TS3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="5th Sample Differential Input Select" id="ADC_SSCTL0_D4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="5th Sample is End of Sequence" id="ADC_SSCTL0_END4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="5th Sample Interrupt Enable" id="ADC_SSCTL0_IE4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="5th Sample Temp Sensor Select" id="ADC_SSCTL0_TS4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="6th Sample Differential Input Select" id="ADC_SSCTL0_D5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="6th Sample is End of Sequence" id="ADC_SSCTL0_END5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="6th Sample Interrupt Enable" id="ADC_SSCTL0_IE5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="6th Sample Temp Sensor Select" id="ADC_SSCTL0_TS5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="7th Sample Differential Input Select" id="ADC_SSCTL0_D6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="7th Sample is End of Sequence" id="ADC_SSCTL0_END6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="7th Sample Interrupt Enable" id="ADC_SSCTL0_IE6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="7th Sample Temp Sensor Select" id="ADC_SSCTL0_TS6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="8th Sample Differential Input Select" id="ADC_SSCTL0_D7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="8th Sample is End of Sequence" id="ADC_SSCTL0_END7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="8th Sample Interrupt Enable" id="ADC_SSCTL0_IE7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="8th Sample Temp Sensor Select" id="ADC_SSCTL0_TS7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFIFO0" width="32" description="ADC Sample Sequence Result FIFO 0" id="ADC_SSFIFO0" offset="0x00000048" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="R" description="Conversion Result Data" id="ADC_SSFIFO0_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFSTAT0" width="32" description="ADC Sample Sequence FIFO 0 Status" id="ADC_SSFSTAT0" offset="0x0000004C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="FIFO Tail Pointer" id="ADC_SSFSTAT0_TPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="R" description="FIFO Head Pointer" id="ADC_SSFSTAT0_HPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="FIFO Empty" id="ADC_SSFSTAT0_EMPTY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="FIFO Full" id="ADC_SSFSTAT0_FULL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSOP0" width="32" description="ADC Sample Sequence 0 Operation" id="ADC_SSOP0" offset="0x00000050" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Operation" id="ADC_SSOP0_S0DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Sample 1 Digital Comparator Operation" id="ADC_SSOP0_S1DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Sample 2 Digital Comparator Operation" id="ADC_SSOP0_S2DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Sample 3 Digital Comparator Operation" id="ADC_SSOP0_S3DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Sample 4 Digital Comparator Operation" id="ADC_SSOP0_S4DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Sample 5 Digital Comparator Operation" id="ADC_SSOP0_S5DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Sample 6 Digital Comparator Operation" id="ADC_SSOP0_S6DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Sample 7 Digital Comparator Operation" id="ADC_SSOP0_S7DCOP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSDC0" width="32" description="ADC Sample Sequence 0 Digital Comparator Select" id="ADC_SSDC0" offset="0x00000054" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Select" id="ADC_SSDC0_S0DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Sample 1 Digital Comparator Select" id="ADC_SSDC0_S1DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="Sample 2 Digital Comparator Select" id="ADC_SSDC0_S2DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Sample 3 Digital Comparator Select" id="ADC_SSDC0_S3DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="Sample 4 Digital Comparator Select" id="ADC_SSDC0_S4DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="Sample 5 Digital Comparator Select" id="ADC_SSDC0_S5DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="Sample 6 Digital Comparator Select" id="ADC_SSDC0_S6DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="Sample 7 Digital Comparator Select" id="ADC_SSDC0_S7DCSEL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSEMUX0" width="32" description="ADC Sample Sequence Extended Input Multiplexer Select 0" id="ADC_SSEMUX0" offset="0x00000058" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="1st Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="2th Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="3rd Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="4th Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="5th Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="6th Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="7th Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="8th Sample Input Select (Upper Bit)" id="ADC_SSEMUX0_EMUX7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSTSH0" width="32" description="ADC Sample Sequence 0 Sample and Hold Time" id="ADC_SSTSH0" offset="0x0000005C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample and Hold Period Select" id="ADC_SSTSH0_TSH0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="2nd Sample and Hold Period Select" id="ADC_SSTSH0_TSH1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="3rd Sample and Hold Period Select" id="ADC_SSTSH0_TSH2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="4th Sample and Hold Period Select" id="ADC_SSTSH0_TSH3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="5th Sample and Hold Period Select" id="ADC_SSTSH0_TSH4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="6th Sample and Hold Period Select" id="ADC_SSTSH0_TSH5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="7th Sample and Hold Period Select" id="ADC_SSTSH0_TSH6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="8th Sample and Hold Period Select" id="ADC_SSTSH0_TSH7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSMUX1" width="32" description="ADC Sample Sequence Input Multiplexer Select 1" id="ADC_SSMUX1" offset="0x00000060" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample Input Select" id="ADC_SSMUX1_MUX0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="2nd Sample Input Select" id="ADC_SSMUX1_MUX1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="3rd Sample Input Select" id="ADC_SSMUX1_MUX2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="4th Sample Input Select" id="ADC_SSMUX1_MUX3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSCTL1" width="32" description="ADC Sample Sequence Control 1" id="ADC_SSCTL1" offset="0x00000064" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="1st Sample Differential Input Select" id="ADC_SSCTL1_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="1st Sample is End of Sequence" id="ADC_SSCTL1_END0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="1st Sample Interrupt Enable" id="ADC_SSCTL1_IE0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="1st Sample Temp Sensor Select" id="ADC_SSCTL1_TS0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="2nd Sample Differential Input Select" id="ADC_SSCTL1_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="2nd Sample is End of Sequence" id="ADC_SSCTL1_END1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="2nd Sample Interrupt Enable" id="ADC_SSCTL1_IE1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="2nd Sample Temp Sensor Select" id="ADC_SSCTL1_TS1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="3rd Sample Differential Input Select" id="ADC_SSCTL1_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="3rd Sample is End of Sequence" id="ADC_SSCTL1_END2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="3rd Sample Interrupt Enable" id="ADC_SSCTL1_IE2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="3rd Sample Temp Sensor Select" id="ADC_SSCTL1_TS2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="4th Sample Differential Input Select" id="ADC_SSCTL1_D3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="4th Sample is End of Sequence" id="ADC_SSCTL1_END3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="4th Sample Interrupt Enable" id="ADC_SSCTL1_IE3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="4th Sample Temp Sensor Select" id="ADC_SSCTL1_TS3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFIFO1" width="32" description="ADC Sample Sequence Result FIFO 1" id="ADC_SSFIFO1" offset="0x00000068" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="R" description="Conversion Result Data" id="ADC_SSFIFO1_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFSTAT1" width="32" description="ADC Sample Sequence FIFO 1 Status" id="ADC_SSFSTAT1" offset="0x0000006C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="FIFO Tail Pointer" id="ADC_SSFSTAT1_TPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="R" description="FIFO Head Pointer" id="ADC_SSFSTAT1_HPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="FIFO Empty" id="ADC_SSFSTAT1_EMPTY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="FIFO Full" id="ADC_SSFSTAT1_FULL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSOP1" width="32" description="ADC Sample Sequence 1 Operation" id="ADC_SSOP1" offset="0x00000070" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Operation" id="ADC_SSOP1_S0DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Sample 1 Digital Comparator Operation" id="ADC_SSOP1_S1DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Sample 2 Digital Comparator Operation" id="ADC_SSOP1_S2DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Sample 3 Digital Comparator Operation" id="ADC_SSOP1_S3DCOP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSDC1" width="32" description="ADC Sample Sequence 1 Digital Comparator Select" id="ADC_SSDC1" offset="0x00000074" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Select" id="ADC_SSDC1_S0DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Sample 1 Digital Comparator Select" id="ADC_SSDC1_S1DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="Sample 2 Digital Comparator Select" id="ADC_SSDC1_S2DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Sample 3 Digital Comparator Select" id="ADC_SSDC1_S3DCSEL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSEMUX1" width="32" description="ADC Sample Sequence Extended Input Multiplexer Select 1" id="ADC_SSEMUX1" offset="0x00000078" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="1st Sample Input Select (Upper Bit)" id="ADC_SSEMUX1_EMUX0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="2th Sample Input Select (Upper Bit)" id="ADC_SSEMUX1_EMUX1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="3rd Sample Input Select (Upper Bit)" id="ADC_SSEMUX1_EMUX2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="4th Sample Input Select (Upper Bit)" id="ADC_SSEMUX1_EMUX3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSTSH1" width="32" description="ADC Sample Sequence 1 Sample and Hold Time" id="ADC_SSTSH1" offset="0x0000007C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample and Hold Period Select" id="ADC_SSTSH1_TSH0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="2nd Sample and Hold Period Select" id="ADC_SSTSH1_TSH1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="3rd Sample and Hold Period Select" id="ADC_SSTSH1_TSH2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="4th Sample and Hold Period Select" id="ADC_SSTSH1_TSH3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSMUX2" width="32" description="ADC Sample Sequence Input Multiplexer Select 2" id="ADC_SSMUX2" offset="0x00000080" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample Input Select" id="ADC_SSMUX2_MUX0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="2nd Sample Input Select" id="ADC_SSMUX2_MUX1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="3rd Sample Input Select" id="ADC_SSMUX2_MUX2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="4th Sample Input Select" id="ADC_SSMUX2_MUX3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSCTL2" width="32" description="ADC Sample Sequence Control 2" id="ADC_SSCTL2" offset="0x00000084" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="1st Sample Differential Input Select" id="ADC_SSCTL2_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="1st Sample is End of Sequence" id="ADC_SSCTL2_END0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="1st Sample Interrupt Enable" id="ADC_SSCTL2_IE0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="1st Sample Temp Sensor Select" id="ADC_SSCTL2_TS0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="2nd Sample Differential Input Select" id="ADC_SSCTL2_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="2nd Sample is End of Sequence" id="ADC_SSCTL2_END1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="2nd Sample Interrupt Enable" id="ADC_SSCTL2_IE1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="2nd Sample Temp Sensor Select" id="ADC_SSCTL2_TS1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="3rd Sample Differential Input Select" id="ADC_SSCTL2_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="3rd Sample is End of Sequence" id="ADC_SSCTL2_END2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="3rd Sample Interrupt Enable" id="ADC_SSCTL2_IE2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="3rd Sample Temp Sensor Select" id="ADC_SSCTL2_TS2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="4th Sample Differential Input Select" id="ADC_SSCTL2_D3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="4th Sample is End of Sequence" id="ADC_SSCTL2_END3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="4th Sample Interrupt Enable" id="ADC_SSCTL2_IE3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="4th Sample Temp Sensor Select" id="ADC_SSCTL2_TS3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFIFO2" width="32" description="ADC Sample Sequence Result FIFO 2" id="ADC_SSFIFO2" offset="0x00000088" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="R" description="Conversion Result Data" id="ADC_SSFIFO2_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFSTAT2" width="32" description="ADC Sample Sequence FIFO 2 Status" id="ADC_SSFSTAT2" offset="0x0000008C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="FIFO Tail Pointer" id="ADC_SSFSTAT2_TPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="R" description="FIFO Head Pointer" id="ADC_SSFSTAT2_HPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="FIFO Empty" id="ADC_SSFSTAT2_EMPTY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="FIFO Full" id="ADC_SSFSTAT2_FULL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSOP2" width="32" description="ADC Sample Sequence 2 Operation" id="ADC_SSOP2" offset="0x00000090" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Operation" id="ADC_SSOP2_S0DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Sample 1 Digital Comparator Operation" id="ADC_SSOP2_S1DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Sample 2 Digital Comparator Operation" id="ADC_SSOP2_S2DCOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Sample 3 Digital Comparator Operation" id="ADC_SSOP2_S3DCOP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSDC2" width="32" description="ADC Sample Sequence 2 Digital Comparator Select" id="ADC_SSDC2" offset="0x00000094" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Select" id="ADC_SSDC2_S0DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Sample 1 Digital Comparator Select" id="ADC_SSDC2_S1DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="Sample 2 Digital Comparator Select" id="ADC_SSDC2_S2DCSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Sample 3 Digital Comparator Select" id="ADC_SSDC2_S3DCSEL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSEMUX2" width="32" description="ADC Sample Sequence Extended Input Multiplexer Select 2" id="ADC_SSEMUX2" offset="0x00000098" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="1st Sample Input Select (Upper Bit)" id="ADC_SSEMUX2_EMUX0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="2th Sample Input Select (Upper Bit)" id="ADC_SSEMUX2_EMUX1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="3rd Sample Input Select (Upper Bit)" id="ADC_SSEMUX2_EMUX2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="4th Sample Input Select (Upper Bit)" id="ADC_SSEMUX2_EMUX3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSTSH2" width="32" description="ADC Sample Sequence 2 Sample and Hold Time" id="ADC_SSTSH2" offset="0x0000009C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample and Hold Period Select" id="ADC_SSTSH2_TSH0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="2nd Sample and Hold Period Select" id="ADC_SSTSH2_TSH1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="3rd Sample and Hold Period Select" id="ADC_SSTSH2_TSH2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="4th Sample and Hold Period Select" id="ADC_SSTSH2_TSH3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSMUX3" width="32" description="ADC Sample Sequence Input Multiplexer Select 3" id="ADC_SSMUX3" offset="0x000000A0" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample Input Select" id="ADC_SSMUX3_MUX0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSCTL3" width="32" description="ADC Sample Sequence Control 3" id="ADC_SSCTL3" offset="0x000000A4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Sample Differential Input Select" id="ADC_SSCTL3_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="End of Sequence" id="ADC_SSCTL3_END0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Sample Interrupt Enable" id="ADC_SSCTL3_IE0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="1st Sample Temp Sensor Select" id="ADC_SSCTL3_TS0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFIFO3" width="32" description="ADC Sample Sequence Result FIFO 3" id="ADC_SSFIFO3" offset="0x000000A8" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="R" description="Conversion Result Data" id="ADC_SSFIFO3_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSFSTAT3" width="32" description="ADC Sample Sequence FIFO 3 Status" id="ADC_SSFSTAT3" offset="0x000000AC" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="FIFO Tail Pointer" id="ADC_SSFSTAT3_TPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="R" description="FIFO Head Pointer" id="ADC_SSFSTAT3_HPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="FIFO Empty" id="ADC_SSFSTAT3_EMPTY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="FIFO Full" id="ADC_SSFSTAT3_FULL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSOP3" width="32" description="ADC Sample Sequence 3 Operation" id="ADC_SSOP3" offset="0x000000B0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Operation" id="ADC_SSOP3_S0DCOP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSDC3" width="32" description="ADC Sample Sequence 3 Digital Comparator Select" id="ADC_SSDC3" offset="0x000000B4" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Sample 0 Digital Comparator Select" id="ADC_SSDC3_S0DCSEL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSEMUX3" width="32" description="ADC Sample Sequence Extended Input Multiplexer Select 3" id="ADC_SSEMUX3" offset="0x000000B8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="1st Sample Input Select (Upper Bit)" id="ADC_SSEMUX3_EMUX0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_SSTSH3" width="32" description="ADC Sample Sequence 3 Sample and Hold Time" id="ADC_SSTSH3" offset="0x000000BC" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="1st Sample and Hold Period Select" id="ADC_SSTSH3_TSH0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCRIC" width="32" description="ADC Digital Comparator Reset Initial Conditions" id="ADC_DCRIC" offset="0x00000D00" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="Digital Comparator Interrupt 0" id="ADC_DCRIC_DCINT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="Digital Comparator Interrupt 1" id="ADC_DCRIC_DCINT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="W" description="Digital Comparator Interrupt 2" id="ADC_DCRIC_DCINT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="W" description="Digital Comparator Interrupt 3" id="ADC_DCRIC_DCINT3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="Digital Comparator Interrupt 4" id="ADC_DCRIC_DCINT4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="W" description="Digital Comparator Interrupt 5" id="ADC_DCRIC_DCINT5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="W" description="Digital Comparator Interrupt 6" id="ADC_DCRIC_DCINT6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="W" description="Digital Comparator Interrupt 7" id="ADC_DCRIC_DCINT7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="W" description="Digital Comparator Trigger 0" id="ADC_DCRIC_DCTRIG0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="W" description="Digital Comparator Trigger 1" id="ADC_DCRIC_DCTRIG1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="W" description="Digital Comparator Trigger 2" id="ADC_DCRIC_DCTRIG2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="W" description="Digital Comparator Trigger 3" id="ADC_DCRIC_DCTRIG3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="W" description="Digital Comparator Trigger 4" id="ADC_DCRIC_DCTRIG4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="W" description="Digital Comparator Trigger 5" id="ADC_DCRIC_DCTRIG5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="W" description="Digital Comparator Trigger 6" id="ADC_DCRIC_DCTRIG6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="W" description="Digital Comparator Trigger 7" id="ADC_DCRIC_DCTRIG7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL0" width="32" description="ADC Digital Comparator Control 0" id="ADC_DCCTL0" offset="0x00000E00" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL0_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL0_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL0_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL0_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL0_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL0_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL0_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL0_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL0_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL0_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL0_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL0_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL0_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL0_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL0_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL0_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL0_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL0_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL0_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL0_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL1" width="32" description="ADC Digital Comparator Control 1" id="ADC_DCCTL1" offset="0x00000E04" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL1_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL1_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL1_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL1_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL1_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL1_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL1_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL1_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL1_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL1_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL1_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL1_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL1_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL1_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL1_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL1_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL1_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL1_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL1_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL1_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL2" width="32" description="ADC Digital Comparator Control 2" id="ADC_DCCTL2" offset="0x00000E08" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL2_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL2_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL2_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL2_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL2_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL2_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL2_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL2_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL2_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL2_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL2_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL2_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL2_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL2_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL2_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL2_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL2_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL2_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL2_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL2_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL3" width="32" description="ADC Digital Comparator Control 3" id="ADC_DCCTL3" offset="0x00000E0C" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL3_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL3_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL3_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL3_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL3_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL3_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL3_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL3_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL3_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL3_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL3_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL3_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL3_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL3_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL3_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL3_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL3_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL3_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL3_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL3_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL4" width="32" description="ADC Digital Comparator Control 4" id="ADC_DCCTL4" offset="0x00000E10" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL4_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL4_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL4_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL4_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL4_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL4_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL4_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL4_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL4_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL4_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL4_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL4_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL4_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL4_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL4_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL4_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL4_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL4_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL4_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL4_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL5" width="32" description="ADC Digital Comparator Control 5" id="ADC_DCCTL5" offset="0x00000E14" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL5_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL5_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL5_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL5_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL5_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL5_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL5_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL5_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL5_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL5_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL5_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL5_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL5_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL5_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL5_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL5_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL5_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL5_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL5_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL5_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL6" width="32" description="ADC Digital Comparator Control 6" id="ADC_DCCTL6" offset="0x00000E18" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL6_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL6_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL6_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL6_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL6_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL6_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL6_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL6_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL6_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL6_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL6_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL6_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL6_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL6_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL6_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL6_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL6_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL6_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL6_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL6_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCTL7" width="32" description="ADC Digital Comparator Control 7" id="ADC_DCCTL7" offset="0x00000E1C" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Comparison Interrupt Mode" id="ADC_DCCTL7_CIM" resetval="" >
+            <bitenum id="ADC_DCCTL7_CIM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL7_CIM_ONCE" value="0x00000001" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL7_CIM_HALWAYS" value="0x00000002" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL7_CIM_HONCE" value="0x00000003" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Comparison Interrupt Condition" id="ADC_DCCTL7_CIC" resetval="" >
+            <bitenum id="ADC_DCCTL7_CIC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL7_CIC_MID" value="0x00000004" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL7_CIC_HIGH" value="0x0000000C" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Comparison Interrupt Enable" id="ADC_DCCTL7_CIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Comparison Trigger Mode" id="ADC_DCCTL7_CTM" resetval="" >
+            <bitenum id="ADC_DCCTL7_CTM_ALWAYS" value="0x00000000" token="" description="Always"/>
+            <bitenum id="ADC_DCCTL7_CTM_ONCE" value="0x00000100" token="" description="Once"/>
+            <bitenum id="ADC_DCCTL7_CTM_HALWAYS" value="0x00000200" token="" description="Hysteresis Always"/>
+            <bitenum id="ADC_DCCTL7_CTM_HONCE" value="0x00000300" token="" description="Hysteresis Once"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Comparison Trigger Condition" id="ADC_DCCTL7_CTC" resetval="" >
+            <bitenum id="ADC_DCCTL7_CTC_LOW" value="0x00000000" token="" description="Low Band"/>
+            <bitenum id="ADC_DCCTL7_CTC_MID" value="0x00000400" token="" description="Mid Band"/>
+            <bitenum id="ADC_DCCTL7_CTC_HIGH" value="0x00000C00" token="" description="High Band"/>
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Comparison Trigger Enable" id="ADC_DCCTL7_CTE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP0" width="32" description="ADC Digital Comparator Range 0" id="ADC_DCCMP0" offset="0x00000E40" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP0_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP0_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP1" width="32" description="ADC Digital Comparator Range 1" id="ADC_DCCMP1" offset="0x00000E44" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP1_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP1_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP2" width="32" description="ADC Digital Comparator Range 2" id="ADC_DCCMP2" offset="0x00000E48" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP2_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP2_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP3" width="32" description="ADC Digital Comparator Range 3" id="ADC_DCCMP3" offset="0x00000E4C" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP3_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP3_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP4" width="32" description="ADC Digital Comparator Range 4" id="ADC_DCCMP4" offset="0x00000E50" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP4_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP4_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP5" width="32" description="ADC Digital Comparator Range 5" id="ADC_DCCMP5" offset="0x00000E54" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP5_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP5_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP6" width="32" description="ADC Digital Comparator Range 6" id="ADC_DCCMP6" offset="0x00000E58" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP6_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP6_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_DCCMP7" width="32" description="ADC Digital Comparator Range 7" id="ADC_DCCMP7" offset="0x00000E5C" >
+        <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Compare 0" id="ADC_DCCMP7_COMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="12" end="16" rwaccess="RW" description="Compare 1" id="ADC_DCCMP7_COMP1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_PP" width="32" description="ADC Peripheral Properties" id="ADC_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="Maximum Conversion Rate" id="ADC_PP_MCR" resetval="" >
+            <bitenum id="ADC_PP_MCR_FULL" value="0x00000007" token="" description="Full conversion rate (FCONV) as defined by TADC and NSH"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="6" end="4" rwaccess="R" description="ADC Channel Count" id="ADC_PP_CH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="6" end="10" rwaccess="R" description="Digital Comparator Count" id="ADC_PP_DC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="2" end="16" rwaccess="R" description="ADC Architecture" id="ADC_PP_TYPE" resetval="" >
+            <bitenum id="ADC_PP_TYPE_SAR" value="0x00000000" token="" description="SAR"/>
+        </bitfield>
+        <bitfield range="" begin="22" width="5" end="18" rwaccess="R" description="Resolution" id="ADC_PP_RSL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="R" description="Temperature Sensor" id="ADC_PP_TS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="R" description="Application-Programmable Sample-and-Hold Time" id="ADC_PP_APSHT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="ADC_PC" width="32" description="ADC Peripheral Configuration" id="ADC_PC" offset="0x00000FC4" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Conversion Rate" id="ADC_PC_MCR" resetval="" >
+            <bitenum id="ADC_PC_MCR_1_8" value="0x00000001" token="" description="Eighth conversion rate. After a conversion completes, the logic pauses for 112 TADC periods before starting the next conversion"/>
+            <bitenum id="ADC_PC_MCR_1_4" value="0x00000003" token="" description="Quarter conversion rate. After a conversion completes, the logic pauses for 48 TADC periods before starting the next conversion"/>
+            <bitenum id="ADC_PC_MCR_1_2" value="0x00000005" token="" description="Half conversion rate. After a conversion completes, the logic pauses for 16 TADC periods before starting the next conversion"/>
+            <bitenum id="ADC_PC_MCR_FULL" value="0x00000007" token="" description="Full conversion rate (FCONV) as defined by TADC and NSH"/>
+        </bitfield>
+    </register>
+    <register acronym="ADC_CC" width="32" description="ADC Clock Configuration" id="ADC_CC" offset="0x00000FC8" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="ADC Clock Source" id="ADC_CC_CS" resetval="" >
+            <bitenum id="ADC_CC_CS_SYSPLL" value="0x00000000" token="" description="PLL VCO divided by CLKDIV"/>
+            <bitenum id="ADC_CC_CS_PIOSC" value="0x00000001" token="" description="PIOSC"/>
+            <bitenum id="ADC_CC_CS_MOSC" value="0x00000002" token="" description="MOSC"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="6" end="4" rwaccess="RW" description="PLL VCO Clock Divisor" id="ADC_CC_CLKDIV" resetval="" >
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,65 @@
+<module id="SPI_REGS" HW_revision="" description="SPI Registers">
+	<register id="SPICCR" width="16" page="1" offset="0x0" internal="0" description="SPI Configuration Control Register">
+		<bitfield id="SPICHAR" description="Character Length Control" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="SPILBK" description="SPI Loopback" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="HS_MODE" description="High Speed mode control" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CLKPOLARITY" description="Shift Clock Polarity" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="SPISWRESET" description="SPI Software Reset" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SPICTL" width="16" page="1" offset="0x1" internal="0" description="SPI Operation Control Register">
+		<bitfield id="SPIINTENA" description="SPI Interupt Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="TALK" description="Master/Slave Transmit Enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="MASTER_SLAVE" description="SPI Network Mode Control" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CLK_PHASE" description="SPI Clock Phase" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="OVERRUNINTENA" description="Overrun Interrupt Enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SPISTS" width="16" page="1" offset="0x2" internal="0" description="SPI Status Register">
+		<bitfield id="BUFFULL_FLAG" description="SPI Transmit Buffer Full Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="INT_FLAG" description="SPI Interrupt Flag" begin="6" end="6" width="1" rwaccess="RtoClr"/>
+		<bitfield id="OVERRUN_FLAG" description="SPI Receiver Overrun Flag" begin="7" end="7" width="1" rwaccess="W1toClr"/>
+	</register>
+	<register id="SPIBRR" width="16" page="1" offset="0x4" internal="0" description="SPI Baud Rate Register">
+		<bitfield id="SPI_BIT_RATE" description="SPI Bit Rate Control" begin="6" end="0" width="7" rwaccess="R/W"/>
+	</register>
+	<register id="SPIRXEMU" width="16" page="1" offset="0x6" internal="0" description="SPI Emulation Buffer Register">
+		<bitfield id="ERXBn" description="Emulation Buffer Received Data" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="SPIRXBUF" width="16" page="1" offset="0x7" internal="0" description="SPI Serial Input Buffer Register">
+		<bitfield id="RXBn" description="Received Data" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="SPITXBUF" width="16" page="1" offset="0x8" internal="0" description="SPI Serial Output Buffer Register">
+		<bitfield id="TXBn" description="Transmit Data Buffer" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="SPIDAT" width="16" page="1" offset="0x9" internal="0" description="SPI Serial Data Register">
+		<bitfield id="SDATn" description="Serial Data Shift Register" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="SPIFFTX" width="16" page="1" offset="0xa" internal="0" description="SPI FIFO Transmit Register">
+		<bitfield id="TXFFIL" description="TXFIFO Interrupt Level" begin="4" end="0" width="5" rwaccess="R/W"/>
+		<bitfield id="TXFFIENA" description="TXFIFO Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="TXFFINTCLR" description="TXFIFO Interrupt Clear" begin="6" end="6" width="1" rwaccess="W"/>
+		<bitfield id="TXFFINT" description="TXFIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="TXFFST" description="Transmit FIFO Status" begin="12" end="8" width="5" rwaccess="R"/>
+		<bitfield id="TXFIFO" description="TXFIFO Reset" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="SPIFFENA" description="FIFO Enhancements Enable" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="SPIRST" description="SPI Reset" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SPIFFRX" width="16" page="1" offset="0xb" internal="0" description="SPI FIFO Receive Register">
+		<bitfield id="RXFFIL" description="RXFIFO Interrupt Level" begin="4" end="0" width="5" rwaccess="R/W"/>
+		<bitfield id="RXFFIENA" description="RXFIFO Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="RXFFINTCLR" description="RXFIFO Interupt Clear" begin="6" end="6" width="1" rwaccess="W"/>
+		<bitfield id="RXFFINT" description="RXFIFO Interrupt Flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="RXFFST" description="Receive FIFO Status" begin="12" end="8" width="5" rwaccess="R"/>
+		<bitfield id="RXFIFORESET" description="RXFIFO Reset" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="RXFFOVFCLR" description="Receive FIFO Overflow Clear" begin="14" end="14" width="1" rwaccess="W"/>
+		<bitfield id="RXFFOVF" description="Receive FIFO Overflow Flag" begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="SPIFFCT" width="16" page="1" offset="0xc" internal="0" description="SPI FIFO Control Register">
+		<bitfield id="TXDLY" description="FIFO Transmit Delay Bits" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="SPIPRI" width="16" page="1" offset="0xf" internal="0" description="SPI Priority Control Register">
+		<bitfield id="TRIWIRE" description="3-wire mode select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="STEINV" description="SPISTE inversion bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="FREE" description="Free emulation mode" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="SOFT" description="Soft emulation mode" begin="5" end="5" width="1" rwaccess="R/W"/>
+	</register>
+</module>

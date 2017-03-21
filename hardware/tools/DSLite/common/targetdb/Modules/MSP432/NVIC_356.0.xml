@@ -1,0 +1,186 @@
+<module id="NVIC" HW_revision="356.0">
+    <register id="ISER0" width="32" offset="0x100" internal="0" description="Irq 0 to 31 Set Enable Register">
+    </register>
+    <register id="ISER1" width="32" offset="0x104" internal="0" description="Irq 32 to 63 Set Enable Register">
+    </register>
+    <register id="ICER0" width="32" offset="0x180" internal="0" description="Irq 0 to 31 Clear Enable Register">
+    </register>
+    <register id="ICER1" width="32" offset="0x184" internal="0" description="Irq 32 to 63 Clear Enable Register">
+    </register>
+    <register id="ISPR0" width="32" offset="0x200" internal="0" description="Irq 0 to 31 Set Pending Register">
+    </register>
+    <register id="ISPR1" width="32" offset="0x204" internal="0" description="Irq 32 to 63 Set Pending Register">
+    </register>
+    <register id="ICPR0" width="32" offset="0x280" internal="0" description="Irq 0 to 31 Clear Pending Register">
+    </register>
+    <register id="ICPR1" width="32" offset="0x284" internal="0" description="Irq 32 to 63 Clear Pending Register">
+    </register>
+    <register id="IABR0" width="32" offset="0x300" internal="0" description="Irq 0 to 31 Active Bit Register">
+    </register>
+    <register id="IABR1" width="32" offset="0x304" internal="0" description="Irq 32 to 63 Active Bit Register">
+    </register>
+    <register id="IPR0" width="32" offset="0x400" internal="0" description="Irq 0 to 3 Priority Register">
+        <bitfield id="PRI_0" description="Priority of interrupt 0" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_1" description="Priority of interrupt 1" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_2" description="Priority of interrupt 2" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_3" description="Priority of interrupt 3" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR1" width="32" offset="0x404" internal="0" description="Irq 4 to 7 Priority Register">
+        <bitfield id="PRI_4" description="Priority of interrupt 4" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_5" description="Priority of interrupt 5" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_6" description="Priority of interrupt 6" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_7" description="Priority of interrupt 7" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR2" width="32" offset="0x408" internal="0" description="Irq 8 to 11 Priority Register">
+        <bitfield id="PRI_8" description="Priority of interrupt 8" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_9" description="Priority of interrupt 9" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_10" description="Priority of interrupt 10" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_11" description="Priority of interrupt 11" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR3" width="32" offset="0x40C" internal="0" description="Irq 12 to 15 Priority Register">
+        <bitfield id="PRI_12" description="Priority of interrupt 12" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_13" description="Priority of interrupt 13" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_14" description="Priority of interrupt 14" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_15" description="Priority of interrupt 15" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR4" width="32" offset="0x410" internal="0" description="Irq 16 to 19 Priority Register">
+        <bitfield id="PRI_16" description="Priority of interrupt 16" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_17" description="Priority of interrupt 17" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_18" description="Priority of interrupt 18" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_19" description="Priority of interrupt 19" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR5" width="32" offset="0x414" internal="0" description="Irq 20 to 23 Priority Register">
+        <bitfield id="PRI_20" description="Priority of interrupt 20" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_21" description="Priority of interrupt 21" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_22" description="Priority of interrupt 22" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_23" description="Priority of interrupt 23" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR6" width="32" offset="0x418" internal="0" description="Irq 24 to 27 Priority Register">
+        <bitfield id="PRI_24" description="Priority of interrupt 24" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_25" description="Priority of interrupt 25" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_26" description="Priority of interrupt 26" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_27" description="Priority of interrupt 27" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR7" width="32" offset="0x41C" internal="0" description="Irq 28 to 31 Priority Register">
+        <bitfield id="PRI_28" description="Priority of interrupt 28" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_29" description="Priority of interrupt 29" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_30" description="Priority of interrupt 30" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_31" description="Priority of interrupt 31" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR8" width="32" offset="0x420" internal="0" description="Irq 32 to 35 Priority Register">
+        <bitfield id="PRI_32" description="Priority of interrupt 32" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_33" description="Priority of interrupt 33" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_34" description="Priority of interrupt 34" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_35" description="Priority of interrupt 35" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR9" width="32" offset="0x424" internal="0" description="Irq 36 to 39 Priority Register">
+        <bitfield id="PRI_36" description="Priority of interrupt 36" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_37" description="Priority of interrupt 37" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_38" description="Priority of interrupt 38" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_39" description="Priority of interrupt 39" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR10" width="32" offset="0x428" internal="0" description="Irq 40 to 43 Priority Register">
+        <bitfield id="PRI_40" description="Priority of interrupt 40" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_41" description="Priority of interrupt 41" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_42" description="Priority of interrupt 42" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_43" description="Priority of interrupt 43" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR11" width="32" offset="0x42C" internal="0" description="Irq 44 to 47 Priority Register">
+        <bitfield id="PRI_44" description="Priority of interrupt 44" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_45" description="Priority of interrupt 45" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_46" description="Priority of interrupt 46" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_47" description="Priority of interrupt 47" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR12" width="32" offset="0x430" internal="0" description="Irq 48 to 51 Priority Register">
+        <bitfield id="PRI_48" description="Priority of interrupt 48" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_49" description="Priority of interrupt 49" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_50" description="Priority of interrupt 50" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_51" description="Priority of interrupt 51" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR13" width="32" offset="0x434" internal="0" description="Irq 52 to 55 Priority Register">
+        <bitfield id="PRI_52" description="Priority of interrupt 52" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_53" description="Priority of interrupt 53" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_54" description="Priority of interrupt 54" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_55" description="Priority of interrupt 55" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR14" width="32" offset="0x438" internal="0" description="Irq 56 to 59 Priority Register">
+        <bitfield id="PRI_56" description="Priority of interrupt 56" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_57" description="Priority of interrupt 57" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_58" description="Priority of interrupt 58" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_59" description="Priority of interrupt 59" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="IPR15" width="32" offset="0x43C" internal="0" description="Irq 60 to 63 Priority Register">
+        <bitfield id="PRI_60" description="Priority of interrupt 60" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_61" description="Priority of interrupt 61" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_62" description="Priority of interrupt 62" begin="23" end="16" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRI_63" description="Priority of interrupt 63" begin="31" end="24" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="STIR" width="32" offset="0xF00" internal="0" description="Software Trigger Interrupt Register">
+        <bitfield id="INTID" description="Interrupt ID field. Writing a value to the INTID field is the same as manually pending an interrupt by setting the corresponding interrupt bit in an Interrupt Set Pending Register." begin="8" end="0" width="9" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>

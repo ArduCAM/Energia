@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--                            Option of Global Breakpoint only CTI             -->
+<!--          Type                                                               -->
+<!--           |--> Cross Trigger                                                -->
+<!--                     |--> CTI Function:Global Breakpoing                     -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>CTI Function</NAME>	
+ 	  <DESCRIPTION>Data or event trace</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CTI TOP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <VALUE>Global Breakpoint</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <ENUMVALUE>0x08000000</ENUMVALUE>
+	</PROPERTY_STRING>	
+		
+</AET>

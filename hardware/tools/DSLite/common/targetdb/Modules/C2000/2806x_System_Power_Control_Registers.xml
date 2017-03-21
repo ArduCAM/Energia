@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TI File $Revision:
+  Checkin $Date: 
+  -->
+
+
+<!-- TMS320x2806x System Power Control Registers
+     ============================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file
+     -->
+ <module id="SYSPWRCTL" HW_revision="" XML_version="1" description="System Power Control Registers">
+    <register id="BORCFG" acronym="BORCFG" offset="0" page="1" width="16" description="BOR Configuration" />
+ </module>

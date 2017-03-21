@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="EMAC0" HW_revision="" XML_version="1.0" description="EMAC register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="EMAC_CFG" width="32" description="Ethernet MAC Configuration" id="EMAC_CFG" offset="0x00000000" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Preamble Length for Transmit Frames" id="EMAC_CFG_PRELEN" resetval="" >
+            <bitenum id="EMAC_CFG_PRELEN_7" value="0x00000000" token="" description="7 bytes of preamble"/>
+            <bitenum id="EMAC_CFG_PRELEN_5" value="0x00000001" token="" description="5 bytes of preamble"/>
+            <bitenum id="EMAC_CFG_PRELEN_3" value="0x00000002" token="" description="3 bytes of preamble"/>
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Receiver Enable" id="EMAC_CFG_RE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Transmitter Enable" id="EMAC_CFG_TE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Deferral Check" id="EMAC_CFG_DC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Back-Off Limit" id="EMAC_CFG_BL" resetval="" >
+            <bitenum id="EMAC_CFG_BL_1024" value="0x00000000" token="" description="k = min (n,10)"/>
+            <bitenum id="EMAC_CFG_BL_256" value="0x00000020" token="" description="k = min (n,8)"/>
+            <bitenum id="EMAC_CFG_BL_8" value="0x00000040" token="" description="k = min (n,4)"/>
+            <bitenum id="EMAC_CFG_BL_2" value="0x00000060" token="" description="k = min (n,1)"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Automatic Pad or CRC Stripping" id="EMAC_CFG_ACS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Disable Retry" id="EMAC_CFG_DR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Checksum Offload" id="EMAC_CFG_IPC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Duplex Mode" id="EMAC_CFG_DUPM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Loopback Mode" id="EMAC_CFG_LOOPBM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Disable Receive Own" id="EMAC_CFG_DRO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Speed" id="EMAC_CFG_FES" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Port Select" id="EMAC_CFG_PS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Disable Carrier Sense During Transmission" id="EMAC_CFG_DISCRS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="3" end="17" rwaccess="RW" description="Inter-Frame Gap (IFG)" id="EMAC_CFG_IFG" resetval="" >
+            <bitenum id="EMAC_CFG_IFG_96" value="0x00000000" token="" description="96 bit times"/>
+            <bitenum id="EMAC_CFG_IFG_88" value="0x00020000" token="" description="88 bit times"/>
+            <bitenum id="EMAC_CFG_IFG_80" value="0x00040000" token="" description="80 bit times"/>
+            <bitenum id="EMAC_CFG_IFG_72" value="0x00060000" token="" description="72 bit times"/>
+            <bitenum id="EMAC_CFG_IFG_64" value="0x00080000" token="" description="64 bit times"/>
+            <bitenum id="EMAC_CFG_IFG_56" value="0x000A0000" token="" description="56 bit times"/>
+            <bitenum id="EMAC_CFG_IFG_48" value="0x000C0000" token="" description="48 bit times"/>
+            <bitenum id="EMAC_CFG_IFG_40" value="0x000E0000" token="" description="40 bit times"/>
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Jumbo Frame Enable" id="EMAC_CFG_JFEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="Jabber Disable" id="EMAC_CFG_JD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="Watchdog Disable" id="EMAC_CFG_WDDIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="CRC Stripping for Type Frames" id="EMAC_CFG_CST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="IEEE 802" id="EMAC_CFG_TWOKPEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_FRAMEFLTR" width="32" description="Ethernet MAC Frame Filter" id="EMAC_FRAMEFLTR" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Promiscuous Mode" id="EMAC_FRAMEFLTR_PR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Hash Unicast" id="EMAC_FRAMEFLTR_HUC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Hash Multicast" id="EMAC_FRAMEFLTR_HMC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Destination Address (DA) Inverse Filtering" id="EMAC_FRAMEFLTR_DAIF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Pass All Multicast" id="EMAC_FRAMEFLTR_PM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Disable Broadcast Frames" id="EMAC_FRAMEFLTR_DBF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Pass Control Frames" id="EMAC_FRAMEFLTR_PCF" resetval="" >
+            <bitenum id="EMAC_FRAMEFLTR_PCF_ALL" value="0x00000000" token="" description="The MAC filters all control frames from reaching application"/>
+            <bitenum id="EMAC_FRAMEFLTR_PCF_PAUSE" value="0x00000040" token="" description="MAC forwards all control frames except PAUSE control frames to application even if they fail the address filter"/>
+            <bitenum id="EMAC_FRAMEFLTR_PCF_NONE" value="0x00000080" token="" description="MAC forwards all control frames to application even if they fail the address Filter"/>
+            <bitenum id="EMAC_FRAMEFLTR_PCF_ADDR" value="0x000000C0" token="" description="MAC forwards control frames that pass the address Filter"/>
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Source Address (SA) Inverse Filtering" id="EMAC_FRAMEFLTR_SAIF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Source Address Filter Enable" id="EMAC_FRAMEFLTR_SAF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Hash or Perfect Filter" id="EMAC_FRAMEFLTR_HPF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="VLAN Tag Filter Enable" id="EMAC_FRAMEFLTR_VTFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Receive All" id="EMAC_FRAMEFLTR_RA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_HASHTBLH" width="32" description="Ethernet MAC Hash Table High" id="EMAC_HASHTBLH" offset="0x00000008" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Hash Table High" id="EMAC_HASHTBLH_HTH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_HASHTBLL" width="32" description="Ethernet MAC Hash Table Low" id="EMAC_HASHTBLL" offset="0x0000000C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Hash Table Low" id="EMAC_HASHTBLL_HTL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MIIADDR" width="32" description="Ethernet MAC MII Address" id="EMAC_MIIADDR" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="MII Busy" id="EMAC_MIIADDR_MIIB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="MII Write" id="EMAC_MIIADDR_MIIW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="4" end="2" rwaccess="RW" description="Clock Reference Frequency Selection" id="EMAC_MIIADDR_CR" resetval="" >
+            <bitenum id="EMAC_MIIADDR_CR_60_100" value="0x00000000" token="" description="The frequency of the System Clock is 60 to 100 MHz providing a MDIO clock of SYSCLK/42"/>
+            <bitenum id="EMAC_MIIADDR_CR_100_150" value="0x00000004" token="" description="The frequency of the System Clock is 100 to 150 MHz providing a MDIO clock of SYSCLK/62"/>
+            <bitenum id="EMAC_MIIADDR_CR_20_35" value="0x00000008" token="" description="The frequency of the System Clock is 20-35 MHz providing a MDIO clock of System Clock/16"/>
+            <bitenum id="EMAC_MIIADDR_CR_35_60" value="0x0000000C" token="" description="The frequency of the System Clock is 35 to 60 MHz providing a MDIO clock of System Clock/26"/>
+        </bitfield>
+        <bitfield range="" begin="10" width="5" end="6" rwaccess="RW" description="MII Register" id="EMAC_MIIADDR_MII" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="5" end="11" rwaccess="RW" description="Physical Layer Address" id="EMAC_MIIADDR_PLA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MIIDATA" width="32" description="Ethernet MAC MII Data Register" id="EMAC_MIIDATA" offset="0x00000014" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="MII Data" id="EMAC_MIIDATA_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_FLOWCTL" width="32" description="Ethernet MAC Flow Control" id="EMAC_FLOWCTL" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Flow Control Busy or Back-pressure Activate" id="EMAC_FLOWCTL_FCBBPA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Transmit Flow Control Enable" id="EMAC_FLOWCTL_TFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Receive Flow Control Enable" id="EMAC_FLOWCTL_RFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Unicast Pause Frame Detect" id="EMAC_FLOWCTL_UP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Disable Zero-Quanta Pause" id="EMAC_FLOWCTL_DZQP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Pause Time" id="EMAC_FLOWCTL_PT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_VLANTG" width="32" description="Ethernet MAC VLAN Tag" id="EMAC_VLANTG" offset="0x0000001C" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="VLAN Tag Identifier for Receive Frames" id="EMAC_VLANTG_VL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Enable 12-Bit VLAN Tag Comparison" id="EMAC_VLANTG_ETV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="VLAN Tag Inverse Match Enable" id="EMAC_VLANTG_VTIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Enable S-VLAN" id="EMAC_VLANTG_ESVL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="VLAN Tag Hash Table Match Enable" id="EMAC_VLANTG_VTHM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_STATUS" width="32" description="Ethernet MAC Status" id="EMAC_STATUS" offset="0x00000024" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="MAC MII Receive Protocol Engine Status" id="EMAC_STATUS_RPE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="2" end="1" rwaccess="R" description="MAC Receive Frame Controller FIFO Status" id="EMAC_STATUS_RFCFC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="TX/RX Controller RX FIFO Write Controller Active Status" id="EMAC_STATUS_RWC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="2" end="5" rwaccess="R" description="TX/RX Controller Read Controller State" id="EMAC_STATUS_RRC" resetval="" >
+            <bitenum id="EMAC_STATUS_RRC_IDLE" value="0x00000000" token="" description="IDLE state"/>
+            <bitenum id="EMAC_STATUS_RRC_STATUS" value="0x00000020" token="" description="Reading frame data"/>
+            <bitenum id="EMAC_STATUS_RRC_DATA" value="0x00000040" token="" description="Reading frame status (or timestamp)"/>
+            <bitenum id="EMAC_STATUS_RRC_FLUSH" value="0x00000060" token="" description="Flushing the frame data and status"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="R" description="TX/RX Controller RX FIFO Fill-level Status" id="EMAC_STATUS_RXF" resetval="" >
+            <bitenum id="EMAC_STATUS_RXF_EMPTY" value="0x00000000" token="" description="RX FIFO Empty"/>
+            <bitenum id="EMAC_STATUS_RXF_BELOW" value="0x00000100" token="" description="RX FIFO fill level is below the flow-control deactivate threshold"/>
+            <bitenum id="EMAC_STATUS_RXF_ABOVE" value="0x00000200" token="" description="RX FIFO fill level is above the flow-control activate threshold"/>
+            <bitenum id="EMAC_STATUS_RXF_FULL" value="0x00000300" token="" description="RX FIFO Full"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="MAC MII Transmit Protocol Engine Status" id="EMAC_STATUS_TPE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="2" end="17" rwaccess="R" description="MAC Transmit Frame Controller Status" id="EMAC_STATUS_TFC" resetval="" >
+            <bitenum id="EMAC_STATUS_TFC_IDLE" value="0x00000000" token="" description="IDLE state"/>
+            <bitenum id="EMAC_STATUS_TFC_STATUS" value="0x00020000" token="" description="Waiting for status of previous frame or IFG or backoff period to be over"/>
+            <bitenum id="EMAC_STATUS_TFC_PAUSE" value="0x00040000" token="" description="Generating and transmitting a PAUSE control frame (in the full-duplex mode)"/>
+            <bitenum id="EMAC_STATUS_TFC_INPUT" value="0x00060000" token="" description="Transferring input frame for transmission"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="R" description="MAC Transmitter PAUSE" id="EMAC_STATUS_TXPAUSED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="2" end="20" rwaccess="R" description="TX/RX Controller's TX FIFO Read Controller Status" id="EMAC_STATUS_TRC" resetval="" >
+            <bitenum id="EMAC_STATUS_TRC_IDLE" value="0x00000000" token="" description="IDLE state"/>
+            <bitenum id="EMAC_STATUS_TRC_READ" value="0x00100000" token="" description="READ state (transferring data to MAC transmitter)"/>
+            <bitenum id="EMAC_STATUS_TRC_WAIT" value="0x00200000" token="" description="Waiting for TX Status from MAC transmitter"/>
+            <bitenum id="EMAC_STATUS_TRC_WRFLUSH" value="0x00300000" token="" description="Writing the received TX Status or flushing the TX FIFO"/>
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="R" description="TX/RX Controller TX FIFO Write Controller Active Status" id="EMAC_STATUS_TWC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="R" description="TX/RX Controller TX FIFO Not Empty Status" id="EMAC_STATUS_TXFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="R" description="TX/RX Controller TX FIFO Full Status" id="EMAC_STATUS_TXFF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RWUFF" width="32" description="Ethernet MAC Remote Wake-Up Frame Filter" id="EMAC_RWUFF" offset="0x00000028" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Remote Wake-Up Frame Filter" id="EMAC_RWUFF_WAKEUPFIL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_PMTCTLSTAT" width="32" description="Ethernet MAC PMT Control and Status Register" id="EMAC_PMTCTLSTAT" offset="0x0000002C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Power Down" id="EMAC_PMTCTLSTAT_PWRDWN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Magic Packet Enable" id="EMAC_PMTCTLSTAT_MGKPKTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Wake-Up Frame Enable" id="EMAC_PMTCTLSTAT_WUPFREN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Magic Packet Received" id="EMAC_PMTCTLSTAT_MGKPRX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Wake-Up Frame Received" id="EMAC_PMTCTLSTAT_WUPRX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Global Unicast" id="EMAC_PMTCTLSTAT_GLBLUCAST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="Remote Wake-Up FIFO Pointer" id="EMAC_PMTCTLSTAT_RWKPTR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Wake-Up Frame Filter Register Pointer Reset" id="EMAC_PMTCTLSTAT_WUPFRRST" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RIS" width="32" description="Ethernet MAC Raw Interrupt Status" id="EMAC_RIS" offset="0x00000038" >
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="PMT Interrupt Status" id="EMAC_RIS_PMT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="MMC Interrupt Status" id="EMAC_RIS_MMC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="MMC Receive Interrupt Status" id="EMAC_RIS_MMCRX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="MMC Transmit Interrupt Status" id="EMAC_RIS_MMCTX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="Timestamp Interrupt Status" id="EMAC_RIS_TS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_IM" width="32" description="Ethernet MAC Interrupt Mask" id="EMAC_IM" offset="0x0000003C" >
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PMT Interrupt Mask" id="EMAC_IM_PMT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Timestamp Interrupt Mask" id="EMAC_IM_TSI" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR0H" width="32" description="Ethernet MAC Address 0 High" id="EMAC_ADDR0H" offset="0x00000040" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="MAC Address0 [47:32]" id="EMAC_ADDR0H_ADDRHI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Address Enable" id="EMAC_ADDR0H_AE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR0L" width="32" description="Ethernet MAC Address 0 Low Register" id="EMAC_ADDR0L" offset="0x00000044" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="MAC Address0 [31:0]" id="EMAC_ADDR0L_ADDRLO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR1H" width="32" description="Ethernet MAC Address 1 High" id="EMAC_ADDR1H" offset="0x00000048" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="MAC Address1 [47:32]" id="EMAC_ADDR1H_ADDRHI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="6" end="24" rwaccess="RW" description="Mask Byte Control" id="EMAC_ADDR1H_MBC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Source Address" id="EMAC_ADDR1H_SA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Address Enable" id="EMAC_ADDR1H_AE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR1L" width="32" description="Ethernet MAC Address 1 Low" id="EMAC_ADDR1L" offset="0x0000004C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="MAC Address1 [31:0]" id="EMAC_ADDR1L_ADDRLO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR2H" width="32" description="Ethernet MAC Address 2 High" id="EMAC_ADDR2H" offset="0x00000050" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="MAC Address2 [47:32]" id="EMAC_ADDR2H_ADDRHI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="6" end="24" rwaccess="RW" description="Mask Byte Control" id="EMAC_ADDR2H_MBC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Source Address" id="EMAC_ADDR2H_SA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Address Enable" id="EMAC_ADDR2H_AE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR2L" width="32" description="Ethernet MAC Address 2 Low" id="EMAC_ADDR2L" offset="0x00000054" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="MAC Address2 [31:0]" id="EMAC_ADDR2L_ADDRLO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR3H" width="32" description="Ethernet MAC Address 3 High" id="EMAC_ADDR3H" offset="0x00000058" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="MAC Address3 [47:32]" id="EMAC_ADDR3H_ADDRHI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="6" end="24" rwaccess="RW" description="Mask Byte Control" id="EMAC_ADDR3H_MBC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Source Address" id="EMAC_ADDR3H_SA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Address Enable" id="EMAC_ADDR3H_AE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_ADDR3L" width="32" description="Ethernet MAC Address 3 Low" id="EMAC_ADDR3L" offset="0x0000005C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="MAC Address3 [31:0]" id="EMAC_ADDR3L_ADDRLO" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_WDOGTO" width="32" description="Ethernet MAC Watchdog Timeout" id="EMAC_WDOGTO" offset="0x000000DC" >
+        <bitfield range="" begin="13" width="14" end="0" rwaccess="RW" description="Watchdog Timeout" id="EMAC_WDOGTO_WTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Programmable Watchdog Enable" id="EMAC_WDOGTO_PWE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MMCCTRL" width="32" description="Ethernet MAC MMC Control" id="EMAC_MMCCTRL" offset="0x00000100" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Counters Reset" id="EMAC_MMCCTRL_CNTRST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Counters Stop Rollover" id="EMAC_MMCCTRL_CNTSTPRO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Reset on Read" id="EMAC_MMCCTRL_RSTONRD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="MMC Counter Freeze" id="EMAC_MMCCTRL_CNTFREEZ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Counters Preset" id="EMAC_MMCCTRL_CNTPRST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Full/Half Preset Level Value" id="EMAC_MMCCTRL_CNTPRSTLVL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Update MMC Counters for Dropped Broadcast Frames" id="EMAC_MMCCTRL_UCDBC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MMCRXRIS" width="32" description="Ethernet MAC MMC Receive Raw Interrupt Status" id="EMAC_MMCRXRIS" offset="0x00000104" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="MMC Receive Good Bad Frame Counter Interrupt Status" id="EMAC_MMCRXRIS_GBF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="MMC Receive CRC Error Frame Counter Interrupt Status" id="EMAC_MMCRXRIS_CRCERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="MMC Receive Alignment Error Frame Counter Interrupt Status" id="EMAC_MMCRXRIS_ALGNERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="R" description="MMC Receive Unicast Good Frame Counter Interrupt Status" id="EMAC_MMCRXRIS_UCGF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MMCTXRIS" width="32" description="Ethernet MAC MMC Transmit Raw Interrupt Status" id="EMAC_MMCTXRIS" offset="0x00000108" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="MMC Transmit Good Bad Frame Counter Interrupt Status" id="EMAC_MMCTXRIS_GBF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="R" description="MMC Transmit Single Collision Good Frame Counter Interrupt Status" id="EMAC_MMCTXRIS_SCOLLGF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="R" description="MMC Transmit Multiple Collision Good Frame Counter Interrupt Status" id="EMAC_MMCTXRIS_MCOLLGF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="R" description="Octet Counter Interrupt Status" id="EMAC_MMCTXRIS_OCTCNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MMCRXIM" width="32" description="Ethernet MAC MMC Receive Interrupt Mask" id="EMAC_MMCRXIM" offset="0x0000010C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="MMC Receive Good Bad Frame Counter Interrupt Mask" id="EMAC_MMCRXIM_GBF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="MMC Receive CRC Error Frame Counter Interrupt Mask" id="EMAC_MMCRXIM_CRCERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="MMC Receive Alignment Error Frame Counter Interrupt Mask" id="EMAC_MMCRXIM_ALGNERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="MMC Receive Unicast Good Frame Counter Interrupt Mask" id="EMAC_MMCRXIM_UCGF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MMCTXIM" width="32" description="Ethernet MAC MMC Transmit Interrupt Mask" id="EMAC_MMCTXIM" offset="0x00000110" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="MMC Transmit Good Bad Frame Counter Interrupt Mask" id="EMAC_MMCTXIM_GBF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="MMC Transmit Single Collision Good Frame Counter Interrupt Mask" id="EMAC_MMCTXIM_SCOLLGF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="MMC Transmit Multiple Collision Good Frame Counter Interrupt Mask" id="EMAC_MMCTXIM_MCOLLGF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="MMC Transmit Good Octet Counter Interrupt Mask" id="EMAC_MMCTXIM_OCTCNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TXCNTGB" width="32" description="Ethernet MAC Transmit Frame Count for Good and Bad Frames" id="EMAC_TXCNTGB" offset="0x00000118" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of good and bad frames transmitted, exclusive of retried frames" id="EMAC_TXCNTGB_TXFRMGB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TXCNTSCOL" width="32" description="Ethernet MAC Transmit Frame Count for Frames Transmitted after Single Collision" id="EMAC_TXCNTSCOL" offset="0x0000014C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of successfully transmitted frames after a single collision in the half-duplex mode" id="EMAC_TXCNTSCOL_TXSNGLCOLG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TXCNTMCOL" width="32" description="Ethernet MAC Transmit Frame Count for Frames Transmitted after Multiple Collisions" id="EMAC_TXCNTMCOL" offset="0x00000150" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of successfully transmitted frames after multiple collisions in the half-duplex mode" id="EMAC_TXCNTMCOL_TXMULTCOLG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TXOCTCNTG" width="32" description="Ethernet MAC Transmit Octet Count Good" id="EMAC_TXOCTCNTG" offset="0x00000164" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of bytes transmitted, exclusive of preamble, in good frames" id="EMAC_TXOCTCNTG_TXOCTG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RXCNTGB" width="32" description="Ethernet MAC Receive Frame Count for Good and Bad Frames" id="EMAC_RXCNTGB" offset="0x00000180" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of received good and bad frames" id="EMAC_RXCNTGB_RXFRMGB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RXCNTCRCERR" width="32" description="Ethernet MAC Receive Frame Count for CRC Error Frames" id="EMAC_RXCNTCRCERR" offset="0x00000194" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of frames received with CRC error" id="EMAC_RXCNTCRCERR_RXCRCERR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RXCNTALGNERR" width="32" description="Ethernet MAC Receive Frame Count for Alignment Error Frames" id="EMAC_RXCNTALGNERR" offset="0x00000198" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of frames received with alignment (dribble) error" id="EMAC_RXCNTALGNERR_RXALGNERR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RXCNTGUNI" width="32" description="Ethernet MAC Receive Frame Count for Good Unicast Frames" id="EMAC_RXCNTGUNI" offset="0x000001C4" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="This field indicates the number of received good unicast frames" id="EMAC_RXCNTGUNI_RXUCASTG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_VLNINCREP" width="32" description="Ethernet MAC VLAN Tag Inclusion or Replacement" id="EMAC_VLNINCREP" offset="0x00000584" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="VLAN Tag for Transmit Frames" id="EMAC_VLNINCREP_VLT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="VLAN Tag Control in Transmit Frames" id="EMAC_VLNINCREP_VLC" resetval="" >
+            <bitenum id="EMAC_VLNINCREP_VLC_NONE" value="0x00000000" token="" description="No VLAN tag deletion, insertion, or replacement"/>
+            <bitenum id="EMAC_VLNINCREP_VLC_TAGDEL" value="0x00010000" token="" description="VLAN tag deletion"/>
+            <bitenum id="EMAC_VLNINCREP_VLC_TAGINS" value="0x00020000" token="" description="VLAN tag insertion"/>
+            <bitenum id="EMAC_VLNINCREP_VLC_TAGREP" value="0x00030000" token="" description="VLAN tag replacement"/>
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="VLAN Priority Control" id="EMAC_VLNINCREP_VLP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="C-VLAN or S-VLAN" id="EMAC_VLNINCREP_CSVL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_VLANHASH" width="32" description="Ethernet MAC VLAN Hash Table" id="EMAC_VLANHASH" offset="0x00000588" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="VLAN Hash Table" id="EMAC_VLANHASH_VLHT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TIMSTCTRL" width="32" description="Ethernet MAC Timestamp Control" id="EMAC_TIMSTCTRL" offset="0x00000700" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Timestamp Enable" id="EMAC_TIMSTCTRL_TSEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Timestamp Fine or Coarse Update" id="EMAC_TIMSTCTRL_TSFCUPDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Timestamp Initialize" id="EMAC_TIMSTCTRL_TSINIT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Timestamp Update" id="EMAC_TIMSTCTRL_TSUPDT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Timestamp Interrupt Trigger Enable" id="EMAC_TIMSTCTRL_INTTRIG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Addend Register Update" id="EMAC_TIMSTCTRL_ADDREGUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Enable Timestamp For All Frames" id="EMAC_TIMSTCTRL_ALLF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Timestamp Digital or Binary Rollover Control" id="EMAC_TIMSTCTRL_DGTLBIN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Enable PTP Packet Processing For Version 2 Format" id="EMAC_TIMSTCTRL_PTPVER2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Enable Processing of PTP Over Ethernet Frames" id="EMAC_TIMSTCTRL_PTPETH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Enable Processing of PTP Frames Sent Over IPv6-UDP" id="EMAC_TIMSTCTRL_PTPIPV6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Enable Processing of PTP Frames Sent over IPv4-UDP" id="EMAC_TIMSTCTRL_PTPIPV4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Enable Timestamp Snapshot for Event Messages" id="EMAC_TIMSTCTRL_TSEVNT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Enable Snapshot for Messages Relevant to Master" id="EMAC_TIMSTCTRL_TSMAST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Select PTP packets for Taking Snapshots" id="EMAC_TIMSTCTRL_SELPTP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Enable MAC address for PTP Frame Filtering" id="EMAC_TIMSTCTRL_PTPFLTR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_SUBSECINC" width="32" description="Ethernet MAC Sub-Second Increment" id="EMAC_SUBSECINC" offset="0x00000704" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Sub-second Increment Value" id="EMAC_SUBSECINC_SSINC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TIMSEC" width="32" description="Ethernet MAC System Time - Seconds" id="EMAC_TIMSEC" offset="0x00000708" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Timestamp Second" id="EMAC_TIMSEC_TSS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TIMNANO" width="32" description="Ethernet MAC System Time - Nanoseconds" id="EMAC_TIMNANO" offset="0x0000070C" >
+        <bitfield range="" begin="30" width="31" end="0" rwaccess="R" description="Timestamp Sub-Seconds" id="EMAC_TIMNANO_TSSS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TIMSECU" width="32" description="Ethernet MAC System Time - Seconds Update" id="EMAC_TIMSECU" offset="0x00000710" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Timestamp Second" id="EMAC_TIMSECU_TSS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TIMNANOU" width="32" description="Ethernet MAC System Time - Nanoseconds Update" id="EMAC_TIMNANOU" offset="0x00000714" >
+        <bitfield range="" begin="30" width="31" end="0" rwaccess="RW" description="Timestamp Sub-Second" id="EMAC_TIMNANOU_TSSS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Add or subtract time" id="EMAC_TIMNANOU_ADDSUB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TIMADD" width="32" description="Ethernet MAC Timestamp Addend" id="EMAC_TIMADD" offset="0x00000718" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Timestamp Addend Register" id="EMAC_TIMADD_TSAR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TARGSEC" width="32" description="Ethernet MAC Target Time Seconds" id="EMAC_TARGSEC" offset="0x0000071C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Target Time Seconds Register" id="EMAC_TARGSEC_TSTR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TARGNANO" width="32" description="Ethernet MAC Target Time Nanoseconds" id="EMAC_TARGNANO" offset="0x00000720" >
+        <bitfield range="" begin="30" width="31" end="0" rwaccess="RW" description="Target Timestamp Low Register" id="EMAC_TARGNANO_TTSLO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Target Time Register Busy" id="EMAC_TARGNANO_TRGTBUSY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_HWORDSEC" width="32" description="Ethernet MAC System Time-Higher Word Seconds" id="EMAC_HWORDSEC" offset="0x00000724" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Target Timestamp Higher Word Register" id="EMAC_HWORDSEC_TSHWR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TIMSTAT" width="32" description="Ethernet MAC Timestamp Status" id="EMAC_TIMSTAT" offset="0x00000728" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Timestamp Seconds Overflow" id="EMAC_TIMSTAT_TSSOVF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Timestamp Target Time Reached" id="EMAC_TIMSTAT_TSTARGT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_PPSCTRL" width="32" description="Ethernet MAC PPS Control" id="EMAC_PPSCTRL" offset="0x0000072C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="EN0PPS Output Frequency Control (PPSCTRL) or Command Control (PPSCMD)" id="EMAC_PPSCTRL_PPSCTRL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Flexible PPS Output Mode Enable" id="EMAC_PPSCTRL_PPSEN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Target Time Register Mode for PPS0 Output" id="EMAC_PPSCTRL_TRGMODS0" resetval="" >
+            <bitenum id="EMAC_PPSCTRL_TRGMODS0_INTONLY" value="0x00000000" token="" description="Indicates that the Target Time registers are programmed only for generating the interrupt event"/>
+            <bitenum id="EMAC_PPSCTRL_TRGMODS0_INTPPS0" value="0x00000040" token="" description="Indicates that the Target Time registers are programmed for generating the interrupt event and starting or stopping the generation of the EN0PPS output signal"/>
+            <bitenum id="EMAC_PPSCTRL_TRGMODS0_PPS0ONLY" value="0x00000060" token="" description="Indicates that the Target Time registers are programmed only for starting or stopping the generation of the EN0PPS output signal. No interrupt is asserted"/>
+        </bitfield>
+    </register>
+    <register acronym="EMAC_PPS0INTVL" width="32" description="Ethernet MAC PPS0 Interval" id="EMAC_PPS0INTVL" offset="0x00000760" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="PPS0 Output Signal Interval" id="EMAC_PPS0INTVL_PPS0INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_PPS0WIDTH" width="32" description="Ethernet MAC PPS0 Width" id="EMAC_PPS0WIDTH" offset="0x00000764" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="EN0PPS Output Signal Width" id="EMAC_PPS0WIDTH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_DMABUSMOD" width="32" description="Ethernet MAC DMA Bus Mode" id="EMAC_DMABUSMOD" offset="0x00000C00" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="DMA Software Reset" id="EMAC_DMABUSMOD_SWR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="DMA Arbitration Scheme" id="EMAC_DMABUSMOD_DA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="5" end="2" rwaccess="RW" description="Descriptor Skip Length" id="EMAC_DMABUSMOD_DSL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Alternate Descriptor Size" id="EMAC_DMABUSMOD_ATDS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="Programmable Burst Length" id="EMAC_DMABUSMOD_PBL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority Ratio" id="EMAC_DMABUSMOD_PR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Fixed Burst" id="EMAC_DMABUSMOD_FB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="6" end="17" rwaccess="RW" description="RX DMA Programmable Burst Length (PBL)" id="EMAC_DMABUSMOD_RPBL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="Use Separate Programmable Burst Length (PBL)" id="EMAC_DMABUSMOD_USP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="8 x Programmable Burst Length (PBL) Mode" id="EMAC_DMABUSMOD_8XPBL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="Address Aligned Beats" id="EMAC_DMABUSMOD_AAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Mixed Burst" id="EMAC_DMABUSMOD_MB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="Transmit Priority" id="EMAC_DMABUSMOD_TXPR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Rebuild Burst" id="EMAC_DMABUSMOD_RIB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TXPOLLD" width="32" description="Ethernet MAC Transmit Poll Demand" id="EMAC_TXPOLLD" offset="0x00000C04" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Transmit Poll Demand" id="EMAC_TXPOLLD_TPD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RXPOLLD" width="32" description="Ethernet MAC Receive Poll Demand" id="EMAC_RXPOLLD" offset="0x00000C08" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Receive Poll Demand" id="EMAC_RXPOLLD_RPD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RXDLADDR" width="32" description="Ethernet MAC Receive Descriptor List Address" id="EMAC_RXDLADDR" offset="0x00000C0C" >
+        <bitfield range="" begin="31" width="30" end="2" rwaccess="RW" description="Start of Receive List" id="EMAC_RXDLADDR_STRXLIST" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_TXDLADDR" width="32" description="Ethernet MAC Transmit Descriptor List Address" id="EMAC_TXDLADDR" offset="0x00000C10" >
+        <bitfield range="" begin="31" width="30" end="2" rwaccess="RW" description="Start of Transmit List Base Address" id="EMAC_TXDLADDR_TXDLADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_DMARIS" width="32" description="Ethernet MAC DMA Interrupt Status" id="EMAC_DMARIS" offset="0x00000C14" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Interrupt" id="EMAC_DMARIS_TI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Transmit Process Stopped" id="EMAC_DMARIS_TPS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Transmit Buffer Unavailable" id="EMAC_DMARIS_TU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Transmit Jabber Timeout" id="EMAC_DMARIS_TJT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Receive Overflow" id="EMAC_DMARIS_OVF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Transmit Underflow" id="EMAC_DMARIS_UNF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Receive Interrupt" id="EMAC_DMARIS_RI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Receive Buffer Unavailable" id="EMAC_DMARIS_RU" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Receive Process Stopped" id="EMAC_DMARIS_RPS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Receive Watchdog Timeout" id="EMAC_DMARIS_RWT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Early Transmit Interrupt" id="EMAC_DMARIS_ETI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Fatal Bus Error Interrupt" id="EMAC_DMARIS_FBI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Early Receive Interrupt" id="EMAC_DMARIS_ERI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Abnormal Interrupt Summary" id="EMAC_DMARIS_AIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Normal Interrupt Summary" id="EMAC_DMARIS_NIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="3" end="17" rwaccess="RW" description="Received Process State" id="EMAC_DMARIS_RS" resetval="" >
+            <bitenum id="EMAC_DMARIS_RS_STOP" value="0x00000000" token="" description="Stopped: Reset or stop receive command issued"/>
+            <bitenum id="EMAC_DMARIS_RS_RUNRXTD" value="0x00020000" token="" description="Running: Fetching receive transfer descriptor"/>
+            <bitenum id="EMAC_DMARIS_RS_RUNRXD" value="0x00060000" token="" description="Running: Waiting for receive packet"/>
+            <bitenum id="EMAC_DMARIS_RS_SUSPEND" value="0x00080000" token="" description="Suspended: Receive descriptor unavailable"/>
+            <bitenum id="EMAC_DMARIS_RS_RUNCRD" value="0x000A0000" token="" description="Running: Closing receive descriptor"/>
+            <bitenum id="EMAC_DMARIS_RS_TSWS" value="0x000C0000" token="" description="Writing Timestamp"/>
+            <bitenum id="EMAC_DMARIS_RS_RUNTXD" value="0x000E0000" token="" description="Running: Transferring the receive packet data from receive buffer to host memory"/>
+        </bitfield>
+        <bitfield range="" begin="22" width="3" end="20" rwaccess="RW" description="Transmit Process State" id="EMAC_DMARIS_TS" resetval="" >
+            <bitenum id="EMAC_DMARIS_TS_STOP" value="0x00000000" token="" description="Stopped; Reset or Stop transmit command processed"/>
+            <bitenum id="EMAC_DMARIS_TS_RUNTXTD" value="0x00100000" token="" description="Running; Fetching transmit transfer descriptor"/>
+            <bitenum id="EMAC_DMARIS_TS_STATUS" value="0x00200000" token="" description="Running; Waiting for status"/>
+            <bitenum id="EMAC_DMARIS_TS_RUNTX" value="0x00300000" token="" description="Running; Reading data from host memory buffer and queuing it to transmit buffer (TX FIFO)"/>
+            <bitenum id="EMAC_DMARIS_TS_TSTAMP" value="0x00400000" token="" description="Writing Timestamp"/>
+            <bitenum id="EMAC_DMARIS_TS_SUSPEND" value="0x00600000" token="" description="Suspended; Transmit descriptor unavailable or transmit buffer underflow"/>
+            <bitenum id="EMAC_DMARIS_TS_RUNCTD" value="0x00700000" token="" description="Running; Closing transmit descriptor"/>
+        </bitfield>
+        <bitfield range="" begin="25" width="3" end="23" rwaccess="RW" description="Access Error" id="EMAC_DMARIS_AE" resetval="" >
+            <bitenum id="EMAC_DMARIS_AE_RXDMAWD" value="0x00000000" token="" description="Error during RX DMA Write Data Transfer"/>
+            <bitenum id="EMAC_DMARIS_AE_TXDMARD" value="0x01800000" token="" description="Error during TX DMA Read Data Transfer"/>
+            <bitenum id="EMAC_DMARIS_AE_RXDMADW" value="0x02000000" token="" description="Error during RX DMA Descriptor Write Access"/>
+            <bitenum id="EMAC_DMARIS_AE_TXDMADW" value="0x02800000" token="" description="Error during TX DMA Descriptor Write Access"/>
+            <bitenum id="EMAC_DMARIS_AE_RXDMADR" value="0x03000000" token="" description="Error during RX DMA Descriptor Read Access"/>
+            <bitenum id="EMAC_DMARIS_AE_TXDMADR" value="0x03800000" token="" description="Error during TX DMA Descriptor Read Access"/>
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="MAC MMC Interrupt" id="EMAC_DMARIS_MMC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="MAC PMT Interrupt Status" id="EMAC_DMARIS_PMT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Timestamp Trigger Interrupt Status" id="EMAC_DMARIS_TT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_DMAOPMODE" width="32" description="Ethernet MAC DMA Operation Mode" id="EMAC_DMAOPMODE" offset="0x00000C18" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Start or Stop Receive" id="EMAC_DMAOPMODE_SR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Operate on Second Frame" id="EMAC_DMAOPMODE_OSF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Receive Threshold Control" id="EMAC_DMAOPMODE_RTC" resetval="" >
+            <bitenum id="EMAC_DMAOPMODE_RTC_64" value="0x00000000" token="" description="64 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_RTC_32" value="0x00000008" token="" description="32 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_RTC_96" value="0x00000010" token="" description="96 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_RTC_128" value="0x00000018" token="" description="128 bytes"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Drop Giant Frame Enable" id="EMAC_DMAOPMODE_DGF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Forward Undersized Good Frames" id="EMAC_DMAOPMODE_FUF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Forward Error Frames" id="EMAC_DMAOPMODE_FEF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Start or Stop Transmission Command" id="EMAC_DMAOPMODE_ST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="3" end="14" rwaccess="RW" description="Transmit Threshold Control" id="EMAC_DMAOPMODE_TTC" resetval="" >
+            <bitenum id="EMAC_DMAOPMODE_TTC_64" value="0x00000000" token="" description="64 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_TTC_128" value="0x00004000" token="" description="128 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_TTC_192" value="0x00008000" token="" description="192 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_TTC_256" value="0x0000C000" token="" description="256 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_TTC_40" value="0x00010000" token="" description="40 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_TTC_32" value="0x00014000" token="" description="32 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_TTC_24" value="0x00018000" token="" description="24 bytes"/>
+            <bitenum id="EMAC_DMAOPMODE_TTC_16" value="0x0001C000" token="" description="16 bytes"/>
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Flush Transmit FIFO" id="EMAC_DMAOPMODE_FTF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Transmit Store and Forward" id="EMAC_DMAOPMODE_TSF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Disable Flushing of Received Frames" id="EMAC_DMAOPMODE_DFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="Receive Store and Forward" id="EMAC_DMAOPMODE_RSF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Disable Dropping of TCP/IP Checksum Error Frames" id="EMAC_DMAOPMODE_DT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_DMAIM" width="32" description="Ethernet MAC DMA Interrupt Mask Register" id="EMAC_DMAIM" offset="0x00000C1C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Transmit Interrupt Enable" id="EMAC_DMAIM_TIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Transmit Stopped Enable" id="EMAC_DMAIM_TSE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Transmit Buffer Unvailable Enable" id="EMAC_DMAIM_TUE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Transmit Jabber Timeout Enable" id="EMAC_DMAIM_TJE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Overflow Interrupt Enable" id="EMAC_DMAIM_OVE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Underflow Interrupt Enable" id="EMAC_DMAIM_UNE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Receive Interrupt Enable" id="EMAC_DMAIM_RIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Receive Buffer Unavailable Enable" id="EMAC_DMAIM_RUE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Receive Stopped Enable" id="EMAC_DMAIM_RSE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Receive Watchdog Timeout Enable" id="EMAC_DMAIM_RWE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Early Transmit Interrupt Enable" id="EMAC_DMAIM_ETE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Fatal Bus Error Enable" id="EMAC_DMAIM_FBE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Early Receive Interrupt Enable" id="EMAC_DMAIM_ERE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Abnormal Interrupt Summary Enable" id="EMAC_DMAIM_AIE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Normal Interrupt Summary Enable" id="EMAC_DMAIM_NIE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_MFBOC" width="32" description="Ethernet MAC Missed Frame and Buffer Overflow Counter" id="EMAC_MFBOC" offset="0x00000C20" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Missed Frame Counter" id="EMAC_MFBOC_MISFRMCNT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Overflow bit for Missed Frame Counter" id="EMAC_MFBOC_MISCNTOVF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="11" end="17" rwaccess="R" description="Overflow Frame Counter" id="EMAC_MFBOC_OVFFRMCNT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="R" description="Overflow Bit for FIFO Overflow Counter" id="EMAC_MFBOC_OVFCNTOVF" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_RXINTWDT" width="32" description="Ethernet MAC Receive Interrupt Watchdog Timer" id="EMAC_RXINTWDT" offset="0x00000C24" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Receive Interrupt Watchdog Timer Count" id="EMAC_RXINTWDT_RIWT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_HOSTXDESC" width="32" description="Ethernet MAC Current Host Transmit Descriptor" id="EMAC_HOSTXDESC" offset="0x00000C48" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Host Transmit Descriptor Address Pointer" id="EMAC_HOSTXDESC_CURTXDESC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_HOSRXDESC" width="32" description="Ethernet MAC Current Host Receive Descriptor" id="EMAC_HOSRXDESC" offset="0x00000C4C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Host Receive Descriptor Address Pointer" id="EMAC_HOSRXDESC_CURRXDESC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_HOSTXBA" width="32" description="Ethernet MAC Current Host Transmit Buffer Address" id="EMAC_HOSTXBA" offset="0x00000C50" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Host Transmit Buffer Address Pointer" id="EMAC_HOSTXBA_CURTXBUFA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_HOSRXBA" width="32" description="Ethernet MAC Current Host Receive Buffer Address" id="EMAC_HOSRXBA" offset="0x00000C54" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Host Receive Buffer Address Pointer" id="EMAC_HOSRXBA_CURRXBUFA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_PP" width="32" description="Ethernet MAC Peripheral Property Register" id="EMAC_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="R" description="Ethernet PHY Type" id="EMAC_PP_PHYTYPE" resetval="" >
+            <bitenum id="EMAC_PP_PHYTYPE_NONE" value="0x00000000" token="" description="No PHY"/>
+            <bitenum id="EMAC_PP_PHYTYPE_1" value="0x00000003" token="" description="Snowflake class PHY"/>
+        </bitfield>
+        <bitfield range="" begin="10" width="3" end="8" rwaccess="R" description="Ethernet MAC Type" id="EMAC_PP_MACTYPE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_PC" width="32" description="Ethernet MAC Peripheral Configuration Register" id="EMAC_PC" offset="0x00000FC4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet PHY Hold" id="EMAC_PC_PHYHOLD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Auto Negotiation Mode" id="EMAC_PC_ANMODE" resetval="" >
+            <bitenum id="EMAC_PC_ANMODE_10HD" value="0x00000000" token="" description="When ANEN = 0x0, the mode is 10Base-T, Half-Duplex"/>
+            <bitenum id="EMAC_PC_ANMODE_10FD" value="0x00000002" token="" description="When ANEN = 0x0, the mode is 10Base-T, Full-Duplex"/>
+            <bitenum id="EMAC_PC_ANMODE_100HD" value="0x00000004" token="" description="When ANEN = 0x0, the mode is 100Base-TX, Half-Duplex"/>
+            <bitenum id="EMAC_PC_ANMODE_100FD" value="0x00000006" token="" description="When ANEN = 0x0, the mode is 100Base-TX, Full-Duplex"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Auto Negotiation Enable" id="EMAC_PC_ANEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Fast Auto Negotiation Select" id="EMAC_PC_FASTANSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Fast Auto Negotiation Enable" id="EMAC_PC_FASTANEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Extended Full Duplex Ability" id="EMAC_PC_EXTFD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="FAST Link-Up in Parallel Detect" id="EMAC_PC_FASTLUPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Fast RXDV Detection" id="EMAC_PC_FASTRXDV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="MDIX Enable" id="EMAC_PC_MDIXEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Fast Auto MDI-X" id="EMAC_PC_FASTMDIX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Robust Auto MDI-X" id="EMAC_PC_RBSTMDIX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="MDI Swap" id="EMAC_PC_MDISWAP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Polarity Swap" id="EMAC_PC_POLSWAP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="5" end="15" rwaccess="RW" description="Fast Link Down Mode" id="EMAC_PC_FASTLDMODE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="TDR Auto Run" id="EMAC_PC_TDRRUN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Link Loss Recovery" id="EMAC_PC_LRR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="Isolate MII in Link Loss" id="EMAC_PC_ISOMIILL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="RXER Detection During Idle" id="EMAC_PC_RXERIDLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Odd Nibble TXER Detection Disable" id="EMAC_PC_NIBDETDIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="PHY Soft Restart" id="EMAC_PC_DIGRESTART" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="3" end="28" rwaccess="RW" description="Ethernet Interface Select" id="EMAC_PC_PINTFS" resetval="" >
+            <bitenum id="EMAC_PC_PINTFS_IMII" value="0x00000000" token="" description="MII (default) Used for internal PHY or external PHY connected via MII"/>
+            <bitenum id="EMAC_PC_PINTFS_RMII" value="0x40000000" token="" description="RMII: Used for external PHY connected via RMII"/>
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="PHY Select" id="EMAC_PC_PHYEXT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_CC" width="32" description="Ethernet MAC Clock Configuration Register" id="EMAC_CC" offset="0x00000FC8" >
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="R" description="LED Polarity Control" id="EMAC_CC_POL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="R" description="PTP Clock Reference Enable" id="EMAC_CC_PTPCEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_EPHYRIS" width="32" description="Ethernet PHY Raw Interrupt Status" id="EMAC_EPHYRIS" offset="0x00000FD0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Ethernet PHY Raw Interrupt Status" id="EMAC_EPHYRIS_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_EPHYIM" width="32" description="Ethernet PHY Interrupt Mask" id="EMAC_EPHYIM" offset="0x00000FD4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet PHY Interrupt Mask" id="EMAC_EPHYIM_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EMAC_EPHYMISC" width="32" description="Ethernet PHY Masked Interrupt Status and Clear" id="EMAC_EPHYMISC" offset="0x00000FD8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet PHY Status and Clear register" id="EMAC_EPHYMISC_INT" resetval="" >
+        </bitfield>
+    </register>
+</module>

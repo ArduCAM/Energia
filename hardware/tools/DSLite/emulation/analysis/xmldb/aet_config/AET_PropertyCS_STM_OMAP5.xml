@@ -1,0 +1,1603 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+  <!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_LOCATION>
+    <NAME>Base Address</NAME>
+    <DESCRIPTION>This base address is the base address used by SW to program STM</DESCRIPTION>
+    <VALUE>0xD4161000</VALUE>
+    <PAGE>0</PAGE>
+  </PROPERTY_LOCATION>
+
+  <PROPERTY_LOCATION>
+    <NAME>TPIU Base Address</NAME>
+    <DESCRIPTION>This base address is the base address used by SW to program STM</DESCRIPTION>
+    <VALUE>0xD4163000</VALUE>
+    <PAGE>0</PAGE>
+  </PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>STM Type</NAME>                                         
+	  <VALUE>OMAP5</VALUE>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+	  <VALUE>Trace</VALUE>
+	  <CHILDKEY>TRACE</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+<!-- CS_STM port configuration.                                                  -->
+<!--=============================================================================-->
+<!--=============================================================================-->
+
+  <!--=============================================================================-->
+  <!-- TPIU XMTR configuration.                                                -->
+  <!--=============================================================================-->
+  <PROPERTY_STRING>
+    <NAME>Formatter Control</NAME>
+    <DESCRIPTION>Options for selecting how to stop formatter</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT CONFIG</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>FMT CNTL</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Trigger Control</NAME>
+    <DESCRIPTION>Options for selecting how to generate trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT CONFIG</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>TRIG CNTL</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Flush Control</NAME>
+    <DESCRIPTION>Options for selecting how to flush trace buffer</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT CONFIG</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>FLUSH CNTL</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <!--=============================================================================-->
+<!--=============================================================================-->
+  <PROPERTY_STRING>
+    <NAME>Trace Data Source</NAME>
+    <DESCRIPTION>Select source that generates software message</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT CONFIG</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>CT_STM</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x800A0001</ALLOWED_ENUM>
+        <ALLOWED_STRING>System STM</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>CS_STM</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x800A0002</ALLOWED_ENUM>
+        <ALLOWED_STRING>MPU STM</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <!--=============================================================================-->
+  <!-- Group for enabled SW master IDs.                                            -->
+  <!--=============================================================================-->
+  <PROPERTY_STRING>
+    <NAME>Enable SW message sources</NAME>
+    <DESCRIPTION>Options for enabling the four SW message sources</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CT_STM</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>SW ID</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 0</NAME>
+    <DESCRIPTION>Enable the first message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8050000</ENUMVALUE>
+    <CHILDKEY>SW MSG 0</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 1</NAME>
+    <DESCRIPTION>Enable the second message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8050001</ENUMVALUE>
+    <CHILDKEY>SW MSG 1</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 2</NAME>
+    <DESCRIPTION>Enable the third message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8050002</ENUMVALUE>
+    <CHILDKEY>SW MSG 2</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 4</NAME>
+    <DESCRIPTION>Enable the fourth message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8050003</ENUMVALUE>
+    <CHILDKEY>SW MSG 3</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>SW Masters</NAME>
+    <DESCRIPTION>Select the SW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW MSG 0</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>CHI CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Chiron</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>DUC CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410044</ALLOWED_ENUM>
+        <ALLOWED_STRING>Ducati</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410020</ALLOWED_ENUM>
+        <ALLOWED_STRING>Tesla</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410034</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT1</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410038</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT2</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410054</ALLOWED_ENUM>
+        <ALLOWED_STRING>SDMA_WR</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410010</ALLOWED_ENUM>
+        <ALLOWED_STRING>DAP</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>SW Masters</NAME>
+    <DESCRIPTION>Select the SW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW MSG 1</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>DUC CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410044</ALLOWED_ENUM>
+        <ALLOWED_STRING>Ducati</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>CHI CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Chiron</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410020</ALLOWED_ENUM>
+        <ALLOWED_STRING>Tesla</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410034</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT1</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410038</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT2</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410054</ALLOWED_ENUM>
+        <ALLOWED_STRING>SDMA_WR</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410010</ALLOWED_ENUM>
+        <ALLOWED_STRING>DAP</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>SW Masters</NAME>
+    <DESCRIPTION>Select the SW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW MSG 2</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410020</ALLOWED_ENUM>
+        <ALLOWED_STRING>Tesla</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>CHI CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Chiron</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>DUC CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410044</ALLOWED_ENUM>
+        <ALLOWED_STRING>Ducati</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410034</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT1</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410038</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT2</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410054</ALLOWED_ENUM>
+        <ALLOWED_STRING>SDMA_WR</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410010</ALLOWED_ENUM>
+        <ALLOWED_STRING>DAP</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>SW Masters</NAME>
+    <DESCRIPTION>Select the SW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>SW MSG 3</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410034</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT1</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>CHI CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Chiron</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>DUC CPU</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80410044</ALLOWED_ENUM>
+        <ALLOWED_STRING>Ducati</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410020</ALLOWED_ENUM>
+        <ALLOWED_STRING>Tesla</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410038</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD ICT2</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410054</ALLOWED_ENUM>
+        <ALLOWED_STRING>SDMA_WR</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410010</ALLOWED_ENUM>
+        <ALLOWED_STRING>DAP</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Enabled CPU(s)</NAME>
+    <DESCRIPTION>The option of defining the enabled CPUs</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CHI CPU</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410300</ALLOWED_ENUM>
+        <ALLOWED_STRING>Both CPUs</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410000</ALLOWED_ENUM>
+        <ALLOWED_STRING>CPU0</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410001</ALLOWED_ENUM>
+        <ALLOWED_STRING>CPU1</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Enabled CPU(s)</NAME>
+    <DESCRIPTION>The option of defining the enabled CPUs</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>DUC CPU</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410344</ALLOWED_ENUM>
+        <ALLOWED_STRING>Both CPUs</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410044</ALLOWED_ENUM>
+        <ALLOWED_STRING>CPU0</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80410045</ALLOWED_ENUM>
+        <ALLOWED_STRING>CPU1</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <!--=============================================================================-->
+  <!-- Group for enabled HW master IDs.                                            -->
+  <!--=============================================================================-->
+  <PROPERTY_STRING>
+    <NAME>Enable HW Message Sources</NAME>
+    <DESCRIPTION>Options for enabling four HW message sources</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CT_STM</KEYNAME>
+      <KEYNUMBER>2</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>HW ID</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 0</NAME>
+    <DESCRIPTION>Enable the first message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8060000</ENUMVALUE>
+    <CHILDKEY>HW MSG 0</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 1</NAME>
+    <DESCRIPTION>Enable the second message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8060001</ENUMVALUE>
+    <CHILDKEY>HW MSG 1</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 2</NAME>
+    <DESCRIPTION>Enable the third message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8060002</ENUMVALUE>
+    <CHILDKEY>HW MSG 2</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Message Source 3</NAME>
+    <DESCRIPTION>Enable the fourth message source</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW ID</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8060003</ENUMVALUE>
+    <CHILDKEY>HW MSG 3</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>HW Masters</NAME>
+    <DESCRIPTION>Select the HW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW MSG 0</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E0</ALLOWED_ENUM>
+        <ALLOWED_STRING>Statistics Collectors</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E4</ALLOWED_ENUM>
+        <ALLOWED_STRING>OCP Watch-point</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F0</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD SMSET</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F4</ALLOWED_ENUM>
+        <ALLOWED_STRING>PM Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F8</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM1 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200FC</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM2 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>HW Masters</NAME>
+    <DESCRIPTION>Select the HW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW MSG 1</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F8</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM1 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E0</ALLOWED_ENUM>
+        <ALLOWED_STRING>Statistics Collectors</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E4</ALLOWED_ENUM>
+        <ALLOWED_STRING>OCP Watch-point</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F0</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD SMSET</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F4</ALLOWED_ENUM>
+        <ALLOWED_STRING>PM Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200FC</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM2 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>HW Masters</NAME>
+    <DESCRIPTION>Select the HW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW MSG 2</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200FC</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM2 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E0</ALLOWED_ENUM>
+        <ALLOWED_STRING>Statistics Collectors</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E4</ALLOWED_ENUM>
+        <ALLOWED_STRING>OCP Watch-point</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F0</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD SMSET</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F4</ALLOWED_ENUM>
+        <ALLOWED_STRING>PM Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F8</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM1 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>HW Masters</NAME>
+    <DESCRIPTION>Select the HW masters</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>HW MSG 3</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F4</ALLOWED_ENUM>
+        <ALLOWED_STRING>PM Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E0</ALLOWED_ENUM>
+        <ALLOWED_STRING>Statistics Collectors</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200E4</ALLOWED_ENUM>
+        <ALLOWED_STRING>OCP Watch-point</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F0</ALLOWED_ENUM>
+        <ALLOWED_STRING>IVA_HD SMSET</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200F8</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM1 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804200FC</ALLOWED_ENUM>
+        <ALLOWED_STRING>CM2 Event Profiling</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <!--=============================================================================-->
+  <!-- Group for enabled external trigger.                                         -->
+  <!--=============================================================================-->
+  <PROPERTY_STRING>
+    <NAME>Enable External Trigger</NAME>
+    <DESCRIPTION>Options for enabling the external to start or stop STM</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CT_STM</KEYNAME>
+      <KEYNUMBER>5</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>TRIGGER</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_BOOL>
+    <NAME>Start on Ext. Trigger</NAME>
+    <DESCRIPTION>Start Detection on an external trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRIGGER</KEYNAME>
+      <KEYNUMBER>4</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80460000</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Stop on Ext. Trigger</NAME>
+    <DESCRIPTION>Stop Detection on an external trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRIGGER</KEYNAME>
+      <KEYNUMBER>5</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80460001</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+  <!-- Group for enabled external trigger.                                         -->
+  <!--=============================================================================-->
+  <PROPERTY_STRING>
+    <NAME>Configuration for ETB</NAME>
+    <DESCRIPTION>Options for configuring STM trace by using ETB</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CT_STM</KEYNAME>
+      <KEYNUMBER>6</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>ETB CONFIG</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>SW C8 Repeat</NAME>
+    <DESCRIPTION>The option of enabling SW channel message after the defined instrumentation accesses</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETB CONFIG</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8048000F</ALLOWED_ENUM>
+        <ALLOWED_STRING>120 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Not Repeat</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480001</ALLOWED_ENUM>
+        <ALLOWED_STRING>8 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480002</ALLOWED_ENUM>
+        <ALLOWED_STRING>16 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480003</ALLOWED_ENUM>
+        <ALLOWED_STRING>24 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480004</ALLOWED_ENUM>
+        <ALLOWED_STRING>32 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480005</ALLOWED_ENUM>
+        <ALLOWED_STRING>40 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480006</ALLOWED_ENUM>
+        <ALLOWED_STRING>48 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480007</ALLOWED_ENUM>
+        <ALLOWED_STRING>56 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480008</ALLOWED_ENUM>
+        <ALLOWED_STRING>64 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80480009</ALLOWED_ENUM>
+        <ALLOWED_STRING>72 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8048000A</ALLOWED_ENUM>
+        <ALLOWED_STRING>80 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8048000B</ALLOWED_ENUM>
+        <ALLOWED_STRING>88 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8048000C</ALLOWED_ENUM>
+        <ALLOWED_STRING>96 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8048000D</ALLOWED_ENUM>
+        <ALLOWED_STRING>104 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8048000E</ALLOWED_ENUM>
+        <ALLOWED_STRING>112 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>Master Repeat</NAME>
+    <DESCRIPTION>The option of enabling master message after the defined instrumentation accesses</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETB CONFIG</KEYNAME>
+      <KEYNUMBER>2</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490008</ALLOWED_ENUM>
+        <ALLOWED_STRING>64 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Not Repeat</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490001</ALLOWED_ENUM>
+        <ALLOWED_STRING>8 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490002</ALLOWED_ENUM>
+        <ALLOWED_STRING>16 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490003</ALLOWED_ENUM>
+        <ALLOWED_STRING>24 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490004</ALLOWED_ENUM>
+        <ALLOWED_STRING>32 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490005</ALLOWED_ENUM>
+        <ALLOWED_STRING>40 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490006</ALLOWED_ENUM>
+        <ALLOWED_STRING>48 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490007</ALLOWED_ENUM>
+        <ALLOWED_STRING>56 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80490009</ALLOWED_ENUM>
+        <ALLOWED_STRING>72 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8049000A</ALLOWED_ENUM>
+        <ALLOWED_STRING>80 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8049000B</ALLOWED_ENUM>
+        <ALLOWED_STRING>88 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8049000C</ALLOWED_ENUM>
+        <ALLOWED_STRING>96 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8049000D</ALLOWED_ENUM>
+        <ALLOWED_STRING>104 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8049000E</ALLOWED_ENUM>
+        <ALLOWED_STRING>112 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x8049000F</ALLOWED_ENUM>
+        <ALLOWED_STRING>120 Accesses</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+  <PROPERTY_STRING>
+    <NAME>LTS Dividor</NAME>
+    <DESCRIPTION>The option of selecting Local Time Stamp reference clock devide factor</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>ETB CONFIG</KEYNAME>
+      <KEYNUMBER>3</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 1</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0001</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 2</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0002</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 8</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0003</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 16</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0004</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 32</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0005</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 64</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0006</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 128</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x804A0007</ALLOWED_ENUM>
+        <ALLOWED_STRING>Divided by 2</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+  <PROPERTY_LOCATION>
+    <NAME>CS_STM Base Address</NAME>
+    <DESCRIPTION>This base address is the base address used by SW to program STM</DESCRIPTION>
+    <VALUE>0xD415A000</VALUE>
+    <PAGE>0</PAGE>
+  </PROPERTY_LOCATION>
+
+  <PROPERTY_STRING>
+	  <NAME>Trace Control</NAME>	
+ 	  <DESCRIPTION>Options for configuring trace data generation</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CS_STM</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <CHILDKEY>TRACE CNTL</CHILDKEY>	
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_STRING>
+
+  <PROPERTY_BOOL>
+    <NAME>Timestamp Enable</NAME>
+    <DESCRIPTION>Enable generating timestamp packets in trace data</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRACE CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80010002</ENUMVALUE>
+    <VALUE>1</VALUE>
+    <CHILDKEY>TS FEQ</CHILDKEY>
+  </PROPERTY_BOOL>
+
+    <PROPERTY_INTEGER>
+      <NAME>Timestamp Frequency</NAME>
+      <DESCRIPTION>Set the timestamp frequency in Hz</DESCRIPTION>
+      <KEYITEM>
+        <KEYNAME>TS FEQ</KEYNAME>
+        <KEYNUMBER>1</KEYNUMBER>
+      </KEYITEM>
+      <VALUE>0</VALUE>
+      <ENUMVALUE>0x80020000</ENUMVALUE>
+    </PROPERTY_INTEGER>
+
+  <PROPERTY_BOOL>
+    <NAME>Compression Enable</NAME>
+    <DESCRIPTION>Enable compression for trace data</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRACE CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x800100120</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_STRING>
+    <NAME>Sync Mode</NAME>
+    <DESCRIPTION>Select the mode for synchronization counter setting</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRACE CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>MODE BYTE</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80030000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Byte Mode</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>MODE POWER</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80030001</ALLOWED_ENUM>
+        <ALLOWED_STRING>Power of Two Mode</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+    <PROPERTY_INTEGER>
+      <NAME>Counter Value (1-4095)</NAME>
+      <DESCRIPTION>Set the period in bytes for generating sync packets</DESCRIPTION>
+      <KEYITEM>
+        <KEYNAME>MODE BYTE</KEYNAME>
+        <KEYNUMBER>1</KEYNUMBER>
+      </KEYITEM>
+      <RANGELO>0</RANGELO>
+      <RANGEHI>0xFFF</RANGEHI>
+      <VALUE>2000</VALUE>
+      <ENUMVALUE>0x80030002</ENUMVALUE>
+    </PROPERTY_INTEGER>
+
+    <PROPERTY_INTEGER>
+      <NAME>Factor Value (12-27)</NAME>
+      <DESCRIPTION>Set the factor for power of two bytes period for generating sync packets</DESCRIPTION>
+      <KEYITEM>
+        <KEYNAME>MODE POWER</KEYNAME>
+        <KEYNUMBER>1</KEYNUMBER>
+      </KEYITEM>
+      <RANGELO>12</RANGELO>
+      <RANGEHI>27</RANGEHI>
+      <VALUE>12</VALUE>
+      <ENUMVALUE>0x80030002</ENUMVALUE>
+    </PROPERTY_INTEGER>
+
+  <PROPERTY_STRING>
+    <NAME>Port Enable</NAME>
+    <DESCRIPTION>Enable the stimulus ports for generating SW message</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRACE CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ALLOWEDLIST>
+      <ALLOWEDITEM>
+        <ALLOWED_ENUM>0x80040000</ALLOWED_ENUM>
+        <ALLOWED_STRING>All Stimulus Ports</ALLOWED_STRING>
+      </ALLOWEDITEM>
+      <ALLOWEDITEM>
+        <ALLOWED_KEY>PORT LIST</ALLOWED_KEY>
+        <ALLOWED_ENUM>0x80050000</ALLOWED_ENUM>
+        <ALLOWED_STRING>Groups of Stimulus Ports</ALLOWED_STRING>
+      </ALLOWEDITEM>
+    </ALLOWEDLIST>
+  </PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+  <PROPERTY_STRING>
+    <NAME>Trigger Control</NAME>
+    <DESCRIPTION>Options for configuring trace trigger generation</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>CS_STM</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <CHILDKEY>TRACE TRIG</CHILDKEY>
+    <EDITABLE>FALSE</EDITABLE>
+  </PROPERTY_STRING>
+
+    <PROPERTY_STRING>
+      <NAME>Trigger Type</NAME>
+      <DESCRIPTION>Option to select generating trigger event for every detected trigger or the first detected trigger</DESCRIPTION>
+      <KEYITEM>
+        <KEYNAME>TRACE TRIG</KEYNAME>
+        <KEYNUMBER>1</KEYNUMBER>
+      </KEYITEM>
+      <ALLOWEDLIST>
+        <ALLOWEDITEM>
+          <ALLOWED_ENUM>0x80060000</ALLOWED_ENUM>
+          <ALLOWED_STRING>Multi-shot</ALLOWED_STRING>
+        </ALLOWEDITEM>
+        <ALLOWEDITEM>
+          <ALLOWED_ENUM>0x80060001</ALLOWED_ENUM>
+          <ALLOWED_STRING>Single-shot</ALLOWED_STRING>
+        </ALLOWEDITEM>
+      </ALLOWEDLIST>
+    </PROPERTY_STRING>
+
+    <PROPERTY_BOOL>
+      <NAME>ATB Trigger Enable</NAME>
+      <DESCRIPTION>Enable generating ATID when software writes to the TRIG location</DESCRIPTION>
+      <KEYITEM>
+        <KEYNAME>TRACE TRIG</KEYNAME>
+        <KEYNUMBER>1</KEYNUMBER>
+      </KEYITEM>
+      <ENUMVALUE>0x80060010</ENUMVALUE>
+      <VALUE>0</VALUE>
+    </PROPERTY_BOOL>
+
+    <PROPERTY_STRING>
+      <NAME>Trigger Enable</NAME>
+      <DESCRIPTION>Enable the stimulus ports for generating trigger</DESCRIPTION>
+      <KEYITEM>
+        <KEYNAME>TRACE TRIG</KEYNAME>
+        <KEYNUMBER>1</KEYNUMBER>
+      </KEYITEM>
+      <ALLOWEDLIST>
+        <ALLOWEDITEM>
+          <ALLOWED_ENUM>0x80070000</ALLOWED_ENUM>
+          <ALLOWED_STRING>All Stimulus Ports</ALLOWED_STRING>
+        </ALLOWEDITEM>
+        <ALLOWEDITEM>
+          <ALLOWED_KEY>PORT LIST</ALLOWED_KEY>
+          <ALLOWED_ENUM>0x80080000</ALLOWED_ENUM>
+          <ALLOWED_STRING>Groups of Stimulus Ports</ALLOWED_STRING>
+        </ALLOWEDITEM>
+      </ALLOWEDLIST>
+    </PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32</NAME>
+    <DESCRIPTION>Enable the port 0, 32, 64, 96, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090000</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+1</NAME>
+    <DESCRIPTION>Enable the port 1, 33, 65, 97, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090001</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+2</NAME>
+    <DESCRIPTION>Enable the port 2, 34, 66, 98, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090002</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+3</NAME>
+    <DESCRIPTION>Enable the port 3, 35, 67, 99, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090003</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+4</NAME>
+    <DESCRIPTION>Enable the port 4, 36, 68, 100, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090004</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+5</NAME>
+    <DESCRIPTION>Enable the port 5, 37, 69, 101, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090005</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+6</NAME>
+    <DESCRIPTION>Enable the port 6, 38, 70, 102, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090006</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+7</NAME>
+    <DESCRIPTION>Enable the port 7, 39, 71, 103, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090007</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+8</NAME>
+    <DESCRIPTION>Enable the port 8, 40, 72, 104, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090008</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+9</NAME>
+    <DESCRIPTION>Enable the port 9, 41, 73, 105, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090009</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+10</NAME>
+    <DESCRIPTION>Enable the port 10, 42, 74, 106, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009000A</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+11</NAME>
+    <DESCRIPTION>Enable the port 11, 43, 75, 107, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009000B</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+12</NAME>
+    <DESCRIPTION>Enable the port 12, 44, 76, 108, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009000C</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+13</NAME>
+    <DESCRIPTION>Enable the port 13, 45, 77, 109, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009000D</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+14</NAME>
+    <DESCRIPTION>Enable the port 14, 46, 78, 110, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009000E</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+15</NAME>
+    <DESCRIPTION>Enable the port 15, 47, 79, 111, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x800900F</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+16</NAME>
+    <DESCRIPTION>Enable the port 16, 48, 80, 112, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090010</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+17</NAME>
+    <DESCRIPTION>Enable the port 17, 49, 81, 113, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090011</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+18</NAME>
+    <DESCRIPTION>Enable the port 18, 50, 82, 114, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090012</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+19</NAME>
+    <DESCRIPTION>Enable the port 19, 51, 83, 115, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090013</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+20</NAME>
+    <DESCRIPTION>Enable the port 20, 52, 84, 116, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090014</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+21</NAME>
+    <DESCRIPTION>Enable the port 21, 53, 85, 117, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090015</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+23</NAME>
+    <DESCRIPTION>Enable the port 22, 54, 86, 118, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090016</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+23</NAME>
+    <DESCRIPTION>Enable the port 23, 55, 87, 119, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090017</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+24</NAME>
+    <DESCRIPTION>Enable the port 24, 56, 88, 120, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090018</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+25</NAME>
+    <DESCRIPTION>Enable the port 25, 57, 89, 121, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80090019</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+26</NAME>
+    <DESCRIPTION>Enable the port 26, 58, 90, 122, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009001A</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+27</NAME>
+    <DESCRIPTION>Enable the port 27, 59, 91, 123, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009001B</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+28</NAME>
+    <DESCRIPTION>Enable the port 28, 60, 92, 124, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009001C</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+29</NAME>
+    <DESCRIPTION>Enable the port 29, 61, 93, 125, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009001D</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+30</NAME>
+    <DESCRIPTION>Enable the port 30, 62, 94, 126, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009001E</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Port N*32+31</NAME>
+    <DESCRIPTION>Enable the port 31, 63, 95, 127, ...</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>PORT LIST</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x8009001F</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+
+  <PROPERTY_INTEGER>
+    <NAME>CS_TF_DEBUGSS Address</NAME>
+    <DESCRIPTION>The address of trace funnel to select STM data input</DESCRIPTION>
+    <VALUE>0xD4164000</VALUE>
+    <ENUMVALUE>0x800E0000</ENUMVALUE>
+  </PROPERTY_INTEGER>
+
+  <PROPERTY_INTEGER>
+    <NAME>CS_STM Port Number</NAME>
+    <DESCRIPTION>The port number for the first (MIPI) input</DESCRIPTION>
+    <VALUE>7</VALUE>
+    <ENUMVALUE>0x800F0000</ENUMVALUE>
+  </PROPERTY_INTEGER>
+
+  <PROPERTY_INTEGER>
+    <NAME>CT_STM Port Number</NAME>
+    <DESCRIPTION>The port number for the second (CS_STM) input</DESCRIPTION>
+    <VALUE>0</VALUE>
+    <ENUMVALUE>0x800F0100</ENUMVALUE>
+  </PROPERTY_INTEGER>
+
+   <PROPERTY_STRING>
+    <NAME>CT_STM Trace ID Name</NAME>
+    <DESCRIPTION>The Trace ID Name used for getting the ID from device database</DESCRIPTION>
+    <VALUE>DEV_CHAR_STM_MIPI_TRACE_ID</VALUE>
+    <ENUMVALUE>0x800C0000</ENUMVALUE>
+  </PROPERTY_STRING>
+
+   <PROPERTY_STRING>
+    <NAME>CS_STM Trace ID Name</NAME>
+    <DESCRIPTION>The Trace ID Name used for getting the ID from device database</DESCRIPTION>
+    <VALUE>DEV_CHAR_CS_STM_TRACE_ID_0</VALUE>
+    <ENUMVALUE>0x800C0100</ENUMVALUE>
+  </PROPERTY_STRING>
+
+   <PROPERTY_STRING>
+    <NAME>CT_STP Version Name</NAME>
+    <DESCRIPTION>The STP version name used for getting version number from device database</DESCRIPTION>
+    <VALUE>DEV_CHAR_STM_MIPI_STP_VERSION</VALUE>
+    <ENUMVALUE>0x800D0000</ENUMVALUE>
+  </PROPERTY_STRING>
+
+    <PROPERTY_STRING>
+    <NAME>CS_STP Version Name</NAME>
+    <DESCRIPTION>The STP version name used for getting version number from device database</DESCRIPTION>
+    <VALUE>DEV_CHAR_CS_STM_STP_VERSION_0</VALUE>
+    <ENUMVALUE>0x800D0100</ENUMVALUE>
+  </PROPERTY_STRING>
+
+<!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+    <NAME>Stop After Trigger Event</NAME>
+    <DESCRIPTION>Stop the formatter after a trigger event is observed</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>FMT CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80010000</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Stop After Flush</NAME>
+    <DESCRIPTION>Stop the formatter after a flush completes</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>FMT CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80010001</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Continuous Formatting</NAME>
+    <DESCRIPTION>Do not embed triggers into the formatted stream</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>FMT CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80010002</ENUMVALUE>
+    <VALUE>1</VALUE>
+  </PROPERTY_BOOL>
+
+    <PROPERTY_INTEGER>
+      <NAME>Sync Counter</NAME>
+      <DESCRIPTION>12 bit counter value to indicate the number of complete frames between full synchronization packets</DESCRIPTION>
+      <KEYITEM>
+      <KEYNAME>FMT CNTL</KEYNAME>
+        <KEYNUMBER>1</KEYNUMBER>
+      </KEYITEM>
+      <VALUE>64</VALUE>
+ <RANGELO>0</RANGELO>
+ <RANGEHI>0xFFF</RANGEHI>
+    	<ENUMVALUE>0x80010003</ENUMVALUE>
+    </PROPERTY_INTEGER>
+
+  <!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+    <NAME>Trigger on Flush</NAME>
+    <DESCRIPTION>Indicates a trigger on flush completion</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRIG CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <VALUE>0</VALUE>
+    <ENUMVALUE>0x80020000</ENUMVALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger on Event</NAME>
+    <DESCRIPTION>Indicates a trigger on a trigger event</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRIG CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <VALUE>0</VALUE>
+    <ENUMVALUE>0x80020001</ENUMVALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger on TRIGIN</NAME>
+    <DESCRIPTION>Indicates a trigger on TRIGIN input signal</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRIG CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <VALUE>0</VALUE>
+    <ENUMVALUE>0x80020002</ENUMVALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Trigger Delay</NAME>
+    <DESCRIPTION>Delay Input Trigger generation by a defined number of words</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>TRIG CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <VALUE>0</VALUE>
+    <CHILDKEY>DELAY</CHILDKEY>
+  </PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+  <!-- Trigger delay setting.                                                      -->
+  <!--=============================================================================-->
+  <PROPERTY_INTEGER>
+    <NAME>Delay Counter</NAME>
+    <DESCRIPTION>Trigger delayed after sending out defined words</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>DELAY</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <VALUE>0xFF</VALUE>
+    <DISPLAYTYPE>DEC</DISPLAYTYPE>
+    <RANGELO>0</RANGELO>
+    <RANGEHI>0xFF</RANGEHI>
+    <ENUMVALUE>0x80030001</ENUMVALUE>
+  </PROPERTY_INTEGER>
+
+  <PROPERTY_BOOL>
+    <NAME>Counter Multiplier(*2)</NAME>
+    <DESCRIPTION>Multiply counter value by 2</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>DELAY</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80030002</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Counter Multiplier(*4)</NAME>
+    <DESCRIPTION>Multiply counter value by 4</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>DELAY</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80030003</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Counter Multiplier(*16)</NAME>
+    <DESCRIPTION>Multiply counter value by 16</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>DELAY</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80030004</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Counter Multiplier(*256)</NAME>
+    <DESCRIPTION>Multiply counter value by 256</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>DELAY</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80030005</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Counter Multiplier(*65536)</NAME>
+    <DESCRIPTION>Multiply counter value by 4</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>DELAY</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80030006</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <!--=============================================================================-->
+  <!--=============================================================================-->
+  <PROPERTY_BOOL>
+    <NAME>Flush on Input</NAME>
+    <DESCRIPTION>Generate flush on (delayed) Input Trigger</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>FLUSH CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80040000</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+  <PROPERTY_BOOL>
+    <NAME>Flush on FLUSHIN</NAME>
+    <DESCRIPTION>Generate flush on FLUSHIN signal</DESCRIPTION>
+    <KEYITEM>
+      <KEYNAME>FLUSH CNTL</KEYNAME>
+      <KEYNUMBER>1</KEYNUMBER>
+    </KEYITEM>
+    <ENUMVALUE>0x80040001</ENUMVALUE>
+    <VALUE>0</VALUE>
+  </PROPERTY_BOOL>
+
+</AET>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AUX_AIODIO" HW_revision="" XML_version="1.0" description="AUX Analog/Digital Input Output Controller  " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="GPIODOUT" width="32" description="General Purpose Input/Output Data Out
+
+This register is used to set data on the pads assigned to AUX" id="GPIODOUT" offset="0x0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Output values for AUXIO0 through AUXIO7 (for AIODIO0) or AUXIO8 through AUXIO15 (for AIODIO1)." id="IO7_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IOMODE" width="32" description="Input Output Mode
+
+Controls pull-up pull-down and output mode for the IO pins assigned to AUX" id="IOMODE" offset="0x4">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Selects mode for AUXIO7 (for AIODIO0) or AUXIO15 (for AIODIO1)." id="IO7" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 7 = 1
+Analog input/output with GPIODIE bit 7 = 0 " description="Digital input with GPIODIE bit 7 = 1
+Analog input/output with GPIODIE bit 7 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="Selects mode for AUXIO6 (for AIODIO0) or AUXIO14 (for AIODIO1)." id="IO6" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 6 = 1
+Analog input/output with GPIODIE bit 6 = 0 " description="Digital input with GPIODIE bit 6 = 1
+Analog input/output with GPIODIE bit 6 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Selects mode for AUXIO5 (for AIODIO0) or AUXIO13 (for AIODIO1)." id="IO5" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 5 = 1
+Analog input/output with GPIODIE bit 5 = 0 " description="Digital input with GPIODIE bit 5 = 1
+Analog input/output with GPIODIE bit 5 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Selects mode for AUXIO4 (for AIODIO0) or AUXIO12 (for AIODIO1)." id="IO4" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 4 = 1
+Analog input/output with GPIODIE bit 4 = 0 " description="Digital input with GPIODIE bit 4 = 1
+Analog input/output with GPIODIE bit 4 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Selects mode for AUXIO3 (for AIODIO0) or AUXIO11 (for AIODIO1)." id="IO3" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 3 = 1
+Analog input/output with GPIODIE bit 3 = 0 " description="Digital input with GPIODIE bit 3 = 1
+Analog input/output with GPIODIE bit 3 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Selects mode for AUXIO2 (for AIODIO0) or AUXIO10 (for AIODIO1)." id="IO2" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 2 = 1
+Analog input/output with GPIODIE bit 2 = 0 " description="Digital input with GPIODIE bit 2 = 1
+Analog input/output with GPIODIE bit 2 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Selects mode for AUXIO1 (for AIODIO0) or AUXIO9 (for AIODIO1)." id="IO1" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 1 = 1
+Analog input/output with GPIODIE bit 1 = 0 " description="Digital input with GPIODIE bit 1 = 1
+Analog input/output with GPIODIE bit 1 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Selects mode for AUXIO0 (for AIODIO0) or AUXIO8 (for AIODIO1)." id="IO0" resetval="0x0">
+         <bitenum id="OPEN_SOURCE" value="3" token="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-source: The pin is driven high when the corresponding GPIODOUT bit is 1, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="OPEN_DRAIN" value="2" token="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration." description="Open-drain: The pin is driven low when the corresponding GPIODOUT bit is 0, and otherwise tri-stated or pulled depending on the corresponding IOC configuration."/>
+         <bitenum id="IN" value="1" token="Digital input with GPIODIE bit 0 = 1
+Analog input/output with GPIODIE bit 0 = 0 " description="Digital input with GPIODIE bit 0 = 1
+Analog input/output with GPIODIE bit 0 = 0 "/>
+         <bitenum id="OUT" value="0" token="Output" description="Output"/>
+      </bitfield>
+   </register>
+   <register acronym="GPIODIN" width="32" description="General Purpose Input Output Data In" id="GPIODIN" offset="0x8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Input values for AUXIO0 through AUXIO7 (for AIODIO0) or AUXIO8 through AUXIO15 (for AIODIO1)." id="IO7_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="GPIODOUTSET" width="32" description="General Purpose Input Output Data Out Set
+
+Strobes for setting output data register bits" id="GPIODOUTSET" offset="0xc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Writing 1(s) to one or more bit positions sets the corresponding bit(s) in GPIODOUT.
+
+Read value is 0x00." id="IO7_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="GPIODOUTCLR" width="32" description="General Purpose Input Output Data Out Clear
+
+Strobes for clearing output data register bits" id="GPIODOUTCLR" offset="0x10">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Writing 1(s) to one or more bit positions clears the corresponding bit(s) in GPIODOUT.
+
+Read value is 0x00." id="IO7_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="GPIODOUTTGL" width="32" description="General Purpose Input Output Data Out Toggle
+
+Strobes for toggling output data register bits" id="GPIODOUTTGL" offset="0x14">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Writing 1(s) to one or more bit positions toggles the corresponding bit(s) in GPIODOUT.
+
+Read value is 0x00." id="IO7_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="GPIODIE" width="32" description="General Purpose Input Output Input Enable" id="GPIODIE" offset="0x18">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Enables (1) or disables (0) digital input buffers for each AUX I/O pin.
+
+Input buffers must be enabled to allow reading pin values through GPIODIN. 
+
+Input buffers must be disabled for analog input or floating pins to avoid current leakage. " id="IO7_0" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

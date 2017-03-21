@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: August 25, 2011   13:30:55 $
+  -->
+
+
+<!-- TMS320xC2000 DMA Control, Mode and Status Registers
+     ===================================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+<module id="DMA" HW_revision="" XML_version="1" description="DMA Registers">
+	<register id="DMACTRL" acronym="DMACTRL" offset="0" page="1" width="16" description="DMA Control Register" /> 
+	<register id="DEBUGCTRL" acronym="DEBUGCTRL" offset="1" page="1" width="16" description="Debug Control Register" /> 
+	<register id="REVISION" acronym="REVISION" offset="2" page="1" width="16" description="Peripheral Revision Register" /> 	
+	<!-- 1 reserved -->
+   	<register id="PRIORITYCTRL1" acronym="PRIORITYCTRL1" offset="4" page="1" width="16" description="Priority Control Register 1" /> 
+   	<!-- 1 reserved -->
+   	<register id="PRIORITYSTAT" acronym="PRIORITYSTAT" offset="6" page="1" width="16" description="Priority Status Register" /> 
+   	<!-- 26 reserved -->
+   	<register id="DMACH1_MODE" acronym="DMACH1_MODE" offset="32" page="1" width="16" description="DMA Channel 1 Mode Register" /> 
+   	<register id="DMACH1_CONTROL" acronym="DMACH1_CONTROL" offset="33" page="1" width="16" description="DMA Channel 1 Control Register" /> 
+   	<register id="DMACH1_BURST_SIZE" acronym="DMACH1_BURST_SIZE" offset="34" page="1" width="16" description="DMA Channel 1 Burst Size Register" /> 
+   	<register id="DMACH1_BURST_COUNT" acronym="DMACH1_BURST_COUNT" offset="35" page="1" width="16" description="DMA Channel 1 Burst Count Register" /> 
+   	<register id="DMACH1_SRC_BURST_STEP" acronym="DMACH1_SRC_BURST_STEP" offset="36" page="1" width="16" description="DMA Channel 1 Source Burst Step Size Register" /> 
+   	<register id="DMACH1_DST_BURST_STEP" acronym="DMACH1_DST_BURST_STEP" offset="37" page="1" width="16" description="DMA Channel 1 Destination Burst Step Size Register" /> 
+   	<register id="DMACH1_TRANSFER_SIZE" acronym="DMACH1_TRANSFER_SIZE" offset="38" page="1" width="16" description="DMA Channel 1 Transfer Size Register" /> 
+   	<register id="DMACH1_TRANSFER_COUNT" acronym="DMACH1_TRANSFER_COUNT" offset="39" page="1" width="16" description="DMA Channel 1 Transfer Count Register" /> 
+   	<register id="DMACH1_SRC_TRANSFER_STEP" acronym="DMACH1_SRC_TRANSFER_STEP" offset="40" page="1" width="16" description="DMA Channel 1 Source Transfer Step Size Register" /> 
+   	<register id="DMACH1_DST_TRANSFER_STEP" acronym="DMACH1_DST_TRANSFER_STEP" offset="41" page="1" width="16" description="DMA Channel 1 Destination Transfer Step Size Register" /> 
+   	<register id="DMACH1_SRC_WRAP_SIZE" acronym="DMACH1_SRC_WRAP_SIZE" offset="42" page="1" width="16" description="DMA Channel 1 Source Wrap Size Register" /> 
+   	<register id="DMACH1_SRC_WRAP_COUNT" acronym="DMACH1_SRC_WRAP_COUNT" offset="43" page="1" width="16" description="DMA Channel 1 Source Wrap Count Register" /> 
+   	<register id="DMACH1_SRC_WRAP_STEP" acronym="DMACH1_SRC_WRAP_STEP" offset="44" page="1" width="16" description="DMA Channel 1 Source Wrap Step Size Register" /> 
+   	<register id="DMACH1_DST_WRAP_SIZE" acronym="DMACH1_DST_WRAP_SIZE" offset="45" page="1" width="16" description="DMA Channel 1 Destination Wrap Size Register" /> 
+   	<register id="DMACH1_DST_WRAP_COUNT" acronym="DMACH1_DST_WRAP_COUNT" offset="46" page="1" width="16" description="DMA Channel 1 Destination Wrap Count Register" /> 
+   	<register id="DMACH1_DST_WRAP_STEP" acronym="DMACH1_DST_WRAP_STEP" offset="47" page="1" width="16" description="DMA Channel 1 Destination Wrap Step Size Register" /> 
+   	<register id="DMACH1_SRC_BEG_ADDR_SHADOW" acronym="DMACH1_SRC_BEG_ADDR_SHADOW" offset="48" page="1" width="32" description="DMA Channel 1 Shadow Source Begin Register" /> 
+   	<register id="DMACH1_SRC_ADDR_SHADOW" acronym="DMACH1_SRC_ADDR_SHADOW" offset="50" page="1" width="32" description="DMA Channel 1 Shadow Source Current Address Register" /> 
+   	<register id="DMACH1_SRC_BEG_ADDR_ACTIVE" acronym="DMACH1_SRC_BEG_ADDR_ACTIVE" offset="52" page="1" width="32" description="DMA Channel 1 Active Source Begin Register" /> 
+   	<register id="DMACH1_SRC_ADDR_ACTIVE" acronym="DMACH1_SRC_ADDR_ACTIVE" offset="54" page="1" width="32" description="DMA Channel 1 Active Source Current Address Register" /> 
+   	<register id="DMACH1_DST_BEG_ADDR_SHADOW" acronym="DMACH1_DST_BEG_ADDR_SHADOW" offset="56" page="1" width="32" description="DMA Channel 1 Shadow Destination Begin Register" /> 
+   	<register id="DMACH1_DST_ADDR_SHADOW" acronym="DMACH1_DST_ADDR_SHADOW" offset="58" page="1" width="32" description="DMA Channel 1 Shadow Destination Current Address Register" /> 
+   	<register id="DMACH1_DST_BEG_ADDR_ACTIVE" acronym="DMACH1_DST_BEG_ADDR_ACTIVE" offset="60" page="1" width="32" description="DMA Channel 1 Active Destination Begin Register" /> 
+   	<register id="DMACH1_DST_ADDR_ACTIVE" acronym="DMACH1_DST_ADDR_ACTIVE" offset="62" page="1" width="32" description="DMA Channel 1 Active Destination Current Address Register" />
+   	<!-- 1 reserved -->
+   	<register id="DMACH2_MODE" acronym="DMACH2_MODE" offset="64" page="1" width="16" description="DMA Channel 2 Mode Register" /> 
+   	<register id="DMACH2_CONTROL" acronym="DMACH2_CONTROL" offset="65" page="1" width="16" description="DMA Channel 2 Control Register" /> 
+   	<register id="DMACH2_BURST_SIZE" acronym="DMACH2_BURST_SIZE" offset="66" page="1" width="16" description="DMA Channel 2 Burst Size Register" /> 
+   	<register id="DMACH2_BURST_COUNT" acronym="DMACH2_BURST_COUNT" offset="67" page="1" width="16" description="DMA Channel 2 Burst Count Register" /> 
+   	<register id="DMACH2_SRC_BURST_STEP" acronym="DMACH2_SRC_BURST_STEP" offset="68" page="1" width="16" description="DMA Channel 2 Source Burst Step Size Register" /> 
+   	<register id="DMACH2_DST_BURST_STEP" acronym="DMACH2_DST_BURST_STEP" offset="69" page="1" width="16" description="DMA Channel 2 Destination Burst Step Size Register" /> 
+   	<register id="DMACH2_TRANSFER_SIZE" acronym="DMACH2_TRANSFER_SIZE" offset="70" page="1" width="16" description="DMA Channel 2 Transfer Size Register" /> 
+   	<register id="DMACH2_TRANSFER_COUNT" acronym="DMACH2_TRANSFER_COUNT" offset="71" page="1" width="16" description="DMA Channel 2 Transfer Count Register" /> 
+   	<register id="DMACH2_SRC_TRANSFER_STEP" acronym="DMACH2_SRC_TRANSFER_STEP" offset="72" page="1" width="16" description="DMA Channel 2 Source Transfer Step Size Register" /> 
+   	<register id="DMACH2_DST_TRANSFER_STEP" acronym="DMACH2_DST_TRANSFER_STEP" offset="73" page="1" width="16" description="DMA Channel 2 Destination Transfer Step Size Register" /> 
+   	<register id="DMACH2_SRC_WRAP_SIZE" acronym="DMACH2_SRC_WRAP_SIZE" offset="74" page="1" width="16" description="DMA Channel 2 Source Wrap Size Register" /> 
+   	<register id="DMACH2_SRC_WRAP_COUNT" acronym="DMACH2_SRC_WRAP_COUNT" offset="75" page="1" width="16" description="DMA Channel 2 Source Wrap Count Register" /> 
+   	<register id="DMACH2_SRC_WRAP_STEP" acronym="DMACH2_SRC_WRAP_STEP" offset="76" page="1" width="16" description="DMA Channel 2 Source Wrap Step Size Register" /> 
+   	<register id="DMACH2_DST_WRAP_SIZE" acronym="DMACH2_DST_WRAP_SIZE" offset="77" page="1" width="16" description="DMA Channel 2 Destination Wrap Size Register" /> 
+   	<register id="DMACH2_DST_WRAP_COUNT" acronym="DMACH2_DST_WRAP_COUNT" offset="78" page="1" width="16" description="DMA Channel 2 Destination Wrap Count Register" /> 
+   	<register id="DMACH2_DST_WRAP_STEP" acronym="DMACH2_DST_WRAP_STEP" offset="79" page="1" width="16" description="DMA Channel 2 Destination Wrap Step Size Register" /> 
+   	<register id="DMACH2_SRC_BEG_ADDR_SHADOW" acronym="DMACH2_SRC_BEG_ADDR_SHADOW" offset="80" page="1" width="32" description="DMA Channel 2 Shadow Source Begin Register" /> 
+   	<register id="DMACH2_SRC_ADDR_SHADOW" acronym="DMACH2_SRC_ADDR_SHADOW" offset="82" page="1" width="32" description="DMA Channel 2 Shadow Source Current Address Register" /> 
+   	<register id="DMACH2_SRC_BEG_ADDR_ACTIVE" acronym="DMACH2_SRC_BEG_ADDR_ACTIVE" offset="84" page="1" width="32" description="DMA Channel 2 Active Source Begin Register" /> 
+   	<register id="DMACH2_SRC_ADDR_ACTIVE" acronym="DMACH2_SRC_ADDR_ACTIVE" offset="86" page="1" width="32" description="DMA Channel 2 Active Source Current Address Register" /> 
+   	<register id="DMACH2_DST_BEG_ADDR_SHADOW" acronym="DMACH2_DST_BEG_ADDR_SHADOW" offset="88" page="1" width="32" description="DMA Channel 2 Shadow Destination Begin Register" /> 
+   	<register id="DMACH2_DST_ADDR_SHADOW" acronym="DMACH2_DST_ADDR_SHADOW" offset="90" page="1" width="32" description="DMA Channel 2 Shadow Destination Current Address Register" /> 
+   	<register id="DMACH2_DST_BEG_ADDR_ACTIVE" acronym="DMACH2_DST_BEG_ADDR_ACTIVE" offset="92" page="1" width="32" description="DMA Channel 2 Active Destination Begin Register" /> 
+   	<register id="DMACH2_DST_ADDR_ACTIVE" acronym="DMACH2_DST_ADDR_ACTIVE" offset="94" page="1" width="32" description="DMA Channel 2 Active Destination Current Address Register" />
+   	<!-- 1 reserved -->
+   	<register id="DMACH3_MODE" acronym="DMACH3_MODE" offset="96" page="1" width="16" description="DMA Channel 3 Mode Register" /> 
+   	<register id="DMACH3_CONTROL" acronym="DMACH3_CONTROL" offset="97" page="1" width="16" description="DMA Channel 3 Control Register" /> 
+   	<register id="DMACH3_BURST_SIZE" acronym="DMACH3_BURST_SIZE" offset="98" page="1" width="16" description="DMA Channel 3 Burst Size Register" /> 
+   	<register id="DMACH3_BURST_COUNT" acronym="DMACH3_BURST_COUNT" offset="99" page="1" width="16" description="DMA Channel 3 Burst Count Register" /> 
+   	<register id="DMACH3_SRC_BURST_STEP" acronym="DMACH3_SRC_BURST_STEP" offset="100" page="1" width="16" description="DMA Channel 3 Source Burst Step Size Register" /> 
+   	<register id="DMACH3_DST_BURST_STEP" acronym="DMACH3_DST_BURST_STEP" offset="101" page="1" width="16" description="DMA Channel 3 Destination Burst Step Size Register" /> 
+   	<register id="DMACH3_TRANSFER_SIZE" acronym="DMACH3_TRANSFER_SIZE" offset="102" page="1" width="16" description="DMA Channel 3 Transfer Size Register" /> 
+   	<register id="DMACH3_TRANSFER_COUNT" acronym="DMACH3_TRANSFER_COUNT" offset="103" page="1" width="16" description="DMA Channel 3 Transfer Count Register" /> 
+   	<register id="DMACH3_SRC_TRANSFER_STEP" acronym="DMACH3_SRC_TRANSFER_STEP" offset="104" page="1" width="16" description="DMA Channel 3 Source Transfer Step Size Register" /> 
+   	<register id="DMACH3_DST_TRANSFER_STEP" acronym="DMACH3_DST_TRANSFER_STEP" offset="105" page="1" width="16" description="DMA Channel 3 Destination Transfer Step Size Register" /> 
+   	<register id="DMACH3_SRC_WRAP_SIZE" acronym="DMACH3_SRC_WRAP_SIZE" offset="106" page="1" width="16" description="DMA Channel 3 Source Wrap Size Register" /> 
+   	<register id="DMACH3_SRC_WRAP_COUNT" acronym="DMACH3_SRC_WRAP_COUNT" offset="107" page="1" width="16" description="DMA Channel 3 Source Wrap Count Register" /> 
+   	<register id="DMACH3_SRC_WRAP_STEP" acronym="DMACH3_SRC_WRAP_STEP" offset="108" page="1" width="16" description="DMA Channel 3 Source Wrap Step Size Register" /> 
+   	<register id="DMACH3_DST_WRAP_SIZE" acronym="DMACH3_DST_WRAP_SIZE" offset="109" page="1" width="16" description="DMA Channel 3 Destination Wrap Size Register" /> 
+   	<register id="DMACH3_DST_WRAP_COUNT" acronym="DMACH3_DST_WRAP_COUNT" offset="110" page="1" width="16" description="DMA Channel 3 Destination Wrap Count Register" /> 
+   	<register id="DMACH3_DST_WRAP_STEP" acronym="DMACH3_DST_WRAP_STEP" offset="111" page="1" width="16" description="DMA Channel 3 Destination Wrap Step Size Register" /> 
+   	<register id="DMACH3_SRC_BEG_ADDR_SHADOW" acronym="DMACH3_SRC_BEG_ADDR_SHADOW" offset="112" page="1" width="32" description="DMA Channel 3 Shadow Source Begin Register" /> 
+   	<register id="DMACH3_SRC_ADDR_SHADOW" acronym="DMACH3_SRC_ADDR_SHADOW" offset="114" page="1" width="32" description="DMA Channel 3 Shadow Source Current Address Register" /> 
+   	<register id="DMACH3_SRC_BEG_ADDR_ACTIVE" acronym="DMACH3_SRC_BEG_ADDR_ACTIVE" offset="116" page="1" width="32" description="DMA Channel 3 Active Source Begin Register" /> 
+   	<register id="DMACH3_SRC_ADDR_ACTIVE" acronym="DMACH3_SRC_ADDR_ACTIVE" offset="118" page="1" width="32" description="DMA Channel 3 Active Source Current Address Register" /> 
+   	<register id="DMACH3_DST_BEG_ADDR_SHADOW" acronym="DMACH3_DST_BEG_ADDR_SHADOW" offset="120" page="1" width="32" description="DMA Channel 3 Shadow Destination Begin Register" /> 
+   	<register id="DMACH3_DST_ADDR_SHADOW" acronym="DMACH3_DST_ADDR_SHADOW" offset="122" page="1" width="32" description="DMA Channel 3 Shadow Destination Current Address Register" /> 
+   	<register id="DMACH3_DST_BEG_ADDR_ACTIVE" acronym="DMACH3_DST_BEG_ADDR_ACTIVE" offset="124" page="1" width="32" description="DMA Channel 3 Active Destination Begin Register" /> 
+   	<register id="DMACH3_DST_ADDR_ACTIVE" acronym="DMACH3_DST_ADDR_ACTIVE" offset="126" page="1" width="32" description="DMA Channel 3 Active Destination Current Address Register" />
+   	<!-- 1 reserved -->
+   	<register id="DMACH4_MODE" acronym="DMACH4_MODE" offset="128" page="1" width="16" description="DMA Channel 4 Mode Register" /> 
+   	<register id="DMACH4_CONTROL" acronym="DMACH4_CONTROL" offset="129" page="1" width="16" description="DMA Channel 4 Control Register" /> 
+   	<register id="DMACH4_BURST_SIZE" acronym="DMACH4_BURST_SIZE" offset="130" page="1" width="16" description="DMA Channel 4 Burst Size Register" /> 
+   	<register id="DMACH4_BURST_COUNT" acronym="DMACH4_BURST_COUNT" offset="131" page="1" width="16" description="DMA Channel 4 Burst Count Register" /> 
+   	<register id="DMACH4_SRC_BURST_STEP" acronym="DMACH4_SRC_BURST_STEP" offset="132" page="1" width="16" description="DMA Channel 4 Source Burst Step Size Register" /> 
+   	<register id="DMACH4_DST_BURST_STEP" acronym="DMACH4_DST_BURST_STEP" offset="133" page="1" width="16" description="DMA Channel 4 Destination Burst Step Size Register" /> 
+   	<register id="DMACH4_TRANSFER_SIZE" acronym="DMACH4_TRANSFER_SIZE" offset="134" page="1" width="16" description="DMA Channel 4 Transfer Size Register" /> 
+   	<register id="DMACH4_TRANSFER_COUNT" acronym="DMACH4_TRANSFER_COUNT" offset="135" page="1" width="16" description="DMA Channel 4 Transfer Count Register" /> 
+   	<register id="DMACH4_SRC_TRANSFER_STEP" acronym="DMACH4_SRC_TRANSFER_STEP" offset="136" page="1" width="16" description="DMA Channel 4 Source Transfer Step Size Register" /> 
+   	<register id="DMACH4_DST_TRANSFER_STEP" acronym="DMACH4_DST_TRANSFER_STEP" offset="137" page="1" width="16" description="DMA Channel 4 Destination Transfer Step Size Register" /> 
+   	<register id="DMACH4_SRC_WRAP_SIZE" acronym="DMACH4_SRC_WRAP_SIZE" offset="138" page="1" width="16" description="DMA Channel 4 Source Wrap Size Register" /> 
+   	<register id="DMACH4_SRC_WRAP_COUNT" acronym="DMACH4_SRC_WRAP_COUNT" offset="139" page="1" width="16" description="DMA Channel 4 Source Wrap Count Register" /> 
+   	<register id="DMACH4_SRC_WRAP_STEP" acronym="DMACH4_SRC_WRAP_STEP" offset="140" page="1" width="16" description="DMA Channel 4 Source Wrap Step Size Register" /> 
+   	<register id="DMACH4_DST_WRAP_SIZE" acronym="DMACH4_DST_WRAP_SIZE" offset="141" page="1" width="16" description="DMA Channel 4 Destination Wrap Size Register" /> 
+   	<register id="DMACH4_DST_WRAP_COUNT" acronym="DMACH4_DST_WRAP_COUNT" offset="142" page="1" width="16" description="DMA Channel 4 Destination Wrap Count Register" /> 
+   	<register id="DMACH4_DST_WRAP_STEP" acronym="DMACH4_DST_WRAP_STEP" offset="143" page="1" width="16" description="DMA Channel 4 Destination Wrap Step Size Register" /> 
+   	<register id="DMACH4_SRC_BEG_ADDR_SHADOW" acronym="DMACH4_SRC_BEG_ADDR_SHADOW" offset="144" page="1" width="32" description="DMA Channel 4 Shadow Source Begin Register" /> 
+   	<register id="DMACH4_SRC_ADDR_SHADOW" acronym="DMACH4_SRC_ADDR_SHADOW" offset="146" page="1" width="32" description="DMA Channel 4 Shadow Source Current Address Register" /> 
+   	<register id="DMACH4_SRC_BEG_ADDR_ACTIVE" acronym="DMACH4_SRC_BEG_ADDR_ACTIVE" offset="148" page="1" width="32" description="DMA Channel 4 Active Source Begin Register" /> 
+   	<register id="DMACH4_SRC_ADDR_ACTIVE" acronym="DMACH4_SRC_ADDR_ACTIVE" offset="150" page="1" width="32" description="DMA Channel 4 Active Source Current Address Register" /> 
+   	<register id="DMACH4_DST_BEG_ADDR_SHADOW" acronym="DMACH4_DST_BEG_ADDR_SHADOW" offset="152" page="1" width="32" description="DMA Channel 4 Shadow Destination Begin Register" /> 
+   	<register id="DMACH4_DST_ADDR_SHADOW" acronym="DMACH4_DST_ADDR_SHADOW" offset="154" page="1" width="32" description="DMA Channel 4 Shadow Destination Current Address Register" /> 
+   	<register id="DMACH4_DST_BEG_ADDR_ACTIVE" acronym="DMACH4_DST_BEG_ADDR_ACTIVE" offset="156" page="1" width="32" description="DMA Channel 4 Active Destination Begin Register" /> 
+   	<register id="DMACH4_DST_ADDR_ACTIVE" acronym="DMACH4_DST_ADDR_ACTIVE" offset="158" page="1" width="32" description="DMA Channel 4 Active Destination Current Address Register" />
+   	<!-- 1 reserved -->
+   	<register id="DMACH5_MODE" acronym="DMACH5_MODE" offset="160" page="1" width="16" description="DMA Channel 5 Mode Register" /> 
+   	<register id="DMACH5_CONTROL" acronym="DMACH5_CONTROL" offset="161" page="1" width="16" description="DMA Channel 5 Control Register" /> 
+   	<register id="DMACH5_BURST_SIZE" acronym="DMACH5_BURST_SIZE" offset="162" page="1" width="16" description="DMA Channel 5 Burst Size Register" /> 
+   	<register id="DMACH5_BURST_COUNT" acronym="DMACH5_BURST_COUNT" offset="163" page="1" width="16" description="DMA Channel 5 Burst Count Register" /> 
+   	<register id="DMACH5_SRC_BURST_STEP" acronym="DMACH5_SRC_BURST_STEP" offset="164" page="1" width="16" description="DMA Channel 5 Source Burst Step Size Register" /> 
+   	<register id="DMACH5_DST_BURST_STEP" acronym="DMACH5_DST_BURST_STEP" offset="165" page="1" width="16" description="DMA Channel 5 Destination Burst Step Size Register" /> 
+   	<register id="DMACH5_TRANSFER_SIZE" acronym="DMACH5_TRANSFER_SIZE" offset="166" page="1" width="16" description="DMA Channel 5 Transfer Size Register" /> 
+   	<register id="DMACH5_TRANSFER_COUNT" acronym="DMACH5_TRANSFER_COUNT" offset="167" page="1" width="16" description="DMA Channel 5 Transfer Count Register" /> 
+   	<register id="DMACH5_SRC_TRANSFER_STEP" acronym="DMACH5_SRC_TRANSFER_STEP" offset="168" page="1" width="16" description="DMA Channel 5 Source Transfer Step Size Register" /> 
+   	<register id="DMACH5_DST_TRANSFER_STEP" acronym="DMACH5_DST_TRANSFER_STEP" offset="169" page="1" width="16" description="DMA Channel 5 Destination Transfer Step Size Register" /> 
+   	<register id="DMACH5_SRC_WRAP_SIZE" acronym="DMACH5_SRC_WRAP_SIZE" offset="170" page="1" width="16" description="DMA Channel 5 Source Wrap Size Register" /> 
+   	<register id="DMACH5_SRC_WRAP_COUNT" acronym="DMACH5_SRC_WRAP_COUNT" offset="171" page="1" width="16" description="DMA Channel 5 Source Wrap Count Register" /> 
+   	<register id="DMACH5_SRC_WRAP_STEP" acronym="DMACH5_SRC_WRAP_STEP" offset="172" page="1" width="16" description="DMA Channel 5 Source Wrap Step Size Register" /> 
+   	<register id="DMACH5_DST_WRAP_SIZE" acronym="DMACH5_DST_WRAP_SIZE" offset="173" page="1" width="16" description="DMA Channel 5 Destination Wrap Size Register" /> 
+   	<register id="DMACH5_DST_WRAP_COUNT" acronym="DMACH5_DST_WRAP_COUNT" offset="174" page="1" width="16" description="DMA Channel 5 Destination Wrap Count Register" /> 
+   	<register id="DMACH5_DST_WRAP_STEP" acronym="DMACH5_DST_WRAP_STEP" offset="175" page="1" width="16" description="DMA Channel 5 Destination Wrap Step Size Register" /> 
+   	<register id="DMACH5_SRC_BEG_ADDR_SHADOW" acronym="DMACH5_SRC_BEG_ADDR_SHADOW" offset="176" page="1" width="32" description="DMA Channel 5 Shadow Source Begin Register" /> 
+   	<register id="DMACH5_SRC_ADDR_SHADOW" acronym="DMACH5_SRC_ADDR_SHADOW" offset="178" page="1" width="32" description="DMA Channel 5 Shadow Source Current Address Register" /> 
+   	<register id="DMACH5_SRC_BEG_ADDR_ACTIVE" acronym="DMACH5_SRC_BEG_ADDR_ACTIVE" offset="180" page="1" width="32" description="DMA Channel 5 Active Source Begin Register" /> 
+   	<register id="DMACH5_SRC_ADDR_ACTIVE" acronym="DMACH5_SRC_ADDR_ACTIVE" offset="182" page="1" width="32" description="DMA Channel 5 Active Source Current Address Register" /> 
+   	<register id="DMACH5_DST_BEG_ADDR_SHADOW" acronym="DMACH5_DST_BEG_ADDR_SHADOW" offset="184" page="1" width="32" description="DMA Channel 5 Shadow Destination Begin Register" /> 
+   	<register id="DMACH5_DST_ADDR_SHADOW" acronym="DMACH5_DST_ADDR_SHADOW" offset="186" page="1" width="32" description="DMA Channel 5 Shadow Destination Current Address Register" /> 
+   	<register id="DMACH5_DST_BEG_ADDR_ACTIVE" acronym="DMACH5_DST_BEG_ADDR_ACTIVE" offset="188" page="1" width="32" description="DMA Channel 5 Active Destination Begin Register" /> 
+   	<register id="DMACH5_DST_ADDR_ACTIVE" acronym="DMACH5_DST_ADDR_ACTIVE" offset="190" page="1" width="32" description="DMA Channel 5 Active Destination Current Address Register" />
+   	<!-- 1 reserved -->
+   	<register id="DMACH6_MODE" acronym="DMACH6_MODE" offset="192" page="1" width="16" description="DMA Channel 6 Mode Register" /> 
+   	<register id="DMACH6_CONTROL" acronym="DMACH6_CONTROL" offset="193" page="1" width="16" description="DMA Channel 6 Control Register" /> 
+   	<register id="DMACH6_BURST_SIZE" acronym="DMACH6_BURST_SIZE" offset="194" page="1" width="16" description="DMA Channel 6 Burst Size Register" /> 
+   	<register id="DMACH6_BURST_COUNT" acronym="DMACH6_BURST_COUNT" offset="195" page="1" width="16" description="DMA Channel 6 Burst Count Register" /> 
+   	<register id="DMACH6_SRC_BURST_STEP" acronym="DMACH6_SRC_BURST_STEP" offset="196" page="1" width="16" description="DMA Channel 6 Source Burst Step Size Register" /> 
+   	<register id="DMACH6_DST_BURST_STEP" acronym="DMACH6_DST_BURST_STEP" offset="197" page="1" width="16" description="DMA Channel 6 Destination Burst Step Size Register" /> 
+   	<register id="DMACH6_TRANSFER_SIZE" acronym="DMACH6_TRANSFER_SIZE" offset="198" page="1" width="16" description="DMA Channel 6 Transfer Size Register" /> 
+   	<register id="DMACH6_TRANSFER_COUNT" acronym="DMACH6_TRANSFER_COUNT" offset="199" page="1" width="16" description="DMA Channel 6 Transfer Count Register" /> 
+   	<register id="DMACH6_SRC_TRANSFER_STEP" acronym="DMACH6_SRC_TRANSFER_STEP" offset="200" page="1" width="16" description="DMA Channel 6 Source Transfer Step Size Register" /> 
+   	<register id="DMACH6_DST_TRANSFER_STEP" acronym="DMACH6_DST_TRANSFER_STEP" offset="201" page="1" width="16" description="DMA Channel 6 Destination Transfer Step Size Register" /> 
+   	<register id="DMACH6_SRC_WRAP_SIZE" acronym="DMACH6_SRC_WRAP_SIZE" offset="202" page="1" width="16" description="DMA Channel 6 Source Wrap Size Register" /> 
+   	<register id="DMACH6_SRC_WRAP_COUNT" acronym="DMACH6_SRC_WRAP_COUNT" offset="203" page="1" width="16" description="DMA Channel 6 Source Wrap Count Register" /> 
+   	<register id="DMACH6_SRC_WRAP_STEP" acronym="DMACH6_SRC_WRAP_STEP" offset="204" page="1" width="16" description="DMA Channel 6 Source Wrap Step Size Register" /> 
+   	<register id="DMACH6_DST_WRAP_SIZE" acronym="DMACH6_DST_WRAP_SIZE" offset="205" page="1" width="16" description="DMA Channel 6 Destination Wrap Size Register" /> 
+   	<register id="DMACH6_DST_WRAP_COUNT" acronym="DMACH6_DST_WRAP_COUNT" offset="206" page="1" width="16" description="DMA Channel 6 Destination Wrap Count Register" /> 
+   	<register id="DMACH6_DST_WRAP_STEP" acronym="DMACH6_DST_WRAP_STEP" offset="207" page="1" width="16" description="DMA Channel 6 Destination Wrap Step Size Register" /> 
+   	<register id="DMACH6_SRC_BEG_ADDR_SHADOW" acronym="DMACH6_SRC_BEG_ADDR_SHADOW" offset="208" page="1" width="32" description="DMA Channel 6 Shadow Source Begin Register" /> 
+   	<register id="DMACH6_SRC_ADDR_SHADOW" acronym="DMACH6_SRC_ADDR_SHADOW" offset="210" page="1" width="32" description="DMA Channel 6 Shadow Source Current Address Register" /> 
+   	<register id="DMACH6_SRC_BEG_ADDR_ACTIVE" acronym="DMACH6_SRC_BEG_ADDR_ACTIVE" offset="212" page="1" width="32" description="DMA Channel 6 Active Source Begin Register" /> 
+   	<register id="DMACH6_SRC_ADDR_ACTIVE" acronym="DMACH6_SRC_ADDR_ACTIVE" offset="214" page="1" width="32" description="DMA Channel 6 Active Source Current Address Register" /> 
+   	<register id="DMACH6_DST_BEG_ADDR_SHADOW" acronym="DMACH6_DST_BEG_ADDR_SHADOW" offset="216" page="1" width="32" description="DMA Channel 6 Shadow Destination Begin Register" /> 
+   	<register id="DMACH6_DST_ADDR_SHADOW" acronym="DMACH6_DST_ADDR_SHADOW" offset="218" page="1" width="32" description="DMA Channel 6 Shadow Destination Current Address Register" /> 
+   	<register id="DMACH6_DST_BEG_ADDR_ACTIVE" acronym="DMACH6_DST_BEG_ADDR_ACTIVE" offset="220" page="1" width="32" description="DMA Channel 6 Active Destination Begin Register" /> 
+   	<register id="DMACH6_DST_ADDR_ACTIVE" acronym="DMACH6_DST_ADDR_ACTIVE" offset="222" page="1" width="32" description="DMA Channel 6 Active Destination Current Address Register" />
+   	<register id="RSVD1" acronym="RSVD1" offset="224" page="1" width="32" description="Reserved" /> 
+
+</module>

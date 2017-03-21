@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- This file defines a dummy description for non-debuggable devices. This is just to accomodate such devices in system and not for AET purpose specifically. -->
+
+
+<CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments">
+    <ENTITY_NAME>ctoolsndbg</ENTITY_NAME>
+    <NUM_CTOOLS>0</NUM_CTOOLS>
+    <HW_MAJOR_V>0</HW_MAJOR_V>
+    <HW_MINOR_V>0</HW_MINOR_V>
+    <DB_MAJOR_V>1</DB_MAJOR_V>
+    <DB_MINOR_V>0</DB_MINOR_V>
+
+</CTOOLS>

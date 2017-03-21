@@ -1,0 +1,27 @@
+<module id="DAC_REGS" HW_revision="" description="DAC Registers">
+	<register id="DACREV" width="16" page="1" offset="0x0" internal="0" description="DAC Revision Register">
+		<bitfield id="REV" description="DAC Revision Register" begin="7" end="0" width="8" rwaccess="R"/>
+	</register>
+	<register id="DACCTL" width="16" page="1" offset="0x1" internal="0" description="DAC Control Register">
+		<bitfield id="DACREFSEL" description="DAC Reference Select" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="LOADMODE" description="DACVALA Load Mode" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="SYNCSEL" description="DAC PWMSYNC Select" begin="7" end="4" width="4" rwaccess="R/W"/>
+	</register>
+	<register id="DACVALA" width="16" page="1" offset="0x2" internal="0" description="DAC Value Register - Active">
+		<bitfield id="DACVALA" description="DAC Active Output Code" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="DACVALS" width="16" page="1" offset="0x3" internal="0" description="DAC Value Register - Shadow">
+		<bitfield id="DACVALS" description="DAC Shadow Output Code" begin="11" end="0" width="12" rwaccess="R/W"/>
+	</register>
+	<register id="DACOUTEN" width="16" page="1" offset="0x4" internal="0" description="DAC Output Enable Register">
+		<bitfield id="DACOUTEN" description="DAC Output Code" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="DACLOCK" width="16" page="1" offset="0x5" internal="0" description="DAC Lock Register">
+		<bitfield id="DACCTL" description="DAC Control Register Lock" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="DACVAL" description="DAC Value Register Lock" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="DACOUTEN" description="DAC Output Enable Register Lock" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="DACTRIM" width="16" page="1" offset="0x6" internal="0" description="DAC Trim Register">
+		<bitfield id="OFFSET_TRIM" description="DAC Offset Trim" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+</module>

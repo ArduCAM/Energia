@@ -1,0 +1,125 @@
+; Copyright (c) 2011 Texas Instruments
+; MSP430 Tools Installation file for Win2000/XP/Vista/7
+;
+; Port drivers setup
+;
+; Supported operating systems:
+;   Windows 32-bit and 64-bit
+
+[Version]
+Signature="$Windows NT$" 
+CatalogFile=msp430tools.cat
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%TI%
+DriverVer=04/08/2011, 1.04
+
+[Manufacturer]
+%TI%=DeviceList, NTamd64
+
+[DestinationDirs]
+FakeModemCopyFileSection=12
+DefaultDestDir=12
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[DeviceList]
+%DESCRIPTION_GANG%=TIUSB, USB\Vid_2047&Pid_0002
+%DESCRIPTION_GANG%=TIUSB, USB\Vid_2047&Pid_0003
+%DESCRIPTION_SA430_4%=TIUSB, USB\Vid_2047&Pid_0004
+%DESCRIPTION_SA430_5%=TIUSB, USB\Vid_2047&Pid_0005
+%DESCRIPTION_UIF%=TIUSB, USB\Vid_2047&Pid_0010
+%DESCRIPTION_UIF%=TIUSB, USB\Vid_2047&Pid_0011
+%DESCRIPTION_DBG%=TIUSB, USB\Vid_2047&Pid_0012
+%DESCRIPTION_DBG%=TIUSB, USB\Vid_2047&Pid_0015
+%DESCRIPTION_DBG%=TIUSB, USB\Vid_2047&Pid_0013&MI_00
+%DESCRIPTION1%=TIUSB, USB\Vid_2047&Pid_0013&MI_02
+%DESCRIPTION_DBG%=TIUSB, USB\Vid_2047&Pid_0014&MI_00
+%DESCRIPTION1%=TIUSB, USB\Vid_2047&Pid_0014&MI_02
+%DESCRIPTION2%=TIUSB, USB\Vid_2047&Pid_0014&MI_04
+%DESCRIPTION_DBG%=TIUSB, USB\Vid_2047&Pid_0016&MI_00
+%DESCRIPTION1%=TIUSB, USB\Vid_2047&Pid_0016&MI_02
+
+[DeviceList.NTamd64]
+%DESCRIPTION_GANG%=TIUSB.NTamd64, USB\Vid_2047&Pid_0002
+%DESCRIPTION_GANG%=TIUSB.NTamd64, USB\Vid_2047&Pid_0003
+%DESCRIPTION_SA430_4%=TIUSB.NTamd64, USB\Vid_2047&Pid_0004
+%DESCRIPTION_SA430_5%=TIUSB.NTamd64, USB\Vid_2047&Pid_0005
+%DESCRIPTION_UIF%=TIUSB.NTamd64, USB\Vid_2047&Pid_0010
+%DESCRIPTION_UIF%=TIUSB.NTamd64, USB\Vid_2047&Pid_0011
+%DESCRIPTION_DBG%=TIUSB.NTamd64, USB\Vid_2047&Pid_0012
+%DESCRIPTION_DBG%=TIUSB.NTamd64, USB\Vid_2047&Pid_0015
+%DESCRIPTION_DBG%=TIUSB.NTamd64, USB\Vid_2047&Pid_0013&MI_00
+%DESCRIPTION1%=TIUSB.NTamd64, USB\Vid_2047&Pid_0013&MI_02
+%DESCRIPTION_DBG%=TIUSB.NTamd64, USB\Vid_2047&Pid_0014&MI_00
+%DESCRIPTION1%=TIUSB.NTamd64, USB\Vid_2047&Pid_0014&MI_02
+%DESCRIPTION2%=TIUSB.NTamd64, USB\Vid_2047&Pid_0014&MI_04
+%DESCRIPTION_DBG%=TIUSB.NTamd64, USB\Vid_2047&Pid_0016&MI_00
+%DESCRIPTION1%=TIUSB.NTamd64, USB\Vid_2047&Pid_0016&MI_02
+
+;------------------------------------------------------------------------------
+;  Windows 32-bit Sections
+;------------------------------------------------------------------------------
+
+[TIUSB.nt]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=TIUSB.nt.AddReg 
+
+[TIUSB.nt.AddReg]
+HKR,,NTMPDriver,,*ntkern
+HKR,,NTMPDriver,,usbser.sys 
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+HKR,,PortSubClass,1,01
+
+[TIUSB.nt.Services]
+AddService=usbser, 0x00000002, DriverService
+
+[TIUSB.nt.HW]
+include=mdmcpq.inf
+
+[DriverService]
+DisplayName=%DESCRIPTION%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+LoadOrderGroup=Base
+
+;------------------------------------------------------------------------------
+;  Windows 64-bit Sections
+;------------------------------------------------------------------------------
+
+[TIUSB.NTamd64]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=TIUSB.NTamd64.AddReg 
+
+[TIUSB.NTamd64.AddReg]
+HKR,,NTMPDriver,,*ntkern 
+HKR,,NTMPDriver,,usbser.sys 
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+HKR,,PortSubClass,1,01
+
+[TIUSB.NTamd64.Services]
+AddService=usbser, 0x00000002, DriverService
+
+[TIUSB.NTamd64.HW]
+include=mdmcpq.inf
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+TI="Texas Instruments"
+DESCRIPTION="MSP Tools Driver"
+DESCRIPTION_DBG="MSP Debug Interface" 
+DESCRIPTION1="MSP Application UART1" 
+DESCRIPTION2="MSP Application UART2" 
+DESCRIPTION_GANG="MSP-GANG - CDC"
+DESCRIPTION_SA430_4="MSP-SA430 - CDC"
+DESCRIPTION_SA430_5="MSP-SA430-SUB1GHZ - CDC"
+DESCRIPTION_UIF="MSP-FET430UIF - CDC" 

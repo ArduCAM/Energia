@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register_ids id="TMS192C2002" XML_version="2.0">
+
+    <register_id id="ILF_REVISION"        value="0x00052000" address="0" page="0"/>
+    <register_id id="ILF_SYSCONFIG"       value="0x00052010" address="0" page="0"/>
+    <register_id id="ILF_IRQ_EOI"         value="0x00052018" address="0" page="0"/>
+    <register_id id="ILF_IRQSTATUS_RAW_0" value="0x0005201c" address="0" page="0"/>
+    <register_id id="ILF_IRQSTATUS_0"     value="0x00052020" address="0" page="0"/>
+    <register_id id="ILF_IRQENABLE_SET_0" value="0x00052024" address="0" page="0"/>
+    <register_id id="ILF_IRQENABLE_CLR_0" value="0x00052028" address="0" page="0"/>
+    <register_id id="ILF_CONFIG"          value="0x00052030" address="0" page="0"/>
+    <register_id id="ILF_STATUS"          value="0x00052034" address="0" page="0"/>
+
+    <register_id id="DBG_CAP"  value="0x00061080" address="0" page="0"/>
+    <register_id id="DBG_CNTL" value="0x00061084" address="0" page="0"/>
+
+    <register_id id="SYNCBOX_REVISION" value="0x00061000" address="0" page="0"/>
+    <register_id id="SYSCONFIG"        value="0x00061010" address="0" page="0"/>
+    <register_id id="RXMESSAGE"        value="0x00061040" address="0" page="0"/>
+    <register_id id="NODEIDENTIFIER"   value="0x00061044" address="0" page="0"/>
+    <register_id id="ERRORMSGDEST"     value="0x00061048" address="0" page="0"/>
+    <register_id id="ERRORLOG"         value="0x0006104c" address="0" page="0"/>
+    <register_id id="ASYNCEVENTACKREQ" value="0x00061050" address="0" page="0"/>
+    <register_id id="PARAMADDR_MOD"    value="0x00061054" address="0" page="0"/>
+    <register_id id="STATUS"           value="0x00061060" address="0" page="0"/>
+
+</register_ids>

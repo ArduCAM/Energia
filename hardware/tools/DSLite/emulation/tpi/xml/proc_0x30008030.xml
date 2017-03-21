@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<!-- File name is based upon the Proc ID assigned to the ISA  -->
+<!-- Root node for all TPI data.                              -->
+
+<tpi_info id="tpi">
+
+    <!-- machine_info node describes the ISA details like bus widths and data sizes -->
+    <!-- target_name = Unique string name for ISA -->
+
+    <!-- *** These next 21 entries are used to fill out the Value Bits array passed from TPI to the debug tool *** -->
+    <!-- size_char        = Size in bits of a 'C' char.                 Value Bits index = 0          -->
+    <!-- size_short       = Size in bits of a 'C' short.                Value Bits index = 1          -->
+    <!-- size_enum        = Size in bits of a 'C' enum.                 Value Bits index = 2          -->
+    <!-- size_int         = Size in bits of a 'C' int.                  Value Bits index = 3          -->
+    <!-- size_long        = Size in bits of a 'C' long.                 Value Bits index = 4          -->
+    <!-- size_void_ptr    = Size in bits of a 'C' void pointer.         Value Bits index = 5          -->
+    <!-- size_dataNN      = Size in bits of a data units NN is just the width.                        -->
+    <!--                    Must have entries for 8/16/24/32/40/48/64.  Value Bits indices = 6 to 12  -->
+    <!-- size_far_ptr     = Size in bits of a far pointer.              Value Bits index = 13         -->
+    <!-- size_near_ptr    = Size in bits of a near pointer.             Value Bits index = 14         -->
+    <!-- size_long_long   = Size in bits of a longlong.                 Value Bits index = 15         -->
+    <!-- size_float       = Size in bits of a float.                    Value Bits index = 16         -->
+    <!-- size_ieee_float  = Size in bits of a IEEE float.               Value Bits index = 17         -->
+    <!-- size_double      = Size in bits of a double.                   Value Bits index = 18         -->
+    <!-- size_ieee_double = Size in bits of a IEEE double.              Value Bits index = 19         -->
+    <!-- size_long_double = Size in bits of a long double.              Value Bits index = 20         -->
+
+    <machine_info id="machine" target_name="CLA" 
+    
+                  size_char="16" size_short="16" size_enum="16" size_int="16" size_long="32" size_void_ptr="32" 
+                  size_data8="8" size_data16="16" size_data24="24" size_data32="32" size_data40="40" size_data48="48" 
+                  size_data64="64" size_far_ptr="32" size_near_ptr="16" size_long_long="64" size_float="32" size_ieee="32" 
+                  size_double="32" size_ieee_double="64" size_long_double="64">
+
+        <!--- List of all magic numbers supported by this ISA -->
+
+        <magics id="magic_numbers">
+
+            <!-- id        = index of the entry in the list -->
+            <!-- magic_num = the number in hex              -->
+
+            <magic id="0" magic_num="9D" />
+
+        </magics>
+
+        <!-- List of all page descriptors for this ISA -->
+
+        <pages id="mem_pages">
+
+            <!-- id              = index of the entry in the list -->
+            <!-- page_name       = the text name of the page -->
+            <!-- page_endian     = the endianess of the page BIG and LITTLE supported -->
+            <!-- page_addr_unit  = Size in bits the addressable unit used for this page. Bus Bits index = [page][0]  -->
+            <!-- page_short_word = Size in bits of a memory value cast as a 'C' short.   Bus Bits index = [page][1]  -->
+            <!-- page_word       = Size in bits of a memory value cast as a 'C' int.     Bus Bits index = [page][2]  -->
+            <!-- page_long_word  = Size in bits of a memory value cast as a 'C' long.    Bus Bits index = [page][3]  -->
+            <!-- page_rdc_addr   = Size in bits the address used for reduced addr mode.  Bus Bits index = [page][4]  -->
+            <!-- page_addr       = Size in bits the address used for memory access.      Bus Bits index = [page][5]  -->
+            <!-- page_ext_addr   = Size in bits the address for extended addr mode.      Bus Bits index = [page][6]  -->
+
+            <page id="0" page_name="Memory" page_endian="LITTLE" 
+                  page_addr_unit="16" page_short_word="16" page_word="16" page_long_word="32" 
+                  page_rdc_addr="32" page_addr="32" page_ext_addr="32" />
+
+        </pages>
+
+        <sets id="reg_sets">
+
+            <!-- reg_addr_unit  = Size in bits the addressable unit used for register access.         Reg Bus Bits index = 0  -->
+            <!-- reg_short_word = Size in bits of a register value cast as a 'C' short.               Reg Bus Bits index = 1  -->
+            <!-- reg_word       = Size in bits of a register value cast as a 'C' int.                 Reg Bus Bits index = 2  -->
+            <!-- reg_long_word  = Size in bits of a register value cast as a 'C' long.                Reg Bus Bits index = 3  -->
+            <!-- reg_rdc_addr   = Size in bits the address for register access in reduced addr mode.  Reg Bus Bits index = 4  -->
+            <!-- reg_addr       = Size in bits the address used for register access.                  Reg Bus Bits index = 5  -->
+            <!-- reg_ext_addr   = Size in bits the address for register access in extended addr mode. Reg Bus Bits index = 6  -->
+
+            <set id="0" reg_addr_unit="32" reg_short_word="32" reg_word="32" reg_long_word="32" reg_rdc_addr="32"
+                 reg_addr="32" reg_ext_addr="32" />
+
+        </sets>
+
+        <!-- Call conventions and dwarf not required for CLA -->
+
+        <callconvention_info id="callconvention" reg_pc="PC" reg_sp="SP" reg_ret="RET" 
+                         reg_params="R0,R1,R2,R3" reg_args="R4,R5,R6,R7" stack_movement="down" /> 
+
+        <dwarf_regmap id="regmaps"> 
+            <map id="0"  name="MAR0" />
+            <map id="1"  name="MAR1" />
+            <map id="2"  name="MR0"  />
+            <map id="3"  name="MR1"  />
+            <map id="4"  name="MR2"  />
+            <map id="5"  name="MR3"  />
+            <map id="6"  name="PC"   />
+            <map id="7"  name="RPC"  />
+            <map id="9"  name="MSTF" />
+            <map id="10" name="SP"   />
+        </dwarf_regmap>
+
+    </machine_info>
+    
+    <!-- TPI interface info that describes the main interfaces exported by TPI -->
+
+    <interface_info id="interface">
+
+        <!-- Node name defines the interface -->
+        <!-- dll      = the DLL that supports the interface -->
+        <!-- generic  = true/false.  True generic support or custom interface -->
+        <!-- db       = location for XML to support a generic interface -->
+        <!-- size_bis = Size of the base instruction in bits (used during disassembly). Simple ISAs will have a fixed BIS -->
+
+        <ctpidasm id="dasm" dll="dasm_cla" generic="false" db="" size_bis="16"/>
+        <ctpigen  id="gen"  dll="tpi"      generic="true"  db="proc_0x30008030.xml" />
+
+        <!-- This interface not required for CLA -->
+
+        <ctpicallconv id="callconv" dll="tpi" generic="true" db="proc_0x30008030.xml" />
+
+    </interface_info>
+
+</tpi_info>

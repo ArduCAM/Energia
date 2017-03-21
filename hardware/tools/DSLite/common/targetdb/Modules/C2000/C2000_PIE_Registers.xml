@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:50:23 $
+  -->
+
+
+<!-- TMS320C2000 PIE Registers
+     =========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="PIE" HW_revision="" XML_version="1" description="Peripheral Interrupt Expansion Registers">
+	<register id="PIECTRL" acronym="PIECTRL" offset="0" page="1" width="16" description="PIE, Control Register" /> 
+	<register id="PIEACK" acronym="PIEACK" offset="1" page="1" width="16" description="PIE, Acknowledge Register" />
+	<register id="PIEIER1" acronym="PIEIER1" offset="2" page="1" width="16" description="PIE, INT1 Group Enable Register" />
+	<register id="PIEIFR1" acronym="PIEIFR1" offset="3" page="1" width="16" description="PIE, INT1 Group Flag Register" />
+	<register id="PIEIER2" acronym="PIEIER2" offset="4" page="1" width="16" description="PIE, INT2 Group Enable Register" />
+	<register id="PIEIFR2" acronym="PIEIFR2" offset="5" page="1" width="16" description="PIE, INT2 Group Flag Register" />
+	<register id="PIEIER3" acronym="PIEIER3" offset="6" page="1" width="16" description="PIE, INT3 Group Enable Register" />
+	<register id="PIEIFR3" acronym="PIEIFR3" offset="7" page="1" width="16" description="PIE, INT3 Group Flag Register" />
+	<register id="PIEIER4" acronym="PIEIER4" offset="8" page="1" width="16" description="PIE, INT4 Group Enable Register" />
+	<register id="PIEIFR4" acronym="PIEIFR4" offset="9" page="1" width="16" description="PIE, INT4 Group Flag Register" />
+	<register id="PIEIER5" acronym="PIEIER5" offset="10" page="1" width="16" description="PIE, INT5 Group Enable Register" />
+	<register id="PIEIFR5" acronym="PIEIFR5" offset="11" page="1" width="16" description="PIE, INT5 Group Flag Register" />
+	<register id="PIEIER6" acronym="PIEIER6" offset="12" page="1" width="16" description="PIE, INT6 Group Enable Register" />
+	<register id="PIEIFR6" acronym="PIEIFR6" offset="13" page="1" width="16" description="PIE, INT6 Group Flag Register" />
+	<register id="PIEIER7" acronym="PIEIER7" offset="14" page="1" width="16" description="PIE, INT7 Group Enable Register" />
+	<register id="PIEIFR7" acronym="PIEIFR7" offset="15" page="1" width="16" description="PIE, INT7 Group Flag Register" />
+	<register id="PIEIER8" acronym="PIEIER8" offset="16" page="1" width="16" description="PIE, INT8 Group Enable Register" />
+	<register id="PIEIFR8" acronym="PIEIFR8" offset="17" page="1" width="16" description="PIE, INT8 Group Flag Register" />
+	<register id="PIEIER9" acronym="PIEIER9" offset="18" page="1" width="16" description="PIE, INT9 Group Enable Register" />
+	<register id="PIEIFR9" acronym="PIEIFR9" offset="19" page="1" width="16" description="PIE, INT9 Group Flag Register" />
+	<register id="PIEIER10" acronym="PIEIER10" offset="20" page="1" width="16" description="PIE, INT10 Group Enable Register" />
+	<register id="PIEIFR10" acronym="PIEIFR10" offset="21" page="1" width="16" description="PIE, INT10 Group Flag Register" />
+	<register id="PIEIER11" acronym="PIEIER11" offset="22" page="1" width="16" description="PIE, INT11 Group Enable Register" />
+	<register id="PIEIFR11" acronym="PIEIFR11" offset="23" page="1" width="16" description="PIE, INT11 Group Flag Register" />
+	<register id="PIEIER12" acronym="PIEIER12" offset="24" page="1" width="16" description="PIE, INT12 Group Enable Register" />
+	<register id="PIEIFR12" acronym="PIEIFR12" offset="25" page="1" width="16" description="PIE, INT12 Group Flag Register" />
+</module>

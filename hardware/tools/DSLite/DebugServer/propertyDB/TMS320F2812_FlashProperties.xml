@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- TMS320F2812 Nodes-->
+	<node id="FlashProgrammerNode">
+		<name>F2812 Flash Settings</name>
+		<children>
+			<child>FlashClockConfigGroup</child>
+			<child>FlashOperations</child>
+			<child>FlashEraseSectorGroup</child>
+			<child>FlashPasswordGroup</child>
+			<child>FrequencyTestGroup</child>
+			<child>DepletionRecoveryGroup</child>
+			<child>ChecksumGroup</child>
+		</children>
+	</node>
+
+	<!-- TMS320F2812 Groups -->
+	<group id="FlashClockConfigGroup">
+		<name>Clock Configuration</name>
+		<children>
+			<child>FlashOSCCLK</child>
+			<child>FlashPLLCR</child>
+		</children>
+	</group>
+
+	<group id="FlashEraseSectorGroup">
+		<name>Erase Sector Selection</name>
+		<children>
+			<child>FlashSectorA</child>
+			<child>FlashSectorB</child>
+			<child>FlashSectorC</child>
+			<child>FlashSectorD</child>
+			<child>FlashSectorE</child>
+			<child>FlashSectorF</child>
+			<child>FlashSectorG</child>
+			<child>FlashSectorH</child>
+			<child>FlashSectorI</child>
+			<child>FlashSectorJ</child>
+			<child>EraseFlashButton</child>
+		</children>
+	</group>
+
+	<group id="FlashPasswordGroup">
+		<name>Code Security Password</name>
+		<children>
+			<child>FlashKey7</child>
+			<child>FlashKey6</child>
+			<child>FlashKey5</child>
+			<child>FlashKey4</child>
+			<child>FlashKey3</child>
+			<child>FlashKey2</child>
+			<child>FlashKey1</child>
+			<child>FlashKey0</child>
+			<child>ProgramPasswordButton</child>
+			<child>LockButton</child>
+			<child>UnlockButton</child>
+		</children>
+	</group>
+	
+	<group id="FrequencyTestGroup">
+		<name>Frequency Test</name>
+		<children>
+			<child>FTPin</child>
+			<child>StartFreqTest</child>
+			<child>EndFreqTest</child>
+		</children>
+	</group>
+	
+	<group id="DepletionRecoveryGroup">
+		<name>Depletion Recovery</name>
+		<children>
+			<child>DepletionRecoveryButton</child>
+		</children>
+	</group>
+
+	<group id="ChecksumGroup">
+		<name>Checksum</name>
+		<children>
+			<child>FlashChecksum</child>
+			<child>OTPChecksum</child>
+			<child>CalChecksumButton</child>
+		</children>
+	</group>
+	
+	<!-- TMS320F2812 Property Definitions -->
+	<property id="FlashOSCCLK">
+		<target>TMS320C28XX</target>
+		<name>OSCCLK (MHz):</name>
+		<valueType>Numeric</valueType>
+		<defaultValue>30</defaultValue>
+	</property>
+	
+	<property id="FlashPLLCR">
+		<target>TMS320C28XX</target>
+		<name>PLLCR Value:</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0</value>
+			<value>1</value>
+			<value>2</value>
+			<value>3</value>
+			<value>4</value>
+			<value>5</value>
+			<value>6</value>
+			<value>7</value>
+			<value>8</value>
+			<value>9</value>
+			<value>10</value>
+		</values>
+		<defaultValue>10</defaultValue>
+	</property>
+
+	<property id="FlashOperations">
+		<target>TMS320C28XX</target>
+		<name>Flash Program Setting:</name>
+		<valueType>ChoiceList</valueType>
+		<values>
+			<value>Erase, Program, Verify</value>
+			<value>Program, Verify</value>
+			<value>Load RAM Only</value>
+			<value>Verify Only</value>
+		</values>
+		<defaultValue>Erase, Program, Verify</defaultValue>
+	</property>
+	
+	<property id="FlashSectorA">
+		<target>TMS320C28XX</target>
+		<name>Sector A: (0x3F6000 - 0x3F7FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+
+	<property id="FlashSectorB">
+		<target>TMS320C28XX</target>
+		<name>Sector B: (0x3F4000 - 0x3F5FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+
+	<property id="FlashSectorC">
+		<target>TMS320C28XX</target>
+		<name>Sector C: (0x3F0000 - 0x3F3FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+
+	<property id="FlashSectorD">
+		<target>TMS320C28XX</target>
+		<name>Sector D: (0x3EC000 - 0x3EFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+
+	<property id="FlashSectorE">
+		<target>TMS320C28XX</target>
+		<name>Sector E: (0x3E8000 - 0x3EBFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashSectorF">
+		<target>TMS320C28XX</target>
+		<name>Sector F: (0x3E4000 - 0x3E7FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashSectorG">
+		<target>TMS320C28XX</target>
+		<name>Sector G: (0x3E0000 - 0x3E3FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashSectorH">
+		<target>TMS320C28XX</target>
+		<name>Sector H: (0x3DC000 - 0x3DFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashSectorI">
+		<target>TMS320C28XX</target>
+		<name>Sector I: (0x3DA000 - 0x3DBFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashSectorJ">
+		<target>TMS320C28XX</target>
+		<name>Sector J: (0x3D8000 - 0x3D9FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="EraseFlashButton">
+		<target>TMS320C28XX</target>
+		<name>Erase Flash</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Erase")</action>
+	</property>
+
+	<property id="FlashKey7">
+		<target>TMS320C28XX</target>
+		<name>Key 7 (0xAE7):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+
+	<property id="FlashKey6">
+		<target>TMS320C28XX</target>
+		<name>Key 6 (0xAE6):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+
+	<property id="FlashKey5">
+		<target>TMS320C28XX</target>
+		<name>Key 5 (0xAE5):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+
+	<property id="FlashKey4">
+		<target>TMS320C28XX</target>
+		<name>Key 4 (0xAE4):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+
+	<property id="FlashKey3">
+		<target>TMS320C28XX</target>
+		<name>Key 3 (0xAE3):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+
+	<property id="FlashKey2">
+		<target>TMS320C28XX</target>
+		<name>Key 2 (0xAE2):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+
+	<property id="FlashKey1">
+		<target>TMS320C28XX</target>
+		<name>Key 1 (0xAE1):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+
+	<property id="FlashKey0">
+		<target>TMS320C28XX</target>
+		<name>Key 0 (0xAE0):</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+	
+	<property id="ProgramPasswordButton">
+		<target>TMS320C28XX</target>
+		<name>Program Password</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("ProgramPassword")</action>
+	</property>
+	
+	<property id="UnlockButton">
+		<target>TMS320C28XX</target>
+		<name>Unlock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Unlock")</action>
+	</property>
+	
+	<property id="LockButton">
+		<target>TMS320C28XX</target>
+		<name>Lock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Lock")</action>
+	</property>
+			
+	<property id="FTPin">
+		<target>TMS320C28XX</target>
+		<name>Pin:</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>GPIOA0</value>
+			<value>GPIOA1</value>
+			<value>GPIOA2</value>
+			<value>GPIOA3</value>
+			<value>GPIOA4</value>
+			<value>GPIOA5</value>
+			<value>GPIOA6</value>
+			<value>GPIOA7</value>
+			<value>GPIOA8</value>
+			<value>GPIOA9</value>
+			<value>GPIOA10</value>
+			<value>GPIOA11</value>
+			<value>GPIOA12</value>
+			<value>GPIOA13</value>
+			<value>GPIOA14</value>
+			<value>GPIOA15</value>
+			<value>GPIOB0</value>
+			<value>GPIOB1</value>
+			<value>GPIOB2</value>
+			<value>GPIOB3</value>
+			<value>GPIOB4</value>
+			<value>GPIOB5</value>
+			<value>GPIOB6</value>
+			<value>GPIOB7</value>
+			<value>GPIOB8</value>
+			<value>GPIOB9</value>
+			<value>GPIOB10</value>
+			<value>GPIOB11</value>
+			<value>GPIOB12</value>
+			<value>GPIOB13</value>
+			<value>GPIOB14</value>
+			<value>GPIOB15</value>
+			<value>GPIOD0</value>
+			<value>GPIOD1</value>
+			<value>GPIOD5</value>
+			<value>GPIOD6</value>
+			<value>GPIOE0</value>
+			<value>GPIOE1</value>
+			<value>GPIOE2</value>
+			<value>GPIOF0</value>
+			<value>GPIOF1</value>
+			<value>GPIOF2</value>
+			<value>GPIOF3</value>
+			<value>GPIOF4</value>
+			<value>GPIOF5</value>
+			<value>GPIOF6</value>
+			<value>GPIOF7</value>
+			<value>GPIOF8</value>
+			<value>GPIOF9</value>
+			<value>GPIOF10</value>
+			<value>GPIOF11</value>
+			<value>GPIOF12</value>
+			<value>GPIOF13</value>
+			<value>GPIOF14</value>
+			<value>GPIOG4</value>
+			<value>GPIOG5</value>
+		</values>
+		<defaultValue>GPIOA0</defaultValue>
+	</property>
+	
+	<property id="StartFreqTest">
+		<target>TMS320C28XX</target>
+		<name>Start Frequency Test</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("FrequencyTest")</action>
+	</property>
+	
+	<property id="EndFreqTest">
+		<target>TMS320C28XX</target>
+		<name>End Frequency Test</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("EndFrequencyTest")</action>
+	</property>
+
+	<property id="DepletionRecoveryButton">
+		<target>TMS320C28XX</target>
+		<name>Depletion Recovery</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("DepletionRecovery")</action>
+	</property>
+	
+	<property id="FlashChecksum">
+		<target>TMS320C28XX</target>
+		<name>Flash Checksum:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+		<readOnly>1</readOnly>
+	</property>
+	
+	<property id="OTPChecksum">
+		<target>TMS320C28XX</target>
+		<name>OTP Checksum:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+		<readOnly>1</readOnly>
+	</property>
+	
+	<property id="CalChecksumButton">
+		<target>TMS320C28XX</target>
+		<name>Calculate Checksum</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("CalculateChecksum")</action>
+	</property>
+	
+	<!-- fin -->
+</PropertyList>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AUX_TDC" HW_revision="" XML_version="1.0" description="AUX Time To Digital Converter
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="CTL" width="32" description="Control" id="CTL" offset="0x0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="WO" description="TDC command strobes" id="CMD" resetval="0x0">
+         <bitenum id="ABORT" value="3" token="This command forces the TDC back to IDLE state" description="This command forces the TDC back to IDLE state"/>
+         <bitenum id="RUN" value="2" token="This command makes the TDC FSM start  and stop counting asynchronously. TDC measurement may start immediately if start is high and hence it may not give precise edge to edge measurements. Only recommended when start pulse is guaranteed to arrive at least 7 clock periods after the command" description="This command makes the TDC FSM start  and stop counting asynchronously. TDC measurement may start immediately if start is high and hence it may not give precise edge to edge measurements. Only recommended when start pulse is guaranteed to arrive at least 7 clock periods after the command"/>
+         <bitenum id="RUN_SYNC_START" value="1" token="This command makes the TDC FSM start counting synchronously to the first rising edge that follows a required falling edge of the start event. This guarantees an edge triggered start and is recommended for frequency measurements. A falling edge of the start event may be missed if the command is issued close to it in time, but the TDC will catch later falling edges and guarantee that a measurement starts synchronously to the rising edge of the start event" description="This command makes the TDC FSM start counting synchronously to the first rising edge that follows a required falling edge of the start event. This guarantees an edge triggered start and is recommended for frequency measurements. A falling edge of the start event may be missed if the command is issued close to it in time, but the TDC will catch later falling edges and guarantee that a measurement starts synchronously to the rising edge of the start event"/>
+         <bitenum id="CLR_RESULT" value="0" token="This command clears STAT.SAT, STAT.DONE and results. Note: This is not needed as prerequisite for a measurement. Reliable clear is only guaranteed from IDLE state" description="This command clears STAT.SAT, STAT.DONE and results. Note: This is not needed as prerequisite for a measurement. Reliable clear is only guaranteed from IDLE state"/>
+      </bitfield>
+   </register>
+   <register acronym="STAT" width="32" description="Status" id="STAT" offset="0x4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Saturation flag for TDC measurement
+
+0: Conversion has not saturated
+1: Conversion stopped due to saturation
+
+This field is cleared when starting new measurement or setting CTL.CMD to CLR_RESULT" id="SAT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Measurement complete flag
+
+0: Measurement not yet complete
+1: Measurement complete
+
+This field is cleared when starting new measurement or setting CTL.CMD to CLR_RESULT" id="DONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="TDC internal state machine status" id="STATE" resetval="0x6">
+         <bitenum id="FORCE_STOP" value="46" token="Current state is TDC_FORCESTOP" description="Current state is TDC_FORCESTOP"/>
+         <bitenum id="START_FALL" value="30" token="Current state is TDC_WAIT_STARTFALL" description="Current state is TDC_WAIT_STARTFALL"/>
+         <bitenum id="WAIT_CLR_CNT_DONE" value="22" token="Current state is TDC_STATE_WAIT_CLRCNT_DONE   " description="Current state is TDC_STATE_WAIT_CLRCNT_DONE   "/>
+         <bitenum id="POR" value="15" token="Current state is TDC_STATE_POR" description="Current state is TDC_STATE_POR"/>
+         <bitenum id="GET_RESULT" value="14" token="Current state is TDC_STATE_GETRESULTS         " description="Current state is TDC_STATE_GETRESULTS         "/>
+         <bitenum id="WAIT_STOP_CNTDWN" value="12" token="Current state is TDC_STATE_WAIT_STOPCNTDOWN   " description="Current state is TDC_STATE_WAIT_STOPCNTDOWN   "/>
+         <bitenum id="WAIT_STOP" value="8" token="Current state is TDC_STATE_WAIT_STOP          " description="Current state is TDC_STATE_WAIT_STOP          "/>
+         <bitenum id="CLR_CNT" value="7" token="Current state is TDC_STATE_CLRCNT             " description="Current state is TDC_STATE_CLRCNT             "/>
+         <bitenum id="IDLE" value="6" token="Current state is TDC_STATE_IDLE               " description="Current state is TDC_STATE_IDLE               "/>
+         <bitenum id="WAIT_START_STOP_CNT_EN" value="4" token="Current state is TDC_STATE_WAIT_STARTSTOPCNTEN" description="Current state is TDC_STATE_WAIT_STARTSTOPCNTEN"/>
+         <bitenum id="WAIT_START" value="0" token="Current state is TDC_STATE_WAIT_START" description="Current state is TDC_STATE_WAIT_START"/>
+      </bitfield>
+   </register>
+   <register acronym="RESULT" width="32" description="Result
+
+Result of last TDC conversion" id="RESULT" offset="0x8">
+      <bitfield range="" begin="31" width="7" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="25" end="0" rwaccess="RO" description="Result of the TDC conversion. The result is in clock edges of the clock selected in DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL. Both rising and falling edges are counted.
+
+When saturating the result is slightly higher than the saturation limit, since it takes a non-zero time to stop the measurement. The highest saturation limit is 24 bits (see SATCFG.LIMIT) so maximum value of VALUE is hence slightly above 2^24. " id="VALUE" resetval="0x2">
+      </bitfield>
+   </register>
+   <register acronym="SATCFG" width="32" description="Saturation Configuration" id="SATCFG" offset="0xc">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Select when the TDC times out. Values not enumerated are not supported" id="LIMIT" resetval="0xf">
+         <bitenum id="R24" value="15" token="Result bit 24 : TDC saturates and stops when RESULT.VALUE[24] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 24 : TDC saturates and stops when RESULT.VALUE[24] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R23" value="14" token="Result bit 23 : TDC saturates and stops when RESULT.VALUE[23] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 23 : TDC saturates and stops when RESULT.VALUE[23] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R22" value="13" token="Result bit 22 : TDC saturates and stops when RESULT.VALUE[22] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 22 : TDC saturates and stops when RESULT.VALUE[22] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R21" value="12" token="Result bit 21 : TDC saturates and stops when RESULT.VALUE[21] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 21 : TDC saturates and stops when RESULT.VALUE[21] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R20" value="11" token="Result bit 20 : TDC saturates and stops when RESULT.VALUE[20] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 20 : TDC saturates and stops when RESULT.VALUE[20] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R19" value="10" token="Result bit 19 : TDC saturates and stops when RESULT.VALUE[19] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 19 : TDC saturates and stops when RESULT.VALUE[19] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R18" value="9" token="Result bit 18 : TDC saturates and stops when RESULT.VALUE[18] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 18 : TDC saturates and stops when RESULT.VALUE[18] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R17" value="8" token="Result bit 17 : TDC saturates and stops when RESULT.VALUE[17] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 17 : TDC saturates and stops when RESULT.VALUE[17] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R16" value="7" token="Result bit 16 : TDC saturates and stops when RESULT.VALUE[16] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 16 : TDC saturates and stops when RESULT.VALUE[16] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R15" value="6" token="Result bit 15 : TDC saturates and stops when RESULT.VALUE[15] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 15 : TDC saturates and stops when RESULT.VALUE[15] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R14" value="5" token="Result bit 14 : TDC saturates and stops when RESULT.VALUE[14] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 14 : TDC saturates and stops when RESULT.VALUE[14] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R13" value="4" token="Result bit 13 : TDC saturates and stops when RESULT.VALUE[13] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 13 : TDC saturates and stops when RESULT.VALUE[13] is set. The flag STAT.SAT is set when the timer saturates."/>
+         <bitenum id="R12" value="3" token="Result bit 12 : TDC saturates and stops when RESULT.VALUE[12] is set. The flag STAT.SAT is set when the timer saturates." description="Result bit 12 : TDC saturates and stops when RESULT.VALUE[12] is set. The flag STAT.SAT is set when the timer saturates."/>
+      </bitfield>
+   </register>
+   <register acronym="TRIGSRC" width="32" description="Trigger Source
+
+TDC start/stop trigger source selection" id="TRIGSRC" offset="0x10">
+      <bitfield range="" begin="31" width="18" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Polarity of stop signal.   Note! Must not be changed if STAT.STATE is not IDLE" id="STOP_POL" resetval="0x0">
+         <bitenum id="LOW" value="1" token="TDC stops when low level is detected" description="TDC stops when low level is detected"/>
+         <bitenum id="HIGH" value="0" token="TDC stops when high level is detected" description="TDC stops when high level is detected"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RW" description="Selects the asynchronous stop signal  Note! Must not be changed if STAT.STATE is not IDLE " id="STOP_SRC" resetval="0x0">
+         <bitenum id="TDC_PRE" value="31" token="Selects TDC_PRE" description="Selects TDC_PRE"/>
+         <bitenum id="MCU_EV" value="30" token="Selects MCU_EV" description="Selects MCU_EV"/>
+         <bitenum id="ACLK_REF" value="29" token="Selects ACLK_REF" description="Selects ACLK_REF"/>
+         <bitenum id="AUXIO15" value="28" token="Selects AUXIO15" description="Selects AUXIO15"/>
+         <bitenum id="AUXIO14" value="27" token="Selects AUXIO14" description="Selects AUXIO14"/>
+         <bitenum id="AUXIO13" value="26" token="Selects AUXIO13" description="Selects AUXIO13"/>
+         <bitenum id="AUXIO12" value="25" token="Selects AUXIO12" description="Selects AUXIO12"/>
+         <bitenum id="AUXIO11" value="24" token="Selects AUXIO11" description="Selects AUXIO11"/>
+         <bitenum id="AUXIO10" value="23" token="Selects AUXIO10" description="Selects AUXIO10"/>
+         <bitenum id="AUXIO9" value="22" token="Selects AUXIO9" description="Selects AUXIO9"/>
+         <bitenum id="AUXIO8" value="21" token="Selects AUXIO8" description="Selects AUXIO8"/>
+         <bitenum id="AUXIO7" value="20" token="Selects AUXIO7" description="Selects AUXIO7"/>
+         <bitenum id="AUXIO6" value="19" token="Selects AUXIO6" description="Selects AUXIO6"/>
+         <bitenum id="AUXIO5" value="18" token="Selects AUXIO5" description="Selects AUXIO5"/>
+         <bitenum id="AUXIO4" value="17" token="Selects AUXIO4" description="Selects AUXIO4"/>
+         <bitenum id="AUXIO3" value="16" token="Selects AUXIO3" description="Selects AUXIO3"/>
+         <bitenum id="AUXIO2" value="15" token="Selects AUXIO2" description="Selects AUXIO2"/>
+         <bitenum id="AUXIO1" value="14" token="Selects AUXIO1" description="Selects AUXIO1"/>
+         <bitenum id="AUXIO0" value="13" token="Selects AUXIO0" description="Selects AUXIO0"/>
+         <bitenum id="AON_PROG_WU" value="12" token="Selects AON_PROG_WU" description="Selects AON_PROG_WU"/>
+         <bitenum id="AON_SW" value="11" token="Selects AON_SW" description="Selects AON_SW"/>
+         <bitenum id="OBSMUX1" value="10" token="Selects OBSMUX1" description="Selects OBSMUX1"/>
+         <bitenum id="OBSMUX0" value="9" token="Selects OBSMUX0" description="Selects OBSMUX0"/>
+         <bitenum id="ADC_FIFO_ALMOST_FULL" value="8" token="Selects ADC_FIFO_ALMOST_FULL" description="Selects ADC_FIFO_ALMOST_FULL"/>
+         <bitenum id="ADC_DONE" value="7" token="Selects ADC_DONE" description="Selects ADC_DONE"/>
+         <bitenum id="SMPH_AUTOTAKE_DONE" value="6" token="Selects SMPH_AUTOTAKE_DONE" description="Selects SMPH_AUTOTAKE_DONE"/>
+         <bitenum id="TIMER1_EV" value="5" token="Selects TIMER1_EV" description="Selects TIMER1_EV"/>
+         <bitenum id="TIMER0_EV" value="4" token="Selects TIMER0_EV" description="Selects TIMER0_EV"/>
+         <bitenum id="ISRC_RESET" value="3" token="Selects ISRC_RESET" description="Selects ISRC_RESET"/>
+         <bitenum id="AUX_COMPB" value="2" token="Selects AUX_COMPB" description="Selects AUX_COMPB"/>
+         <bitenum id="AUX_COMPA" value="1" token="Selects AUX_COMPA" description="Selects AUX_COMPA"/>
+         <bitenum id="AON_RTC_CH2" value="0" token="Selects AON_RTC_CH2" description="Selects AON_RTC_CH2"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Polarity of start signal.   Note! Must not be changed if STAT.STATE is not IDLE" id="START_POL" resetval="0x0">
+         <bitenum id="LOW" value="1" token="TDC starts when low level is detected" description="TDC starts when low level is detected"/>
+         <bitenum id="HIGH" value="0" token="TDC starts when high level is detected" description="TDC starts when high level is detected"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="Selects the asynchronous start signal Note! Must not be changed if STAT.STATE is not IDLE" id="START_SRC" resetval="0x0">
+         <bitenum id="TDC_PRE" value="31" token="Selects TDC_PRE" description="Selects TDC_PRE"/>
+         <bitenum id="MCU_EV" value="30" token="Selects MCU_EV" description="Selects MCU_EV"/>
+         <bitenum id="ACLK_REF" value="29" token="Selects ACLK_REF" description="Selects ACLK_REF"/>
+         <bitenum id="AUXIO15" value="28" token="Selects AUXIO15" description="Selects AUXIO15"/>
+         <bitenum id="AUXIO14" value="27" token="Selects AUXIO14" description="Selects AUXIO14"/>
+         <bitenum id="AUXIO13" value="26" token="Selects AUXIO13" description="Selects AUXIO13"/>
+         <bitenum id="AUXIO12" value="25" token="Selects AUXIO12" description="Selects AUXIO12"/>
+         <bitenum id="AUXIO11" value="24" token="Selects AUXIO11" description="Selects AUXIO11"/>
+         <bitenum id="AUXIO10" value="23" token="Selects AUXIO10" description="Selects AUXIO10"/>
+         <bitenum id="AUXIO9" value="22" token="Selects AUXIO9" description="Selects AUXIO9"/>
+         <bitenum id="AUXIO8" value="21" token="Selects AUXIO8" description="Selects AUXIO8"/>
+         <bitenum id="AUXIO7" value="20" token="Selects AUXIO7" description="Selects AUXIO7"/>
+         <bitenum id="AUXIO6" value="19" token="Selects AUXIO6" description="Selects AUXIO6"/>
+         <bitenum id="AUXIO5" value="18" token="Selects AUXIO5" description="Selects AUXIO5"/>
+         <bitenum id="AUXIO4" value="17" token="Selects AUXIO4" description="Selects AUXIO4"/>
+         <bitenum id="AUXIO3" value="16" token="Selects AUXIO3" description="Selects AUXIO3"/>
+         <bitenum id="AUXIO2" value="15" token="Selects AUXIO2" description="Selects AUXIO2"/>
+         <bitenum id="AUXIO1" value="14" token="Selects AUXIO1" description="Selects AUXIO1"/>
+         <bitenum id="AUXIO0" value="13" token="Selects AUXIO0" description="Selects AUXIO0"/>
+         <bitenum id="AON_PROG_WU" value="12" token="Selects AON_PROG_WU" description="Selects AON_PROG_WU"/>
+         <bitenum id="AON_SW" value="11" token="Selects AON_SW" description="Selects AON_SW"/>
+         <bitenum id="OBSMUX1" value="10" token="Selects OBSMUX1" description="Selects OBSMUX1"/>
+         <bitenum id="OBSMUX0" value="9" token="Selects OBSMUX0" description="Selects OBSMUX0"/>
+         <bitenum id="ADC_FIFO_ALMOST_FULL" value="8" token="Selects ADC_FIFO_ALMOST_FULL" description="Selects ADC_FIFO_ALMOST_FULL"/>
+         <bitenum id="ADC_DONE" value="7" token="Selects ADC_DONE" description="Selects ADC_DONE"/>
+         <bitenum id="SMPH_AUTOTAKE_DONE" value="6" token="Selects SMPH_AUTOTAKE_DONE" description="Selects SMPH_AUTOTAKE_DONE"/>
+         <bitenum id="TIMER1_EV" value="5" token="Selects TIMER1_EV" description="Selects TIMER1_EV"/>
+         <bitenum id="TIMER0_EV" value="4" token="Selects TIMER0_EV" description="Selects TIMER0_EV"/>
+         <bitenum id="ISRC_RESET" value="3" token="Selects ISRC_RESET" description="Selects ISRC_RESET"/>
+         <bitenum id="AUX_COMPB" value="2" token="Selects AUX_COMPB" description="Selects AUX_COMPB"/>
+         <bitenum id="AUX_COMPA" value="1" token="Selects AUX_COMPA" description="Selects AUX_COMPA"/>
+         <bitenum id="AON_RTC_CH2" value="0" token="Selects AON_RTC_CH2" description="Selects AON_RTC_CH2"/>
+      </bitfield>
+   </register>
+   <register acronym="TRIGCNT" width="32" description="Trigger Counter
+
+Stop counter status/control of TDC" id="TRIGCNT" offset="0x14">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Remaining number of stop events that will be ignored. Writing to this register updates the  value. The CNT will be loaded with the value of TRIGCNTLOAD.CNT at the start of every measurement.
+
+When the stop counter is enabled the first CNT-1 stop events is ignored after which the TDC will stop measurement on event number CNT
+
+Note! Must not be changed if STAT.STATE is not IDLE" id="CNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRIGCNTLOAD" width="32" description="Trigger Counter Load
+
+Stop counter control of TDC" id="TRIGCNTLOAD" offset="0x18">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Selects the number of stop events that will be ignored by the TDC. This can be used to measure multiple periods of a clock signal. The value written to this field is loaded into the stop counter at the start of each measurement.
+
+Note! Both values 0 and 1 will make the TDC stop on the first event after the start event
+
+Note! Must not be changed if STAT.STATE is not IDLE" id="CNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRIGCNTCFG" width="32" description="Trigger Counter Configuration" id="TRIGCNTCFG" offset="0x1c">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Stop counter enable
+
+0: Stop counter is disabled 
+1: Stop counter is enabled
+" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PRECTL" width="32" description="Prescaler Control
+
+The prescaler can be used to count events that are faster than the AUX clock speed. It can be used standalone or as a start/stop source for the TDC by configuring TRIGSRC.START_SRC and TRIGSRC.STOP_SRC to TDC_PRE. When counting fast signals with the TDC that are faster than 1/10th of the clock frequency of AUX it is recommended to use the prescaler.
+
+" id="PRECTL" offset="0x20">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Prescaler reset control
+
+0: Prescaler is held in reset
+1: Prescaler is not held in reset
+" id="RESET_N" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Prescaler ratio. This controls how often an event is generated on the TDC_PRE line. After the prescaler is reset the event output TDC_PRE is 0." id="RATIO" resetval="0x0">
+         <bitenum id="DIV64" value="1" token="Prescaler divides by 64. A rising edge on the output is generated for every 64 rising edges of the input (the output toggles on every 32th rising edge of the input). ." description="Prescaler divides by 64. A rising edge on the output is generated for every 64 rising edges of the input (the output toggles on every 32th rising edge of the input). ."/>
+         <bitenum id="DIV16" value="0" token="Prescaler divides by 16. A rising edge on the output is generated for every 16 rising edges of the input (the output toggles on every 8th rising edge of the input). " description="Prescaler divides by 16. A rising edge on the output is generated for every 16 rising edges of the input (the output toggles on every 8th rising edge of the input). "/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="Selects event for prescaler to use as input
+Note! Only change when prescaler is in reset" id="SRC" resetval="0x1f">
+         <bitenum id="ADC_IRQ" value="31" token="0" description="0"/>
+         <bitenum id="MCU_EV" value="30" token="0" description="0"/>
+         <bitenum id="ACLK_REF" value="29" token="0" description="0"/>
+         <bitenum id="AUXIO15" value="28" token="0" description="0"/>
+         <bitenum id="AUXIO14" value="27" token="0" description="0"/>
+         <bitenum id="AUXIO13" value="26" token="0" description="0"/>
+         <bitenum id="AUXIO12" value="25" token="0" description="0"/>
+         <bitenum id="AUXIO11" value="24" token="0" description="0"/>
+         <bitenum id="AUXIO10" value="23" token="0" description="0"/>
+         <bitenum id="AUXIO9" value="22" token="0" description="0"/>
+         <bitenum id="AUXIO8" value="21" token="0" description="0"/>
+         <bitenum id="AUXIO7" value="20" token="0" description="0"/>
+         <bitenum id="AUXIO6" value="19" token="0" description="0"/>
+         <bitenum id="AUXIO5" value="18" token="0" description="0"/>
+         <bitenum id="AUXIO4" value="17" token="0" description="0"/>
+         <bitenum id="AUXIO3" value="16" token="0" description="0"/>
+         <bitenum id="AUXIO2" value="15" token="0" description="0"/>
+         <bitenum id="AUXIO1" value="14" token="0" description="0"/>
+         <bitenum id="AUXIO0" value="13" token="0" description="0"/>
+         <bitenum id="AON_PROG_WU" value="12" token="0" description="0"/>
+         <bitenum id="AON_SW" value="11" token="0" description="0"/>
+         <bitenum id="OBSMUX1" value="10" token="0" description="0"/>
+         <bitenum id="OBSMUX0" value="9" token="0" description="0"/>
+         <bitenum id="ADC_FIFO_ALMOST_FULL" value="8" token="0" description="0"/>
+         <bitenum id="ADC_DONE" value="7" token="0" description="0"/>
+         <bitenum id="SMPH_AUTOTAKE_DONE" value="6" token="0" description="0"/>
+         <bitenum id="TIMER1_EV" value="5" token="0" description="0"/>
+         <bitenum id="TIMER0_EV" value="4" token="0" description="0"/>
+         <bitenum id="ISRC_RESET" value="3" token="0" description="0"/>
+         <bitenum id="AUX_COMPB" value="2" token="0" description="0"/>
+         <bitenum id="AUX_COMPA" value="1" token="0" description="0"/>
+         <bitenum id="AON_RTC_CH2" value="0" token="0" description="0"/>
+      </bitfield>
+   </register>
+   <register acronym="PRECNT" width="32" description="Prescaler Counter
+
+Value of prescaler counter" id="PRECNT" offset="0x24">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Writing to this register will latch the contents of the 16 bit prescaler counter (The value written is don&#39;t care).
+
+Reading will return the latched value.
+
+" id="CNT" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

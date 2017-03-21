@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<device description="" id="TM4C1294NCPDT" partnum="TM4C1294NCPDT" HW_revision="1" desc="Tiva TM4C1294NCPDT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- Filter to list device under in project wizard -->
+    <property Type="stringfield" Value="Tiva C Series" id="FilterString" />
+    <instance XML_revision="1.2" desc="CS_DAP_0" href="routers/cs_dap.xml" id="CS_DAP_0" xml="cs_dap.xml" xmlpath="routers"/>
+    <router HW_revision="1.0" XML_version="1.2" description="CS_DAP Router" id="CS_DAP_0" isa="CS_DAP">
+        <subpath id="subpath_0">
+            <property Type="numericfield" Value="16" id="Port Number"/>
+            <property Type="choicelist" Value="1" id="Initial Configuration"/>
+            <property Type="choicelist" Value="1" id="Customer Configuration"/>
+            <instance XML_version="1.2" desc="CORTEX_M4_0" href="cpus/cortex_m4.xml" id="CORTEX_M4_0" xml="cortex_m4.xml" xmlpath="cpus"/>
+            <cpu HW_revision="1.0" XML_version="1.2" description="Cortex M4 CPU" id="CORTEX_M4_0" isa="CORTEX_M4">
+                <instance href="../Modules/Tiva_TM4C/sc4cc231e6pm/watchdog.xml" xml="watchdog.xml" id="WATCHDOG0" xmlpath="../Modules/Tiva_TM4C/sc4cc231e6pm" baseaddr="0x40000000" endaddr="0x40000FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4cc231e6pm/watchdog.xml" xml="watchdog.xml" id="WATCHDOG1" xmlpath="../Modules/Tiva_TM4C/sc4cc231e6pm" baseaddr="0x40001000" endaddr="0x40001FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/ssi.xml" xml="ssi.xml" id="SSI0" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40008000" endaddr="0x40008FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/ssi.xml" xml="ssi.xml" id="SSI1" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40009000" endaddr="0x40009FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/ssi.xml" xml="ssi.xml" id="SSI2" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4000A000" endaddr="0x4000AFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/ssi.xml" xml="ssi.xml" id="SSI3" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4000B000" endaddr="0x4000BFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART0" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4000C000" endaddr="0x4000CFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART1" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4000D000" endaddr="0x4000DFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART2" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4000E000" endaddr="0x4000EFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART3" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4000F000" endaddr="0x4000FFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART4" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40010000" endaddr="0x40010FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART5" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40011000" endaddr="0x40011FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART6" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40012000" endaddr="0x40012FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/uart.xml" xml="uart.xml" id="UART7" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40013000" endaddr="0x40013FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C0" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40020000" endaddr="0x40020FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C1" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40021000" endaddr="0x40021FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C2" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40022000" endaddr="0x40022FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C3" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40023000" endaddr="0x40023FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4c1290kcpdt/pwm.xml" xml="pwm.xml" id="PWM0" xmlpath="../Modules/Tiva_TM4C/sc4c1290kcpdt" baseaddr="0x40028000" endaddr="0x40028FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce93xh6pm/qei.xml" xml="qei.xml" id="QEI0" xmlpath="../Modules/Tiva_TM4C/sc4ce93xh6pm" baseaddr="0x4002C000" endaddr="0x4002CFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER0" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40030000" endaddr="0x40030FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER1" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40031000" endaddr="0x40031FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER2" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40032000" endaddr="0x40032FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER3" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40033000" endaddr="0x40033FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER4" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40034000" endaddr="0x40034FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER5" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40035000" endaddr="0x40035FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4c1290kcpdt/adc.xml" xml="adc.xml" id="ADC0" xmlpath="../Modules/Tiva_TM4C/sc4c1290kcpdt" baseaddr="0x40038000" endaddr="0x40038FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4c1290kcpdt/adc.xml" xml="adc.xml" id="ADC1" xmlpath="../Modules/Tiva_TM4C/sc4c1290kcpdt" baseaddr="0x40039000" endaddr="0x40039FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/comp.xml" xml="comp.xml" id="COMP" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4003C000" endaddr="0x4003CFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4cc231e6pm/can.xml" xml="can.xml" id="CAN0" xmlpath="../Modules/Tiva_TM4C/sc4cc231e6pm" baseaddr="0x40040000" endaddr="0x40040FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4cc231e6pm/can.xml" xml="can.xml" id="CAN1" xmlpath="../Modules/Tiva_TM4C/sc4cc231e6pm" baseaddr="0x40041000" endaddr="0x40041FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4c1290kcpdt/usb.xml" xml="usb.xml" id="USB0" xmlpath="../Modules/Tiva_TM4C/sc4c1290kcpdt" baseaddr="0x40050000" endaddr="0x40050FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTA_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40058000" endaddr="0x40058FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTB_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40059000" endaddr="0x40059FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTC_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4005A000" endaddr="0x4005AFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTD_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4005B000" endaddr="0x4005BFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTE_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4005C000" endaddr="0x4005CFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTF_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4005D000" endaddr="0x4005DFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTG_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4005E000" endaddr="0x4005EFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTH_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x4005F000" endaddr="0x4005FFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTJ_AHB" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40060000" endaddr="0x40060FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTK" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40061000" endaddr="0x40061FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTL" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40062000" endaddr="0x40062FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTM" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40063000" endaddr="0x40063FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTN" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40064000" endaddr="0x40064FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTP" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40065000" endaddr="0x40065FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/gpio.xml" xml="gpio.xml" id="GPIO_PORTQ" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x40066000" endaddr="0x40066FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/eeprom.xml" xml="eeprom.xml" id="EEPROM" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400AF000" endaddr="0x400AFFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C8" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400B8000" endaddr="0x400B8FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C9" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400B9000" endaddr="0x400B9FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C4" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400C0000" endaddr="0x400C0FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C5" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400C1000" endaddr="0x400C1FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C6" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400C2000" endaddr="0x400C2FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/i2c.xml" xml="i2c.xml" id="I2C7" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400C3000" endaddr="0x400C3FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/epi.xml" xml="epi.xml" id="EPI0" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400D0000" endaddr="0x400D0FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER6" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400E0000" endaddr="0x400E0FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/timer.xml" xml="timer.xml" id="TIMER7" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400E1000" endaddr="0x400E1FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4c1294ncpdt/emac.xml" xml="emac.xml" id="EMAC0" xmlpath="../Modules/Tiva_TM4C/sc4c1294ncpdt" baseaddr="0x400EC000" endaddr="0x400ECFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4cc231e6pm/sysexc.xml" xml="sysexc.xml" id="SYSEXC" xmlpath="../Modules/Tiva_TM4C/sc4cc231e6pm" baseaddr="0x400F9000" endaddr="0x400F9FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4c1290kcpdt/hib.xml" xml="hib.xml" id="HIB" xmlpath="../Modules/Tiva_TM4C/sc4c1290kcpdt" baseaddr="0x400FC000" endaddr="0x400FCFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/flash.xml" xml="flash.xml" id="FLASH_CTRL" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400FD000" endaddr="0x400FEFFF" size="0x00002000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/tm4c1294kcpdt/sysctl.xml" xml="sysctl.xml" id="SYSCTL" xmlpath="../Modules/Tiva_TM4C/tm4c1294kcpdt" baseaddr="0x400FE000" endaddr="0x400FEFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/udma.xml" xml="udma.xml" id="UDMA" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x400FF000" endaddr="0x400FFFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/ccm.xml" xml="ccm.xml" id="CCM0" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0x44030000" endaddr="0x44030FFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <instance href="../Modules/Tiva_TM4C/sc4ce290ncpz/nvic.xml" xml="nvic.xml" id="NVIC" xmlpath="../Modules/Tiva_TM4C/sc4ce290ncpz" baseaddr="0xE000E000" endaddr="0xE000EFFF" size="0x00001000" accessnumbytes="4" permissions="p" />
+                <!-- Additional core registers -->
+                <instance href="../drivers/cortexM4_fpu.xml" xml="cortexM4_fpu.xml" id="FPU" xmlpath="../drivers/" baseaddr="0x00000000" endaddr="0x00000000" size="0x00000040" accessnumbytes="4" permissions="p" />
+                <!-- Project Wizard Settings -->
+                <property Type="filepathfield" Value="../../../emulation/gel/tm4c1294ncpdt.gel" id="GEL File"/>
+                <property Type="numericfield" Value="0x02000000" id="Access Port Designator"/>
+                <property Type="stringfield" Value="tm4c1294ncpdt.cmd" id="LinkerCmd"/>
+                <property Type="stringfield" Value=" --silicon_version=7M4 --code_state=16 --abi=eabi --float_support=FPv4SPD16 --gcc -D=ccs=&quot;ccs&quot; -D=PART_TM4C1294NCPDT" id="CompilerBuildOptions"/>
+                <property Type="stringfield" Value=" -m=app_TM4C1294NCPDT_ccs.map -stack=512 -heap=0" id="LinkerBuildOptions"/>
+                <property Type="stringfield" Value="tm4c1294ncpdt_startup_ccs.c" id="FilesToCopy"/>
+                <property Type="stringfield" Value="tm4c1294ncpdt.lds" id="GNULinkerCmd"/>
+                <property Type="stringfield" Value=" -mthumb -march=armv7e-m -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -MD -std=c99 -Wall -DPART_TM4C1294NCPDT -c" id="GNUCompilerBuildOptions"/>
+                <property Type="stringfield" Value=" " id="GNULinkerBuildOptions"/>
+                <property Type="stringfield" Value="tm4c1294ncpdt_startup_ccs_gcc.c" id="GNUFilesToCopy"/>
+                <property Type="stringfield" Value="libc.a" id="RTSlib"/>
+                <property Type="stringfield" Value="true" id="IsElfDefault"/>
+                <property Type="stringfield" Value="little" id="Endianness"/>
+                <property Type="stringfield" Value="4.9.0" id="MinCodegenVersion"/>
+                <!-- END Project Wizard Settings -->
+            </cpu>
+        </subpath>
+    </router>
+</device>

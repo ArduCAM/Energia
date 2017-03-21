@@ -1,0 +1,70 @@
+<module id="PMAP" HW_revision="356.0">
+    <register id="PMAPKEYID" width="16" offset="0x0" internal="0" description="Port Mapping Key Register">
+    </register>
+    <register id="PMAPCTL" width="16" offset="0x2" internal="0" description="Port Mapping Control Register">
+        <bitfield id="PMAPLOCKED" description="Port mapping lock bit" begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="PMAPLOCKED_0" value="0x0" description="Access to mapping registers is granted"/>
+            <bitenum id="PMAPLOCKED_1" value="0x1" description="Access to mapping registers is locked"/>
+        </bitfield>
+        <bitfield id="PMAPRECFG" description="Port mapping reconfiguration control bit" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="PMAPRECFG_0" value="0x0" description="Configuration allowed only once"/>
+            <bitenum id="PMAPRECFG_1" value="0x1" description="Allow reconfiguration of port mapping"/>
+        </bitfield>
+    </register>
+    <register id="P1MAP01" width="16" offset="0x8" internal="0" description="Port mapping register, P1.0 and P1.1">
+    </register>
+    <register id="P1MAP23" width="16" offset="0xA" internal="0" description="Port mapping register, P1.2 and P1.3">
+    </register>
+    <register id="P1MAP45" width="16" offset="0xC" internal="0" description="Port mapping register, P1.4 and P1.5">
+    </register>
+    <register id="P1MAP67" width="16" offset="0xE" internal="0" description="Port mapping register, P1.6 and P1.7">
+    </register>
+    <register id="P2MAP01" width="16" offset="0x10" internal="0" description="Port mapping register, P2.0 and P2.1">
+    </register>
+    <register id="P2MAP23" width="16" offset="0x12" internal="0" description="Port mapping register, P2.2 and P2.3">
+    </register>
+    <register id="P2MAP45" width="16" offset="0x14" internal="0" description="Port mapping register, P2.4 and P2.5">
+    </register>
+    <register id="P2MAP67" width="16" offset="0x16" internal="0" description="Port mapping register, P2.6 and P2.7">
+    </register>
+    <register id="P3MAP01" width="16" offset="0x18" internal="0" description="Port mapping register, P3.0 and P3.1">
+    </register>
+    <register id="P3MAP23" width="16" offset="0x1A" internal="0" description="Port mapping register, P3.2 and P3.3">
+    </register>
+    <register id="P3MAP45" width="16" offset="0x1C" internal="0" description="Port mapping register, P3.4 and P3.5">
+    </register>
+    <register id="P3MAP67" width="16" offset="0x1E" internal="0" description="Port mapping register, P3.6 and P3.7">
+    </register>
+    <register id="P4MAP01" width="16" offset="0x20" internal="0" description="Port mapping register, P4.0 and P4.1">
+    </register>
+    <register id="P4MAP23" width="16" offset="0x22" internal="0" description="Port mapping register, P4.2 and P4.3">
+    </register>
+    <register id="P4MAP45" width="16" offset="0x24" internal="0" description="Port mapping register, P4.4 and P4.5">
+    </register>
+    <register id="P4MAP67" width="16" offset="0x26" internal="0" description="Port mapping register, P4.6 and P4.7">
+    </register>
+    <register id="P5MAP01" width="16" offset="0x28" internal="0" description="Port mapping register, P5.0 and P5.1">
+    </register>
+    <register id="P5MAP23" width="16" offset="0x2A" internal="0" description="Port mapping register, P5.2 and P5.3">
+    </register>
+    <register id="P5MAP45" width="16" offset="0x2C" internal="0" description="Port mapping register, P5.4 and P5.5">
+    </register>
+    <register id="P5MAP67" width="16" offset="0x2E" internal="0" description="Port mapping register, P5.6 and P5.7">
+    </register>
+    <register id="P6MAP01" width="16" offset="0x30" internal="0" description="Port mapping register, P6.0 and P6.1">
+    </register>
+    <register id="P6MAP23" width="16" offset="0x32" internal="0" description="Port mapping register, P6.2 and P6.3">
+    </register>
+    <register id="P6MAP45" width="16" offset="0x34" internal="0" description="Port mapping register, P6.4 and P6.5">
+    </register>
+    <register id="P6MAP67" width="16" offset="0x36" internal="0" description="Port mapping register, P6.6 and P6.7">
+    </register>
+    <register id="P7MAP01" width="16" offset="0x38" internal="0" description="Port mapping register, P7.0 and P7.1">
+    </register>
+    <register id="P7MAP23" width="16" offset="0x3A" internal="0" description="Port mapping register, P7.2 and P7.3">
+    </register>
+    <register id="P7MAP45" width="16" offset="0x3C" internal="0" description="Port mapping register, P7.4 and P7.5">
+    </register>
+    <register id="P7MAP67" width="16" offset="0x3E" internal="0" description="Port mapping register, P7.6 and P7.7">
+    </register>
+</module>

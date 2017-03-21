@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="SYSCTL" HW_revision="" XML_version="1.0" description="System Control register addresses" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="SYSCTL_DID0" width="32" description="Device Identification 0" id="SYSCTL_DID0" offset="0x00000000" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="R" description="Minor Revision" id="SYSCTL_DID0_MIN" resetval="" >
+            <bitenum id="SYSCTL_DID0_MIN_0" value="0x00000000" token="" description="Initial device, or a major revision update"/>
+            <bitenum id="SYSCTL_DID0_MIN_1" value="0x00000001" token="" description="First metal layer change"/>
+            <bitenum id="SYSCTL_DID0_MIN_2" value="0x00000002" token="" description="Second metal layer change"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="R" description="Major Revision" id="SYSCTL_DID0_MAJ" resetval="" >
+            <bitenum id="SYSCTL_DID0_MAJ_REVA" value="0x00000000" token="" description="Revision A (initial device)"/>
+            <bitenum id="SYSCTL_DID0_MAJ_REVB" value="0x00000100" token="" description="Revision B (first base layer revision)"/>
+            <bitenum id="SYSCTL_DID0_MAJ_REVC" value="0x00000200" token="" description="Revision C (second base layer revision)"/>
+        </bitfield>
+        <bitfield range="" begin="23" width="8" end="16" rwaccess="R" description="Device Class" id="SYSCTL_DID0_CLASS" resetval="" >
+            <bitenum id="SYSCTL_DID0_CLASS_TM4C129" value="0x000A0000" token="" description="Tiva(TM) TM4C129-class microcontrollers"/>
+        </bitfield>
+        <bitfield range="" begin="30" width="3" end="28" rwaccess="R" description="DID0 Version" id="SYSCTL_DID0_VER" resetval="" >
+            <bitenum id="SYSCTL_DID0_VER_1" value="0x10000000" token="" description="Second version of the DID0 register format."/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DID1" width="32" description="Device Identification 1" id="SYSCTL_DID1" offset="0x00000004" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="R" description="Qualification Status" id="SYSCTL_DID1_QUAL" resetval="" >
+            <bitenum id="SYSCTL_DID1_QUAL_ES" value="0x00000000" token="" description="Engineering Sample (unqualified)"/>
+            <bitenum id="SYSCTL_DID1_QUAL_PP" value="0x00000001" token="" description="Pilot Production (unqualified)"/>
+            <bitenum id="SYSCTL_DID1_QUAL_FQ" value="0x00000002" token="" description="Fully Qualified"/>
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="RoHS-Compliance" id="SYSCTL_DID1_ROHS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="2" end="3" rwaccess="R" description="Package Type" id="SYSCTL_DID1_PKG" resetval="" >
+            <bitenum id="SYSCTL_DID1_PKG_QFP" value="0x00000008" token="" description="QFP package"/>
+            <bitenum id="SYSCTL_DID1_PKG_BGA" value="0x00000010" token="" description="BGA package"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="R" description="Temperature Range" id="SYSCTL_DID1_TEMP" resetval="" >
+            <bitenum id="SYSCTL_DID1_TEMP_C" value="0x00000000" token="" description="Commercial temperature range"/>
+            <bitenum id="SYSCTL_DID1_TEMP_I" value="0x00000020" token="" description="Industrial temperature range"/>
+            <bitenum id="SYSCTL_DID1_TEMP_E" value="0x00000040" token="" description="Extended temperature range"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="R" description="Package Pin Count" id="SYSCTL_DID1_PINCNT" resetval="" >
+            <bitenum id="SYSCTL_DID1_PINCNT_100" value="0x00004000" token="" description="100-pin LQFP package"/>
+            <bitenum id="SYSCTL_DID1_PINCNT_64" value="0x00006000" token="" description="64-pin LQFP package"/>
+            <bitenum id="SYSCTL_DID1_PINCNT_144" value="0x00008000" token="" description="144-pin LQFP package"/>
+            <bitenum id="SYSCTL_DID1_PINCNT_157" value="0x0000A000" token="" description="157-pin BGA package"/>
+            <bitenum id="SYSCTL_DID1_PINCNT_128" value="0x0000C000" token="" description="128-pin TQFP package"/>
+        </bitfield>
+        <bitfield range="" begin="23" width="8" end="16" rwaccess="R" description="Part Number" id="SYSCTL_DID1_PRTNO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="R" description="Family" id="SYSCTL_DID1_FAM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="R" description="DID1 Version" id="SYSCTL_DID1_VER" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PTBOCTL" width="32" description="Power-Temp Brown Out Control" id="SYSCTL_PTBOCTL" offset="0x00000038" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="VDD (VDDS) under BOR Event Action" id="SYSCTL_PTBOCTL_VDD_UBOR" resetval="" >
+            <bitenum id="SYSCTL_PTBOCTL_VDD_UBOR_NONE" value="0x00000000" token="" description="No Action"/>
+            <bitenum id="SYSCTL_PTBOCTL_VDD_UBOR_SYSINT" value="0x00000001" token="" description="System control interrupt"/>
+            <bitenum id="SYSCTL_PTBOCTL_VDD_UBOR_NMI" value="0x00000002" token="" description="NMI"/>
+            <bitenum id="SYSCTL_PTBOCTL_VDD_UBOR_RST" value="0x00000003" token="" description="Reset"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="VDDA under BOR Event Action" id="SYSCTL_PTBOCTL_VDDA_UBOR" resetval="" >
+            <bitenum id="SYSCTL_PTBOCTL_VDDA_UBOR_NONE" value="0x00000000" token="" description="No Action"/>
+            <bitenum id="SYSCTL_PTBOCTL_VDDA_UBOR_SYSINT" value="0x00000100" token="" description="System control interrupt"/>
+            <bitenum id="SYSCTL_PTBOCTL_VDDA_UBOR_NMI" value="0x00000200" token="" description="NMI"/>
+            <bitenum id="SYSCTL_PTBOCTL_VDDA_UBOR_RST" value="0x00000300" token="" description="Reset"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RIS" width="32" description="Raw Interrupt Status" id="SYSCTL_RIS" offset="0x00000050" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Brown-Out Reset Raw Interrupt Status" id="SYSCTL_RIS_BORRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Main Oscillator Failure Raw Interrupt Status" id="SYSCTL_RIS_MOFRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="PLL Lock Raw Interrupt Status" id="SYSCTL_RIS_PLLLRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="MOSC Power Up Raw Interrupt Status" id="SYSCTL_RIS_MOSCPUPRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_IMC" width="32" description="Interrupt Mask Control" id="SYSCTL_IMC" offset="0x00000054" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Brown-Out Reset Interrupt Mask" id="SYSCTL_IMC_BORIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Main Oscillator Failure Interrupt Mask" id="SYSCTL_IMC_MOFIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="PLL Lock Interrupt Mask" id="SYSCTL_IMC_PLLLIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="MOSC Power Up Interrupt Mask" id="SYSCTL_IMC_MOSCPUPIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_MISC" width="32" description="Masked Interrupt Status and Clear" id="SYSCTL_MISC" offset="0x00000058" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="BOR Masked Interrupt Status" id="SYSCTL_MISC_BORMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Main Oscillator Failure Masked Interrupt Status" id="SYSCTL_MISC_MOFMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="PLL Lock Masked Interrupt Status" id="SYSCTL_MISC_PLLLMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="MOSC Power Up Masked Interrupt Status" id="SYSCTL_MISC_MOSCPUPMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RESC" width="32" description="Reset Cause" id="SYSCTL_RESC" offset="0x0000005C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="External Reset" id="SYSCTL_RESC_EXT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Power-On Reset" id="SYSCTL_RESC_POR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Brown-Out Reset" id="SYSCTL_RESC_BOR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Watchdog Timer 0 Reset" id="SYSCTL_RESC_WDT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Software Reset" id="SYSCTL_RESC_SW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Watchdog Timer 1 Reset" id="SYSCTL_RESC_WDT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="HSSR Reset" id="SYSCTL_RESC_HSSR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="MOSC Failure Reset" id="SYSCTL_RESC_MOSCFAIL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PWRTC" width="32" description="Power-Temperature Cause" id="SYSCTL_PWRTC" offset="0x00000060" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="VDD Under BOR Status" id="SYSCTL_PWRTC_VDD_UBOR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="VDDA Under BOR Status" id="SYSCTL_PWRTC_VDDA_UBOR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_NMIC" width="32" description="NMI Cause Register" id="SYSCTL_NMIC" offset="0x00000064" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="External Pin NMI" id="SYSCTL_NMIC_EXTERNAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Power/Brown Out Event NMI" id="SYSCTL_NMIC_POWER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Watch Dog Timer (WDT) 0 NMI" id="SYSCTL_NMIC_WDT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Watch Dog Timer (WDT) 1 NMI" id="SYSCTL_NMIC_WDT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Tamper Event NMI" id="SYSCTL_NMIC_TAMPER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="MOSC Failure NMI" id="SYSCTL_NMIC_MOSCFAIL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_MOSCCTL" width="32" description="Main Oscillator Control" id="SYSCTL_MOSCCTL" offset="0x0000007C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clock Validation for MOSC" id="SYSCTL_MOSCCTL_CVAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="MOSC Failure Action" id="SYSCTL_MOSCCTL_MOSCIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="No Crystal Connected" id="SYSCTL_MOSCCTL_NOXTAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Power Down" id="SYSCTL_MOSCCTL_PWRDN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Oscillator Range" id="SYSCTL_MOSCCTL_OSCRNG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RSCLKCFG" width="32" description="Run and Sleep Mode Configuration Register" id="SYSCTL_RSCLKCFG" offset="0x000000B0" >
+        <bitfield range="" begin="9" width="10" end="0" rwaccess="RW" description="PLL System Clock Divisor" id="SYSCTL_RSCLKCFG_PSYSDIV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="10" end="10" rwaccess="RW" description="Oscillator System Clock Divisor" id="SYSCTL_RSCLKCFG_OSYSDIV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="Oscillator Source" id="SYSCTL_RSCLKCFG_OSCSRC" resetval="" >
+            <bitenum id="SYSCTL_RSCLKCFG_OSCSRC_PIOSC" value="0x00000000" token="" description="PIOSC is oscillator source"/>
+            <bitenum id="SYSCTL_RSCLKCFG_OSCSRC_LFIOSC" value="0x00200000" token="" description="LFIOSC is oscillator source"/>
+            <bitenum id="SYSCTL_RSCLKCFG_OSCSRC_MOSC" value="0x00300000" token="" description="MOSC is oscillator source"/>
+            <bitenum id="SYSCTL_RSCLKCFG_OSCSRC_RTC" value="0x00400000" token="" description="Hibernation Module RTC Oscillator (RTCOSC)"/>
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="PLL Source" id="SYSCTL_RSCLKCFG_PLLSRC" resetval="" >
+            <bitenum id="SYSCTL_RSCLKCFG_PLLSRC_PIOSC" value="0x00000000" token="" description="PIOSC is PLL input clock source"/>
+            <bitenum id="SYSCTL_RSCLKCFG_PLLSRC_MOSC" value="0x03000000" token="" description="MOSC is the PLL input clock source"/>
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Use PLL" id="SYSCTL_RSCLKCFG_USEPLL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Auto Clock Gating" id="SYSCTL_RSCLKCFG_ACG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="New PLLFREQ Accept" id="SYSCTL_RSCLKCFG_NEWFREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Memory Timing Register Update" id="SYSCTL_RSCLKCFG_MEMTIMU" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_MEMTIM0" width="32" description="Memory Timing Parameter Register 0 for Main Flash and EEPROM" id="SYSCTL_MEMTIM0" offset="0x000000C0" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Flash Wait State" id="SYSCTL_MEMTIM0_FWS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Flash Bank Clock Edge" id="SYSCTL_MEMTIM0_FBCE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="4" end="6" rwaccess="RW" description="Flash Bank Clock High Time" id="SYSCTL_MEMTIM0_FBCHT" resetval="" >
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_0_5" value="0x00000000" token="" description="1/2 system clock period"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_1" value="0x00000040" token="" description="1 system clock period"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_1_5" value="0x00000080" token="" description="1.5 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_2" value="0x000000C0" token="" description="2 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_2_5" value="0x00000100" token="" description="2.5 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_3" value="0x00000140" token="" description="3 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_3_5" value="0x00000180" token="" description="3.5 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_4" value="0x000001C0" token="" description="4 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_FBCHT_4_5" value="0x00000200" token="" description="4.5 system clock periods"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="EEPROM Wait States" id="SYSCTL_MEMTIM0_EWS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="EEPROM Bank Clock Edge" id="SYSCTL_MEMTIM0_EBCE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="4" end="22" rwaccess="RW" description="EEPROM Clock High Time" id="SYSCTL_MEMTIM0_EBCHT" resetval="" >
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_0_5" value="0x00000000" token="" description="1/2 system clock period"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_1" value="0x00400000" token="" description="1 system clock period"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_1_5" value="0x00800000" token="" description="1.5 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_2" value="0x00C00000" token="" description="2 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_2_5" value="0x01000000" token="" description="2.5 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_3" value="0x01400000" token="" description="3 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_3_5" value="0x01800000" token="" description="3.5 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_4" value="0x01C00000" token="" description="4 system clock periods"/>
+            <bitenum id="SYSCTL_MEMTIM0_EBCHT_4_5" value="0x02000000" token="" description="4.5 system clock periods"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_ALTCLKCFG" width="32" description="Alternate Clock Configuration" id="SYSCTL_ALTCLKCFG" offset="0x00000138" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Alternate Clock Source" id="SYSCTL_ALTCLKCFG_ALTCLK" resetval="" >
+            <bitenum id="SYSCTL_ALTCLKCFG_ALTCLK_PIOSC" value="0x00000000" token="" description="PIOSC"/>
+            <bitenum id="SYSCTL_ALTCLKCFG_ALTCLK_RTCOSC" value="0x00000003" token="" description="Hibernation Module Real-time clock output (RTCOSC)"/>
+            <bitenum id="SYSCTL_ALTCLKCFG_ALTCLK_LFIOSC" value="0x00000004" token="" description="Low-frequency internal oscillator (LFIOSC)"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DSCLKCFG" width="32" description="Deep Sleep Clock Configuration Register" id="SYSCTL_DSCLKCFG" offset="0x00000144" >
+        <bitfield range="" begin="9" width="10" end="0" rwaccess="RW" description="Deep Sleep Clock Divisor" id="SYSCTL_DSCLKCFG_DSSYSDIV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="Deep Sleep Oscillator Source" id="SYSCTL_DSCLKCFG_DSOSCSRC" resetval="" >
+            <bitenum id="SYSCTL_DSCLKCFG_DSOSCSRC_PIOSC" value="0x00000000" token="" description="PIOSC"/>
+            <bitenum id="SYSCTL_DSCLKCFG_DSOSCSRC_LFIOSC" value="0x00200000" token="" description="LFIOSC"/>
+            <bitenum id="SYSCTL_DSCLKCFG_DSOSCSRC_MOSC" value="0x00300000" token="" description="MOSC"/>
+            <bitenum id="SYSCTL_DSCLKCFG_DSOSCSRC_RTC" value="0x00400000" token="" description="Hibernation Module RTCOSC"/>
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="MOSC Disable Power Down" id="SYSCTL_DSCLKCFG_MOSCDPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="PIOSC Power Down" id="SYSCTL_DSCLKCFG_PIOSCPD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DIVSCLK" width="32" description="Divisor and Source Clock Configuration" id="SYSCTL_DIVSCLK" offset="0x00000148" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Divisor Value" id="SYSCTL_DIVSCLK_DIV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Clock Source" id="SYSCTL_DIVSCLK_SRC" resetval="" >
+            <bitenum id="SYSCTL_DIVSCLK_SRC_SYSCLK" value="0x00000000" token="" description="System Clock"/>
+            <bitenum id="SYSCTL_DIVSCLK_SRC_PIOSC" value="0x00010000" token="" description="PIOSC"/>
+            <bitenum id="SYSCTL_DIVSCLK_SRC_MOSC" value="0x00020000" token="" description="MOSC"/>
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="DIVSCLK Enable" id="SYSCTL_DIVSCLK_EN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SYSPROP" width="32" description="System Properties" id="SYSCTL_SYSPROP" offset="0x0000014C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="FPU Present" id="SYSCTL_SYSPROP_FPU" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PIOSCCAL" width="32" description="Precision Internal Oscillator Calibration" id="SYSCTL_PIOSCCAL" offset="0x00000150" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="User Trim Value" id="SYSCTL_PIOSCCAL_UT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Update Trim" id="SYSCTL_PIOSCCAL_UPDATE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Start Calibration" id="SYSCTL_PIOSCCAL_CAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Use User Trim Value" id="SYSCTL_PIOSCCAL_UTEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PIOSCSTAT" width="32" description="Precision Internal Oscillator Statistics" id="SYSCTL_PIOSCSTAT" offset="0x00000154" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="R" description="Calibration Trim Value" id="SYSCTL_PIOSCSTAT_CT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="R" description="Calibration Result" id="SYSCTL_PIOSCSTAT_CR" resetval="" >
+            <bitenum id="SYSCTL_PIOSCSTAT_CRNONE" value="0x00000000" token="" description="Calibration has not been attempted"/>
+            <bitenum id="SYSCTL_PIOSCSTAT_CRPASS" value="0x00000100" token="" description="The last calibration operation completed to meet 1% accuracy"/>
+            <bitenum id="SYSCTL_PIOSCSTAT_CRFAIL" value="0x00000200" token="" description="The last calibration operation failed to meet 1% accuracy"/>
+        </bitfield>
+        <bitfield range="" begin="22" width="7" end="16" rwaccess="R" description="Default Trim Value" id="SYSCTL_PIOSCSTAT_DT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PLLFREQ0" width="32" description="PLL Frequency 0" id="SYSCTL_PLLFREQ0" offset="0x00000160" >
+        <bitfield range="" begin="9" width="10" end="0" rwaccess="RW" description="PLL M Integer Value" id="SYSCTL_PLLFREQ0_MINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="10" end="10" rwaccess="RW" description="PLL M Fractional Value" id="SYSCTL_PLLFREQ0_MFRAC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="PLL Power" id="SYSCTL_PLLFREQ0_PLLPWR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PLLFREQ1" width="32" description="PLL Frequency 1" id="SYSCTL_PLLFREQ1" offset="0x00000164" >
+        <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="PLL N Value" id="SYSCTL_PLLFREQ1_N" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="5" end="8" rwaccess="RW" description="PLL Q Value" id="SYSCTL_PLLFREQ1_Q" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PLLSTAT" width="32" description="PLL Status" id="SYSCTL_PLLSTAT" offset="0x00000168" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="PLL Lock" id="SYSCTL_PLLSTAT_LOCK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SLPPWRCFG" width="32" description="Sleep Power Configuration" id="SYSCTL_SLPPWRCFG" offset="0x00000188" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="SRAM Power Modes" id="SYSCTL_SLPPWRCFG_SRAMPM" resetval="" >
+            <bitenum id="SYSCTL_SLPPWRCFG_SRAMPM_NRM" value="0x00000000" token="" description="Active Mode"/>
+            <bitenum id="SYSCTL_SLPPWRCFG_SRAMPM_SBY" value="0x00000001" token="" description="Standby Mode"/>
+            <bitenum id="SYSCTL_SLPPWRCFG_SRAMPM_LP" value="0x00000003" token="" description="Low Power Mode"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Flash Power Modes" id="SYSCTL_SLPPWRCFG_FLASHPM" resetval="" >
+            <bitenum id="SYSCTL_SLPPWRCFG_FLASHPM_NRM" value="0x00000000" token="" description="Active Mode"/>
+            <bitenum id="SYSCTL_SLPPWRCFG_FLASHPM_SLP" value="0x00000020" token="" description="Low Power Mode"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DSLPPWRCFG" width="32" description="Deep-Sleep Power Configuration" id="SYSCTL_DSLPPWRCFG" offset="0x0000018C" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="SRAM Power Modes" id="SYSCTL_DSLPPWRCFG_SRAMPM" resetval="" >
+            <bitenum id="SYSCTL_DSLPPWRCFG_SRAMPM_NRM" value="0x00000000" token="" description="Active Mode"/>
+            <bitenum id="SYSCTL_DSLPPWRCFG_SRAMPM_SBY" value="0x00000001" token="" description="Standby Mode"/>
+            <bitenum id="SYSCTL_DSLPPWRCFG_SRAMPM_LP" value="0x00000003" token="" description="Low Power Mode"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Flash Power Modes" id="SYSCTL_DSLPPWRCFG_FLASHPM" resetval="" >
+            <bitenum id="SYSCTL_DSLPPWRCFG_FLASHPM_NRM" value="0x00000000" token="" description="Active Mode"/>
+            <bitenum id="SYSCTL_DSLPPWRCFG_FLASHPM_SLP" value="0x00000020" token="" description="Low Power Mode"/>
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Temperature Sense Power Down" id="SYSCTL_DSLPPWRCFG_TSPD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="LDO Sleep Mode" id="SYSCTL_DSLPPWRCFG_LDOSM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_NVMSTAT" width="32" description="Non-Volatile Memory Information" id="SYSCTL_NVMSTAT" offset="0x000001A0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="32 Word Flash Write Buffer Available" id="SYSCTL_NVMSTAT_FWB" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_LDOSPCTL" width="32" description="LDO Sleep Power Control" id="SYSCTL_LDOSPCTL" offset="0x000001B4" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="LDO Output Voltage" id="SYSCTL_LDOSPCTL_VLDO" resetval="" >
+            <bitenum id="SYSCTL_LDOSPCTL_VLDO_0_90V" value="0x00000012" token="" description="0.90 V"/>
+            <bitenum id="SYSCTL_LDOSPCTL_VLDO_0_95V" value="0x00000013" token="" description="0.95 V"/>
+            <bitenum id="SYSCTL_LDOSPCTL_VLDO_1_00V" value="0x00000014" token="" description="1.00 V"/>
+            <bitenum id="SYSCTL_LDOSPCTL_VLDO_1_05V" value="0x00000015" token="" description="1.05 V"/>
+            <bitenum id="SYSCTL_LDOSPCTL_VLDO_1_10V" value="0x00000016" token="" description="1.10 V"/>
+            <bitenum id="SYSCTL_LDOSPCTL_VLDO_1_15V" value="0x00000017" token="" description="1.15 V"/>
+            <bitenum id="SYSCTL_LDOSPCTL_VLDO_1_20V" value="0x00000018" token="" description="1.20 V"/>
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Voltage Adjust Enable" id="SYSCTL_LDOSPCTL_VADJEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_LDODPCTL" width="32" description="LDO Deep-Sleep Power Control" id="SYSCTL_LDODPCTL" offset="0x000001BC" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="LDO Output Voltage" id="SYSCTL_LDODPCTL_VLDO" resetval="" >
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_0_90V" value="0x00000012" token="" description="0.90 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_0_95V" value="0x00000013" token="" description="0.95 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_00V" value="0x00000014" token="" description="1.00 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_05V" value="0x00000015" token="" description="1.05 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_10V" value="0x00000016" token="" description="1.10 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_15V" value="0x00000017" token="" description="1.15 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_20V" value="0x00000018" token="" description="1.20 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_25V" value="0x00000019" token="" description="1.25 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_30V" value="0x0000001A" token="" description="1.30 V"/>
+            <bitenum id="SYSCTL_LDODPCTL_VLDO_1_35V" value="0x0000001B" token="" description="1.35 V"/>
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Voltage Adjust Enable" id="SYSCTL_LDODPCTL_VADJEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RESBEHAVCTL" width="32" description="Reset Behavior Control Register" id="SYSCTL_RESBEHAVCTL" offset="0x000001D8" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="External RST Pin Operation" id="SYSCTL_RESBEHAVCTL_EXTRES" resetval="" >
+            <bitenum id="SYSCTL_RESBEHAVCTL_EXTRES_SYSRST" value="0x00000002" token="" description="External RST assertion issues a system reset. The application starts within 10 us"/>
+            <bitenum id="SYSCTL_RESBEHAVCTL_EXTRES_POR" value="0x00000003" token="" description="External RST assertion issues a simulated POR sequence. Application starts less than 500 us after deassertion (Default)"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="BOR Reset operation" id="SYSCTL_RESBEHAVCTL_BOR" resetval="" >
+            <bitenum id="SYSCTL_RESBEHAVCTL_BOR_SYSRST" value="0x00000008" token="" description="Brown Out Reset issues system reset. The application starts within 10 us"/>
+            <bitenum id="SYSCTL_RESBEHAVCTL_BOR_POR" value="0x0000000C" token="" description="Brown Out Reset issues a simulated POR sequence. The application starts less than 500 us after deassertion (Default)"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Watchdog 0 Reset Operation" id="SYSCTL_RESBEHAVCTL_WDOG0" resetval="" >
+            <bitenum id="SYSCTL_RESBEHAVCTL_WDOG0_SYSRST" value="0x00000020" token="" description="Watchdog 0 issues a system reset. The application starts within 10 us"/>
+            <bitenum id="SYSCTL_RESBEHAVCTL_WDOG0_POR" value="0x00000030" token="" description="Watchdog 0 issues a simulated POR sequence. Application starts less than 500 us after deassertion (Default)"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Watchdog 1 Reset Operation" id="SYSCTL_RESBEHAVCTL_WDOG1" resetval="" >
+            <bitenum id="SYSCTL_RESBEHAVCTL_WDOG1_SYSRST" value="0x00000080" token="" description="Watchdog 1 issues a system reset. The application starts within 10 us"/>
+            <bitenum id="SYSCTL_RESBEHAVCTL_WDOG1_POR" value="0x000000C0" token="" description="Watchdog 1 issues a simulated POR sequence. Application starts less than 500 us after deassertion (Default)"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_HSSR" width="32" description="Hardware System Service Request" id="SYSCTL_HSSR" offset="0x000001F4" >
+        <bitfield range="" begin="23" width="24" end="0" rwaccess="RW" description="Command Descriptor Pointer" id="SYSCTL_HSSR_CDOFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="8" end="24" rwaccess="RW" description="Write Key" id="SYSCTL_HSSR_KEY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_USBPDS" width="32" description="USB Power Domain Status" id="SYSCTL_USBPDS" offset="0x00000280" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="R" description="Power Domain Status" id="SYSCTL_USBPDS_PWRSTAT" resetval="" >
+            <bitenum id="SYSCTL_USBPDS_PWRSTAT_OFF" value="0x00000000" token="" description="OFF"/>
+            <bitenum id="SYSCTL_USBPDS_PWRSTAT_ON" value="0x00000003" token="" description="ON"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="R" description="Memory Array Power Status" id="SYSCTL_USBPDS_MEMSTAT" resetval="" >
+            <bitenum id="SYSCTL_USBPDS_MEMSTAT_OFF" value="0x00000000" token="" description="Array OFF"/>
+            <bitenum id="SYSCTL_USBPDS_MEMSTAT_RETAIN" value="0x00000004" token="" description="SRAM Retention"/>
+            <bitenum id="SYSCTL_USBPDS_MEMSTAT_ON" value="0x0000000C" token="" description="Array On"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_USBMPC" width="32" description="USB Memory Power Control" id="SYSCTL_USBMPC" offset="0x00000284" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Memory Array Power Control" id="SYSCTL_USBMPC_PWRCTL" resetval="" >
+            <bitenum id="SYSCTL_USBMPC_PWRCTL_OFF" value="0x00000000" token="" description="Array OFF"/>
+            <bitenum id="SYSCTL_USBMPC_PWRCTL_RETAIN" value="0x00000001" token="" description="SRAM Retention"/>
+            <bitenum id="SYSCTL_USBMPC_PWRCTL_ON" value="0x00000003" token="" description="Array On"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_EMACPDS" width="32" description="Ethernet MAC Power Domain Status" id="SYSCTL_EMACPDS" offset="0x00000288" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="R" description="Power Domain Status" id="SYSCTL_EMACPDS_PWRSTAT" resetval="" >
+            <bitenum id="SYSCTL_EMACPDS_PWRSTAT_OFF" value="0x00000000" token="" description="OFF"/>
+            <bitenum id="SYSCTL_EMACPDS_PWRSTAT_ON" value="0x00000003" token="" description="ON"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="R" description="Memory Array Power Status" id="SYSCTL_EMACPDS_MEMSTAT" resetval="" >
+            <bitenum id="SYSCTL_EMACPDS_MEMSTAT_OFF" value="0x00000000" token="" description="Array OFF"/>
+            <bitenum id="SYSCTL_EMACPDS_MEMSTAT_ON" value="0x0000000C" token="" description="Array On"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_EMACMPC" width="32" description="Ethernet MAC Memory Power Control" id="SYSCTL_EMACMPC" offset="0x0000028C" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Memory Array Power Control" id="SYSCTL_EMACMPC_PWRCTL" resetval="" >
+            <bitenum id="SYSCTL_EMACMPC_PWRCTL_OFF" value="0x00000000" token="" description="Array OFF"/>
+            <bitenum id="SYSCTL_EMACMPC_PWRCTL_ON" value="0x00000003" token="" description="Array On"/>
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPWD" width="32" description="Watchdog Timer Peripheral Present" id="SYSCTL_PPWD" offset="0x00000300" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Watchdog Timer 0 Present" id="SYSCTL_PPWD_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Watchdog Timer 1 Present" id="SYSCTL_PPWD_P1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPTIMER" width="32" description="16/32-Bit General-Purpose Timer Peripheral Present" id="SYSCTL_PPTIMER" offset="0x00000304" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="16/32-Bit General-Purpose Timer 0 Present" id="SYSCTL_PPTIMER_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="16/32-Bit General-Purpose Timer 1 Present" id="SYSCTL_PPTIMER_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="16/32-Bit General-Purpose Timer 2 Present" id="SYSCTL_PPTIMER_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="16/32-Bit General-Purpose Timer 3 Present" id="SYSCTL_PPTIMER_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="16/32-Bit General-Purpose Timer 4 Present" id="SYSCTL_PPTIMER_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="16/32-Bit General-Purpose Timer 5 Present" id="SYSCTL_PPTIMER_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="16/32-Bit General-Purpose Timer 6 Present" id="SYSCTL_PPTIMER_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="16/32-Bit General-Purpose Timer 7 Present" id="SYSCTL_PPTIMER_P7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPGPIO" width="32" description="General-Purpose Input/Output Peripheral Present" id="SYSCTL_PPGPIO" offset="0x00000308" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="GPIO Port A Present" id="SYSCTL_PPGPIO_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="GPIO Port B Present" id="SYSCTL_PPGPIO_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="GPIO Port C Present" id="SYSCTL_PPGPIO_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="GPIO Port D Present" id="SYSCTL_PPGPIO_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="GPIO Port E Present" id="SYSCTL_PPGPIO_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="GPIO Port F Present" id="SYSCTL_PPGPIO_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="GPIO Port G Present" id="SYSCTL_PPGPIO_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="GPIO Port H Present" id="SYSCTL_PPGPIO_P7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="GPIO Port J Present" id="SYSCTL_PPGPIO_P8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="GPIO Port K Present" id="SYSCTL_PPGPIO_P9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="GPIO Port L Present" id="SYSCTL_PPGPIO_P10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="GPIO Port M Present" id="SYSCTL_PPGPIO_P11" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="GPIO Port N Present" id="SYSCTL_PPGPIO_P12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="R" description="GPIO Port P Present" id="SYSCTL_PPGPIO_P13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="R" description="GPIO Port Q Present" id="SYSCTL_PPGPIO_P14" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPDMA" width="32" description="Micro Direct Memory Access Peripheral Present" id="SYSCTL_PPDMA" offset="0x0000030C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="uDMA Module Present" id="SYSCTL_PPDMA_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPEPI" width="32" description="EPI Peripheral Present" id="SYSCTL_PPEPI" offset="0x00000310" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="EPI Module Present" id="SYSCTL_PPEPI_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPHIB" width="32" description="Hibernation Peripheral Present" id="SYSCTL_PPHIB" offset="0x00000314" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Hibernation Module Present" id="SYSCTL_PPHIB_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPUART" width="32" description="Universal Asynchronous Receiver/Transmitter Peripheral Present" id="SYSCTL_PPUART" offset="0x00000318" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="UART Module 0 Present" id="SYSCTL_PPUART_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="UART Module 1 Present" id="SYSCTL_PPUART_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="UART Module 2 Present" id="SYSCTL_PPUART_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="UART Module 3 Present" id="SYSCTL_PPUART_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="UART Module 4 Present" id="SYSCTL_PPUART_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="UART Module 5 Present" id="SYSCTL_PPUART_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="UART Module 6 Present" id="SYSCTL_PPUART_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="UART Module 7 Present" id="SYSCTL_PPUART_P7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPSSI" width="32" description="Synchronous Serial Interface Peripheral Present" id="SYSCTL_PPSSI" offset="0x0000031C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="SSI Module 0 Present" id="SYSCTL_PPSSI_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="SSI Module 1 Present" id="SYSCTL_PPSSI_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="SSI Module 2 Present" id="SYSCTL_PPSSI_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="SSI Module 3 Present" id="SYSCTL_PPSSI_P3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPI2C" width="32" description="Inter-Integrated Circuit Peripheral Present" id="SYSCTL_PPI2C" offset="0x00000320" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="I2C Module 0 Present" id="SYSCTL_PPI2C_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="I2C Module 1 Present" id="SYSCTL_PPI2C_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="I2C Module 2 Present" id="SYSCTL_PPI2C_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="I2C Module 3 Present" id="SYSCTL_PPI2C_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="I2C Module 4 Present" id="SYSCTL_PPI2C_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="I2C Module 5 Present" id="SYSCTL_PPI2C_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="I2C Module 6 Present" id="SYSCTL_PPI2C_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="I2C Module 7 Present" id="SYSCTL_PPI2C_P7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="I2C Module 8 Present" id="SYSCTL_PPI2C_P8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="I2C Module 9 Present" id="SYSCTL_PPI2C_P9" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPUSB" width="32" description="Universal Serial Bus Peripheral Present" id="SYSCTL_PPUSB" offset="0x00000328" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="USB Module Present" id="SYSCTL_PPUSB_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPEPHY" width="32" description="Ethernet PHY Peripheral Present" id="SYSCTL_PPEPHY" offset="0x00000330" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Ethernet PHY Module Present" id="SYSCTL_PPEPHY_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPCAN" width="32" description="Controller Area Network Peripheral Present" id="SYSCTL_PPCAN" offset="0x00000334" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="CAN Module 0 Present" id="SYSCTL_PPCAN_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="CAN Module 1 Present" id="SYSCTL_PPCAN_P1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPADC" width="32" description="Analog-to-Digital Converter Peripheral Present" id="SYSCTL_PPADC" offset="0x00000338" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="ADC Module 0 Present" id="SYSCTL_PPADC_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="ADC Module 1 Present" id="SYSCTL_PPADC_P1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPACMP" width="32" description="Analog Comparator Peripheral Present" id="SYSCTL_PPACMP" offset="0x0000033C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Analog Comparator Module Present" id="SYSCTL_PPACMP_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPPWM" width="32" description="Pulse Width Modulator Peripheral Present" id="SYSCTL_PPPWM" offset="0x00000340" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="PWM Module 0 Present" id="SYSCTL_PPPWM_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPQEI" width="32" description="Quadrature Encoder Interface Peripheral Present" id="SYSCTL_PPQEI" offset="0x00000344" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="QEI Module 0 Present" id="SYSCTL_PPQEI_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPLPC" width="32" description="Low Pin Count Interface Peripheral Present" id="SYSCTL_PPLPC" offset="0x00000348" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="LPC Module Present" id="SYSCTL_PPLPC_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPPECI" width="32" description="Platform Environment Control Interface Peripheral Present" id="SYSCTL_PPPECI" offset="0x00000350" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="PECI Module Present" id="SYSCTL_PPPECI_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPFAN" width="32" description="Fan Control Peripheral Present" id="SYSCTL_PPFAN" offset="0x00000354" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="FAN Module 0 Present" id="SYSCTL_PPFAN_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPEEPROM" width="32" description="EEPROM Peripheral Present" id="SYSCTL_PPEEPROM" offset="0x00000358" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="EEPROM Module Present" id="SYSCTL_PPEEPROM_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPWTIMER" width="32" description="32/64-Bit Wide General-Purpose Timer Peripheral Present" id="SYSCTL_PPWTIMER" offset="0x0000035C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="32/64-Bit Wide General-Purpose Timer 0 Present" id="SYSCTL_PPWTIMER_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPRTS" width="32" description="Remote Temperature Sensor Peripheral Present" id="SYSCTL_PPRTS" offset="0x00000370" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="RTS Module Present" id="SYSCTL_PPRTS_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPCCM" width="32" description="CRC and Cryptographic Modules Peripheral Present" id="SYSCTL_PPCCM" offset="0x00000374" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="CRC and Cryptographic Modules Present" id="SYSCTL_PPCCM_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPLCD" width="32" description="LCD Peripheral Present" id="SYSCTL_PPLCD" offset="0x00000390" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="LCD Module Present" id="SYSCTL_PPLCD_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPOWIRE" width="32" description="1-Wire Peripheral Present" id="SYSCTL_PPOWIRE" offset="0x00000398" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="1-Wire Module Present" id="SYSCTL_PPOWIRE_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPEMAC" width="32" description="Ethernet MAC Peripheral Present" id="SYSCTL_PPEMAC" offset="0x0000039C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Ethernet Controller Module Present" id="SYSCTL_PPEMAC_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PPHIM" width="32" description="Human Interface Master Peripheral Present" id="SYSCTL_PPHIM" offset="0x000003A4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="HIM Module Present" id="SYSCTL_PPHIM_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRWD" width="32" description="Watchdog Timer Software Reset" id="SYSCTL_SRWD" offset="0x00000500" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Watchdog Timer 0 Software Reset" id="SYSCTL_SRWD_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Watchdog Timer 1 Software Reset" id="SYSCTL_SRWD_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRTIMER" width="32" description="16/32-Bit General-Purpose Timer Software Reset" id="SYSCTL_SRTIMER" offset="0x00000504" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="16/32-Bit General-Purpose Timer 0 Software Reset" id="SYSCTL_SRTIMER_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="16/32-Bit General-Purpose Timer 1 Software Reset" id="SYSCTL_SRTIMER_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="16/32-Bit General-Purpose Timer 2 Software Reset" id="SYSCTL_SRTIMER_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="16/32-Bit General-Purpose Timer 3 Software Reset" id="SYSCTL_SRTIMER_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="16/32-Bit General-Purpose Timer 4 Software Reset" id="SYSCTL_SRTIMER_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="16/32-Bit General-Purpose Timer 5 Software Reset" id="SYSCTL_SRTIMER_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="16/32-Bit General-Purpose Timer 6 Software Reset" id="SYSCTL_SRTIMER_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="16/32-Bit General-Purpose Timer 7 Software Reset" id="SYSCTL_SRTIMER_R7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRGPIO" width="32" description="General-Purpose Input/Output Software Reset" id="SYSCTL_SRGPIO" offset="0x00000508" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="GPIO Port A Software Reset" id="SYSCTL_SRGPIO_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="GPIO Port B Software Reset" id="SYSCTL_SRGPIO_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPIO Port C Software Reset" id="SYSCTL_SRGPIO_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPIO Port D Software Reset" id="SYSCTL_SRGPIO_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPIO Port E Software Reset" id="SYSCTL_SRGPIO_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPIO Port F Software Reset" id="SYSCTL_SRGPIO_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPIO Port G Software Reset" id="SYSCTL_SRGPIO_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="GPIO Port H Software Reset" id="SYSCTL_SRGPIO_R7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPIO Port J Software Reset" id="SYSCTL_SRGPIO_R8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPIO Port K Software Reset" id="SYSCTL_SRGPIO_R9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPIO Port L Software Reset" id="SYSCTL_SRGPIO_R10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPIO Port M Software Reset" id="SYSCTL_SRGPIO_R11" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="GPIO Port N Software Reset" id="SYSCTL_SRGPIO_R12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="GPIO Port P Software Reset" id="SYSCTL_SRGPIO_R13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="GPIO Port Q Software Reset" id="SYSCTL_SRGPIO_R14" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRDMA" width="32" description="Micro Direct Memory Access Software Reset" id="SYSCTL_SRDMA" offset="0x0000050C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="uDMA Module Software Reset" id="SYSCTL_SRDMA_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SREPI" width="32" description="EPI Software Reset" id="SYSCTL_SREPI" offset="0x00000510" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EPI Module Software Reset" id="SYSCTL_SREPI_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRHIB" width="32" description="Hibernation Software Reset" id="SYSCTL_SRHIB" offset="0x00000514" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Hibernation Module Software Reset" id="SYSCTL_SRHIB_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRUART" width="32" description="Universal Asynchronous Receiver/Transmitter Software Reset" id="SYSCTL_SRUART" offset="0x00000518" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Module 0 Software Reset" id="SYSCTL_SRUART_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Module 1 Software Reset" id="SYSCTL_SRUART_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART Module 2 Software Reset" id="SYSCTL_SRUART_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="UART Module 3 Software Reset" id="SYSCTL_SRUART_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="UART Module 4 Software Reset" id="SYSCTL_SRUART_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="UART Module 5 Software Reset" id="SYSCTL_SRUART_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="UART Module 6 Software Reset" id="SYSCTL_SRUART_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Module 7 Software Reset" id="SYSCTL_SRUART_R7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRSSI" width="32" description="Synchronous Serial Interface Software Reset" id="SYSCTL_SRSSI" offset="0x0000051C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SSI Module 0 Software Reset" id="SYSCTL_SRSSI_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SSI Module 1 Software Reset" id="SYSCTL_SRSSI_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SSI Module 2 Software Reset" id="SYSCTL_SRSSI_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SSI Module 3 Software Reset" id="SYSCTL_SRSSI_R3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRI2C" width="32" description="Inter-Integrated Circuit Software Reset" id="SYSCTL_SRI2C" offset="0x00000520" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Module 0 Software Reset" id="SYSCTL_SRI2C_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="I2C Module 1 Software Reset" id="SYSCTL_SRI2C_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="I2C Module 2 Software Reset" id="SYSCTL_SRI2C_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="I2C Module 3 Software Reset" id="SYSCTL_SRI2C_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="I2C Module 4 Software Reset" id="SYSCTL_SRI2C_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="I2C Module 5 Software Reset" id="SYSCTL_SRI2C_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="I2C Module 6 Software Reset" id="SYSCTL_SRI2C_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="I2C Module 7 Software Reset" id="SYSCTL_SRI2C_R7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="I2C Module 8 Software Reset" id="SYSCTL_SRI2C_R8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="I2C Module 9 Software Reset" id="SYSCTL_SRI2C_R9" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRUSB" width="32" description="Universal Serial Bus Software Reset" id="SYSCTL_SRUSB" offset="0x00000528" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="USB Module Software Reset" id="SYSCTL_SRUSB_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SREPHY" width="32" description="Ethernet PHY Software Reset" id="SYSCTL_SREPHY" offset="0x00000530" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet PHY Module Software Reset" id="SYSCTL_SREPHY_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRCAN" width="32" description="Controller Area Network Software Reset" id="SYSCTL_SRCAN" offset="0x00000534" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CAN Module 0 Software Reset" id="SYSCTL_SRCAN_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="CAN Module 1 Software Reset" id="SYSCTL_SRCAN_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRADC" width="32" description="Analog-to-Digital Converter Software Reset" id="SYSCTL_SRADC" offset="0x00000538" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ADC Module 0 Software Reset" id="SYSCTL_SRADC_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="ADC Module 1 Software Reset" id="SYSCTL_SRADC_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRACMP" width="32" description="Analog Comparator Software Reset" id="SYSCTL_SRACMP" offset="0x0000053C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Analog Comparator Module 0 Software Reset" id="SYSCTL_SRACMP_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRPWM" width="32" description="Pulse Width Modulator Software Reset" id="SYSCTL_SRPWM" offset="0x00000540" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Module 0 Software Reset" id="SYSCTL_SRPWM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRQEI" width="32" description="Quadrature Encoder Interface Software Reset" id="SYSCTL_SRQEI" offset="0x00000544" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="QEI Module 0 Software Reset" id="SYSCTL_SRQEI_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SREEPROM" width="32" description="EEPROM Software Reset" id="SYSCTL_SREEPROM" offset="0x00000558" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EEPROM Module Software Reset" id="SYSCTL_SREEPROM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SRCCM" width="32" description="CRC and Cryptographic Modules Software Reset" id="SYSCTL_SRCCM" offset="0x00000574" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CRC and Cryptographic Modules Software Reset" id="SYSCTL_SRCCM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SREMAC" width="32" description="Ethernet MAC Software Reset" id="SYSCTL_SREMAC" offset="0x0000059C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet Controller MAC Module 0 Software Reset" id="SYSCTL_SREMAC_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCWD" width="32" description="Watchdog Timer Run Mode Clock Gating Control" id="SYSCTL_RCGCWD" offset="0x00000600" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Watchdog Timer 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCWD_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Watchdog Timer 1 Run Mode Clock Gating Control" id="SYSCTL_RCGCWD_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCTIMER" width="32" description="16/32-Bit General-Purpose Timer Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER" offset="0x00000604" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="16/32-Bit General-Purpose Timer 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="16/32-Bit General-Purpose Timer 1 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="16/32-Bit General-Purpose Timer 2 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="16/32-Bit General-Purpose Timer 3 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="16/32-Bit General-Purpose Timer 4 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="16/32-Bit General-Purpose Timer 5 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="16/32-Bit General-Purpose Timer 6 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="16/32-Bit General-Purpose Timer 7 Run Mode Clock Gating Control" id="SYSCTL_RCGCTIMER_R7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCGPIO" width="32" description="General-Purpose Input/Output Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO" offset="0x00000608" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="GPIO Port A Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="GPIO Port B Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPIO Port C Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPIO Port D Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPIO Port E Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPIO Port F Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPIO Port G Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="GPIO Port H Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPIO Port J Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPIO Port K Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPIO Port L Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPIO Port M Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R11" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="GPIO Port N Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="GPIO Port P Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="GPIO Port Q Run Mode Clock Gating Control" id="SYSCTL_RCGCGPIO_R14" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCDMA" width="32" description="Micro Direct Memory Access Run Mode Clock Gating Control" id="SYSCTL_RCGCDMA" offset="0x0000060C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="uDMA Module Run Mode Clock Gating Control" id="SYSCTL_RCGCDMA_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCEPI" width="32" description="EPI Run Mode Clock Gating Control" id="SYSCTL_RCGCEPI" offset="0x00000610" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EPI Module Run Mode Clock Gating Control" id="SYSCTL_RCGCEPI_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCHIB" width="32" description="Hibernation Run Mode Clock Gating Control" id="SYSCTL_RCGCHIB" offset="0x00000614" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Hibernation Module Run Mode Clock Gating Control" id="SYSCTL_RCGCHIB_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCUART" width="32" description="Universal Asynchronous Receiver/Transmitter Run Mode Clock Gating Control" id="SYSCTL_RCGCUART" offset="0x00000618" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Module 1 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART Module 2 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="UART Module 3 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="UART Module 4 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="UART Module 5 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="UART Module 6 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Module 7 Run Mode Clock Gating Control" id="SYSCTL_RCGCUART_R7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCSSI" width="32" description="Synchronous Serial Interface Run Mode Clock Gating Control" id="SYSCTL_RCGCSSI" offset="0x0000061C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SSI Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCSSI_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SSI Module 1 Run Mode Clock Gating Control" id="SYSCTL_RCGCSSI_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SSI Module 2 Run Mode Clock Gating Control" id="SYSCTL_RCGCSSI_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SSI Module 3 Run Mode Clock Gating Control" id="SYSCTL_RCGCSSI_R3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCI2C" width="32" description="Inter-Integrated Circuit Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C" offset="0x00000620" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="I2C Module 1 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="I2C Module 2 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="I2C Module 3 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="I2C Module 4 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="I2C Module 5 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="I2C Module 6 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="I2C Module 7 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="I2C Module 8 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="I2C Module 9 Run Mode Clock Gating Control" id="SYSCTL_RCGCI2C_R9" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCUSB" width="32" description="Universal Serial Bus Run Mode Clock Gating Control" id="SYSCTL_RCGCUSB" offset="0x00000628" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="USB Module Run Mode Clock Gating Control" id="SYSCTL_RCGCUSB_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCEPHY" width="32" description="Ethernet PHY Run Mode Clock Gating Control" id="SYSCTL_RCGCEPHY" offset="0x00000630" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet PHY Module Run Mode Clock Gating Control" id="SYSCTL_RCGCEPHY_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCCAN" width="32" description="Controller Area Network Run Mode Clock Gating Control" id="SYSCTL_RCGCCAN" offset="0x00000634" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CAN Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCCAN_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="CAN Module 1 Run Mode Clock Gating Control" id="SYSCTL_RCGCCAN_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCADC" width="32" description="Analog-to-Digital Converter Run Mode Clock Gating Control" id="SYSCTL_RCGCADC" offset="0x00000638" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ADC Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCADC_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="ADC Module 1 Run Mode Clock Gating Control" id="SYSCTL_RCGCADC_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCACMP" width="32" description="Analog Comparator Run Mode Clock Gating Control" id="SYSCTL_RCGCACMP" offset="0x0000063C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Analog Comparator Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCACMP_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCPWM" width="32" description="Pulse Width Modulator Run Mode Clock Gating Control" id="SYSCTL_RCGCPWM" offset="0x00000640" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCPWM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCQEI" width="32" description="Quadrature Encoder Interface Run Mode Clock Gating Control" id="SYSCTL_RCGCQEI" offset="0x00000644" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="QEI Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCQEI_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCEEPROM" width="32" description="EEPROM Run Mode Clock Gating Control" id="SYSCTL_RCGCEEPROM" offset="0x00000658" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EEPROM Module Run Mode Clock Gating Control" id="SYSCTL_RCGCEEPROM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCCCM" width="32" description="CRC and Cryptographic Modules Run Mode Clock Gating Control" id="SYSCTL_RCGCCCM" offset="0x00000674" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CRC and Cryptographic Modules Run Mode Clock Gating Control" id="SYSCTL_RCGCCCM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_RCGCEMAC" width="32" description="Ethernet MAC Run Mode Clock Gating Control" id="SYSCTL_RCGCEMAC" offset="0x0000069C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet MAC Module 0 Run Mode Clock Gating Control" id="SYSCTL_RCGCEMAC_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCWD" width="32" description="Watchdog Timer Sleep Mode Clock Gating Control" id="SYSCTL_SCGCWD" offset="0x00000700" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Watchdog Timer 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCWD_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Watchdog Timer 1 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCWD_S1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCTIMER" width="32" description="16/32-Bit General-Purpose Timer Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER" offset="0x00000704" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="16/32-Bit General-Purpose Timer 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="16/32-Bit General-Purpose Timer 1 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="16/32-Bit General-Purpose Timer 2 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="16/32-Bit General-Purpose Timer 3 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="16/32-Bit General-Purpose Timer 4 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="16/32-Bit General-Purpose Timer 5 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="16/32-Bit General-Purpose Timer 6 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="16/32-Bit General-Purpose Timer 7 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCTIMER_S7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCGPIO" width="32" description="General-Purpose Input/Output Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO" offset="0x00000708" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="GPIO Port A Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="GPIO Port B Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPIO Port C Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPIO Port D Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPIO Port E Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPIO Port F Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPIO Port G Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="GPIO Port H Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPIO Port J Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPIO Port K Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPIO Port L Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPIO Port M Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S11" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="GPIO Port N Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="GPIO Port P Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="GPIO Port Q Sleep Mode Clock Gating Control" id="SYSCTL_SCGCGPIO_S14" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCDMA" width="32" description="Micro Direct Memory Access Sleep Mode Clock Gating Control" id="SYSCTL_SCGCDMA" offset="0x0000070C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="uDMA Module Sleep Mode Clock Gating Control" id="SYSCTL_SCGCDMA_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCEPI" width="32" description="EPI Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEPI" offset="0x00000710" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EPI Module Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEPI_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCHIB" width="32" description="Hibernation Sleep Mode Clock Gating Control" id="SYSCTL_SCGCHIB" offset="0x00000714" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Hibernation Module Sleep Mode Clock Gating Control" id="SYSCTL_SCGCHIB_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCUART" width="32" description="Universal Asynchronous Receiver/Transmitter Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART" offset="0x00000718" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Module 1 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART Module 2 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="UART Module 3 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="UART Module 4 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="UART Module 5 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="UART Module 6 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Module 7 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUART_S7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCSSI" width="32" description="Synchronous Serial Interface Sleep Mode Clock Gating Control" id="SYSCTL_SCGCSSI" offset="0x0000071C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SSI Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCSSI_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SSI Module 1 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCSSI_S1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SSI Module 2 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCSSI_S2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SSI Module 3 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCSSI_S3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCI2C" width="32" description="Inter-Integrated Circuit Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C" offset="0x00000720" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="I2C Module 1 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="I2C Module 2 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="I2C Module 3 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="I2C Module 4 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="I2C Module 5 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="I2C Module 6 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="I2C Module 7 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="I2C Module 8 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="I2C Module 9 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCI2C_S9" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCUSB" width="32" description="Universal Serial Bus Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUSB" offset="0x00000728" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="USB Module Sleep Mode Clock Gating Control" id="SYSCTL_SCGCUSB_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCEPHY" width="32" description="Ethernet PHY Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEPHY" offset="0x00000730" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PHY Module Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEPHY_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCCAN" width="32" description="Controller Area Network Sleep Mode Clock Gating Control" id="SYSCTL_SCGCCAN" offset="0x00000734" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CAN Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCCAN_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="CAN Module 1 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCCAN_S1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCADC" width="32" description="Analog-to-Digital Converter Sleep Mode Clock Gating Control" id="SYSCTL_SCGCADC" offset="0x00000738" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ADC Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCADC_S0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="ADC Module 1 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCADC_S1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCACMP" width="32" description="Analog Comparator Sleep Mode Clock Gating Control" id="SYSCTL_SCGCACMP" offset="0x0000073C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Analog Comparator Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCACMP_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCPWM" width="32" description="Pulse Width Modulator Sleep Mode Clock Gating Control" id="SYSCTL_SCGCPWM" offset="0x00000740" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCPWM_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCQEI" width="32" description="Quadrature Encoder Interface Sleep Mode Clock Gating Control" id="SYSCTL_SCGCQEI" offset="0x00000744" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="QEI Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCQEI_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCEEPROM" width="32" description="EEPROM Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEEPROM" offset="0x00000758" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EEPROM Module Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEEPROM_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCCCM" width="32" description="CRC and Cryptographic Modules Sleep Mode Clock Gating Control" id="SYSCTL_SCGCCCM" offset="0x00000774" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CRC and Cryptographic Modules Sleep Mode Clock Gating Control" id="SYSCTL_SCGCCCM_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_SCGCEMAC" width="32" description="Ethernet MAC Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEMAC" offset="0x0000079C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet MAC Module 0 Sleep Mode Clock Gating Control" id="SYSCTL_SCGCEMAC_S0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCWD" width="32" description="Watchdog Timer Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCWD" offset="0x00000800" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Watchdog Timer 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCWD_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Watchdog Timer 1 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCWD_D1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCTIMER" width="32" description="16/32-Bit General-Purpose Timer Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER" offset="0x00000804" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="16/32-Bit General-Purpose Timer 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="16/32-Bit General-Purpose Timer 1 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="16/32-Bit General-Purpose Timer 2 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="16/32-Bit General-Purpose Timer 3 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="16/32-Bit General-Purpose Timer 4 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="16/32-Bit General-Purpose Timer 5 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="16/32-Bit General-Purpose Timer 6 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="16/32-Bit General-Purpose Timer 7 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCTIMER_D7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCGPIO" width="32" description="General-Purpose Input/Output Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO" offset="0x00000808" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="GPIO Port A Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="GPIO Port B Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPIO Port C Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPIO Port D Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPIO Port E Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPIO Port F Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPIO Port G Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="GPIO Port H Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPIO Port J Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPIO Port K Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPIO Port L Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPIO Port M Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D11" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="GPIO Port N Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="GPIO Port P Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="GPIO Port Q Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCGPIO_D14" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCDMA" width="32" description="Micro Direct Memory Access Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCDMA" offset="0x0000080C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="uDMA Module Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCDMA_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCEPI" width="32" description="EPI Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEPI" offset="0x00000810" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EPI Module Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEPI_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCHIB" width="32" description="Hibernation Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCHIB" offset="0x00000814" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Hibernation Module Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCHIB_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCUART" width="32" description="Universal Asynchronous Receiver/Transmitter Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART" offset="0x00000818" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Module 1 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART Module 2 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="UART Module 3 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="UART Module 4 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="UART Module 5 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="UART Module 6 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Module 7 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUART_D7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCSSI" width="32" description="Synchronous Serial Interface Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCSSI" offset="0x0000081C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SSI Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCSSI_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SSI Module 1 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCSSI_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SSI Module 2 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCSSI_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SSI Module 3 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCSSI_D3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCI2C" width="32" description="Inter-Integrated Circuit Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C" offset="0x00000820" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="I2C Module 1 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="I2C Module 2 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="I2C Module 3 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="I2C Module 4 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="I2C Module 5 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="I2C Module 6 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="I2C Module 7 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="I2C Module 8 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="I2C Module 9 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCI2C_D9" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCUSB" width="32" description="Universal Serial Bus Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUSB" offset="0x00000828" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="USB Module Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCUSB_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCEPHY" width="32" description="Ethernet PHY Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEPHY" offset="0x00000830" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PHY Module Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEPHY_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCCAN" width="32" description="Controller Area Network Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCCAN" offset="0x00000834" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CAN Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCCAN_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="CAN Module 1 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCCAN_D1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCADC" width="32" description="Analog-to-Digital Converter Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCADC" offset="0x00000838" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ADC Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCADC_D0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="ADC Module 1 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCADC_D1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCACMP" width="32" description="Analog Comparator Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCACMP" offset="0x0000083C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Analog Comparator Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCACMP_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCPWM" width="32" description="Pulse Width Modulator Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCPWM" offset="0x00000840" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCPWM_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCQEI" width="32" description="Quadrature Encoder Interface Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCQEI" offset="0x00000844" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="QEI Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCQEI_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCEEPROM" width="32" description="EEPROM Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEEPROM" offset="0x00000858" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EEPROM Module Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEEPROM_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCCCM" width="32" description="CRC and Cryptographic Modules Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCCCM" offset="0x00000874" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CRC and Cryptographic Modules Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCCCM_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_DCGCEMAC" width="32" description="Ethernet MAC Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEMAC" offset="0x0000089C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet MAC Module 0 Deep-Sleep Mode Clock Gating Control" id="SYSCTL_DCGCEMAC_D0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCWD" width="32" description="Watchdog Timer Power Control" id="SYSCTL_PCWD" offset="0x00000900" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Watchdog Timer 0 Power Control" id="SYSCTL_PCWD_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Watchdog Timer 1 Power Control" id="SYSCTL_PCWD_P1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCTIMER" width="32" description="16/32-Bit General-Purpose Timer Power Control" id="SYSCTL_PCTIMER" offset="0x00000904" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="General-Purpose Timer 0 Power Control" id="SYSCTL_PCTIMER_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="General-Purpose Timer 1 Power Control" id="SYSCTL_PCTIMER_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="General-Purpose Timer 2 Power Control" id="SYSCTL_PCTIMER_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="General-Purpose Timer 3 Power Control" id="SYSCTL_PCTIMER_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="General-Purpose Timer 4 Power Control" id="SYSCTL_PCTIMER_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="General-Purpose Timer 5 Power Control" id="SYSCTL_PCTIMER_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="General-Purpose Timer 6 Power Control" id="SYSCTL_PCTIMER_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="General-Purpose Timer 7 Power Control" id="SYSCTL_PCTIMER_P7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCGPIO" width="32" description="General-Purpose Input/Output Power Control" id="SYSCTL_PCGPIO" offset="0x00000908" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="GPIO Port A Power Control" id="SYSCTL_PCGPIO_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="GPIO Port B Power Control" id="SYSCTL_PCGPIO_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="GPIO Port C Power Control" id="SYSCTL_PCGPIO_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="GPIO Port D Power Control" id="SYSCTL_PCGPIO_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="GPIO Port E Power Control" id="SYSCTL_PCGPIO_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="GPIO Port F Power Control" id="SYSCTL_PCGPIO_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="GPIO Port G Power Control" id="SYSCTL_PCGPIO_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="GPIO Port H Power Control" id="SYSCTL_PCGPIO_P7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="GPIO Port J Power Control" id="SYSCTL_PCGPIO_P8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="GPIO Port K Power Control" id="SYSCTL_PCGPIO_P9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="GPIO Port L Power Control" id="SYSCTL_PCGPIO_P10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="GPIO Port M Power Control" id="SYSCTL_PCGPIO_P11" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="GPIO Port N Power Control" id="SYSCTL_PCGPIO_P12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="GPIO Port P Power Control" id="SYSCTL_PCGPIO_P13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="GPIO Port Q Power Control" id="SYSCTL_PCGPIO_P14" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCDMA" width="32" description="Micro Direct Memory Access Power Control" id="SYSCTL_PCDMA" offset="0x0000090C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="uDMA Module Power Control" id="SYSCTL_PCDMA_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCEPI" width="32" description="External Peripheral Interface Power Control" id="SYSCTL_PCEPI" offset="0x00000910" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EPI Module Power Control" id="SYSCTL_PCEPI_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCHIB" width="32" description="Hibernation Power Control" id="SYSCTL_PCHIB" offset="0x00000914" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Hibernation Module Power Control" id="SYSCTL_PCHIB_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCUART" width="32" description="Universal Asynchronous Receiver/Transmitter Power Control" id="SYSCTL_PCUART" offset="0x00000918" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="UART Module 0 Power Control" id="SYSCTL_PCUART_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="UART Module 1 Power Control" id="SYSCTL_PCUART_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="UART Module 2 Power Control" id="SYSCTL_PCUART_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="UART Module 3 Power Control" id="SYSCTL_PCUART_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="UART Module 4 Power Control" id="SYSCTL_PCUART_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="UART Module 5 Power Control" id="SYSCTL_PCUART_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="UART Module 6 Power Control" id="SYSCTL_PCUART_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="UART Module 7 Power Control" id="SYSCTL_PCUART_P7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCSSI" width="32" description="Synchronous Serial Interface Power Control" id="SYSCTL_PCSSI" offset="0x0000091C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SSI Module 0 Power Control" id="SYSCTL_PCSSI_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="SSI Module 1 Power Control" id="SYSCTL_PCSSI_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SSI Module 2 Power Control" id="SYSCTL_PCSSI_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="SSI Module 3 Power Control" id="SYSCTL_PCSSI_P3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCI2C" width="32" description="Inter-Integrated Circuit Power Control" id="SYSCTL_PCI2C" offset="0x00000920" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Module 0 Power Control" id="SYSCTL_PCI2C_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="I2C Module 1 Power Control" id="SYSCTL_PCI2C_P1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="I2C Module 2 Power Control" id="SYSCTL_PCI2C_P2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="I2C Module 3 Power Control" id="SYSCTL_PCI2C_P3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="I2C Module 4 Power Control" id="SYSCTL_PCI2C_P4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="I2C Module 5 Power Control" id="SYSCTL_PCI2C_P5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="I2C Module 6 Power Control" id="SYSCTL_PCI2C_P6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="I2C Module 7 Power Control" id="SYSCTL_PCI2C_P7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="I2C Module 8 Power Control" id="SYSCTL_PCI2C_P8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="I2C Module 9 Power Control" id="SYSCTL_PCI2C_P9" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCUSB" width="32" description="Universal Serial Bus Power Control" id="SYSCTL_PCUSB" offset="0x00000928" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="USB Module Power Control" id="SYSCTL_PCUSB_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCEPHY" width="32" description="Ethernet PHY Power Control" id="SYSCTL_PCEPHY" offset="0x00000930" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet PHY Module Power Control" id="SYSCTL_PCEPHY_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCCAN" width="32" description="Controller Area Network Power Control" id="SYSCTL_PCCAN" offset="0x00000934" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CAN Module 0 Power Control" id="SYSCTL_PCCAN_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="CAN Module 1 Power Control" id="SYSCTL_PCCAN_P1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCADC" width="32" description="Analog-to-Digital Converter Power Control" id="SYSCTL_PCADC" offset="0x00000938" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ADC Module 0 Power Control" id="SYSCTL_PCADC_P0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="ADC Module 1 Power Control" id="SYSCTL_PCADC_P1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCACMP" width="32" description="Analog Comparator Power Control" id="SYSCTL_PCACMP" offset="0x0000093C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Analog Comparator Module 0 Power Control" id="SYSCTL_PCACMP_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCPWM" width="32" description="Pulse Width Modulator Power Control" id="SYSCTL_PCPWM" offset="0x00000940" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="PWM Module 0 Power Control" id="SYSCTL_PCPWM_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCQEI" width="32" description="Quadrature Encoder Interface Power Control" id="SYSCTL_PCQEI" offset="0x00000944" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="QEI Module 0 Power Control" id="SYSCTL_PCQEI_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCEEPROM" width="32" description="EEPROM Power Control" id="SYSCTL_PCEEPROM" offset="0x00000958" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="EEPROM Module 0 Power Control" id="SYSCTL_PCEEPROM_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCCCM" width="32" description="CRC and Cryptographic Modules Power Control" id="SYSCTL_PCCCM" offset="0x00000974" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CRC and Cryptographic Modules Power Control" id="SYSCTL_PCCCM_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PCEMAC" width="32" description="Ethernet MAC Power Control" id="SYSCTL_PCEMAC" offset="0x0000099C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Ethernet MAC Module 0 Power Control" id="SYSCTL_PCEMAC_P0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRWD" width="32" description="Watchdog Timer Peripheral Ready" id="SYSCTL_PRWD" offset="0x00000A00" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Watchdog Timer 0 Peripheral Ready" id="SYSCTL_PRWD_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Watchdog Timer 1 Peripheral Ready" id="SYSCTL_PRWD_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRTIMER" width="32" description="16/32-Bit General-Purpose Timer Peripheral Ready" id="SYSCTL_PRTIMER" offset="0x00000A04" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="16/32-Bit General-Purpose Timer 0 Peripheral Ready" id="SYSCTL_PRTIMER_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="16/32-Bit General-Purpose Timer 1 Peripheral Ready" id="SYSCTL_PRTIMER_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="16/32-Bit General-Purpose Timer 2 Peripheral Ready" id="SYSCTL_PRTIMER_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="16/32-Bit General-Purpose Timer 3 Peripheral Ready" id="SYSCTL_PRTIMER_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="16/32-Bit General-Purpose Timer 4 Peripheral Ready" id="SYSCTL_PRTIMER_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="16/32-Bit General-Purpose Timer 5 Peripheral Ready" id="SYSCTL_PRTIMER_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="16/32-Bit General-Purpose Timer 6 Peripheral Ready" id="SYSCTL_PRTIMER_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="16/32-Bit General-Purpose Timer 7 Peripheral Ready" id="SYSCTL_PRTIMER_R7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRGPIO" width="32" description="General-Purpose Input/Output Peripheral Ready" id="SYSCTL_PRGPIO" offset="0x00000A08" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="GPIO Port A Peripheral Ready" id="SYSCTL_PRGPIO_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="GPIO Port B Peripheral Ready" id="SYSCTL_PRGPIO_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="GPIO Port C Peripheral Ready" id="SYSCTL_PRGPIO_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="GPIO Port D Peripheral Ready" id="SYSCTL_PRGPIO_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="GPIO Port E Peripheral Ready" id="SYSCTL_PRGPIO_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="GPIO Port F Peripheral Ready" id="SYSCTL_PRGPIO_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="GPIO Port G Peripheral Ready" id="SYSCTL_PRGPIO_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="GPIO Port H Peripheral Ready" id="SYSCTL_PRGPIO_R7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="GPIO Port J Peripheral Ready" id="SYSCTL_PRGPIO_R8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="GPIO Port K Peripheral Ready" id="SYSCTL_PRGPIO_R9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="GPIO Port L Peripheral Ready" id="SYSCTL_PRGPIO_R10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="GPIO Port M Peripheral Ready" id="SYSCTL_PRGPIO_R11" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="R" description="GPIO Port N Peripheral Ready" id="SYSCTL_PRGPIO_R12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="R" description="GPIO Port P Peripheral Ready" id="SYSCTL_PRGPIO_R13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="R" description="GPIO Port Q Peripheral Ready" id="SYSCTL_PRGPIO_R14" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRDMA" width="32" description="Micro Direct Memory Access Peripheral Ready" id="SYSCTL_PRDMA" offset="0x00000A0C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="uDMA Module Peripheral Ready" id="SYSCTL_PRDMA_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PREPI" width="32" description="EPI Peripheral Ready" id="SYSCTL_PREPI" offset="0x00000A10" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="EPI Module Peripheral Ready" id="SYSCTL_PREPI_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRHIB" width="32" description="Hibernation Peripheral Ready" id="SYSCTL_PRHIB" offset="0x00000A14" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Hibernation Module Peripheral Ready" id="SYSCTL_PRHIB_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRUART" width="32" description="Universal Asynchronous Receiver/Transmitter Peripheral Ready" id="SYSCTL_PRUART" offset="0x00000A18" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="UART Module 0 Peripheral Ready" id="SYSCTL_PRUART_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="UART Module 1 Peripheral Ready" id="SYSCTL_PRUART_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="UART Module 2 Peripheral Ready" id="SYSCTL_PRUART_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="UART Module 3 Peripheral Ready" id="SYSCTL_PRUART_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="UART Module 4 Peripheral Ready" id="SYSCTL_PRUART_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="UART Module 5 Peripheral Ready" id="SYSCTL_PRUART_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="UART Module 6 Peripheral Ready" id="SYSCTL_PRUART_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="UART Module 7 Peripheral Ready" id="SYSCTL_PRUART_R7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRSSI" width="32" description="Synchronous Serial Interface Peripheral Ready" id="SYSCTL_PRSSI" offset="0x00000A1C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="SSI Module 0 Peripheral Ready" id="SYSCTL_PRSSI_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="SSI Module 1 Peripheral Ready" id="SYSCTL_PRSSI_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="SSI Module 2 Peripheral Ready" id="SYSCTL_PRSSI_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="SSI Module 3 Peripheral Ready" id="SYSCTL_PRSSI_R3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRI2C" width="32" description="Inter-Integrated Circuit Peripheral Ready" id="SYSCTL_PRI2C" offset="0x00000A20" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="I2C Module 0 Peripheral Ready" id="SYSCTL_PRI2C_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="I2C Module 1 Peripheral Ready" id="SYSCTL_PRI2C_R1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="I2C Module 2 Peripheral Ready" id="SYSCTL_PRI2C_R2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="I2C Module 3 Peripheral Ready" id="SYSCTL_PRI2C_R3" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="I2C Module 4 Peripheral Ready" id="SYSCTL_PRI2C_R4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="I2C Module 5 Peripheral Ready" id="SYSCTL_PRI2C_R5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="I2C Module 6 Peripheral Ready" id="SYSCTL_PRI2C_R6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="I2C Module 7 Peripheral Ready" id="SYSCTL_PRI2C_R7" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="I2C Module 8 Peripheral Ready" id="SYSCTL_PRI2C_R8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="I2C Module 9 Peripheral Ready" id="SYSCTL_PRI2C_R9" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRUSB" width="32" description="Universal Serial Bus Peripheral Ready" id="SYSCTL_PRUSB" offset="0x00000A28" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="USB Module Peripheral Ready" id="SYSCTL_PRUSB_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PREPHY" width="32" description="Ethernet PHY Peripheral Ready" id="SYSCTL_PREPHY" offset="0x00000A30" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Ethernet PHY Module Peripheral Ready" id="SYSCTL_PREPHY_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRCAN" width="32" description="Controller Area Network Peripheral Ready" id="SYSCTL_PRCAN" offset="0x00000A34" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="CAN Module 0 Peripheral Ready" id="SYSCTL_PRCAN_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="CAN Module 1 Peripheral Ready" id="SYSCTL_PRCAN_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRADC" width="32" description="Analog-to-Digital Converter Peripheral Ready" id="SYSCTL_PRADC" offset="0x00000A38" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="ADC Module 0 Peripheral Ready" id="SYSCTL_PRADC_R0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="ADC Module 1 Peripheral Ready" id="SYSCTL_PRADC_R1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRACMP" width="32" description="Analog Comparator Peripheral Ready" id="SYSCTL_PRACMP" offset="0x00000A3C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Analog Comparator Module 0 Peripheral Ready" id="SYSCTL_PRACMP_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRPWM" width="32" description="Pulse Width Modulator Peripheral Ready" id="SYSCTL_PRPWM" offset="0x00000A40" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="PWM Module 0 Peripheral Ready" id="SYSCTL_PRPWM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRQEI" width="32" description="Quadrature Encoder Interface Peripheral Ready" id="SYSCTL_PRQEI" offset="0x00000A44" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="QEI Module 0 Peripheral Ready" id="SYSCTL_PRQEI_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PREEPROM" width="32" description="EEPROM Peripheral Ready" id="SYSCTL_PREEPROM" offset="0x00000A58" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="EEPROM Module Peripheral Ready" id="SYSCTL_PREEPROM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PRCCM" width="32" description="CRC and Cryptographic Modules Peripheral Ready" id="SYSCTL_PRCCM" offset="0x00000A74" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="CRC and Cryptographic Modules Peripheral Ready" id="SYSCTL_PRCCM_R0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="SYSCTL_PREMAC" width="32" description="Ethernet MAC Peripheral Ready" id="SYSCTL_PREMAC" offset="0x00000A9C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Ethernet MAC Module 0 Peripheral Ready" id="SYSCTL_PREMAC_R0" resetval="" >
+        </bitfield>
+    </register>
+</module>

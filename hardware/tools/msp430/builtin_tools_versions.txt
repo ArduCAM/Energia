@@ -1,0 +1,4 @@
+energia.msp430-gcc=4.6.3
+energia.mspdebug=0.22
+energia.msp430-gcc=4.6.3
+energia.mspdebug=0.22

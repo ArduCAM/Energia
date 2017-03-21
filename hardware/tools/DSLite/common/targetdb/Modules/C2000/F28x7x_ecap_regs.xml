@@ -1,0 +1,82 @@
+<module id="ECAP_REGS" HW_revision="" description="ECAP Registers">
+	<register id="TSCTR" width="32" page="1" offset="0x0" internal="0" description="Time-Stamp Counter">
+		<bitfield id="TSCTR" description="Time Stamp Counter " begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CTRPHS" width="32" page="1" offset="0x2" internal="0" description="Counter Phase Offset Value Register">
+		<bitfield id="CTRPHS" description="Counter phase " begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CAP1" width="32" page="1" offset="0x4" internal="0" description="Capture 1 Register">
+		<bitfield id="CAP1" description="Capture 1 " begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CAP2" width="32" page="1" offset="0x6" internal="0" description="Capture 2 Register">
+		<bitfield id="CAP2" description="Capture 2" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CAP3" width="32" page="1" offset="0x8" internal="0" description="Capture 3 Register">
+		<bitfield id="CAP3" description="Capture 3" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CAP4" width="32" page="1" offset="0xa" internal="0" description="Capture 4 Register">
+		<bitfield id="CAP4" description="Capture 4" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="ECCTL1" width="16" page="1" offset="0x14" internal="0" description="Capture Control Register 1">
+		<bitfield id="CAP1POL" description="Capture Event 1 Polarity select" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CTRRST1" description="Counter Reset on Capture Event 1 " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CAP2POL" description="Capture Event 2 Polarity select " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CTRRST2" description="Counter Reset on Capture Event 2 " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CAP3POL" description="Capture Event 3 Polarity select " begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CTRRST3" description="Counter Reset on Capture Event 3 " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CAP4POL" description="Capture Event 4 Polarity select " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="CTRRST4" description="Counter Reset on Capture Event 4 " begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="CAPLDEN" description="Enable Loading CAP1-4 regs on a Cap Event " begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="PRESCALE" description="Event Filter prescale select " begin="13" end="9" width="5" rwaccess="R/W"/>
+		<bitfield id="FREE_SOFT" description="Emulation mode " begin="15" end="14" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="ECCTL2" width="16" page="1" offset="0x15" internal="0" description="Capture Control Register 2">
+		<bitfield id="CONT_ONESHT" description="Continuous or one-shot " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="STOP_WRAP" description="Stop value for one-shot, Wrap for continuous" begin="2" end="1" width="2" rwaccess="R/W"/>
+		<bitfield id="REARM" description="One-shot re-arm " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="TSCTRSTOP" description="TSCNT counter stop " begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="SYNCI_EN" description="Counter sync-in select" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="SYNCO_SEL" description="Sync-out mode " begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="SWSYNC" description="SW forced counter sync " begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CAP_APWM" description="CAP/APWM operating mode select " begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="APWMPOL" description=" APWM output polarity select " begin="10" end="10" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ECEINT" width="16" page="1" offset="0x16" internal="0" description="Capture Interrupt Enable Register">
+		<bitfield id="CEVT1" description="Capture Event 1 Interrupt Enable " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CEVT2" description="Capture Event 2 Interrupt Enable " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CEVT3" description="Capture Event 3 Interrupt Enable " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CEVT4" description="Capture Event 4 Interrupt Enable " begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CTROVF" description="Counter Overflow Interrupt Enable " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CTR_EQ_PRD" description="Period Equal Interrupt Enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="CTR_EQ_CMP" description="Compare Equal Interrupt Enable " begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ECFLG" width="16" page="1" offset="0x17" internal="0" description="Capture Interrupt Flag Register">
+		<bitfield id="INT" description="Global Flag " begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="CEVT1" description="Capture Event 1 Interrupt Flag " begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="CEVT2" description="Capture Event 2 Interrupt Flag " begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="CEVT3" description="Capture Event 3 Interrupt Flag " begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="CEVT4" description="Capture Event 4 Interrupt Flag " begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="CTROVF" description="Counter Overflow Interrupt Flag " begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="CTR_PRD" description="Period Equal Interrupt Flag " begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="CTR_CMP" description="Compare Equal Interrupt Flag" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="ECCLR" width="16" page="1" offset="0x18" internal="0" description="Capture Interrupt Clear Register">
+		<bitfield id="INT" description="ECAP Global Interrupt Status Clear" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CEVT1" description="Capture Event 1 Status Clear" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CEVT2" description="Capture Event 2 Status Clear" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CEVT3" description="Capture Event 3 Status Clear" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CEVT4" description="Capture Event 4 Status Clear" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CTROVF" description="Counter Overflow Status Clear" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CTR_PRD" description="Period Equal Status Clear" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CTR_CMP" description="Compare Equal Status Clear " begin="7" end="7" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="ECFRC" width="16" page="1" offset="0x19" internal="0" description="Capture Interrupt Force Register">
+		<bitfield id="CEVT1" description="Capture Event 1 Force Interrupt " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CEVT2" description="Capture Event 2 Force Interrupt " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CEVT3" description="Capture Event 3 Force Interrupt " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CEVT4" description="Capture Event 4 Force Interrupt " begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CTROVF" description="Counter Overflow Force Interrupt " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CTR_PRD" description="Period Equal Force Interrupt" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="CTR_CMP" description="Compare Equal Force Interrupt " begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+</module>

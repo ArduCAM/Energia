@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Libraries> 
+    <Library Name="f021_m3_le.nfl" Version="1.52" Technology="F021"/>
+    <Library Name="f021_c28x.nfl"  Version="1.52" Technology="F021"/>
+	<Library Name="F2837xD_f021_c28x.nfl"  Version="1.53" Technology="F021"/>
+	<Library Name="F2837xS_f021_c28x.nfl"  Version="1.54" Technology="F021"/>
+</Libraries>

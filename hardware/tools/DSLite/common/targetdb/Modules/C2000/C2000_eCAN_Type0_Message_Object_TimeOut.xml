@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:24:57 $
+  -->
+
+
+<!-- TMS320C2000 eCAN Message Object Time-Outs
+     ================+==========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="ECAN_MOTO" HW_revision="" XML_version="1" description="eCAN Message Object Time-Outs">
+	<register id="MBX0_MOTO" acronym="MBX0_MOTO" offset="0" page="1" width="32" description="eCAN Mailbox 0 Message Object Time-Out" /> 
+	<register id="MBX1_MOTO" acronym="MBX1_MOTO" offset="2" page="1" width="32" description="eCAN Mailbox 1 Message Object Time-Out" /> 
+	<register id="MBX2_MOTO" acronym="MBX2_MOTO" offset="4" page="1" width="32" description="eCAN Mailbox 2 Message Object Time-Out" /> 
+	<register id="MBX3_MOTO" acronym="MBX3_MOTO" offset="6" page="1" width="32" description="eCAN Mailbox 3 Message Object Time-Out" /> 
+	<register id="MBX4_MOTO" acronym="MBX4_MOTO" offset="8" page="1" width="32" description="eCAN Mailbox 4 Message Object Time-Out" /> 
+	<register id="MBX5_MOTO" acronym="MBX5_MOTO" offset="10" page="1" width="32" description="eCAN Mailbox 5 Message Object Time-Out" /> 
+	<register id="MBX6_MOTO" acronym="MBX6_MOTO" offset="12" page="1" width="32" description="eCAN Mailbox 6 Message Object Time-Out" /> 
+	<register id="MBX7_MOTO" acronym="MBX7_MOTO" offset="14" page="1" width="32" description="eCAN Mailbox 7 Message Object Time-Out" /> 
+	<register id="MBX8_MOTO" acronym="MBX8_MOTO" offset="16" page="1" width="32" description="eCAN Mailbox 8 Message Object Time-Out" /> 
+	<register id="MBX9_MOTO" acronym="MBX9_MOTO" offset="18" page="1" width="32" description="eCAN Mailbox 9 Message Object Time-Out" /> 
+	<register id="MBX10_MOTO" acronym="MBX10_MOTO" offset="20" page="1" width="32" description="eCAN Mailbox 10 Message Object Time-Out" /> 
+	<register id="MBX11_MOTO" acronym="MBX11_MOTO" offset="22" page="1" width="32" description="eCAN Mailbox 11 Message Object Time-Out" /> 
+	<register id="MBX12_MOTO" acronym="MBX12_MOTO" offset="24" page="1" width="32" description="eCAN Mailbox 12 Message Object Time-Out" /> 
+	<register id="MBX13_MOTO" acronym="MBX13_MOTO" offset="26" page="1" width="32" description="eCAN Mailbox 13 Message Object Time-Out" /> 
+	<register id="MBX14_MOTO" acronym="MBX14_MOTO" offset="28" page="1" width="32" description="eCAN Mailbox 14 Message Object Time-Out" /> 
+	<register id="MBX15_MOTO" acronym="MBX15_MOTO" offset="30" page="1" width="32" description="eCAN Mailbox 15 Message Object Time-Out" /> 
+	<register id="MBX16_MOTO" acronym="MBX16_MOTO" offset="32" page="1" width="32" description="eCAN Mailbox 16 Message Object Time-Out" /> 
+	<register id="MBX17_MOTO" acronym="MBX17_MOTO" offset="34" page="1" width="32" description="eCAN Mailbox 17 Message Object Time-Out" /> 
+	<register id="MBX18_MOTO" acronym="MBX18_MOTO" offset="36" page="1" width="32" description="eCAN Mailbox 18 Message Object Time-Out" /> 
+	<register id="MBX19_MOTO" acronym="MBX19_MOTO" offset="38" page="1" width="32" description="eCAN Mailbox 19 Message Object Time-Out" /> 
+	<register id="MBX20_MOTO" acronym="MBX20_MOTO" offset="40" page="1" width="32" description="eCAN Mailbox 20 Message Object Time-Out" /> 
+	<register id="MBX21_MOTO" acronym="MBX21_MOTO" offset="42" page="1" width="32" description="eCAN Mailbox 21 Message Object Time-Out" /> 
+	<register id="MBX22_MOTO" acronym="MBX22_MOTO" offset="44" page="1" width="32" description="eCAN Mailbox 22 Message Object Time-Out" /> 
+	<register id="MBX23_MOTO" acronym="MBX23_MOTO" offset="46" page="1" width="32" description="eCAN Mailbox 23 Message Object Time-Out" /> 
+	<register id="MBX24_MOTO" acronym="MBX24_MOTO" offset="48" page="1" width="32" description="eCAN Mailbox 24 Message Object Time-Out" /> 
+	<register id="MBX25_MOTO" acronym="MBX25_MOTO" offset="50" page="1" width="32" description="eCAN Mailbox 25 Message Object Time-Out" /> 
+	<register id="MBX26_MOTO" acronym="MBX26_MOTO" offset="52" page="1" width="32" description="eCAN Mailbox 26 Message Object Time-Out" /> 
+	<register id="MBX27_MOTO" acronym="MBX27_MOTO" offset="54" page="1" width="32" description="eCAN Mailbox 27 Message Object Time-Out" /> 
+	<register id="MBX28_MOTO" acronym="MBX28_MOTO" offset="56" page="1" width="32" description="eCAN Mailbox 28 Message Object Time-Out" /> 
+	<register id="MBX29_MOTO" acronym="MBX29_MOTO" offset="58" page="1" width="32" description="eCAN Mailbox 29 Message Object Time-Out" /> 
+	<register id="MBX30_MOTO" acronym="MBX30_MOTO" offset="60" page="1" width="32" description="eCAN Mailbox 30 Message Object Time-Out" /> 
+	<register id="MBX31_MOTO" acronym="MBX31_MOTO" offset="62" page="1" width="32" description="eCAN Mailbox 31 Message Object Time-Out" /> 
+</module>

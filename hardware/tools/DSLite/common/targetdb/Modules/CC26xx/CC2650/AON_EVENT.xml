@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AON_EVENT" HW_revision="" XML_version="1.0" description="This module configures the event fabric located in the AON domain.
+
+Note: This module is only supporting 32 bit ReadWrite access from MCU
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="MCUWUSEL" width="32" description="Wake-up Selector For MCU
+
+This register contains pointers to 4 events which are routed to AON_WUC as wakeup sources for MCU. AON_WUC will start a wakeup sequence for the MCU domain when either of the 4 selected events are asserted. A wakeup sequence will guarantee that the MCU power switches are turned on, LDO resources are available and SCLK_HF is available and selected as clock source for MCU.
+
+Note: It is recommended ( or required when AON_WUC:MCUCLK.PWR_DWN_SRC=NONE) to also setup a wakeup event here before MCU is requesting powerdown. ( PRCM requests uLDO, see conditions in PRCM:VDCTL.ULDO ) as it will speed up the wakeup procedure.
+
+" id="MCUWUSEL" offset="0x0">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RW" description="MCU Wakeup Source #3
+
+AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down.
+Note:  
+" id="WU3_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RW" description="MCU Wakeup Source #2
+
+AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down.
+Note:  
+" id="WU2_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="MCU Wakeup Source #1
+
+AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down.
+Note:  
+" id="WU1_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="MCU Wakeup Source #0
+
+AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down.
+Note:  
+" id="WU0_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+   </register>
+   <register acronym="AUXWUSEL" width="32" description="Wake-up Selector For AUX
+
+This register contains pointers to 3 events which are routed to AON_WUC as wakeup sources for AUX. AON_WUC will start a wakeup sequence for the AUX domain when either of the 3 selected events are asserted. A wakeup sequence will guarantee that the AUX power switches are turned on, LDO resources are available and SCLK_HF is available and selected as clock source for AUX.
+
+Note: It is recommended ( or required when AON_WUC:AUXCLK.PWR_DWN_SRC=NONE) to also setup a wakeup event here before AUX is requesting powerdown. ( AUX_WUC:PWRDWNREQ.REQ is asserted] ) as it will speed up the wakeup procedure.
+
+" id="AUXWUSEL" offset="0x4">
+      <bitfield range="" begin="31" width="10" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RW" description="AUX Wakeup Source #2
+
+AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down.
+Note:  
+" id="WU2_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="AUX Wakeup Source #1
+
+AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down.
+Note:  
+" id="WU1_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="AUX Wakeup Source #0
+
+AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down.
+Note:  
+" id="WU0_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+   </register>
+   <register acronym="EVTOMCUSEL" width="32" description="Event Selector For MCU Event Fabric 
+
+This register contains pointers for 3 AON events that are routed to the MCU Event Fabric EVENT
+" id="EVTOMCUSEL" offset="0x8">
+      <bitfield range="" begin="31" width="10" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RW" description="Event selector for AON_PROG2 event.
+
+AON Event Source id# selecting event routed to EVENT as AON_PROG2 event.
+" id="AON_PROG2_EV" resetval="0x2b">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="Event selector for AON_PROG1 event.
+
+AON Event Source id# selecting event routed to EVENT as AON_PROG1 event.
+" id="AON_PROG1_EV" resetval="0x2b">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Event selector for AON_PROG0 event.
+
+AON Event Source id# selecting event routed to EVENT as AON_PROG0 event.
+" id="AON_PROG0_EV" resetval="0x2b">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+   </register>
+   <register acronym="RTCSEL" width="32" description="RTC Capture Event Selector For AON_RTC
+
+This register contains a pointer to select an AON event for RTC capture. Please refer to AON_RTC:CH1CAPT
+" id="RTCSEL" offset="0xc">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT
+" id="RTC_CH1_CAPT_EV" resetval="0x3f">
+         <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
+         <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="AUX_COMPB_ASYNC" value="55" token="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"/>
+         <bitenum id="BATMON_VOLT" value="54" token="BATMON voltage update event" description="BATMON voltage update event"/>
+         <bitenum id="BATMON_TEMP" value="53" token="BATMON temperature update event" description="BATMON temperature update event"/>
+         <bitenum id="AUX_TIMER1_EV" value="52" token="AUX Timer 1 Event" description="AUX Timer 1 Event"/>
+         <bitenum id="AUX_TIMER0_EV" value="51" token="AUX Timer 0 Event" description="AUX Timer 0 Event"/>
+         <bitenum id="AUX_TDC_DONE" value="50" token="TDC completed or timed out" description="TDC completed or timed out"/>
+         <bitenum id="AUX_ADC_DONE" value="49" token="ADC conversion completed" description="ADC conversion completed"/>
+         <bitenum id="AUX_COMPB" value="48" token="Comparator B triggered" description="Comparator B triggered"/>
+         <bitenum id="AUX_COMPA" value="47" token="Comparator A triggered" description="Comparator A triggered"/>
+         <bitenum id="AUX_SWEV2" value="46" token="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2" description="AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"/>
+         <bitenum id="AUX_SWEV1" value="45" token="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1" description="AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"/>
+         <bitenum id="AUX_SWEV0" value="44" token="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0" description="AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"/>
+         <bitenum id="JTAG" value="43" token="JTAG generated event" description="JTAG generated event"/>
+         <bitenum id="RTC_UPD" value="42" token="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)" description="RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"/>
+         <bitenum id="RTC_COMB_DLY" value="41" token="RTC combined delayed event" description="RTC combined delayed event"/>
+         <bitenum id="RTC_CH2_DLY" value="40" token="RTC channel 2 - delayed event" description="RTC channel 2 - delayed event"/>
+         <bitenum id="RTC_CH1_DLY" value="39" token="RTC channel 1 - delayed event" description="RTC channel 1 - delayed event"/>
+         <bitenum id="RTC_CH0_DLY" value="38" token="RTC channel 0 - delayed event" description="RTC channel 0 - delayed event"/>
+         <bitenum id="RTC_CH2" value="37" token="RTC channel 2 event" description="RTC channel 2 event"/>
+         <bitenum id="RTC_CH1" value="36" token="RTC channel 1 event" description="RTC channel 1 event"/>
+         <bitenum id="RTC_CH0" value="35" token="RTC channel 0 event" description="RTC channel 0 event"/>
+         <bitenum id="PAD" value="32" token="Edge detect on any PAD" description="Edge detect on any PAD"/>
+         <bitenum id="PAD31" value="31" token="Edge detect on PAD31" description="Edge detect on PAD31"/>
+         <bitenum id="PAD30" value="30" token="Edge detect on PAD30" description="Edge detect on PAD30"/>
+         <bitenum id="PAD29" value="29" token="Edge detect on PAD29" description="Edge detect on PAD29"/>
+         <bitenum id="PAD28" value="28" token="Edge detect on PAD28" description="Edge detect on PAD28"/>
+         <bitenum id="PAD27" value="27" token="Edge detect on PAD27" description="Edge detect on PAD27"/>
+         <bitenum id="PAD26" value="26" token="Edge detect on PAD26" description="Edge detect on PAD26"/>
+         <bitenum id="PAD25" value="25" token="Edge detect on PAD25" description="Edge detect on PAD25"/>
+         <bitenum id="PAD24" value="24" token="Edge detect on PAD24" description="Edge detect on PAD24"/>
+         <bitenum id="PAD23" value="23" token="Edge detect on PAD23" description="Edge detect on PAD23"/>
+         <bitenum id="PAD22" value="22" token="Edge detect on PAD22" description="Edge detect on PAD22"/>
+         <bitenum id="PAD21" value="21" token="Edge detect on PAD21" description="Edge detect on PAD21"/>
+         <bitenum id="PAD20" value="20" token="Edge detect on PAD20" description="Edge detect on PAD20"/>
+         <bitenum id="PAD19" value="19" token="Edge detect on PAD19" description="Edge detect on PAD19"/>
+         <bitenum id="PAD18" value="18" token="Edge detect on PAD18" description="Edge detect on PAD18"/>
+         <bitenum id="PAD17" value="17" token="Edge detect on PAD17" description="Edge detect on PAD17"/>
+         <bitenum id="PAD16" value="16" token="Edge detect on PAD16" description="Edge detect on PAD16"/>
+         <bitenum id="PAD15" value="15" token="Edge detect on PAD15" description="Edge detect on PAD15"/>
+         <bitenum id="PAD14" value="14" token="Edge detect on PAD14" description="Edge detect on PAD14"/>
+         <bitenum id="PAD13" value="13" token="Edge detect on PAD13" description="Edge detect on PAD13"/>
+         <bitenum id="PAD12" value="12" token="Edge detect on PAD12" description="Edge detect on PAD12"/>
+         <bitenum id="PAD11" value="11" token="Edge detect on PAD11" description="Edge detect on PAD11"/>
+         <bitenum id="PAD10" value="10" token="Edge detect on PAD10" description="Edge detect on PAD10"/>
+         <bitenum id="PAD9" value="9" token="Edge detect on PAD9" description="Edge detect on PAD9"/>
+         <bitenum id="PAD8" value="8" token="Edge detect on PAD8" description="Edge detect on PAD8"/>
+         <bitenum id="PAD7" value="7" token="Edge detect on PAD7" description="Edge detect on PAD7"/>
+         <bitenum id="PAD6" value="6" token="Edge detect on PAD6" description="Edge detect on PAD6"/>
+         <bitenum id="PAD5" value="5" token="Edge detect on PAD5" description="Edge detect on PAD5"/>
+         <bitenum id="PAD4" value="4" token="Edge detect on PAD4" description="Edge detect on PAD4"/>
+         <bitenum id="PAD3" value="3" token="Edge detect on PAD3" description="Edge detect on PAD3"/>
+         <bitenum id="PAD2" value="2" token="Edge detect on PAD2" description="Edge detect on PAD2"/>
+         <bitenum id="PAD1" value="1" token="Edge detect on PAD1" description="Edge detect on PAD1"/>
+         <bitenum id="PAD0" value="0" token="Edge detect on PAD0" description="Edge detect on PAD0"/>
+      </bitfield>
+   </register>
+</module>

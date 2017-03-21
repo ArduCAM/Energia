@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/4 $
+  Checkin $Date: November 5, 2010   14:29:56 $
+  -->
+
+<!-- TMS320C2000 CLA Type0 Registers
+     ===================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+<module id="CLA" HW_revision="" XML_version="1" description="CLA1 Registers">
+   <register id="MVECT1" acronym="MVECT1" offset="0" page="1" width="16" description="Task 1 vector" />
+   <register id="MVECT2" acronym="MVECT2" offset="1" page="1" width="16" description="Task 2 vector" />
+   <register id="MVECT3" acronym="MVECT3" offset="2" page="1" width="16" description="Task 3 vector" />
+   <register id="MVECT4" acronym="MVECT4" offset="3" page="1" width="16" description="Task 4 vector" />
+   <register id="MVECT5" acronym="MVECT5" offset="4" page="1" width="16" description="Task 5 vector" />
+   <register id="MVECT6" acronym="MVECT6" offset="5" page="1" width="16" description="Task 6 vector" />
+   <register id="MVECT7" acronym="MVECT7" offset="6" page="1" width="16" description="Task 7 vector" />
+   <register id="MVECT8" acronym="MVECT8" offset="7" page="1" width="16" description="Task 8 vector" />
+   <!-- 8 empty -->        
+   <register id="MCTL" acronym="MCTL" offset="16" page="1" width="16" description="CLA control" >
+       <bitfield id="IACKE"     width="1" begin="2" end="2" resetval="0" description= "IACK enable"  range="" rwaccess="RW" />
+       <bitfield id="SOFTRESET" width="1" begin="1" end="1" resetval="0" description= "Soft reset"   range="" rwaccess="RW" />
+       <bitfield id="HARDRESET" width="1" begin="0" end="0" resetval="0" description= "Hard reset"   range="" rwaccess="RW" />
+   </register>    
+   <register id="MMEMCFG" acronym="MMEMCFG" offset="17" page="1" width="16" description="CLA memory configuration" >
+       <bitfield id="RAM1E" width="1" begin="5" end="5" resetval="0" description= "RAM1 enable"           range="" rwaccess="RW" />
+       <bitfield id="RAM0E" width="1" begin="4" end="4" resetval="0" description= "RAM0 enable"           range="" rwaccess="RW" />
+       <bitfield id="PROGE" width="1" begin="0" end="0" resetval="0" description= "Program memory enable" range="" rwaccess="RW" />
+   </register>   
+   <!-- 2 empty -->        
+   <register id="MPISRCSEL1" acronym="MPISRCSEL1" offset="20" page="1" width="32" description="CLA interrupt source select" />
+   <!-- 10 empty -->        
+   <register id="MIFR" acronym="MIFR" offset="32" page="1" width="16" description="CLA interrupt flag" >
+       <bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 flag bit" range="" rwaccess="R" />
+       <bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 flag bit" range="" rwaccess="R" />
+       <bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 flag bit" range="" rwaccess="R" />
+       <bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 flag bit" range="" rwaccess="R" />
+       <bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 flag bit" range="" rwaccess="R" />
+       <bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 flag bit" range="" rwaccess="R" />
+       <bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 flag bit" range="" rwaccess="R" />
+       <bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 flag bit" range="" rwaccess="R" />
+   </register>  
+   <register id="MIOVF" acronym="MIOVF" offset="33" page="1" width="16" description="CLA interrupt overflow flag" >
+       <bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 overflow bit" range="" rwaccess="R" />
+       <bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 overflow bit" range="" rwaccess="R" />
+       <bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 overflow bit" range="" rwaccess="R" />
+       <bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 overflow bit" range="" rwaccess="R" />
+       <bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 overflow bit" range="" rwaccess="R" />
+       <bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 overflow bit" range="" rwaccess="R" />
+       <bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 overflow bit" range="" rwaccess="R" />
+       <bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 overflow bit" range="" rwaccess="R" />
+   </register>   
+   <register id="MIFRC" acronym="MIFRC" offset="34" page="1" width="16" description="CLA interrupt force" >
+       <bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 force bit" range="" rwaccess="RW" />
+       <bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 force bit" range="" rwaccess="RW" />
+       <bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 force bit" range="" rwaccess="RW" />
+       <bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 force bit" range="" rwaccess="RW" />
+       <bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 force bit" range="" rwaccess="RW" />
+       <bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 force bit" range="" rwaccess="RW" />
+       <bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 force bit" range="" rwaccess="RW" />
+       <bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 force bit" range="" rwaccess="RW" />
+   </register>     
+   <register id="MICLR" acronym="MICLR" offset="35" page="1" width="16" description="CLA interrupt flag clear" >
+       <bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 clear bit" range="" rwaccess="RW" />
+   </register>    
+   <register id="MICLROVF" acronym="MICLROVF" offset="36" page="1" width="16" description="CLA interrupt overflow flag clear" >
+       <bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 overflow clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 overflow clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 overflow clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 overflow clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 overflow clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 overflow clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 overflow clear bit" range="" rwaccess="RW" />
+       <bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 overflow clear bit" range="" rwaccess="RW" />
+   </register>   
+   <register id="MIER" acronym="MIER" offset="37" page="1" width="16" description="CLA interrupt enable" >
+       <bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 enable bit" range="" rwaccess="RW" />
+       <bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 enable bit" range="" rwaccess="RW" />
+       <bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 enable bit" range="" rwaccess="RW" />
+       <bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 enable bit" range="" rwaccess="RW" />
+       <bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 enable bit" range="" rwaccess="RW" />
+       <bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 enable bit" range="" rwaccess="RW" />
+       <bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 enable bit" range="" rwaccess="RW" />
+       <bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 enable bit" range="" rwaccess="RW" />
+   </register>  
+   <register id="MIRUN" acronym="MIRUN" offset="38" page="1" width="16" description="CLA interrupt run status" >
+       <bitfield id="INT8" width="1" begin="7" end="7" resetval="0" description= "Interrupt 8 run status" range="" rwaccess="RW" />
+       <bitfield id="INT7" width="1" begin="6" end="6" resetval="0" description= "Interrupt 7 run status" range="" rwaccess="RW" />
+       <bitfield id="INT6" width="1" begin="5" end="5" resetval="0" description= "Interrupt 6 run status" range="" rwaccess="RW" />
+       <bitfield id="INT5" width="1" begin="4" end="4" resetval="0" description= "Interrupt 5 run status" range="" rwaccess="RW" />
+       <bitfield id="INT4" width="1" begin="3" end="3" resetval="0" description= "Interrupt 4 run status" range="" rwaccess="RW" />
+       <bitfield id="INT3" width="1" begin="2" end="2" resetval="0" description= "Interrupt 3 run status" range="" rwaccess="RW" />
+       <bitfield id="INT2" width="1" begin="1" end="1" resetval="0" description= "Interrupt 2 run status" range="" rwaccess="RW" />
+       <bitfield id="INT1" width="1" begin="0" end="0" resetval="0" description= "Interrupt 1 run status" range="" rwaccess="RW" />
+   </register>
+   <!-- 1 empty -->        
+   <register id="MPC" acronym="MPC" offset="40" page="1" width="16" description="CLA program counter" />
+   <!-- 1 empty -->        
+   <register id="MAR0" acronym="MAR0" offset="42" page="1" width="16" description="CLA auxillary register 0" />
+   <register id="MAR1" acronym="MAR1" offset="43" page="1" width="16" description="CLA auxillary register 1" />
+   <!-- 2 empty -->        
+   <register id="MSTF" acronym="MSTF" offset="46" page="1" width="32" description="CLA floating-point status register" >
+       <bitfield id="RPC"      width="12" begin="23" end="12" resetval="0" description= "Return PC"  range="" rwaccess="R" />
+       <bitfield id="MEALLOW"  width="1"  begin="11" end="11" resetval="0" description= "Protected write" range="" rwaccess="R" />
+       <bitfield id="RND32"    width="1"  begin="9"  end="9"  resetval="0" description= "Rounding mode"   range="" rwaccess="R" />
+       <bitfield id="TF"       width="1"  begin="6"  end="6"  resetval="0" description= "Test flag"       range="" rwaccess="R" />
+       <bitfield id="ZF"       width="1"  begin="3"  end="3"  resetval="0" description= "Zero flag"       range="" rwaccess="R" />
+       <bitfield id="NF"       width="1"  begin="2"  end="2"  resetval="0" description= "Negative flag"   range="" rwaccess="R" />
+       <bitfield id="LUF"      width="1"  begin="1"  end="1"  resetval="0" description= "Underflow flag"  range="" rwaccess="R" />
+       <bitfield id="LVF"      width="1"  begin="0"  end="0"  resetval="0" description= "Overflow flag"   range="" rwaccess="R" />
+   </register>   
+   <register id="MR0" acronym="MR0" offset="48" page="1" width="32" description="CLA result register 0" />
+   <!-- 2 empty -->        
+   <register id="MR1" acronym="MR1" offset="52" page="1" width="32" description="CLA result register 1" />
+   <!-- 2 empty -->        
+   <register id="MR2" acronym="MR2" offset="56" page="1" width="32" description="CLA result register 2" />
+   <!-- 2 empty -->        
+   <register id="MR3" acronym="MR3" offset="60" page="1" width="32" description="CLA result register 3" />
+   <!-- 2 empty -->        
+</module>

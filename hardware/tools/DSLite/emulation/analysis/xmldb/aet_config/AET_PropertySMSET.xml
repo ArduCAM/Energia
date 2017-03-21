@@ -1,0 +1,715 @@
+<?xml version="1.0"?>
+<!-- This file defines options for STMSET event trace. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Base Address</NAME>	
+ 	  <DESCRIPTION>This base address is the base address used by SW to program SMSET</DESCRIPTION>		
+	  <VALUE>0x5A041000</VALUE>
+	  <PAGE>1</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+	  <VALUE>Trace</VALUE>
+	  <CHILDKEY>TRACE</CHILDKEY>	<!-- The key point to access size -->
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!-- Setting for SMSET event detection.                                          -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Signal Type</NAME>	
+ 	  <DESCRIPTION>The option of setting signal type for event detection</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030100</ALLOWED_ENUM>
+			<ALLOWED_STRING>Low Level</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030101</ALLOWED_ENUM>
+			<ALLOWED_STRING>High Level</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Msg Generation Type</NAME>	
+ 	  <DESCRIPTION>The option of event detection in sampling window or permanently detected</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030102</ALLOWED_ENUM>
+			<ALLOWED_KEY>SAMPLE WINDOW</ALLOWED_KEY>
+			<ALLOWED_STRING>in Sampling Window</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80030103</ALLOWED_ENUM>
+			<ALLOWED_STRING>by Event Detection</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Sampling Window(cycles)</NAME>	
+ 	  <DESCRIPTION>The sampling window size expressed as clock cycles(0-0xFF)</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>SAMPLE WINDOW</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>256</RANGEHI>
+  	  <VALUE>0xff</VALUE>
+	  <ENUMVALUE>0x80030110</ENUMVALUE>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_BOOL>
+	  <NAME>Start on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Start Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80030104</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Stop on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Stop Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80030105</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Selection</NAME>	
+ 	  <DESCRIPTION>Option of enabling or disable individual events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL SMSET</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVENT GROUP</CHILDKEY>	
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Task Start Stop</NAME>	
+ 	  <DESCRIPTION>Enable or disable task start or stop events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030000</ENUMVALUE>
+	  <CHILDKEY>GROUP</CHILDKEY>	
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Computation and Store</NAME>	
+ 	  <DESCRIPTION>Enable or disable computation and store start or stop events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80031000</ENUMVALUE>
+	  <CHILDKEY>GROUP 1</CHILDKEY>	
+	</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task1_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 1</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030001</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task1_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 2</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030002</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task2_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 3</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030003</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task2_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 4</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030004</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task3_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 5</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030005</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task3_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 6</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030006</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task4_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 7</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030007</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task4_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 8</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>8</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030008</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task5_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 9</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>9</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030009</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task5_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 10</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003000A</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task6_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 11</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>11</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003000B</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT1_task6_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 12</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>12</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003000C</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task1_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 13</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>13</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003000D</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task1_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 14</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>14</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003000E</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task2_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 15</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>15</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003000F</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task2_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 16</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>16</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030010</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task3_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 17</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>17</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030011</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task3_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 18</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>18</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030012</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task4_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 19</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>19</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030013</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task4_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 20</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>20</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030014</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task5_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 21</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>21</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030015</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task5_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 22</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>22</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030016</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task6_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 23</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>23</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030017</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iCONT2_task6_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 24</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP</KEYNAME>	
+		  <KEYNUMBER>24</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030018</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iME3_computation_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 25</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>25</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030019</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iME3_computation_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 26</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>26</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003001A</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iLF3_computation_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 27</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>27</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003001B</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iLF3_computation_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 28</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>28</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003001C</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iPE3_load_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 29</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>29</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003001D</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iPE3_load_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 30</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>30</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003001E</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iPE3_computation_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 31</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>31</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003001F</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iPE3_computation_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 32</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>32</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030020</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iPE3_store_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 32</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>32</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030021</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>iPE3_store_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 32</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>32</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030022</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>CALC3_load_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 35</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>35</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030023</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>CALC3_load_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 36</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>36</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030024</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>CALC3_computation_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 37</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>37</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030025</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>CALC3_computation_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 38</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>38</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030026</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>CALC3_store_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 39</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>39</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030027</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>CALC3_store_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 40</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>40</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030028</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ECD3_load_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 41</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>41</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030029</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ECD3_load_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 42</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>42</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003002A</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ECD3_computation_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 43</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>43</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003002B</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ECD3_computation_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 44</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>44</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003002C</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ECD3_store_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 45</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>45</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003002D</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>ECD3_store_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 46</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>46</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003002E</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>EMC3_load_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 47</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>47</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x8003002F</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>EMC3_load_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 48</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>48</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030030</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>MC3_computation_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 49</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>49</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030031</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>MC3_computation_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 50</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>50</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030032</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>MC3_store_start</NAME>	
+ 	  <DESCRIPTION>Selection of event 51</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>51</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030033</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>MC3_computation_stop</NAME>	
+ 	  <DESCRIPTION>Selection of event 52</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>GROUP 1</KEYNAME>	
+		  <KEYNUMBER>52</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80030034</ENUMVALUE>
+	</PROPERTY_BOOL>
+	
+	
+</AET>

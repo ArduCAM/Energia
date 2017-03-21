@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:50:20 $
+  -->
+
+
+<!-- TMS320C2000 I2C Registers
+     =========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="I2C" HW_revision="" XML_version="1" description="I2C Registers">
+	<register id="I2COAR" acronym="I2COAR" offset="0" page="1" width="16" description="I2C own address register" />
+	<register id="I2CIER" acronym="I2CIER" offset="1" page="1" width="16" description="I2C interrupt enable register" />
+	<register id="I2CSTR" acronym="I2CSTR" offset="2" page="1" width="16" description="I2C status register" />
+	<register id="I2CCLKL" acronym="I2CCLKL" offset="3" page="1" width="16" description="I2C clock low-time divider register" />
+	<register id="I2CCLKH" acronym="I2CCLKH" offset="4" page="1" width="16" description="I2C clock high-time divider register" />
+	<register id="I2CCNT" acronym="I2CCNT" offset="5" page="1" width="16" description="I2C data count register" />
+	<register id="I2CDRR" acronym="I2CDRR" offset="6" page="1" width="16" description="I2C data receive register" />
+	<register id="I2CSAR" acronym="I2CSAR" offset="7" page="1" width="16" description="I2C slave address register" />
+	<register id="I2CDXR" acronym="I2CDXR" offset="8" page="1" width="16" description="I2C data transmit register" />
+	<register id="I2CMDR" acronym="I2CMDR" offset="9" page="1" width="16" description="I2C mode register" />
+	<register id="I2CISRC" acronym="I2CISRC" offset="10" page="1" width="16" description="I2C interrupt source register" />
+	<!-- 1 empty -->
+	<register id="I2CPSC" acronym="I2CPSC" offset="12" page="1" width="16" description="I2C prescaler register" />
+	<!-- 20 empty -->
+	<register id="I2CFFTX" acronym="I2CFFTX" offset="32" page="1" width="16" description="I2C FIFO transmit register" />
+	<register id="I2CFFRX" acronym="I2CFFRX" offset="33" page="1" width="16" description="I2C FIFO receive register" />
+</module>

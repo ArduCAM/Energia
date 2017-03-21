@@ -1,0 +1,40 @@
+<module id="SYNC_SOC_REGS" HW_revision="" description="SYNC SOC Registers">
+	<register id="SYNCSELECT" width="32" page="1" offset="0x0" internal="0" description="Sync Input and Output Select Register">
+		<bitfield id="EPWM4SYNCIN" description="Selects Sync Input Source for EPWM4" begin="2" end="0" width="3" rwaccess="R/W"/>
+		<bitfield id="EPWM7SYNCIN" description="Selects Sync Input Source for EPWM7" begin="5" end="3" width="3" rwaccess="R/W"/>
+		<bitfield id="EPWM10SYNCIN" description="Selects Sync Input Source for EPWM10" begin="8" end="6" width="3" rwaccess="R/W"/>
+		<bitfield id="ECAP1SYNCIN" description="Selects Sync Input Source for ECAP1" begin="11" end="9" width="3" rwaccess="R/W"/>
+		<bitfield id="ECAP4SYNCIN" description="Selects Sync Input Source for ECAP4" begin="14" end="12" width="3" rwaccess="R/W"/>
+		<bitfield id="SYNCOUT" description="Select Syncout Source" begin="28" end="27" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOCOUTSELECT" width="32" page="1" offset="0x2" internal="0" description="External ADC (Off Chip) SOC Select Register">
+		<bitfield id="PWM1SOCAEN" description="PWM1SOCAEN Enable for ADCSOCAO " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM2SOCAEN" description="PWM2SOCAEN Enable for ADCSOCAO " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM3SOCAEN" description="PWM3SOCAEN Enable for ADCSOCAO " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM4SOCAEN" description="PWM4SOCAEN Enable for ADCSOCAO " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM5SOCAEN" description="PWM5SOCAEN Enable for ADCSOCAO " begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM6SOCAEN" description="PWM6SOCAEN Enable for ADCSOCAO " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM7SOCAEN" description="PWM7SOCAEN Enable for ADCSOCAO " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM8SOCAEN" description="PWM8SOCAEN Enable for ADCSOCAO " begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM9SOCAEN" description="PWM9SOCAEN Enable for ADCSOCAO " begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM10SOCAEN" description="PWM10SOCAEN Enable for ADCSOCAO " begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM11SOCAEN" description="PWM11SOCAEN Enable for ADCSOCAO " begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM12SOCAEN" description="PWM12SOCAEN Enable for ADCSOCAO " begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM1SOCBEN" description="PWM1SOCBEN Enable for ADCSOCBO " begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM2SOCBEN" description="PWM2SOCBEN Enable for ADCSOCBO " begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM3SOCBEN" description="PWM3SOCBEN Enable for ADCSOCBO " begin="18" end="18" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM4SOCBEN" description="PWM4SOCBEN Enable for ADCSOCBO " begin="19" end="19" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM5SOCBEN" description="PWM5SOCBEN Enable for ADCSOCBO " begin="20" end="20" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM6SOCBEN" description="PWM6SOCBEN Enable for ADCSOCBO " begin="21" end="21" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM7SOCBEN" description="PWM7SOCBEN Enable for ADCSOCBO " begin="22" end="22" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM8SOCBEN" description="PWM8SOCBEN Enable for ADCSOCBO " begin="23" end="23" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM9SOCBEN" description="PWM9SOCBEN Enable for ADCSOCBO " begin="24" end="24" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM10SOCBEN" description="PWM10SOCBEN Enable for ADCSOCBO " begin="25" end="25" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM11SOCBEN" description="PWM11SOCBEN Enable for ADCSOCBO " begin="26" end="26" width="1" rwaccess="R/W"/>
+		<bitfield id="PWM12SOCBEN" description="PWM12SOCBEN Enable for ADCSOCBO " begin="27" end="27" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SYNCSOCLOCK" width="32" page="1" offset="0x4" internal="0" description="SYNCSEL and EXTADCSOC Select Lock register">
+		<bitfield id="SYNCSELECT" description="SYNCSEL Register Lock bit" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="ADCSOCOUTSELECT" description="ADCSOCOUTSELECT Register Lock bit" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+	</register>
+</module>

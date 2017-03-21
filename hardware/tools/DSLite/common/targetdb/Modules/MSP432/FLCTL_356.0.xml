@@ -1,0 +1,588 @@
+<module id="FLCTL" HW_revision="356.0">
+    <register id="FLCTL_POWER_STAT" width="32" offset="0x0" internal="0" description="Power Status Register">
+        <bitfield id="PSTAT" description="Flash power status" begin="2" end="0" width="3" rwaccess="R">
+            <bitenum id="PSTAT_0" value="0x0" description="Flash IP in power-down mode"/>
+            <bitenum id="PSTAT_1" value="0x1" description="Flash IP Vdd domain power-up in progress"/>
+            <bitenum id="PSTAT_2" value="0x2" description="PSS LDO_GOOD, IREF_OK and VREF_OK check in progress"/>
+            <bitenum id="PSTAT_3" value="0x3" description="Flash IP SAFE_LV check in progress"/>
+            <bitenum id="PSTAT_4" value="0x4" description="Flash IP Active"/>
+            <bitenum id="PSTAT_5" value="0x5" description="Flash IP Active in Low-Frequency Active and Low-Frequency LPM0 modes."/>
+            <bitenum id="PSTAT_6" value="0x6" description="Flash IP in Standby mode"/>
+            <bitenum id="PSTAT_7" value="0x7" description="Flash IP in Current mirror boost state"/>
+        </bitfield>
+        <bitfield id="LDOSTAT" description="PSS FLDO GOOD status" begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="LDOSTAT_0" value="0x0" description="FLDO not GOOD"/>
+            <bitenum id="LDOSTAT_1" value="0x1" description="FLDO GOOD"/>
+        </bitfield>
+        <bitfield id="VREFSTAT" description="PSS VREF stable status" begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="VREFSTAT_0" value="0x0" description="Flash LDO not stable"/>
+            <bitenum id="VREFSTAT_1" value="0x1" description="Flash LDO stable"/>
+        </bitfield>
+        <bitfield id="IREFSTAT" description="PSS IREF stable status" begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="IREFSTAT_0" value="0x0" description="IREF not stable"/>
+            <bitenum id="IREFSTAT_1" value="0x1" description="IREF stable"/>
+        </bitfield>
+        <bitfield id="TRIMSTAT" description="PSS trim done status" begin="6" end="6" width="1" rwaccess="R">
+            <bitenum id="TRIMSTAT_0" value="0x0" description="PSS trim not complete"/>
+            <bitenum id="TRIMSTAT_1" value="0x1" description="PSS trim complete"/>
+        </bitfield>
+        <bitfield id="RD_2T" description="Indicates if Flash is being accessed in 2T mode" begin="7" end="7" width="1" rwaccess="R">
+            <bitenum id="RD_2T_0" value="0x0" description="Flash reads are in 1T mode"/>
+            <bitenum id="RD_2T_1" value="0x1" description="Flash reads are in 2T mode"/>
+        </bitfield>
+    </register>
+    <register id="FLCTL_BANK0_RDCTL" width="32" offset="0x10" internal="0" description="Bank0 Read Control Register">
+        <bitfield id="RD_MODE" description="Flash read mode control setting for Bank 0" begin="3" end="0" width="4" rwaccess="R/W">
+            <bitenum id="RD_MODE_0" value="0x0" description="Normal read mode"/>
+            <bitenum id="RD_MODE_1" value="0x1" description="Read Margin 0"/>
+            <bitenum id="RD_MODE_2" value="0x2" description="Read Margin 1"/>
+            <bitenum id="RD_MODE_3" value="0x3" description="Program Verify"/>
+            <bitenum id="RD_MODE_4" value="0x4" description="Erase Verify"/>
+            <bitenum id="RD_MODE_5" value="0x5" description="Leakage Verify"/>
+            <bitenum id="RD_MODE_9" value="0x9" description="Read Margin 0B"/>
+            <bitenum id="RD_MODE_10" value="0xA" description="Read Margin 1B"/>
+        </bitfield>
+        <bitfield id="BUFI" description="Enables read buffering feature for instruction fetches to this Bank" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BUFD" description="Enables read buffering feature for data reads to this Bank" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="WAIT" description="Number of wait states for read" begin="15" end="12" width="4" rwaccess="R/W">
+            <bitenum id="WAIT_0" value="0x0" description="0 wait states"/>
+            <bitenum id="WAIT_1" value="0x1" description="1 wait states"/>
+            <bitenum id="WAIT_2" value="0x2" description="2 wait states"/>
+            <bitenum id="WAIT_3" value="0x3" description="3 wait states"/>
+            <bitenum id="WAIT_4" value="0x4" description="4 wait states"/>
+            <bitenum id="WAIT_5" value="0x5" description="5 wait states"/>
+            <bitenum id="WAIT_6" value="0x6" description="6 wait states"/>
+            <bitenum id="WAIT_7" value="0x7" description="7 wait states"/>
+            <bitenum id="WAIT_8" value="0x8" description="8 wait states"/>
+            <bitenum id="WAIT_9" value="0x9" description="9 wait states"/>
+            <bitenum id="WAIT_10" value="0xA" description="10 wait states"/>
+            <bitenum id="WAIT_11" value="0xB" description="11 wait states"/>
+            <bitenum id="WAIT_12" value="0xC" description="12 wait states"/>
+            <bitenum id="WAIT_13" value="0xD" description="13 wait states"/>
+            <bitenum id="WAIT_14" value="0xE" description="14 wait states"/>
+            <bitenum id="WAIT_15" value="0xF" description="15 wait states"/>
+        </bitfield>
+        <bitfield id="RD_MODE_STATUS" description="Read mode" begin="19" end="16" width="4" rwaccess="R">
+            <bitenum id="RD_MODE_STATUS_0" value="0x0" description="Normal read mode"/>
+            <bitenum id="RD_MODE_STATUS_1" value="0x1" description="Read Margin 0"/>
+            <bitenum id="RD_MODE_STATUS_2" value="0x2" description="Read Margin 1"/>
+            <bitenum id="RD_MODE_STATUS_3" value="0x3" description="Program Verify"/>
+            <bitenum id="RD_MODE_STATUS_4" value="0x4" description="Erase Verify"/>
+            <bitenum id="RD_MODE_STATUS_5" value="0x5" description="Leakage Verify"/>
+            <bitenum id="RD_MODE_STATUS_9" value="0x9" description="Read Margin 0B"/>
+            <bitenum id="RD_MODE_STATUS_10" value="0xA" description="Read Margin 1B"/>
+        </bitfield>
+    </register>
+    <register id="FLCTL_BANK1_RDCTL" width="32" offset="0x14" internal="0" description="Bank1 Read Control Register">
+        <bitfield id="RD_MODE" description="Flash read mode control setting for Bank 0" begin="3" end="0" width="4" rwaccess="R/W">
+            <bitenum id="RD_MODE_0" value="0x0" description="Normal read mode"/>
+            <bitenum id="RD_MODE_1" value="0x1" description="Read Margin 0"/>
+            <bitenum id="RD_MODE_2" value="0x2" description="Read Margin 1"/>
+            <bitenum id="RD_MODE_3" value="0x3" description="Program Verify"/>
+            <bitenum id="RD_MODE_4" value="0x4" description="Erase Verify"/>
+            <bitenum id="RD_MODE_5" value="0x5" description="Leakage Verify"/>
+            <bitenum id="RD_MODE_9" value="0x9" description="Read Margin 0B"/>
+            <bitenum id="RD_MODE_10" value="0xA" description="Read Margin 1B"/>
+        </bitfield>
+        <bitfield id="BUFI" description="Enables read buffering feature for instruction fetches to this Bank" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BUFD" description="Enables read buffering feature for data reads to this Bank" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RD_MODE_STATUS" description="Read mode" begin="19" end="16" width="4" rwaccess="R">
+            <bitenum id="RD_MODE_STATUS_0" value="0x0" description="Normal read mode"/>
+            <bitenum id="RD_MODE_STATUS_1" value="0x1" description="Read Margin 0"/>
+            <bitenum id="RD_MODE_STATUS_2" value="0x2" description="Read Margin 1"/>
+            <bitenum id="RD_MODE_STATUS_3" value="0x3" description="Program Verify"/>
+            <bitenum id="RD_MODE_STATUS_4" value="0x4" description="Erase Verify"/>
+            <bitenum id="RD_MODE_STATUS_5" value="0x5" description="Leakage Verify"/>
+            <bitenum id="RD_MODE_STATUS_9" value="0x9" description="Read Margin 0B"/>
+            <bitenum id="RD_MODE_STATUS_10" value="0xA" description="Read Margin 1B"/>
+        </bitfield>
+        <bitfield id="WAIT" description="Number of wait states for read" begin="15" end="12" width="4" rwaccess="R/W">
+            <bitenum id="WAIT_0" value="0x0" description="0 wait states"/>
+            <bitenum id="WAIT_1" value="0x1" description="1 wait states"/>
+            <bitenum id="WAIT_2" value="0x2" description="2 wait states"/>
+            <bitenum id="WAIT_3" value="0x3" description="3 wait states"/>
+            <bitenum id="WAIT_4" value="0x4" description="4 wait states"/>
+            <bitenum id="WAIT_5" value="0x5" description="5 wait states"/>
+            <bitenum id="WAIT_6" value="0x6" description="6 wait states"/>
+            <bitenum id="WAIT_7" value="0x7" description="7 wait states"/>
+            <bitenum id="WAIT_8" value="0x8" description="8 wait states"/>
+            <bitenum id="WAIT_9" value="0x9" description="9 wait states"/>
+            <bitenum id="WAIT_10" value="0xA" description="10 wait states"/>
+            <bitenum id="WAIT_11" value="0xB" description="11 wait states"/>
+            <bitenum id="WAIT_12" value="0xC" description="12 wait states"/>
+            <bitenum id="WAIT_13" value="0xD" description="13 wait states"/>
+            <bitenum id="WAIT_14" value="0xE" description="14 wait states"/>
+            <bitenum id="WAIT_15" value="0xF" description="15 wait states"/>
+        </bitfield>
+    </register>
+    <register id="FLCTL_RDBRST_CTLSTAT" width="32" offset="0x20" internal="0" description="Read Burst/Compare Control and Status Register">
+        <bitfield id="START" description="Start of burst/compare operation" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MEM_TYPE" description="Type of memory that burst is carried out on" begin="2" end="1" width="2" rwaccess="R/W">
+            <bitenum id="MEM_TYPE_0" value="0x0" description="Main Memory"/>
+            <bitenum id="MEM_TYPE_1" value="0x1" description="Information Memory"/>
+            <bitenum id="MEM_TYPE_2" value="0x2" description="Reserved"/>
+        </bitfield>
+        <bitfield id="STOP_FAIL" description="Terminate burst/compare operation" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DATA_CMP" description="Data pattern used for comparison against memory read data" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DATA_CMP_0" value="0x0" description="0000_0000_0000_0000_0000_0000_0000_0000"/>
+            <bitenum id="DATA_CMP_1" value="0x1" description="FFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF"/>
+        </bitfield>
+        <bitfield id="TEST_EN" description="Enable comparison against test data compare registers" begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BRST_STAT" description="Status of Burst/Compare operation" begin="17" end="16" width="2" rwaccess="R">
+            <bitenum id="BRST_STAT_0" value="0x0" description="Idle"/>
+            <bitenum id="BRST_STAT_1" value="0x1" description="Burst/Compare START bit written, but operation pending"/>
+            <bitenum id="BRST_STAT_2" value="0x2" description="Burst/Compare in progress"/>
+            <bitenum id="BRST_STAT_3" value="0x3" description="Burst complete (status of completed burst remains in this state unless explicitly cleared by SW)"/>
+        </bitfield>
+        <bitfield id="CMP_ERR" description="Burst/Compare Operation encountered atleast one data" begin="18" end="18" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="ADDR_ERR" description="Burst/Compare Operation was terminated due to access to" begin="19" end="19" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="CLR_STAT" description="Clear status bits 19-16 of this register" begin="23" end="23" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_RDBRST_STARTADDR" width="32" offset="0x24" internal="0" description="Read Burst/Compare Start Address Register">
+        <bitfield id="START_ADDRESS" description="Start Address of Burst Operation" begin="20" end="0" width="21" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_RDBRST_LEN" width="32" offset="0x28" internal="0" description="Read Burst/Compare Length Register">
+        <bitfield id="BURST_LENGTH" description="Length of Burst Operation" begin="20" end="0" width="21" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_RDBRST_FAILADDR" width="32" offset="0x3C" internal="0" description="Read Burst/Compare Fail Address Register">
+        <bitfield id="FAIL_ADDRESS" description="Reflects address of last failed compare" begin="20" end="0" width="21" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_RDBRST_FAILCNT" width="32" offset="0x40" internal="0" description="Read Burst/Compare Fail Count Register">
+        <bitfield id="FAIL_COUNT" description="Number of failures encountered in burst operation" begin="16" end="0" width="17" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_PRG_CTLSTAT" width="32" offset="0x50" internal="0" description="Program Control and Status Register">
+        <bitfield id="ENABLE" description="Master control for all word program operations" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="ENABLE_0" value="0x0" description="Word program operation disabled"/>
+            <bitenum id="ENABLE_1" value="0x1" description="Word program operation enabled"/>
+        </bitfield>
+        <bitfield id="MODE" description="Write mode" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="MODE_0" value="0x0" description="Write immediate mode. Starts program operation immediately on each write to the Flash"/>
+            <bitenum id="MODE_1" value="0x1" description="Full word write mode. Flash controller collates data over multiple writes to compose the full 128bit word before initiating the program operation"/>
+        </bitfield>
+        <bitfield id="VER_PRE" description="Controls automatic pre program verify operations" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="VER_PRE_0" value="0x0" description="No pre program verification"/>
+            <bitenum id="VER_PRE_1" value="0x1" description="Pre verify feature automatically invoked for each write operation (irrespective of the mode)"/>
+        </bitfield>
+        <bitfield id="VER_PST" description="Controls automatic post program verify operations" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="VER_PST_0" value="0x0" description="No post program verification"/>
+            <bitenum id="VER_PST_1" value="0x1" description="Post verify feature automatically invoked for each write operation (irrespective of the mode)"/>
+        </bitfield>
+        <bitfield id="STATUS" description="Status of program operations in the Flash memory" begin="17" end="16" width="2" rwaccess="R">
+            <bitenum id="STATUS_0" value="0x0" description="Idle (no program operation currently active)"/>
+            <bitenum id="STATUS_1" value="0x1" description="Single word program operation triggered, but pending"/>
+            <bitenum id="STATUS_2" value="0x2" description="Single word program in progress"/>
+            <bitenum id="STATUS_3" value="0x3" description="Reserved (Idle)"/>
+        </bitfield>
+        <bitfield id="BNK_ACT" description="Bank active" begin="18" end="18" width="1" rwaccess="R">
+            <bitenum id="BNK_ACT_0" value="0x0" description="Word in Bank0 being programmed"/>
+            <bitenum id="BNK_ACT_1" value="0x1" description="Word in Bank1 being programmed"/>
+        </bitfield>
+    </register>
+    <register id="FLCTL_PRGBRST_CTLSTAT" width="32" offset="0x54" internal="0" description="Program Burst Control and Status Register">
+        <bitfield id="START" description="Trigger start of burst program operation" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TYPE" description="Type of memory that burst program is carried out on" begin="2" end="1" width="2" rwaccess="R/W">
+            <bitenum id="TYPE_0" value="0x0" description="Main Memory"/>
+            <bitenum id="TYPE_1" value="0x1" description="Information Memory"/>
+            <bitenum id="TYPE_2" value="0x2" description="Reserved"/>
+        </bitfield>
+        <bitfield id="LEN" description="Length of burst" begin="5" end="3" width="3" rwaccess="R/W">
+            <bitenum id="LEN_0" value="0x0" description="No burst operation"/>
+            <bitenum id="LEN_1" value="0x1" description="1 word burst of 128 bits, starting with address in the FLCTL_PRGBRST_STARTADDR Register"/>
+            <bitenum id="LEN_2" value="0x2" description="2*128 bits burst write, starting with address in the FLCTL_PRGBRST_STARTADDR Register"/>
+            <bitenum id="LEN_3" value="0x3" description="3*128 bits burst write, starting with address in the FLCTL_PRGBRST_STARTADDR Register"/>
+            <bitenum id="LEN_4" value="0x4" description="4*128 bits burst write, starting with address in the FLCTL_PRGBRST_STARTADDR Register"/>
+        </bitfield>
+        <bitfield id="AUTO_PRE" description="Auto-Verify operation before the Burst Program" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="AUTO_PRE_0" value="0x0" description="No program verify operations carried out"/>
+            <bitenum id="AUTO_PRE_1" value="0x1" description="Causes an automatic Burst Program Verify after the Burst Program Operation"/>
+        </bitfield>
+        <bitfield id="AUTO_PST" description="Auto-Verify operation after the Burst Program" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="AUTO_PST_0" value="0x0" description="No program verify operations carried out"/>
+            <bitenum id="AUTO_PST_1" value="0x1" description="Causes an automatic Burst Program Verify before the Burst Program Operation"/>
+        </bitfield>
+        <bitfield id="BURST_STATUS" description="Status of a Burst Operation" begin="18" end="16" width="3" rwaccess="R">
+            <bitenum id="BURST_STATUS_0" value="0x0" description="Idle (Burst not active)"/>
+            <bitenum id="BURST_STATUS_1" value="0x1" description="Burst program started but pending"/>
+            <bitenum id="BURST_STATUS_2" value="0x2" description="Burst active, with 1st 128 bit word being written into Flash"/>
+            <bitenum id="BURST_STATUS_3" value="0x3" description="Burst active, with 2nd 128 bit word being written into Flash"/>
+            <bitenum id="BURST_STATUS_4" value="0x4" description="Burst active, with 3rd 128 bit word being written into Flash"/>
+            <bitenum id="BURST_STATUS_5" value="0x5" description="Burst active, with 4th 128 bit word being written into Flash"/>
+            <bitenum id="BURST_STATUS_6" value="0x6" description="Reserved (Idle)"/>
+            <bitenum id="BURST_STATUS_7" value="0x7" description="Burst Complete (status of completed burst remains in this state unless explicitly cleared by SW)"/>
+        </bitfield>
+        <bitfield id="PRE_ERR" description="Burst Operation encountered preprogram auto-verify errors" begin="19" end="19" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="PST_ERR" description="Burst Operation encountered postprogram auto-verify errors" begin="20" end="20" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="ADDR_ERR" description="Burst Operation was terminated due to attempted program of reserved memory" begin="21" end="21" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="CLR_STAT" description="Clear status bits 21-16 of this register" begin="23" end="23" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_PRGBRST_STARTADDR" width="32" offset="0x58" internal="0" description="Program Burst Start Address Register">
+        <bitfield id="START_ADDRESS" description="Start Address of Program Burst Operation" begin="21" end="0" width="22" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_PRGBRST_DATA0_0" width="32" offset="0x60" internal="0" description="Program Burst Data0 Register0">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA0_1" width="32" offset="0x64" internal="0" description="Program Burst Data0 Register1">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA0_2" width="32" offset="0x68" internal="0" description="Program Burst Data0 Register2">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA0_3" width="32" offset="0x6C" internal="0" description="Program Burst Data0 Register3">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA1_0" width="32" offset="0x70" internal="0" description="Program Burst Data1 Register0">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA1_1" width="32" offset="0x74" internal="0" description="Program Burst Data1 Register1">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA1_2" width="32" offset="0x78" internal="0" description="Program Burst Data1 Register2">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA1_3" width="32" offset="0x7C" internal="0" description="Program Burst Data1 Register3">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA2_0" width="32" offset="0x80" internal="0" description="Program Burst Data2 Register0">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA2_1" width="32" offset="0x84" internal="0" description="Program Burst Data2 Register1">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA2_2" width="32" offset="0x88" internal="0" description="Program Burst Data2 Register2">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA2_3" width="32" offset="0x8C" internal="0" description="Program Burst Data2 Register3">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA3_0" width="32" offset="0x90" internal="0" description="Program Burst Data3 Register0">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA3_1" width="32" offset="0x94" internal="0" description="Program Burst Data3 Register1">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA3_2" width="32" offset="0x98" internal="0" description="Program Burst Data3 Register2">
+    </register>
+    <register id="FLCTL_PRGBRST_DATA3_3" width="32" offset="0x9C" internal="0" description="Program Burst Data3 Register3">
+    </register>
+    <register id="FLCTL_ERASE_CTLSTAT" width="32" offset="0xA0" internal="0" description="Erase Control and Status Register">
+        <bitfield id="START" description="Start of Erase operation" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MODE" description="Erase mode selected by application" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="SECTOR" value="0x0" description="Sector Erase (controlled by FLTCTL_ERASE_SECTADDR)"/>
+            <bitenum id="MASS" value="0x1" description="Mass Erase (includes all Main and Information memory sectors that don't have corresponding WE bits set)"/>
+        </bitfield>
+        <bitfield id="TYPE" description="Type of memory that erase operation is carried out on" begin="3" end="2" width="2" rwaccess="R/W">
+            <bitenum id="TYPE_0" value="0x0" description="Main Memory"/>
+            <bitenum id="TYPE_1" value="0x1" description="Information Memory"/>
+            <bitenum id="TYPE_2" value="0x2" description="Reserved"/>
+        </bitfield>
+        <bitfield id="STATUS" description="Status of erase operations in the Flash memory" begin="17" end="16" width="2" rwaccess="R">
+            <bitenum id="STATUS_0" value="0x0" description="Idle (no program operation currently active)"/>
+            <bitenum id="STATUS_1" value="0x1" description="Erase operation triggered to START but pending"/>
+            <bitenum id="STATUS_2" value="0x2" description="Erase operation in progress"/>
+            <bitenum id="STATUS_3" value="0x3" description="Erase operation completed (status of completed erase remains in this state unless explicitly cleared by SW)"/>
+        </bitfield>
+        <bitfield id="ADDR_ERR" description="Erase Operation was terminated due to attempted erase of reserved memory address" begin="18" end="18" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="CLR_STAT" description="Clear status bits 18-16 of this register" begin="19" end="19" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_ERASE_SECTADDR" width="32" offset="0xA4" internal="0" description="Erase Sector Address Register">
+        <bitfield id="SECT_ADDRESS" description="Address of Sector being Erased" begin="21" end="0" width="22" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_BANK0_INFO_WEPROT" width="32" offset="0xB0" internal="0" description="Information Memory Bank0 Write/Erase Protection Register">
+        <bitfield id="PROT0" description="Protects Sector 0 from program or erase" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT1" description="Protects Sector 1 from program or erase" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_BANK0_MAIN_WEPROT" width="32" offset="0xB4" internal="0" description="Main Memory Bank0 Write/Erase Protection Register">
+        <bitfield id="PROT0" description="Protects Sector 0 from program or erase" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT1" description="Protects Sector 1 from program or erase" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT2" description="Protects Sector 2 from program or erase" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT3" description="Protects Sector 3 from program or erase" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT4" description="Protects Sector 4 from program or erase" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT5" description="Protects Sector 5 from program or erase" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT6" description="Protects Sector 6 from program or erase" begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT7" description="Protects Sector 7 from program or erase" begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT8" description="Protects Sector 8 from program or erase" begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT9" description="Protects Sector 9 from program or erase" begin="9" end="9" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT10" description="Protects Sector 10 from program or erase" begin="10" end="10" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT11" description="Protects Sector 11 from program or erase" begin="11" end="11" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT12" description="Protects Sector 12 from program or erase" begin="12" end="12" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT13" description="Protects Sector 13 from program or erase" begin="13" end="13" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT14" description="Protects Sector 14 from program or erase" begin="14" end="14" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT15" description="Protects Sector 15 from program or erase" begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT16" description="Protects Sector 16 from program or erase" begin="16" end="16" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT17" description="Protects Sector 17 from program or erase" begin="17" end="17" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT18" description="Protects Sector 18 from program or erase" begin="18" end="18" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT19" description="Protects Sector 19 from program or erase" begin="19" end="19" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT20" description="Protects Sector 20 from program or erase" begin="20" end="20" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT21" description="Protects Sector 21 from program or erase" begin="21" end="21" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT22" description="Protects Sector 22 from program or erase" begin="22" end="22" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT23" description="Protects Sector 23 from program or erase" begin="23" end="23" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT24" description="Protects Sector 24 from program or erase" begin="24" end="24" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT25" description="Protects Sector 25 from program or erase" begin="25" end="25" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT26" description="Protects Sector 26 from program or erase" begin="26" end="26" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT27" description="Protects Sector 27 from program or erase" begin="27" end="27" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT28" description="Protects Sector 28 from program or erase" begin="28" end="28" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT29" description="Protects Sector 29 from program or erase" begin="29" end="29" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT30" description="Protects Sector 30 from program or erase" begin="30" end="30" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT31" description="Protects Sector 31 from program or erase" begin="31" end="31" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_BANK1_INFO_WEPROT" width="32" offset="0xC0" internal="0" description="Information Memory Bank1 Write/Erase Protection Register">
+        <bitfield id="PROT0" description="Protects Sector 0 from program or erase operations" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT1" description="Protects Sector 1 from program or erase operations" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_BANK1_MAIN_WEPROT" width="32" offset="0xC4" internal="0" description="Main Memory Bank1 Write/Erase Protection Register">
+        <bitfield id="PROT0" description="Protects Sector 0 from program or erase operations" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT1" description="Protects Sector 1 from program or erase operations" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT2" description="Protects Sector 2 from program or erase operations" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT3" description="Protects Sector 3 from program or erase operations" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT4" description="Protects Sector 4 from program or erase operations" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT5" description="Protects Sector 5 from program or erase operations" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT6" description="Protects Sector 6 from program or erase operations" begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT7" description="Protects Sector 7 from program or erase operations" begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT8" description="Protects Sector 8 from program or erase operations" begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT9" description="Protects Sector 9 from program or erase operations" begin="9" end="9" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT10" description="Protects Sector 10 from program or erase operations" begin="10" end="10" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT11" description="Protects Sector 11 from program or erase operations" begin="11" end="11" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT12" description="Protects Sector 12 from program or erase operations" begin="12" end="12" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT13" description="Protects Sector 13 from program or erase operations" begin="13" end="13" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT14" description="Protects Sector 14 from program or erase operations" begin="14" end="14" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT15" description="Protects Sector 15 from program or erase operations" begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT16" description="Protects Sector 16 from program or erase operations" begin="16" end="16" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT17" description="Protects Sector 17 from program or erase operations" begin="17" end="17" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT18" description="Protects Sector 18 from program or erase operations" begin="18" end="18" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT19" description="Protects Sector 19 from program or erase operations" begin="19" end="19" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT20" description="Protects Sector 20 from program or erase operations" begin="20" end="20" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT21" description="Protects Sector 21 from program or erase operations" begin="21" end="21" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT22" description="Protects Sector 22 from program or erase operations" begin="22" end="22" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT23" description="Protects Sector 23 from program or erase operations" begin="23" end="23" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT24" description="Protects Sector 24 from program or erase operations" begin="24" end="24" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT25" description="Protects Sector 25 from program or erase operations" begin="25" end="25" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT26" description="Protects Sector 26 from program or erase operations" begin="26" end="26" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT27" description="Protects Sector 27 from program or erase operations" begin="27" end="27" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT28" description="Protects Sector 28 from program or erase operations" begin="28" end="28" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT29" description="Protects Sector 29 from program or erase operations" begin="29" end="29" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT30" description="Protects Sector 30 from program or erase operations" begin="30" end="30" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PROT31" description="Protects Sector 31 from program or erase operations" begin="31" end="31" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_BMRK_CTLSTAT" width="32" offset="0xD0" internal="0" description="Benchmark Control and Status Register">
+        <bitfield id="I_BMRK" description="When 1, increments the Instruction Benchmark count register on each instruction fetch to the Flash" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="D_BMRK" description="When 1, increments the Data Benchmark count register on each data read access to the Flash" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CMP_EN" description="When 1, enables comparison of the Instruction or Data Benchmark Registers against the threshold value" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CMP_SEL" description="Selects which benchmark register should be compared against the threshold" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="en_1_00" value="0x0" description="Compares the Instruction Benchmark Register against the threshold value"/>
+            <bitenum id="en_2_01" value="0x1" description="Compares the Data Benchmark Register against the threshold value"/>
+        </bitfield>
+    </register>
+    <register id="FLCTL_BMRK_IFETCH" width="32" offset="0xD4" internal="0" description="Benchmark Instruction Fetch Count Register">
+    </register>
+    <register id="FLCTL_BMRK_DREAD" width="32" offset="0xD8" internal="0" description="Benchmark Data Read Count Register">
+    </register>
+    <register id="FLCTL_BMRK_CMP" width="32" offset="0xDC" internal="0" description="Benchmark Count Compare Register">
+    </register>
+    <register id="FLCTL_IFG" width="32" offset="0xF0" internal="0" description="Interrupt Flag Register">
+        <bitfield id="RDBRST" description="If set to 1, indicates that the Read Burst/Compare operation is complete" begin="0" end="0" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="AVPRE" description="If set to 1, indicates that the pre-program verify operation has detected an error" begin="1" end="1" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="AVPST" description="If set to 1, indicates that the post-program verify operation has failed comparison" begin="2" end="2" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="PRG" description="If set to 1, indicates that a word Program operation is complete" begin="3" end="3" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="PRGB" description="If set to 1, indicates that the configured Burst Program operation is complete" begin="4" end="4" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="ERASE" description="If set to 1, indicates that the Erase operation is complete" begin="5" end="5" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="BMRK" description="If set to 1, indicates that a Benchmark Compare match occurred" begin="8" end="8" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="PRG_ERR" description="If set to 1, indicates a word composition error in full word write mode (possible data loss due to writes crossing over to a new 128bit boundary before full word has been composed)" begin="9" end="9" width="1" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_IE" width="32" offset="0xF4" internal="0" description="Interrupt Enable Register">
+        <bitfield id="RDBRST" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AVPRE" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AVPST" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRG" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRGB" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ERASE" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BMRK" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRG_ERR" description="If set to 1, enables the Controller to generate an interrupt based on the corresponding bit in the FLCTL_IFG" begin="9" end="9" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_CLRIFG" width="32" offset="0xF8" internal="0" description="Clear Interrupt Flag Register">
+        <bitfield id="RDBRST" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AVPRE" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AVPST" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRG" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRGB" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ERASE" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BMRK" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRG_ERR" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="9" end="9" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_SETIFG" width="32" offset="0xFC" internal="0" description="Set Interrupt Flag Register">
+        <bitfield id="RDBRST" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AVPRE" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AVPST" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRG" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRGB" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ERASE" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BMRK" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PRG_ERR" description="Write 1 clears the corresponding interrupt flag bit in the FLCTL_IFG" begin="9" end="9" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FLCTL_READ_TIMCTL" width="32" offset="0x100" internal="0" description="Read Timing Control Register">
+        <bitfield id="SETUP" description="Configures the length of the Setup phase for this operation" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+        <bitfield id="IREF_BOOST1" description="Length of the IREF_BOOST1 signal of the IP" begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="SETUP_LONG" description="Length of the Setup time into read mode when the device is recovering from one of the following conditions: Moving from Power-down or Standby back to Active and device is not trimmed. Moving from standby to active state in low-frequency active mode. Recovering from the LDO Boost operation after a Mass Erase." begin="23" end="16" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_READMARGIN_TIMCTL" width="32" offset="0x104" internal="0" description="Read Margin Timing Control Register">
+        <bitfield id="SETUP" description="Length of the Setup phase for this operation" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_PRGVER_TIMCTL" width="32" offset="0x108" internal="0" description="Program Verify Timing Control Register">
+        <bitfield id="SETUP" description="Length of the Setup phase for this operation" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+        <bitfield id="ACTIVE" description="Length of the Active phase for this operation" begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="HOLD" description="Length of the Hold phase for this operation" begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_ERSVER_TIMCTL" width="32" offset="0x10C" internal="0" description="Erase Verify Timing Control Register">
+        <bitfield id="SETUP" description="Length of the Setup phase for this operation" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_LKGVER_TIMCTL" width="32" offset="0x110" internal="0" description="Leakage Verify Timing Control Register">
+        <bitfield id="SETUP" description="Length of the Setup phase for this operation" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_PROGRAM_TIMCTL" width="32" offset="0x114" internal="0" description="Program Timing Control Register">
+        <bitfield id="SETUP" description="Length of the Setup phase for this operation" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+        <bitfield id="ACTIVE" description="Length of the Active phase for this operation" begin="27" end="8" width="20" rwaccess="R">
+        </bitfield>
+        <bitfield id="HOLD" description="Length of the Hold phase for this operation" begin="31" end="28" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_ERASE_TIMCTL" width="32" offset="0x118" internal="0" description="Erase Timing Control Register">
+        <bitfield id="SETUP" description="Length of the Setup phase for this operation" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+        <bitfield id="ACTIVE" description="Length of the Active phase for this operation" begin="27" end="8" width="20" rwaccess="R">
+        </bitfield>
+        <bitfield id="HOLD" description="Length of the Hold phase for this operation" begin="31" end="28" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_MASSERASE_TIMCTL" width="32" offset="0x11C" internal="0" description="Mass Erase Timing Control Register">
+        <bitfield id="BOOST_ACTIVE" description="Length of the time for which LDO Boost Signal is kept active" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+        <bitfield id="BOOST_HOLD" description="Length for which Flash deactivates the LDO Boost signal before processing any new commands" begin="15" end="8" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FLCTL_BURSTPRG_TIMCTL" width="32" offset="0x120" internal="0" description="Burst Program Timing Control Register">
+        <bitfield id="ACTIVE" description="Length of the Active phase for this operation" begin="27" end="8" width="20" rwaccess="R">
+        </bitfield>
+    </register>
+</module>

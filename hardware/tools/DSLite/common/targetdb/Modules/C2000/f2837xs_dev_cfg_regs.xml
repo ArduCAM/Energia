@@ -1,0 +1,345 @@
+<module id="DEV_CFG_REGS" HW_revision="" description="DEV CFG Registers">
+	<register id="DEVCFGLOCK1" width="32" page="1" offset="0x0" internal="0" description="Lock bit for CPUSELx registers">
+		<bitfield id="CPUSEL0" description="Lock bit for CPUSEL0 register" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL1" description="Lock bit for CPUSEL1 register" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL2" description="Lock bit for CPUSEL2 register" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL3" description="Lock bit for CPUSEL3 register" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL4" description="Lock bit for CPUSEL4 register" begin="4" end="4" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL5" description="Lock bit for CPUSEL5 register" begin="5" end="5" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL6" description="Lock bit for CPUSEL6 register" begin="6" end="6" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL7" description="Lock bit for CPUSEL7 register" begin="7" end="7" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL8" description="Lock bit for CPUSEL8 register" begin="8" end="8" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL9" description="Lock bit for CPUSEL9 register" begin="9" end="9" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL10" description="Lock bit for CPUSEL10 register" begin="10" end="10" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL11" description="Lock bit for CPUSEL11 register" begin="11" end="11" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL12" description="Lock bit for CPUSEL12 register" begin="12" end="12" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL13" description="Lock bit for CPUSEL13 register" begin="13" end="13" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CPUSEL14" description="Lock bit for CPUSEL14 register" begin="14" end="14" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="PARTIDL_1" width="32" page="1" offset="0x8" internal="0" description="Lower 32-bit of Device PART Identification Number">
+		<bitfield id="QUAL" description="Qualification Status" begin="7" end="6" width="2" rwaccess="R/WOnce"/>
+		<bitfield id="PIN_COUNT" description="Device Pin Count" begin="10" end="8" width="3" rwaccess="R/WOnce"/>
+		<bitfield id="INSTASPIN" description="Motorware feature set" begin="14" end="13" width="2" rwaccess="R/WOnce"/>
+		<bitfield id="FLASH_SIZE" description="Flash size in KB" begin="23" end="16" width="8" rwaccess="R/WOnce"/>
+		<bitfield id="PARTID_FORMAT_REVISION" description="Revision of the PARTID format" begin="31" end="28" width="4" rwaccess="R/WOnce"/>
+	</register>
+	<register id="PARTIDH_1" width="32" page="1" offset="0xa" internal="0" description="Upper 32-bit of Device PART Identification Number">
+		<bitfield id="FAMILY" description="Device family" begin="15" end="8" width="8" rwaccess="R/WOnce"/>
+		<bitfield id="PARTNO" description="Device part number" begin="23" end="16" width="8" rwaccess="R/WOnce"/>
+		<bitfield id="DEVICE_CLASS_ID" description="Device class ID" begin="31" end="24" width="8" rwaccess="R/WOnce"/>
+	</register>
+	<register id="REVID" width="32" page="1" offset="0xc" internal="0" description="Device Revision Number">
+		<bitfield id="REVID" description="Device Revision ID" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="DC0_1" width="32" page="1" offset="0x10" internal="0" description="Device Capability: Device Information">
+		<bitfield id="SINGLE_CORE" description="Single Core vs Dual Core " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC1_1" width="32" page="1" offset="0x12" internal="0" description="Device Capability: Processing Block Customization">
+		<bitfield id="CPU1_FPU_TMU" description="CPU1's FPU1+TMU1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CPU2_FPU_TMU" description="CPU2's FPU2+TMU2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CPU1_VCU" description="CPU1's VCU " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CPU2_VCU" description="CPU2's VCU " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CPU1_CLA1" description="CPU1.CLA1 " begin="6" end="6" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CPU2_CLA1" description="CPU2.CLA1 " begin="8" end="8" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC2_1" width="32" page="1" offset="0x14" internal="0" description="Device Capability: EMIF Customization">
+		<bitfield id="EMIF1" description="EMIF1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EMIF2" description="EMIF2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC3_1" width="32" page="1" offset="0x16" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="EPWM1" description="EPWM1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM2" description="EPWM2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM3" description="EPWM3 " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM4" description="EPWM4 " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM5" description="EPWM5 " begin="4" end="4" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM6" description="EPWM6 " begin="5" end="5" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM7" description="EPWM7 " begin="6" end="6" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM8" description="EPWM8 " begin="7" end="7" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM9" description="EPWM9 " begin="8" end="8" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM10" description="EPWM10 " begin="9" end="9" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM11" description="EPWM11 " begin="10" end="10" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EPWM12" description="EPWM12 " begin="11" end="11" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC4_1" width="32" page="1" offset="0x18" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="ECAP1" description="ECAP1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ECAP2" description="ECAP2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ECAP3" description="ECAP3 " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ECAP4" description="ECAP4 " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ECAP5" description="ECAP5 " begin="4" end="4" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ECAP6" description="ECAP6 " begin="5" end="5" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC5_1" width="32" page="1" offset="0x1a" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="EQEP1" description="EQEP1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EQEP2" description="EQEP2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="EQEP3" description="EQEP3 " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC6_1" width="32" page="1" offset="0x1c" internal="0" description="Device Capability: Peripheral Customization">
+	</register>
+	<register id="DC7_1" width="32" page="1" offset="0x1e" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="SD1" description="SD1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="SD2" description="SD2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC8_1" width="32" page="1" offset="0x20" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="SCI_A" description="SCI_A " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="SCI_B" description="SCI_B " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="SCI_C" description="SCI_C " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="SCI_D" description="SCI_D " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC9_1" width="32" page="1" offset="0x22" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="SPI_A" description="SPI_A " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="SPI_B" description="SPI_B " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="SPI_C" description="SPI_C " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC10_1" width="32" page="1" offset="0x24" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="I2C_A" description="I2C_A " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="I2C_B" description="I2C_B " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC11_1" width="32" page="1" offset="0x26" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="CAN_A" description="CAN_A " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CAN_B" description="CAN_B " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC12_1" width="32" page="1" offset="0x28" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="McBSP_A" description="McBSP_A " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="McBSP_B" description="McBSP_B " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="USB_A" description="Decides the capability of the USB_A Module" begin="17" end="16" width="2" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC13_1" width="32" page="1" offset="0x2a" internal="0" description="Device Capability: Peripheral Customization">
+		<bitfield id="uPP_A" description="uPP_A " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC14_1" width="32" page="1" offset="0x2c" internal="0" description="Device Capability: Analog Modules Customization">
+		<bitfield id="ADC_A" description="ADC_A" begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ADC_B" description="ADC_B" begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ADC_C" description="ADC_C" begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ADC_D" description="ADC_D" begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC15_1" width="32" page="1" offset="0x2e" internal="0" description="Device Capability: Analog Modules Customization">
+		<bitfield id="CMPSS1" description="CMPSS1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CMPSS2" description="CMPSS2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CMPSS3" description="CMPSS3 " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CMPSS4" description="CMPSS4 " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CMPSS5" description="CMPSS5 " begin="4" end="4" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CMPSS6" description="CMPSS6 " begin="5" end="5" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CMPSS7" description="CMPSS7 " begin="6" end="6" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="CMPSS8" description="CMPSS8 " begin="7" end="7" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC17_1" width="32" page="1" offset="0x32" internal="0" description="Device Capability: Analog Modules Customization">
+		<bitfield id="DAC_A" description="Buffered-DAC_A" begin="16" end="16" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="DAC_B" description="Buffered-DAC_B" begin="17" end="17" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="DAC_C" description="Buffered-DAC_C" begin="18" end="18" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC18_1" width="32" page="1" offset="0x34" internal="0" description="Device Capability: CPU1 Lx SRAM Customization">
+		<bitfield id="LS0_1" description="LS0_1 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS1_1" description="LS1_1 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS2_1" description="LS2_1 " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS3_1" description="LS3_1 " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS4_1" description="LS4_1 " begin="4" end="4" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS5_1" description="LS5_1 " begin="5" end="5" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC19_1" width="32" page="1" offset="0x36" internal="0" description="Device Capability: CPU2 Lx SRAM Customization">
+		<bitfield id="LS0_2" description="LS0_2 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS1_2" description="LS1_2 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS2_2" description="LS2_2 " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS3_2" description="LS3_2 " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS4_2" description="LS4_2 " begin="4" end="4" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="LS5_2" description="LS5_2 " begin="5" end="5" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="DC20_1" width="32" page="1" offset="0x38" internal="0" description="Device Capability: GSx SRAM Customization">
+		<bitfield id="GS0" description="GS0 " begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS1" description="GS1 " begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS2" description="GS2 " begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS3" description="GS3 " begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS4" description="GS4 " begin="4" end="4" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS5" description="GS5 " begin="5" end="5" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS6" description="GS6 " begin="6" end="6" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS7" description="GS7 " begin="7" end="7" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS8" description="GS8 " begin="8" end="8" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS9" description="GS9 " begin="9" end="9" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS10" description="GS10 " begin="10" end="10" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS11" description="GS11 " begin="11" end="11" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS12" description="GS12 " begin="12" end="12" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS13" description="GS13 " begin="13" end="13" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS14" description="GS14 " begin="14" end="14" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="GS15" description="GS15 " begin="15" end="15" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="PERCNF1_1" width="32" page="1" offset="0x60" internal="0" description="Peripheral Configuration register">
+		<bitfield id="ADC_A_MODE" description="ADC_A mode setting bit" begin="0" end="0" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ADC_B_MODE" description="ADC_B mode setting bit" begin="1" end="1" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ADC_C_MODE" description="ADC_C mode setting bit" begin="2" end="2" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="ADC_D_MODE" description="ADC_D mode setting bit" begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+		<bitfield id="USB_A_PHY" description="USB_A_PHY " begin="16" end="16" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="FUSEERR" width="32" page="1" offset="0x74" internal="0" description="e-Fuse error Status register">
+		<bitfield id="ALERR" description="Efuse Autoload Error Status" begin="4" end="0" width="5" rwaccess="R"/>
+		<bitfield id="ERR" description="Efuse Self Test Error Status" begin="5" end="5" width="1" rwaccess="R"/>
+	</register>
+	<register id="SOFTPRES0" width="32" page="1" offset="0x82" internal="0" description="Processing Block Software Reset register">
+		<bitfield id="CPU1_CLA1" description="CPU1_CLA1 software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPU2_CLA1" description="CPU2_CLA1 software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES1" width="32" page="1" offset="0x84" internal="0" description="EMIF Software Reset register">
+		<bitfield id="EMIF1" description="EMIF1 software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EMIF2" description="EMIF2 software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES2" width="32" page="1" offset="0x86" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="EPWM1" description="EPWM1 software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM2" description="EPWM2 software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM3" description="EPWM3 software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM4" description="EPWM4 software reset bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM5" description="EPWM5 software reset bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM6" description="EPWM6 software reset bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM7" description="EPWM7 software reset bit" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM8" description="EPWM8 software reset bit" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM9" description="EPWM9 software reset bit" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM10" description="EPWM10 software reset bit" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM11" description="EPWM11 software reset bit" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM12" description="EPWM12 software reset bit" begin="11" end="11" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES3" width="32" page="1" offset="0x88" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="ECAP1" description="ECAP1 software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP2" description="ECAP2 software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP3" description="ECAP3 software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP4" description="ECAP4 software reset bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP5" description="ECAP5 software reset bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP6" description="ECAP6 software reset bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES4" width="32" page="1" offset="0x8a" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="EQEP1" description="EQEP1 software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EQEP2" description="EQEP2 software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EQEP3" description="EQEP3 software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES6" width="32" page="1" offset="0x8e" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="SD1" description="SD1 software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SD2" description="SD2 software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES7" width="32" page="1" offset="0x90" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="SCI_A" description="SCI_A software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_B" description="SCI_B software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_C" description="SCI_C software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_D" description="SCI_D software reset bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES8" width="32" page="1" offset="0x92" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="SPI_A" description="SPI_A software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SPI_B" description="SPI_B software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SPI_C" description="SPI_C software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES9" width="32" page="1" offset="0x94" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="I2C_A" description="I2C_A software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="I2C_B" description="I2C_B software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES11" width="32" page="1" offset="0x98" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="McBSP_A" description="McBSP_A software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="McBSP_B" description="McBSP_B software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="USB_A" description="USB_A software reset bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES13" width="32" page="1" offset="0x9c" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="ADC_A" description="ADC_A software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_B" description="ADC_B software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_C" description="ADC_C software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_D" description="ADC_D software reset bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES14" width="32" page="1" offset="0x9e" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="CMPSS1" description="CMPSS1 software reset bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS2" description="CMPSS2 software reset bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS3" description="CMPSS3 software reset bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS4" description="CMPSS4 software reset bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS5" description="CMPSS5 software reset bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS6" description="CMPSS6 software reset bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS7" description="CMPSS7 software reset bit" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS8" description="CMPSS8 software reset bit" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SOFTPRES16" width="32" page="1" offset="0xa2" internal="0" description="Peripheral Software Reset register">
+		<bitfield id="DAC_A" description="Buffered_DAC_A software reset bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="DAC_B" description="Buffered_DAC_B software reset bit" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="DAC_C" description="Buffered_DAC_C software reset bit" begin="18" end="18" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL0" width="32" page="1" offset="0xd6" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="EPWM1" description="EPWM1 CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM2" description="EPWM2 CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM3" description="EPWM3 CPU select bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM4" description="EPWM4 CPU select bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM5" description="EPWM5 CPU select bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM6" description="EPWM6 CPU select bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM7" description="EPWM7 CPU select bit" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM8" description="EPWM8 CPU select bit" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM9" description="EPWM9 CPU select bit" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM10" description="EPWM10 CPU select bit" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM11" description="EPWM11 CPU select bit" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="EPWM12" description="EPWM12 CPU select bit" begin="11" end="11" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL1" width="32" page="1" offset="0xd8" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="ECAP1" description="ECAP1 CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP2" description="ECAP2 CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP3" description="ECAP3 CPU select bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP4" description="ECAP4 CPU select bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP5" description="ECAP5 CPU select bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="ECAP6" description="ECAP6 CPU select bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL2" width="32" page="1" offset="0xda" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="EQEP1" description="EQEP1 CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="EQEP2" description="EQEP2 CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EQEP3" description="EQEP3 CPU select bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL3" width="32" page="1" offset="0xdc" internal="0" description="CPU Select register for common peripherals">
+	</register>
+	<register id="CPUSEL4" width="32" page="1" offset="0xde" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="SD1" description="SD1 CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SD2" description="SD2 CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL5" width="32" page="1" offset="0xe0" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="SCI_A" description="SCI_A CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_B" description="SCI_B CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_C" description="SCI_C CPU select bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="SCI_D" description="SCI_D CPU select bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL6" width="32" page="1" offset="0xe2" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="SPI_A" description="SPI_A CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SPI_B" description="SPI_B CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SPI_C" description="SPI_C CPU select bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL7" width="32" page="1" offset="0xe4" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="I2C_A" description="I2C_A CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="I2C_B" description="I2C_B CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL8" width="32" page="1" offset="0xe6" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="CAN_A" description="CAN_A CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CAN_B" description="CAN_B CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL9" width="32" page="1" offset="0xe8" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="McBSP_A" description="McBSP_A CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="McBSP_B" description="McBSP_B CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL11" width="32" page="1" offset="0xec" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="ADC_A" description="ADC_A CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_B" description="ADC_B CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_C" description="ADC_C CPU select bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ADC_D" description="ADC_D CPU select bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL12" width="32" page="1" offset="0xee" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="CMPSS1" description="CMPSS1 CPU select bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS2" description="CMPSS2 CPU select bit" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS3" description="CMPSS3 CPU select bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS4" description="CMPSS4 CPU select bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS5" description="CMPSS5 CPU select bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS6" description="CMPSS6 CPU select bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS7" description="CMPSS7 CPU select bit" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="CMPSS8" description="CMPSS8 CPU select bit" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPUSEL14" width="32" page="1" offset="0xf2" internal="0" description="CPU Select register for common peripherals">
+		<bitfield id="DAC_A" description="Buffered_DAC_A CPU select bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="DAC_B" description="Buffered_DAC_B CPU select bit" begin="17" end="17" width="1" rwaccess="R/W"/>
+		<bitfield id="DAC_C" description="Buffered_DAC_C CPU select bit" begin="18" end="18" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CPU2RESCTL" width="32" page="1" offset="0x122" internal="0" description="CPU2 Reset Control Register">
+		<bitfield id="RESET" description="CPU2 Reset Control bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="KEY" description="Key Qualifier for writes to this register" begin="31" end="16" width="16" rwaccess="R=0/W"/>
+	</register>
+	<register id="RSTSTAT" width="16" page="1" offset="0x124" internal="0" description="Reset Status register for secondary C28x CPUs">
+		<bitfield id="CPU2RES" description="CPU2 Reset Status bit" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="CPU2NMIWDRST" description="Indicates whether a CPU2.NMIWD reset was issued to CPU2" begin="1" end="1" width="1" rwaccess="R/W=1"/>
+		<bitfield id="CPU2HWBISTRST0" description="Indicates whether a HWBIST reset was issued to CPU2" begin="2" end="2" width="1" rwaccess="R/W=1"/>
+		<bitfield id="CPU2HWBISTRST1" description="Indicates whether a HWBIST reset was issued to CPU2" begin="3" end="3" width="1" rwaccess="R/W=1"/>
+	</register>
+	<register id="LPMSTAT" width="16" page="1" offset="0x125" internal="0" description="LPM Status Register for secondary C28x CPUs">
+		<bitfield id="CPU2LPMSTAT" description="CPU2 LPM Status" begin="1" end="0" width="2" rwaccess="R"/>
+	</register>
+</module>

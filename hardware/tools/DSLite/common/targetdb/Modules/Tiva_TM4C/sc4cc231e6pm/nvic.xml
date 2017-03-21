@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="NVIC" HW_revision="" XML_version="1.0" description="NVIC register addresses" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="NVIC_ACTLR" width="32" description="Auxiliary Control" id="NVIC_ACTLR" offset="0x00000008" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Disable Interrupts of Multiple Cycle Instructions" id="NVIC_ACTLR_DISMCYC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Disable Write Buffer" id="NVIC_ACTLR_DISWBUF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Disable IT Folding" id="NVIC_ACTLR_DISFOLD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Disable CONTROL" id="NVIC_ACTLR_DISFPCA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Disable Out-Of-Order Floating Point" id="NVIC_ACTLR_DISOOFP" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ST_CTRL" width="32" description="SysTick Control and Status Register" id="NVIC_ST_CTRL" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable" id="NVIC_ST_CTRL_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Interrupt Enable" id="NVIC_ST_CTRL_INTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Clock Source" id="NVIC_ST_CTRL_CLK_SRC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Count Flag" id="NVIC_ST_CTRL_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ST_RELOAD" width="32" description="SysTick Reload Value Register" id="NVIC_ST_RELOAD" offset="0x00000014" >
+        <bitfield range="" begin="23" width="24" end="0" rwaccess="RW" description="Reload Value" id="NVIC_ST_RELOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ST_CURRENT" width="32" description="SysTick Current Value Register" id="NVIC_ST_CURRENT" offset="0x00000018" >
+        <bitfield range="" begin="23" width="24" end="0" rwaccess="R/W" description="Current Value" id="NVIC_ST_CURRENT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_EN0" width="32" description="Interrupt 0-31 Set Enable" id="NVIC_EN0" offset="0x00000100" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Enable" id="NVIC_EN0_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_EN1" width="32" description="Interrupt 32-63 Set Enable" id="NVIC_EN1" offset="0x00000104" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Enable" id="NVIC_EN1_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_EN2" width="32" description="Interrupt 64-95 Set Enable" id="NVIC_EN2" offset="0x00000108" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Enable" id="NVIC_EN2_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_EN3" width="32" description="Interrupt 96-127 Set Enable" id="NVIC_EN3" offset="0x0000010C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Enable" id="NVIC_EN3_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_EN4" width="32" description="Interrupt 128-159 Set Enable" id="NVIC_EN4" offset="0x00000110" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Interrupt Enable" id="NVIC_EN4_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DIS0" width="32" description="Interrupt 0-31 Clear Enable" id="NVIC_DIS0" offset="0x00000180" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Disable" id="NVIC_DIS0_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DIS1" width="32" description="Interrupt 32-63 Clear Enable" id="NVIC_DIS1" offset="0x00000184" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Disable" id="NVIC_DIS1_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DIS2" width="32" description="Interrupt 64-95 Clear Enable" id="NVIC_DIS2" offset="0x00000188" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Disable" id="NVIC_DIS2_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DIS3" width="32" description="Interrupt 96-127 Clear Enable" id="NVIC_DIS3" offset="0x0000018C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Disable" id="NVIC_DIS3_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DIS4" width="32" description="Interrupt 128-159 Clear Enable" id="NVIC_DIS4" offset="0x00000190" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Interrupt Disable" id="NVIC_DIS4_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PEND0" width="32" description="Interrupt 0-31 Set Pending" id="NVIC_PEND0" offset="0x00000200" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Set Pending" id="NVIC_PEND0_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PEND1" width="32" description="Interrupt 32-63 Set Pending" id="NVIC_PEND1" offset="0x00000204" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Set Pending" id="NVIC_PEND1_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PEND2" width="32" description="Interrupt 64-95 Set Pending" id="NVIC_PEND2" offset="0x00000208" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Set Pending" id="NVIC_PEND2_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PEND3" width="32" description="Interrupt 96-127 Set Pending" id="NVIC_PEND3" offset="0x0000020C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Set Pending" id="NVIC_PEND3_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PEND4" width="32" description="Interrupt 128-159 Set Pending" id="NVIC_PEND4" offset="0x00000210" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Interrupt Set Pending" id="NVIC_PEND4_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_UNPEND0" width="32" description="Interrupt 0-31 Clear Pending" id="NVIC_UNPEND0" offset="0x00000280" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Clear Pending" id="NVIC_UNPEND0_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_UNPEND1" width="32" description="Interrupt 32-63 Clear Pending" id="NVIC_UNPEND1" offset="0x00000284" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Clear Pending" id="NVIC_UNPEND1_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_UNPEND2" width="32" description="Interrupt 64-95 Clear Pending" id="NVIC_UNPEND2" offset="0x00000288" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Clear Pending" id="NVIC_UNPEND2_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_UNPEND3" width="32" description="Interrupt 96-127 Clear Pending" id="NVIC_UNPEND3" offset="0x0000028C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt Clear Pending" id="NVIC_UNPEND3_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_UNPEND4" width="32" description="Interrupt 128-159 Clear Pending" id="NVIC_UNPEND4" offset="0x00000290" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Interrupt Clear Pending" id="NVIC_UNPEND4_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ACTIVE0" width="32" description="Interrupt 0-31 Active Bit" id="NVIC_ACTIVE0" offset="0x00000300" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Interrupt Active" id="NVIC_ACTIVE0_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ACTIVE1" width="32" description="Interrupt 32-63 Active Bit" id="NVIC_ACTIVE1" offset="0x00000304" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Interrupt Active" id="NVIC_ACTIVE1_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ACTIVE2" width="32" description="Interrupt 64-95 Active Bit" id="NVIC_ACTIVE2" offset="0x00000308" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Interrupt Active" id="NVIC_ACTIVE2_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ACTIVE3" width="32" description="Interrupt 96-127 Active Bit" id="NVIC_ACTIVE3" offset="0x0000030C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Interrupt Active" id="NVIC_ACTIVE3_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_ACTIVE4" width="32" description="Interrupt 128-159 Active Bit" id="NVIC_ACTIVE4" offset="0x00000310" >
+        <bitfield range="" begin="10" width="11" end="0" rwaccess="R" description="Interrupt Active" id="NVIC_ACTIVE4_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI0" width="32" description="Interrupt 0-3 Priority" id="NVIC_PRI0" offset="0x00000400" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 0 Priority Mask" id="NVIC_PRI0_INT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 1 Priority Mask" id="NVIC_PRI0_INT1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 2 Priority Mask" id="NVIC_PRI0_INT2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 3 Priority Mask" id="NVIC_PRI0_INT3" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI1" width="32" description="Interrupt 4-7 Priority" id="NVIC_PRI1" offset="0x00000404" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 4 Priority Mask" id="NVIC_PRI1_INT4" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 5 Priority Mask" id="NVIC_PRI1_INT5" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 6 Priority Mask" id="NVIC_PRI1_INT6" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 7 Priority Mask" id="NVIC_PRI1_INT7" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI2" width="32" description="Interrupt 8-11 Priority" id="NVIC_PRI2" offset="0x00000408" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 8 Priority Mask" id="NVIC_PRI2_INT8" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 9 Priority Mask" id="NVIC_PRI2_INT9" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 10 Priority Mask" id="NVIC_PRI2_INT10" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 11 Priority Mask" id="NVIC_PRI2_INT11" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI3" width="32" description="Interrupt 12-15 Priority" id="NVIC_PRI3" offset="0x0000040C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 12 Priority Mask" id="NVIC_PRI3_INT12" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 13 Priority Mask" id="NVIC_PRI3_INT13" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 14 Priority Mask" id="NVIC_PRI3_INT14" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 15 Priority Mask" id="NVIC_PRI3_INT15" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI4" width="32" description="Interrupt 16-19 Priority" id="NVIC_PRI4" offset="0x00000410" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 16 Priority Mask" id="NVIC_PRI4_INT16" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 17 Priority Mask" id="NVIC_PRI4_INT17" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 18 Priority Mask" id="NVIC_PRI4_INT18" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 19 Priority Mask" id="NVIC_PRI4_INT19" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI5" width="32" description="Interrupt 20-23 Priority" id="NVIC_PRI5" offset="0x00000414" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 20 Priority Mask" id="NVIC_PRI5_INT20" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 21 Priority Mask" id="NVIC_PRI5_INT21" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 22 Priority Mask" id="NVIC_PRI5_INT22" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 23 Priority Mask" id="NVIC_PRI5_INT23" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI6" width="32" description="Interrupt 24-27 Priority" id="NVIC_PRI6" offset="0x00000418" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 24 Priority Mask" id="NVIC_PRI6_INT24" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 25 Priority Mask" id="NVIC_PRI6_INT25" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 26 Priority Mask" id="NVIC_PRI6_INT26" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 27 Priority Mask" id="NVIC_PRI6_INT27" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI7" width="32" description="Interrupt 28-31 Priority" id="NVIC_PRI7" offset="0x0000041C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 28 Priority Mask" id="NVIC_PRI7_INT28" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 29 Priority Mask" id="NVIC_PRI7_INT29" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 30 Priority Mask" id="NVIC_PRI7_INT30" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 31 Priority Mask" id="NVIC_PRI7_INT31" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI8" width="32" description="Interrupt 32-35 Priority" id="NVIC_PRI8" offset="0x00000420" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 32 Priority Mask" id="NVIC_PRI8_INT32" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 33 Priority Mask" id="NVIC_PRI8_INT33" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 34 Priority Mask" id="NVIC_PRI8_INT34" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 35 Priority Mask" id="NVIC_PRI8_INT35" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI9" width="32" description="Interrupt 36-39 Priority" id="NVIC_PRI9" offset="0x00000424" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 36 Priority Mask" id="NVIC_PRI9_INT36" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 37 Priority Mask" id="NVIC_PRI9_INT37" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 38 Priority Mask" id="NVIC_PRI9_INT38" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 39 Priority Mask" id="NVIC_PRI9_INT39" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI10" width="32" description="Interrupt 40-43 Priority" id="NVIC_PRI10" offset="0x00000428" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 40 Priority Mask" id="NVIC_PRI10_INT40" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 41 Priority Mask" id="NVIC_PRI10_INT41" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 42 Priority Mask" id="NVIC_PRI10_INT42" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 43 Priority Mask" id="NVIC_PRI10_INT43" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI11" width="32" description="Interrupt 44-47 Priority" id="NVIC_PRI11" offset="0x0000042C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 44 Priority Mask" id="NVIC_PRI11_INT44" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 45 Priority Mask" id="NVIC_PRI11_INT45" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 46 Priority Mask" id="NVIC_PRI11_INT46" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 47 Priority Mask" id="NVIC_PRI11_INT47" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI12" width="32" description="Interrupt 48-51 Priority" id="NVIC_PRI12" offset="0x00000430" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 48 Priority Mask" id="NVIC_PRI12_INT48" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 49 Priority Mask" id="NVIC_PRI12_INT49" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 50 Priority Mask" id="NVIC_PRI12_INT50" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 51 Priority Mask" id="NVIC_PRI12_INT51" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI13" width="32" description="Interrupt 52-55 Priority" id="NVIC_PRI13" offset="0x00000434" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 52 Priority Mask" id="NVIC_PRI13_INT52" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 53 Priority Mask" id="NVIC_PRI13_INT53" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 54 Priority Mask" id="NVIC_PRI13_INT54" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 55 Priority Mask" id="NVIC_PRI13_INT55" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI14" width="32" description="Interrupt 56-59 Priority" id="NVIC_PRI14" offset="0x00000438" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 56 Priority Mask" id="NVIC_PRI14_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 57 Priority Mask" id="NVIC_PRI14_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 58 Priority Mask" id="NVIC_PRI14_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 59 Priority Mask" id="NVIC_PRI14_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI15" width="32" description="Interrupt 60-63 Priority" id="NVIC_PRI15" offset="0x0000043C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 60 Priority Mask" id="NVIC_PRI15_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 61 Priority Mask" id="NVIC_PRI15_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 62 Priority Mask" id="NVIC_PRI15_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 63 Priority Mask" id="NVIC_PRI15_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI16" width="32" description="Interrupt 64-67 Priority" id="NVIC_PRI16" offset="0x00000440" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 64 Priority Mask" id="NVIC_PRI16_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 65 Priority Mask" id="NVIC_PRI16_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 66 Priority Mask" id="NVIC_PRI16_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 67 Priority Mask" id="NVIC_PRI16_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI17" width="32" description="Interrupt 68-71 Priority" id="NVIC_PRI17" offset="0x00000444" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 68 Priority Mask" id="NVIC_PRI17_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 69 Priority Mask" id="NVIC_PRI17_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 70 Priority Mask" id="NVIC_PRI17_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 71 Priority Mask" id="NVIC_PRI17_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI18" width="32" description="Interrupt 72-75 Priority" id="NVIC_PRI18" offset="0x00000448" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 72 Priority Mask" id="NVIC_PRI18_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 73 Priority Mask" id="NVIC_PRI18_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 74 Priority Mask" id="NVIC_PRI18_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 75 Priority Mask" id="NVIC_PRI18_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI19" width="32" description="Interrupt 76-79 Priority" id="NVIC_PRI19" offset="0x0000044C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 76 Priority Mask" id="NVIC_PRI19_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 77 Priority Mask" id="NVIC_PRI19_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 78 Priority Mask" id="NVIC_PRI19_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 79 Priority Mask" id="NVIC_PRI19_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI20" width="32" description="Interrupt 80-83 Priority" id="NVIC_PRI20" offset="0x00000450" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 80 Priority Mask" id="NVIC_PRI20_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 81 Priority Mask" id="NVIC_PRI20_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 82 Priority Mask" id="NVIC_PRI20_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 83 Priority Mask" id="NVIC_PRI20_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI21" width="32" description="Interrupt 84-87 Priority" id="NVIC_PRI21" offset="0x00000454" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 84 Priority Mask" id="NVIC_PRI21_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 85 Priority Mask" id="NVIC_PRI21_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 86 Priority Mask" id="NVIC_PRI21_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 87 Priority Mask" id="NVIC_PRI21_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI22" width="32" description="Interrupt 88-91 Priority" id="NVIC_PRI22" offset="0x00000458" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 88 Priority Mask" id="NVIC_PRI22_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 89 Priority Mask" id="NVIC_PRI22_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 90 Priority Mask" id="NVIC_PRI22_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 91 Priority Mask" id="NVIC_PRI22_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI23" width="32" description="Interrupt 92-95 Priority" id="NVIC_PRI23" offset="0x0000045C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 92 Priority Mask" id="NVIC_PRI23_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 93 Priority Mask" id="NVIC_PRI23_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 94 Priority Mask" id="NVIC_PRI23_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 95 Priority Mask" id="NVIC_PRI23_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI24" width="32" description="Interrupt 96-99 Priority" id="NVIC_PRI24" offset="0x00000460" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 96 Priority Mask" id="NVIC_PRI24_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 97 Priority Mask" id="NVIC_PRI24_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 98 Priority Mask" id="NVIC_PRI24_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 99 Priority Mask" id="NVIC_PRI24_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI25" width="32" description="Interrupt 100-103 Priority" id="NVIC_PRI25" offset="0x00000464" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 100 Priority Mask" id="NVIC_PRI25_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 101 Priority Mask" id="NVIC_PRI25_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 102 Priority Mask" id="NVIC_PRI25_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 103 Priority Mask" id="NVIC_PRI25_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI26" width="32" description="Interrupt 104-107 Priority" id="NVIC_PRI26" offset="0x00000468" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 104 Priority Mask" id="NVIC_PRI26_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 105 Priority Mask" id="NVIC_PRI26_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 106 Priority Mask" id="NVIC_PRI26_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 107 Priority Mask" id="NVIC_PRI26_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI27" width="32" description="Interrupt 108-111 Priority" id="NVIC_PRI27" offset="0x0000046C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 108 Priority Mask" id="NVIC_PRI27_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 109 Priority Mask" id="NVIC_PRI27_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 110 Priority Mask" id="NVIC_PRI27_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 111 Priority Mask" id="NVIC_PRI27_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI28" width="32" description="Interrupt 112-115 Priority" id="NVIC_PRI28" offset="0x00000470" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 112 Priority Mask" id="NVIC_PRI28_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 113 Priority Mask" id="NVIC_PRI28_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 114 Priority Mask" id="NVIC_PRI28_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 115 Priority Mask" id="NVIC_PRI28_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI29" width="32" description="Interrupt 116-119 Priority" id="NVIC_PRI29" offset="0x00000474" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 116 Priority Mask" id="NVIC_PRI29_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 117 Priority Mask" id="NVIC_PRI29_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 118 Priority Mask" id="NVIC_PRI29_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 119 Priority Mask" id="NVIC_PRI29_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI30" width="32" description="Interrupt 120-123 Priority" id="NVIC_PRI30" offset="0x00000478" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 120 Priority Mask" id="NVIC_PRI30_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 121 Priority Mask" id="NVIC_PRI30_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 122 Priority Mask" id="NVIC_PRI30_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 123 Priority Mask" id="NVIC_PRI30_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI31" width="32" description="Interrupt 124-127 Priority" id="NVIC_PRI31" offset="0x0000047C" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 124 Priority Mask" id="NVIC_PRI31_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 125 Priority Mask" id="NVIC_PRI31_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 126 Priority Mask" id="NVIC_PRI31_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 127 Priority Mask" id="NVIC_PRI31_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI32" width="32" description="Interrupt 128-131 Priority" id="NVIC_PRI32" offset="0x00000480" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt 128 Priority Mask" id="NVIC_PRI32_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt 129 Priority Mask" id="NVIC_PRI32_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt 130 Priority Mask" id="NVIC_PRI32_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt 131 Priority Mask" id="NVIC_PRI32_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI33" width="32" description="Interrupt 132-135 Priority" id="NVIC_PRI33" offset="0x00000484" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt Priority for Interrupt [4n]" id="NVIC_PRI33_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt Priority for Interrupt [4n+1]" id="NVIC_PRI33_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt Priority for Interrupt [4n+2]" id="NVIC_PRI33_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt Priority for Interrupt [4n+3]" id="NVIC_PRI33_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_PRI34" width="32" description="Interrupt 136-139 Priority" id="NVIC_PRI34" offset="0x00000488" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Interrupt Priority for Interrupt [4n]" id="NVIC_PRI34_INTA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Interrupt Priority for Interrupt [4n+1]" id="NVIC_PRI34_INTB" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Interrupt Priority for Interrupt [4n+2]" id="NVIC_PRI34_INTC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Interrupt Priority for Interrupt [4n+3]" id="NVIC_PRI34_INTD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_CPUID" width="32" description="CPU ID Base" id="NVIC_CPUID" offset="0x00000D00" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="Revision Number" id="NVIC_CPUID_REV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="12" end="4" rwaccess="R" description="Part Number" id="NVIC_CPUID_PARTNO" resetval="" >
+            <bitenum id="NVIC_CPUID_PARTNO_CM4" value="0x0000C240" token="" description="Cortex-M4 processor"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="R" description="Constant" id="NVIC_CPUID_CON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="R" description="Variant Number" id="NVIC_CPUID_VAR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="8" end="24" rwaccess="R" description="Implementer Code" id="NVIC_CPUID_IMP" resetval="" >
+            <bitenum id="NVIC_CPUID_IMP_ARM" value="0x41000000" token="" description="ARM"/>
+        </bitfield>
+    </register>
+    <register acronym="NVIC_INT_CTRL" width="32" description="Interrupt Control and State" id="NVIC_INT_CTRL" offset="0x00000D04" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Interrupt Pending Vector Number" id="NVIC_INT_CTRL_VEC_ACT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Return to Base" id="NVIC_INT_CTRL_RET_BASE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="8" end="12" rwaccess="RW" description="Interrupt Pending Vector Number" id="NVIC_INT_CTRL_VEC_PEN" resetval="" >
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_NMI" value="0x00002000" token="" description="NMI"/>
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_HARD" value="0x00003000" token="" description="Hard fault"/>
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_MEM" value="0x00004000" token="" description="Memory management fault"/>
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_BUS" value="0x00005000" token="" description="Bus fault"/>
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_USG" value="0x00006000" token="" description="Usage fault"/>
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_SVC" value="0x0000B000" token="" description="SVCall"/>
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_PNDSV" value="0x0000E000" token="" description="PendSV"/>
+            <bitenum id="NVIC_INT_CTRL_VEC_PEN_TICK" value="0x0000F000" token="" description="SysTick"/>
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="Interrupt Pending" id="NVIC_INT_CTRL_ISR_PEND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="Debug Interrupt Handling" id="NVIC_INT_CTRL_ISR_PRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="SysTick Clear Pending" id="NVIC_INT_CTRL_PENDSTCLR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="SysTick Set Pending" id="NVIC_INT_CTRL_PENDSTSET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="PendSV Clear Pending" id="NVIC_INT_CTRL_UNPEND_SV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="PendSV Set Pending" id="NVIC_INT_CTRL_PEND_SV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="NMI Set Pending" id="NVIC_INT_CTRL_NMI_SET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_VTABLE" width="32" description="Vector Table Offset" id="NVIC_VTABLE" offset="0x00000D08" >
+        <bitfield range="" begin="31" width="22" end="10" rwaccess="RW" description="Vector Table Offset" id="NVIC_VTABLE_OFFSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_APINT" width="32" description="Application Interrupt and Reset Control" id="NVIC_APINT" offset="0x00000D0C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="System Reset" id="NVIC_APINT_VECT_RESET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Clear Active NMI / Fault" id="NVIC_APINT_VECT_CLR_ACT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="System Reset Request" id="NVIC_APINT_SYSRESETREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="3" end="8" rwaccess="RW" description="Interrupt Priority Grouping" id="NVIC_APINT_PRIGROUP" resetval="" >
+            <bitenum id="NVIC_APINT_PRIGROUP_7_1" value="0x00000000" token="" description="Priority group 7.1 split"/>
+            <bitenum id="NVIC_APINT_PRIGROUP_6_2" value="0x00000100" token="" description="Priority group 6.2 split"/>
+            <bitenum id="NVIC_APINT_PRIGROUP_5_3" value="0x00000200" token="" description="Priority group 5.3 split"/>
+            <bitenum id="NVIC_APINT_PRIGROUP_4_4" value="0x00000300" token="" description="Priority group 4.4 split"/>
+            <bitenum id="NVIC_APINT_PRIGROUP_3_5" value="0x00000400" token="" description="Priority group 3.5 split"/>
+            <bitenum id="NVIC_APINT_PRIGROUP_2_6" value="0x00000500" token="" description="Priority group 2.6 split"/>
+            <bitenum id="NVIC_APINT_PRIGROUP_1_7" value="0x00000600" token="" description="Priority group 1.7 split"/>
+            <bitenum id="NVIC_APINT_PRIGROUP_0_8" value="0x00000700" token="" description="Priority group 0.8 split"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Data Endianess" id="NVIC_APINT_ENDIANESS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Register Key" id="NVIC_APINT_VECTKEY" resetval="" >
+            <bitenum id="NVIC_APINT_VECTKEY" value="0x05FA0000" token="" description="Vector key"/>
+        </bitfield>
+    </register>
+    <register acronym="NVIC_SYS_CTRL" width="32" description="System Control" id="NVIC_SYS_CTRL" offset="0x00000D10" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Sleep on ISR Exit" id="NVIC_SYS_CTRL_SLEEPEXIT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Deep Sleep Enable" id="NVIC_SYS_CTRL_SLEEPDEEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Wake Up on Pending" id="NVIC_SYS_CTRL_SEVONPEND" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_CFG_CTRL" width="32" description="Configuration and Control" id="NVIC_CFG_CTRL" offset="0x00000D14" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Thread State Control" id="NVIC_CFG_CTRL_BASE_THR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Allow Main Interrupt Trigger" id="NVIC_CFG_CTRL_MAIN_PEND" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Trap on Unaligned Access" id="NVIC_CFG_CTRL_UNALIGNED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Trap on Divide by 0" id="NVIC_CFG_CTRL_DIV0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Ignore Bus Fault in NMI and Fault" id="NVIC_CFG_CTRL_BFHFNMIGN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Stack Alignment on Exception Entry" id="NVIC_CFG_CTRL_STKALIGN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_SYS_PRI1" width="32" description="System Handler Priority 1" id="NVIC_SYS_PRI1" offset="0x00000D18" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Memory Management Fault Priority" id="NVIC_SYS_PRI1_MEM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Bus Fault Priority" id="NVIC_SYS_PRI1_BUS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="Usage Fault Priority" id="NVIC_SYS_PRI1_USAGE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_SYS_PRI2" width="32" description="System Handler Priority 2" id="NVIC_SYS_PRI2" offset="0x00000D1C" >
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="SVCall Priority" id="NVIC_SYS_PRI2_SVC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_SYS_PRI3" width="32" description="System Handler Priority 3" id="NVIC_SYS_PRI3" offset="0x00000D20" >
+        <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Debug Priority" id="NVIC_SYS_PRI3_DEBUG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="3" end="21" rwaccess="RW" description="PendSV Priority" id="NVIC_SYS_PRI3_PENDSV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="SysTick Exception Priority" id="NVIC_SYS_PRI3_TICK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_SYS_HND_CTRL" width="32" description="System Handler Control and State" id="NVIC_SYS_HND_CTRL" offset="0x00000D24" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Memory Management Fault Active" id="NVIC_SYS_HND_CTRL_MEMA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Bus Fault Active" id="NVIC_SYS_HND_CTRL_BUSA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Usage Fault Active" id="NVIC_SYS_HND_CTRL_USGA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="SVC Call Active" id="NVIC_SYS_HND_CTRL_SVCA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Debug Monitor Active" id="NVIC_SYS_HND_CTRL_MON" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="PendSV Exception Active" id="NVIC_SYS_HND_CTRL_PNDSV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="SysTick Exception Active" id="NVIC_SYS_HND_CTRL_TICK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Usage Fault Pending" id="NVIC_SYS_HND_CTRL_USAGEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Memory Management Fault Pending" id="NVIC_SYS_HND_CTRL_MEMP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Bus Fault Pending" id="NVIC_SYS_HND_CTRL_BUSP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="SVC Call Pending" id="NVIC_SYS_HND_CTRL_SVC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Memory Management Fault Enable" id="NVIC_SYS_HND_CTRL_MEM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Bus Fault Enable" id="NVIC_SYS_HND_CTRL_BUS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Usage Fault Enable" id="NVIC_SYS_HND_CTRL_USAGE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_FAULT_STAT" width="32" description="Configurable Fault Status" id="NVIC_FAULT_STAT" offset="0x00000D28" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction Access Violation" id="NVIC_FAULT_STAT_IERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data Access Violation" id="NVIC_FAULT_STAT_DERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Unstack Access Violation" id="NVIC_FAULT_STAT_MUSTKE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Stack Access Violation" id="NVIC_FAULT_STAT_MSTKE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Memory Management Fault on Floating-Point Lazy State Preservation" id="NVIC_FAULT_STAT_MLSPERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Memory Management Fault Address Register Valid" id="NVIC_FAULT_STAT_MMARV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Instruction Bus Error" id="NVIC_FAULT_STAT_IBUS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Precise Data Bus Error" id="NVIC_FAULT_STAT_PRECISE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Imprecise Data Bus Error" id="NVIC_FAULT_STAT_IMPRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Unstack Bus Fault" id="NVIC_FAULT_STAT_BUSTKE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Stack Bus Fault" id="NVIC_FAULT_STAT_BSTKE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Bus Fault on Floating-Point Lazy State Preservation" id="NVIC_FAULT_STAT_BLSPERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Bus Fault Address Register Valid" id="NVIC_FAULT_STAT_BFARV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Undefined Instruction Usage Fault" id="NVIC_FAULT_STAT_UNDEF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Invalid State Usage Fault" id="NVIC_FAULT_STAT_INVSTAT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Invalid PC Load Usage Fault" id="NVIC_FAULT_STAT_INVPC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="No Coprocessor Usage Fault" id="NVIC_FAULT_STAT_NOCP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Unaligned Access Usage Fault" id="NVIC_FAULT_STAT_UNALIGN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="Divide-by-Zero Usage Fault" id="NVIC_FAULT_STAT_DIV0" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_HFAULT_STAT" width="32" description="Hard Fault Status" id="NVIC_HFAULT_STAT" offset="0x00000D2C" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Vector Table Read Fault" id="NVIC_HFAULT_STAT_VECT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Forced Hard Fault" id="NVIC_HFAULT_STAT_FORCED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Debug Event" id="NVIC_HFAULT_STAT_DBG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DEBUG_STAT" width="32" description="Debug Status Register" id="NVIC_DEBUG_STAT" offset="0x00000D30" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R/W" description="Halt request" id="NVIC_DEBUG_STAT_HALTED" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R/W" description="Breakpoint instruction" id="NVIC_DEBUG_STAT_BKPT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R/W" description="DWT match" id="NVIC_DEBUG_STAT_DWTTRAP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R/W" description="Vector catch" id="NVIC_DEBUG_STAT_VCATCH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R/W" description="EDBGRQ asserted" id="NVIC_DEBUG_STAT_EXTRNL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MM_ADDR" width="32" description="Memory Management Fault Address" id="NVIC_MM_ADDR" offset="0x00000D34" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Fault Address" id="NVIC_MM_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_FAULT_ADDR" width="32" description="Bus Fault Address" id="NVIC_FAULT_ADDR" offset="0x00000D38" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Fault Address" id="NVIC_FAULT_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_CPAC" width="32" description="Coprocessor Access Control" id="NVIC_CPAC" offset="0x00000D88" >
+        <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="CP10 Coprocessor Access Privilege" id="NVIC_CPAC_CP10" resetval="" >
+            <bitenum id="NVIC_CPAC_CP10_DIS" value="0x00000000" token="" description="Access Denied"/>
+            <bitenum id="NVIC_CPAC_CP10_PRIV" value="0x00100000" token="" description="Privileged Access Only"/>
+            <bitenum id="NVIC_CPAC_CP10_FULL" value="0x00300000" token="" description="Full Access"/>
+        </bitfield>
+        <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="CP11 Coprocessor Access Privilege" id="NVIC_CPAC_CP11" resetval="" >
+            <bitenum id="NVIC_CPAC_CP11_DIS" value="0x00000000" token="" description="Access Denied"/>
+            <bitenum id="NVIC_CPAC_CP11_PRIV" value="0x00400000" token="" description="Privileged Access Only"/>
+            <bitenum id="NVIC_CPAC_CP11_FULL" value="0x00C00000" token="" description="Full Access"/>
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_TYPE" width="32" description="MPU Type" id="NVIC_MPU_TYPE" offset="0x00000D90" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Separate or Unified MPU" id="NVIC_MPU_TYPE_SEPARATE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="R" description="Number of D Regions" id="NVIC_MPU_TYPE_DREGION" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="8" end="16" rwaccess="R" description="Number of I Regions" id="NVIC_MPU_TYPE_IREGION" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_CTRL" width="32" description="MPU Control" id="NVIC_MPU_CTRL" offset="0x00000D94" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="MPU Enable" id="NVIC_MPU_CTRL_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="MPU Enabled During Faults" id="NVIC_MPU_CTRL_HFNMIENA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="MPU Default Region" id="NVIC_MPU_CTRL_PRIVDEFEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_NUMBER" width="32" description="MPU Region Number" id="NVIC_MPU_NUMBER" offset="0x00000D98" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="MPU Region to Access" id="NVIC_MPU_NUMBER" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_BASE" width="32" description="MPU Region Base Address" id="NVIC_MPU_BASE" offset="0x00000D9C" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Region Number" id="NVIC_MPU_BASE_REGION" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Region Number Valid" id="NVIC_MPU_BASE_VALID" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Base Address Mask" id="NVIC_MPU_BASE_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_ATTR" width="32" description="MPU Region Attribute and Size" id="NVIC_MPU_ATTR" offset="0x00000DA0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region Enable" id="NVIC_MPU_ATTR_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="5" end="1" rwaccess="RW" description="Region Size Mask" id="NVIC_MPU_ATTR_SIZE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Subregion Disable Bits" id="NVIC_MPU_ATTR_SRD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Bufferable" id="NVIC_MPU_ATTR_BUFFRABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Cacheable" id="NVIC_MPU_ATTR_CACHEABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Shareable" id="NVIC_MPU_ATTR_SHAREABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="3" end="19" rwaccess="RW" description="Type Extension Mask" id="NVIC_MPU_ATTR_TEX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="Access Privilege" id="NVIC_MPU_ATTR_AP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Instruction Access Disable" id="NVIC_MPU_ATTR_XN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_BASE1" width="32" description="MPU Region Base Address Alias 1" id="NVIC_MPU_BASE1" offset="0x00000DA4" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Region Number" id="NVIC_MPU_BASE1_REGION" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Region Number Valid" id="NVIC_MPU_BASE1_VALID" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Base Address Mask" id="NVIC_MPU_BASE1_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_ATTR1" width="32" description="MPU Region Attribute and Size Alias 1" id="NVIC_MPU_ATTR1" offset="0x00000DA8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region Enable" id="NVIC_MPU_ATTR1_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="5" end="1" rwaccess="RW" description="Region Size Mask" id="NVIC_MPU_ATTR1_SIZE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Subregion Disable Bits" id="NVIC_MPU_ATTR1_SRD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Bufferable" id="NVIC_MPU_ATTR1_BUFFRABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Cacheable" id="NVIC_MPU_ATTR1_CACHEABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Shareable" id="NVIC_MPU_ATTR1_SHAREABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="3" end="19" rwaccess="RW" description="Type Extension Mask" id="NVIC_MPU_ATTR1_TEX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="Access Privilege" id="NVIC_MPU_ATTR1_AP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Instruction Access Disable" id="NVIC_MPU_ATTR1_XN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_BASE2" width="32" description="MPU Region Base Address Alias 2" id="NVIC_MPU_BASE2" offset="0x00000DAC" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Region Number" id="NVIC_MPU_BASE2_REGION" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Region Number Valid" id="NVIC_MPU_BASE2_VALID" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Base Address Mask" id="NVIC_MPU_BASE2_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_ATTR2" width="32" description="MPU Region Attribute and Size Alias 2" id="NVIC_MPU_ATTR2" offset="0x00000DB0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region Enable" id="NVIC_MPU_ATTR2_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="5" end="1" rwaccess="RW" description="Region Size Mask" id="NVIC_MPU_ATTR2_SIZE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Subregion Disable Bits" id="NVIC_MPU_ATTR2_SRD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Bufferable" id="NVIC_MPU_ATTR2_BUFFRABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Cacheable" id="NVIC_MPU_ATTR2_CACHEABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Shareable" id="NVIC_MPU_ATTR2_SHAREABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="3" end="19" rwaccess="RW" description="Type Extension Mask" id="NVIC_MPU_ATTR2_TEX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="Access Privilege" id="NVIC_MPU_ATTR2_AP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Instruction Access Disable" id="NVIC_MPU_ATTR2_XN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_BASE3" width="32" description="MPU Region Base Address Alias 3" id="NVIC_MPU_BASE3" offset="0x00000DB4" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Region Number" id="NVIC_MPU_BASE3_REGION" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Region Number Valid" id="NVIC_MPU_BASE3_VALID" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Base Address Mask" id="NVIC_MPU_BASE3_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_MPU_ATTR3" width="32" description="MPU Region Attribute and Size Alias 3" id="NVIC_MPU_ATTR3" offset="0x00000DB8" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region Enable" id="NVIC_MPU_ATTR3_ENABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="5" end="1" rwaccess="RW" description="Region Size Mask" id="NVIC_MPU_ATTR3_SIZE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Subregion Disable Bits" id="NVIC_MPU_ATTR3_SRD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Bufferable" id="NVIC_MPU_ATTR3_BUFFRABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Cacheable" id="NVIC_MPU_ATTR3_CACHEABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Shareable" id="NVIC_MPU_ATTR3_SHAREABLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="3" end="19" rwaccess="RW" description="Type Extension Mask" id="NVIC_MPU_ATTR3_TEX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="Access Privilege" id="NVIC_MPU_ATTR3_AP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Instruction Access Disable" id="NVIC_MPU_ATTR3_XN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DBG_CTRL" width="32" description="Debug Control and Status Reg" id="NVIC_DBG_CTRL" offset="0x00000DF0" >
+        <bitfield range="" begin="31" width="16" end="16" rwaccess="R/W" description="Debug key mask" id="NVIC_DBG_CTRL_DBGKEY" resetval="" >
+            <bitenum id="NVIC_DBG_CTRL_DBGKEY" value="0xA05F0000" token="" description="Debug key"/>
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DBG_CTRL" width="32" description="Debug Control and Status Reg" id="NVIC_DBG_CTRL" offset="0x00000DF0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Enable debug" id="NVIC_DBG_CTRL_C_DEBUGEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Halt the core" id="NVIC_DBG_CTRL_C_HALT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Step the core" id="NVIC_DBG_CTRL_C_STEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Mask interrupts when stepping" id="NVIC_DBG_CTRL_C_MASKINT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Breaks a stalled load/store" id="NVIC_DBG_CTRL_C_SNAPSTALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Register read/write available" id="NVIC_DBG_CTRL_S_REGRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Core status on halt" id="NVIC_DBG_CTRL_S_HALT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RO" description="Core is sleeping" id="NVIC_DBG_CTRL_S_SLEEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Core is locked up" id="NVIC_DBG_CTRL_S_LOCKUP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Core has executed insruction since last read" id="NVIC_DBG_CTRL_S_RETIRE_ST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RO" description="Core has reset since last read" id="NVIC_DBG_CTRL_S_RESET_ST" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DBG_XFER" width="32" description="Debug Core Reg. Transfer Select" id="NVIC_DBG_XFER" offset="0x00000DF4" >
+        <bitfield range="" begin="4" width="5" end="0" rwaccess="R/W" description="Register" id="NVIC_DBG_XFER_REG_SEL" resetval="" >
+            <bitenum id="NVIC_DBG_XFER_REG_R0" value="0x00000000" token="" description="Register R0"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R1" value="0x00000001" token="" description="Register R1"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R2" value="0x00000002" token="" description="Register R2"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R3" value="0x00000003" token="" description="Register R3"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R4" value="0x00000004" token="" description="Register R4"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R5" value="0x00000005" token="" description="Register R5"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R6" value="0x00000006" token="" description="Register R6"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R7" value="0x00000007" token="" description="Register R7"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R8" value="0x00000008" token="" description="Register R8"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R9" value="0x00000009" token="" description="Register R9"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R10" value="0x0000000A" token="" description="Register R10"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R11" value="0x0000000B" token="" description="Register R11"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R12" value="0x0000000C" token="" description="Register R12"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R13" value="0x0000000D" token="" description="Register R13"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R14" value="0x0000000E" token="" description="Register R14"/>
+            <bitenum id="NVIC_DBG_XFER_REG_R15" value="0x0000000F" token="" description="Register R15"/>
+            <bitenum id="NVIC_DBG_XFER_REG_FLAGS" value="0x00000010" token="" description="xPSR/Flags register"/>
+            <bitenum id="NVIC_DBG_XFER_REG_MSP" value="0x00000011" token="" description="Main SP"/>
+            <bitenum id="NVIC_DBG_XFER_REG_PSP" value="0x00000012" token="" description="Process SP"/>
+            <bitenum id="NVIC_DBG_XFER_REG_DSP" value="0x00000013" token="" description="Deep SP"/>
+            <bitenum id="NVIC_DBG_XFER_REG_CFBP" value="0x00000014" token="" description="Control/Fault/BasePri/PriMask"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R/W" description="Write or not read" id="NVIC_DBG_XFER_REG_WNR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DBG_DATA" width="32" description="Debug Core Register Data" id="NVIC_DBG_DATA" offset="0x00000DF8" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R/W" description="Data temporary cache" id="NVIC_DBG_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_DBG_INT" width="32" description="Debug Reset Interrupt Control" id="NVIC_DBG_INT" offset="0x00000DFC" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R/W" description="Reset vector catch" id="NVIC_DBG_INT_RSTVCATCH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R/W" description="Core reset is pending" id="NVIC_DBG_INT_RSTPENDING" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R/W" description="Clear pending core reset" id="NVIC_DBG_INT_RSTPENDCLR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R/W" description="Core reset status" id="NVIC_DBG_INT_RESET" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R/W" description="Debug trap on mem manage fault" id="NVIC_DBG_INT_MMERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R/W" description="Debug trap on coprocessor error" id="NVIC_DBG_INT_NOCPERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R/W" description="Debug trap on usage fault check" id="NVIC_DBG_INT_CHKERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R/W" description="Debug trap on usage fault state" id="NVIC_DBG_INT_STATERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R/W" description="Debug trap on bus error" id="NVIC_DBG_INT_BUSERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R/W" description="Debug trap on interrupt errors" id="NVIC_DBG_INT_INTERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R/W" description="Debug trap on hard fault" id="NVIC_DBG_INT_HARDERR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_SW_TRIG" width="32" description="Software Trigger Interrupt" id="NVIC_SW_TRIG" offset="0x00000F00" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="W" description="Interrupt ID" id="NVIC_SW_TRIG_INTID" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_FPCC" width="32" description="Floating-Point Context Control" id="NVIC_FPCC" offset="0x00000F34" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Lazy State Preservation Active" id="NVIC_FPCC_LSPACT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="User Privilege Level" id="NVIC_FPCC_USER" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Thread Mode" id="NVIC_FPCC_THREAD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Hard Fault Ready" id="NVIC_FPCC_HFRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Memory Management Fault Ready" id="NVIC_FPCC_MMRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Bus Fault Ready" id="NVIC_FPCC_BFRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Monitor Ready" id="NVIC_FPCC_MONRDY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Lazy State Preservation Enable" id="NVIC_FPCC_LSPEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Automatic State Preservation Enable" id="NVIC_FPCC_ASPEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_FPCA" width="32" description="Floating-Point Context Address" id="NVIC_FPCA" offset="0x00000F38" >
+        <bitfield range="" begin="31" width="29" end="3" rwaccess="RW" description="Address" id="NVIC_FPCA_ADDRESS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="NVIC_FPDSC" width="32" description="Floating-Point Default Status Control" id="NVIC_FPDSC" offset="0x00000F3C" >
+        <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="RMODE Bit Default" id="NVIC_FPDSC_RMODE" resetval="" >
+            <bitenum id="NVIC_FPDSC_RMODE_RN" value="0x00000000" token="" description="Round to Nearest (RN) mode"/>
+            <bitenum id="NVIC_FPDSC_RMODE_RP" value="0x00400000" token="" description="Round towards Plus Infinity (RP) mode"/>
+            <bitenum id="NVIC_FPDSC_RMODE_RM" value="0x00800000" token="" description="Round towards Minus Infinity (RM) mode"/>
+            <bitenum id="NVIC_FPDSC_RMODE_RZ" value="0x00C00000" token="" description="Round towards Zero (RZ) mode"/>
+        </bitfield>
+        <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="FZ Bit Default" id="NVIC_FPDSC_FZ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="DN Bit Default" id="NVIC_FPDSC_DN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="AHP Bit Default" id="NVIC_FPDSC_AHP" resetval="" >
+        </bitfield>
+    </register>
+</module>

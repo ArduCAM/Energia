@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: 
+  Checkin $Date: 
+  -->
+
+<!-- TMS320x2806x Device Emulation Registers
+     =======================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+<module id="DEVEMU" HW_revision="" XML_version="1" description="Dev Emu Registers">
+ <register id="DEVICECNF" acronym="DEVICECNF" offset="0" page="1" width="32" description="Device Configuration" />
+ <register id="CLASSID" acronym="CLASSID" offset="2" page="1" width="16" description="Class ID" />
+ <register id="REVID" acronym="REVID" offset="3" page="1" width="16" description="Device ID" />
+ <!-- 4027900 empty -->        
+ <register id="PARTID" acronym="PARTID" offset="4027904" page="1" width="16" description="Part ID" />
+</module>

@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- TMS470REX Nodes-->
+	<node id="FlashProgrammerNode">
+		<name>MSP432 Settings</name>
+		<children>
+			<child>FlashResetGroup</child>
+      <child>FlashEraseGroup</child>
+<!--			<child>FlashBSLConfigurationGroup</child>-->
+      <child>FlashDeviceSecurityGroup</child>
+      <child>FlashSecureRegionGroup</child>
+    </children>
+	</node>
+
+	<!-- Top-Level Groups -->
+
+	<group id="FlashResetGroup">
+		<name>Reset Configuration</name>
+		<children>
+			<child>FlashResetBeforeLoadSetting</child>
+			<child>FlashResetAfterLoadSetting</child>
+			<child>FlashResetType</child>
+		</children>
+	</group>
+
+	<group id="FlashEraseGroup">
+		<name>Erase Configuration</name>
+		<children>
+			<child>FlashEraseSelection</child>
+			<child>FlashUnlockBSLMemory</child>
+		</children>
+	</group>
+
+<!--	<group id="FlashBSLConfigurationGroup">
+		<name>BSL Configuration</name>
+		<children>
+			<child>FlashBSLConfigurationCheckbox</child>
+			<child>FlashBSLPortConfiguration</child>
+			<child>FlashBSLPinConfiguration</child>
+			<child>FlashBSLLevelConfiguration</child>-->
+<!--			<child>FlashBSLConfigurationStartAddress</child>-->
+<!--		</children>
+	</group> -->
+
+	<group id="FlashDeviceSecurityGroup">
+		<name>Device Security Configuration</name>
+		<children>
+			<child>FlashEnableDeviceSecurityCheckbox</child>
+      <child>FlashSecureDeviceButton</child>
+			<child>FlashUnlockDeviceButton</child>
+		</children>
+	</group>
+
+<!--
+	<group id="FlashSecureRegionGroup">
+		<name>Regional Security Configuration</name>
+		<children>
+      <child>FlashEnableRegionalSecurityCheckbox</child>
+			<child>FlashSecureRegion0Group</child>
+			<child>FlashSecureRegion1Group</child>
+			<child>FlashSecureRegion2Group</child>
+			<child>FlashSecureRegion3Group</child>
+		</children>
+	</group>
+
+  	<group id="FlashSecureRegion0Group">
+		<name>Secure Region 0</name>
+		<children>
+			<child>FlashSecureRegion0Checkbox</child>
+			<child>FlashSecureRegion0StartAddr</child>
+			<child>FlashSecureRegion0Length</child>
+			<child>FlashSecureRegion0AESInitVector0</child>
+			<child>FlashSecureRegion0AESInitVector1</child>
+			<child>FlashSecureRegion0AESInitVector2</child>
+			<child>FlashSecureRegion0AESInitVector3</child>
+			<child>FlashSecureRegion0AESCBCKey0</child>
+			<child>FlashSecureRegion0AESCBCKey1</child>
+			<child>FlashSecureRegion0AESCBCKey2</child>
+			<child>FlashSecureRegion0AESCBCKey3</child>
+			<child>FlashSecureRegion0AESCBCKey4</child>
+			<child>FlashSecureRegion0AESCBCKey5</child>
+			<child>FlashSecureRegion0AESCBCKey6</child>
+			<child>FlashSecureRegion0AESCBCKey7</child>
+			<child>FlashSecureRegion0EncUpdateEn</child>
+			<child>FlashSecureRegion0Password0</child>
+			<child>FlashSecureRegion0Password1</child>
+			<child>FlashSecureRegion0Password2</child>
+			<child>FlashSecureRegion0Password3</child>
+			<child>FlashSecureRegion0DataEn</child>
+		</children>
+	</group>
+
+	<group id="FlashSecureRegion1Group">
+		<name>Secure Region 1</name>
+		<children>
+			<child>FlashSecureRegion1Checkbox</child>
+			<child>FlashSecureRegion1StartAddr</child>
+			<child>FlashSecureRegion1Length</child>
+			<child>FlashSecureRegion1AESInitVector0</child>
+			<child>FlashSecureRegion1AESInitVector1</child>
+			<child>FlashSecureRegion1AESInitVector2</child>
+			<child>FlashSecureRegion1AESInitVector3</child>
+			<child>FlashSecureRegion1AESCBCKey0</child>
+			<child>FlashSecureRegion1AESCBCKey1</child>
+			<child>FlashSecureRegion1AESCBCKey2</child>
+			<child>FlashSecureRegion1AESCBCKey3</child>
+			<child>FlashSecureRegion1AESCBCKey4</child>
+			<child>FlashSecureRegion1AESCBCKey5</child>
+			<child>FlashSecureRegion1AESCBCKey6</child>
+			<child>FlashSecureRegion1AESCBCKey7</child>
+			<child>FlashSecureRegion1EncUpdateEn</child>
+			<child>FlashSecureRegion1Password0</child>
+			<child>FlashSecureRegion1Password1</child>
+			<child>FlashSecureRegion1Password2</child>
+			<child>FlashSecureRegion1Password3</child>
+			<child>FlashSecureRegion1DataEn</child>
+		</children>
+	</group>
+
+	<group id="FlashSecureRegion2Group">
+		<name>Secure Region 2</name>
+		<children>
+			<child>FlashSecureRegion2Checkbox</child>
+			<child>FlashSecureRegion2StartAddr</child>
+			<child>FlashSecureRegion2Length</child>
+			<child>FlashSecureRegion2AESInitVector0</child>
+			<child>FlashSecureRegion2AESInitVector1</child>
+			<child>FlashSecureRegion2AESInitVector2</child>
+			<child>FlashSecureRegion2AESInitVector3</child>
+			<child>FlashSecureRegion2AESCBCKey0</child>
+			<child>FlashSecureRegion2AESCBCKey1</child>
+			<child>FlashSecureRegion2AESCBCKey2</child>
+			<child>FlashSecureRegion2AESCBCKey3</child>
+			<child>FlashSecureRegion2AESCBCKey4</child>
+			<child>FlashSecureRegion2AESCBCKey5</child>
+			<child>FlashSecureRegion2AESCBCKey6</child>
+			<child>FlashSecureRegion2AESCBCKey7</child>
+			<child>FlashSecureRegion2EncUpdateEn</child>
+			<child>FlashSecureRegion2Password0</child>
+			<child>FlashSecureRegion2Password1</child>
+			<child>FlashSecureRegion2Password2</child>
+			<child>FlashSecureRegion2Password3</child>
+			<child>FlashSecureRegion2DataEn</child>
+		</children>
+	</group>
+
+	<group id="FlashSecureRegion3Group">
+		<name>Secure Region 3</name>
+		<children>
+			<child>FlashSecureRegion3Checkbox</child>
+			<child>FlashSecureRegion3StartAddr</child>
+			<child>FlashSecureRegion3Length</child>
+			<child>FlashSecureRegion3AESInitVector0</child>
+			<child>FlashSecureRegion3AESInitVector1</child>
+			<child>FlashSecureRegion3AESInitVector2</child>
+			<child>FlashSecureRegion3AESInitVector3</child>
+			<child>FlashSecureRegion3AESCBCKey0</child>
+			<child>FlashSecureRegion3AESCBCKey1</child>
+			<child>FlashSecureRegion3AESCBCKey2</child>
+			<child>FlashSecureRegion3AESCBCKey3</child>
+			<child>FlashSecureRegion3AESCBCKey4</child>
+			<child>FlashSecureRegion3AESCBCKey5</child>
+			<child>FlashSecureRegion3AESCBCKey6</child>
+			<child>FlashSecureRegion3AESCBCKey7</child>
+			<child>FlashSecureRegion3EncUpdateEn</child>
+			<child>FlashSecureRegion3Password0</child>
+			<child>FlashSecureRegion3Password1</child>
+			<child>FlashSecureRegion3Password2</child>
+			<child>FlashSecureRegion3Password3</child>
+			<child>FlashSecureRegion3DataEn</child>
+		</children>
+	</group>
+-->
+
+
+  <!-- Sub-level items -->
+
+  <!-- Reset selection -->
+	<property id="FlashResetBeforeLoadSetting">
+		<target>TMS470REX</target>
+		<name>Reset target before program load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	<property id="FlashResetAfterLoadSetting">
+		<target>TMS470REX</target>
+		<name>Reset target after program load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	<property id="FlashResetType">
+		<target>TMS470REX</target>
+		<name>Reset Type</name>
+		<valueType>ChoiceList</valueType>
+		<values>
+			<value>Soft reset</value>
+			<value>Hard reset</value>
+		</values>
+		<defaultValue>Hard reset</defaultValue>
+		<disableIf>
+			<property id="FlashResetBeforeLoadSetting">0</property>
+			<property id="FlashResetAfterLoadSetting">0</property>
+		</disableIf>
+	</property>
+
+
+	<!-- Erase Configuration -->
+	<property id="FlashEraseSelection">
+		<target>TMS470REX</target>
+		<name>Erase Method</name>
+		<valueType>ChoiceList</valueType>
+		<values>
+			<value>Erase main memory only</value>
+			<value>Erase main and information memory</value>
+			<value>Factory Reset</value>
+			<value>Erase and download necessary segments only</value>
+			<value>Do not erase Flash memory</value>
+		</values>
+		<defaultValue>Erase main memory only</defaultValue>
+	</property>
+
+ <property id="FlashUnlockBSLMemory">
+		<target>TMS470REX</target>
+		<name>Allow BSL information memory erase</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+
+	<!-- BSL configuration -->
+<!--	<property id="FlashBSLConfigurationCheckbox">
+		<target>TMS470REX</target>
+		<name>Enable BSL after program load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+
+  <property id="FlashBSLPortConfiguration">
+		<target>TMS470REX</target>
+		<name>BSL Start Trigger Port</name>
+    <valueType>StringList</valueType>
+ 		<values>
+			<value>1</value>
+			<value>2</value>
+			<value>3</value>
+			<value>4</value>
+			<value>5</value>
+			<value>6</value>
+			<value>7</value>
+			<value>8</value>
+		</values>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashBSLConfigurationCheckbox">1</property>
+		</enableIf>
+  </property>
+
+	<property id="FlashBSLPinConfiguration">
+		<target>TMS470REX</target>
+		<name>BSL Start Trigger Pin</name>
+    <valueType>StringList</valueType>
+ 		<values>
+			<value>0</value>
+			<value>1</value>
+			<value>2</value>
+			<value>3</value>
+			<value>4</value>
+			<value>5</value>
+			<value>6</value>
+			<value>7</value>
+		</values>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashBSLConfigurationCheckbox">1</property>
+		</enableIf>
+  </property>
+
+	<property id="FlashBSLLevelConfiguration">
+		<target>TMS470REX</target>
+		<name>BSL Start Trigger Level</name>
+    <valueType>StringList</valueType>
+ 		<values>
+			<value>High</value>
+			<value>Low</value>
+		</values>
+		<defaultValue>High</defaultValue>
+		<enableIf>
+			<property id="FlashBSLConfigurationCheckbox">1</property>
+		</enableIf>
+  </property>
+
+  -->
+
+<!--	<property id="FlashBSLConfigurationStartAddress">
+		<target>TMS470REX</target>
+		<name>BSL start address</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0x00001000</value>
+			<value>0x00002000</value>
+			<value>0x00004000</value>
+			<value>0x00008000</value>
+			<value>0x00203080</value>
+		</values>
+		<defaultValue>0x00203080</defaultValue>
+		<enableIf>
+			<property id="FlashBSLConfigurationCheckbox">1</property>
+		</enableIf>
+	</property>-->
+
+	<!-- Security configuration -->
+	<property id="FlashEnableDeviceSecurityCheckbox">
+		<target>TMS470REX</target>
+		<name>Allow one-time device locking (only available during active debug session)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+  <property id="FlashSecureDeviceButton">
+    <target>generic</target>
+    <name>Lock Device</name>
+    <valueType>Button</valueType>
+    <action>DPActiveDebugSession.flash.performOperation("LockDevice")</action>
+  </property>
+
+ 	<property id="FlashUnlockDeviceButton">
+		<target>TMS470REX</target>
+		<name>Unlock Device</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.expression.evaluate(" GEL_EvalOnTarget(\"&lt;parent&gt;\",\"GEL_Connect()\",1) ");DPActiveDebugSession.expression.evaluate(" GEL_EvalOnTarget(\"&lt;parent&gt;\",\"MSP432_Factory_Reset()\",1) ");</action>
+	</property>
+
+	<!-- Regional security configuration -->
+  <!--
+	<property id="FlashEnableRegionalSecurityCheckbox">
+		<target>TMS470REX</target>
+		<name>Apply regional security settings after program load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+  </property>
+  -->
+
+	<!-- Regional security zone 0 -->
+  <!--
+	<property id="FlashSecureRegion0Checkbox">
+		<target>TMS470REX</target>
+		<name>Enable secure region 0</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+		<enableIf>
+			<property id="FlashEnableRegionalSecurityCheckbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0StartAddr">
+		<target>TMS470REX</target>
+		<name>Start address</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0x00000000</value>
+			<value>0x00004000</value>
+			<value>0x00008000</value>
+			<value>0x0000C000</value>
+		</values>
+		<defaultValue>0x00000000</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0Length">
+		<target>TMS470REX</target>
+		<name>Length (in kB)</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>4</value>
+			<value>8</value>
+			<value>12</value>
+			<value>16</value>
+		</values>
+		<defaultValue>4</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0DataEn">
+		<target>TMS470REX</target>
+		<name>Data Access Allowed</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0EncUpdateEn">
+		<target>TMS470REX</target>
+		<name>Encrypted Update Enabled</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESInitVector0">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESInitVector1">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESInitVector2">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESInitVector3">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey0">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey1">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey2">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey3">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey4">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 159:128)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey5">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key  (bits 191:160)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey6">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 223:192)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0AESCBCKey7">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 255:224)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0Password0">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0Password1">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0Password2">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion0Password3">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion0Checkbox">1</property>
+		</enableIf>
+	</property>
+  -->
+
+	<!-- Regional security zone 1 -->
+  <!--
+	<property id="FlashSecureRegion1Checkbox">
+		<target>TMS470REX</target>
+		<name>Enable secure region 1 after program load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+		<enableIf>
+			<property id="FlashEnableRegionalSecurityCheckbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1StartAddr">
+		<target>TMS470REX</target>
+		<name>Start address</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0x00000000</value>
+			<value>0x00004000</value>
+			<value>0x00008000</value>
+			<value>0x0000C000</value>
+		</values>
+		<defaultValue>0x00004000</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1Length">
+		<target>TMS470REX</target>
+		<name>Length (in kB)</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>4</value>
+			<value>8</value>
+			<value>12</value>
+			<value>16</value>
+		</values>
+		<defaultValue>4</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1DataEn">
+		<target>TMS470REX</target>
+		<name>Data Access Allowed</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1EncUpdateEn">
+		<target>TMS470REX</target>
+		<name>Encrypted Update Enabled</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESInitVector0">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESInitVector1">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESInitVector2">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESInitVector3">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey0">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey1">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey2">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey3">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey4">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 159:128)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey5">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key  (bits 191:160)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey6">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 223:192)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1AESCBCKey7">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 255:224)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1Password0">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1Password1">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1Password2">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion1Password3">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion1Checkbox">1</property>
+		</enableIf>
+	</property>
+  -->
+
+	<!-- Regional security zone 2 -->
+	<!--
+	<property id="FlashSecureRegion2Checkbox">
+		<target>TMS470REX</target>
+		<name>Enable secure region 2 after program load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+		<enableIf>
+			<property id="FlashEnableRegionalSecurityCheckbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2StartAddr">
+		<target>TMS470REX</target>
+		<name>Start address</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0x00000000</value>
+			<value>0x00004000</value>
+			<value>0x00008000</value>
+			<value>0x0000C000</value>
+		</values>
+		<defaultValue>0x00008000</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2Length">
+		<target>TMS470REX</target>
+		<name>Length (in kB)</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>4</value>
+			<value>8</value>
+			<value>12</value>
+			<value>16</value>
+		</values>
+		<defaultValue>4</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2DataEn">
+		<target>TMS470REX</target>
+		<name>Data Access Allowed</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2EncUpdateEn">
+		<target>TMS470REX</target>
+		<name>Encrypted Update Enabled</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESInitVector0">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESInitVector1">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESInitVector2">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESInitVector3">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey0">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey1">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey2">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey3">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey4">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 159:128)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey5">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key  (bits 191:160)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey6">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 223:192)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2AESCBCKey7">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 255:224)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2Password0">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2Password1">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2Password2">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion2Password3">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion2Checkbox">1</property>
+		</enableIf>
+	</property>
+  -->
+
+	<!-- Regional security zone 3 -->
+	<!--
+	<property id="FlashSecureRegion3Checkbox">
+		<target>TMS470REX</target>
+		<name>Enable secure region 3 after program load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+		<enableIf>
+			<property id="FlashEnableRegionalSecurityCheckbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3StartAddr">
+		<target>TMS470REX</target>
+		<name>Start address</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0x00000000</value>
+			<value>0x00004000</value>
+			<value>0x00008000</value>
+			<value>0x0000C000</value>
+		</values>
+		<defaultValue>0x0000C000</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3Length">
+		<target>TMS470REX</target>
+		<name>Length (in kB)</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>4</value>
+			<value>8</value>
+			<value>12</value>
+			<value>16</value>
+		</values>
+		<defaultValue>4</defaultValue>
+		<enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3DataEn">
+		<target>TMS470REX</target>
+		<name>Data Access Allowed</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3EncUpdateEn">
+		<target>TMS470REX</target>
+		<name>Encrypted Update Enabled</name>
+		<valueType>Boolean</valueType>
+    <defaultValue>0</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESInitVector0">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESInitVector1">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESInitVector2">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESInitVector3">
+		<target>TMS470REX</target>
+		<name>AES Init Vector (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey0">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey1">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey2">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey3">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey4">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 159:128)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey5">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key  (bits 191:160)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey6">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 223:192)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3AESCBCKey7">
+		<target>TMS470REX</target>
+		<name>AES-CBC Security Key (bits 255:224)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3Password0">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 31:0)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3Password1">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 63:32)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3Password2">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 95:64)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+	<property id="FlashSecureRegion3Password3">
+		<target>TMS470REX</target>
+		<name>Password for Encrypted Update (bits 127:96)</name>
+		<valueType>String</valueType>
+    <defaultValue>0xFFFFFFFF</defaultValue>
+    <enableIf>
+			<property id="FlashSecureRegion3Checkbox">1</property>
+		</enableIf>
+	</property>
+  -->
+
+	<!-- fin -->
+</PropertyList>
+

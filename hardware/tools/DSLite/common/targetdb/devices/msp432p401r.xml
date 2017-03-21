@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright Texas Instruments 2016 - File creation date: 2016-01-26 -->
+<device description="ARM Cortex-M4F MCU" id="MSP432P401R" partnum="MSP432P401R" HW_revision="1" desc="MSP432P401R" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- Filter to list device under in project wizard -->
+	<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp432:templates/msp432/blink/blink.c;com.ti.ccstudio.project.templates.blinkCMSISStyle_msp432:templates/msp432/cmsis/blink.c;com.ti.common.project.core.emptyProjectWithMainTemplate_gnu_msp432:templates/msp432/empty/main.c;" id="TemplateFileOverrides"></property>
+    <property Type="stringfield" Value="MSP432 Family" id="FilterString" />
+    <property Type="stringfield" Value="true" id="supportBSLMemory"></property>
+    <instance XML_revision="1.2" desc="CS_DAP_0" href="routers/cs_dap.xml" id="CS_DAP_0" xml="cs_dap.xml" xmlpath="Routers"/>
+    <router HW_revision="1.0" XML_version="1.2" description="CS_DAP Router" id="CS_DAP_0" isa="CS_DAP">
+    <property Type="filepathfield" Value="../../../emulation/gel/msp432_factory_reset.gel" id="GEL File"/>
+        <subpath id="subpath_0">
+            <property Type="numericfield" Value="16" id="Port Number"/>
+            <property Type="choicelist" Value="1" id="Initial Configuration"/>
+            <property Type="choicelist" Value="1" id="Customer Configuration"/>
+            <instance XML_version="1.2" desc="CORTEX_M4_0" href="cpus/cortex_m4.xml" id="CORTEX_M4_0" xml="cortex_m4.xml" xmlpath="cpus"/>
+            <cpu HW_revision="1.0" XML_version="1.2" description="Cortex M4 CPU" id="CORTEX_M4_0" isa="CORTEX_M4">
+                <instance HW_revision="1.0" href="../Modules/MSP432/ADC14_356.0.xml" xml="ADC14_356.0.xml" id="ADC14" xmlpath="../Modules/MSP432/" baseaddr="0x40012000" endaddr="0x40012158" size="0x0158" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/AES256_356.0.xml" xml="AES256_356.0.xml" id="AES256" xmlpath="../Modules/MSP432/" baseaddr="0x40003C00" endaddr="0x40003C10" size="0x0010" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/CAPTIO_356.0.xml" xml="CAPTIO_356.0.xml" id="CAPTIO0" xmlpath="../Modules/MSP432/" baseaddr="0x40005400" endaddr="0x40005410" size="0x0010" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/CAPTIO_356.0.xml" xml="CAPTIO_356.0.xml" id="CAPTIO1" xmlpath="../Modules/MSP432/" baseaddr="0x40005800" endaddr="0x40005810" size="0x0010" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/COMP_E_356.0.xml" xml="COMP_E_356.0.xml" id="COMP_E0" xmlpath="../Modules/MSP432/" baseaddr="0x40003400" endaddr="0x40003410" size="0x0010" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/COMP_E_356.0.xml" xml="COMP_E_356.0.xml" id="COMP_E1" xmlpath="../Modules/MSP432/" baseaddr="0x40003800" endaddr="0x40003810" size="0x0010" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/COREDEBUG_356.0.xml" xml="COREDEBUG_356.0.xml" id="COREDEBUG" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0xE000F000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/CRC32_356.0.xml" xml="CRC32_356.0.xml" id="CRC32" xmlpath="../Modules/MSP432/" baseaddr="0x40004000" endaddr="0x40004020" size="0x0020" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/CS_356.0.xml" xml="CS_356.0.xml" id="CS" xmlpath="../Modules/MSP432/" baseaddr="0x40010400" endaddr="0x40010468" size="0x0068" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/PA_356.0.xml" id="PA" xml="PA_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P1_356.0.xml" id="P1" xml="P1_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P2_356.0.xml" id="P2" xml="P2_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/PB_356.0.xml" id="PB" xml="PB_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P3_356.0.xml" id="P3" xml="P3_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P4_356.0.xml" id="P4" xml="P4_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/PC_356.0.xml" id="PC" xml="PC_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P5_356.0.xml" id="P5" xml="P5_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P6_356.0.xml" id="P6" xml="P6_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/PD_356.0.xml" id="PD" xml="PD_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P7_356.0.xml" id="P7" xml="P7_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P8_356.0.xml" id="P8" xml="P8_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/PE_356.0.xml" id="PE" xml="PE_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P9_356.0.xml" id="P9" xml="P9_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/P10_356.0.xml" id="P10" xml="P10_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/PJ_356.0.xml" id="PJ" xml="PJ_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x40004C00" size="0x0040" description="" href="../Modules/MSP432/DIO_356.0.xml" id="DIO" xml="DIO_356.0.xml" permissions="p" requestor="MSP432" xmlpath="../Modules/MSP432/"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/DMA_356.0.xml" xml="DMA_356.0.xml" id="DMA" xmlpath="../Modules/MSP432/" baseaddr="0x4000E000" endaddr="0x4000F044" size="0x1044" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/DWT_356.0.xml" xml="DWT_356.0.xml" id="DWT" xmlpath="../Modules/MSP432/" baseaddr="0xE0001000" endaddr="0xE0002000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_A_356.0.xml" xml="EUSCI_A_356.0.xml" id="EUSCI_A0" xmlpath="../Modules/MSP432/" baseaddr="0x40001000" endaddr="0x40001020" size="0x0020" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_A_356.0.xml" xml="EUSCI_A_356.0.xml" id="EUSCI_A1" xmlpath="../Modules/MSP432/" baseaddr="0x40001400" endaddr="0x40001420" size="0x0020" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_A_356.0.xml" xml="EUSCI_A_356.0.xml" id="EUSCI_A2" xmlpath="../Modules/MSP432/" baseaddr="0x40001800" endaddr="0x40001820" size="0x0020" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_A_356.0.xml" xml="EUSCI_A_356.0.xml" id="EUSCI_A3" xmlpath="../Modules/MSP432/" baseaddr="0x40001C00" endaddr="0x40001C20" size="0x0020" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_B_356.0.xml" xml="EUSCI_B_356.0.xml" id="EUSCI_B0" xmlpath="../Modules/MSP432/" baseaddr="0x40002000" endaddr="0x40002030" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_B_356.0.xml" xml="EUSCI_B_356.0.xml" id="EUSCI_B1" xmlpath="../Modules/MSP432/" baseaddr="0x40002400" endaddr="0x40002430" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_B_356.0.xml" xml="EUSCI_B_356.0.xml" id="EUSCI_B2" xmlpath="../Modules/MSP432/" baseaddr="0x40002800" endaddr="0x40002830" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/EUSCI_B_356.0.xml" xml="EUSCI_B_356.0.xml" id="EUSCI_B3" xmlpath="../Modules/MSP432/" baseaddr="0x40002C00" endaddr="0x40002C30" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/FLCTL_356.0.xml" xml="FLCTL_356.0.xml" id="FLCTL" xmlpath="../Modules/MSP432/" baseaddr="0x40011000" endaddr="0x40011124" size="0x0124" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/FPB_356.0.xml" xml="FPB_356.0.xml" id="FPB" xmlpath="../Modules/MSP432/" baseaddr="0xE0002000" endaddr="0xE0003000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/FPU_356.0.xml" xml="FPU_356.0.xml" id="FPU" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0xE000F000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/ITM_356.0.xml" xml="ITM_356.0.xml" id="ITM" xmlpath="../Modules/MSP432/" baseaddr="0xE0000000" endaddr="0xE0001000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/MPU_356.0.xml" xml="MPU_356.0.xml" id="MPU" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0xE000F000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/NVIC_356.0.xml" xml="NVIC_356.0.xml" id="NVIC" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0xE000F000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/PCM_356.0.xml" xml="PCM_356.0.xml" id="PCM" xmlpath="../Modules/MSP432/" baseaddr="0x40010000" endaddr="0x40010014" size="0x0014" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/PMAP_356.0.xml" xml="PMAP_356.0.xml" id="PMAP" xmlpath="../Modules/MSP432/" baseaddr="0x40005000" endaddr="0x40005040" size="0x0040" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/PSS_356.0.xml" xml="PSS_356.0.xml" id="PSS" xmlpath="../Modules/MSP432/" baseaddr="0x40010800" endaddr="0x40010840" size="0x0040" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/REF_A_356.0.xml" xml="REF_A_356.0.xml" id="REF_A" xmlpath="../Modules/MSP432/" baseaddr="0x40003000" endaddr="0x4000300C" size="0x000C" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/RSTCTL_356.0.xml" xml="RSTCTL_356.0.xml" id="RSTCTL" xmlpath="../Modules/MSP432/" baseaddr="0xE0042000" endaddr="0xE0042128" size="0x0128" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/RTC_C_356.0.xml" xml="RTC_C_356.0.xml" id="RTC_C" xmlpath="../Modules/MSP432/" baseaddr="0x40004400" endaddr="0x40004420" size="0x0020" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/SCB_356.0.xml" xml="SCB_356.0.xml" id="SCB" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0xE000F000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/SCnSCB_356.0.xml" xml="SCnSCB_356.0.xml" id="SCnSCB" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0xE000F000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/SYSCTL_356.0.xml" xml="SYSCTL_356.0.xml" id="SYSCTL" xmlpath="../Modules/MSP432/" baseaddr="0xE0043000" endaddr="0xE0044028" size="0x1028" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/SYSTICK_356.0.xml" xml="SYSTICK_356.0.xml" id="SYSTICK" xmlpath="../Modules/MSP432/" baseaddr="0xE000E000" endaddr="0xE000F000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/Timer32_356.0.xml" xml="Timer32_356.0.xml" id="TIMER32" xmlpath="../Modules/MSP432/" baseaddr="0x4000C000" endaddr="0x4000CF0C" size="0x0F0C" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/Timer_A_356.0.xml" xml="Timer_A_356.0.xml" id="TIMER_A0" xmlpath="../Modules/MSP432/" baseaddr="0x40000000" endaddr="0x40000030" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/Timer_A_356.0.xml" xml="Timer_A_356.0.xml" id="TIMER_A1" xmlpath="../Modules/MSP432/" baseaddr="0x40000400" endaddr="0x40000430" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/Timer_A_356.0.xml" xml="Timer_A_356.0.xml" id="TIMER_A2" xmlpath="../Modules/MSP432/" baseaddr="0x40000800" endaddr="0x40000830" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/Timer_A_356.0.xml" xml="Timer_A_356.0.xml" id="TIMER_A3" xmlpath="../Modules/MSP432/" baseaddr="0x40000C00" endaddr="0x40000C30" size="0x0030" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/TLV_356.0.xml" xml="TLV_356.0.xml" id="TLV" xmlpath="../Modules/MSP432/" baseaddr="0x201000" endaddr="0x0020115C" size="0x015C" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/TPIU_356.0.xml" xml="TPIU_356.0.xml" id="TPIU" xmlpath="../Modules/MSP432/" baseaddr="0xE0040000" endaddr="0xE0041000" size="0x1000" accessnumbytes="4" permissions="p"></instance>
+                <instance HW_revision="1.0" href="../Modules/MSP432/WDT_A_356.0.xml" xml="WDT_A_356.0.xml" id="WDT_A" xmlpath="../Modules/MSP432/" baseaddr="0x40004800" endaddr="0x4000480E" size="0x000E" accessnumbytes="2" permissions="p"></instance>
+                <instance HW_revision="1.0" accessnumbytes="4" baseaddr="0x0000" description="" href="../Modules/MSP432/MSP432_JSTATE_2_NotVisible.xml" id="" permissions="p" requestor="MSP432" size="00" xml="MSP432_JSTATE_2_NotVisible.xml" xmlpath="../Modules/MSP432/"></instance>
+                <!-- Project Wizard Settings -->
+                <property Type="filepathfield" Value="../../../emulation/gel/msp432p401r.gel" id="GEL File"/>
+                <property Type="stringfield" Value="msp432p401r.cmd" id="LinkerCmd"/>
+                <property Type="numericfield" Value="0x02000000" id="Access Port Designator"/>
+                <property Type="stringfield" Value=" --gcc --silicon_version=7M4 --code_state=16 --abi=eabi --float_support=FPv4SPD16 -D=__MSP432P401R__ -D=TARGET_IS_MSP432P4XX -D=ccs --include_path=${CCS_BASE_ROOT}/arm/include --include_path=${CCS_BASE_ROOT}/arm/include/CMSIS" id="CompilerBuildOptions"/>
+                <property Type="stringfield" Value=" -m=app_msp432p401r_ccs.map -stack=512 -heap=1024" id="LinkerBuildOptions"/>
+                <property Type="stringfield" Value="../src/system_msp432p401r.c,../src/startup_msp432p401r_ccs.c" id="FilesToCopy" />
+                <property Type="stringfield" Value="msp432p401r.lds" id="GNULinkerCmd"/>
+                <property Type="stringfield" Value=" -mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -g -gstrict-dwarf -Wall -mfloat-abi=hard -I${CCS_BASE_ROOT}/arm/include -I${CCS_BASE_ROOT}/arm/include/CMSIS -D__MSP432P401R__ -DTARGET_IS_FALCON -Dgcc" id="GNUCompilerBuildOptions"/>
+                <property Type="stringfield" Value="-mthumb -g -gstrict-dwarf -Wall" id="GNULinkerBuildOptions"/>
+                <property Type="stringfield" Value="../src/system_msp432p401r.c,../src/startup_msp432p401r_gcc.c" id="GNUFilesToCopy"/>
+                <property Type="stringfield" Value="libc.a" id="RTSlib"/>
+                <property Type="stringfield" Value="true" id="IsElfDefault"/>
+                <property Type="stringfield" Value="little" id="Endianness"/>
+                <property Type="stringfield" Value="4.9.0" id="MinCodegenVersion"/>
+                <property Type="stringfield" Value="TIXDS110_Connection.xml" id="DefaultConnection"/>
+                <property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"/>
+                <!-- END Project Wizard Settings -->
+            </cpu>
+        </subpath>
+    </router>
+</device>
+

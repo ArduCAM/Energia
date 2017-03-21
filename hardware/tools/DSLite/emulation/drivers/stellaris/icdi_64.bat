@@ -1,0 +1,1 @@
+dpinst_64_eng.exe /SW /SA /path ccs_base/emulation/drivers/stellaris/icdi

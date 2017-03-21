@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register_ids id="TMS192C2003" XML_version="2.0">
+
+    <register_id id="PC"                 value="0x7fffffff" address="0" page="0"/>
+    <register_id id="IME3_REVISION"      value="0x00054000" address="0" page="0"/>
+    <register_id id="IME3_SYSCONFIG"     value="0x00054010" address="0" page="0"/>
+    <register_id id="IME3_IRQ_EOI"       value="0x00054020" address="0" page="0"/>
+    <register_id id="IME3_IRQSTATUS_RAW" value="0x00054024" address="0" page="0"/>
+    <register_id id="IME3_IRQSTATUS"     value="0x00054028" address="0" page="0"/>
+    <register_id id="IME3_IRQENABLE_SET" value="0x0005402c" address="0" page="0"/>
+    <register_id id="IME3_IRQENABLE_CLR" value="0x00054030" address="0" page="0"/>
+
+    <register_id id="DBG_CAP"  value="0x00061880" address="0" page="0"/>
+    <register_id id="DBG_CNTL" value="0x00061884" address="0" page="0"/>
+
+    <register_id id="SYNCBOX_REVISION" value="0x00061800" address="0" page="0"/>
+    <register_id id="SYSCONFIG"        value="0x00061810" address="0" page="0"/>
+    <register_id id="RXMESSAGE"        value="0x00061840" address="0" page="0"/>
+    <register_id id="NODEIDENTIFIER"   value="0x00061844" address="0" page="0"/>
+    <register_id id="ERRORMSGDEST"     value="0x00061848" address="0" page="0"/>
+    <register_id id="ERRORLOG"         value="0x0006184c" address="0" page="0"/>
+    <register_id id="ASYNCEVENTACKREQ" value="0x00061850" address="0" page="0"/>
+    <register_id id="PARAMADDR_MOD"    value="0x00061854" address="0" page="0"/>
+    <register_id id="STATUS"           value="0x00061860" address="0" page="0"/>
+
+</register_ids>

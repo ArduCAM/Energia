@@ -1,0 +1,94 @@
+/* cc3200.gel
+ *
+ * Revisions:
+ *  Jan-29-2014 1st revision
+ *
+ *
+ */
+
+menuitem "StartUp"
+
+hotmenu StartUp()
+{
+    /* Load the CortexM3_util.gel file */
+    GEL_LoadGel("$(GEL_file_dir)/CortexM3_util.gel");
+
+    GEL_MapOff();
+    GEL_MapReset();
+    GEL_MapOn();
+    memorymap_init();
+}
+
+OnTargetConnect()
+{
+
+}
+
+OnPreFileLoaded() 
+{ 
+    GEL_Reset();
+    GEL_TextOut("\nTarget Reset\n");
+
+}
+
+memorymap_init()
+{
+    /*
+     * Syntax for GEL_MapAddStr.
+     * GEL_MapAddStr(address, page, length, "attribute", waitstate);
+
+    Basic Attribute Types           Derived Attribute Types
+    String      Description         String      Description
+    R           Read                NONE        No memory/protected
+    W           Write               RAM         Read and write
+    P           Port                ROM         Read only
+    EX          External            WOM         Write only
+    EM          Emulator            INPORT      Port read only
+    PR          Programmable        OUTPORT     Port write only
+    ER          Erasable            IOPORT      Port read and write
+    DA          Dual access         SARAM       Single access RAM
+    ASn         Access size         DARAM       Dual access RAM
+    SHnC        Shared              FLASH       Flash ROM
+    CACHE       Cache               EXRAM       External RAM
+    TX          Text                EXROM       External ROM
+    MN          Monitor             EPROM       Erasable write-able EPROM
+    SA          Single access       MONITOR     Monitor ROM
+    FL          Flash               PRAM        Program RAM
+    MR          Memory mapped       PROM        Program ROM
+    NULL        NULL                NULL        NULL
+
+    */
+
+    GEL_MapAddStr(0x00000000, 0, 0x00010000, "R", 0);  /* ROM */
+    GEL_MapAddStr(0x20000000, 0, 0x00040000, "R|W", 0);  /* SRAM */
+    GEL_MapAddStr(0x40000000, 0, 0x00001000, "R|W", 0);  /* WATCHDOG0 */
+    GEL_MapAddStr(0x40004000, 0, 0x00001000, "R|W", 0);  /* GPIO A0 */
+    GEL_MapAddStr(0x40005000, 0, 0x00001000, "R|W", 0);  /* GPIO A1 */
+    GEL_MapAddStr(0x40006000, 0, 0x00001000, "R|W", 0);  /* GPIO A2 */
+    GEL_MapAddStr(0x40007000, 0, 0x00001000, "R|W", 0);  /* GPIO A3 */
+    GEL_MapAddStr(0x4000C000, 0, 0x00001000, "R|W", 0);  /* UART A0 */
+    GEL_MapAddStr(0x4000D000, 0, 0x00001000, "R|W", 0);  /* UART A1 */
+    GEL_MapAddStr(0x40020000, 0, 0x00001000, "R|W", 0);  /* I2C A0*/
+    GEL_MapAddStr(0x40030000, 0, 0x00001000, "R|W", 0);  /* TIMER A0 */
+    GEL_MapAddStr(0x40031000, 0, 0x00001000, "R|W", 0);  /* TIMER A1 */
+    GEL_MapAddStr(0x40032000, 0, 0x00001000, "R|W", 0);  /* TIMER A2 */
+    GEL_MapAddStr(0x40033000, 0, 0x00001000, "R|W", 0);  /* TIMER A3 */
+    GEL_MapAddStr(0x400FF000, 0, 0x00001000, "R|W", 0);  /* UDMA */
+    GEL_MapAddStr(0x44010000, 0, 0x00001000, "R|W", 0);  /* SDHOST */
+    GEL_MapAddStr(0x44018000, 0, 0x00001000, "R|W", 0);  /* CAMERA IF */
+    GEL_MapAddStr(0x4401C000, 0, 0x00001000, "R|W", 0);  /* McASP */
+    GEL_MapAddStr(0x44020000, 0, 0x00001000, "R|W", 0);  /* SSPI */
+    GEL_MapAddStr(0x44021000, 0, 0x00001000, "R|W", 0);  /* GSPI */
+    GEL_MapAddStr(0x44022000, 0, 0x00001000, "R|W", 0);  /* LSPI */
+    GEL_MapAddStr(0x44030000, 0, 0x00001000, "R|W", 0);  /* DTHE */
+    GEL_MapAddStr(0x44035000, 0, 0x00001000, "R|W", 0);  /* SHA */
+    GEL_MapAddStr(0x44037000, 0, 0x00001000, "R|W", 0);  /* AES */
+    GEL_MapAddStr(0x44039000, 0, 0x00001000, "R|W", 0);  /* DES */
+    
+    
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W", 0);  /* NVIC */
+
+    GEL_TextOut("\nMemory Map Initialization Complete\n");
+
+}
+

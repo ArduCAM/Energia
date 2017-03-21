@@ -1,0 +1,58 @@
+<module id="PSS" HW_revision="356.0">
+    <register id="PSSKEY" width="32" offset="0x0" internal="0" description="Key Register">
+        <bitfield id="PSSKEY" description="PSS control key" begin="15" end="0" width="16" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="PSSCTL0" width="32" offset="0x4" internal="0" description="Control 0 Register">
+        <bitfield id="SVSMHOFF" description="SVSM high-side off" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="SVSMHOFF_0" value="0x0" description="The SVSMH is on"/>
+            <bitenum id="SVSMHOFF_1" value="0x1" description="The SVSMH is off"/>
+        </bitfield>
+        <bitfield id="SVSMHLP" description="SVSM high-side low power normal performance mode" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="SVSMHLP_0" value="0x0" description="Full performance mode. See the device-specific data sheet for response times."/>
+            <bitenum id="SVSMHLP_1" value="0x1" description="Low power normal performance mode in LPM3, LPM4, and LPMx.5, full performance in all other modes. See the device-specific data sheet for response times."/>
+        </bitfield>
+        <bitfield id="SVSMHS" description="Supply supervisor or monitor selection for the high-side" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="SVSMHS_0" value="0x0" description="Configure as SVSH"/>
+            <bitenum id="SVSMHS_1" value="0x1" description="Configure as SVMH"/>
+        </bitfield>
+        <bitfield id="SVSMHTH" description="SVSM high-side reset voltage level" begin="5" end="3" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SVMHOE" description="SVSM high-side output enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="SVMHOE_0" value="0x0" description="SVSMHIFG bit is not output"/>
+            <bitenum id="SVMHOE_1" value="0x1" description="SVSMHIFG bit is output to the device SVMHOUT pin. The device-specific port logic must be configured accordingly"/>
+        </bitfield>
+        <bitfield id="SVMHOUTPOLAL" description="SVMHOUT pin polarity active low" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="SVMHOUTPOLAL_0" value="0x0" description="SVMHOUT is active high. An error condition is signaled by a 1 at the SVMHOUT pin"/>
+            <bitenum id="SVMHOUTPOLAL_1" value="0x1" description="SVMHOUT is active low. An error condition is signaled by a 0 at the SVMHOUT pin"/>
+        </bitfield>
+        <bitfield id="DCDC_FORCE" description="Force DC-DC regulator operation" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="DCDC_FORCE_0" value="0x0" description="DC-DC regulator operation not forced. Automatic fail-safe mechanism switches the core voltage regulator from DC-DC to LDO when the supply voltage falls below the minimum supply voltage necessary for DC-DC operation."/>
+            <bitenum id="DCDC_FORCE_1" value="0x1" description="DC-DC regulator operation forced. Automatic fail-safe mechanism is disabled and device continues to operate out of DC-DC regulator."/>
+        </bitfield>
+        <bitfield id="VCORETRAN" description="Controls core voltage level transition time" begin="13" end="12" width="2" rwaccess="R/W">
+            <bitenum id="32" value="0x0" description="32 s / 100 mV"/>
+            <bitenum id="64" value="0x1" description="64 s / 100 mV"/>
+            <bitenum id="128" value="0x2" description="128 s / 100 mV (default)"/>
+            <bitenum id="256" value="0x3" description="256 s / 100 mV"/>
+        </bitfield>
+    </register>
+    <register id="PSSIE" width="32" offset="0x34" internal="0" description="Interrupt Enable Register">
+        <bitfield id="SVSMHIE" description="High-side SVSM interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="SVSMHIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="SVSMHIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="PSSIFG" width="32" offset="0x38" internal="0" description="Interrupt Flag Register">
+        <bitfield id="SVSMHIFG" description="High-side SVSM interrupt flag" begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="SVSMHIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="SVSMHIFG_1" value="0x1" description="Interrupt due to SVSMH"/>
+        </bitfield>
+    </register>
+    <register id="PSSCLRIFG" width="32" offset="0x3C" internal="0" description="Clear Interrupt Flag Register">
+        <bitfield id="CLRSVSMHIFG" description="SVSMH clear interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CLRSVSMHIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLRSVSMHIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+    </register>
+</module>

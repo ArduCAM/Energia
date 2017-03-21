@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<drivers id="CS_DAP">
+	<isa Type="CS_DAP" ProcID="0x38000405">
+		<driver file="NONE">
+			<connectionType Type="LM_ICDI"/>
+		</driver>
+	</isa>
+</drivers>

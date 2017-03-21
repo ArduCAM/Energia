@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+  TI File $Revision: 
+  Checkin $Date: 
+  --> 
+
+<!--  TMS320C2000 VCU-II Registers 
+     =================================== 
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     --> 
+<module id="VCU" HW_revision="" XML_version="1" description="VCU Registers">
+    <register id="VR0" acronym="VR0" offset="0" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR1" acronym="VR1" offset="2" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR2" acronym="VR2" offset="4" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR3" acronym="VR3" offset="6" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR4" acronym="VR4" offset="8" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR5" acronym="VR5" offset="10" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR6" acronym="VR6" offset="12" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR7" acronym="VR7" offset="14" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VR8" acronym="VR8" offset="16" page="1" width="32" description="General Purpose 32-bit registers" />
+    <register id="VT0" acronym="VT0" offset="18" page="1" width="32" description="Transition Bit register" />
+    <register id="VT1" acronym="VT1" offset="20" page="1" width="32" description="Transition Bit register" />
+    <!--  10 empty  -->
+    <register id="VSTATUS" acronym="VSTATUS" offset="32" page="1" width="32" description="VCU Status Register" >
+		<bitfield id="CRCMSGFLIP" width="1"  begin="31" end="31" resetval="0" description="CRC message flip"                range="" rwaccess="RW" />
+		<bitfield id="DIVE"       width="1"  begin="30" end="30" resetval="0" description="Divide by zero error"            range="" rwaccess="RW" />
+		<bitfield id="K"          width="3"  begin="29" end="27" resetval="0" description="Viterbi constraint length"       range="" rwaccess="RW" />
+		<bitfield id="GFORDER"    width="3"  begin="26" end="24" resetval="0" description="Galois Field Polynomial Order"   range="" rwaccess="RW" />
+		<bitfield id="GFPOLY"     width="8"  begin="23" end="16" resetval="0" description="Galois Field Polynomial"         range="" rwaccess="RW" />
+		<bitfield id="OPACK"      width="1"  begin="15" end="15" resetval="0" description="Packing order of traceback bits" range="" rwaccess="RW" />
+		<bitfield id="CPACK"      width="1"  begin="14" end="14" resetval="0" description="Packing order[L:H]"              range="" rwaccess="RW" />
+		<bitfield id="OVRI"       width="1"  begin="13" end="13" resetval="0" description="Imaginary party CMPY overflow"   range="" rwaccess="RW" />		
+		<bitfield id="OVFR"       width="1"  begin="12" end="12" resetval="0" description="General case overflow"  		    range="" rwaccess="RW" />
+		<bitfield id="RND"        width="1"  begin="11" end="11" resetval="0" description="Rounding"               		    range="" rwaccess="RW" />
+	    <bitfield id="SAT"        width="1"  begin="10" end="10" resetval="0" description="Saturation"            		    range="" rwaccess="RW" />
+		<bitfield id="SHIFTL"     width="5"  begin="9"  end="5"  resetval="0" description="Left shift modifier"    		    range="" rwaccess="RW" />
+        <bitfield id="SHIFTR"     width="5"  begin="4"  end="0"  resetval="0" description="Right shift modifier"   		    range="" rwaccess="RW" />	
+	</register>
+    <register id="VCRC" acronym="VCRC" offset="34" page="1" width="32" description="CRC Result register for un-secured memories" />
+	<!-- 28 empty -->
+	<register id="VCUREV" acronym="VCUREV" offset="64" page="1" width="32" description="" />
+	<!-- 14 empty -->
+	<register id="VSM0" acronym="VSM0" offset="80" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM1" acronym="VSM1" offset="81" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM2" acronym="VSM2" offset="82" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM3" acronym="VSM3" offset="83" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM4" acronym="VSM4" offset="84" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM5" acronym="VSM5" offset="85" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM6" acronym="VSM6" offset="86" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM7" acronym="VSM7" offset="87" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM8" acronym="VSM8" offset="88" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM9" acronym="VSM9" offset="89" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM10" acronym="VSM10" offset="90" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM11" acronym="VSM11" offset="91" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM12" acronym="VSM12" offset="92" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM13" acronym="VSM13" offset="93" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM14" acronym="VSM14" offset="94" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM15" acronym="VSM15" offset="95" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM16" acronym="VSM16" offset="96" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM17" acronym="VSM17" offset="97" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM18" acronym="VSM18" offset="98" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM19" acronym="VSM19" offset="99" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM20" acronym="VSM20" offset="100" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM21" acronym="VSM21" offset="101" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM22" acronym="VSM22" offset="102" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM23" acronym="VSM23" offset="103" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM24" acronym="VSM24" offset="104" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM25" acronym="VSM25" offset="105" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM26" acronym="VSM26" offset="106" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM27" acronym="VSM27" offset="107" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM28" acronym="VSM28" offset="108" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM29" acronym="VSM29" offset="109" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM30" acronym="VSM30" offset="110" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM31" acronym="VSM31" offset="111" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM32" acronym="VSM32" offset="112" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM33" acronym="VSM33" offset="113" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM34" acronym="VSM34" offset="114" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM35" acronym="VSM35" offset="115" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM36" acronym="VSM36" offset="116" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM37" acronym="VSM37" offset="117" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM38" acronym="VSM38" offset="118" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM39" acronym="VSM39" offset="119" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM40" acronym="VSM40" offset="120" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM41" acronym="VSM41" offset="121" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM42" acronym="VSM42" offset="122" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM43" acronym="VSM43" offset="123" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM44" acronym="VSM44" offset="124" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM45" acronym="VSM45" offset="125" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM46" acronym="VSM46" offset="126" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM47" acronym="VSM47" offset="127" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM48" acronym="VSM48" offset="128" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM49" acronym="VSM49" offset="129" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM50" acronym="VSM50" offset="130" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM51" acronym="VSM51" offset="131" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM52" acronym="VSM52" offset="132" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM53" acronym="VSM53" offset="133" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM54" acronym="VSM54" offset="134" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM55" acronym="VSM55" offset="135" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM56" acronym="VSM56" offset="136" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM57" acronym="VSM57" offset="137" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM58" acronym="VSM58" offset="138" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM59" acronym="VSM59" offset="139" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM60" acronym="VSM60" offset="140" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<register id="VSM61" acronym="VSM61" offset="141" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM62" acronym="VSM62" offset="142" page="1" width="16" description="Viterbi Decoding State Metric register" />	
+	<register id="VSM63" acronym="VSM63" offset="143" page="1" width="16" description="Viterbi Decoding State Metric register" />
+	<!-- 32 empty -->
+	<register id="VR0_B0" acronym="VR0_B0" offset="176" page="1" width="32" description="" />
+	<register id="VR0_B1" acronym="VR0_B1" offset="178" page="1" width="32" description="" />
+	<register id="VR0_B2" acronym="VR0_B2" offset="180" page="1" width="32" description="" />
+	<register id="VR0_B3" acronym="VR0_B3" offset="182" page="1" width="32" description="" />
+	<register id="VR1_B0" acronym="VR1_B0" offset="184" page="1" width="32" description="" />
+	<register id="VR1_B1" acronym="VR1_B1" offset="186" page="1" width="32" description="" />
+	<register id="VR1_B2" acronym="VR1_B2" offset="188" page="1" width="32" description="" />
+	<register id="VR1_B3" acronym="VR1_B3" offset="190" page="1" width="32" description="" />
+	<register id="VR2_B0" acronym="VR2_B0" offset="192" page="1" width="32" description="" />
+	<register id="VR2_B1" acronym="VR2_B1" offset="194" page="1" width="32" description="" />
+	<register id="VR2_B2" acronym="VR2_B2" offset="196" page="1" width="32" description="" />
+	<register id="VR2_B3" acronym="VR2_B3" offset="198" page="1" width="32" description="" />
+	<register id="VR3_B0" acronym="VR3_B0" offset="200" page="1" width="32" description="" />
+	<register id="VR3_B1" acronym="VR3_B1" offset="202" page="1" width="32" description="" />
+	<register id="VR3_B2" acronym="VR3_B2" offset="204" page="1" width="32" description="" />
+	<register id="VR3_B3" acronym="VR3_B3" offset="206" page="1" width="32" description="" />
+	<register id="VR4_B0" acronym="VR4_B0" offset="208" page="1" width="32" description="" />
+	<register id="VR4_B1" acronym="VR4_B1" offset="210" page="1" width="32" description="" />
+	<register id="VR4_B2" acronym="VR4_B2" offset="212" page="1" width="32" description="" />
+	<register id="VR4_B3" acronym="VR4_B3" offset="214" page="1" width="32" description="" />
+	<register id="VR5_B0" acronym="VR5_B0" offset="216" page="1" width="32" description="" />
+	<register id="VR5_B1" acronym="VR5_B1" offset="218" page="1" width="32" description="" />
+	<register id="VR5_B2" acronym="VR5_B2" offset="220" page="1" width="32" description="" />
+	<register id="VR5_B3" acronym="VR5_B3" offset="222" page="1" width="32" description="" />
+	<register id="VR6_B0" acronym="VR6_B0" offset="224" page="1" width="32" description="" />
+	<register id="VR6_B1" acronym="VR6_B1" offset="226" page="1" width="32" description="" />
+	<register id="VR6_B2" acronym="VR6_B2" offset="228" page="1" width="32" description="" />
+	<register id="VR6_B3" acronym="VR6_B3" offset="230" page="1" width="32" description="" />
+	<register id="VR7_B0" acronym="VR7_B0" offset="232" page="1" width="32" description="" />
+	<register id="VR7_B1" acronym="VR7_B1" offset="234" page="1" width="32" description="" />
+	<register id="VR7_B2" acronym="VR7_B2" offset="236" page="1" width="32" description="" />
+	<register id="VR7_B3" acronym="VR7_B3" offset="238" page="1" width="32" description="" />
+	
+</module>

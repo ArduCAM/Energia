@@ -1,0 +1,85 @@
+<module id="CLK_CFG_REGS" HW_revision="" description="CLK CFG Registers">
+	<register id="CLKSEM" width="32" page="1" offset="0x0" internal="0" description="Clock Control Semaphore Register">
+		<bitfield id="SEM" description="Semaphore for CLKCFG Ownership by CPU1 or CPU2" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="KEY" description="Key Qualifier for writes to this register" begin="31" end="16" width="16" rwaccess="R=0/W"/>
+	</register>
+	<register id="CLKCFGLOCK1" width="32" page="1" offset="0x2" internal="0" description="Lock bit for CLKCFG registers">
+		<bitfield id="CLKSRCCTL1" description="Lock bit for CLKSRCCTL1 register" begin="0" end="0" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CLKSRCCTL2" description="Lock bit for CLKSRCCTL2 register" begin="1" end="1" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="CLKSRCCTL3" description="Lock bit for CLKSRCCTL3 register" begin="2" end="2" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="SYSPLLCTL1" description="Lock bit for SYSPLLCTL1 register" begin="3" end="3" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="SYSPLLCTL2" description="Lock bit for SYSPLLCTL2 register" begin="4" end="4" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="SYSPLLCTL3" description="Lock bit for SYSPLLCTL3 register" begin="5" end="5" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="SYSPLLMULT" description="Lock bit for SYSPLLMULT register" begin="6" end="6" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="AUXPLLCTL1" description="Lock bit for AUXPLLCTL1 register" begin="7" end="7" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="AUXPLLMULT" description="Lock bit for AUXPLLMULT register" begin="10" end="10" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="SYSCLKDIVSEL" description="Lock bit for SYSCLKDIVSEL register" begin="11" end="11" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="AUXCLKDIVSEL" description="Lock bit for AUXCLKDIVSEL register" begin="12" end="12" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="PERCLKDIVSEL" description="Lock bit for PERCLKDIVSEL register" begin="13" end="13" width="1" rwaccess="R/SOnce"/>
+		<bitfield id="LOSPCP" description="Lock bit for LOSPCP register" begin="15" end="15" width="1" rwaccess="R/SOnce"/>
+	</register>
+	<register id="CLKSRCCTL1" width="32" page="1" offset="0x8" internal="0" description="Clock Source Control register-1">
+		<bitfield id="OSCCLKSRCSEL" description="OSCCLK Source Select Bit" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="INTOSC2OFF" description="Internal Oscillator 2 Off Bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="XTALOFF" description="Crystal (External) Oscillator Off Bit" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="WDHALTI" description="Watchdog HALT Mode Ignore Bit" begin="5" end="5" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CLKSRCCTL2" width="32" page="1" offset="0xa" internal="0" description="Clock Source Control register-2">
+		<bitfield id="AUXOSCCLKSRCSEL" description="AUXOSCCLK Source Select Bit" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="CANABCLKSEL" description="CANA Bit Clock Source Select Bit" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="CANBBCLKSEL" description="CANB Bit Clock Source Select Bit" begin="5" end="4" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="CLKSRCCTL3" width="32" page="1" offset="0xc" internal="0" description="Clock Source Control register-3">
+		<bitfield id="XCLKOUTSEL" description="XCLKOUT Source Select Bit" begin="2" end="0" width="3" rwaccess="R/W"/>
+	</register>
+	<register id="SYSPLLCTL1" width="32" page="1" offset="0xe" internal="0" description="SYSPLL Control register-1">
+		<bitfield id="PLLEN" description="SYSPLL enable/disable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PLLCLKEN" description="SYSPLL bypassed or included in the PLLSYSCLK path" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SYSPLLMULT" width="32" page="1" offset="0x14" internal="0" description="SYSPLL Multiplier register">
+		<bitfield id="IMULT" description="SYSPLL Integer Multiplier" begin="6" end="0" width="7" rwaccess="R/W"/>
+		<bitfield id="FMULT" description="SYSPLL Fractional Multiplier" begin="9" end="8" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="SYSPLLSTS" width="32" page="1" offset="0x16" internal="0" description="SYSPLL Status register">
+		<bitfield id="LOCKS" description="SYSPLL Lock Status Bit" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="SLIPS" description="SYSPLL Slip Status Bit" begin="1" end="1" width="1" rwaccess="R"/>
+	</register>
+	<register id="AUXPLLCTL1" width="32" page="1" offset="0x18" internal="0" description="AUXPLL Control register-1">
+		<bitfield id="PLLEN" description="AUXPLL enable/disable bit" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PLLCLKEN" description="AUXPLL bypassed or included in the AUXPLLCLK path" begin="1" end="1" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="AUXPLLMULT" width="32" page="1" offset="0x1e" internal="0" description="AUXPLL Multiplier register">
+		<bitfield id="IMULT" description="AUXPLL Integer Multiplier" begin="6" end="0" width="7" rwaccess="R/W"/>
+		<bitfield id="FMULT" description="AUXPLL Fractional Multiplier" begin="9" end="8" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="AUXPLLSTS" width="32" page="1" offset="0x20" internal="0" description="AUXPLL Status register">
+		<bitfield id="LOCKS" description="AUXPLL Lock Status Bit" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="SLIPS" description="AUXPLL Slip Status Bit" begin="1" end="1" width="1" rwaccess="R"/>
+	</register>
+	<register id="SYSCLKDIVSEL" width="32" page="1" offset="0x22" internal="0" description="System Clock Divider Select register">
+		<bitfield id="PLLSYSCLKDIV" description="PLLSYSCLK Divide Select" begin="5" end="0" width="6" rwaccess="R/W"/>
+	</register>
+	<register id="AUXCLKDIVSEL" width="32" page="1" offset="0x24" internal="0" description="Auxillary Clock Divider Select register">
+		<bitfield id="AUXPLLDIV" description="AUXPLLCLK Divide Select" begin="1" end="0" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="PERCLKDIVSEL" width="32" page="1" offset="0x26" internal="0" description="Peripheral Clock Divider Selet register">
+		<bitfield id="EPWMCLKDIV" description="EPWM Clock Divide Select" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="EMIF1CLKDIV" description="EMIF1  Clock Divide Select" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="EMIF2CLKDIV" description="EMIF2 Clock Divide Select" begin="6" end="6" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="XCLKOUTDIVSEL" width="32" page="1" offset="0x28" internal="0" description="XCLKOUT Divider Select register">
+		<bitfield id="XCLKOUTDIV" description="XCLKOUT Divide Select" begin="1" end="0" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="LOSPCP" width="32" page="1" offset="0x2c" internal="0" description="Low Speed Clock Source Prescalar">
+		<bitfield id="LSPCLKDIV" description="LSPCLK Divide Select" begin="2" end="0" width="3" rwaccess="R/W"/>
+	</register>
+	<register id="MCDCR" width="32" page="1" offset="0x2e" internal="0" description="Missing Clock Detect Control Register">
+		<bitfield id="MCLKSTS" description="Missing Clock Status Bit" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="MCLKCLR" description="Missing Clock Clear Bit" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="MCLKOFF" description="Missing Clock Detect Off Bit" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="OSCOFF" description="Oscillator Clock Off Bit" begin="3" end="3" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="X1CNT" width="32" page="1" offset="0x30" internal="0" description="10-bit Counter on X1 Clock">
+		<bitfield id="X1CNT" description="X1 Counter" begin="9" end="0" width="10" rwaccess="R"/>
+	</register>
+</module>

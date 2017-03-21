@@ -1,0 +1,406 @@
+<module id="ADC_REGS" HW_revision="" description="ADC Registers">
+	<register id="ADCCTL1" width="16" page="1" offset="0x0" internal="0" description="ADC Control 1 Register">
+		<bitfield id="INTPULSEPOS" description="ADC Interrupt Pulse Position" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="ADCPWDNZ" description="ADC Power Down" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="ADCBSYCHN" description="ADC Busy Channel" begin="11" end="8" width="4" rwaccess="R"/>
+		<bitfield id="ADCBSY" description="ADC Busy" begin="13" end="13" width="1" rwaccess="R"/>
+	</register>
+	<register id="ADCCTL2" width="16" page="1" offset="0x1" internal="0" description="ADC Control 2 Register">
+		<bitfield id="PRESCALE" description="ADC Clock Prescaler" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="RESOLUTION" description="SOC Conversion Resolution" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="SIGNALMODE" description="SOC Signaling Mode" begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCBURSTCTL" width="16" page="1" offset="0x2" internal="0" description="ADC Burst Control Register">
+		<bitfield id="BURSTTRIGSEL" description="SOC Burst Trigger Source Select" begin="5" end="0" width="6" rwaccess="R/W"/>
+		<bitfield id="BURSTSIZE" description="SOC Burst Size Select" begin="11" end="8" width="4" rwaccess="R/W"/>
+		<bitfield id="BURSTEN" description="SOC Burst Mode Enable" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINTFLG" width="16" page="1" offset="0x3" internal="0" description="ADC Interrupt Flag Register">
+		<bitfield id="ADCINT1" description="ADC Interrupt 1 Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="ADCINT2" description="ADC Interrupt 2 Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="ADCINT3" description="ADC Interrupt 3 Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="ADCINT4" description="ADC Interrupt 4 Flag" begin="3" end="3" width="1" rwaccess="R"/>
+	</register>
+	<register id="ADCINTFLGCLR" width="16" page="1" offset="0x4" internal="0" description="ADC Interrupt Flag Clear Register">
+		<bitfield id="ADCINT1" description="ADC Interrupt 1 Flag Clear" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="ADCINT2" description="ADC Interrupt 2 Flag Clear" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="ADCINT3" description="ADC Interrupt 3 Flag Clear" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="ADCINT4" description="ADC Interrupt 4 Flag Clear" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="ADCINTOVF" width="16" page="1" offset="0x5" internal="0" description="ADC Interrupt Overflow Register">
+		<bitfield id="ADCINT1" description="ADC Interrupt 1 Overflow Flags" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="ADCINT2" description="ADC Interrupt 2 Overflow Flags" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="ADCINT3" description="ADC Interrupt 3 Overflow Flags" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="ADCINT4" description="ADC Interrupt 4 Overflow Flags" begin="3" end="3" width="1" rwaccess="R"/>
+	</register>
+	<register id="ADCINTOVFCLR" width="16" page="1" offset="0x6" internal="0" description="ADC Interrupt Overflow Clear Register">
+		<bitfield id="ADCINT1" description="ADC Interrupt 1 Overflow Clear Bits" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="ADCINT2" description="ADC Interrupt 2 Overflow Clear Bits" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="ADCINT3" description="ADC Interrupt 3 Overflow Clear Bits" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="ADCINT4" description="ADC Interrupt 4 Overflow Clear Bits" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="ADCINTSEL1N2" width="16" page="1" offset="0x7" internal="0" description="ADC Interrupt 1 and 2 Selection Register">
+		<bitfield id="INT1SEL" description="ADCINT1 EOC Source Select" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="INT1E" description="ADCINT1 Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INT1CONT" description="ADCINT1 Continuous Mode Enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INT2SEL" description="ADCINT2 EOC Source Select" begin="11" end="8" width="4" rwaccess="R/W"/>
+		<bitfield id="INT2E" description="ADCINT2 Interrupt Enable" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INT2CONT" description="ADCINT2 Continuous Mode Enable" begin="14" end="14" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINTSEL3N4" width="16" page="1" offset="0x8" internal="0" description="ADC Interrupt 3 and 4 Selection Register">
+		<bitfield id="INT3SEL" description="ADCINT3 EOC Source Select" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="INT3E" description="ADCINT3 Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INT3CONT" description="ADCINT3 Continuous Mode Enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INT4SEL" description="ADCINT4 EOC Source Select" begin="11" end="8" width="4" rwaccess="R/W"/>
+		<bitfield id="INT4E" description="ADCINT4 Interrupt Enable" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INT4CONT" description="ADCINT4 Continuous Mode Enable" begin="14" end="14" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOCPRICTL" width="16" page="1" offset="0x9" internal="0" description="ADC SOC Priority Control Register">
+		<bitfield id="SOCPRIORITY" description="SOC Priority" begin="4" end="0" width="5" rwaccess="R/W"/>
+		<bitfield id="RRPOINTER" description="Round Robin Pointer" begin="9" end="5" width="5" rwaccess="R"/>
+	</register>
+	<register id="ADCINTSOCSEL1" width="16" page="1" offset="0xa" internal="0" description="ADC Interrupt SOC Selection 1 Register">
+		<bitfield id="SOC0" description="SOC0 ADC Interrupt Trigger Select" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC1" description="SOC1 ADC Interrupt Trigger Select" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC2" description="SOC2 ADC Interrupt Trigger Select" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC3" description="SOC3 ADC Interrupt Trigger Select" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC4" description="SOC4 ADC Interrupt Trigger Select" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC5" description="SOC5 ADC Interrupt Trigger Select" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC6" description="SOC6 ADC Interrupt Trigger Select" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC7" description="SOC7 ADC Interrupt Trigger Select" begin="15" end="14" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINTSOCSEL2" width="16" page="1" offset="0xb" internal="0" description="ADC Interrupt SOC Selection 2 Register">
+		<bitfield id="SOC8" description="SOC8 ADC Interrupt Trigger Select" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC9" description="SOC9 ADC Interrupt Trigger Select" begin="3" end="2" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC10" description="SOC10 ADC Interrupt Trigger Select" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC11" description="SOC11 ADC Interrupt Trigger Select" begin="7" end="6" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC12" description="SOC12 ADC Interrupt Trigger Select" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC13" description="SOC13 ADC Interrupt Trigger Select" begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC14" description="SOC14 ADC Interrupt Trigger Select" begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="SOC15" description="SOC15 ADC Interrupt Trigger Select" begin="15" end="14" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOCFLG1" width="16" page="1" offset="0xc" internal="0" description="ADC SOC Flag 1 Register">
+		<bitfield id="SOC0" description="SOC0 Start of Conversion Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="SOC1" description="SOC1 Start of Conversion Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="SOC2" description="SOC2 Start of Conversion Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="SOC3" description="SOC3 Start of Conversion Flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="SOC4" description="SOC4 Start of Conversion Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="SOC5" description="SOC5 Start of Conversion Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="SOC6" description="SOC6 Start of Conversion Flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="SOC7" description="SOC7 Start of Conversion Flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="SOC8" description="SOC8 Start of Conversion Flag" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="SOC9" description="SOC9 Start of Conversion Flag" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="SOC10" description="SOC10 Start of Conversion Flag" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="SOC11" description="SOC11 Start of Conversion Flag" begin="11" end="11" width="1" rwaccess="R"/>
+		<bitfield id="SOC12" description="SOC12 Start of Conversion Flag" begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="SOC13" description="SOC13 Start of Conversion Flag" begin="13" end="13" width="1" rwaccess="R"/>
+		<bitfield id="SOC14" description="SOC14 Start of Conversion Flag" begin="14" end="14" width="1" rwaccess="R"/>
+		<bitfield id="SOC15" description="SOC15 Start of Conversion Flag" begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="ADCSOCFRC1" width="16" page="1" offset="0xd" internal="0" description="ADC SOC Force 1 Register">
+		<bitfield id="SOC0" description="SOC0 Force Start of Conversion Bit" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC1" description="SOC1 Force Start of Conversion Bit" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC2" description="SOC2 Force Start of Conversion Bit" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC3" description="SOC3 Force Start of Conversion Bit" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC4" description="SOC4 Force Start of Conversion Bit" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC5" description="SOC5 Force Start of Conversion Bit" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC6" description="SOC6 Force Start of Conversion Bit" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC7" description="SOC7 Force Start of Conversion Bit" begin="7" end="7" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC8" description="SOC8 Force Start of Conversion Bit" begin="8" end="8" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC9" description="SOC9 Force Start of Conversion Bit" begin="9" end="9" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC10" description="SOC10 Force Start of Conversion Bit" begin="10" end="10" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC11" description="SOC11 Force Start of Conversion Bit" begin="11" end="11" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC12" description="SOC12 Force Start of Conversion Bit" begin="12" end="12" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC13" description="SOC13 Force Start of Conversion Bit" begin="13" end="13" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC14" description="SOC14 Force Start of Conversion Bit" begin="14" end="14" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC15" description="SOC15 Force Start of Conversion Bit" begin="15" end="15" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="ADCSOCOVF1" width="16" page="1" offset="0xe" internal="0" description="ADC SOC Overflow 1 Register">
+		<bitfield id="SOC0" description="SOC0 Start of Conversion Overflow Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="SOC1" description="SOC1 Start of Conversion Overflow Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="SOC2" description="SOC2 Start of Conversion Overflow Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="SOC3" description="SOC3 Start of Conversion Overflow Flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="SOC4" description="SOC4 Start of Conversion Overflow Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="SOC5" description="SOC5 Start of Conversion Overflow Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="SOC6" description="SOC6 Start of Conversion Overflow Flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="SOC7" description="SOC7 Start of Conversion Overflow Flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="SOC8" description="SOC8 Start of Conversion Overflow Flag" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="SOC9" description="SOC9 Start of Conversion Overflow Flag" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="SOC10" description="SOC10 Start of Conversion Overflow Flag" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="SOC11" description="SOC11 Start of Conversion Overflow Flag" begin="11" end="11" width="1" rwaccess="R"/>
+		<bitfield id="SOC12" description="SOC12 Start of Conversion Overflow Flag" begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="SOC13" description="SOC13 Start of Conversion Overflow Flag" begin="13" end="13" width="1" rwaccess="R"/>
+		<bitfield id="SOC14" description="SOC14 Start of Conversion Overflow Flag" begin="14" end="14" width="1" rwaccess="R"/>
+		<bitfield id="SOC15" description="SOC15 Start of Conversion Overflow Flag" begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="ADCSOCOVFCLR1" width="16" page="1" offset="0xf" internal="0" description="ADC SOC Overflow Clear 1 Register">
+		<bitfield id="SOC0" description="SOC0 Clear Start of Conversion Overflow Bit" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC1" description="SOC1 Clear Start of Conversion Overflow Bit" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC2" description="SOC2 Clear Start of Conversion Overflow Bit" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC3" description="SOC3 Clear Start of Conversion Overflow Bit" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC4" description="SOC4 Clear Start of Conversion Overflow Bit" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC5" description="SOC5 Clear Start of Conversion Overflow Bit" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC6" description="SOC6 Clear Start of Conversion Overflow Bit" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC7" description="SOC7 Clear Start of Conversion Overflow Bit" begin="7" end="7" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC8" description="SOC8 Clear Start of Conversion Overflow Bit" begin="8" end="8" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC9" description="SOC9 Clear Start of Conversion Overflow Bit" begin="9" end="9" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC10" description="SOC10 Clear Start of Conversion Overflow Bit" begin="10" end="10" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC11" description="SOC11 Clear Start of Conversion Overflow Bit" begin="11" end="11" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC12" description="SOC12 Clear Start of Conversion Overflow Bit" begin="12" end="12" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC13" description="SOC13 Clear Start of Conversion Overflow Bit" begin="13" end="13" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC14" description="SOC14 Clear Start of Conversion Overflow Bit" begin="14" end="14" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SOC15" description="SOC15 Clear Start of Conversion Overflow Bit" begin="15" end="15" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="ADCSOC0CTL" width="32" page="1" offset="0x10" internal="0" description="ADC SOC0 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC1CTL" width="32" page="1" offset="0x12" internal="0" description="ADC SOC1 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC2CTL" width="32" page="1" offset="0x14" internal="0" description="ADC SOC2 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC3CTL" width="32" page="1" offset="0x16" internal="0" description="ADC SOC3 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC4CTL" width="32" page="1" offset="0x18" internal="0" description="ADC SOC4 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC5CTL" width="32" page="1" offset="0x1a" internal="0" description="ADC SOC5 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC6CTL" width="32" page="1" offset="0x1c" internal="0" description="ADC SOC6 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC7CTL" width="32" page="1" offset="0x1e" internal="0" description="ADC SOC7 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC8CTL" width="32" page="1" offset="0x20" internal="0" description="ADC SOC8 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC9CTL" width="32" page="1" offset="0x22" internal="0" description="ADC SOC9 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC10CTL" width="32" page="1" offset="0x24" internal="0" description="ADC SOC10 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC11CTL" width="32" page="1" offset="0x26" internal="0" description="ADC SOC11 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC12CTL" width="32" page="1" offset="0x28" internal="0" description="ADC SOC12 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC13CTL" width="32" page="1" offset="0x2a" internal="0" description="ADC SOC13 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC14CTL" width="32" page="1" offset="0x2c" internal="0" description="ADC SOC14 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCSOC15CTL" width="32" page="1" offset="0x2e" internal="0" description="ADC SOC15 Control Register">
+		<bitfield id="ACQPS" description="SOC Acquisition Prescale" begin="8" end="0" width="9" rwaccess="R/W"/>
+		<bitfield id="CHSEL" description="SOC Channel Select" begin="18" end="15" width="4" rwaccess="R/W"/>
+		<bitfield id="TRIGSEL" description="SOC Trigger Source Select" begin="24" end="20" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ADCEVTSTAT" width="16" page="1" offset="0x30" internal="0" description="ADC Event Status Register">
+		<bitfield id="PPB1TRIPHI" description="Post Processing Block 1 Trip High Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="PPB1TRIPLO" description="Post Processing Block 1 Trip Low Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="PPB1ZERO" description="Post Processing Block 1 Zero Crossing Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="PPB2TRIPHI" description="Post Processing Block 2 Trip High Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="PPB2TRIPLO" description="Post Processing Block 2 Trip Low Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="PPB2ZERO" description="Post Processing Block 2 Zero Crossing Flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="PPB3TRIPHI" description="Post Processing Block 3 Trip High Flag" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="PPB3TRIPLO" description="Post Processing Block 3 Trip Low Flag" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="PPB3ZERO" description="Post Processing Block 3 Zero Crossing Flag" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="PPB4TRIPHI" description="Post Processing Block 4 Trip High Flag" begin="12" end="12" width="1" rwaccess="R"/>
+		<bitfield id="PPB4TRIPLO" description="Post Processing Block 4 Trip Low Flag" begin="13" end="13" width="1" rwaccess="R"/>
+		<bitfield id="PPB4ZERO" description="Post Processing Block 4 Zero Crossing Flag" begin="14" end="14" width="1" rwaccess="R"/>
+	</register>
+	<register id="ADCEVTCLR" width="16" page="1" offset="0x32" internal="0" description="ADC Event Clear Register">
+		<bitfield id="PPB1TRIPHI" description="Post Processing Block 1 Trip High Clear" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB1TRIPLO" description="Post Processing Block 1 Trip Low Clear" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB1ZERO" description="Post Processing Block 1 Zero Crossing Clear" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2TRIPHI" description="Post Processing Block 2 Trip High Clear" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2TRIPLO" description="Post Processing Block 2 Trip Low Clear" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2ZERO" description="Post Processing Block 2 Zero Crossing Clear" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3TRIPHI" description="Post Processing Block 3 Trip High Clear" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3TRIPLO" description="Post Processing Block 3 Trip Low Clear" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3ZERO" description="Post Processing Block 3 Zero Crossing Clear" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4TRIPHI" description="Post Processing Block 4 Trip High Clear" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4TRIPLO" description="Post Processing Block 4 Trip Low Clear" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4ZERO" description="Post Processing Block 4 Zero Crossing Clear" begin="14" end="14" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCEVTSEL" width="16" page="1" offset="0x34" internal="0" description="ADC Event Selection Register">
+		<bitfield id="PPB1TRIPHI" description="Post Processing Block 1 Trip High Event Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB1TRIPLO" description="Post Processing Block 1 Trip Low Event Enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB1ZERO" description="Post Processing Block 1 Zero Crossing Event Enable" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2TRIPHI" description="Post Processing Block 2 Trip High Event Enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2TRIPLO" description="Post Processing Block 2 Trip Low Event Enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2ZERO" description="Post Processing Block 2 Zero Crossing Event Enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3TRIPHI" description="Post Processing Block 3 Trip High Event Enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3TRIPLO" description="Post Processing Block 3 Trip Low Event Enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3ZERO" description="Post Processing Block 3 Zero Crossing Event Enable" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4TRIPHI" description="Post Processing Block 4 Trip High Event Enable" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4TRIPLO" description="Post Processing Block 4 Trip Low Event Enable" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4ZERO" description="Post Processing Block 4 Zero Crossing Event Enable" begin="14" end="14" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCEVTINTSEL" width="16" page="1" offset="0x36" internal="0" description="ADC Event Interrupt Selection Register">
+		<bitfield id="PPB1TRIPHI" description="Post Processing Block 1 Trip High Interrupt Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB1TRIPLO" description="Post Processing Block 1 Trip Low Interrupt Enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB1ZERO" description="Post Processing Block 1 Zero Crossing Interrupt Enable" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2TRIPHI" description="Post Processing Block 2 Trip High Interrupt Enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2TRIPLO" description="Post Processing Block 2 Trip Low Interrupt Enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB2ZERO" description="Post Processing Block 2 Zero Crossing Interrupt Enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3TRIPHI" description="Post Processing Block 3 Trip High Interrupt Enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3TRIPLO" description="Post Processing Block 3 Trip Low Interrupt Enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB3ZERO" description="Post Processing Block 3 Zero Crossing Interrupt Enable" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4TRIPHI" description="Post Processing Block 4 Trip High Interrupt Enable" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4TRIPLO" description="Post Processing Block 4 Trip Low Interrupt Enable" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="PPB4ZERO" description="Post Processing Block 4 Zero Crossing Interrupt Enable" begin="14" end="14" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCCOUNTER" width="16" page="1" offset="0x39" internal="0" description="ADC Counter Register">
+		<bitfield id="FREECOUNT" description="ADC Free Running Counter Value" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCREV" width="16" page="1" offset="0x3a" internal="0" description="ADC Revision Register">
+		<bitfield id="TYPE" description="ADC Type" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="REV" description="ADC Revision" begin="15" end="8" width="8" rwaccess="R"/>
+	</register>
+	<register id="ADCOFFTRIM" width="16" page="1" offset="0x3b" internal="0" description="ADC Offset Trim Register">
+		<bitfield id="OFFTRIM" description="ADC Offset Trim" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB1CONFIG" width="16" page="1" offset="0x40" internal="0" description="ADC PPB1 Config Register">
+		<bitfield id="CONFIG" description="ADC Post Processing Block Configuration" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="TWOSCOMPEN" description="ADC Post Processing Block Two's Complement Enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB1STAMP" width="16" page="1" offset="0x41" internal="0" description="ADC PPB1 Sample Delay Time Stamp Register">
+		<bitfield id="DLYSTAMP" description="ADC Post Processing Block Delay Time Stamp" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCPPB1OFFCAL" width="16" page="1" offset="0x42" internal="0" description="ADC PPB1 Offset Calibration Register">
+		<bitfield id="OFFCAL" description="ADC Post Processing Block Offset Correction" begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB1OFFREF" width="16" page="1" offset="0x43" internal="0" description="ADC PPB1 Offset Reference Register">
+		<bitfield id="OFFREF" description="ADC Post Processing Block Offset Reference" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB1TRIPHI" width="32" page="1" offset="0x44" internal="0" description="ADC PPB1 Trip High Register">
+		<bitfield id="LIMITHI" description="ADC Post Processing Block Trip High Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="HSIGN" description="High Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB1TRIPLO" width="32" page="1" offset="0x46" internal="0" description="ADC PPB1 Trip Low/Trigger Time Stamp Register">
+		<bitfield id="LIMITLO" description="ADC Post Processing Block Trip Low Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="LSIGN" description="Low Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="REQSTAMP" description="ADC Post Processing Block Request Time Stamp" begin="31" end="20" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCPPB2CONFIG" width="16" page="1" offset="0x48" internal="0" description="ADC PPB2 Config Register">
+		<bitfield id="CONFIG" description="ADC Post Processing Block Configuration" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="TWOSCOMPEN" description="ADC Post Processing Block Two's Complement Enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB2STAMP" width="16" page="1" offset="0x49" internal="0" description="ADC PPB2 Sample Delay Time Stamp Register">
+		<bitfield id="DLYSTAMP" description="ADC Post Processing Block Delay Time Stamp" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCPPB2OFFCAL" width="16" page="1" offset="0x4a" internal="0" description="ADC PPB2 Offset Calibration Register">
+		<bitfield id="OFFCAL" description="ADC Post Processing Block Offset Correction" begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB2OFFREF" width="16" page="1" offset="0x4b" internal="0" description="ADC PPB2 Offset Reference Register">
+		<bitfield id="OFFREF" description="ADC Post Processing Block Offset Reference" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB2TRIPHI" width="32" page="1" offset="0x4c" internal="0" description="ADC PPB2 Trip High Register">
+		<bitfield id="LIMITHI" description="ADC Post Processing Block Trip High Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="HSIGN" description="High Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB2TRIPLO" width="32" page="1" offset="0x4e" internal="0" description="ADC PPB2 Trip Low/Trigger Time Stamp Register">
+		<bitfield id="LIMITLO" description="ADC Post Processing Block Trip Low Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="LSIGN" description="Low Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="REQSTAMP" description="ADC Post Processing Block Request Time Stamp" begin="31" end="20" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCPPB3CONFIG" width="16" page="1" offset="0x50" internal="0" description="ADC PPB3 Config Register">
+		<bitfield id="CONFIG" description="ADC Post Processing Block Configuration" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="TWOSCOMPEN" description="ADC Post Processing Block Two's Complement Enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB3STAMP" width="16" page="1" offset="0x51" internal="0" description="ADC PPB3 Sample Delay Time Stamp Register">
+		<bitfield id="DLYSTAMP" description="ADC Post Processing Block Delay Time Stamp" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCPPB3OFFCAL" width="16" page="1" offset="0x52" internal="0" description="ADC PPB3 Offset Calibration Register">
+		<bitfield id="OFFCAL" description="ADC Post Processing Block Offset Correction" begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB3OFFREF" width="16" page="1" offset="0x53" internal="0" description="ADC PPB3 Offset Reference Register">
+		<bitfield id="OFFREF" description="ADC Post Processing Block Offset Reference" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB3TRIPHI" width="32" page="1" offset="0x54" internal="0" description="ADC PPB3 Trip High Register">
+		<bitfield id="LIMITHI" description="ADC Post Processing Block Trip High Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="HSIGN" description="High Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB3TRIPLO" width="32" page="1" offset="0x56" internal="0" description="ADC PPB3 Trip Low/Trigger Time Stamp Register">
+		<bitfield id="LIMITLO" description="ADC Post Processing Block Trip Low Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="LSIGN" description="Low Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="REQSTAMP" description="ADC Post Processing Block Request Time Stamp" begin="31" end="20" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCPPB4CONFIG" width="16" page="1" offset="0x58" internal="0" description="ADC PPB4 Config Register">
+		<bitfield id="CONFIG" description="ADC Post Processing Block Configuration" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="TWOSCOMPEN" description="ADC Post Processing Block Two's Complement Enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB4STAMP" width="16" page="1" offset="0x59" internal="0" description="ADC PPB4 Sample Delay Time Stamp Register">
+		<bitfield id="DLYSTAMP" description="ADC Post Processing Block Delay Time Stamp" begin="11" end="0" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCPPB4OFFCAL" width="16" page="1" offset="0x5a" internal="0" description="ADC PPB4 Offset Calibration Register">
+		<bitfield id="OFFCAL" description="ADC Post Processing Block Offset Correction" begin="9" end="0" width="10" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB4OFFREF" width="16" page="1" offset="0x5b" internal="0" description="ADC PPB4 Offset Reference Register">
+		<bitfield id="OFFREF" description="ADC Post Processing Block Offset Reference" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB4TRIPHI" width="32" page="1" offset="0x5c" internal="0" description="ADC PPB4 Trip High Register">
+		<bitfield id="LIMITHI" description="ADC Post Processing Block Trip High Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="HSIGN" description="High Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ADCPPB4TRIPLO" width="32" page="1" offset="0x5e" internal="0" description="ADC PPB4 Trip Low/Trigger Time Stamp Register">
+		<bitfield id="LIMITLO" description="ADC Post Processing Block Trip Low Limit" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="LSIGN" description="Low Limit Sign Bit" begin="16" end="16" width="1" rwaccess="R/W"/>
+		<bitfield id="REQSTAMP" description="ADC Post Processing Block Request Time Stamp" begin="31" end="20" width="12" rwaccess="R"/>
+	</register>
+	<register id="ADCINLTRIM1" width="32" page="1" offset="0x70" internal="0" description="ADC Linearity Trim 1 Register">
+		<bitfield id="INLTRIM31TO0" description="ADC Linearity Trim Bits 31-0" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINLTRIM2" width="32" page="1" offset="0x72" internal="0" description="ADC Linearity Trim 2 Register">
+		<bitfield id="INLTRIM63TO32" description="ADC Linearity Trim Bits 63-32" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINLTRIM3" width="32" page="1" offset="0x74" internal="0" description="ADC Linearity Trim 3 Register">
+		<bitfield id="INLTRIM95TO64" description="ADC Linearity Trim Bits 95-64" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINLTRIM4" width="32" page="1" offset="0x76" internal="0" description="ADC Linearity Trim 4 Register">
+		<bitfield id="INLTRIM127TO96" description="ADC Linearity Trim Bits 127-96" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINLTRIM5" width="32" page="1" offset="0x78" internal="0" description="ADC Linearity Trim 5 Register">
+		<bitfield id="INLTRIM159TO128" description="ADC Linearity Trim Bits 159-128" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="ADCINLTRIM6" width="32" page="1" offset="0x7a" internal="0" description="ADC Linearity Trim 6 Register">
+		<bitfield id="INLTRIM191TO160" description="ADC Linearity Trim Bits 191-160" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+</module>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AUX_WUC" HW_revision="" XML_version="1.0" description="AUX Wake-up controller  " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="MODCLKEN0" width="32" description="Module Clock Enable
+
+Clock enable for each module in the AUX domain
+
+For use by the system CPU
+
+The settings in this register are OR&#39;ed with the corresponding settings in MODCLKEN1. This allows the system CPU and AUX_SCE to request clocks independently. Settings take effect immediately." id="MODCLKEN0" offset="0x0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_ADI4.
+
+" id="AUX_ADI4" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for AUX_ADI4" description="System CPU has requested clock for AUX_ADI4"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for AUX_ADI4" description="System CPU has not requested clock for AUX_ADI4"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_DDI0_OSC.
+
+" id="AUX_DDI0_OSC" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for AUX_DDI0_OSC" description="System CPU has requested clock for AUX_DDI0_OSC"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for AUX_DDI0_OSC" description="System CPU has not requested clock for AUX_DDI0_OSC"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_TDCIF. 
+
+Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively." id="TDC" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for TDC" description="System CPU has requested clock for TDC"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for TDC" description="System CPU has not requested clock for TDC"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_ANAIF.
+
+Note that the ADC internal clock must be requested separately using ADCCLKCTL." id="ANAIF" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for ANAIF" description="System CPU has requested clock for ANAIF"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for ANAIF" description="System CPU has not requested clock for ANAIF"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_TIMER." id="TIMER" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for TIMER" description="System CPU has requested clock for TIMER"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for TIMER" description="System CPU has not requested clock for TIMER"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_AIODIO1." id="AIODIO1" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for AIODIO1" description="System CPU has requested clock for AIODIO1"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for AIODIO1" description="System CPU has not requested clock for AIODIO1"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_AIODIO0." id="AIODIO0" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for AIODIO0" description="System CPU has requested clock for AIODIO0"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for AIODIO0" description="System CPU has not requested clock for AIODIO0"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_SMPH." id="SMPH" resetval="0x0">
+         <bitenum id="EN" value="1" token="System CPU has requested clock for SMPH" description="System CPU has requested clock for SMPH"/>
+         <bitenum id="DIS" value="0" token="System CPU has not requested clock for SMPH" description="System CPU has not requested clock for SMPH"/>
+      </bitfield>
+   </register>
+   <register acronym="PWROFFREQ" width="32" description="Power Off Request
+
+Requests power off request for the AUX domain. When powered of the power supply and clock is disabled. This may only be used when taking the entire device into shutdown mode (i.e. with full device reset when resuming operation).
+
+Power off is prevented if AON_WUC:AUXCTL.AUX_FORCE_ON has been set, or if MCUBUSCTL.DISCONNECT_REQ has been cleared." id="PWROFFREQ" offset="0x4">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Power off request
+
+0: No action
+1: Request to power down AUX. Once set, this bit shall not be cleared. The bit will be reset again when AUX is powered up again.
+
+The request will only happen if AONCTLSTAT.AUX_FORCE_ON = 0 and MCUBUSSTAT.DISCONNECTED=1." id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PWRDWNREQ" width="32" description="Power Down Request
+
+Request from AUX for system to enter power down. When system is in power down there is limited current supply available and the clock source is set by AON_WUC:AUXCLK.PWR_DWN_SRC" id="PWRDWNREQ" offset="0x8">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Power down request
+
+0: Request for system to be in active mode
+1: Request for system to be in power down mode
+
+When REQ is 1 one shall assume that the system is in power down, and that current supply is limited. When setting REQ = 0, one shall assume that the system is in power down until  PWRDWNACK.ACK = 0" id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PWRDWNACK" width="32" description="Power Down Acknowledgment" id="PWRDWNACK" offset="0xc">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Power down acknowledgment. Indicates whether the power down request given by PWRDWNREQ.REQ is captured by the AON domain or not
+
+0: AUX can assume that the system is in active mode
+1: The request for power down is acknowledged and the AUX must act like the system is in power down mode and power supply is limited
+
+The system CPU cannot use this bit since the bus bridge between MCU domain and AUX domain is always disconnected when this bit is set. For AUX_SCE use only" id="ACK" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CLKLFREQ" width="32" description="Low Frequency Clock Request" id="CLKLFREQ" offset="0x10">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Low frequency request 
+
+0: Request clock frequency to be controlled by AON_WUC:AUXCLK and the system state
+1: Request low frequency clock SCLK_LF as the clock source for AUX
+
+This bit must not be modified unless CLKLFACK.ACK matches the current value" id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CLKLFACK" width="32" description="Low Frequency Clock Acknowledgment" id="CLKLFACK" offset="0x14">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Acknowledgment of CLKLFREQ.REQ
+
+0: Acknowledgement that clock frequency is controlled by AON_WUC:AUXCLK and the system state
+1: Acknowledgement that the low frequency clock SCLK_LF is the clock source for AUX
+" id="ACK" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="WUEVFLAGS" width="32" description="Wake-up Event Flags
+
+Status of wake-up events from the AON domain
+
+The event flags are cleared by setting the corresponding bits in WUEVCLR
+" id="WUEVFLAGS" offset="0x28">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Indicates pending event from AON_RTC_CH2 compare. Note that this flag will be set whenever the AON_RTC_CH2 event happens, but that does not mean that this event is a wake-up event. To make the AON_RTC_CH2 a wake-up event for the AUX domain configure it as a wake-up event in AON_EVENT:AUXWUSEL.WU0_EV, AON_EVENT:AUXWUSEL.WU1_EV or AON_EVENT:AUXWUSEL.WU2_EV." id="AON_RTC_CH2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates pending event triggered by system CPU writing a 1 to AON_WUC:AUXCTL.SWEV.
+" id="AON_SW" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates pending event triggered by the sources selected in AON_EVENT:AUXWUSEL.WU0_EV, AON_EVENT:AUXWUSEL.WU1_EV and AON_EVENT:AUXWUSEL.WU2_EV.
+" id="AON_PROG_WU" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="WUEVCLR" width="32" description="Wake-up Event Clear
+
+Clears wake-up events from the AON domain
+" id="WUEVCLR" offset="0x2c">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Set to clear the WUEVFLAGS.AON_RTC_CH2 wake-up event. Note that if RTC channel 2 is also set as source for AON_PROG_WU this field can also clear WUEVFLAGS.AON_PROG_WU
+
+This bit must remain set until WUEVFLAGS.AON_RTC_CH2 returns to 0." id="AON_RTC_CH2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Set to clear the WUEVFLAGS.AON_SW wake-up event. 
+
+This bit must remain set until WUEVFLAGS.AON_SW returns to 0." id="AON_SW" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Set to clear the WUEVFLAGS.AON_PROG_WU wake-up event. Note only if an IO event is selected as wake-up event, is it possible to use this field to clear the source. Other sources cannot be cleared using this field.
+
+The IO pin needs to be assigned to AUX in the IOC and the input enable for the pin needs to be set in AIODIO0 or AIODIO1 for this clearing to take effect.
+
+This bit must remain set until WUEVFLAGS.AON_PROG_WU returns to 0." id="AON_PROG_WU" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ADCCLKCTL" width="32" description="ADC Clock Control
+
+Controls the ADC internal clock
+
+Note that the ADC command and data interface requires MODCLKEN0.ANAIF or MODCLKEN1.ANAIF also to be set
+" id="ADCCLKCTL" offset="0x30">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Acknowledges the last value written to REQ.
+" id="ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables(1) or disables (0) the ADC internal clock.
+
+This bit must not be modified unless ACK matches the current value.
+" id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TDCCLKCTL" width="32" description="TDC Clock Control
+
+Controls the TDC counter clock source, which steps the TDC counter value
+
+The source of this clock is controlled by OSC_DIG:CTL0.ACLK_TDC_SRC_SEL.
+" id="TDCCLKCTL" offset="0x34">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Acknowledges the last value written to REQ." id="ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables(1) or disables (0) the TDC counter clock source.
+
+This bit must not be modified unless ACK matches the current value." id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="REFCLKCTL" width="32" description="Reference Clock Control
+
+Controls the TDC reference clock source, which is to be compared against the TDC counter clock. 
+
+The source of this clock is controlled by OSC_DIG:CTL0.ACLK_REF_SRC_SEL." id="REFCLKCTL" offset="0x38">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Acknowledges the last value written to REQ." id="ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables(1) or disables (0) the TDC reference clock source.
+
+This bit must not be modified unless ACK matches the current value." id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RTCSUBSECINC0" width="32" description="Real Time Counter Sub Second Increment 0
+
+New value for the real-time counter (AON_RTC) sub-second increment value, part corresponding to AON_RTC:SUBSECINC bits 15:0.
+
+After setting INC15_0 and RTCSUBSECINC1.INC23_16, the value is loaded into AON_RTC:SUBSECINC.VALUEINC by setting RTCSUBSECINCCTL.UPD_REQ.
+" id="RTCSUBSECINC0" offset="0x3c">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Bits 15:0 of the RTC sub-second increment value." id="INC15_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RTCSUBSECINC1" width="32" description="Real Time Counter Sub Second Increment 1
+
+New value for the real-time counter (AON_RTC) sub-second increment value, part corresponding to AON_RTC:SUBSECINC bits 23:16.
+
+After setting RTCSUBSECINC0.INC15_0 and INC23_16, the value is loaded into AON_RTC:SUBSECINC.VALUEINC by setting RTCSUBSECINCCTL.UPD_REQ." id="RTCSUBSECINC1" offset="0x40">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Bits 23:16 of the RTC sub-second increment value." id="INC23_16" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RTCSUBSECINCCTL" width="32" description="Real Time Counter Sub Second Increment Control" id="RTCSUBSECINCCTL" offset="0x44">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Acknowledgment of the UPD_REQ.
+" id="UPD_ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Signal that a new real time counter sub second increment value is available
+
+0: New sub second increment is not available
+1: New sub second increment is available
+
+This bit must not be modified unless UPD_ACK matches the current value." id="UPD_REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MCUBUSCTL" width="32" description="MCU Bus Control
+
+Controls the connection between the AUX domain bus and the MCU domain bus.
+
+The buses must be disconnected to allow power-down or power-off of the AUX domain.
+" id="MCUBUSCTL" offset="0x48">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Requests the AUX domain bus to be disconnected from the MCU domain bus. The request has no effect when AON_WUC:AUX_CTL.AUX_FORCE_ON is set.
+
+The disconnection status can be monitored through MCUBUSSTAT. Note however that this register cannot be read by the system CPU while disconnected.
+
+It is recommended that this bit is set and remains set after initial power-up, and that the system CPU uses AON_WUC:AUX_CTL.AUX_FORCE_ON to connect/disconnect the bus." id="DISCONNECT_REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MCUBUSSTAT" width="32" description="MCU Bus Status
+
+Indicates the connection state of the AUX domain and MCU domain buses.
+
+Note that this register cannot be read from the MCU domain while disconnected, and is therefore only useful for the AUX_SCE." id="MCUBUSSTAT" offset="0x4c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the AUX domain and MCU domain buses are currently disconnected (1) or connected (0)." id="DISCONNECTED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Acknowledges reception of the bus disconnection request, by matching the value of MCUBUSCTL.DISCONNECT_REQ. 
+
+Note that if AON_WUC:AUXCTL.AUX_FORCE_ON = 1 a reconnect to the MCU domain bus will be made regardless of the state of MCUBUSCTL.DISCONNECT_REQ" id="DISCONNECT_ACK" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AONCTLSTAT" width="32" description="AON Domain Control Status
+
+Status of AUX domain control from AON_WUC." id="AONCTLSTAT" offset="0x50">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Status of AON_WUC:AUX_CTL.AUX_FORCE_ON." id="AUX_FORCE_ON" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status of AON_WUC:AUX_CTL.SCE_RUN_EN." id="SCE_RUN_EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AUXIOLATCH" width="32" description="AUX Input Output Latch
+
+Controls latching of signals between AUX_AIODIO0/AUX_AIODIO1 and AON_IOC." id="AUXIOLATCH" offset="0x54">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Opens (1) or closes (0) the AUX_AIODIO0/AUX_AIODIO1 signal latching.
+
+At startup, set EN = TRANSP before configuring AUX_AIODIO0/AUX_AIODIO1 and subsequently selecting AUX mode in the AON_IOC.
+
+When powering off the AUX domain (using PWROFFREQ.REQ), set EN = STATIC in advance preserve the current state (mode and output value) of the I/O pins." id="EN" resetval="0x0">
+         <bitenum id="TRANSP" value="1" token="Latches are transparent ( open )" description="Latches are transparent ( open )"/>
+         <bitenum id="STATIC" value="0" token="Latches are static ( closed )" description="Latches are static ( closed )"/>
+      </bitfield>
+   </register>
+   <register acronym="MODCLKEN1" width="32" description="Module Clock Enable 1
+
+Clock enable for each module in the AUX domain, for use by the AUX_SCE. Settings take effect immediately.
+
+The settings in this register are OR&#39;ed with the corresponding settings in MODCLKEN0. This allows system CPU and AUX_SCE to request clocks independently." id="MODCLKEN1" offset="0x5c">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_ADI4." id="AUX_ADI4" resetval="0x0">
+         <bitenum id="EN" value="1" token="AUX_SCE has requested clock for AUX_ADI4" description="AUX_SCE has requested clock for AUX_ADI4"/>
+         <bitenum id="DIS" value="0" token="AUX_SCE has not requested clock for AUX_ADI4" description="AUX_SCE has not requested clock for AUX_ADI4"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_DDI0_OSC." id="AUX_DDI0_OSC" resetval="0x0">
+         <bitenum id="EN" value="1" token="AUX_SCE has requested clock for AUX_DDI0_OSC" description="AUX_SCE has requested clock for AUX_DDI0_OSC"/>
+         <bitenum id="DIS" value="0" token="AUX_SCE has not requested clock for AUX_DDI0_OSC" description="AUX_SCE has not requested clock for AUX_DDI0_OSC"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="TDC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_ANAIF." id="ANAIF" resetval="0x0">
+         <bitenum id="EN" value="1" token="AUX_SCE has requested clock for ANAIF" description="AUX_SCE has requested clock for ANAIF"/>
+         <bitenum id="DIS" value="0" token="AUX_SCE has not requested clock for ANAIF" description="AUX_SCE has not requested clock for ANAIF"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_TIMER." id="TIMER" resetval="0x0">
+         <bitenum id="EN" value="1" token="AUX_SCE has requested clock for TIMER" description="AUX_SCE has requested clock for TIMER"/>
+         <bitenum id="DIS" value="0" token="AUX_SCE has not requested clock for TIMER" description="AUX_SCE has not requested clock for TIMER"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_AIODIO1." id="AIODIO1" resetval="0x0">
+         <bitenum id="EN" value="1" token="AUX_SCE has requested clock for AIODIO1" description="AUX_SCE has requested clock for AIODIO1"/>
+         <bitenum id="DIS" value="0" token="AUX_SCE has not requested clock for AIODIO1" description="AUX_SCE has not requested clock for AIODIO1"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_AIODIO0." id="AIODIO0" resetval="0x0">
+         <bitenum id="EN" value="1" token="AUX_SCE has requested clock for AIODIO0" description="AUX_SCE has requested clock for AIODIO0"/>
+         <bitenum id="DIS" value="0" token="AUX_SCE has not requested clock for AIODIO0" description="AUX_SCE has not requested clock for AIODIO0"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_SMPH." id="SMPH" resetval="0x0">
+         <bitenum id="EN" value="1" token="AUX_SCE has requested clock for SMPH" description="AUX_SCE has requested clock for SMPH"/>
+         <bitenum id="DIS" value="0" token="AUX_SCE has not requested clock for SMPH" description="AUX_SCE has not requested clock for SMPH"/>
+      </bitfield>
+   </register>
+</module>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:29:26 $
+  -->
+
+
+<!-- TMS320C2000 eCAP Registers
+     ===========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="ECAP" HW_revision="" XML_version="1" description="eCAP Control and Status Registers">
+	<register id="TSCTR" acronym="TSCTR" offset="0" page="1" width="32" description="eCAP Time-Stamp Counter" /> 
+	<register id="CTRPHS" acronym="CTRPHS" offset="2" page="1" width="32" description="eCAP Counter Phase Offset Value Register" /> 	
+	<register id="CAP1" acronym="CAP1" offset="4" page="1" width="32" description="eCAP Capture 1 Register" /> 	
+	<register id="CAP2" acronym="CAP2" offset="6" page="1" width="32" description="eCAP Capture 2 Register" /> 	
+	<register id="CAP3" acronym="CAP3" offset="8" page="1" width="32" description="eCAP Capture 3 Register" /> 	
+	<register id="CAP4" acronym="CAP4" offset="10" page="1" width="32" description="eCAP Capture 4 Register" /> 	
+	<!-- 8 reserved -->
+	<register id="ECCTL1" acronym="ECCTL1" offset="20" page="1" width="16" description="eCAP Capture Control Register 1" /> 	
+	<register id="ECCTL2" acronym="ECCTL2" offset="21" page="1" width="16" description="eCAP Capture Control Register 2" /> 	
+	<register id="ECEINT" acronym="ECEINT" offset="22" page="1" width="16" description="eCAP Capture Interrupt Enable Register" /> 	
+	<register id="ECFLG" acronym="ECFLG" offset="23" page="1" width="16" description="eCAP Capture Interrupt Flag Register" /> 	
+	<register id="ECCLR" acronym="ECCLR" offset="24" page="1" width="16" description="eCAP Capture Interrupt Clear Register" /> 	
+	<register id="ECFRC" acronym="ECFRC" offset="25" page="1" width="16" description="eCAP Capture Interrupt Force Register" /> 	
+</module>

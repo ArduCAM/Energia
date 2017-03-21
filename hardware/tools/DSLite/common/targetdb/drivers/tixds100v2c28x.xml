@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<drivers id="TMS320C28XX">
+    <isa Type="TMS320C28XX" ProcID="0x5000A3F8">
+        <driver file="..\..\..\emulation\drivers\tixds28x.dvr">
+            <connectionType Type="TIXDS100v2"/>
+            <property Type="hiddenfield" Value="true" id="realtimeEnabled" />
+            <property Type="hiddenfield" Value="true" id="supportsNonIntrusiveConnect" />
+            <property Type="hiddenfield" Value="true" id="haltOnConnectByDefault" />
+        </driver>
+    </isa>
+</drivers>
+

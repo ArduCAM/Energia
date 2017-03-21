@@ -1,0 +1,6 @@
+<module id="FLASH_PUMP_SEMAPHORE_REGS" HW_revision="" description="FLASH PUMP SEMAPHORE Registers">
+	<register id="PUMPREQUEST" width="32" page="1" offset="0x0" internal="0" description="Flash programming semaphore PUMP request register">
+		<bitfield id="PUMP_OWNERSHIP" description="Flash Pump Request Semaphore between CPU1 and CPU2" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="KEY" description="Key Qualifier for writes to this register" begin="31" end="16" width="16" rwaccess="R=0/W"/>
+	</register>
+</module>

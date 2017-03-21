@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AUX_ANAIF" HW_revision="" XML_version="1.0" description="AUX Analog Peripheral Control Module
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="ADCCTL" width="32" description="ADC Control" id="ADCCTL" offset="0x10">
+      <bitfield range="" begin="31" width="18" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Selected active edge for start event / Selected polarity for start event" id="START_POL" resetval="0x0">
+         <bitenum id="FALL" value="1" token="Start on falling edge of event" description="Start on falling edge of event"/>
+         <bitenum id="RISE" value="0" token="Start on rising edge of event" description="Start on rising edge of event"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RW" description="Selected source for ADC conversion start event. The start source selected by this field is OR&#39;ed with any trigger coming from writes to ADCTRIG.START. If it is desired to only trigger ADC conversions by writes to ADCTRIG.START one should select NO_EVENT&#60;n&#62; here" id="START_SRC" resetval="0x0">
+         <bitenum id="ADC_IRQ" value="31" token="Selects ADC_IRQ as start signal" description="Selects ADC_IRQ as start signal"/>
+         <bitenum id="MCU_EV" value="30" token="Selects MCU_EV as start signal" description="Selects MCU_EV as start signal"/>
+         <bitenum id="ACLK_REF" value="29" token="Selects ACLK_REF as start signal" description="Selects ACLK_REF as start signal"/>
+         <bitenum id="AUXIO15" value="28" token="Selects AUXIO15 as start signal" description="Selects AUXIO15 as start signal"/>
+         <bitenum id="AUXIO14" value="27" token="Selects AUXIO14 as start signal" description="Selects AUXIO14 as start signal"/>
+         <bitenum id="AUXIO13" value="26" token="Selects AUXIO13 as start signal" description="Selects AUXIO13 as start signal"/>
+         <bitenum id="AUXIO12" value="25" token="Selects AUXIO12 as start signal" description="Selects AUXIO12 as start signal"/>
+         <bitenum id="AUXIO11" value="24" token="Selects AUXIO11 as start signal" description="Selects AUXIO11 as start signal"/>
+         <bitenum id="AUXIO10" value="23" token="Selects AUXIO10 as start signal" description="Selects AUXIO10 as start signal"/>
+         <bitenum id="AUXIO9" value="22" token="Selects AUXIO9 as start signal" description="Selects AUXIO9 as start signal"/>
+         <bitenum id="AUXIO8" value="21" token="Selects AUXIO8 as start signal" description="Selects AUXIO8 as start signal"/>
+         <bitenum id="AUXIO7" value="20" token="Selects AUXIO7 as start signal" description="Selects AUXIO7 as start signal"/>
+         <bitenum id="AUXIO6" value="19" token="Selects AUXIO6 as start signal" description="Selects AUXIO6 as start signal"/>
+         <bitenum id="AUXIO5" value="18" token="Selects AUXIO5 as start signal" description="Selects AUXIO5 as start signal"/>
+         <bitenum id="AUXIO4" value="17" token="Selects AUXIO4 as start signal" description="Selects AUXIO4 as start signal"/>
+         <bitenum id="AUXIO3" value="16" token="Selects AUXIO3 as start signal" description="Selects AUXIO3 as start signal"/>
+         <bitenum id="AUXIO2" value="15" token="Selects AUXIO2 as start signal" description="Selects AUXIO2 as start signal"/>
+         <bitenum id="AUXIO1" value="14" token="Selects AUXIO1 as start signal" description="Selects AUXIO1 as start signal"/>
+         <bitenum id="AUXIO0" value="13" token="Selects AUXIO0 as start signal" description="Selects AUXIO0 as start signal"/>
+         <bitenum id="AON_PROG_WU" value="12" token="Selects AON_PROG_WU as start signal" description="Selects AON_PROG_WU as start signal"/>
+         <bitenum id="AON_SW" value="11" token="Selects AON_SW as start signal" description="Selects AON_SW as start signal"/>
+         <bitenum id="NO_EVENT1" value="10" token="No event selected" description="No event selected"/>
+         <bitenum id="NO_EVENT0" value="9" token="No event selected" description="No event selected"/>
+         <bitenum id="RESERVED1" value="8" token="Reserved do not use" description="Reserved do not use"/>
+         <bitenum id="RESERVED0" value="7" token="Reserved do not use" description="Reserved do not use"/>
+         <bitenum id="SMPH_AUTOTAKE_DONE" value="6" token="Selects SMPH_AUTOTAKE_DONE as start signal" description="Selects SMPH_AUTOTAKE_DONE as start signal"/>
+         <bitenum id="TIMER1_EV" value="5" token="Selects TIMER1_EV as start signal" description="Selects TIMER1_EV as start signal"/>
+         <bitenum id="TIMER0_EV" value="4" token="Selects TIMER0_EV as start signal" description="Selects TIMER0_EV as start signal"/>
+         <bitenum id="TDC_DONE" value="3" token="Selects TDC_DONE as start signal" description="Selects TDC_DONE as start signal"/>
+         <bitenum id="AUX_COMPB" value="2" token="Selects AUX_COMPB as start signal" description="Selects AUX_COMPB as start signal"/>
+         <bitenum id="AUX_COMPA" value="1" token="Selects AUX_COMPA as start signal" description="Selects AUX_COMPA as start signal"/>
+         <bitenum id="RTC_CH2_EV" value="0" token="Selects RTC_CH2_EV as start signal" description="Selects RTC_CH2_EV as start signal"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="6" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="ADC interface control command" id="CMD" resetval="0x0">
+         <bitenum id="FLUSH" value="3" token="ADC FIFO flush. Note that CMD needs to be set to &#39;EN&#39; again for FIFO to be functional after a flush. A flush takes two clock periods on the AUX clock to finish." description="ADC FIFO flush. Note that CMD needs to be set to &#39;EN&#39; again for FIFO to be functional after a flush. A flush takes two clock periods on the AUX clock to finish."/>
+         <bitenum id="EN" value="1" token="ADC interface enabled" description="ADC interface enabled"/>
+         <bitenum id="DIS" value="0" token="ADC interface disabled" description="ADC interface disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="ADCFIFOSTAT" width="32" description="ADC FIFO Status
+
+FIFO can hold up to four ADC samples" id="ADCFIFOSTAT" offset="0x14">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="FIFO overflow flag.
+
+0: FIFO has not overflowed.
+1: FIFO has overflowed, this flag is sticky until FIFO is flushed.
+" id="OVERFLOW" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="FIFO underflow flag.
+
+0: FIFO has not underflowed
+1: FIFO has underflowed, this flag is sticky until the FIFO is flushed
+" id="UNDERFLOW" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="FIFO full flag.
+
+0: FIFO is not full, i.e. there is less than 4 samples in the FIFO. 
+1: FIFO is full, i.e. there are 4 samples in the FIFO
+" id="FULL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="FIFO almost full flag.
+
+0: There is less than 3 samples in the FIFO, or the FIFO is full in which case the FULL flag is asserted
+1: There are 3 samples in the FIFO, i.e. there is room for one more sample
+" id="ALMOST_FULL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="FIFO empty flag.
+
+0: FIFO contains one or more samples
+1: FIFO is empty
+" id="EMPTY" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="ADCFIFO" width="32" description="ADC FIFO" id="ADCFIFO" offset="0x18">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="FIFO is popped when read. Data is pushed into FIFO when written. Writing is intended for debugging/code development purposes" id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ADCTRIG" width="32" description="ADC Trigger" id="ADCTRIG" offset="0x1c">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Writing to this register will trigger an ADC conversion given that ADCCTL.START_SRC is set to NO_EVENT0 or NO_EVENT1. If other setting is used in ADCCTL.START_SRC behavior can be unpredictable" id="START" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ISRCCTL" width="32" description="Current Source Control" id="ISRCCTL" offset="0x20">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Current source control
+
+0: Current source is clamped
+1: Current source is active/charging
+" id="RESET_N" resetval="0x1">
+      </bitfield>
+   </register>
+</module>

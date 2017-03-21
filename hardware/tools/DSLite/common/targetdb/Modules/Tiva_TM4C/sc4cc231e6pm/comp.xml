@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="COMP" HW_revision="" XML_version="1.0" description="Comparator register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="COMP_ACMIS" width="32" description="Analog Comparator Masked Interrupt Status" id="COMP_ACMIS" offset="0x00000000" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Comparator 0 Masked Interrupt Status" id="COMP_ACMIS_IN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Comparator 1 Masked Interrupt Status" id="COMP_ACMIS_IN1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_ACRIS" width="32" description="Analog Comparator Raw Interrupt Status" id="COMP_ACRIS" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Comparator 0 Interrupt Status" id="COMP_ACRIS_IN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Comparator 1 Interrupt Status" id="COMP_ACRIS_IN1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_ACINTEN" width="32" description="Analog Comparator Interrupt Enable" id="COMP_ACINTEN" offset="0x00000008" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Comparator 0 Interrupt Enable" id="COMP_ACINTEN_IN0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Comparator 1 Interrupt Enable" id="COMP_ACINTEN_IN1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_ACREFCTL" width="32" description="Analog Comparator Reference Voltage Control" id="COMP_ACREFCTL" offset="0x00000010" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Resistor Ladder Voltage Ref" id="COMP_ACREFCTL_VREF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Resistor Ladder Range" id="COMP_ACREFCTL_RNG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Resistor Ladder Enable" id="COMP_ACREFCTL_EN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_ACSTAT0" width="32" description="Analog Comparator Status 0" id="COMP_ACSTAT0" offset="0x00000020" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Comparator Output Value" id="COMP_ACSTAT0_OVAL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_ACCTL0" width="32" description="Analog Comparator Control 0" id="COMP_ACCTL0" offset="0x00000024" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Comparator Output Invert" id="COMP_ACCTL0_CINV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Interrupt Sense" id="COMP_ACCTL0_ISEN" resetval="" >
+            <bitenum id="COMP_ACCTL0_ISEN_LEVEL" value="0x00000000" token="" description="Level sense, see ISLVAL"/>
+            <bitenum id="COMP_ACCTL0_ISEN_FALL" value="0x00000004" token="" description="Falling edge"/>
+            <bitenum id="COMP_ACCTL0_ISEN_RISE" value="0x00000008" token="" description="Rising edge"/>
+            <bitenum id="COMP_ACCTL0_ISEN_BOTH" value="0x0000000C" token="" description="Either edge"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Interrupt Sense Level Value" id="COMP_ACCTL0_ISLVAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Trigger Sense" id="COMP_ACCTL0_TSEN" resetval="" >
+            <bitenum id="COMP_ACCTL0_TSEN_LEVEL" value="0x00000000" token="" description="Level sense, see TSLVAL"/>
+            <bitenum id="COMP_ACCTL0_TSEN_FALL" value="0x00000020" token="" description="Falling edge"/>
+            <bitenum id="COMP_ACCTL0_TSEN_RISE" value="0x00000040" token="" description="Rising edge"/>
+            <bitenum id="COMP_ACCTL0_TSEN_BOTH" value="0x00000060" token="" description="Either edge"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Trigger Sense Level Value" id="COMP_ACCTL0_TSLVAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="2" end="9" rwaccess="RW" description="Analog Source Positive" id="COMP_ACCTL0_ASRCP" resetval="" >
+            <bitenum id="COMP_ACCTL0_ASRCP_PIN" value="0x00000000" token="" description="Pin value of Cn+"/>
+            <bitenum id="COMP_ACCTL0_ASRCP_PIN0" value="0x00000200" token="" description="Pin value of C0+"/>
+            <bitenum id="COMP_ACCTL0_ASRCP_REF" value="0x00000400" token="" description="Internal voltage reference"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Trigger Output Enable" id="COMP_ACCTL0_TOEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_ACSTAT1" width="32" description="Analog Comparator Status 1" id="COMP_ACSTAT1" offset="0x00000040" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Comparator Output Value" id="COMP_ACSTAT1_OVAL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_ACCTL1" width="32" description="Analog Comparator Control 1" id="COMP_ACCTL1" offset="0x00000044" >
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Comparator Output Invert" id="COMP_ACCTL1_CINV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Interrupt Sense" id="COMP_ACCTL1_ISEN" resetval="" >
+            <bitenum id="COMP_ACCTL1_ISEN_LEVEL" value="0x00000000" token="" description="Level sense, see ISLVAL"/>
+            <bitenum id="COMP_ACCTL1_ISEN_FALL" value="0x00000004" token="" description="Falling edge"/>
+            <bitenum id="COMP_ACCTL1_ISEN_RISE" value="0x00000008" token="" description="Rising edge"/>
+            <bitenum id="COMP_ACCTL1_ISEN_BOTH" value="0x0000000C" token="" description="Either edge"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Interrupt Sense Level Value" id="COMP_ACCTL1_ISLVAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Trigger Sense" id="COMP_ACCTL1_TSEN" resetval="" >
+            <bitenum id="COMP_ACCTL1_TSEN_LEVEL" value="0x00000000" token="" description="Level sense, see TSLVAL"/>
+            <bitenum id="COMP_ACCTL1_TSEN_FALL" value="0x00000020" token="" description="Falling edge"/>
+            <bitenum id="COMP_ACCTL1_TSEN_RISE" value="0x00000040" token="" description="Rising edge"/>
+            <bitenum id="COMP_ACCTL1_TSEN_BOTH" value="0x00000060" token="" description="Either edge"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Trigger Sense Level Value" id="COMP_ACCTL1_TSLVAL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="2" end="9" rwaccess="RW" description="Analog Source Positive" id="COMP_ACCTL1_ASRCP" resetval="" >
+            <bitenum id="COMP_ACCTL1_ASRCP_PIN" value="0x00000000" token="" description="Pin value of Cn+"/>
+            <bitenum id="COMP_ACCTL1_ASRCP_PIN0" value="0x00000200" token="" description="Pin value of C0+"/>
+            <bitenum id="COMP_ACCTL1_ASRCP_REF" value="0x00000400" token="" description="Internal voltage reference"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Trigger Output Enable" id="COMP_ACCTL1_TOEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="COMP_PP" width="32" description="Analog Comparator Peripheral Properties" id="COMP_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Comparator 0 Present" id="COMP_PP_CMP0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Comparator 1 Present" id="COMP_PP_CMP1" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="Comparator Output 0 Present" id="COMP_PP_C0O" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="R" description="Comparator Output 1 Present" id="COMP_PP_C1O" resetval="" >
+        </bitfield>
+    </register>
+</module>

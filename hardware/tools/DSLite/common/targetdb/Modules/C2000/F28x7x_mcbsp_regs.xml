@@ -1,0 +1,151 @@
+<module id="McBSP_REGS" HW_revision="" description="McBSP Registers">
+	<register id="DRR2" width="16" page="1" offset="0x0" internal="0" description="Data receive register bits 31-16">
+		<bitfield id="HWLB" description="High word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="HWHB" description="High word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="DRR1" width="16" page="1" offset="0x1" internal="0" description="Data receive register bits 15-0">
+		<bitfield id="LWLB" description="Low word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="LWHB" description="Low word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="DXR2" width="16" page="1" offset="0x2" internal="0" description="Data transmit register bits 31-16">
+		<bitfield id="HWLB" description="High word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="HWHB" description="High word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="DXR1" width="16" page="1" offset="0x3" internal="0" description="Data transmit register bits 15-0">
+		<bitfield id="LWLB" description="Low word low byte" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="LWHB" description="Low word high byte" begin="15" end="8" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="SPCR2" width="16" page="1" offset="0x4" internal="0" description="Control register 2">
+		<bitfield id="XRST" description="Transmitter reset" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="XRDY" description="Transmitter ready" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="XEMPTY" description="Transmitter empty" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="XSYNCERR" description="Transmit sync error INT flag" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="XINTM" description="Transmit Interupt mode bits" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="GRST" description="Sample rate generator reset" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="FRST" description="Frame sync logic reset" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="SOFT" description="SOFT bit" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="FREE" description="FREE bit" begin="9" end="9" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SPCR1" width="16" page="1" offset="0x5" internal="0" description="Control register 1">
+		<bitfield id="RRST" description="Receiver reset" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="RRDY" description="Receiver ready" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="RFULL" description="Receiver full" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="RSYNCERR" description="Receive sync error INT flag" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="RINTM" description="Receive Interupt mode bits" begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="DXENA" description="DX delay enable" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="CLKSTP" description="Clock stop mode" begin="12" end="11" width="2" rwaccess="R/W"/>
+		<bitfield id="RJUST" description="Rx sign extension and justification mode" begin="14" end="13" width="2" rwaccess="R/W"/>
+		<bitfield id="DLB" description="Digital loopback" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="RCR2" width="16" page="1" offset="0x6" internal="0" description="Receive Control register 2">
+		<bitfield id="RDATDLY" description="Receive data delay" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="RFIG" description="Receive frame sync ignore" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="RCOMPAND" description="Receive Companding Mode selects" begin="4" end="3" width="2" rwaccess="R/W"/>
+		<bitfield id="RWDLEN2" description="Receive word length 2" begin="7" end="5" width="3" rwaccess="R/W"/>
+		<bitfield id="RFRLEN2" description="Receive Frame length 2" begin="14" end="8" width="7" rwaccess="R/W"/>
+		<bitfield id="RPHASE" description="Receive Phase" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="RCR1" width="16" page="1" offset="0x7" internal="0" description="Receive Control register 1">
+		<bitfield id="RWDLEN1" description="Receive word length 1" begin="7" end="5" width="3" rwaccess="R/W"/>
+		<bitfield id="RFRLEN1" description="Receive Frame length 1" begin="14" end="8" width="7" rwaccess="R/W"/>
+	</register>
+	<register id="XCR2" width="16" page="1" offset="0x8" internal="0" description="Transmit Control register 2">
+		<bitfield id="XDATDLY" description="Transmit data delay" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="XFIG" description="Transmit frame sync ignore" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="XCOMPAND" description="Transmit Companding Mode selects" begin="4" end="3" width="2" rwaccess="R/W"/>
+		<bitfield id="XWDLEN2" description="Transmit word length 2" begin="7" end="5" width="3" rwaccess="R/W"/>
+		<bitfield id="XFRLEN2" description="Transmit Frame length 2" begin="14" end="8" width="7" rwaccess="R/W"/>
+		<bitfield id="XPHASE" description="Transmit Phase" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="XCR1" width="16" page="1" offset="0x9" internal="0" description="Transmit Control register 1">
+		<bitfield id="XWDLEN1" description="Transmit word length 1" begin="7" end="5" width="3" rwaccess="R/W"/>
+		<bitfield id="XFRLEN1" description="Transmit Frame length 1" begin="14" end="8" width="7" rwaccess="R/W"/>
+	</register>
+	<register id="SRGR2" width="16" page="1" offset="0xa" internal="0" description="Sample rate generator register 2">
+		<bitfield id="FPER" description="Frame-sync period" begin="11" end="0" width="12" rwaccess="R/W"/>
+		<bitfield id="FSGM" description="Frame sync generator mode" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="CLKSM" description="Sample rate generator mode" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="GSYNC" description="CLKG sync" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SRGR1" width="16" page="1" offset="0xb" internal="0" description="Sample rate generator register 1">
+		<bitfield id="CLKGDV" description="CLKG divider" begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="FWID" description="Frame width" begin="15" end="8" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="MCR2" width="16" page="1" offset="0xc" internal="0" description="Multi-channel register 2">
+		<bitfield id="XMCM" description="Transmit data delay" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="XCBLK" description="Transmit frame sync ignore" begin="4" end="2" width="3" rwaccess="R"/>
+		<bitfield id="XPABLK" description="Transmit Companding Mode selects" begin="6" end="5" width="2" rwaccess="R/W"/>
+		<bitfield id="XPBBLK" description="Transmit word length 2" begin="8" end="7" width="2" rwaccess="R/W"/>
+		<bitfield id="XMCME" description="Transmit Frame length 2" begin="9" end="9" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="MCR1" width="16" page="1" offset="0xd" internal="0" description="Multi-channel register 1">
+		<bitfield id="RMCM" description="Receive multichannel mode" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="RCBLK" description="eceive current block" begin="4" end="2" width="3" rwaccess="R"/>
+		<bitfield id="RPABLK" description="Receive partition A Block" begin="6" end="5" width="2" rwaccess="R/W"/>
+		<bitfield id="RPBBLK" description="Receive partition B Block" begin="8" end="7" width="2" rwaccess="R/W"/>
+		<bitfield id="RMCME" description="Receive multi-channel enhance mode" begin="9" end="9" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="RCERA" width="16" page="1" offset="0xe" internal="0" description="Receive channel enable partition A">
+		<bitfield id="RCEA" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RCERB" width="16" page="1" offset="0xf" internal="0" description="Receive channel enable partition B">
+		<bitfield id="RCEB" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERA" width="16" page="1" offset="0x10" internal="0" description="Transmit channel enable partition A">
+		<bitfield id="XCERA" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERB" width="16" page="1" offset="0x11" internal="0" description="Transmit channel enable partition B">
+		<bitfield id="XCERB" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="PCR" width="16" page="1" offset="0x12" internal="0" description="Pin Control register">
+		<bitfield id="CLKRP" description="Receive Clock polarity" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CLKXP" description="Transmit clock polarity" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="FSRP" description="Receive Frame synchronization polarity" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="FSXP" description="Transmit Frame synchronization polarity" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="SCLKME" description="Sample clock mode selection" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="CLKRM" description="Receiver Clock Mode" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="CLKXM" description="Transmit Clock Mode." begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="FSRM" description="Receive Frame Synchronization Mode" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="FSXM" description="Transmit Frame Synchronization Mode" begin="11" end="11" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="RCERC" width="16" page="1" offset="0x13" internal="0" description="Receive channel enable partition C">
+		<bitfield id="RCEC" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RCERD" width="16" page="1" offset="0x14" internal="0" description="Receive channel enable partition D">
+		<bitfield id="RCED" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERC" width="16" page="1" offset="0x15" internal="0" description="Transmit channel enable partition C">
+		<bitfield id="XCERC" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERD" width="16" page="1" offset="0x16" internal="0" description="Transmit channel enable partition D">
+		<bitfield id="XCERD" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RCERE" width="16" page="1" offset="0x17" internal="0" description="Receive channel enable partition E">
+		<bitfield id="RCEE" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RCERF" width="16" page="1" offset="0x18" internal="0" description="Receive channel enable partition F">
+		<bitfield id="RCEF" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERE" width="16" page="1" offset="0x19" internal="0" description="Transmit channel enable partition E">
+		<bitfield id="XCERE" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERF" width="16" page="1" offset="0x1a" internal="0" description="Transmit channel enable partition F">
+		<bitfield id="XCERF" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RCERG" width="16" page="1" offset="0x1b" internal="0" description="Receive channel enable partition G">
+		<bitfield id="RCEG" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="RCERH" width="16" page="1" offset="0x1c" internal="0" description="Receive channel enable partition H">
+		<bitfield id="RCEH" description="Receive channel enable bit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERG" width="16" page="1" offset="0x1d" internal="0" description="Transmit channel enable partition G">
+		<bitfield id="XCERG" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="XCERH" width="16" page="1" offset="0x1e" internal="0" description="Transmit channel enable partition H">
+		<bitfield id="XCERH" description="Transmit Channel enable bit" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="MFFINT" width="16" page="1" offset="0x23" internal="0" description="Interrupt enable">
+		<bitfield id="XINT" description="Enable for Receive Interrupt" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="RINT" description="Enable for transmit Interrupt" begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+</module>

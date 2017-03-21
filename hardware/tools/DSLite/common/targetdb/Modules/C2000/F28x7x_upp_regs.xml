@@ -1,0 +1,135 @@
+<module id="UPP_REGS" HW_revision="" description="UPP Registers">
+	<register id="PID" width="32" page="1" offset="0x0" internal="0" description="Peripheral ID Register">
+		<bitfield id="REVID" description="Module revision id." begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="PERCTL" width="32" page="1" offset="0x2" internal="0" description="Peripheral Control Register">
+		<bitfield id="FREE" description="Emulation control." begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="SOFT" description="Emulation control." begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="RTEMU" description="Realtime emulation control." begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="PEREN" description="Peripheral Enable" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="SOFTRST" description="Software Reset" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAST" description="DMA Burst transaction status" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="CHCTL" width="32" page="1" offset="0x8" internal="0" description="General Control Register">
+		<bitfield id="MODE" description="Operating mode" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="SDRTXILA" description="SDR TX Interleve mode" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="DEMUXA" description="DDR de-multiplexing mode" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="DRA" description="Data rate" begin="16" end="16" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="IFCFG" width="32" page="1" offset="0xa" internal="0" description="Interface Configuration Register">
+		<bitfield id="STARTPOLA" description="Polarity of START(SELECT) signal" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="ENAPOLA" description="Polarity of ENABLE(WRITE) signal" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="WAITPOLA" description="Polarity of WAIT signal." begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="STARTA" description="Enable Usage of START (SELECT) signal" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="ENAA" description="Enable Usage of ENABLE (WRITE) signal" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="WAITA" description="Enable Usage of WAIT signal" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CLKDIVA" description="Clock divider for tx mode" begin="11" end="8" width="4" rwaccess="R/W"/>
+		<bitfield id="CLKINVA" description="Clock inversion" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="TRISENA" description="Pin Tri-state Control" begin="13" end="13" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="IFIVAL" width="32" page="1" offset="0xc" internal="0" description="Interface Idle Value Register">
+		<bitfield id="VALA" description="Idle Value" begin="8" end="0" width="9" rwaccess="R/W"/>
+	</register>
+	<register id="THCFG" width="32" page="1" offset="0xe" internal="0" description="Threshold Configuration Register">
+		<bitfield id="RDSIZEI" description="DMA Read Threshold for DMA Channel I" begin="1" end="0" width="2" rwaccess="R/W"/>
+		<bitfield id="RDSIZEQ" description="DMA Read Threshold for DMA Channel Q" begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="TXSIZEA" description="I/O Transmit Threshold Value" begin="17" end="16" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="RAWINTST" width="32" page="1" offset="0x10" internal="0" description="Raw Interrupt Status Register">
+		<bitfield id="DPEI" description="Interrupt raw status for DMA programming error" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="UOEI" description="Interrupt raw status for DMA under-run or over-run" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EOWI" description="Interrupt raw status for end-of window condition" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="EOLI" description="Interrupt raw status for end-of-line condition" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="DPEQ" description="Interrupt raw status for DMA programming error" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="UOEQ" description="Interrupt raw status for DMA under-run or over-run" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="EOWQ" description="Interrupt raw status for end-of window condition" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="EOLQ" description="Interrupt raw status for end-of-line condition" begin="12" end="12" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="ENINTST" width="32" page="1" offset="0x12" internal="0" description="Enable Interrupt Status Register">
+		<bitfield id="DPEI" description="Interrupt enable status for DMA programming error" begin="0" end="0" width="1" rwaccess="R/W1toClr"/>
+		<bitfield id="UOEI" description="Interrupt enable status for DMA under-run or over-run" begin="1" end="1" width="1" rwaccess="R/W1toClr"/>
+		<bitfield id="EOWI" description="Interrupt enable status for end-of window condition" begin="3" end="3" width="1" rwaccess="R/W1toClr"/>
+		<bitfield id="EOLI" description="Interrupt enable status for end-of-line condition" begin="4" end="4" width="1" rwaccess="R/W1toClr"/>
+		<bitfield id="DPEQ" description="Interrupt enable status for DMA programming error" begin="8" end="8" width="1" rwaccess="R/W1toClr"/>
+		<bitfield id="UOEQ" description="Interrupt enable status for DMA under-run or over-run" begin="9" end="9" width="1" rwaccess="R/W1toClr"/>
+		<bitfield id="EOWQ" description="Interrupt enable status for end-of window condition" begin="11" end="11" width="1" rwaccess="R/W1toClr"/>
+		<bitfield id="EOLQ" description="Interrupt enable status for end-of-line condition" begin="12" end="12" width="1" rwaccess="R/W1toClr"/>
+	</register>
+	<register id="INTENSET" width="32" page="1" offset="0x14" internal="0" description="Interrupt Enable Set Register">
+		<bitfield id="DPEI" description="Interrupt enable for DMA programming error" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="UOEI" description="Interrupt enable for DMA under-run or over-run" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EOWI" description="Interrupt enable for end-of window condition" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="EOLI" description="Interrupt enable for end-of-line condition" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="DPEQ" description="Interrupt enable for DMA programming error" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="UOEQ" description="Interrupt enable for DMA under-run or over-run" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="EOWQ" description="Interrupt enable for end-of window condition" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="EOLQ" description="Interrupt enable for end-of-line condition" begin="12" end="12" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="INTENCLR" width="32" page="1" offset="0x16" internal="0" description="Interrupt Enable Clear Register">
+		<bitfield id="DPEI" description="Interrupt clear for DMA programming error" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="UOEI" description="Interrupt clear for DMA under-run or over-run" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="EOWI" description="Interrupt clear for end-of window condition" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="EOLI" description="Interrupt clear for end-of-line condition" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="DPEQ" description="Interrupt clear for DMA programming error" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="UOEQ" description="Interrupt clear for DMA under-run or over-run" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="EOWQ" description="Interrupt clear for end-of window condition" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="EOLQ" description="Interrupt clear for end-of-line condition" begin="12" end="12" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="CHIDESC0" width="32" page="1" offset="0x20" internal="0" description="DMA Channel I Descriptor 0 Register">
+		<bitfield id="ADDR" description="Starting address of the DMA Channel I transfer." begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CHIDESC1" width="32" page="1" offset="0x22" internal="0" description="DMA Channel I Descriptor 1 Register">
+		<bitfield id="BCNT" description="Number of bytes in a line for DMA Channel I transfer." begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="LCNT" description="Number of lines in a window for DMA Channel I transfer." begin="31" end="16" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="CHIDESC2" width="32" page="1" offset="0x24" internal="0" description="DMA Channel I Descriptor 2 Register">
+		<bitfield id="LOFFSET" description="Current start address to next start address offset." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="CHIST0" width="32" page="1" offset="0x28" internal="0" description="DMA Channel I Status 0 Register">
+		<bitfield id="ADDR" description="Current address of the DMA transfer." begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="CHIST1" width="32" page="1" offset="0x2a" internal="0" description="DMA Channel I Status 1 Register">
+		<bitfield id="BCNT" description="Current byte number." begin="15" end="0" width="16" rwaccess="R"/>
+		<bitfield id="LCNT" description="Current line number." begin="31" end="16" width="16" rwaccess="R"/>
+	</register>
+	<register id="CHIST2" width="32" page="1" offset="0x2c" internal="0" description="DMA Channel I Status 2 Register">
+		<bitfield id="ACT" description="Status of DMA descriptor." begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="PEND" description="Status of DMA." begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="WM" description="Watermark for FIFO block count for DMA Channel I tranfer." begin="7" end="4" width="4" rwaccess="R"/>
+	</register>
+	<register id="CHQDESC0" width="32" page="1" offset="0x30" internal="0" description="DMA Channel Q Descriptor 0 Register">
+		<bitfield id="ADDR" description="Starting address of the DMA Channel Q transfer." begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="CHQDESC1" width="32" page="1" offset="0x32" internal="0" description="DMA Channel Q Descriptor 1 Register">
+		<bitfield id="BCNT" description="Number of bytes in a line for DMA Channel Q transfer." begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="LCNT" description="Number of lines in a window for DMA Channel Q transfer." begin="31" end="16" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="CHQDESC2" width="32" page="1" offset="0x34" internal="0" description="DMA Channel Q Descriptor 2 Register">
+		<bitfield id="LOFFSET" description="Current start address to next start address offset." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="CHQST0" width="32" page="1" offset="0x38" internal="0" description="DMA Channel Q Status 0 Register">
+		<bitfield id="ADDR" description="Current address of the DMA transfer." begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="CHQST1" width="32" page="1" offset="0x3a" internal="0" description="DMA Channel Q Status 1 Register">
+		<bitfield id="BCNT" description="Current byte number." begin="15" end="0" width="16" rwaccess="R"/>
+		<bitfield id="LCNT" description="Current line number." begin="31" end="16" width="16" rwaccess="R"/>
+	</register>
+	<register id="CHQST2" width="32" page="1" offset="0x3c" internal="0" description="DMA Channel Q Status 2 Register">
+		<bitfield id="ACT" description="Status of DMA descriptor." begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="PEND" description="Status of DMA." begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="WM" description="Watermark for FIFO block count for DMA Channel Q tranfer." begin="7" end="4" width="4" rwaccess="R"/>
+	</register>
+	<register id="GINTEN" width="32" page="1" offset="0x40" internal="0" description="Global Peripheral Interrupt Enable Register">
+		<bitfield id="GINTEN" description="Global Interrupt Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="GINTFLG" width="32" page="1" offset="0x42" internal="0" description="Global Peripheral Interrupt Flag Register">
+		<bitfield id="GINTFLG" description="Global Interrupt Flag" begin="0" end="0" width="1" rwaccess="R"/>
+	</register>
+	<register id="GINTCLR" width="32" page="1" offset="0x44" internal="0" description="Global Peripheral Interrupt Clear Register">
+		<bitfield id="GINTCLR" description="Global Interrupt Clear" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="DLYCTL" width="32" page="1" offset="0x46" internal="0" description="IO clock data skew control Register">
+		<bitfield id="DLYDIS" description="IO dealy control disable." begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="DLYCTL" description="IO delay control." begin="2" end="1" width="2" rwaccess="R/W"/>
+	</register>
+</module>

@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="EPI0" HW_revision="" XML_version="1.0" description="External Peripheral Interface register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="EPI_CFG" width="32" description="EPI Configuration" id="EPI_CFG" offset="0x00000000" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Mode Select" id="EPI_CFG_MODE" resetval="" >
+            <bitenum id="EPI_CFG_MODE_NONE" value="0x00000000" token="" description="General Purpose"/>
+            <bitenum id="EPI_CFG_MODE_SDRAM" value="0x00000001" token="" description="SDRAM"/>
+            <bitenum id="EPI_CFG_MODE_HB8" value="0x00000002" token="" description="8-Bit Host-Bus (HB8)"/>
+            <bitenum id="EPI_CFG_MODE_HB16" value="0x00000003" token="" description="16-Bit Host-Bus (HB16)"/>
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Block Enable" id="EPI_CFG_BLKEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Integer Clock Divider Enable" id="EPI_CFG_INTDIV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_BAUD" width="32" description="EPI Main Baud Rate" id="EPI_BAUD" offset="0x00000004" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Baud Rate Counter 0" id="EPI_BAUD_COUNT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Baud Rate Counter 1" id="EPI_BAUD_COUNT1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_BAUD2" width="32" description="EPI Main Baud Rate" id="EPI_BAUD2" offset="0x00000008" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="CS2n Baud Rate Counter 0" id="EPI_BAUD2_COUNT0" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="CS3n Baud Rate Counter 1" id="EPI_BAUD2_COUNT1" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16CFG" width="32" description="EPI Host-Bus 16 Configuration" id="EPI_HB16CFG" offset="0x00000010" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Host Bus Sub-Mode" id="EPI_HB16CFG_MODE" resetval="" >
+            <bitenum id="EPI_HB16CFG_MODE_ADMUX" value="0x00000000" token="" description="ADMUX - AD[15:0]"/>
+            <bitenum id="EPI_HB16CFG_MODE_ADNMUX" value="0x00000001" token="" description="ADNONMUX - D[15:0]"/>
+            <bitenum id="EPI_HB16CFG_MODE_SRAM" value="0x00000002" token="" description="Continuous Read - D[15:0]"/>
+            <bitenum id="EPI_HB16CFG_MODE_XFIFO" value="0x00000003" token="" description="XFIFO - D[15:0]"/>
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Byte Select Configuration" id="EPI_HB16CFG_BSEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Read Wait States" id="EPI_HB16CFG_RDWS" resetval="" >
+            <bitenum id="EPI_HB16CFG_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Write Wait States" id="EPI_HB16CFG_WRWS" resetval="" >
+            <bitenum id="EPI_HB16CFG_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Maximum Wait" id="EPI_HB16CFG_MAXWAIT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Burst Mode" id="EPI_HB16CFG_BURST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="PSRAM Configuration Register Read" id="EPI_HB16CFG_RDCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="PSRAM Configuration Register Write" id="EPI_HB16CFG_WRCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="ALE Strobe Polarity" id="EPI_HB16CFG_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="READ Strobe Polarity" id="EPI_HB16CFG_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="WRITE Strobe Polarity" id="EPI_HB16CFG_WRHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="External FIFO EMPTY Enable" id="EPI_HB16CFG_XFEEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="External FIFO FULL Enable" id="EPI_HB16CFG_XFFEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="Input Ready Invert" id="EPI_HB16CFG_IRDYINV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Input Ready Enable" id="EPI_HB16CFG_RDYEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Invert Output Clock Enable" id="EPI_HB16CFG_CLKINV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Clock Gated Idle" id="EPI_HB16CFG_CLKGATEI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Clock Gated" id="EPI_HB16CFG_CLKGATE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_GPCFG" width="32" description="EPI General-Purpose Configuration" id="EPI_GPCFG" offset="0x00000010" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Size of Data Bus" id="EPI_GPCFG_DSIZE" resetval="" >
+            <bitenum id="EPI_GPCFG_DSIZE_4BIT" value="0x00000000" token="" description="8 Bits Wide (EPI0S0 to EPI0S7)"/>
+            <bitenum id="EPI_GPCFG_DSIZE_16BIT" value="0x00000001" token="" description="16 Bits Wide (EPI0S0 to EPI0S15)"/>
+            <bitenum id="EPI_GPCFG_DSIZE_24BIT" value="0x00000002" token="" description="24 Bits Wide (EPI0S0 to EPI0S23)"/>
+            <bitenum id="EPI_GPCFG_DSIZE_32BIT" value="0x00000003" token="" description="32 Bits Wide (EPI0S0 to EPI0S31)"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Address Bus Size" id="EPI_GPCFG_ASIZE" resetval="" >
+            <bitenum id="EPI_GPCFG_ASIZE_NONE" value="0x00000000" token="" description="No address"/>
+            <bitenum id="EPI_GPCFG_ASIZE_4BIT" value="0x00000010" token="" description="Up to 4 bits wide"/>
+            <bitenum id="EPI_GPCFG_ASIZE_12BIT" value="0x00000020" token="" description="Up to 12 bits wide. This size cannot be used with 24-bit data"/>
+            <bitenum id="EPI_GPCFG_ASIZE_20BIT" value="0x00000030" token="" description="Up to 20 bits wide. This size cannot be used with data sizes other than 8"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="2-Cycle Writes" id="EPI_GPCFG_WR2CYC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="4" end="22" rwaccess="RW" description="Frame Count" id="EPI_GPCFG_FRMCNT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="50/50 Frame" id="EPI_GPCFG_FRM50" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Clock Gated" id="EPI_GPCFG_CLKGATE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Clock Pin" id="EPI_GPCFG_CLKPIN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_SDRAMCFG" width="32" description="EPI SDRAM Configuration" id="EPI_SDRAMCFG" offset="0x00000010" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Size of SDRAM" id="EPI_SDRAMCFG_SIZE" resetval="" >
+            <bitenum id="EPI_SDRAMCFG_SIZE_8MB" value="0x00000000" token="" description="64 megabits (8MB)"/>
+            <bitenum id="EPI_SDRAMCFG_SIZE_16MB" value="0x00000001" token="" description="128 megabits (16MB)"/>
+            <bitenum id="EPI_SDRAMCFG_SIZE_32MB" value="0x00000002" token="" description="256 megabits (32MB)"/>
+            <bitenum id="EPI_SDRAMCFG_SIZE_64MB" value="0x00000003" token="" description="512 megabits (64MB)"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Sleep Mode" id="EPI_SDRAMCFG_SLEEP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="11" end="16" rwaccess="RW" description="Refresh Counter" id="EPI_SDRAMCFG_RFSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="EPI Frequency Range" id="EPI_SDRAMCFG_FREQ" resetval="" >
+            <bitenum id="EPI_SDRAMCFG_FREQ_NONE" value="0x00000000" token="" description="0 - 15 MHz"/>
+            <bitenum id="EPI_SDRAMCFG_FREQ_15MHZ" value="0x40000000" token="" description="15 - 30 MHz"/>
+            <bitenum id="EPI_SDRAMCFG_FREQ_30MHZ" value="0x80000000" token="" description="30 - 50 MHz"/>
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8CFG" width="32" description="EPI Host-Bus 8 Configuration" id="EPI_HB8CFG" offset="0x00000010" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Host Bus Sub-Mode" id="EPI_HB8CFG_MODE" resetval="" >
+            <bitenum id="EPI_HB8CFG_MODE_MUX" value="0x00000000" token="" description="ADMUX - AD[7:0]"/>
+            <bitenum id="EPI_HB8CFG_MODE_NMUX" value="0x00000001" token="" description="ADNONMUX - D[7:0]"/>
+            <bitenum id="EPI_HB8CFG_MODE_SRAM" value="0x00000002" token="" description="Continuous Read - D[7:0]"/>
+            <bitenum id="EPI_HB8CFG_MODE_FIFO" value="0x00000003" token="" description="XFIFO - D[7:0]"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Read Wait States" id="EPI_HB8CFG_RDWS" resetval="" >
+            <bitenum id="EPI_HB8CFG_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Write Wait States" id="EPI_HB8CFG_WRWS" resetval="" >
+            <bitenum id="EPI_HB8CFG_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Maximum Wait" id="EPI_HB8CFG_MAXWAIT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="ALE Strobe Polarity" id="EPI_HB8CFG_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="READ Strobe Polarity" id="EPI_HB8CFG_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="WRITE Strobe Polarity" id="EPI_HB8CFG_WRHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="External FIFO EMPTY Enable" id="EPI_HB8CFG_XFEEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="External FIFO FULL Enable" id="EPI_HB8CFG_XFFEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="Input Ready Invert" id="EPI_HB8CFG_IRDYINV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Input Ready Enable" id="EPI_HB8CFG_RDYEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Invert Output Clock Enable" id="EPI_HB8CFG_CLKINV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Clock Gated when Idle" id="EPI_HB8CFG_CLKGATEI" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Clock Gated" id="EPI_HB8CFG_CLKGATE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8CFG2" width="32" description="EPI Host-Bus 8 Configuration 2" id="EPI_HB8CFG2" offset="0x00000014" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="CS1n Host Bus Sub-Mode" id="EPI_HB8CFG2_MODE" resetval="" >
+            <bitenum id="EPI_HB8CFG2_MODE_ADMUX" value="0x00000000" token="" description="ADMUX - AD[7:0]"/>
+            <bitenum id="EPI_HB8CFG2_MODE_AD" value="0x00000001" token="" description="ADNONMUX - D[7:0]"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="CS1n Read Wait States" id="EPI_HB8CFG2_RDWS" resetval="" >
+            <bitenum id="EPI_HB8CFG2_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG2_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG2_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG2_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="CS1n Write Wait States" id="EPI_HB8CFG2_WRWS" resetval="" >
+            <bitenum id="EPI_HB8CFG2_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG2_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG2_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG2_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="CS1n ALE Strobe Polarity" id="EPI_HB8CFG2_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="CS1n READ Strobe Polarity" id="EPI_HB8CFG2_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="CS1n WRITE Strobe Polarity" id="EPI_HB8CFG2_WRHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="Chip Select Configuration" id="EPI_HB8CFG2_CSCFG" resetval="" >
+            <bitenum id="EPI_HB8CFG2_CSCFG_ALE" value="0x00000000" token="" description="ALE Configuration"/>
+            <bitenum id="EPI_HB8CFG2_CSCFG_CS" value="0x01000000" token="" description="CSn Configuration"/>
+            <bitenum id="EPI_HB8CFG2_CSCFG_DCS" value="0x02000000" token="" description="Dual CSn Configuration"/>
+            <bitenum id="EPI_HB8CFG2_CSCFG_ADCS" value="0x03000000" token="" description="ALE with Dual CSn Configuration"/>
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Chip Select Baud Rate and Multiple Sub-Mode Configuration enable" id="EPI_HB8CFG2_CSBAUD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="Chip Select Extended Configuration" id="EPI_HB8CFG2_CSCFGEXT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16CFG2" width="32" description="EPI Host-Bus 16 Configuration 2" id="EPI_HB16CFG2" offset="0x00000014" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="CS1n Host Bus Sub-Mode" id="EPI_HB16CFG2_MODE" resetval="" >
+            <bitenum id="EPI_HB16CFG2_MODE_ADMUX" value="0x00000000" token="" description="ADMUX - AD[15:0]"/>
+            <bitenum id="EPI_HB16CFG2_MODE_AD" value="0x00000001" token="" description="ADNONMUX - D[15:0]"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="CS1n Read Wait States" id="EPI_HB16CFG2_RDWS" resetval="" >
+            <bitenum id="EPI_HB16CFG2_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG2_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG2_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG2_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="CS1n Write Wait States" id="EPI_HB16CFG2_WRWS" resetval="" >
+            <bitenum id="EPI_HB16CFG2_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG2_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG2_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG2_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="CS1n Burst Mode" id="EPI_HB16CFG2_BURST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="CS1n PSRAM Configuration Register Read" id="EPI_HB16CFG2_RDCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="CS1n PSRAM Configuration Register Write" id="EPI_HB16CFG2_WRCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="CS1n ALE Strobe Polarity" id="EPI_HB16CFG2_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="CS1n READ Strobe Polarity" id="EPI_HB16CFG2_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="CS1n WRITE Strobe Polarity" id="EPI_HB16CFG2_WRHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="Chip Select Configuration" id="EPI_HB16CFG2_CSCFG" resetval="" >
+            <bitenum id="EPI_HB16CFG2_CSCFG_ALE" value="0x00000000" token="" description="ALE Configuration"/>
+            <bitenum id="EPI_HB16CFG2_CSCFG_CS" value="0x01000000" token="" description="CSn Configuration"/>
+            <bitenum id="EPI_HB16CFG2_CSCFG_DCS" value="0x02000000" token="" description="Dual CSn Configuration"/>
+            <bitenum id="EPI_HB16CFG2_CSCFG_ADCS" value="0x03000000" token="" description="ALE with Dual CSn Configuration"/>
+        </bitfield>
+        <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Chip Select Baud Rate and Multiple Sub-Mode Configuration enable" id="EPI_HB16CFG2_CSBAUD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="Chip Select Extended Configuration" id="EPI_HB16CFG2_CSCFGEXT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_ADDRMAP" width="32" description="EPI Address Map" id="EPI_ADDRMAP" offset="0x0000001C" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="External RAM Address" id="EPI_ADDRMAP_ERADR" resetval="" >
+            <bitenum id="EPI_ADDRMAP_ERADR_NONE" value="0x00000000" token="" description="Not mapped"/>
+            <bitenum id="EPI_ADDRMAP_ERADR_6000" value="0x00000001" token="" description="At 0x6000.0000"/>
+            <bitenum id="EPI_ADDRMAP_ERADR_8000" value="0x00000002" token="" description="At 0x8000.0000"/>
+            <bitenum id="EPI_ADDRMAP_ERADR_HBQS" value="0x00000003" token="" description="Only to be used with Host Bus quad chip select. In quad chip select mode, CS0n maps to 0x6000.0000 and CS1n maps to 0x8000.0000"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="External RAM Size" id="EPI_ADDRMAP_ERSZ" resetval="" >
+            <bitenum id="EPI_ADDRMAP_ERSZ_256B" value="0x00000000" token="" description="256 bytes; lower address range: 0x00 to 0xFF"/>
+            <bitenum id="EPI_ADDRMAP_ERSZ_64KB" value="0x00000004" token="" description="64 KB; lower address range: 0x0000 to 0xFFFF"/>
+            <bitenum id="EPI_ADDRMAP_ERSZ_16MB" value="0x00000008" token="" description="16 MB; lower address range: 0x00.0000 to 0xFF.FFFF"/>
+            <bitenum id="EPI_ADDRMAP_ERSZ_256MB" value="0x0000000C" token="" description="256 MB; lower address range: 0x000.0000 to 0xFFF.FFFF"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="External Peripheral Address" id="EPI_ADDRMAP_EPADR" resetval="" >
+            <bitenum id="EPI_ADDRMAP_EPADR_NONE" value="0x00000000" token="" description="Not mapped"/>
+            <bitenum id="EPI_ADDRMAP_EPADR_A000" value="0x00000010" token="" description="At 0xA000.0000"/>
+            <bitenum id="EPI_ADDRMAP_EPADR_C000" value="0x00000020" token="" description="At 0xC000.0000"/>
+            <bitenum id="EPI_ADDRMAP_EPADR_HBQS" value="0x00000030" token="" description="Only to be used with Host Bus quad chip select. In quad chip select mode, CS2n maps to 0xA000.0000 and CS3n maps to 0xC000.0000"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="External Peripheral Size" id="EPI_ADDRMAP_EPSZ" resetval="" >
+            <bitenum id="EPI_ADDRMAP_EPSZ_256B" value="0x00000000" token="" description="256 bytes; lower address range: 0x00 to 0xFF"/>
+            <bitenum id="EPI_ADDRMAP_EPSZ_64KB" value="0x00000040" token="" description="64 KB; lower address range: 0x0000 to 0xFFFF"/>
+            <bitenum id="EPI_ADDRMAP_EPSZ_16MB" value="0x00000080" token="" description="16 MB; lower address range: 0x00.0000 to 0xFF.FFFF"/>
+            <bitenum id="EPI_ADDRMAP_EPSZ_256MB" value="0x000000C0" token="" description="256 MB; lower address range: 0x000.0000 to 0xFFF.FFFF"/>
+        </bitfield>
+        <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="External Code Address" id="EPI_ADDRMAP_ECADR" resetval="" >
+            <bitenum id="EPI_ADDRMAP_ECADR_NONE" value="0x00000000" token="" description="Not mapped"/>
+            <bitenum id="EPI_ADDRMAP_ECADR_1000" value="0x00000100" token="" description="At 0x1000.0000"/>
+        </bitfield>
+        <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="External Code Size" id="EPI_ADDRMAP_ECSZ" resetval="" >
+            <bitenum id="EPI_ADDRMAP_ECSZ_256B" value="0x00000000" token="" description="256 bytes; lower address range: 0x00 to 0xFF"/>
+            <bitenum id="EPI_ADDRMAP_ECSZ_64KB" value="0x00000400" token="" description="64 KB; lower address range: 0x0000 to 0xFFFF"/>
+            <bitenum id="EPI_ADDRMAP_ECSZ_16MB" value="0x00000800" token="" description="16 MB; lower address range: 0x00.0000 to 0xFF.FFFF"/>
+            <bitenum id="EPI_ADDRMAP_ECSZ_256MB" value="0x00000C00" token="" description="256MB; lower address range: 0x000.0000 to 0x0FFF.FFFF"/>
+        </bitfield>
+    </register>
+    <register acronym="EPI_RSIZE0" width="32" description="EPI Read Size 0" id="EPI_RSIZE0" offset="0x00000020" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Current Size" id="EPI_RSIZE0_SIZE" resetval="" >
+            <bitenum id="EPI_RSIZE0_SIZE_8BIT" value="0x00000001" token="" description="Byte (8 bits)"/>
+            <bitenum id="EPI_RSIZE0_SIZE_16BIT" value="0x00000002" token="" description="Half-word (16 bits)"/>
+            <bitenum id="EPI_RSIZE0_SIZE_32BIT" value="0x00000003" token="" description="Word (32 bits)"/>
+        </bitfield>
+    </register>
+    <register acronym="EPI_RADDR0" width="32" description="EPI Read Address 0" id="EPI_RADDR0" offset="0x00000024" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Current Address" id="EPI_RADDR0_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_RPSTD0" width="32" description="EPI Non-Blocking Read Data 0" id="EPI_RPSTD0" offset="0x00000028" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="RW" description="Post Count" id="EPI_RPSTD0_POSTCNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_RSIZE1" width="32" description="EPI Read Size 1" id="EPI_RSIZE1" offset="0x00000030" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Current Size" id="EPI_RSIZE1_SIZE" resetval="" >
+            <bitenum id="EPI_RSIZE1_SIZE_8BIT" value="0x00000001" token="" description="Byte (8 bits)"/>
+            <bitenum id="EPI_RSIZE1_SIZE_16BIT" value="0x00000002" token="" description="Half-word (16 bits)"/>
+            <bitenum id="EPI_RSIZE1_SIZE_32BIT" value="0x00000003" token="" description="Word (32 bits)"/>
+        </bitfield>
+    </register>
+    <register acronym="EPI_RADDR1" width="32" description="EPI Read Address 1" id="EPI_RADDR1" offset="0x00000034" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Current Address" id="EPI_RADDR1_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_RPSTD1" width="32" description="EPI Non-Blocking Read Data 1" id="EPI_RPSTD1" offset="0x00000038" >
+        <bitfield range="" begin="12" width="13" end="0" rwaccess="RW" description="Post Count" id="EPI_RPSTD1_POSTCNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_STAT" width="32" description="EPI Status" id="EPI_STAT" offset="0x00000060" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Register Active" id="EPI_STAT_ACTIVE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Non-Blocking Read Busy" id="EPI_STAT_NBRBUSY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Write Busy" id="EPI_STAT_WBUSY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="Initialization Sequence" id="EPI_STAT_INITSEQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="External FIFO Empty" id="EPI_STAT_XFEMPTY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="External FIFO Full" id="EPI_STAT_XFFULL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_RFIFOCNT" width="32" description="EPI Read FIFO Count" id="EPI_RFIFOCNT" offset="0x0000006C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="R" description="FIFO Count" id="EPI_RFIFOCNT_COUNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO0" width="32" description="EPI Read FIFO" id="EPI_READFIFO0" offset="0x00000070" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO0_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO1" width="32" description="EPI Read FIFO Alias 1" id="EPI_READFIFO1" offset="0x00000074" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO1_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO2" width="32" description="EPI Read FIFO Alias 2" id="EPI_READFIFO2" offset="0x00000078" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO2_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO3" width="32" description="EPI Read FIFO Alias 3" id="EPI_READFIFO3" offset="0x0000007C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO3_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO4" width="32" description="EPI Read FIFO Alias 4" id="EPI_READFIFO4" offset="0x00000080" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO4_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO5" width="32" description="EPI Read FIFO Alias 5" id="EPI_READFIFO5" offset="0x00000084" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO5_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO6" width="32" description="EPI Read FIFO Alias 6" id="EPI_READFIFO6" offset="0x00000088" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO6_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_READFIFO7" width="32" description="EPI Read FIFO Alias 7" id="EPI_READFIFO7" offset="0x0000008C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Reads Data" id="EPI_READFIFO7_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_FIFOLVL" width="32" description="EPI FIFO Level Selects" id="EPI_FIFOLVL" offset="0x00000200" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Read FIFO" id="EPI_FIFOLVL_RDFIFO" resetval="" >
+            <bitenum id="EPI_FIFOLVL_RDFIFO_1" value="0x00000001" token="" description="Trigger when there are 1 or more entries in the NBRFIFO"/>
+            <bitenum id="EPI_FIFOLVL_RDFIFO_2" value="0x00000002" token="" description="Trigger when there are 2 or more entries in the NBRFIFO"/>
+            <bitenum id="EPI_FIFOLVL_RDFIFO_4" value="0x00000003" token="" description="Trigger when there are 4 or more entries in the NBRFIFO"/>
+            <bitenum id="EPI_FIFOLVL_RDFIFO_6" value="0x00000004" token="" description="Trigger when there are 6 or more entries in the NBRFIFO"/>
+            <bitenum id="EPI_FIFOLVL_RDFIFO_7" value="0x00000005" token="" description="Trigger when there are 7 or more entries in the NBRFIFO"/>
+            <bitenum id="EPI_FIFOLVL_RDFIFO_8" value="0x00000006" token="" description="Trigger when there are 8 entries in the NBRFIFO"/>
+        </bitfield>
+        <bitfield range="" begin="6" width="3" end="4" rwaccess="RW" description="Write FIFO" id="EPI_FIFOLVL_WRFIFO" resetval="" >
+            <bitenum id="EPI_FIFOLVL_WRFIFO_EMPT" value="0x00000000" token="" description="Interrupt is triggered while WRFIFO is empty."/>
+            <bitenum id="EPI_FIFOLVL_WRFIFO_2" value="0x00000020" token="" description="Interrupt is triggered until there are only two slots available. Thus, trigger is deasserted when there are two WRFIFO entries present. This configuration is optimized for bursts of 2"/>
+            <bitenum id="EPI_FIFOLVL_WRFIFO_1" value="0x00000030" token="" description="Interrupt is triggered until there is one WRFIFO entry available. This configuration expects only single writes"/>
+            <bitenum id="EPI_FIFOLVL_WRFIFO_NFULL" value="0x00000040" token="" description="Trigger interrupt when WRFIFO is not full, meaning trigger will continue to assert until there are four entries in the WRFIFO"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Read Stall Error" id="EPI_FIFOLVL_RSERR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Write Full Error" id="EPI_FIFOLVL_WFERR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_WFIFOCNT" width="32" description="EPI Write FIFO Count" id="EPI_WFIFOCNT" offset="0x00000204" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="R" description="Available Write Transactions" id="EPI_WFIFOCNT_WTAV" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_DMATXCNT" width="32" description="EPI DMA Transmit Count" id="EPI_DMATXCNT" offset="0x00000208" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="DMA Count" id="EPI_DMATXCNT_TXCNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_IM" width="32" description="EPI Interrupt Mask" id="EPI_IM" offset="0x00000210" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Error Interrupt Mask" id="EPI_IM_ERRIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Read FIFO Full Interrupt Mask" id="EPI_IM_RDIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Write FIFO Empty Interrupt Mask" id="EPI_IM_WRIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Read uDMA Interrupt Mask" id="EPI_IM_DMARDIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Write uDMA Interrupt Mask" id="EPI_IM_DMAWRIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_RIS" width="32" description="EPI Raw Interrupt Status" id="EPI_RIS" offset="0x00000214" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Error Raw Interrupt Status" id="EPI_RIS_ERRRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Read Raw Interrupt Status" id="EPI_RIS_RDRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Write Raw Interrupt Status" id="EPI_RIS_WRRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Read uDMA Raw Interrupt Status" id="EPI_RIS_DMARDRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Write uDMA Raw Interrupt Status" id="EPI_RIS_DMAWRRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_MIS" width="32" description="EPI Masked Interrupt Status" id="EPI_MIS" offset="0x00000218" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Error Masked Interrupt Status" id="EPI_MIS_ERRMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Read Masked Interrupt Status" id="EPI_MIS_RDMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Write Masked Interrupt Status" id="EPI_MIS_WRMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Read uDMA Masked Interrupt Status" id="EPI_MIS_DMARDMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Write uDMA Masked Interrupt Status" id="EPI_MIS_DMAWRMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_EISC" width="32" description="EPI Error and Interrupt Status and Clear" id="EPI_EISC" offset="0x0000021C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Timeout Error" id="EPI_EISC_TOUT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Read Stalled Error" id="EPI_EISC_RSTALL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Write FIFO Full Error" id="EPI_EISC_WTFULL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Read uDMA Interrupt Clear" id="EPI_EISC_DMARDIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Write uDMA Interrupt Clear" id="EPI_EISC_DMAWRIC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8CFG3" width="32" description="EPI Host-Bus 8 Configuration 3" id="EPI_HB8CFG3" offset="0x00000308" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="CS2n Host Bus Sub-Mode" id="EPI_HB8CFG3_MODE" resetval="" >
+            <bitenum id="EPI_HB8CFG3_MODE_ADMUX" value="0x00000000" token="" description="ADMUX - AD[7:0]"/>
+            <bitenum id="EPI_HB8CFG3_MODE_AD" value="0x00000001" token="" description="ADNONMUX - D[7:0]"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="CS2n Read Wait States" id="EPI_HB8CFG3_RDWS" resetval="" >
+            <bitenum id="EPI_HB8CFG3_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG3_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG3_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG3_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="CS2n Write Wait States" id="EPI_HB8CFG3_WRWS" resetval="" >
+            <bitenum id="EPI_HB8CFG3_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG3_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG3_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG3_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="CS2n ALE Strobe Polarity" id="EPI_HB8CFG3_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="CS2n READ Strobe Polarity" id="EPI_HB8CFG3_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="CS2n WRITE Strobe Polarity" id="EPI_HB8CFG3_WRHIGH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16CFG3" width="32" description="EPI Host-Bus 16 Configuration 3" id="EPI_HB16CFG3" offset="0x00000308" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="CS2n Host Bus Sub-Mode" id="EPI_HB16CFG3_MODE" resetval="" >
+            <bitenum id="EPI_HB16CFG3_MODE_ADMUX" value="0x00000000" token="" description="ADMUX - AD[15:0]"/>
+            <bitenum id="EPI_HB16CFG3_MODE_AD" value="0x00000001" token="" description="ADNONMUX - D[15:0]"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="CS2n Read Wait States" id="EPI_HB16CFG3_RDWS" resetval="" >
+            <bitenum id="EPI_HB16CFG3_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG3_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG3_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG3_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="CS2n Write Wait States" id="EPI_HB16CFG3_WRWS" resetval="" >
+            <bitenum id="EPI_HB16CFG3_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG3_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG3_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG3_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="CS2n Burst Mode" id="EPI_HB16CFG3_BURST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="CS2n PSRAM Configuration Register Read" id="EPI_HB16CFG3_RDCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="CS2n PSRAM Configuration Register Write" id="EPI_HB16CFG3_WRCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="CS2n ALE Strobe Polarity" id="EPI_HB16CFG3_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="CS2n READ Strobe Polarity" id="EPI_HB16CFG3_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="CS2n WRITE Strobe Polarity" id="EPI_HB16CFG3_WRHIGH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16CFG4" width="32" description="EPI Host-Bus 16 Configuration 4" id="EPI_HB16CFG4" offset="0x0000030C" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="CS3n Host Bus Sub-Mode" id="EPI_HB16CFG4_MODE" resetval="" >
+            <bitenum id="EPI_HB16CFG4_MODE_ADMUX" value="0x00000000" token="" description="ADMUX - AD[15:0]"/>
+            <bitenum id="EPI_HB16CFG4_MODE_AD" value="0x00000001" token="" description="ADNONMUX - D[15:0]"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="CS3n Read Wait States" id="EPI_HB16CFG4_RDWS" resetval="" >
+            <bitenum id="EPI_HB16CFG4_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG4_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG4_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG4_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="CS3n Write Wait States" id="EPI_HB16CFG4_WRWS" resetval="" >
+            <bitenum id="EPI_HB16CFG4_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG4_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG4_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB16CFG4_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="CS3n Burst Mode" id="EPI_HB16CFG4_BURST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="CS3n PSRAM Configuration Register Read" id="EPI_HB16CFG4_RDCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="CS3n PSRAM Configuration Register Write" id="EPI_HB16CFG4_WRCRE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="CS3n ALE Strobe Polarity" id="EPI_HB16CFG4_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="CS3n READ Strobe Polarity" id="EPI_HB16CFG4_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="CS3n WRITE Strobe Polarity" id="EPI_HB16CFG4_WRHIGH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8CFG4" width="32" description="EPI Host-Bus 8 Configuration 4" id="EPI_HB8CFG4" offset="0x0000030C" >
+        <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="CS3n Host Bus Sub-Mode" id="EPI_HB8CFG4_MODE" resetval="" >
+            <bitenum id="EPI_HB8CFG4_MODE_ADMUX" value="0x00000000" token="" description="ADMUX - AD[7:0]"/>
+            <bitenum id="EPI_HB8CFG4_MODE_AD" value="0x00000001" token="" description="ADNONMUX - D[7:0]"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="CS3n Read Wait States" id="EPI_HB8CFG4_RDWS" resetval="" >
+            <bitenum id="EPI_HB8CFG4_RDWS_2" value="0x00000000" token="" description="Active RDn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG4_RDWS_4" value="0x00000010" token="" description="Active RDn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG4_RDWS_6" value="0x00000020" token="" description="Active RDn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG4_RDWS_8" value="0x00000030" token="" description="Active RDn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="CS3n Write Wait States" id="EPI_HB8CFG4_WRWS" resetval="" >
+            <bitenum id="EPI_HB8CFG4_WRWS_2" value="0x00000000" token="" description="Active WRn is 2 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG4_WRWS_4" value="0x00000040" token="" description="Active WRn is 4 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG4_WRWS_6" value="0x00000080" token="" description="Active WRn is 6 EPI clocks"/>
+            <bitenum id="EPI_HB8CFG4_WRWS_8" value="0x000000C0" token="" description="Active WRn is 8 EPI clocks"/>
+        </bitfield>
+        <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="CS3n ALE Strobe Polarity" id="EPI_HB8CFG4_ALEHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="CS2n READ Strobe Polarity" id="EPI_HB8CFG4_RDHIGH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="CS3n WRITE Strobe Polarity" id="EPI_HB8CFG4_WRHIGH" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8TIME" width="32" description="EPI Host-Bus 8 Timing Extension" id="EPI_HB8TIME" offset="0x00000310" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Read Wait State Minus One" id="EPI_HB8TIME_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Write Wait State Minus One" id="EPI_HB8TIME_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS0n Inter-transfer Capture Width" id="EPI_HB8TIME_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS0n Input Ready Delay" id="EPI_HB8TIME_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16TIME" width="32" description="EPI Host-Bus 16 Timing Extension" id="EPI_HB16TIME" offset="0x00000310" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Read Wait State Minus One" id="EPI_HB16TIME_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Write Wait State Minus One" id="EPI_HB16TIME_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS0n Inter-transfer Capture Width" id="EPI_HB16TIME_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="PSRAM Row Size" id="EPI_HB16TIME_PSRAMSZ" resetval="" >
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_0" value="0x00000000" token="" description="No row size limitation"/>
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_128B" value="0x00010000" token="" description="128 B"/>
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_256B" value="0x00020000" token="" description="256 B"/>
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_512B" value="0x00030000" token="" description="512 B"/>
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_1KB" value="0x00040000" token="" description="1024 B"/>
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_2KB" value="0x00050000" token="" description="2048 B"/>
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_4KB" value="0x00060000" token="" description="4096 B"/>
+            <bitenum id="EPI_HB16TIME_PSRAMSZ_8KB" value="0x00070000" token="" description="8192 B"/>
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS0n Input Ready Delay" id="EPI_HB16TIME_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8TIME2" width="32" description="EPI Host-Bus 8 Timing Extension" id="EPI_HB8TIME2" offset="0x00000314" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CS1n Read Wait State Minus One" id="EPI_HB8TIME2_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="CS1n Write Wait State Minus One" id="EPI_HB8TIME2_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS1n Inter-transfer Capture Width" id="EPI_HB8TIME2_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS1n Input Ready Delay" id="EPI_HB8TIME2_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16TIME2" width="32" description="EPI Host-Bus 16 Timing Extension" id="EPI_HB16TIME2" offset="0x00000314" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CS1n Read Wait State Minus One" id="EPI_HB16TIME2_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="CS1n Write Wait State Minus One" id="EPI_HB16TIME2_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS1n Inter-transfer Capture Width" id="EPI_HB16TIME2_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="PSRAM Row Size" id="EPI_HB16TIME2_PSRAMSZ" resetval="" >
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_0" value="0x00000000" token="" description="No row size limitation"/>
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_128B" value="0x00010000" token="" description="128 B"/>
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_256B" value="0x00020000" token="" description="256 B"/>
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_512B" value="0x00030000" token="" description="512 B"/>
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_1KB" value="0x00040000" token="" description="1024 B"/>
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_2KB" value="0x00050000" token="" description="2048 B"/>
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_4KB" value="0x00060000" token="" description="4096 B"/>
+            <bitenum id="EPI_HB16TIME2_PSRAMSZ_8KB" value="0x00070000" token="" description="8192 B"/>
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS1n Input Ready Delay" id="EPI_HB16TIME2_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16TIME3" width="32" description="EPI Host-Bus 16 Timing Extension" id="EPI_HB16TIME3" offset="0x00000318" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CS2n Read Wait State Minus One" id="EPI_HB16TIME3_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="CS2n Write Wait State Minus One" id="EPI_HB16TIME3_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS2n Inter-transfer Capture Width" id="EPI_HB16TIME3_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="PSRAM Row Size" id="EPI_HB16TIME3_PSRAMSZ" resetval="" >
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_0" value="0x00000000" token="" description="No row size limitation"/>
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_128B" value="0x00010000" token="" description="128 B"/>
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_256B" value="0x00020000" token="" description="256 B"/>
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_512B" value="0x00030000" token="" description="512 B"/>
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_1KB" value="0x00040000" token="" description="1024 B"/>
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_2KB" value="0x00050000" token="" description="2048 B"/>
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_4KB" value="0x00060000" token="" description="4096 B"/>
+            <bitenum id="EPI_HB16TIME3_PSRAMSZ_8KB" value="0x00070000" token="" description="8192 B"/>
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS2n Input Ready Delay" id="EPI_HB16TIME3_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8TIME3" width="32" description="EPI Host-Bus 8 Timing Extension" id="EPI_HB8TIME3" offset="0x00000318" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CS2n Read Wait State Minus One" id="EPI_HB8TIME3_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="CS2n Write Wait State Minus One" id="EPI_HB8TIME3_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS2n Inter-transfer Capture Width" id="EPI_HB8TIME3_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS2n Input Ready Delay" id="EPI_HB8TIME3_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB8TIME4" width="32" description="EPI Host-Bus 8 Timing Extension" id="EPI_HB8TIME4" offset="0x0000031C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CS3n Read Wait State Minus One" id="EPI_HB8TIME4_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="CS3n Write Wait State Minus One" id="EPI_HB8TIME4_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS3n Inter-transfer Capture Width" id="EPI_HB8TIME4_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS3n Input Ready Delay" id="EPI_HB8TIME4_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HB16TIME4" width="32" description="EPI Host-Bus 16 Timing Extension" id="EPI_HB16TIME4" offset="0x0000031C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="CS3n Read Wait State Minus One" id="EPI_HB16TIME4_RDWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="CS3n Write Wait State Minus One" id="EPI_HB16TIME4_WRWSM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="CS3n Inter-transfer Capture Width" id="EPI_HB16TIME4_CAPWIDTH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="PSRAM Row Size" id="EPI_HB16TIME4_PSRAMSZ" resetval="" >
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_0" value="0x00000000" token="" description="No row size limitation"/>
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_128B" value="0x00010000" token="" description="128 B"/>
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_256B" value="0x00020000" token="" description="256 B"/>
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_512B" value="0x00030000" token="" description="512 B"/>
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_1KB" value="0x00040000" token="" description="1024 B"/>
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_2KB" value="0x00050000" token="" description="2048 B"/>
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_4KB" value="0x00060000" token="" description="4096 B"/>
+            <bitenum id="EPI_HB16TIME4_PSRAMSZ_8KB" value="0x00070000" token="" description="8192 B"/>
+        </bitfield>
+        <bitfield range="" begin="25" width="2" end="24" rwaccess="RW" description="CS3n Input Ready Delay" id="EPI_HB16TIME4_IRDYDLY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EPI_HBPSRAM" width="32" description="EPI Host-Bus PSRAM" id="EPI_HBPSRAM" offset="0x00000360" >
+        <bitfield range="" begin="20" width="21" end="0" rwaccess="RW" description="PSRAM Config Register" id="EPI_HBPSRAM_CR" resetval="" >
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,148 @@
+<module id="EQEP_REGS" HW_revision="" description="EQEP Registers">
+	<register id="QPOSCNT" width="32" page="1" offset="0x0" internal="0" description="Position Counter ">
+		<bitfield id="QPOSCNT" description="Position Counter " begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="QPOSINIT" width="32" page="1" offset="0x2" internal="0" description="Position Counter Init ">
+		<bitfield id="QPOSINIT" description="Position Counter Init" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="QPOSMAX" width="32" page="1" offset="0x4" internal="0" description="Maximum Position Count ">
+		<bitfield id="QPOSMAX" description="Maximum Position Count " begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="QPOSCMP" width="32" page="1" offset="0x6" internal="0" description="Position Compare ">
+		<bitfield id="QPOSCMP" description="Position Compare " begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="QPOSILAT" width="32" page="1" offset="0x8" internal="0" description="Index Position Latch ">
+		<bitfield id="QPOSILAT" description="Index Position Latch " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="QPOSSLAT" width="32" page="1" offset="0xa" internal="0" description="Strobe Position Latch">
+		<bitfield id="QPOSSLAT" description="Strobe Position Latch " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="QPOSLAT" width="32" page="1" offset="0xc" internal="0" description="Position Latch ">
+		<bitfield id="QPOSLAT" description="Position Latch" begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="QUTMR" width="32" page="1" offset="0xe" internal="0" description="QEP Unit Timer ">
+		<bitfield id="QUTMR" description="QEP Unit Timer" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="QUPRD" width="32" page="1" offset="0x10" internal="0" description="QEP Unit Period ">
+		<bitfield id="QUPRD" description="QEP Unit Period" begin="31" end="0" width="32" rwaccess="R/W"/>
+	</register>
+	<register id="QWDTMR" width="16" page="1" offset="0x12" internal="0" description="QEP Watchdog Timer ">
+		<bitfield id="QWDTMR" description="QEP Watchdog Timer " begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="QWDPRD" width="16" page="1" offset="0x13" internal="0" description="QEP Watchdog Period ">
+		<bitfield id="QWDPRD" description="QEP Watchdog Period " begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="QDECCTL" width="16" page="1" offset="0x14" internal="0" description="Quadrature Decoder Control ">
+		<bitfield id="QSP" description="QEPS input polarity" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="QIP" description="QEPI input polarity" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="QBP" description="QEPB input polarity" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="QAP" description="QEPA input polarity" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="IGATE" description="Index pulse gating option" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="SWAP" description="CLK/DIR Signal Source for Position Counter " begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="XCR" description="External Clock Rate" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="SPSEL" description="Sync output pin selection" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="SOEN" description="Sync output-enable" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="QSRC" description="Position-counter source selection" begin="15" end="14" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="QEPCTL" width="16" page="1" offset="0x15" internal="0" description="QEP Control ">
+		<bitfield id="WDE" description="QEP watchdog enable " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="UTE" description="QEP unit timer enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="QCLM" description="QEP capture latch mode " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="QPEN" description="Quadrature postotion counter enable " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="IEL" description="Index event latch " begin="5" end="4" width="2" rwaccess="R/W"/>
+		<bitfield id="SEL" description="Strobe event latch " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="SWI" description="Software init position counter" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="IEI" description="Index event init of position count " begin="9" end="8" width="2" rwaccess="R/W"/>
+		<bitfield id="SEI" description="Strobe event init " begin="11" end="10" width="2" rwaccess="R/W"/>
+		<bitfield id="PCRM" description="Postion counter reset " begin="13" end="12" width="2" rwaccess="R/W"/>
+		<bitfield id="FREE_SOFT" description="Emulation mode " begin="15" end="14" width="2" rwaccess="R/W"/>
+	</register>
+	<register id="QCAPCTL" width="16" page="1" offset="0x16" internal="0" description="Qaudrature Capture Control ">
+		<bitfield id="UPPS" description="Unit position event prescaler" begin="3" end="0" width="4" rwaccess="R/W"/>
+		<bitfield id="CCPS" description="eQEP capture timer clock prescaler" begin="6" end="4" width="3" rwaccess="R/W"/>
+		<bitfield id="CEN" description="Enable eQEP capture" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="QPOSCTL" width="16" page="1" offset="0x17" internal="0" description="Position Compare Control ">
+		<bitfield id="PCSPW" description="Position compare sync pulse width " begin="11" end="0" width="12" rwaccess="R/W"/>
+		<bitfield id="PCE" description="Position compare enable/disable " begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="PCPOL" description="Polarity of sync output " begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="PCLOAD" description="Position compare of shadow load " begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="PCSHDW" description="Position compare of shadow enable" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="QEINT" width="16" page="1" offset="0x18" internal="0" description="QEP Interrupt Control ">
+		<bitfield id="PCE" description="Position counter error interrupt enable" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="QPE" description="Quadrature phase error interrupt enable" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="QDC" description="Quadrature direction change interrupt enable" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="WTO" description="Watchdog time out interrupt enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="PCU" description="Position counter underflow interrupt enable" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="PCO" description="Position counter overflow interrupt enable" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="PCR" description="Position-compare ready interrupt enable" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="PCM" description="Position-compare match interrupt enable" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="SEL" description="Strobe event latch interrupt enable" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="IEL" description="Index event latch interrupt enable" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="UTO" description="Unit time out interrupt enable" begin="11" end="11" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="QFLG" width="16" page="1" offset="0x19" internal="0" description="QEP Interrupt Flag ">
+		<bitfield id="INT" description="Global interrupt status flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="PCE" description="Position counter error interrupt flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="PHE" description="Quadrature phase error interrupt flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="QDC" description="Quadrature direction change interrupt flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="WTO" description="Watchdog timeout interrupt flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="PCU" description="Position counter underflow interrupt flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="PCO" description="Position counter overflow interrupt flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="PCR" description="Position-compare ready interrupt flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="PCM" description="eQEP compare match event interrupt flag" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="SEL" description="Strobe event latch interrupt flag" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="IEL" description="Index event latch interrupt flag" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="UTO" description="Unit time out interrupt flag" begin="11" end="11" width="1" rwaccess="R"/>
+	</register>
+	<register id="QCLR" width="16" page="1" offset="0x1a" internal="0" description="QEP Interrupt Clear ">
+		<bitfield id="INT" description="Global interrupt clear flag" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PCE" description="Clear position counter error interrupt flag" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PHE" description="Clear quadrature phase error interrupt flag" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="QDC" description="Clear quadrature direction change interrupt flag" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="WTO" description="Clear watchdog timeout interrupt flag" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PCU" description="Clear position counter underflow interrupt flag" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PCO" description="Clear position counter overflow interrupt flag" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PCR" description="Clear position-compare ready interrupt flag" begin="7" end="7" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PCM" description="Clear eQEP compare match event interrupt flag" begin="8" end="8" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="SEL" description="Clear strobe event latch interrupt flag" begin="9" end="9" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="IEL" description="Clear index event latch interrupt flag" begin="10" end="10" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="UTO" description="Clear unit time out interrupt flag" begin="11" end="11" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="QFRC" width="16" page="1" offset="0x1b" internal="0" description="QEP Interrupt Force ">
+		<bitfield id="PCE" description="Force position counter error interrupt" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="PHE" description="Force quadrature phase error interrupt" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="QDC" description="Force quadrature direction change interrupt" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="WTO" description="Force watchdog time out interrupt" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="PCU" description="Force position counter underflow interrupt" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="PCO" description="Force position counter overflow interrupt" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="PCR" description="Force position-compare ready interrupt" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="PCM" description="Force position-compare match interrupt" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="SEL" description="Force strobe event latch interrupt" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="IEL" description="Force index event latch interrupt" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="UTO" description="Force unit time out interrupt" begin="11" end="11" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="QEPSTS" width="16" page="1" offset="0x1c" internal="0" description="QEP Status ">
+		<bitfield id="PCEF" description="Position counter error flag." begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="FIMF" description="First index marker flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="CDEF" description="Capture direction error flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="COEF" description="Capture overflow error flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="QDLF" description="eQEP direction latch flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="QDF" description="Quadrature direction flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="FIDF" description="The first index marker" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="UPEVNT" description="Unit position event flag" begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="QCTMR" width="16" page="1" offset="0x1d" internal="0" description="QEP Capture Timer ">
+		<bitfield id="QCTMR" description="This register provides time base for edge capture unit." begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="QCPRD" width="16" page="1" offset="0x1e" internal="0" description="QEP Capture Period ">
+		<bitfield id="QCPRD" description="Period count value between  eQEP position events" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="QCTMRLAT" width="16" page="1" offset="0x1f" internal="0" description="QEP Capture Latch ">
+		<bitfield id="QCTMRLAT" description="The eQEP capture timer latch value" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="QCPRDLAT" width="16" page="1" offset="0x20" internal="0" description="QEP Capture Period Latch ">
+		<bitfield id="QCPRDLAT" description="eQEP capture period latch value" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+</module>

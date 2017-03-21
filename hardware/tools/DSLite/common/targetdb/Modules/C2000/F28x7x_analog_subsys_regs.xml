@@ -1,0 +1,34 @@
+<module id="ANALOG_SUBSYS_REGS" HW_revision="" description="ANALOG SUBSYS Registers">
+	<register id="INTOSC1TRIM" width="32" page="1" offset="0x20" internal="0" description="Internal Oscillator 1 Trim Register">
+		<bitfield id="VALFINETRIM" description="Oscillator Value Fine Trim Bits" begin="11" end="0" width="12" rwaccess="R/W"/>
+	</register>
+	<register id="INTOSC2TRIM" width="32" page="1" offset="0x22" internal="0" description="Internal Oscillator 2 Trim Register">
+		<bitfield id="VALFINETRIM" description="Oscillator Value Fine Trim Bits" begin="11" end="0" width="12" rwaccess="R/W"/>
+	</register>
+	<register id="TSNSCTL" width="16" page="1" offset="0x26" internal="0" description="Temperature Sensor Control Register">
+		<bitfield id="ENABLE" description="Temperature Sensor Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="LOCK" width="32" page="1" offset="0x2e" internal="0" description="Lock Register">
+		<bitfield id="TSNSCTL" description="Temperature Sensor Control Register Lock" begin="3" end="3" width="1" rwaccess="R/WOnce"/>
+	</register>
+	<register id="ANAREFTRIMA" width="32" page="1" offset="0x36" internal="0" description="Analog Reference Trim A Register">
+		<bitfield id="BGVALTRIM" description="Bandgap Value Trim" begin="5" end="0" width="6" rwaccess="R/W"/>
+		<bitfield id="BGSLOPETRIM" description="Bandgap Slope Trim" begin="10" end="6" width="5" rwaccess="R/W"/>
+		<bitfield id="IREFTRIM" description="Reference Current Trim" begin="15" end="11" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ANAREFTRIMB" width="32" page="1" offset="0x38" internal="0" description="Analog Reference Trim B Register">
+		<bitfield id="BGVALTRIM" description="Bandgap Value Trim" begin="5" end="0" width="6" rwaccess="R/W"/>
+		<bitfield id="BGSLOPETRIM" description="Bandgap Slope Trim" begin="10" end="6" width="5" rwaccess="R/W"/>
+		<bitfield id="IREFTRIM" description="Reference Current Trim" begin="15" end="11" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ANAREFTRIMC" width="32" page="1" offset="0x3a" internal="0" description="Analog Reference Trim C Register">
+		<bitfield id="BGVALTRIM" description="Bandgap Value Trim" begin="5" end="0" width="6" rwaccess="R/W"/>
+		<bitfield id="BGSLOPETRIM" description="Bandgap Slope Trim" begin="10" end="6" width="5" rwaccess="R/W"/>
+		<bitfield id="IREFTRIM" description="Reference Current Trim" begin="15" end="11" width="5" rwaccess="R/W"/>
+	</register>
+	<register id="ANAREFTRIMD" width="32" page="1" offset="0x3c" internal="0" description="Analog Reference Trim D Register">
+		<bitfield id="BGVALTRIM" description="Bandgap Value Trim" begin="5" end="0" width="6" rwaccess="R/W"/>
+		<bitfield id="BGSLOPETRIM" description="Bandgap Slope Trim" begin="10" end="6" width="5" rwaccess="R/W"/>
+		<bitfield id="IREFTRIM" description="Reference Current Trim" begin="15" end="11" width="5" rwaccess="R/W"/>
+	</register>
+</module>

@@ -1,0 +1,60 @@
+<module id="NMI_INTRUPT_REGS" HW_revision="" description="NMI INTRUPT Registers">
+	<register id="NMICFG" width="16" page="1" offset="0x0" internal="0" description="NMI Configuration Register">
+		<bitfield id="NMIE" description="Global NMI Enable" begin="0" end="0" width="1" rwaccess="R/W=1"/>
+	</register>
+	<register id="NMIFLG" width="16" page="1" offset="0x1" internal="0" description="NMI Flag Register (XRSn Clear)">
+		<bitfield id="NMIINT" description="NMI Interrupt Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="CLOCKFAIL" description="Clock Fail Interrupt Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="RAMUNCERR" description="RAM Uncorrectable Error NMI Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="FLUNCERR" description="Flash Uncorrectable Error NMI Flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="CPU1HWBISTERR" description="HW BIST Error NMI Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="CPU2HWBISTERR" description="HW BIST Error NMI Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="PIEVECTERR" description="PIE Vector Fetch Error Flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="RLNMI" description="Reconfigurable Logic NMI Flag" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="CPU2WDRSn" description="CPU2 WDRSn Reset Indication Flag" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="CPU2NMIWDRSn" description="CPU2 NMIWDRSn Reset Indication Flag" begin="10" end="10" width="1" rwaccess="R"/>
+	</register>
+	<register id="NMIFLGCLR" width="16" page="1" offset="0x2" internal="0" description="NMI Flag Clear Register">
+		<bitfield id="NMIINT" description="NMIINT Flag Clear" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CLOCKFAIL" description="CLOCKFAIL Flag Clear" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="RAMUNCERR" description="RAMUNCERR Flag Clear" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="FLUNCERR" description="FLUNCERR Flag Clear" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU1HWBISTERR" description="CPU1HWBISTERR Flag Clear" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU2HWBISTERR" description="CPU2HWBISTERR Flag Clear" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PIEVECTERR" description="PIEVECTERR Flag Clear" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="RLNMI" description="RLNMI Flag Clear" begin="8" end="8" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU2WDRSn" description="CPU2WDRSn Flag Clear" begin="9" end="9" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU2NMIWDRSn" description="CPU2NMIWDRSn Flag Clear" begin="10" end="10" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OVF" description="OVF Flag Clear" begin="11" end="11" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="NMIFLGFRC" width="16" page="1" offset="0x3" internal="0" description="NMI Flag Force Register">
+		<bitfield id="CLOCKFAIL" description="CLOCKFAIL Flag Force" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="RAMUNCERR" description="RAMUNCERR Flag Force" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="FLUNCERR" description="FLUNCERR Flag Force" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU1HWBISTERR" description="CPU1HWBISTERR Flag Force" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU2HWBISTERR" description="CPU2HWBISTERR Flag Force" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="PIEVECTERR" description="PIEVECTERR Flag Force" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="RLNMI" description="RLNMI Flag Force" begin="8" end="8" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU2WDRSn" description="CPU2WDRSn Flag Force" begin="9" end="9" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPU2NMIWDRSn" description="CPU2NMIWDRSn Flag Force" begin="10" end="10" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="OVF" description="OVF Flag Force" begin="11" end="11" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="NMIWDCNT" width="16" page="1" offset="0x4" internal="0" description="NMI Watchdog Counter Register">
+		<bitfield id="NMIWDCNT" description="NMI Watchdog Counter" begin="15" end="0" width="16" rwaccess="R"/>
+	</register>
+	<register id="NMIWDPRD" width="16" page="1" offset="0x5" internal="0" description="NMI Watchdog Period Register">
+		<bitfield id="NMIWDPRD" description="NMI Watchdog Period" begin="15" end="0" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="NMISHDFLG" width="16" page="1" offset="0x6" internal="0" description="NMI Shadow Flag Register">
+		<bitfield id="CLOCKFAIL" description="Shadow CLOCKFAIL Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="RAMUNCERR" description="Shadow RAMUNCERR Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="FLUNCERR" description="Shadow FLUNCERR Flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="CPU1HWBISTERR" description="Shadow CPU1HWBISTERR Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="CPU2HWBISTERR" description="Shadow CPU2HWBISTERR Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="PIEVECTERR" description="Shadow PIEVECTERR Flag" begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="RLNMI" description="Shadow RLNMI Flag" begin="8" end="8" width="1" rwaccess="R"/>
+		<bitfield id="CPU2WDRSn" description="Shadow CPU2WDRSn Flag" begin="9" end="9" width="1" rwaccess="R"/>
+		<bitfield id="CPU2NMIWDRSn" description="Shadow CPU2NMIWDRSn Flag" begin="10" end="10" width="1" rwaccess="R"/>
+		<bitfield id="OVF" description="Shadow OVF Flag" begin="11" end="11" width="1" rwaccess="R"/>
+	</register>
+</module>

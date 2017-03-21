@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!--Nodes-->
+    <node id="FlashProgrammerNode">
+        <name>Flash Settings</name>
+        <children>
+            <!--<child>FlashDownloadSettingsGroup</child>-->
+            <child>FlashEraseSettingsGroup</child>
+            <child>FlashAlignCombineToggle</child>
+            <child>FlashAlignmentSize</child>
+        </children>
+    </node>
+    <!--Groups -->
+    <group id="FlashDownloadSettingsGroup">
+        <name>Download Settings</name>
+        <children>
+            <child>FlashDownloadSetting</child>
+        </children>
+    </group>
+    <group id="FlashEraseSettingsGroup">
+        <name>Erase Settings</name>
+        <children>
+            <child>FlashEraseSetting</child>
+            <child>FlashEraseButton</child>
+        </children>
+    </group>
+    <!--Property Definitions -->
+    <property id="FlashEraseSetting">
+        <target>generic</target>
+        <name />
+        <valueType>ChoiceList</valueType>
+        <values>
+            <value>Entire Flash</value>
+            <value>Necessary Sectors Only (for Program Load)</value>
+        </values>
+        <defaultValue>Entire Flash</defaultValue>
+    </property>
+    <property id="FlashEraseButton">
+        <target>generic</target>
+        <name>Erase Flash</name>
+        <valueType>Button</valueType>
+        <disableIf>
+            <property id="FlashEraseSetting">Necessary Sectors Only (for Program Load)</property>
+        </disableIf>
+        <action>DPActiveDebugSession.flash.performOperation("Erase")</action>
+    </property>
+    <property id="FlashAlignCombineToggle">
+        <target>generic</target>
+        <name>Align program segments to 64-bit memory regions (for ECC calculation)</name>
+        <valueType>Boolean</valueType>
+        <defaultValue>1</defaultValue>
+        <hidden />
+    </property>
+    <property id="FlashAlignmentSize">
+        <!-- When set, this option combines all sections that is within the given range,
+             resulting in bigger programming chunks and improved speed. Holes are
+             programmed with FF data -->
+        <target>generic</target>
+        <name>Alignment Size: 0x</name>
+        <valueType>String</valueType>
+        <defaultValue>800</defaultValue><!-- HEX value -->
+        <hidden />
+    </property>
+    <!-- fin -->
+</PropertyList>

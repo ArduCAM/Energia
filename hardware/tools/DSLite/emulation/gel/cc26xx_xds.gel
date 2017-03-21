@@ -1,0 +1,175 @@
+/* \file        cc26xx_xds.gel
+ * \brief       GEL script for CC13xx/CC26xx device family + XDS debuggers.
+ *
+ * \revision    $Revision: 38496 $
+ */
+#define HWREG(x)                    (*(unsigned int)(x))
+#define ENGR_PC_HIB_NEXT_CC26XX     0x10003f54
+#define ENGR_PC_HIB_FIRST_CC26XX    0x10003f58
+#define ENGR_PC_HIB_NEXT_CC13XX     0x10003ff4
+#define ENGR_PC_HIB_FIRST_CC13XX    0x10003ff8
+#define ENGR_PC_END_CC26XX          0x10003a9a
+#define ENGR_PC_END_CC13XX          0x10003b2a
+#define FLASH_FWLOCK                0x4003003c
+#define FLASH_FWFLAG                0x40030040
+
+int _BoardResetMenuDefined = 0;
+
+OnTargetConnect()
+{
+    // Complete device trimming if engineering device
+    CompleteTrimOnEngrDevice();
+    
+    DefineResets(1);
+}
+
+OnPreFileLoaded(int nErrorCode, int bSymbolsOnly)
+{
+    if(!bSymbolsOnly)
+    {
+        // Make sure device is in a known state before loading program.
+        BoardReset_Automatic();
+
+        ForceFlashTrimBeforeEraseAndProgram();
+    }
+}
+
+OnFileLoaded(int nErrorCode, int bSymbolsOnly)
+{
+    if(!bSymbolsOnly)
+    {
+        // Restart if "Run to label on restart" is enabled
+        if ( DEBUG_GetBoolProperty("AutoRunToLabelOnRestart") )
+        {
+          GEL_Restart();
+        }
+    }
+}
+
+menuitem "CC26xx"
+/**
+ * \brief    This function issues a board reset before erasing the device flash.
+ *           This function disconnects from target after completion.
+ *           NOTE: If CM3 DAP is locked, make sure to disable "Custom configuration"
+ *                 from all sub paths in the device's target connection file (.ccxml).
+ */
+hotmenu MassErase()
+{
+    GEL_TextOut("Initializing.\n", "MassErase()");
+
+    // Disconnect from target
+    DisconnectIfConnected(); // Cortex
+    GEL_EvalOnTarget("<parent>", "DisconnectIfConnected()", 1); // DAP
+    GEL_EvalOnTarget("<parent>", "GEL_EvalOnTarget(\"<parent>\",\"DisconnectIfConnected()\", 1)", 1);
+
+    // Do board reset
+    GEL_TextOut("Issuing Board Reset.\n", "MassErase()");
+    GEL_AdvancedReset("Board Reset");
+
+    // Reconnect to Icepick
+    GEL_EvalOnTarget("<parent>", "GEL_EvalOnTarget(\"<parent>\",\"ConnectIfDisconnected()\", 1)", 1);
+    
+    // Issue mass erase and disconnect
+    GEL_EvalOnTarget("<parent>", "GEL_EvalOnTarget(\"<parent>\",\"IP_CC26xx_CHIPERASE = 1\", 1)", 1);
+    GEL_EvalOnTarget("<parent>", "GEL_EvalOnTarget(\"<parent>\",\"DisconnectIfConnected()\", 1)", 1);
+
+    GEL_TextOut("Mass erase complete.\n", "MassErase()");
+}
+
+/**
+ * \brief    This function issues a board reset and restores the connection
+ *           state.
+ */
+BoardReset_Automatic()
+{
+    // Store current state
+    ConnectStateStore();
+    GEL_EvalOnTarget("<parent>", "ConnectStateStore()", 1);
+    GEL_EvalOnTarget("<parent>", "GEL_EvalOnTarget(\"<parent>\",\"ConnectStateStore()\", 1)", 1);
+
+    // Disconnect
+    DisconnectIfConnected(); // Cortex
+    GEL_EvalOnTarget("<parent>", "DisconnectIfConnected()", 1); // DAP
+    GEL_EvalOnTarget("<parent>", "GEL_EvalOnTarget(\"<parent>\",\"DisconnectIfConnected()\", 1)", 1);
+
+    // Issue board reset
+    GEL_AdvancedReset("Board Reset");
+
+    // Restore current state
+    ConnectStateRestore();
+    GEL_EvalOnTarget("<parent>", "ConnectStateRestore()", 1);
+    GEL_EvalOnTarget("<parent>", "GEL_EvalOnTarget(\"<parent>\",\"ConnectStateRestore()\", 1)", 0);
+
+    if(GEL_IsConnected())
+    {
+        CompleteTrimOnEngrDevice();
+        
+        // Re-activate breakpoints
+        GEL_RestoreDebugState();
+        
+        // Update GUI (Debug view not always updated)
+        GEL_RefreshWindows();
+    }
+
+    GEL_TextOut("Board Reset Complete.\n");
+}
+
+/**
+ * \brief    Engineering devices don't have trimmed flash after halt-in-boot. 
+ *           This function runs to end of boot flash to ensure flash is
+ *           trimmed. This function assumes emulator is connected to target.
+ */
+CompleteTrimOnEngrDevice()
+{
+    int pcReg = PC;
+    if(pcReg == ENGR_PC_HIB_NEXT_CC26XX || pcReg == ENGR_PC_HIB_FIRST_CC26XX)
+    {
+        // Engineering device has halted in boot. Run to end of ROM to 
+        // ensure device flash is trimmed.
+        GEL_Go(ENGR_PC_END_CC26XX);
+    }
+    else if (pcReg == ENGR_PC_HIB_NEXT_CC13XX || pcReg == ENGR_PC_HIB_FIRST_CC13XX)
+    {
+        GEL_Go(ENGR_PC_END_CC13XX);
+    }
+}
+
+DefineResets(int neverAgain)
+{
+    if(!_BoardResetMenuDefined)
+    {
+        // Remove all resets except CPU, System and board reset
+        DEBUG_RemoveResets(3);
+        
+        // Define reset type
+        DEBUG_DefineReset("Board Reset (automatic)", "The same as a board reset, but automatically disconnects before and re-connects after", 0 /* 1 requires halt - 0 for allowing while running */, "BoardReset_Automatic()" );
+        
+        // Re-define Emulator Reset
+        DEBUG_DefineReset("Reset Emulator", "", 8 /* All targets for the specific emulator connection must be halted*/, "EmulatorReset()");
+    }
+
+    if(neverAgain) {
+        _BoardResetMenuDefined = 1;
+    }
+}
+
+/** \brief Function issues "Emulator Reset" */
+EmulatorReset()
+{
+    GEL_EvalOnTarget("<parent>","GEL_AdvancedReset(\"Reset Emulator\")", 1);
+}
+
+/** \brief  Make sure flash is trimmed for erase/program
+*/
+ForceFlashTrimBeforeEraseAndProgram()
+{
+    int fwFlag;
+
+    HWREG(FLASH_FWLOCK) = 0x00000005;
+    
+    // FLASH.FWFLAG[0] = 0
+    fwFlag = HWREG(FLASH_FWFLAG) & 0xFFFFFFFE;
+    HWREG(FLASH_FWFLAG) = fwFlag;
+
+    HWREG(FLASH_FWLOCK) = 0x00000000;
+}

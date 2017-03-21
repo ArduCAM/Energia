@@ -1,0 +1,135 @@
+<module id="FPB" HW_revision="356.0">
+    <register id="FP_CTRL" width="32" offset="0x0" internal="0" description="Flash Patch Control Register">
+        <bitfield id="ENABLE" description="Flash patch unit enable bit" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="flash patch unit disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="flash patch unit enabled"/>
+        </bitfield>
+        <bitfield id="NUM_CODE1" description="Number of code slots field." begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no code slots"/>
+            <bitenum id="en_0b0010" value="0x2" description="two code slots"/>
+            <bitenum id="en_0b0110" value="0x6" description="six code slots"/>
+        </bitfield>
+        <bitfield id="NUM_LIT" description="Number of literal slots field." begin="11" end="8" width="4" rwaccess="R">
+            <bitenum id="en_0b0000" value="0x0" description="no literal slots"/>
+            <bitenum id="en_0b0010" value="0x2" description="two literal slots"/>
+        </bitfield>
+        <bitfield id="NUM_CODE2" description="Number of full banks of code comparators, sixteen comparators per bank. Where less than sixteen code comparators are provided, the bank count is zero, and the number present indicated by NUM_CODE. This read only field contains 3'b000 to indicate 0 banks for Cortex-M4 processor." begin="13" end="12" width="2" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="FP_REMAP" width="32" offset="0x4" internal="0" description="Flash Patch Remap Register">
+        <bitfield id="REMAP" description="Remap base address field." begin="28" end="5" width="24" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FP_COMP0" width="32" offset="0x8" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 0. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 0 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 0 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+    <register id="FP_COMP1" width="32" offset="0xC" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 1. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 1 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 1 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+    <register id="FP_COMP2" width="32" offset="0x10" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 2. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 2 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 2 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+    <register id="FP_COMP3" width="32" offset="0x14" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 3. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 3 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 3 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+    <register id="FP_COMP4" width="32" offset="0x18" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 4. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 4 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 4 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+    <register id="FP_COMP5" width="32" offset="0x1C" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 5. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 5 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 5 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+    <register id="FP_COMP6" width="32" offset="0x20" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 6. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 6 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 6 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+    <register id="FP_COMP7" width="32" offset="0x24" internal="0" description="Flash Patch Comparator Registers">
+        <bitfield id="ENABLE" description="Compare and remap enable for Flash Patch Comparator Register 7. The ENABLE bit of FP_CTRL must also be set to enable comparisons. Reset clears the ENABLE bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="en_0b0" value="0x0" description="Flash Patch Comparator Register 7 compare and remap disabled"/>
+            <bitenum id="en_0b1" value="0x1" description="Flash Patch Comparator Register 7 compare and remap enabled"/>
+        </bitfield>
+        <bitfield id="COMP" description="Comparison address." begin="28" end="2" width="27" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="REPLACE" description="This selects what happens when the COMP address is matched. Settings other than b00 are only valid for instruction comparators. Literal comparators ignore non-b00 settings. Address remapping only takes place for the b00 setting." begin="31" end="30" width="2" rwaccess="R/W">
+            <bitenum id="en_0b00" value="0x0" description="remap to remap address. See FP_REMAP"/>
+            <bitenum id="en_0b01" value="0x1" description="set BKPT on lower halfword, upper is unaffected"/>
+            <bitenum id="en_0b10" value="0x2" description="set BKPT on upper halfword, lower is unaffected"/>
+            <bitenum id="en_0b11" value="0x3" description="set BKPT on both lower and upper halfwords."/>
+        </bitfield>
+    </register>
+</module>

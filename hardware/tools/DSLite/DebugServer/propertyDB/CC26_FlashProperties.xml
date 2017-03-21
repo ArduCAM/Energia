@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PropertyList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!--Nodes-->
+    <node id="FlashProgrammerNode">
+        <name>Flash Settings</name>
+        <children>
+            <child>ProgramLoadSettingsGroup</child>
+            <child>EraseActionGroup</child>
+            <child>FlashAlignCombineToggle</child>
+            <child>FlashAlignmentSize</child>
+        </children>
+    </node>
+    <!--Groups -->
+    <group id="ProgramLoadSettingsGroup">
+        <name>Program Load Settings</name>
+        <children>
+            <child>FlashEraseSetting</child>
+            <child>KeepCcfgSetting</child>
+        </children>
+    </group>
+    <group id="EraseActionGroup">
+        <name>Erase Actions</name>
+        <children>
+            <child>ChipEraseButton</child>
+        </children>
+    </group>
+    <!--Property Definitions -->
+    <property id="FlashEraseSetting">
+        <target>generic</target>
+        <name>Erase Settings</name>
+        <valueType>ChoiceList</valueType>
+        <values>
+            <value>All Unprotected Sectors</value>
+            <value>Necessary Sectors Only</value>
+            <value>Program Load Only (do not erase sectors)</value>
+        </values>
+        <defaultValue>Necessary Sectors Only</defaultValue>
+    </property>
+    <property id="KeepCcfgSetting">
+        <target>generic</target>
+        <name>Keep CCFG data. The upper N bytes of device CCFG are kept. N is given by CCFG.CCFG_O_SIZE_AND_DIS_FLAGS[31:16] in CCFG. If value is invalid, this option is ignored.</name>
+        <valueType>Boolean</valueType>
+        <defaultValue>0</defaultValue>
+    </property>
+    <property id="ChipEraseButton">
+        <target>generic</target> <!-- ISA name for Cortex-M3/4 -->
+        <name>Erase Entire Flash</name>
+        <valueType>Button</valueType>
+        <disableIf>
+            <property id="KeepCcfgSetting">1</property>
+        </disableIf>
+        <action>DPActiveDebugSession.expression.evaluate("MassErase()")</action>
+    </property>
+    <property id="FlashAlignCombineToggle">
+        <target>generic</target>
+        <name>Align program segments to 64-bit memory regions (for ECC calculation)</name>
+        <valueType>Boolean</valueType>
+        <defaultValue>1</defaultValue>
+        <hidden />
+    </property>
+    <property id="FlashAlignmentSize">
+        <!-- When set, this option combines all sections that is within the given range,
+             resulting in bigger programming chunks and improved speed. Holes are
+             programmed with FF data -->
+        <target>generic</target>
+        <name>Alignment Size: 0x</name>
+        <valueType>String</valueType>
+        <defaultValue>1000</defaultValue> <!-- HEX value -->
+        <hidden />
+    </property>
+    <!-- fin -->
+</PropertyList>

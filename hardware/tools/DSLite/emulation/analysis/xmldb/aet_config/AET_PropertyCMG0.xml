@@ -1,0 +1,918 @@
+<?xml version="1.0"?>
+<!-- This file defines options for STM power management profiling trace. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Base Address</NAME>	
+ 	  <DESCRIPTION>This base address is the base address used by SW to program CMG0</DESCRIPTION>		
+	  <VALUE>0x4A004F00</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Profling ClkCtrl Addr</NAME>	
+ 	  <DESCRIPTION>This is the address of CM profiling clkctrl register</DESCRIPTION>		
+	  <VALUE>0x4A004040</VALUE>
+	  <PAGE>1</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+	  <VALUE>Trace</VALUE>
+	  <CHILDKEY>TRACE</CHILDKEY>	<!-- The key point to access size -->
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!-- Setting for power management event detection.                                          -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Profile Type</NAME>	
+ 	  <DESCRIPTION>The option of clock management event profile type</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL CM 0</KEYNAME>	
+		  <KEYNUMBER>0</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80050000</ALLOWED_ENUM>
+			<ALLOWED_SAMELEVEL_KEY>CM CAPTURE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>CM Event Capture</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80050001</ALLOWED_ENUM>
+			<ALLOWED_SAMELEVEL_KEY>MODULE ACTIVITY</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Module Activity Collection</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Idle Mode</NAME>	
+ 	  <DESCRIPTION>The option of setting idle mode of the function</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CONTROL CM 0</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80050002</ALLOWED_ENUM>
+			<ALLOWED_STRING>No Idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>SMART IDLE</ALLOWED_KEY>
+			<ALLOWED_STRING>Smart-idle</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Wakeup Type</NAME>	
+ 	  <DESCRIPTION>The option of setting wakeup type for Smart-idle mode</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>SMART IDLE</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80050003</ALLOWED_ENUM>
+			<ALLOWED_STRING>No Wakeup</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_ENUM>0x80050004</ALLOWED_ENUM>
+			<ALLOWED_STRING>Capable Wakeup</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Sampling Window(cycles)</NAME>	
+ 	  <DESCRIPTION>The sampling window size expressed as clock cycles(0-0xFF)</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL CM 0</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>255</RANGEHI>
+  	  <VALUE>255</VALUE>
+	  <ENUMVALUE>0x80050010</ENUMVALUE>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Clock Divide Factor</NAME>	
+ 	  <DESCRIPTION>The function clock divide factor(1-16)</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL CM 0</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>15</RANGEHI>
+  	  <VALUE>1</VALUE>
+	  <ENUMVALUE>0x80050011</ENUMVALUE>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_BOOL>
+	  <NAME>Start on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Start Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL CM 0</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80050020</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Stop on Ext. Trigger</NAME>	
+ 	  <DESCRIPTION>Stop Detection on an external trigger</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTROL CM 0</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80050021</ENUMVALUE>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Event Class Enable</NAME>	
+ 	  <DESCRIPTION>Option of enabling or disabling individule clock management event capture class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>CM CAPTURE</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVENT GROUP 0</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Clock Domain State</NAME>	
+ 	  <DESCRIPTION>Enable or disable events of clock domain state class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP 0</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>DOMAIN STATE</CHILDKEY>	
+	</PROPERTY_STRING>
+<!--=============================================================================-->
+
+		<PROPERTY_BOOL>
+			<NAME>Class Enable</NAME>	
+ 			<DESCRIPTION>Enable or disable event of clock domain state events</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>DOMAIN STATE</KEYNAME>	
+				<KEYNUMBER>1</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>0x80050100</ENUMVALUE>
+  			<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+		
+<!--=============================================================================-->
+		<PROPERTY_STRING>
+			<NAME>Class Event List</NAME>	
+ 			<DESCRIPTION>List of clock domain state events</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>DOMAIN STATE</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<EDITABLE>FALSE</EDITABLE>	
+			<CHILDKEY>DOMAIN EVENT</CHILDKEY>	
+		</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>MPU DPLL</NAME>	
+ 				<DESCRIPTION>MPU DPLL clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>1</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>TESLA Root</NAME>	
+ 				<DESCRIPTION>TESLA Root clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>2</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>ABE 24M GF</NAME>	
+ 				<DESCRIPTION>ABE 24M GF clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>3</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>ABE ALWON 32K</NAME>	
+ 				<DESCRIPTION>ABE ALWON 32K clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>4</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>ABE System</NAME>	
+ 				<DESCRIPTION>ABE sytem clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>5</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>Func 24M GF</NAME>	
+ 				<DESCRIPTION>Functional 24M GF clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>6</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>OCP ABE GI</NAME>	
+ 				<DESCRIPTION>OCP ABE GI clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>7</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>ABE X2</NAME>	
+ 				<DESCRIPTION>ABE X2 clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>8</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>BGAP 32K GF</NAME>	
+ 				<DESCRIPTION>BGAP 32K clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>9</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>SR Core System</NAME>	
+ 				<DESCRIPTION>SR Core system clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>10</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>SR IVA System</NAME>	
+ 				<DESCRIPTION>SR IVA system clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>11</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>SR MPU System</NAME>	
+ 				<DESCRIPTION>SR MPU system clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>12</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>L4 AO Input</NAME>	
+ 				<DESCRIPTION>L4 AO input clock activity</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DOMAIN EVENT</KEYNAME>	
+					<KEYNUMBER>13</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Frequence Divider</NAME>	
+ 	  <DESCRIPTION>Enable or disable events of frequence divider class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP 0</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>DIVIDER</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+		<PROPERTY_BOOL>
+			<NAME>Class Enable (8-bit)</NAME>	
+ 			<DESCRIPTION>Enable or disable event of clock frequency divider ratio update (8 bit) events</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>DIVIDER</KEYNAME>	
+				<KEYNUMBER>1</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>0x80050101</ENUMVALUE>
+  			<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+			<NAME>Class Enable (4-bit)</NAME>	
+ 			<DESCRIPTION>Enable or disable event of clock frequency divider ratio update (4 bit) events</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>DIVIDER</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>0x80050102</ENUMVALUE>
+  			<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+<!--=============================================================================-->
+
+		<PROPERTY_STRING>
+			<NAME>Class Event List</NAME>	
+ 			<DESCRIPTION>List of clock divider ratio events</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>DIVIDER</KEYNAME>	
+				<KEYNUMBER>3</KEYNUMBER>	
+			</KEYITEM>
+			<EDITABLE>FALSE</EDITABLE>	
+			<CHILDKEY>DIVIDER EVENT</CHILDKEY>	
+		</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CLKSEL_OPP</NAME>	
+ 				<DESCRIPTION>Divider ratio of clock SEL OPP</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DIVIDER EVENT</KEYNAME>	
+					<KEYNUMBER>1</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>CM_BYCLK_DPLL_MPU</NAME>	
+ 				<DESCRIPTION>Divider ratio of CM_BYCLK_DPLL_MPU</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DIVIDER EVENT</KEYNAME>	
+					<KEYNUMBER>2</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>CM_BYCLK_DPLL_IVA</NAME>	
+ 				<DESCRIPTION>Divider ratio of CM_BYCLK_DPLL_IVA</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DIVIDER EVENT</KEYNAME>	
+					<KEYNUMBER>4</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_AESS_CLKCTRL.CLKSEL_AESS_FCLK</NAME>	
+ 				<DESCRIPTION>Divider ratio of CM1_ABE_AESS_CLKCTRL.CLKSEL_AESS_FCLK</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>DIVIDER EVENT</KEYNAME>	
+					<KEYNUMBER>4</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+		
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Source Selection Update</NAME>	
+ 	  <DESCRIPTION>Enable or disable events of source selection class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP 0</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>SELECTION</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+		<PROPERTY_BOOL>
+			<NAME>Class Enable</NAME>	
+ 			<DESCRIPTION>Enable or disable clock source selection update class</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>SELECTION</KEYNAME>	
+				<KEYNUMBER>1</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>0x80050103</ENUMVALUE>
+  			<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+		<PROPERTY_STRING>
+			<NAME>Class Event List</NAME>	
+ 			<DESCRIPTION>List of clock source selection update events</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>SELECTION</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<EDITABLE>FALSE</EDITABLE>	
+			<CHILDKEY>SELECTION EVENT</CHILDKEY>	
+		</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM_CLKSEL_CORE.CLKSEL_L4</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM_CLKSEL_CORE.CLKSEL_L4</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>1</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM_CLKSEL_CORE.CLKSEL_L3</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM_CLKSEL_CORE.CLKSEL_L3</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>2</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM_CLKSEL_CORE.CLKSEL_CORE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM_CLKSEL_CORE.CLKSEL_CORE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>3</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM_CLKSEL_DPLL_CORE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM_CLKSEL_DPLL_CORE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>4</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM_CLKSEL_DPLL_MPU</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM_CLKSEL_DPLL_MPU</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>5</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM_CLKSEL_DPLL_IVA</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM_CLKSEL_DPLL_IVA</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>6</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM_CLKSEL_DPLL_ABE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM_CLKSEL_DPLL_ABE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>7</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_DMIC_CLKCTRL.CLKSEL_INTERNAL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_DMIC_CLKCTRL.CLKSEL_INTERNAL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>8</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_DMIC_CLKCTRL.CLKSEL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_DMIC_CLKCTRL.CLKSEL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>9</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP_CLKCTRL.CLKSEL_INTERNAL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP_CLKCTRL.CLKSEL_INTERNAL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>10</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP_CLKCTRL.CLKSEL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP_CLKCTRL.CLKSEL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>10</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP1_CLKCTRL.CLKSEL_INTERNAL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP1_CLKCTRL.CLKSEL_INTERNAL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>11</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP1_CLKCTRL.CLKSEL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP1_CLKCTRL.CLKSEL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>12</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP2_CLKCTRL.CLKSEL_INTERNAL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP2_CLKCTRL.CLKSEL_INTERNAL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>13</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP2_CLKCTRL.CLKSEL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP2_CLKCTRL.CLKSEL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>14</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP3_CLKCTRL.CLKSEL_INTERNAL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP3_CLKCTRL.CLKSEL_INTERNAL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>15</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_MCASP3_CLKCTRL.CLKSEL_SOURCE</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_MCASP3_CLKCTRL.CLKSEL_SOURCE</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>16</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_TIMER5_CLKCTRL.CLKSEL</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_TIMER5_CLKCTRL.CLKSEL</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>17</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_TIMER6_CLKCTRL.CLKSEL</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_TIMER6_CLKCTRL.CLKSEL</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>18</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_TIMER7_CLKCTRL.CLKSEL</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_TIMER7_CLKCTRL.CLKSEL</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>19</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>CM1_ABE_TIMER8_CLKCTRL.CLKSEL</NAME>	
+ 				<DESCRIPTION>Clock source selection update event CM1_ABE_TIMER8_CLKCTRL.CLKSEL</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>SELECTION EVENT</KEYNAME>	
+					<KEYNUMBER>20</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>DPLL Setting Update</NAME>	
+ 	  <DESCRIPTION>Enable or disable events of DPLL setting update class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>EVENT GROUP 0</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>DPLL</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>DPLL_CORE</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of DPLL coure setting update events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>DPLL</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80050110</ENUMVALUE>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>DPLL_MPU</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of DPLL MPU setting update events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>DPLL</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80050111</ENUMVALUE>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>DPLL_IVA</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of DPLL IVA setting update events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>DPLL</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80050112</ENUMVALUE>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>DPLL_ABE</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of DPLL ABE setting update events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>DPLL</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80050113</ENUMVALUE>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>DPLL_DDRPHY</NAME>	
+ 	  <DESCRIPTION>Enable or disable event of DPLL DDRPHY setting update events</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>DPLL</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x80050114</ENUMVALUE>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Target Activity Enable</NAME>	
+ 	  <DESCRIPTION>Option of enabling or disable individule target activity collection class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>MODULE ACTIVITY</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVENT GROUP 1</CHILDKEY>	
+	</PROPERTY_STRING>
+
+		<PROPERTY_BOOL>
+		<NAME>Target Activity 0</NAME>	
+ 		<DESCRIPTION>Enable or disable event of target activity (8 bit) events</DESCRIPTION>	
+		<KEYITEM>
+			<KEYNAME>EVENT GROUP 1</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+		<ENUMVALUE>0x80050120</ENUMVALUE>
+  		<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Target Activity 1</NAME>	
+ 		<DESCRIPTION>Enable or disable event of target activity (4 bit) events</DESCRIPTION>	
+		<KEYITEM>
+			<KEYNAME>EVENT GROUP 1</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+		<ENUMVALUE>0x80050121</ENUMVALUE>
+  		<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+		<PROPERTY_STRING>
+			<NAME>Target List</NAME>	
+ 			<DESCRIPTION>List of contribute targets</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>EVENT GROUP 1</KEYNAME>	
+				<KEYNUMBER>3</KEYNUMBER>	
+			</KEYITEM>
+			<EDITABLE>FALSE</EDITABLE>	
+			<CHILDKEY>TARGET</CHILDKEY>	
+		</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>ABESS</NAME>	
+ 				<DESCRIPTION>Target ABESS</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>TARGET</KEYNAME>	
+					<KEYNUMBER>1</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>Chiron</NAME>	
+ 				<DESCRIPTION>Target Chiron</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>TARGET</KEYNAME>	
+					<KEYNUMBER>2</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>Chiron x 2</NAME>	
+ 				<DESCRIPTION>Two target Chiron</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>TARGET</KEYNAME>	
+					<KEYNUMBER>3</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>Tesla Master</NAME>	
+ 				<DESCRIPTION>Target Tesla Master</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>TARGET</KEYNAME>	
+					<KEYNUMBER>4</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Initiator Activity Enable</NAME>	
+ 	  <DESCRIPTION>Option of enabling or disable individule initiator activity collection class</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>MODULE ACTIVITY</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>	
+	  <CHILDKEY>EVENT GROUP 2</CHILDKEY>	
+	</PROPERTY_STRING>
+
+		<PROPERTY_BOOL>
+		<NAME>Initiator Activity 0</NAME>	
+ 		<DESCRIPTION>Enable or disable event of initiator activity (8 bit) events</DESCRIPTION>	
+		<KEYITEM>
+			<KEYNAME>EVENT GROUP 2</KEYNAME>	
+			<KEYNUMBER>1</KEYNUMBER>	
+		</KEYITEM>
+		<ENUMVALUE>0x80050122</ENUMVALUE>
+  		<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Initiator Activity 1</NAME>	
+ 		<DESCRIPTION>Enable or disable event of initiator activity (4 bit) events</DESCRIPTION>	
+		<KEYITEM>
+			<KEYNAME>EVENT GROUP 2</KEYNAME>	
+			<KEYNUMBER>2</KEYNUMBER>	
+		</KEYITEM>
+		<ENUMVALUE>0x80050123</ENUMVALUE>
+  		<VALUE>1</VALUE>
+		</PROPERTY_BOOL>
+
+<!--=============================================================================-->
+		<PROPERTY_STRING>
+			<NAME>Initiator List</NAME>	
+ 			<DESCRIPTION>List of contribute initiators</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>EVENT GROUP 2</KEYNAME>	
+				<KEYNUMBER>3</KEYNUMBER>	
+			</KEYITEM>
+			<EDITABLE>FALSE</EDITABLE>	
+			<CHILDKEY>INITIOTER</CHILDKEY>	
+		</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>DMIC</NAME>	
+ 				<DESCRIPTION>Initiator DMIC</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>INITIOTER</KEYNAME>	
+					<KEYNUMBER>1</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>L4Audio Interconnect</NAME>	
+ 				<DESCRIPTION>Initiator L4Audio interconnect</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>INITIOTER</KEYNAME>	
+					<KEYNUMBER>2</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>MCASP</NAME>	
+ 				<DESCRIPTION>Initiator MCASP</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>INITIOTER</KEYNAME>	
+					<KEYNUMBER>3</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>MCBSP1, MCBSP2, MCBSP3</NAME>	
+ 				<DESCRIPTION>Initiator MCBSP1, MCBSP2, MCBSP3</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>INITIOTER</KEYNAME>	
+					<KEYNUMBER>4</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>Slimbus</NAME>	
+ 				<DESCRIPTION>Initiator Slimbus</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>INITIOTER</KEYNAME>	
+					<KEYNUMBER>5</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+			<PROPERTY_STRING>
+				<NAME>Timer5-8 and WDT3</NAME>	
+ 				<DESCRIPTION>Initiator Timer5-8 and WDT3</DESCRIPTION>	
+				<KEYITEM>
+					<KEYNAME>INITIOTER</KEYNAME>	
+					<KEYNUMBER>6</KEYNUMBER>	
+				</KEYITEM>
+				<EDITABLE>FALSE</EDITABLE>	
+			</PROPERTY_STRING>
+
+</AET>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+	  <VALUE>Trace</VALUE>
+	  <CHILDKEY>TRACE</CHILDKEY>	
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                            Option of Global Breakpoint only CTI             -->
+<!-- Type                                                                        -->
+<!--  |--> Cross Trigger --> Not Used                                            -->
+<!--                     --> Global Breakpoint - 0x89000000                      -->
+<!--                     --> Channel Config    - 0x88000000                      -->
+<!-- These two numbers should be consistent to the value hard coded in the SW    -->
+<!--=============================================================================-->
+	<PROPERTY_BOOL>
+	  <NAME>Global Breakpoint</NAME>	
+ 	  <DESCRIPTION>Enable global breakpoint for the CPU</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CTI TOP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>0x8A000000</ENUMVALUE>
+	  <EDITABLE>FALSE</EDITABLE>	
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+	
+</AET>

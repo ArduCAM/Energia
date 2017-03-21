@@ -1,0 +1,79 @@
+<module id="SCI_REGS" HW_revision="" description="SCI Registers">
+	<register id="SCICCR" width="16" page="1" offset="0x0" internal="0" description="Communications control register">
+		<bitfield id="SCICHAR" description="Character length control " begin="2" end="0" width="3" rwaccess="R/W"/>
+		<bitfield id="ADDRIDLE_MODE" description="ADDR/IDLE Mode control " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="LOOPBKENA" description="Loop Back enable" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="PARITYENA" description="Parity enable " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="PARITY" description="Even or Odd Parity " begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="STOPBITS" description="Number of Stop Bits " begin="7" end="7" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SCICTL1" width="16" page="1" offset="0x1" internal="0" description="Control register 1">
+		<bitfield id="RXENA" description="SCI receiver enable " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="TXENA" description="SCI transmitter enable " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="SLEEP" description="SCI sleep " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="TXWAKE" description="Transmitter wakeup method " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="SWRESET" description="Software reset " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="RXERRINTENA" description="Recieve __interrupt enable " begin="6" end="6" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SCIHBAUD" width="16" page="1" offset="0x2" internal="0" description="Baud rate (high) register">
+		<bitfield id="BAUD" description="SCI 16-bit baud selection Registers SCIHBAUD" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="SCILBAUD" width="16" page="1" offset="0x3" internal="0" description="Baud rate (low) register">
+		<bitfield id="BAUD" description="SCI 16-bit baud selection Registers SCILBAUD" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="SCICTL2" width="16" page="1" offset="0x4" internal="0" description="Control register 2">
+		<bitfield id="TXINTENA" description="Transmit __interrupt enable " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="RXBKINTENA" description="Receiver-buffer break enable " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="TXEMPTY" description="Transmitter empty flag " begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="TXRDY" description="Transmitter ready flag " begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="SCIRXST" width="16" page="1" offset="0x5" internal="0" description="Recieve status register">
+		<bitfield id="RXWAKE" description="Receiver wakeup detect flag " begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="PE" description="Parity error flag " begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="OE" description="Overrun error flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="FE" description="Framing error flag " begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="BRKDT" description="Break-detect flag " begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="RXRDY" description="Receiver ready flag " begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="RXERROR" description="Receiver error flag " begin="7" end="7" width="1" rwaccess="R"/>
+	</register>
+	<register id="SCIRXEMU" width="16" page="1" offset="0x6" internal="0" description="Recieve emulation buffer register">
+		<bitfield id="ERXDT" description="Receive emulation buffer data" begin="7" end="0" width="8" rwaccess="R"/>
+	</register>
+	<register id="SCIRXBUF" width="16" page="1" offset="0x7" internal="0" description="Recieve data buffer">
+		<bitfield id="SAR" description="Receive Character bits" begin="7" end="0" width="8" rwaccess="R"/>
+		<bitfield id="SCIFFPE" description="Receiver error flag " begin="14" end="14" width="1" rwaccess="R"/>
+		<bitfield id="SCIFFFE" description="Receiver error flag " begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="SCITXBUF" width="16" page="1" offset="0x9" internal="0" description="Transmit data buffer">
+		<bitfield id="TXDT" description="Transmit data buffer" begin="7" end="0" width="8" rwaccess="R/W"/>
+	</register>
+	<register id="SCIFFTX" width="16" page="1" offset="0xa" internal="0" description="FIFO transmit register">
+		<bitfield id="TXFFIL" description="Interrupt level " begin="4" end="0" width="5" rwaccess="R/W"/>
+		<bitfield id="TXFFIENA" description="Interrupt enable " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="TXFFINTCLR" description="Clear INT flag " begin="6" end="6" width="1" rwaccess="R"/>
+		<bitfield id="TXFFINT" description="INT flag" begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="TXFFST" description="FIFO status " begin="12" end="8" width="5" rwaccess="R"/>
+		<bitfield id="TXFIFORESET" description="FIFO reset " begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="SCIFFENA" description="Enhancement enable " begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="SCIRST" description="SCI reset rx/tx channels " begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SCIFFRX" width="16" page="1" offset="0xb" internal="0" description="FIFO recieve register">
+		<bitfield id="RXFFIL" description="Interrupt level " begin="4" end="0" width="5" rwaccess="R/W"/>
+		<bitfield id="RXFFIENA" description="Interrupt enable " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="RXFFINTCLR" description="Clear INT flag " begin="6" end="6" width="1" rwaccess="W"/>
+		<bitfield id="RXFFINT" description="INT flag " begin="7" end="7" width="1" rwaccess="R"/>
+		<bitfield id="RXFFST" description="FIFO status " begin="12" end="8" width="5" rwaccess="R"/>
+		<bitfield id="RXFIFORESET" description="FIFO reset " begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="RXFFOVRCLR" description="Clear overflow " begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="RXFFOVF" description="FIFO overflow " begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="SCIFFCT" width="16" page="1" offset="0xc" internal="0" description="FIFO control register">
+		<bitfield id="FFTXDLY" description="FIFO transmit delay " begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="CDC" description="Auto baud mode enable " begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="ABDCLR" description="Auto baud clear " begin="14" end="14" width="1" rwaccess="W"/>
+		<bitfield id="ABD" description="Auto baud detect " begin="15" end="15" width="1" rwaccess="R"/>
+	</register>
+	<register id="SCIPRI" width="16" page="1" offset="0xf" internal="0" description="SCI Priority control">
+		<bitfield id="FREESOFT" description="Emulation modes " begin="4" end="3" width="2" rwaccess="R/W"/>
+	</register>
+</module>

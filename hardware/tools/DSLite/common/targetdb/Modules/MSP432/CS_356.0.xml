@@ -1,0 +1,497 @@
+<module id="CS" HW_revision="356.0">
+    <register id="CSKEY" width="32" offset="0x0" internal="0" description="Key Register">
+        <bitfield id="CSKEY" description="Write xxxx_695Ah to unlock" begin="15" end="0" width="16" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="CSCTL0" width="32" offset="0x4" internal="0" description="Control 0 Register">
+        <bitfield id="DCOTUNE" description="DCO frequency tuning select" begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DCORSEL" description="DCO frequency range select" begin="18" end="16" width="3" rwaccess="R/W">
+            <bitenum id="DCORSEL_0" value="0x0" description="Nominal DCO Frequency Range (MHz): 1 to 2"/>
+            <bitenum id="DCORSEL_1" value="0x1" description="Nominal DCO Frequency Range (MHz): 2 to 4"/>
+            <bitenum id="DCORSEL_2" value="0x2" description="Nominal DCO Frequency Range (MHz): 4 to 8"/>
+            <bitenum id="DCORSEL_3" value="0x3" description="Nominal DCO Frequency Range (MHz): 8 to 16"/>
+            <bitenum id="DCORSEL_4" value="0x4" description="Nominal DCO Frequency Range (MHz): 16 to 32"/>
+            <bitenum id="DCORSEL_5" value="0x5" description="Nominal DCO Frequency Range (MHz): 32 to 64"/>
+        </bitfield>
+        <bitfield id="DCORES" description="Enables the DCO external resistor mode" begin="22" end="22" width="1" rwaccess="R/W">
+            <bitenum id="INTERNAL" value="0x0" description="Internal resistor mode"/>
+            <bitenum id="EXTERNAL" value="0x1" description="External resistor mode"/>
+        </bitfield>
+        <bitfield id="DCOEN" description="Enables the DCO oscillator" begin="23" end="23" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="DCO is on if it is used as a source for MCLK, HSMCLK , or SMCLK and clock is requested, otherwise it is disabled."/>
+            <bitenum id="ON" value="0x1" description="DCO is on"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL1" width="32" offset="0x8" internal="0" description="Control 1 Register">
+        <bitfield id="SELM" description="Selects the MCLK source" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="LFXTCLK" value="0x0" description="when LFXT available, otherwise REFOCLK"/>
+            <bitenum id="VLOCLK" value="0x1" description=""/>
+            <bitenum id="REFOCLK" value="0x2" description=""/>
+            <bitenum id="DCOCLK" value="0x3" description=""/>
+            <bitenum id="MODOSC" value="0x4" description=""/>
+            <bitenum id="HFXTCLK" value="0x5" description="when HFXT available, otherwise DCOCLK"/>
+        </bitfield>
+        <bitfield id="SELS" description="Selects the SMCLK and HSMCLK source" begin="6" end="4" width="3" rwaccess="R/W">
+            <bitenum id="LFXTCLK" value="0x0" description="when LFXT available, otherwise REFOCLK"/>
+            <bitenum id="VLOCLK" value="0x1" description=""/>
+            <bitenum id="REFOCLK" value="0x2" description=""/>
+            <bitenum id="DCOCLK" value="0x3" description=""/>
+            <bitenum id="MODOSC" value="0x4" description=""/>
+            <bitenum id="HFXTCLK" value="0x5" description="when HFXT available, otherwise DCOCLK"/>
+        </bitfield>
+        <bitfield id="SELA" description="Selects the ACLK source" begin="10" end="8" width="3" rwaccess="R/W">
+            <bitenum id="LFXTCLK" value="0x0" description="when LFXT available, otherwise REFOCLK"/>
+            <bitenum id="VLOCLK" value="0x1" description=""/>
+            <bitenum id="REFOCLK" value="0x2" description=""/>
+        </bitfield>
+        <bitfield id="SELB" description="Selects the BCLK source" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="LFXTCLK" value="0x0" description="LFXTCLK"/>
+            <bitenum id="REFOCLK" value="0x1" description="REFOCLK"/>
+        </bitfield>
+        <bitfield id="DIVM" description="MCLK source divider" begin="18" end="16" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="f(MCLK)/1"/>
+            <bitenum id="2" value="0x1" description="f(MCLK)/2"/>
+            <bitenum id="4" value="0x2" description="f(MCLK)/4"/>
+            <bitenum id="8" value="0x3" description="f(MCLK)/8"/>
+            <bitenum id="16" value="0x4" description="f(MCLK)/16"/>
+            <bitenum id="32" value="0x5" description="f(MCLK)/32"/>
+            <bitenum id="64" value="0x6" description="f(MCLK)/64"/>
+            <bitenum id="128" value="0x7" description="f(MCLK)/128"/>
+        </bitfield>
+        <bitfield id="DIVHS" description="HSMCLK source divider" begin="22" end="20" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="f(HSMCLK)/1"/>
+            <bitenum id="2" value="0x1" description="f(HSMCLK)/2"/>
+            <bitenum id="4" value="0x2" description="f(HSMCLK)/4"/>
+            <bitenum id="8" value="0x3" description="f(HSMCLK)/8"/>
+            <bitenum id="16" value="0x4" description="f(HSMCLK)/16"/>
+            <bitenum id="32" value="0x5" description="f(HSMCLK)/32"/>
+            <bitenum id="64" value="0x6" description="f(HSMCLK)/64"/>
+            <bitenum id="128" value="0x7" description="f(HSMCLK)/128"/>
+        </bitfield>
+        <bitfield id="DIVA" description="ACLK source divider" begin="26" end="24" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="f(ACLK)/1"/>
+            <bitenum id="2" value="0x1" description="f(ACLK)/2"/>
+            <bitenum id="4" value="0x2" description="f(ACLK)/4"/>
+            <bitenum id="8" value="0x3" description="f(ACLK)/8"/>
+            <bitenum id="16" value="0x4" description="f(ACLK)/16"/>
+            <bitenum id="32" value="0x5" description="f(ACLK)/32"/>
+            <bitenum id="64" value="0x6" description="f(ACLK)/64"/>
+            <bitenum id="128" value="0x7" description="f(ACLK)/128"/>
+        </bitfield>
+        <bitfield id="DIVS" description="SMCLK source divider" begin="30" end="28" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="f(SMCLK)/1"/>
+            <bitenum id="2" value="0x1" description="f(SMCLK)/2"/>
+            <bitenum id="4" value="0x2" description="f(SMCLK)/4"/>
+            <bitenum id="8" value="0x3" description="f(SMCLK)/8"/>
+            <bitenum id="16" value="0x4" description="f(SMCLK)/16"/>
+            <bitenum id="32" value="0x5" description="f(SMCLK)/32"/>
+            <bitenum id="64" value="0x6" description="f(SMCLK)/64"/>
+            <bitenum id="128" value="0x7" description="f(SMCLK)/128"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL2" width="32" offset="0xC" internal="0" description="Control 2 Register">
+        <bitfield id="LFXTDRIVE" description="LFXT oscillator current can be adjusted to its drive needs" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="LFXTDRIVE_0" value="0x0" description="Lowest drive strength and current consumption LFXT oscillator."/>
+            <bitenum id="LFXTDRIVE_1" value="0x1" description="Increased drive strength LFXT oscillator."/>
+            <bitenum id="LFXTDRIVE_2" value="0x2" description="Increased drive strength LFXT oscillator."/>
+            <bitenum id="LFXTDRIVE_3" value="0x3" description="Maximum drive strength and maximum current consumption LFXT oscillator."/>
+        </bitfield>
+        <bitfield id="LFXTAGCOFF" description="Disables the automatic gain control of the LFXT crystal" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="LFXTAGCOFF_0" value="0x0" description="AGC enabled."/>
+            <bitenum id="LFXTAGCOFF_1" value="0x1" description="AGC disabled."/>
+        </bitfield>
+        <bitfield id="LFXT_EN" description="Turns on the LFXT oscillator regardless if used as a clock resource" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="LFXT is on if it is used as a source for ACLK, MCLK, HSMCLK , or SMCLK  and is selected via the port selection and not in bypass mode of operation."/>
+            <bitenum id="ON" value="0x1" description="LFXT is on if LFXT is selected via the port selection and LFXT is not in  bypass mode of operation."/>
+        </bitfield>
+        <bitfield id="LFXTBYPASS" description="LFXT bypass select" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="LFXT sourced by external crystal."/>
+            <bitenum id="ON" value="0x1" description="LFXT sourced by external square wave."/>
+        </bitfield>
+        <bitfield id="HFXTDRIVE" description="HFXT oscillator drive selection" begin="16" end="16" width="1" rwaccess="R/W">
+            <bitenum id="HFXTDRIVE_0" value="0x0" description="To be used for HFXTFREQ setting 000b"/>
+            <bitenum id="HFXTDRIVE_1" value="0x1" description="To be used for HFXTFREQ settings 001b to 110b"/>
+        </bitfield>
+        <bitfield id="HFXTFREQ" description="HFXT frequency selection" begin="22" end="20" width="3" rwaccess="R/W">
+            <bitenum id="HFXTFREQ_0" value="0x0" description="1 MHz to 4 MHz"/>
+            <bitenum id="HFXTFREQ_1" value="0x1" description="4 MHz to 8 MHz"/>
+            <bitenum id="HFXTFREQ_2" value="0x2" description="8 MHz to 16 MHz"/>
+            <bitenum id="HFXTFREQ_3" value="0x3" description="16 MHz to 24 MHz"/>
+            <bitenum id="HFXTFREQ_4" value="0x4" description="24 MHz to 32 MHz"/>
+            <bitenum id="HFXTFREQ_5" value="0x5" description="32 MHz to 40 MHz"/>
+            <bitenum id="HFXTFREQ_6" value="0x6" description="40 MHz to 48 MHz"/>
+            <bitenum id="HFXTFREQ_7" value="0x7" description="Reserved for future use."/>
+        </bitfield>
+        <bitfield id="HFXT_EN" description="Turns on the HFXT oscillator regardless if used as a clock resource" begin="24" end="24" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="HFXT is on if it is used as a source for MCLK, HSMCLK , or SMCLK and is selected via the port selection and not in bypass mode of operation."/>
+            <bitenum id="ON" value="0x1" description="HFXT is on if HFXT is selected via the port selection and HFXT is not in bypass mode of operation."/>
+        </bitfield>
+        <bitfield id="HFXTBYPASS" description="HFXT bypass select" begin="25" end="25" width="1" rwaccess="R/W">
+            <bitenum id="HFXTBYPASS_0" value="0x0" description="HFXT sourced by external crystal."/>
+            <bitenum id="HFXTBYPASS_1" value="0x1" description="HFXT sourced by external square wave."/>
+        </bitfield>
+    </register>
+    <register id="CSCTL3" width="32" offset="0x10" internal="0" description="Control 3 Register">
+        <bitfield id="FCNTLF" description="Start flag counter for LFXT" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="4096" value="0x0" description="4096 cycles"/>
+            <bitenum id="8192" value="0x1" description="8192 cycles"/>
+            <bitenum id="16384" value="0x2" description="16384 cycles"/>
+            <bitenum id="32768" value="0x3" description="32768 cycles"/>
+        </bitfield>
+        <bitfield id="RFCNTLF" description="Reset start fault counter for LFXT" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="RFCNTLF_0" value="0x0" description="Not applicable. Always reads as zero due to self clearing."/>
+            <bitenum id="RESTART" value="0x1" description="Restarts the counter immediately."/>
+        </bitfield>
+        <bitfield id="FCNTLF_EN" description="Enable start fault counter for LFXT" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="Startup fault counter disabled. Counter is cleared."/>
+            <bitenum id="ON" value="0x1" description="Startup fault counter enabled."/>
+        </bitfield>
+        <bitfield id="FCNTHF" description="Start flag counter for HFXT" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="2048" value="0x0" description="2048 cycles"/>
+            <bitenum id="4096" value="0x1" description="4096 cycles"/>
+            <bitenum id="8192" value="0x2" description="8192 cycles"/>
+            <bitenum id="16384" value="0x3" description="16384 cycles"/>
+        </bitfield>
+        <bitfield id="RFCNTHF" description="Reset start fault counter for HFXT" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="RFCNTHF_0" value="0x0" description="Not applicable. Always reads as zero due to self clearing."/>
+            <bitenum id="RESTART" value="0x1" description="Restarts the counter immediately."/>
+        </bitfield>
+        <bitfield id="FCNTHF_EN" description="Enable start fault counter for HFXT" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="Startup fault counter disabled. Counter is cleared."/>
+            <bitenum id="ON" value="0x1" description="Startup fault counter enabled."/>
+        </bitfield>
+        <bitfield id="FCNTHF2" description="Start flag counter for HFXT2" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="2048" value="0x0" description="2048 cycles"/>
+            <bitenum id="4096" value="0x1" description="4096 cycles"/>
+            <bitenum id="8192" value="0x2" description="8192 cycles"/>
+            <bitenum id="16384" value="0x3" description="16384 cycles"/>
+        </bitfield>
+        <bitfield id="RFCNTHF2" description="Reset start fault counter for HFXT2" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="RFCNTHF2_0" value="0x0" description="Not applicable. Always reads as zero due to self clearing."/>
+            <bitenum id="RESTART" value="0x1" description="Restarts the counter immediately."/>
+        </bitfield>
+        <bitfield id="FCNTHF2_EN" description="Enable start fault counter for HFXT2" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="Startup fault counter disabled. Counter is cleared."/>
+            <bitenum id="ON" value="0x1" description="Startup fault counter enabled."/>
+        </bitfield>
+    </register>
+    <register id="CSCLKEN" width="32" offset="0x30" internal="0" description="Clock Enable Register">
+        <bitfield id="ACLK_EN" description="ACLK system clock conditional request enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="ACLK disabled regardless of conditional clock requests"/>
+            <bitenum id="ENABLE" value="0x1" description="ACLK enabled based on any conditional clock requests"/>
+        </bitfield>
+        <bitfield id="MCLK_EN" description="MCLK system clock conditional request enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="MCLK disabled regardless of conditional clock requests"/>
+            <bitenum id="ENABLE" value="0x1" description="MCLK enabled based on any conditional clock requests"/>
+        </bitfield>
+        <bitfield id="HSMCLK_EN" description="HSMCLK system clock conditional request enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="HSMCLK disabled regardless of conditional clock requests"/>
+            <bitenum id="ENABLE" value="0x1" description="HSMCLK enabled based on any conditional clock requests"/>
+        </bitfield>
+        <bitfield id="SMCLK_EN" description="SMCLK system clock conditional request enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="SMCLK disabled regardless of conditional clock requests."/>
+            <bitenum id="ENABLE" value="0x1" description="SMCLK enabled based on any conditional clock requests"/>
+        </bitfield>
+        <bitfield id="VLO_EN" description="Turns on the VLO oscillator" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="VLO is on only if it is used as a source for ACLK, MCLK, HSMCLK or SMCLK."/>
+            <bitenum id="ON" value="0x1" description="VLO is on"/>
+        </bitfield>
+        <bitfield id="REFO_EN" description="Turns on the REFO oscillator" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="REFO is on only if it is used as a source for ACLK, MCLK, HSMCLK or SMCLK"/>
+            <bitenum id="ON" value="0x1" description="REFO is on"/>
+        </bitfield>
+        <bitfield id="MODOSC_EN" description="Turns on the MODOSC oscillator" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="MODOSC is on only if it is used as a source for ACLK, MCLK, HSMCLK or SMCLK"/>
+            <bitenum id="ON" value="0x1" description="MODOSC is on"/>
+        </bitfield>
+        <bitfield id="REFOFSEL" description="Selects REFO nominal frequency" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="32" value="0x0" description="32 kHz"/>
+            <bitenum id="128" value="0x1" description="128 kHz"/>
+        </bitfield>
+    </register>
+    <register id="CSSTAT" width="32" offset="0x34" internal="0" description="Status Register">
+        <bitfield id="DCO_ON" description="DCO status" begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="DCOBIAS_ON" description="DCO bias status" begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="HFXT_ON" description="HFXT status" begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="HFXT2_ON" description="HFXT2 status" begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="MODOSC_ON" description="MODOSC status" begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="VLO_ON" description="VLO status" begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="LFXT_ON" description="LFXT status" begin="6" end="6" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="REFO_ON" description="REFO status" begin="7" end="7" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="ACLK_ON" description="ACLK system clock status" begin="16" end="16" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="MCLK_ON" description="MCLK system clock status" begin="17" end="17" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="HSMCLK_ON" description="HSMCLK system clock status" begin="18" end="18" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="SMCLK_ON" description="SMCLK system clock status" begin="19" end="19" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="MODCLK_ON" description="MODCLK system clock status" begin="20" end="20" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="VLOCLK_ON" description="VLOCLK system clock status" begin="21" end="21" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="LFXTCLK_ON" description="LFXTCLK system clock status" begin="22" end="22" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="REFOCLK_ON" description="REFOCLK system clock status" begin="23" end="23" width="1" rwaccess="R">
+            <bitenum id="INACTIVE" value="0x0" description="Inactive"/>
+            <bitenum id="ACTIVE" value="0x1" description="Active"/>
+        </bitfield>
+        <bitfield id="ACLK_READY" description="ACLK Ready status" begin="24" end="24" width="1" rwaccess="R">
+            <bitenum id="NOT_READY" value="0x0" description="Not ready"/>
+            <bitenum id="READY" value="0x1" description="Ready"/>
+        </bitfield>
+        <bitfield id="MCLK_READY" description="MCLK Ready status" begin="25" end="25" width="1" rwaccess="R">
+            <bitenum id="NOT_READY" value="0x0" description="Not ready"/>
+            <bitenum id="READY" value="0x1" description="Ready"/>
+        </bitfield>
+        <bitfield id="HSMCLK_READY" description="HSMCLK Ready status" begin="26" end="26" width="1" rwaccess="R">
+            <bitenum id="NOT_READY" value="0x0" description="Not ready"/>
+            <bitenum id="READY" value="0x1" description="Ready"/>
+        </bitfield>
+        <bitfield id="SMCLK_READY" description="SMCLK Ready status" begin="27" end="27" width="1" rwaccess="R">
+            <bitenum id="NOT_READY" value="0x0" description="Not ready"/>
+            <bitenum id="READY" value="0x1" description="Ready"/>
+        </bitfield>
+        <bitfield id="BCLK_READY" description="BCLK Ready status" begin="28" end="28" width="1" rwaccess="R">
+            <bitenum id="NOT_READY" value="0x0" description="Not ready"/>
+            <bitenum id="READY" value="0x1" description="Ready"/>
+        </bitfield>
+    </register>
+    <register id="CSIE" width="32" offset="0x40" internal="0" description="Interrupt Enable Register">
+        <bitfield id="LFXTIE" description="LFXT oscillator fault flag interrupt enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="HFXTIE" description="HFXT oscillator fault flag interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="HFXT2IE" description="HFXT2 oscillator fault flag interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="DCOR_OPNIE" description="DCO external resistor open circuit fault flag interrupt enable." begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="FCNTLFIE" description="Start fault counter interrupt enable LFXT" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="FCNTHFIE" description="Start fault counter interrupt enable HFXT" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="FCNTHF2IE" description="Start fault counter interrupt enable HFXT2" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="PLLOOLIE" description="PLL out-of-lock interrupt enable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="PLLLOSIE" description="PLL loss-of-signal interrupt enable" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="PLLOORIE" description="PLL out-of-range interrupt enable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="CALIE" description="REFCNT period counter interrupt enable" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="CSIFG" width="32" offset="0x48" internal="0" description="Interrupt Flag Register">
+        <bitfield id="LFXTIFG" description="LFXT oscillator fault flag" begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="LFXTIFG_0" value="0x0" description="No fault condition occurred after the last reset"/>
+            <bitenum id="LFXTIFG_1" value="0x1" description="LFXT fault. A LFXT fault occurred after the last reset"/>
+        </bitfield>
+        <bitfield id="HFXTIFG" description="HFXT oscillator fault flag" begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="HFXTIFG_0" value="0x0" description="No fault condition occurred after the last reset"/>
+            <bitenum id="HFXTIFG_1" value="0x1" description="HFXT fault. A HFXT fault occurred after the last reset"/>
+        </bitfield>
+        <bitfield id="HFXT2IFG" description="HFXT2 oscillator fault flag" begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="HFXT2IFG_0" value="0x0" description="No fault condition occurred after the last reset"/>
+            <bitenum id="HFXT2IFG_1" value="0x1" description="HFXT2 fault. A HFXT2 fault occurred after the last reset"/>
+        </bitfield>
+        <bitfield id="DCOR_SHTIFG" description="DCO external resistor short circuit fault flag. " begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="DCOR_SHTIFG_0" value="0x0" description="DCO external resistor present"/>
+            <bitenum id="DCOR_SHTIFG_1" value="0x1" description="DCO external resistor short circuit fault"/>
+        </bitfield>
+        <bitfield id="DCOR_OPNIFG" description="DCO external resistor open circuit fault flag." begin="6" end="6" width="1" rwaccess="R">
+            <bitenum id="DCOR_OPNIFG_0" value="0x0" description="DCO external resistor present"/>
+            <bitenum id="DCOR_OPNIFG_1" value="0x1" description="DCO external resistor open circuit fault"/>
+        </bitfield>
+        <bitfield id="FCNTLFIFG" description="Start fault counter interrupt flag LFXT" begin="8" end="8" width="1" rwaccess="R">
+            <bitenum id="FCNTLFIFG_0" value="0x0" description="Start counter not expired"/>
+            <bitenum id="FCNTLFIFG_1" value="0x1" description="Start counter expired"/>
+        </bitfield>
+        <bitfield id="FCNTHFIFG" description="Start fault counter interrupt flag HFXT" begin="9" end="9" width="1" rwaccess="R">
+            <bitenum id="FCNTHFIFG_0" value="0x0" description="Start counter not expired"/>
+            <bitenum id="FCNTHFIFG_1" value="0x1" description="Start counter expired"/>
+        </bitfield>
+        <bitfield id="FCNTHF2IFG" description="Start fault counter interrupt flag HFXT2" begin="11" end="11" width="1" rwaccess="R">
+            <bitenum id="FCNTHF2IFG_0" value="0x0" description="Start counter not expired"/>
+            <bitenum id="FCNTHF2IFG_1" value="0x1" description="Start counter expired"/>
+        </bitfield>
+        <bitfield id="PLLOOLIFG" description="PLL out-of-lock interrupt flag" begin="12" end="12" width="1" rwaccess="R">
+            <bitenum id="PLLOOLIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="PLLOOLIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="PLLLOSIFG" description="PLL loss-of-signal interrupt flag" begin="13" end="13" width="1" rwaccess="R">
+            <bitenum id="PLLLOSIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="PLLLOSIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="PLLOORIFG" description="PLL out-of-range interrupt flag" begin="14" end="14" width="1" rwaccess="R">
+            <bitenum id="PLLOORIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="PLLOORIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="CALIFG" description="REFCNT period counter expired" begin="15" end="15" width="1" rwaccess="R">
+            <bitenum id="CALIFG_0" value="0x0" description="REFCNT period counter not expired"/>
+            <bitenum id="CALIFG_1" value="0x1" description="REFCNT period counter expired"/>
+        </bitfield>
+    </register>
+    <register id="CSCLRIFG" width="32" offset="0x50" internal="0" description="Clear Interrupt Flag Register">
+        <bitfield id="CLR_LFXTIFG" description="Clear LFXT oscillator fault interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CLR_LFXTIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_LFXTIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_HFXTIFG" description="Clear HFXT oscillator fault interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CLR_HFXTIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_HFXTIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_HFXT2IFG" description="Clear HFXT2 oscillator fault interrupt flag" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="CLR_HFXT2IFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_HFXT2IFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_DCOR_OPNIFG" description="Clear DCO external resistor open circuit fault interrupt flag." begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="CLR_DCOR_OPNIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_DCOR_OPNIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_CALIFG" description="REFCNT period counter clear interrupt flag" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="CLR_CALIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_CALIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_FCNTLFIFG" description="Start fault counter clear interrupt flag LFXT" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CLR_FCNTLFIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_FCNTLFIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_FCNTHFIFG" description="Start fault counter clear interrupt flag HFXT" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="CLR_FCNTHFIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_FCNTHFIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_FCNTHF2IFG" description="Start fault counter clear interrupt flag HFXT2" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="CLR_FCNTHF2IFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_FCNTHF2IFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_PLLOOLIFG" description="PLL out-of-lock clear interrupt flag" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="CLR_PLLOOLIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_PLLOOLIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_PLLLOSIFG" description="PLL loss-of-signal clear interrupt flag" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="CLR_PLLLOSIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_PLLLOSIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="CLR_PLLOORIFG" description="PLL out-of-range clear interrupt flag" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="CLR_PLLOORIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="CLR_PLLOORIFG_1" value="0x1" description="Clear pending interrupt flag"/>
+        </bitfield>
+    </register>
+    <register id="CSSETIFG" width="32" offset="0x58" internal="0" description="Set Interrupt Flag Register">
+        <bitfield id="SET_LFXTIFG" description="Set LFXT oscillator fault interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="SET_LFXTIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_LFXTIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_HFXTIFG" description="Set HFXT oscillator fault interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="SET_HFXTIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_HFXTIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_HFXT2IFG" description="Set HFXT2 oscillator fault interrupt flag" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="SET_HFXT2IFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_HFXT2IFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_DCOR_OPNIFG" description="Set DCO external resistor open circuit fault interrupt flag." begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="SET_DCOR_OPNIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_DCOR_OPNIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_CALIFG" description="REFCNT period counter set interrupt flag" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="SET_CALIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_CALIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_FCNTHFIFG" description="Start fault counter set interrupt flag HFXT" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="SET_FCNTHFIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_FCNTHFIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_FCNTHF2IFG" description="Start fault counter set interrupt flag HFXT2" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="SET_FCNTHF2IFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_FCNTHF2IFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_FCNTLFIFG" description="Start fault counter set interrupt flag LFXT" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="SET_FCNTLFIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_FCNTLFIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_PLLOOLIFG" description="PLL out-of-lock set interrupt flag" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="SET_PLLOOLIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_PLLOOLIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_PLLLOSIFG" description="PLL loss-of-signal set interrupt flag" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="SET_PLLLOSIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_PLLLOSIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+        <bitfield id="SET_PLLOORIFG" description="PLL out-of-range set interrupt flag" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="SET_PLLOORIFG_0" value="0x0" description="No effect"/>
+            <bitenum id="SET_PLLOORIFG_1" value="0x1" description="Set pending interrupt flag"/>
+        </bitfield>
+    </register>
+    <register id="CSDCOERCAL0" width="32" offset="0x60" internal="0" description="DCO External Resistor Cailbration 0 Register">
+        <bitfield id="DCO_TCCAL" description="DCO Temperature compensation calibration" begin="1" end="0" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DCO_FCAL_RSEL04" description="DCO frequency calibration for DCO frequency range (DCORSEL) 0 to 4." begin="25" end="16" width="10" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="CSDCOERCAL1" width="32" offset="0x64" internal="0" description="DCO External Resistor Calibration 1 Register">
+        <bitfield id="DCO_FCAL_RSEL5" description="DCO frequency calibration for DCO frequency range (DCORSEL) 5." begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>

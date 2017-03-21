@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/1 $
+  Checkin $Date: August 5, 2009   17:02:36 $
+  -->
+
+<!-- TMS320C2000 ADC Type 3 Result Registers
+     ===================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+<module id="ADCRESULT" HW_revision="" XML_version="1" description="ADC Mirror Registers">
+	<register id="ADCRESULT0" acronym="ADCRESULT0" offset="0" page="1" width="16" description="Conversion Result Buffer 0" />
+	<register id="ADCRESULT1" acronym="ADCRESULT1" offset="1" page="1" width="16" description="Conversion Result Buffer 1" />
+	<register id="ADCRESULT2" acronym="ADCRESULT2" offset="2" page="1" width="16" description="Conversion Result Buffer 2" />
+	<register id="ADCRESULT3" acronym="ADCRESULT3" offset="3" page="1" width="16" description="Conversion Result Buffer 3" />
+	<register id="ADCRESULT4" acronym="ADCRESULT4" offset="4" page="1" width="16" description="Conversion Result Buffer 4" />
+	<register id="ADCRESULT5" acronym="ADCRESULT5" offset="5" page="1" width="16" description="Conversion Result Buffer 5" />
+	<register id="ADCRESULT6" acronym="ADCRESULT6" offset="6" page="1" width="16" description="Conversion Result Buffer 6" />
+	<register id="ADCRESULT7" acronym="ADCRESULT7" offset="7" page="1" width="16" description="Conversion Result Buffer 7" />
+	<register id="ADCRESULT8" acronym="ADCRESULT8" offset="8" page="1" width="16" description="Conversion Result Buffer 8" />
+	<register id="ADCRESULT9" acronym="ADCRESULT9" offset="9" page="1" width="16" description="Conversion Result Buffer 9" />
+	<register id="ADCRESULT10" acronym="ADCRESULT10" offset="10" page="1" width="16" description="Conversion Result Buffer 10" />
+	<register id="ADCRESULT11" acronym="ADCRESULT11" offset="11" page="1" width="16" description="Conversion Result Buffer 11" />
+	<register id="ADCRESULT12" acronym="ADCRESULT12" offset="12" page="1" width="16" description="Conversion Result Buffer 12" />
+	<register id="ADCRESULT13" acronym="ADCRESULT13" offset="13" page="1" width="16" description="Conversion Result Buffer 13" />
+	<register id="ADCRESULT14" acronym="ADCRESULT14" offset="14" page="1" width="16" description="Conversion Result Buffer 14" />
+	<register id="ADCRESULT15" acronym="ADCRESULT15" offset="15" page="1" width="16" description="Conversion Result Buffer 15" />
+	<!-- 16 empty -->        
+</module>

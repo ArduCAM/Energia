@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- TMS470RDX Nodes-->
+	<node id="FlashProgrammerNode">
+		<name>Flash Settings</name>
+		<children>
+			<child>FlashSettingsGroup</child>
+			<child>FlashRangeGroup</child>
+			<child>FlashBlankCheckGroup</child>
+			<child>FlashEraseGroup</child>
+			<child>FlashProfileGroup</child>
+		</children>
+	</node>
+
+	<!-- TMS470RDX Groups -->
+	<group id="FlashSettingsGroup">
+		<name>Flash Settings</name>
+		<children>
+			<child>FlashCrystalFreq</child>
+			<child>FlashResetOnConnect</child>
+			<child>FlashEnableOTP</child>
+			<child>FlashAutoECCSetting</child>
+			<child>FlashAlignCombineToggle</child>
+			<child>FlashAlignmentSize</child>
+			<child>FlashVerifySetting</child>
+		</children>
+	</group>
+	
+	<group id="FlashRangeGroup">
+		<name>Range Options</name>
+		<children>
+			<child>FlashRangeText</child>
+			<child>FlashRangeToggle</child>
+			<child>FlashRangeAddr</child>
+		</children>
+	</group>
+	
+	<group id="FlashProfileGroup">
+		<name>Flash Profiling</name>
+		<children>
+			<child>FlashProfileNote</child>
+			<child>FlashProfilePLL1</child>
+			<child>FlashProfilePLL2</child>
+			<child>FlashProfileHCLK</child>
+			<child>FlashProfileRWAIT</child>
+			<child>FlashProfileEWAIT</child>
+			<child>FlashProfileOutput</child>
+			<child>FlashProfileButton</child>
+			<child>FlashProfileValidateProgram</child>
+			<child>FlashProfileValidateButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashBlankCheckGroup">
+		<name>Blank Check Options</name>
+		<children>
+			<child>FlashBlankCheckToggle</child>
+			<child>FlashBlankCheckButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashEraseGroup">
+		<name>Erase Options</name>
+		<children>
+			<child>FlashEraseSelection</child>
+			<child>FlashBank0Group</child>
+			<child>FlashBank7Group</child>
+			<child>FlashEraseButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashBank0Group">
+		<name>Bank 0</name>
+		<children>
+			<child>FlashBank0Sector0</child>
+			<child>FlashBank0Sector1</child>
+			<child>FlashBank0Sector2</child>
+			<child>FlashBank0Sector3</child>
+			<child>FlashBank0Sector4</child>
+			<child>FlashBank0Sector5</child>
+			<child>FlashBank0Sector6</child>
+			<child>FlashBank0Sector7</child>
+			<child>FlashBank0Sector8</child>
+			<child>FlashBank0Sector9</child>
+			<child>FlashBank0Sector10</child>
+			<child>FlashBank0Sector11</child>
+			<child>FlashBank0Sector12</child>
+			<child>FlashBank0Sector13</child>
+			<child>FlashToggleBank0</child>
+		</children>
+	</group>
+	
+	<group id="FlashBank7Group">
+		<name>Bank 7</name>
+		<children>
+			<child>FlashBank7Sector0</child>
+			<child>FlashBank7Sector1</child>
+			<child>FlashBank7Sector2</child>
+			<child>FlashBank7Sector3</child>
+			<child>FlashToggleBank7</child>
+		</children>
+	</group>
+	
+	<!-- TMS470RDX Property Definitions -->
+	<property id="FlashProfileNote">
+		<target>TMS470RDX</target>
+		<name>Note: use the Erase options to select sectors to profile</name>
+		<valueType>Text</valueType>
+	</property>
+	
+	<property id="FlashProfilePLL1">
+		<target>TMS470RDX</target>
+		<name>PLLCTL1 (0xFFFFFF70): 0x</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+	</property>
+	
+	<property id="FlashProfilePLL2">
+		<target>TMS470RDX</target>
+		<name>PLLCTL2 (0xFFFFFF74): 0x</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+	</property>
+	
+	<property id="FlashProfileHCLK">
+		<target>TMS470RDX</target>
+		<name>HCLK (MHz):</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+	</property>
+	
+	<property id="FlashProfileRWAIT">
+		<target>TMS470RDX</target>
+		<name>RWAIT:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+	</property>
+	
+	<property id="FlashProfileEWAIT">
+		<target>TMS470RDX</target>
+		<name>EWAIT:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+	</property>
+	
+	<property id="FlashProfileOutput">
+		<target>TMS470RDX</target>
+		<name>Write report to:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+	</property>
+
+	<property id="FlashProfileButton">
+		<target>TMS470RDX</target>
+		<name>Profile Data on Target</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Profile")</action>
+	</property>
+	
+	<property id="FlashProfileValidateProgram">
+		<target>TMS470RDX</target>
+		<name>Validate against:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+	</property>
+
+	<property id="FlashProfileValidateButton">
+		<target>TMS470RDX</target>
+		<name>Perform Full Validation</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.memory.verifyProgram( DPActiveDebugSession.options.getString( "FlashProfileValidateProgram" ) ); DPActiveDebugSession.flash.performOperation( "Profile" ); DPActiveDebugSession.memory.loadProgram( DPActiveDebugSession.options.getString( "FlashProfileValidateProgram" ) ); DPActiveDebugSession.flash.performOperation( "ProfileAndCompare" );</action>
+	</property>
+	
+	<property id="FlashRangeText">
+		<target>TMS470RDX</target>
+		<name>Note: the range option affects erase, program load AND verification. 
+If range option is enabled, only the given range(s) will be affected for these operations.
+		</name>
+		<valueType>Text</valueType>
+	</property>
+	
+	<property id="FlashRangeToggle">
+		<target>TMS470RDX</target>
+		<name>Enable Range Option</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+	
+	<property id="FlashRangeAddr">
+		<target>TMS470RDX</target>
+		<name>Range(s): </name>
+		<valueType>String</valueType>
+		<defaultValue>0x0000000-0x000FFFFF,0xF0200000-0xF020FFFF</defaultValue>
+		<enableIf>
+			<property id="FlashRangeToggle">1</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashBlankCheckToggle">
+		<target>TMS470RDX</target>
+		<name>Perform Blank Check before Program Load</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+	
+	<property id="FlashBlankCheckButton">
+		<target>TMS470RDX</target>
+		<name>Blank Check</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("BlankCheck")</action>
+	</property>
+	
+	<property id="FlashEraseSelection">
+		<target>TMS470RDX</target>
+		<name></name>
+		<valueType>ChoiceList</valueType>
+		<values>
+			<value>Entire Flash</value>
+			<value>Necessary Sectors Only (for Program Load)</value>
+			<value>Selected Sectors Only</value>
+		</values>
+		<defaultValue>Entire Flash</defaultValue>
+	</property>
+	
+	<property id="FlashEnableOTP">
+		<target>TMS470RDX</target>
+		<name>Enable Programming to OTP Memory</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+	
+	<property id="FlashAutoECCSetting">
+		<target>TMS470RDX</target>
+		<name>Auto ECC Generation</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashCrystalFreq">
+		<target>TMS470RDX</target>
+		<name>OSCIN Frequency (MHz)[5-20]</name>
+		<valueType>String</valueType>
+		<defaultValue>16.0</defaultValue>
+	</property>
+	
+	<property id="FlashResetOnConnect">
+		<target>TMS470RDX</target>
+		<name>System Reset on Connect</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+	
+	<property id="FlashVerifySetting">
+		<target>TMS470RDX</target>
+		<name>Flash Verification settings</name>
+		<valueType>ChoiceList</valueType>
+		<values>
+			<value>Verify</value>
+			<value>Fast Verify</value>
+			<value>None</value>
+		</values>
+		<defaultValue>Verify</defaultValue>
+	</property>
+	
+	<property id="FlashBank0Sector0">
+		<target>TMS470RDX</target>
+		<name>Sector 0 (0x00000000 - 0x00003FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector1">
+		<target>TMS470RDX</target>
+		<name>Sector 1 (0x00004000 - 0x00007FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector2">
+		<target>TMS470RDX</target>
+		<name>Sector 2 (0x00008000 - 0x0000BFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector3">
+		<target>TMS470RDX</target>
+		<name>Sector 3 (0x0000C000 - 0x0000FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector4">
+		<target>TMS470RDX</target>
+		<name>Sector 4 (0x00010000 - 0x00013FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector5">
+		<target>TMS470RDX</target>
+		<name>Sector 5 (0x00014000 - 0x00017FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector6">
+		<target>TMS470RDX</target>
+		<name>Sector 6 (0x00018000 - 0x0001FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector7">
+		<target>TMS470RDX</target>
+		<name>Sector 7 (0x00020000 - 0x0003FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector8">
+		<target>TMS470RDX</target>
+		<name>Sector 8 (0x00040000 - 0x0005FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector9">
+		<target>TMS470RDX</target>
+		<name>Sector 9 (0x00060000 - 0x0007FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector10">
+		<target>TMS470RDX</target>
+		<name>Sector 10 (0x00080000 - 0x0009FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector11">
+		<target>TMS470RDX</target>
+		<name>Sector 11 (0x000A0000 - 0x000BFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector12">
+		<target>TMS470RDX</target>
+		<name>Sector 12 (0x000C0000 - 0x000DFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank0Sector13">
+		<target>TMS470RDX</target>
+		<name>Sector 13 (0x000E0000 - 0x00FFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+
+	<property id="FlashBank7Sector0">
+		<target>TMS470RDX</target>
+		<name>Sector 0 (0xF0200000 - 0xF0203FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank7Sector1">
+		<target>TMS470RDX</target>
+		<name>Sector 1 (0xF0204000 - 0xF0207FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank7Sector2">
+		<target>TMS470RDX</target>
+		<name>Sector 2 (0xF0208000 - 0xF020BFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	<property id="FlashBank7Sector3">
+		<target>TMS470RDX</target>
+		<name>Sector 3 (0xF020C000 - 0xF020FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashToggleBank0">
+		<target>TMS470RDX</target>
+		<name>Toggle Bank 0 Selection</name>
+		<valueType>Button</valueType>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+		<action>for( var i = 0; DPActiveDebugSession.options.optionExist( "FlashBank0Sector" + i ); ++i ) { DPActiveDebugSession.options.setBoolean( "FlashBank0Sector" + i, !DPActiveDebugSession.options.getBoolean( "FlashBank0Sector" + i ) ); }</action>
+	</property>
+	
+	<property id="FlashToggleBank7">
+		<target>TMS470RDX</target>
+		<name>Toggle Bank 7 Selection</name>
+		<valueType>Button</valueType>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+		<action>for( var i = 0; DPActiveDebugSession.options.optionExist( "FlashBank7Sector" + i ); ++i ) { DPActiveDebugSession.options.setBoolean( "FlashBank7Sector" + i, !DPActiveDebugSession.options.getBoolean( "FlashBank7Sector" + i ) ); }</action>
+	</property>
+	
+	<property id="FlashEraseButton">
+		<target>TMS470RDX</target>
+		<name>Erase Flash</name>
+		<valueType>Button</valueType>
+		<disableIf>
+			<property id="FlashEraseSelection">Necessary Sectors Only (for Program Load)</property>
+		</disableIf>
+		<action>DPActiveDebugSession.flash.erase()</action>
+	</property>
+	
+	<property id="FlashAlignCombineToggle">
+		<target>TMS470RDX</target>
+		<name>Align program segments to 64-bit memory regions (for ECC calculation)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashAlignmentSize">
+		<target>TMS470RDX</target>
+		<name>Alignment Size: 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>8</defaultValue>
+		<hidden />
+	</property>
+	
+	<!-- fin -->
+</PropertyList>

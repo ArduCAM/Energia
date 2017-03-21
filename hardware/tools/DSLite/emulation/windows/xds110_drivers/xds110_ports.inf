@@ -1,0 +1,94 @@
+;************************************************************
+;  XDS110 USB CDC driver installation file.
+
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%MFGNAME%
+LayoutFile=layout.inf
+CatalogFile=xds110_ports.cat
+DriverVer=11/25/2014,1.6.0.0
+
+[Manufacturer]
+%MFGNAME%=DeviceList, NTx86, NTamd64 
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[SourceDisksFiles]
+
+[SourceDisksNames]
+
+;------------------------------------------------------------------------------
+;  Windows 32-bit 2000/XP/Vista/Win7 Sections
+;------------------------------------------------------------------------------
+
+[DeviceList.NTx86]
+%DESCRIPTION_0%=DriverInstall, USB\VID_0451&PID_BEF2&MI_00
+%DESCRIPTION_0%=DriverInstall, USB\VID_0451&PID_BEF3&MI_00
+%DESCRIPTION_1%=DriverInstall, USB\VID_0451&PID_BEF3&MI_03
+
+[DriverInstall]
+CopyFiles=DriverCopyFiles
+AddReg=DriverInstall.AddReg
+
+[DriverCopyFiles]
+usbser.sys,,,0x20
+
+[DriverInstall.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[DriverInstall.Services]
+AddService=usbser, 0x00000002, DriverService
+
+[DriverService]
+DisplayName=%SERVICE%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+
+
+;------------------------------------------------------------------------------
+;  Windows 64-bit Vista/Win7 Sections
+;------------------------------------------------------------------------------
+
+[DeviceList.NTamd64]
+%DESCRIPTION_0%=DriverInstall, USB\VID_0451&PID_BEF2&MI_00
+%DESCRIPTION_0%=DriverInstall, USB\VID_0451&PID_BEF3&MI_00
+%DESCRIPTION_1%=DriverInstall, USB\VID_0451&PID_BEF3&MI_03
+
+[DriverInstall.NTamd64]
+CopyFiles=DriverCopyFiles.NTamd64
+AddReg=DriverInstall.NTamd64.AddReg
+
+[DriverCopyFiles.NTamd64]
+usbser.sys,,,0x20
+
+[DriverInstall.NTamd64.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[DriverInstall.NTamd64.Services]
+AddService=usbser, 0x00000002, DriverService.NTamd64
+
+[DriverService.NTamd64]
+DisplayName=%SERVICE%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+MFGNAME       = "Texas Instruments Incorporated"
+DESCRIPTION_0 = "XDS110 Class Application/User UART"
+DESCRIPTION_1 = "XDS110 Class Auxiliary Data Port"
+SERVICE       = "XDS110 Device Serial Ports"

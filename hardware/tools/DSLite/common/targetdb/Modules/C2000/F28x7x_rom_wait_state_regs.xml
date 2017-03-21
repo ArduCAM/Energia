@@ -1,0 +1,5 @@
+<module id="ROM_WAIT_STATE_REGS" HW_revision="" description="ROM WAIT STATE Registers">
+	<register id="ROMWAITSTATE" width="32" page="1" offset="0x0" internal="0" description="ROM Wait State Configuration Register">
+		<bitfield id="WSDISABLE" description="ROM Wait State Enable/Disable Control" begin="0" end="0" width="1" rwaccess="R/W"/>
+	</register>
+</module>

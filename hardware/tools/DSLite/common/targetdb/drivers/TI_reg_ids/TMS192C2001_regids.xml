@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register_ids id="TMS192C2001" XML_version="2.0">
+
+    <register_id id="CMD_ADD"   value="0x7fffffff" address="0" page="0"/>
+    <register_id id="ECD_PID"   value="0x00059800" address="0" page="0"/>
+    <register_id id="ECD_COUNT" value="0x00059804" address="0" page="0"/>
+    <register_id id="ECD_CTRL"  value="0x00059808" address="0" page="0"/>
+    <register_id id="ECD_STAT"  value="0x0005980c" address="0" page="0"/>
+
+    <register_id id="DBG_CAP"  value="0x00063880" address="0" page="0"/>
+    <register_id id="DBG_CNTL" value="0x00063884" address="0" page="0"/>
+
+    <register_id id="SYNCBOX_REVISION" value="0x00063800" address="0" page="0"/>
+    <register_id id="SYSCONFIG"        value="0x00063810" address="0" page="0"/>
+    <register_id id="RXMESSAGE"        value="0x00063840" address="0" page="0"/>
+    <register_id id="NODEIDENTIFIER"   value="0x00063844" address="0" page="0"/>
+    <register_id id="ERRORMSGDEST"     value="0x00063848" address="0" page="0"/>
+    <register_id id="ERRORLOG"         value="0x0006384c" address="0" page="0"/>
+    <register_id id="ASYNCEVENTACKREQ" value="0x00063850" address="0" page="0"/>
+    <register_id id="PARAMADDR_MOD"    value="0x00063854" address="0" page="0"/>
+    <register_id id="STATUS"           value="0x00063860" address="0" page="0"/>
+
+</register_ids>

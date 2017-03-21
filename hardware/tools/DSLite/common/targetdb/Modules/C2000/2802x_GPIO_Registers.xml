@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/1 $
+  Checkin $Date: August 5, 2009   17:02:13 $
+  -->
+
+
+<!-- TMS320x2802x GPIO Registers
+     ===========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="GPIO" HW_revision="" XML_version="1" description="GPIO Control Registers">
+	<!-- Control Registers-->
+	<register id="GPACTRL" acronym="GPACTRL" offset="0" page="1" width="32" description="GPIO A Control Register (GPIO0 to 31)" />
+	<register id="GPAQSEL1" acronym="GPAQSEL1" offset="2" page="1" width="32" description="GPIO A Qualifier Select 1 Register (GPIO0 to 15)" />
+	<register id="GPAQSEL2" acronym="GPAQSEL2" offset="4" page="1" width="32" description="GPIO A Qualifier Select 2 Register (GPIO16 to 31)" />
+	<register id="GPAMUX1" acronym="GPAMUX1" offset="6" page="1" width="32" description="GPIO A MUX 1 Register (GPIO0 to 15)" />
+	<register id="GPAMUX2" acronym="GPAMUX2" offset="8" page="1" width="32" description="GPIO A MUX 2 Register (GPIO16 to 31)" />
+	<register id="GPADIR" acronym="GPADIR" offset="10" page="1" width="32" description="GPIO A Direction Register (GPIO0 to 31)" />
+	<register id="GPAPUD" acronym="GPAPUD" offset="12" page="1" width="32" description="GPIO A Pull Up Disable Register (GPIO0 to 31)" />
+	<!-- 2 reserved -->
+	<register id="GPBCTRL" acronym="GPBCTRL" offset="16" page="1" width="32" description="GPIO B Control Register (GPIO32 to 38)" />
+	<register id="GPBQSEL1" acronym="GPBQSEL1" offset="18" page="1" width="32" description="GPIO B Qualifier Select 1 Register (GPIO32 to 38)" />
+	<register id="GPBMUX1" acronym="GPBMUX1" offset="22" page="1" width="32" description="GPIO B MUX 1 Register (GPIO32 to 38)" />
+	<register id="GPBDIR" acronym="GPBDIR" offset="26" page="1" width="32" description="GPIO B Direction Register (GPIO32 to 38)" />
+	<register id="GPBPUD" acronym="GPBPUD" offset="28" page="1" width="32" description="GPIO B Pull Up Disable Register (GPIO32 to 38)" />
+	<!-- 25 reserved -->
+	<register id="AIOMUX1" acronym="AIOMUX1" offset="54" page="1" width="32" description="Analog I/O MUX1 Register" />
+	<!-- 3 reserved -->
+	<register id="AIODIR" acronym="AIODIR" offset="58" page="1" width="32" description="Analog I/O Direction Register" />
+	<!-- 5 reserved -->
+
+	<!-- Data Registers -->
+	<register id="GPADAT" acronym="GPADAT" offset="64" page="1" width="32" description="GPIO A Data Register (GPIO0 to 31)" />
+	<register id="GPASET" acronym="GPASET" offset="66" page="1" width="32" description="GPIO A Data Set Register (GPIO0 to 31)" />
+	<register id="GPACLEAR" acronym="GPACLEAR" offset="68" page="1" width="32" description="GPIO A Data Clear Register (GPIO0 to 31)" />
+	<register id="GPATOGGLE" acronym="GPATOGGLE" offset="70" page="1" width="32" description="GPIO A Data Toggle Register (GPIO0 to 31)" />
+	<register id="GPBDAT" acronym="GPBDAT" offset="72" page="1" width="32" description="GPIO B Data Register (GPIO32 to 38)" />
+	<register id="GPBSET" acronym="GPBSET" offset="74" page="1" width="32" description="GPIO B Data Set Register (GPIO32 to 38)" />
+	<register id="GPBCLEAR" acronym="GPBCLEAR" offset="76" page="1" width="32" description="GPIO B Data Clear Register (GPIO32 to 38)" />
+	<register id="GPBTOGGLE" acronym="GPBTOGGLE" offset="78" page="1" width="32" description="GPIO B Data Toggle Register (GPIO32 to 38)" />
+	<!-- 9 reserved -->
+	<register id="AIODAT" acronym="AIODAT" offset="88" page="1" width="32" description="Analog I/O Data Register" />
+	<register id="AIOSET" acronym="AIOSET" offset="90" page="1" width="32" description="Analog I/O Data Set Register" />
+	<register id="AIOCLEAR" acronym="AIOCLEAR" offset="92" page="1" width="32" description="Analog I/O Data Clear Register" />
+	<register id="AIOTOGGLE" acronym="AIOTOGGLE" offset="94" page="1" width="32" description="Analog I/O Data Toggle Register" />
+	<!-- 1 reserved -->
+
+	<!-- Interrupt Registers -->
+	<register id="GPIOXINT1SEL" acronym="GPIOXINT1SEL" offset="96" page="1" width="16" description="XINT1 GPIO Input Select Register (GPIO0 to 31)" />
+	<register id="GPIOXINT2SEL" acronym="GPIOXINT2SEL" offset="97" page="1" width="16" description="XINT2 GPIO Input Select Register (GPIO0 to 31)" />
+	<register id="GPIOXINT3SEL" acronym="GPIOXINT3SEL" offset="98" page="1" width="16" description="XINT3 GPIO Input Select Register (GPIO0 to 31)" />
+	<!-- 5 reserved -->
+	<register id="GPIOLPMSEL" acronym="GPIOLPMSEL" offset="104" page="1" width="32" description="LPM GPIO Select Register (GPIO0 to 31)" />
+
+</module>

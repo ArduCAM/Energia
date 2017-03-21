@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- 
+  TI File $Revision: 
+  Checkin $Date: 
+  --> 
+
+<!--  TMS320C2000 HRCAP1 REGS Registers 
+     =================================== 
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     --> 
+<module id="HRCAP1" HW_revision="" XML_version="1" description="HRCAP1 Registers">
+    <register id="HCCTL" acronym="HCCTL" offset="0" page="1" width="16" description="HRCAP Control Register" />
+    <register id="HCIFR" acronym="HCIFR" offset="1" page="1" width="16" description="HRCAP Interrupt Flag Register" />
+    <register id="HCICLR" acronym="HCICLR" offset="2" page="1" width="16" description="HRCAP Interrupt Clear Register" />
+    <register id="HCIFRC" acronym="HCIFRC" offset="3" page="1" width="16" description="HRCAP Interrupt Force Register" />
+    <register id="HCCOUNTER" acronym="HCCOUNTER" offset="4" page="1" width="16" description="HRCAP 16-bit Counter Register" />
+    <!--  3 empty  -->
+    <!--  1 empty  -->
+    <!--  7 empty  -->
+    <register id="HCCAPCNTRISE0" acronym="HCCAPCNTRISE0" offset="16" page="1" width="16" description="HRCAP Capture Counter On Rising Edge 0 Register" />
+    <!--  1 empty  -->
+    <register id="HCCAPCNTFALL0" acronym="HCCAPCNTFALL0" offset="18" page="1" width="16" description="HRCAP Capture Counter On Falling Edge 0 Register" />
+    <!--  1 empty  -->
+    <register id="HCCAPDLYRISE0" acronym="HCCAPDLYRISE0" offset="20" page="1" width="16" description="HRCAP Capture Delay On Rising Edge 0 Register" />
+    <register id="HCCAPDLYFALL0" acronym="HCCAPDLYFALL0" offset="21" page="1" width="16" description="HRCAP Capture Delay On Falling Edge 0 Register" />
+    <!--  2 empty  -->
+    <register id="HCCAPCNTRISE1" acronym="HCCAPCNTRISE1" offset="24" page="1" width="16" description="HRCAP Capture Counter On Rising Edge 1 Register" />
+    <!--  1 empty  -->
+    <register id="HCCAPCNTFALL1" acronym="HCCAPCNTFALL1" offset="26" page="1" width="16" description="HRCAP Capture Counter On Falling Edge 1 Register" />
+    <!--  1 empty  -->
+    <register id="HCCAPDLYRISE1" acronym="HCCAPDLYRISE1" offset="28" page="1" width="16" description="HRCAP Capture Delay On Rising Edge 1 Register" />
+    <register id="HCCAPDLYFALL1" acronym="HCCAPDLYFALL1" offset="29" page="1" width="16" description="HRCAP Capture Delay On Falling Edge 1 Register" />
+    <!--  1 empty  -->
+</module>

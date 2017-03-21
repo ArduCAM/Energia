@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="CCM0" HW_revision="" XML_version="1.0" description="EC register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="CCM_CRCCTRL" width="32" description="CRC Control" id="CCM_CRCCTRL" offset="0x00000400" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Operation Type" id="CCM_CRCCTRL_TYPE" resetval="" >
+            <bitenum id="CCM_CRCCTRL_TYPE_P8055" value="0x00000000" token="" description="Polynomial 0x8005"/>
+            <bitenum id="CCM_CRCCTRL_TYPE_P1021" value="0x00000001" token="" description="Polynomial 0x1021"/>
+            <bitenum id="CCM_CRCCTRL_TYPE_P4C11DB7" value="0x00000002" token="" description="Polynomial 0x4C11DB7"/>
+            <bitenum id="CCM_CRCCTRL_TYPE_P1EDC6F41" value="0x00000003" token="" description="Polynomial 0x1EDC6F41"/>
+            <bitenum id="CCM_CRCCTRL_TYPE_TCPCHKSUM" value="0x00000008" token="" description="TCP checksum"/>
+        </bitfield>
+        <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Endian Control" id="CCM_CRCCTRL_ENDIAN" resetval="" >
+            <bitenum id="CCM_CRCCTRL_ENDIAN_SBHW" value="0x00000000" token="" description="Configuration unchanged. (B3, B2, B1, B0)"/>
+            <bitenum id="CCM_CRCCTRL_ENDIAN_SHW" value="0x00000010" token="" description="Bytes are swapped in half-words but half-words are not swapped (B2, B3, B0, B1)"/>
+            <bitenum id="CCM_CRCCTRL_ENDIAN_SHWNB" value="0x00000020" token="" description="Half-words are swapped but bytes are not swapped in half-word. (B1, B0, B3, B2)"/>
+            <bitenum id="CCM_CRCCTRL_ENDIAN_SBSW" value="0x00000030" token="" description="Bytes are swapped in half-words and half-words are swapped. (B0, B1, B2, B3)"/>
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Bit reverse enable" id="CCM_CRCCTRL_BR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Output Reverse Enable" id="CCM_CRCCTRL_OBR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Result Inverse Enable" id="CCM_CRCCTRL_RESINV" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Input Data Size" id="CCM_CRCCTRL_SIZE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="CRC Initialization" id="CCM_CRCCTRL_INIT" resetval="" >
+            <bitenum id="CCM_CRCCTRL_INIT_SEED" value="0x00000000" token="" description="Use the CRCSEED register context as the starting value"/>
+            <bitenum id="CCM_CRCCTRL_INIT_0" value="0x00004000" token="" description="Initialize to all '0s'"/>
+            <bitenum id="CCM_CRCCTRL_INIT_1" value="0x00006000" token="" description="Initialize to all '1s'"/>
+        </bitfield>
+    </register>
+    <register acronym="CCM_CRCSEED" width="32" description="CRC SEED/Context" id="CCM_CRCSEED" offset="0x00000410" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="SEED/Context Value" id="CCM_CRCSEED_SEED" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CCM_CRCDIN" width="32" description="CRC Data Input" id="CCM_CRCDIN" offset="0x00000414" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Data Input" id="CCM_CRCDIN_DATAIN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="CCM_CRCRSLTPP" width="32" description="CRC Post Processing Result" id="CCM_CRCRSLTPP" offset="0x00000418" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Post Processing Result" id="CCM_CRCRSLTPP_RSLTPP" resetval="" >
+        </bitfield>
+    </register>
+</module>

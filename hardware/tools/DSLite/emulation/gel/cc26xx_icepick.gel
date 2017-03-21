@@ -1,0 +1,17 @@
+/* \file        cc26xx_icepick.gel
+ * \brief       GEL script for CC13xx/CC26xx device family (Icepick).
+ *
+ * \revision    $Revision: 30838 $
+ */
+
+StartUp()
+{
+    /* Load the connect_util.gel file */
+    GEL_LoadGel("$(GEL_file_dir)/connect_util.gel");
+} 
+ 
+/* \brief Wake up MCU domain (force active) upon connect. */
+OnTargetConnect()
+{
+    IP_CC26xx_WAKEUPMCU = 1;
+}

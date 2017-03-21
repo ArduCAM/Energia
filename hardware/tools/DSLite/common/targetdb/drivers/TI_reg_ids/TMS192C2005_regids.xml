@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register_ids id="TMS192C2005" XML_version="2.0">
+
+    <register_id id="MC_PID"    value="0x00059000" address="0" page="0"/>
+    <register_id id="MC_CNT"    value="0x00059004" address="0" page="0"/>
+    <register_id id="MC_CTRL"   value="0x00059008" address="0" page="0"/>
+    <register_id id="MC_PARAM0" value="0x0005900c" address="0" page="0"/>
+    <register_id id="MC_PARAM1" value="0x00059010" address="0" page="0"/>
+    <register_id id="MC_PARAM2" value="0x00059014" address="0" page="0"/>
+    <register_id id="MC_ADDR_0" value="0x00059018" address="0" page="0"/>
+    <register_id id="MC_ADDR_1" value="0x0005901c" address="0" page="0"/>
+    <register_id id="MC_ADDR_2" value="0x00059020" address="0" page="0"/>
+    <register_id id="MC_ADDR_3" value="0x00059024" address="0" page="0"/>
+
+    <register_id id="DBG_CAP"  value="0x00063080" address="0" page="0"/>
+    <register_id id="DBG_CNTL" value="0x00063084" address="0" page="0"/>
+
+    <register_id id="SYNCBOX_REVISION" value="0x00063000" address="0" page="0"/>
+    <register_id id="SYSCONFIG"        value="0x00063010" address="0" page="0"/>
+    <register_id id="RXMESSAGE"        value="0x00063040" address="0" page="0"/>
+    <register_id id="NODEIDENTIFIER"   value="0x00063044" address="0" page="0"/>
+    <register_id id="ERRORMSGDEST"     value="0x00063048" address="0" page="0"/>
+    <register_id id="ERRORLOG"         value="0x0006304c" address="0" page="0"/>
+    <register_id id="ASYNCEVENTACKREQ" value="0x00063050" address="0" page="0"/>
+    <register_id id="PARAMADDR_MOD"    value="0x00063054" address="0" page="0"/>
+    <register_id id="STATUS"           value="0x00063060" address="0" page="0"/>
+
+</register_ids>

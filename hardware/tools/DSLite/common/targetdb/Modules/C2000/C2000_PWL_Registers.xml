@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:50:23 $
+  -->
+
+
+
+<!-- TMS320C2000 PWL Registers
+     =========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+<module id="PWL" HW_revision="" XML_version="1" description="PWL Locations">
+	<register id="PWL0" acronym="PWL0" offset="0" page="1" width="16" description="CSM Password Location 0" /> 
+	<register id="PWL1" acronym="PWL1" offset="1" page="1" width="16" description="CSM Password Location 1" /> 
+	<register id="PWL2" acronym="PWL2" offset="2" page="1" width="16" description="CSM Password Location 2" /> 
+	<register id="PWL3" acronym="PWL3" offset="3" page="1" width="16" description="CSM Password Location 3" /> 
+	<register id="PWL4" acronym="PWL4" offset="4" page="1" width="16" description="CSM Password Location 4" /> 
+	<register id="PWL5" acronym="PWL5" offset="5" page="1" width="16" description="CSM Password Location 5" /> 
+	<register id="PWL6" acronym="PWL6" offset="6" page="1" width="16" description="CSM Password Location 6" /> 
+	<register id="PWL7" acronym="PWL7" offset="7" page="1" width="16" description="CSM Password Location 7" /> 
+</module>

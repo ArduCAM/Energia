@@ -1,0 +1,64 @@
+<module id="FPU" HW_revision="356.0">
+    <register id="FPCCR" width="32" offset="0xF34" internal="0" description="Floating Point Context Control Register">
+        <bitfield id="ASPEN" description="Automatic State Preservation ENable. When this bit is set is will cause bit [2] of the Special CONTROL register to be set (FPCA) on execution of a floating point instruction which results in the floating point state automatically being preserved on exception entry." begin="31" end="31" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LSPEN" description="Lazy State Preservation ENable. When the processor performs a context save, space on the stack is reserved for the floating point state but it is not stacked until the new context performs a floating point operation." begin="30" end="30" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MONRDY" description="Indicates whether the the software executing when the processor allocated the FP stack frame was able to set the DebugMonitor exception to pending." begin="8" end="8" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BFRDY" description="Indicates whether the software executing when the processor allocated the FP stack frame was able to set the BusFault exception to pending." begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MMRDY" description="Indicates whether the software executing when the processor allocated the FP stack frame was able to set the MemManage exception to pending." begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="HFRDY" description="Indicates whether the software executing when the processor allocated the FP stack frame was able to set the HardFault exception to pending." begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="THREAD" description="Indicates the processor mode was Thread when it allocated the FP stack frame." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="USER" description="Indicates the privilege level of the software executing was User (Unpriviledged) when the processor allocated the FP stack frame." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LSPACT" description="Indicates whether Lazy preservation of the FP state is active." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FPCAR" width="32" offset="0xF38" internal="0" description="Floating-Point Context Address Register">
+        <bitfield id="ADDRESS" description="Holds the (double-word-aligned) location of the unpopulated floating-point register space allocated on an exception stack frame." begin="30" end="2" width="29" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="FPDSCR" width="32" offset="0xF3C" internal="0" description="Floating Point Default Status Control Register">
+        <bitfield id="AHP" description="Default value for Alternative Half Precision bit. (If this bit is set to 1 then Alternative half-precision format is selected)." begin="26" end="26" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DN" description="Default value for Default NaN mode bit. (If this bit is set to 1 then any operation involving one or more NaNs returns the Default NaN)." begin="25" end="25" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="FZ" description="Default value for Flush-to-Zero mode bit. (If this bit is set to 1 then Flush-to-zero mode is enabled)." begin="24" end="24" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RMODE" description="Default value for Rounding Mode control field. (The encoding for this field is: 0b00 Round to Nearest (RN) mode, 0b01 Round towards Plus Infinity (RP) mode, 0b10 Round towards Minus Infinity (RM) mode, 0b11 Round towards Zero (RZ) mode. The specified rounding mode is used by almost all floating-point instructions)." begin="23" end="22" width="2" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MVFR0" width="32" offset="0xF40" internal="0" description="Media and FP Feature Register 0 (MVFR0)">
+        <bitfield id="FP_ROUNDING_MODES" description="Indicates the rounding modes supported by the FP floating-point hardware. The value of this field is: 0b0001 - all rounding modes supported." begin="31" end="28" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="SHORT_VECTORS" description="Indicates the hardware support for FP short vectors. The value of this field is: 0b0000 - not supported in ARMv7-M." begin="27" end="24" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="SQUARE_ROOT" description="Indicates the hardware support for FP square root operations. The value of this field is: 0b0001 - supported." begin="23" end="20" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="DIVIDE" description="Indicates the hardware support for FP divide operations. The value of this field is: 0b0001 - supported." begin="19" end="16" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="FP_EXCEPTION_TRAPPING" description="Indicates whether the FP hardware implementation supports exception trapping. The value of this field is: 0b0000 - not supported in ARMv7-M." begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="DOUBLE_PRECISION" description="Indicates the hardware support for FP double-precision operations. The value of this field is: 0b0000 - not supported in ARMv7-M." begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="SINGLE_PRECISION" description="Indicates the hardware support for FP single-precision operations. The value of this field is: 0b0010 - supported." begin="7" end="4" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="A_SIMD_REGISTERS" description="Indicates the size of the FP register bank. The value of this field is: 0b0001 - supported, 16 0 64-bit registers." begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="MVFR1" width="32" offset="0xF44" internal="0" description="Media and FP Feature Register 1 (MVFR1)">
+        <bitfield id="FP_FUSED_MAC" description="Indicates whether the FP supports fused multiply accumulate operations. The value of this field is: 0b0001 - supported." begin="31" end="28" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="FP_HPFP" description="Indicates whether the FP supports half-precision floating-point conversion operations. The value of this field is: 0b0001 - supported." begin="27" end="24" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="D_NAN_MODE" description="Indicates whether the FP hardware implementation supports only the Default NaN mode. The value of this field is: 0b0001 - hardware supports propagation of NaN values." begin="7" end="4" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="FTZ_MODE" description="Indicates whether the FP hardware implementation supports only the Flush-to-Zero mode of operation. The value of this field is: 0b0001 - hardware supports full denormalized number arithmetic." begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+</module>

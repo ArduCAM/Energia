@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/3 $
+  Checkin $Date: November 5, 2010   14:50:18 $
+  -->
+
+
+<!-- TMS320C2000 Flash Type 0 Registers
+     =====================================================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+<module id="FLASH" HW_revision="" XML_version="1" description="Flash/OTP Registers">
+	<register id="FOPT" acronym="FOPT" offset="0" page="1" width="16" description="Option Register" />
+	<!-- 1 empty -->        
+	<register id="FPWR" acronym="FPWR" offset="2" page="1" width="16" description="Power Modes Register" />
+	<register id="FSTATUS" acronym="FSTATUS" offset="3" page="1" width="16" description="Status Register" />
+	<register id="FSTDBYWAIT" acronym="FSTDBYWAIT" offset="4" page="1" width="16" description="Pump/Bank Sleep to Standby Wait State Register" />
+	<register id="FACTIVEWAIT" acronym="FACTIVEWAIT" offset="5" page="1" width="16" description="Pump/Bank Standby to Active Wait State Register" />
+	<register id="FBANKWAIT" acronym="FBANKWAIT" offset="6" page="1" width="16" description="Bank Read Access Wait State Register" />
+	<register id="FOTPWAIT" acronym="FOTPWAIT" offset="7" page="1" width="16" description="OTP Read Access Wait State Register" />
+</module>

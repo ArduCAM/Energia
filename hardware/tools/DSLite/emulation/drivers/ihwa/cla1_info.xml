@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+    ProcID            = Core Proc ID 
+    DebugAddrOffset   = Debug registers address offset, always byte-address 
+    RegsAddrOffset    = Core registers address offset, by register addressing type 
+    RegsAddrType      = Registers addressing type, number of bytes per address 
+    PC_AddrOffset     = PC register address offset, relative to registers or indirect port
+    PC_IndPort        = Which indirect port to use to access PC
+    PC_Mask           = Mask for which bits in PC register are valid 
+    PC_Shift          = Shift amount to align PC bits from register (+ means shift right)
+    PC_Adjust         = Offset to normalize PC value to host address 
+    SP_AddrOffset     = SP or FP register address offset, relative to registers or indirect port
+    SP_IndPort        = Which indirect port to use to access SP
+    SP_Mask           = Mask for which bits in SP register are valid 
+    SP_Shift          = Shift amount to align SP bits from register (+ means shift right)
+    AuxHaltOffset     = Auxiliary halt register address offset, relative to register offset 
+    AuxHaltMask       = Mask for which bits to use in auxiliary halt register 
+    AuxHaltValue      = Auxiliary halt register value that indicates that core is halted 
+    CacheInvOffset    = Program cache invalidate register offset, relative to register offset
+    CacheInvMask      = Mask for which bits are used in cache invalidate register
+    CacheInvValue     = Cache invalidate value to trigger a global cache invalidate
+    SWBP_Opcode       = Value of software breakpoint opcode 
+    SWBP_Size         = Size, in bytes, of software breakpoint opcode 
+    NumMemPages       = Number of memory pages (as per TPI, page 0 is always program page) 
+    PageAddrOffset(x) = Memory page x address offset (x is a number from 0 to 15)  
+    PageAddrType(x)   = Memory page x addressing type, number of bytes per address 
+    PageIndRead(x)    = Memory page x which indirect port to use for reads
+    PageIndWrite(x)   = Memory page x which indirect port to use for writes
+                        Note that addressing type of the indirect port must be the 
+                        same as the addressing type of the memory page.
+-->
+<drivers 
+    ProcID          = "0x30008038"
+    DebugAddrOffset = "0x000028a0"
+    RegsAddrOffset  = "0x00000000"
+    RegsAddrType    = "2"
+    PC_AddrOffset   = "0x00001428"
+    PC_Mask         = "0x0000ffff"
+    PC_Shift        = "0"
+    PC_Adjust       = "0x00000000"
+    SP_AddrOffset   = "0x00000000"
+    SP_Mask         = "0x00000000"
+    SP_Shift        = "0"
+    AuxHaltOffset   = "0x00001426"
+    AuxHaltMask     = "0x0000ffff"
+    AuxHaltValue    = "0x00000000"
+    CacheInvOffset  = "0x00000000"
+    CacheInvMask    = "0x00000000"
+    CacheInvValue   = "0x00000000"
+    SWBP_Opcode     = "0x00"
+    SWBP_Size       = "0"
+    NumMemPages     = "1"
+    PageAddrOffset0 = "0x00000000"
+    PageAddrType0   = "2"
+    />

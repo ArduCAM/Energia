@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="WATCHDOG0" HW_revision="" XML_version="1.0" description="Watchdog Timer register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="WDT_LOAD" width="32" description="Watchdog Load" id="WDT_LOAD" offset="0x00000000" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Watchdog Load Value" id="WDT_LOAD" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="WDT_VALUE" width="32" description="Watchdog Value" id="WDT_VALUE" offset="0x00000004" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Watchdog Value" id="WDT_VALUE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="WDT_CTL" width="32" description="Watchdog Control" id="WDT_CTL" offset="0x00000008" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Watchdog Interrupt Enable" id="WDT_CTL_INTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Watchdog Reset Enable" id="WDT_CTL_RESEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Watchdog Interrupt Type" id="WDT_CTL_INTTYPE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Write Complete" id="WDT_CTL_WRC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="WDT_ICR" width="32" description="Watchdog Interrupt Clear" id="WDT_ICR" offset="0x0000000C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Watchdog Interrupt Clear" id="WDT_ICR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="WDT_RIS" width="32" description="Watchdog Raw Interrupt Status" id="WDT_RIS" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Watchdog Raw Interrupt Status" id="WDT_RIS_WDTRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="WDT_MIS" width="32" description="Watchdog Masked Interrupt Status" id="WDT_MIS" offset="0x00000014" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Watchdog Masked Interrupt Status" id="WDT_MIS_WDTMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="WDT_TEST" width="32" description="Watchdog Test" id="WDT_TEST" offset="0x00000418" >
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Watchdog Stall Enable" id="WDT_TEST_STALL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="WDT_LOCK" width="32" description="Watchdog Lock" id="WDT_LOCK" offset="0x00000C00" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Watchdog Lock" id="WDT_LOCK" resetval="" >
+            <bitenum id="WDT_LOCK_UNLOCKED" value="0x00000000" token="" description="Unlocked"/>
+            <bitenum id="WDT_LOCK_LOCKED" value="0x00000001" token="" description="Locked"/>
+            <bitenum id="WDT_LOCK_UNLOCK" value="0x1ACCE551" token="" description="Unlocks the watchdog timer"/>
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:24:59 $
+  -->
+
+
+<!-- TMS320C2000 ECAN Control and Status Registers
+     ================+==============================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="ECAN" HW_revision="" XML_version="1" description="eCAN Control and Status Registers">
+	<register id="CANME" acronym="CANME" offset="0" page="1" width="32" description="eCAN Mailbox Enable" /> 
+	<register id="CANMD" acronym="CANMD" offset="2" page="1" width="32" description="eCAN Mailbox Direction" /> 
+	<register id="CANTRS" acronym="CANTRS" offset="4" page="1" width="32" description="eCAN Transmission Request Set" />
+	<register id="CANTRR" acronym="CANTRR" offset="6" page="1" width="32" description="eCAN Transmission Request Reset" />
+	<register id="CANTA" acronym="CANTA" offset="8" page="1" width="32" description="eCAN Transmission Acknowledge" />
+	<register id="CANAA" acronym="CANAA" offset="10" page="1" width="32" description="eCAN Abort Acknowledge" />
+	<register id="CANRMP" acronym="CANRMP" offset="12" page="1" width="32" description="eCAN Received Message Pending" />
+	<register id="CANRML" acronym="CANRML" offset="14" page="1" width="32" description="eCAN Received Message Lost" />
+	<register id="CANRFP" acronym="CANRFP" offset="16" page="1" width="32" description="eCAN Received Frame Pending" />
+	<register id="CANGAM" acronym="CANGAM" offset="18" page="1" width="32" description="eCAN Global Acceptance Mask" />
+	<register id="CANMC" acronym="CANMC" offset="20" page="1" width="32" description="eCAN Master Control" />
+	<register id="CANBTC" acronym="CANBTC" offset="22" page="1" width="32" description="eCAN Bit-Timing Configuration" />
+	<register id="CANES" acronym="CANES" offset="24" page="1" width="32" description="eCAN Error and Status" />
+	<register id="CANTEC" acronym="CANTEC" offset="26" page="1" width="32" description="eCAN Transmit Error Counter" />
+	<register id="CANREC" acronym="CANREC" offset="28" page="1" width="32" description="eCAN Receive Error Counter" />
+	<register id="CANGIF0" acronym="CANGIF0" offset="30" page="1" width="32" description="eCAN Global Interrupt Flag 0" />
+	<register id="CANGIM" acronym="CANGIM" offset="32" page="1" width="32" description="eCAN Global Interrupt Mask" />
+	<register id="CANGIF1" acronym="CANGIF1" offset="34" page="1" width="32" description="eCAN Global Interrupt Flag 1" />
+	<register id="CANMIM" acronym="CANMIM" offset="36" page="1" width="32" description="eCAN Mailbox Interrupt Mask" />
+	<register id="CANMIL" acronym="CANMIL" offset="38" page="1" width="32" description="eCAN Mailbox Interrupt Level" />
+	<register id="CANOPC" acronym="CANOPC" offset="40" page="1" width="32" description="eCAN Overwrite Protection Control" />	
+	<register id="CANTIOC" acronym="CANTIOC" offset="42" page="1" width="32" description="eCAN TX I/O Control" />	
+	<register id="CANRIOC" acronym="CANRIOC" offset="44" page="1" width="32" description="eCAN RX I/O Control" />	
+	<register id="CANTSC" acronym="CANTSC" offset="46" page="1" width="32" description="eCAN Time Stamp Counter" />	
+	<register id="CANTOC" acronym="CANTOC" offset="48" page="1" width="32" description="eCAN Time-Out Control" />	
+	<register id="CANTOS" acronym="CANTOS" offset="50" page="1" width="32" description="eCAN Time-Out Status" />	 
+</module>

@@ -1,0 +1,452 @@
+<module id="PIE_CTRL_REGS" HW_revision="" description="PIE CTRL Registers">
+	<register id="PIECTRL" width="16" page="1" offset="0x0" internal="0" description="Control Register">
+		<bitfield id="ENPIE" description="PIE Enable" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="PIEVECT" description="PIE Vector Address" begin="15" end="1" width="15" rwaccess="R"/>
+	</register>
+	<register id="PIEACK" width="16" page="1" offset="0x1" internal="0" description="Acknowledge Register">
+		<bitfield id="ACK1" description="Acknowledge PIE Interrupt Group 1" begin="0" end="0" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK2" description="Acknowledge PIE Interrupt Group 2" begin="1" end="1" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK3" description="Acknowledge PIE Interrupt Group 3" begin="2" end="2" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK4" description="Acknowledge PIE Interrupt Group 4" begin="3" end="3" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK5" description="Acknowledge PIE Interrupt Group 5" begin="4" end="4" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK6" description="Acknowledge PIE Interrupt Group 6" begin="5" end="5" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK7" description="Acknowledge PIE Interrupt Group 7" begin="6" end="6" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK8" description="Acknowledge PIE Interrupt Group 8" begin="7" end="7" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK9" description="Acknowledge PIE Interrupt Group 9" begin="8" end="8" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK10" description="Acknowledge PIE Interrupt Group 10" begin="9" end="9" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK11" description="Acknowledge PIE Interrupt Group 11" begin="10" end="10" width="1" rwaccess="R/W=1"/>
+		<bitfield id="ACK12" description="Acknowledge PIE Interrupt Group 12" begin="11" end="11" width="1" rwaccess="R/W=1"/>
+	</register>
+	<register id="PIEIER1" width="16" page="1" offset="0x2" internal="0" description="INT1 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT1.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT1.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT1.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT1.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT1.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT1.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT1.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT1.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT1.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT1.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT1.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT1.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT1.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT1.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT1.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT1.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR1" width="16" page="1" offset="0x3" internal="0" description="INT1 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT1.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT1.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT1.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT1.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT1.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT1.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT1.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT1.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT1.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT1.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT1.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT1.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT1.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT1.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT1.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT1.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER2" width="16" page="1" offset="0x4" internal="0" description="INT2 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT2.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT2.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT2.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT2.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT2.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT2.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT2.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT2.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT2.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT2.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT2.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT2.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT2.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT2.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT2.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT2.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR2" width="16" page="1" offset="0x5" internal="0" description="INT2 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT2.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT2.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT2.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT2.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT2.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT2.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT2.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT2.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT2.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT2.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT2.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT2.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT2.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT2.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT2.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT2.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER3" width="16" page="1" offset="0x6" internal="0" description="INT3 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT3.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT3.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT3.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT3.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT3.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT3.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT3.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT3.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT3.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT3.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT3.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT3.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT3.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT3.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT3.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT3.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR3" width="16" page="1" offset="0x7" internal="0" description="INT3 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT3.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT3.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT3.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT3.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT3.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT3.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT3.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT3.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT3.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT3.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT3.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT3.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT3.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT3.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT3.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT3.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER4" width="16" page="1" offset="0x8" internal="0" description="INT4 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT4.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT4.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT4.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT4.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT4.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT4.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT4.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT4.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT4.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT4.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT4.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT4.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT4.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT4.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT4.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT4.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR4" width="16" page="1" offset="0x9" internal="0" description="INT4 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT4.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT4.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT4.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT4.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT4.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT4.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT4.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT4.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT4.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT4.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT4.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT4.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT4.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT4.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT4.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT4.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER5" width="16" page="1" offset="0xa" internal="0" description="INT5 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT5.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT5.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT5.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT5.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT5.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT5.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT5.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT5.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT5.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT5.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT5.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT5.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT5.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT5.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT5.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT5.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR5" width="16" page="1" offset="0xb" internal="0" description="INT5 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT5.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT5.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT5.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT5.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT5.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT5.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT5.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT5.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT5.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT5.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT5.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT5.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT5.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT5.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT5.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT5.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER6" width="16" page="1" offset="0xc" internal="0" description="INT6 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT6.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT6.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT6.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT6.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT6.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT6.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT6.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT6.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT6.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT6.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT6.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT6.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT6.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT6.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT6.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT6.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR6" width="16" page="1" offset="0xd" internal="0" description="INT6 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT6.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT6.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT6.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT6.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT6.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT6.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT6.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT6.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT6.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT6.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT6.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT6.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT6.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT6.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT6.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT6.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER7" width="16" page="1" offset="0xe" internal="0" description="INT7 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT7.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT7.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT7.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT7.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT7.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT7.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT7.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT7.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT7.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT7.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT7.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT7.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT7.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT7.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT7.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT7.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR7" width="16" page="1" offset="0xf" internal="0" description="INT7 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT7.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT7.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT7.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT7.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT7.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT7.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT7.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT7.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT7.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT7.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT7.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT7.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT7.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT7.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT7.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT7.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER8" width="16" page="1" offset="0x10" internal="0" description="INT8 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT8.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT8.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT8.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT8.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT8.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT8.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT8.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT8.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT8.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT8.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT8.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT8.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT8.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT8.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT8.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT8.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR8" width="16" page="1" offset="0x11" internal="0" description="INT8 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT8.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT8.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT8.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT8.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT8.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT8.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT8.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT8.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT8.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT8.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT8.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT8.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT8.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT8.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT8.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT8.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER9" width="16" page="1" offset="0x12" internal="0" description="INT9 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT9.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT9.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT9.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT9.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT9.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT9.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT9.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT9.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT9.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT9.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT9.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT9.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT9.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT9.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT9.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT9.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR9" width="16" page="1" offset="0x13" internal="0" description="INT9 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT9.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT9.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT9.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT9.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT9.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT9.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT9.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT9.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT9.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT9.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT9.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT9.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT9.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT9.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT9.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT9.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER10" width="16" page="1" offset="0x14" internal="0" description="INT10 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT10.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT10.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT10.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT10.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT10.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT10.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT10.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT10.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT10.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT10.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT10.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT10.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT10.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT10.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT10.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT10.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR10" width="16" page="1" offset="0x15" internal="0" description="INT10 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT10.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT10.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT10.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT10.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT10.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT10.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT10.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT10.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT10.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT10.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT10.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT10.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT10.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT10.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT10.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT10.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER11" width="16" page="1" offset="0x16" internal="0" description="INT11 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT11.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT11.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT11.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT11.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT11.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT11.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT11.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT11.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT11.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT11.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT11.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT11.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT11.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT11.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT11.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT11.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR11" width="16" page="1" offset="0x17" internal="0" description="INT11 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT11.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT11.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT11.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT11.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT11.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT11.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT11.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT11.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT11.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT11.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT11.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT11.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT11.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT11.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT11.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT11.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIER12" width="16" page="1" offset="0x18" internal="0" description="INT12 Group Enable Register">
+		<bitfield id="INTx1" description="Interrupt Enable for INT12.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Enable for INT12.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Enable for INT12.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Enable for INT12.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Enable for INT12.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Enable for INT12.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Enable for INT12.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Enable for INT12.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Enable for INT12.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Enable for INT12.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Enable for INT12.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Enable for INT12.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Enable for INT12.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Enable for INT12.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Enable for INT12.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Enable for INT12.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="PIEIFR12" width="16" page="1" offset="0x19" internal="0" description="INT12 Group Flag Register">
+		<bitfield id="INTx1" description="Interrupt Flag for INT12.1" begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx2" description="Interrupt Flag for INT12.2" begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx3" description="Interrupt Flag for INT12.3" begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx4" description="Interrupt Flag for INT12.4" begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx5" description="Interrupt Flag for INT12.5" begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx6" description="Interrupt Flag for INT12.6" begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx7" description="Interrupt Flag for INT12.7" begin="6" end="6" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx8" description="Interrupt Flag for INT12.8" begin="7" end="7" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx9" description="Interrupt Flag for INT12.9" begin="8" end="8" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx10" description="Interrupt Flag for INT12.10" begin="9" end="9" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx11" description="Interrupt Flag for INT12.11" begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx12" description="Interrupt Flag for INT12.12" begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx13" description="Interrupt Flag for INT12.13" begin="12" end="12" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx14" description="Interrupt Flag for INT12.14" begin="13" end="13" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx15" description="Interrupt Flag for INT12.15" begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="INTx16" description="Interrupt Flag for INT12.16" begin="15" end="15" width="1" rwaccess="R/W"/>
+	</register>
+</module>

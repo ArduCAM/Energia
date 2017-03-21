@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.1" Copyright="Copyright (c) 2005-2007 Texas Instruments"?><AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+
+<!--*****************************************************************************-->
+<!--                       FIRST LEVEL OF FUNCTION LIST                          -->
+<!-- This property presents all the supported functions to UBM and has a default -->
+<!-- value of Breakpoint. Every time UBM creates a operation and calls           -->
+<!-- Operation::GetProperties()this property will be returned.                   -->
+<!-- The menu item showed by UBM will be look like:                              -->
+<!--                                                                             -->
+<!--     Type | Breakpoint         |                                             -->
+<!--          | Chained Breakpoint |                                             -->
+<!--          | Watchpoint         |                                             -->
+<!--          | Trace              |                                             -->
+<!--          | Data Access Count  |                                             -->
+<!--          | Watchdog Timer     |                                             -->
+<!--                                                                             -->
+<!-- For different device different set of functions will be listed              -->
+<!-- Mapping of The Fields:                                                      -->
+<!--    NAME         - IProperty::GetName()                                      -->
+<!--    DESCRIPTION  - IProperty::GetDescription()                               -->
+<!--    ALLOWEDLIST  - IStringProperty::GetAllowedValues()                       -->
+<!-- Other definitions:                                                          -->
+<!--    ALLOWEDITEM  - defines an item of allowed values                         -->
+<!--    ALLOWED_KEY  - defines the child key when this allowed value is selected -->
+<!--    ALLOWED_HALT - defines if the function halts CPU                         -->
+<!--    ALLOWED_STRING - allowed string value                                    -->
+<!-- Every time a allowed value is selected as the value of StringProperty, the  -->
+<!-- CHILDKEY will be changed. The new CHILDKEY will be used to update the child -->
+<!-- property of the StringProperty                                              -->
+<!--*****************************************************************************-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+ 	  <DESCRIPTION>Display all the AET functions</DESCRIPTION>	
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Watchpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>COUNT EVT</ALLOWED_KEY>
+			<ALLOWED_STRING>Count Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE EVT</ALLOWED_KEY>
+			<ALLOWED_ENUM>0x90000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>Trace DWT Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>DATA TRACE</ALLOWED_KEY>
+			<ALLOWED_ENUM>0xa0000000</ALLOWED_ENUM>
+			<ALLOWED_STRING>DWT Data Variable Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE</ALLOWED_KEY>
+			<ALLOWED_STRING>Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--****************************************************************************************-->
+<!--                            Event hierarchy for System Event                            -->
+<!--****************************************************************************************-->
+		<PROPERTY_STRING>
+			<NAME>Clock or PC Sample</NAME>	
+ 			<DESCRIPTION>Send ITM clock or PC sample event at defined clock cycles interval</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ALLOWEDLIST>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>Disabled</ALLOWED_STRING>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>PC Sample</ALLOWED_STRING>
+					<ALLOWED_ENUM>10120</ALLOWED_ENUM>
+					<ALLOWED_KEY>INTERVAL</ALLOWED_KEY>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>Clock Event</ALLOWED_STRING>
+					<ALLOWED_ENUM>10121</ALLOWED_ENUM>
+					<ALLOWED_KEY>INTERVAL</ALLOWED_KEY>
+				</ALLOWEDITEM>
+			</ALLOWEDLIST>
+		</PROPERTY_STRING>
+
+		<PROPERTY_BOOL>
+		<NAME>Folded Intruction Count Events</NAME>	
+ 			<DESCRIPTION>Send an event every 256 cycles of folded instructions</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>10116</ENUMVALUE>
+  			<VALUE>0</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>LSU Count Event</NAME>	
+ 			<DESCRIPTION>Send an event every 256 cycles of LSU operation</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>10115</ENUMVALUE>
+  			<VALUE>0</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Sleep Count Event</NAME>	
+ 			<DESCRIPTION>Send an event every 256 cycles that the processor is sleeping</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>10114</ENUMVALUE>
+  			<VALUE>0</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Interrupt Overhead Count Event</NAME>	
+ 			<DESCRIPTION>Send an event every 256 cycles of interrupt overhead</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>10113</ENUMVALUE>
+  			<VALUE>0</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>CPI Count Event</NAME>	
+ 			<DESCRIPTION>Send an event every 256 cycles of multi-cycle instructions</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>10112</ENUMVALUE>
+  			<VALUE>0</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_BOOL>
+		<NAME>Interrupt Event</NAME>	
+ 			<DESCRIPTION>Send interrupt event</DESCRIPTION>	
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ENUMVALUE>10111</ENUMVALUE>
+  			<VALUE>0</VALUE>
+		</PROPERTY_BOOL>
+
+		<PROPERTY_STRING>
+			<NAME>Sync Packet</NAME>	
+ 			<DESCRIPTION>Send ITM sync packet at defined clock cycles</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>TRACE EVT</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ALLOWEDLIST>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>Every 0x1000000 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>10123</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>Every 0x4000000 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>10124</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>Every 0x10000000 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>10125</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+			</ALLOWEDLIST>
+		</PROPERTY_STRING>
+
+		<PROPERTY_STRING>
+			<NAME>Clock Interval</NAME>	
+ 			<DESCRIPTION>Clock cycle interval for sending clock or PC sample event</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>INTERVAL</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<ALLOWEDLIST>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>64 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000000</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>128 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000001</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>192 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000002</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>256 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000003</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>320 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000004</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>384 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000005</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>448 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000006</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>512 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000007</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>576 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000008</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>640 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000009</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>704 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000000A</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>768 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000000B</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>832 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000000C</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>896 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000000D</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>960 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000000E</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>1024 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000000F</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>2048 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000011</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>3072 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000012</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>4096 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000013</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>5120 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000014</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>6144 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000015</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>7168 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000016</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>8192 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000017</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>9216 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000018</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>10240 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x80000019</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>11264 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000001A</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>12288 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000001B</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>13312 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000001C</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>14336 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000001D</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>15360 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000001E</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>16384 Cycles</ALLOWED_STRING>
+					<ALLOWED_ENUM>0x8000001F</ALLOWED_ENUM>
+				</ALLOWEDITEM>
+			</ALLOWEDLIST>
+		</PROPERTY_STRING>
+
+<!--****************************************************************************************-->
+<!--                    Location and Action Type for Data Variable Trace                    -->
+<!--****************************************************************************************-->
+
+		<PROPERTY_LOCATION>
+			<NAME>Location</NAME>	
+			<DESCRIPTION>Variable/data memory location</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>DATA TRACE</KEYNAME>	
+				<KEYNUMBER>2</KEYNUMBER>	
+			</KEYITEM>
+			<VALUE>0</VALUE>
+			<PAGE>0</PAGE>	
+		</PROPERTY_LOCATION>
+
+		<PROPERTY_STRING>
+			<NAME>Action Type</NAME>	
+			<DESCRIPTION>Emit data and address offset through ITM on read or write</DESCRIPTION>		
+			<KEYITEM>
+				<KEYNAME>DATA TRACE</KEYNAME>	
+				<KEYNUMBER>3</KEYNUMBER>	
+			</KEYITEM>
+			<ALLOWEDLIST>
+				<ALLOWEDITEM>
+					<ALLOWED_STRING>Emit ITM Packet</ALLOWED_STRING>
+				</ALLOWEDITEM>
+			</ALLOWEDLIST>
+			<EDITABLE>FALSE</EDITABLE>
+		</PROPERTY_STRING>
+	
+	<PROPERTY_STRING>
+		<NAME>Triggers</NAME>
+		<DESCRIPTION>Trigger list</DESCRIPTION>
+		<KEYITEM>
+			<KEYNAME>TRACE</KEYNAME>
+			<KEYNUMBER>2</KEYNUMBER>
+		</KEYITEM>
+		<ALLOWEDLIST>
+			<ALLOWEDITEM>
+				<ALLOWED_KEY>DATA TRACE</ALLOWED_KEY>
+				<ALLOWED_ENUM>0xa0000000</ALLOWED_ENUM>
+				<ALLOWED_STRING>DWT Data Variable Trace</ALLOWED_STRING>
+			</ALLOWEDITEM>
+			<ALLOWEDITEM>
+				<ALLOWED_KEY>TRACE EVT</ALLOWED_KEY>
+				<ALLOWED_ENUM>0x90000000</ALLOWED_ENUM>
+				<ALLOWED_STRING>Trace DWT Event</ALLOWED_STRING>
+		</ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                      Not Editable Counter Value                             -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Current Count</NAME>	
+ 	  <DESCRIPTION>Value of the count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_INTEGER>
+
+<!--****************************************************************************************-->
+<!--                            Event hierarchy for System Event                            -->
+<!--****************************************************************************************-->
+	<PROPERTY_STRING>
+	  <NAME>System Event</NAME>	
+ 	  <DESCRIPTION>Select the event for profile</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Clock Cycles</ALLOWED_STRING>
+			<ALLOWED_ENUM>10110</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>CPI Event</ALLOWED_STRING>
+			<ALLOWED_ENUM>10111</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Exception Overhead</ALLOWED_STRING>
+			<ALLOWED_ENUM>10112</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Sleep Cycles</ALLOWED_STRING>
+			<ALLOWED_ENUM>10113</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>LSU Cycles</ALLOWED_STRING>
+			<ALLOWED_ENUM>10114</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Folded Instructions</ALLOWED_STRING>
+			<ALLOWED_ENUM>10115</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+</AET>

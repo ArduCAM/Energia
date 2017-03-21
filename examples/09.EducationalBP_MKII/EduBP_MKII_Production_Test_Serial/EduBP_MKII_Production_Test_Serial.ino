@@ -1,7 +1,7 @@
 
 #include "pitches.h"
 #include <Wire.h>
-#include <tmp006.h>
+#include <Adafruit_TMP006.h>
 //#include "OPT3001.h"
 #define USE_USCI_B1 
 #define USING_MSP430F5529_LAUNCHPAD
@@ -280,12 +280,231 @@ float tempReading = 0;
 #define NOTE_C4_1 260
 
 // OPT3001
-//opt3001 opFILE0  ‘˝    p0 8  ‡                Ù           `           H      Z≤Í=Æ-— Ä  ≠∑–:´ê˙—Z≤Í=Æ-—                                ¥p	    0   x          Z     Á    =Z≤Í=Æ-—Z≤Í=Æ-—Z≤Í=Æ-—Z≤Í=Æ-—                        G A T O R H ~ 1 . I N O       0   Ä          h     Á    =Z≤Í=Æ-—Z≤Í=Æ-—Z≤Í=Æ-—Z≤Í=Æ-—                        G a t o r H o l e B u z z e r . i n o Ä   H                         @                          1ÄÄ   ˇˇˇˇÇyG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              FILE0  `9K    09 8  ¯                ı           `           H      ΩÌ=Æ-—ΩÌ=Æ-—Ê∏RÆ-—ΩÌ=Æ-—                    …          ∞!ñ	    0   p          R     —    ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—                       J o y s t i c k       @   (                Vp¬°ôÂú∏à„‰‹ºê   ¿        †       $ I 3 0 0               ê   ê       ˆ   W2p Z     ı   09ΩÌ=Æ-— Ä  ≠∑–_ú≠ê˙—ΩÌ=Æ-—       1
-              J o y s t i c k . i n o                     ˇˇˇˇÇyG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      FILE0  ù    W2 8  `                ˆ           `           H      ΩÌ=Æ-— Ä  ≠∑–_ú≠ê˙—ΩÌ=Æ-—                               ∏∂p	    0   x          Z     ı   09ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—                        J o y s t i c k . i n o       Ä   H                         @              1
-      1
-      1ÅÄ   ˇˇˇˇÇyG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              FILE0  )âK    ay 8  ¯                ˜           `           H      ΩÌ=Æ-—ΩÌ=Æ-—ÆïËRÆ-—ΩÌ=Æ-—                    …          ËKñ	    0   p          R     —    ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—                       J O Y S T I ~ 1       0   Ä          d     —    ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—                       J o y s t i c k D r a w C o l o r     @   (                Wp¬°ôÂú∏à„‰‹ºê   @              $ I 3 0 0                       ¯   ) Ä l    ˜   ayΩÌ=Æ-— Ä  ≠∑–:´ê˙—ΩÌ=Æ-—       T              J o y s t i c k D r a w C o l o r . i n o     ¯   ) p Z     ˜   ayΩÌ=Æ-— Ä  ≠∑–:´ê˙—ΩÌ=Æ-—       T              J O Y S T I ~ 1 . I N O                     ˇˇˇˇÇyG                                                                                                                                                                                                                                                                       FILE0  3    )  8  Ë                ¯           `           H      ΩÌ=Æ-— Ä  ≠∑–:´ê˙—ΩÌ=Æ-—                               –πp	    0   x          Z     ˜   ayΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—                        J O Y S T I ~ 1 . I N O       0   à          l     ˜   ayΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—ΩÌ=Æ-—                        J o y s t i c k D r a w C o l o r . i n o     Ä   H                         @              T      T      1ÇÄ   ˇˇˇˇÇyG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      FILE0  ±ØK    
-  8  Ë                ˘  
-        `           H      wÔ=Æ-—wÔ=Æ-—NESÆ-—wÔ=Æ-—                    …          ∞`ñ	    0   p          R     —    wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—                       J O Y S T I ~ 2       0   x          ^     —    wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—                       J o y s t i c k S e r i a l   @   (                Xp¬°ôÂú∏à„‰‹ºê   8             $ I 3 0 0                       ˙    bx f     ˘    wÔ=Æ-— Ä  ≠∑–:´ê˙—wÔ=Æ-—       W              J o y s t i c k S e r i a l . i n o   ˙    bp Z     ˘   
- wÔ=Æ-— Ä  ≠∑–:´ê˙—wÔ=Æ-—       W              J O Y S T I ~ 1 . I N O                     ˇˇˇˇÇyG                                                                                                                                                                                                                                                                                       FILE0  ö     b 8  ‡                ˙           `           H      wÔ=Æ-— Ä  ≠∑–:´ê˙—wÔ=Æ-—                               ¿ºp	    0   x          Z     ˘   
- wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—                        J O Y S T I ~ 1 . I N O       0   Ä          f     ˘   
- wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—                        J o y s t i c k S e r i a l . i n o   Ä   H                         @              W      W      1ÉÄ   ˇˇˇˇÇyG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              FILE0  ÌL    ri 8  Ë                ˚  ri       `           H      wÔ=Æ-—ÄŸÒ=Æ-—UWJSÆ-—ÄŸÒ=Æ-—                    …          xäñ	    0   p          R     —    wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—                       K O N A M I ~ 1       0   x          Z     —    wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—wÔ=Æ-—                       K o n a m i C o n t r a       @   (                Yp¬°ôÂú∏à„‰‹ºê   8             $ I 3 0 0                       ¸   **x b     ˚    ÄŸÒ=Æ-— Ä  ≠∑–_ú≠ê˙—ÄŸÒ=Æ-—        ?              K o n a m i C o n t r a . i n o       ¸   **p Z     ˚   riÄŸÒ=Æ-— Ä  ≠∑–_ú≠ê˙—ÄŸÒ=Æ-—
+//opt3001 opt3001;
+Adafruit_TMP006 tmp006;
+unsigned long readings = 0;
+
+int melody[] = {
+   NOTE_C4_1,NOTE_C4, NOTE_D4, NOTE_C4,NOTE_F4,NOTE_E4,
+   NOTE_C4_1,NOTE_C4,NOTE_D4,NOTE_C4,NOTE_G4,NOTE_F4,
+   NOTE_C4_1,NOTE_C4,NOTE_C5,NOTE_A4,NOTE_F4,NOTE_F4, NOTE_E4,NOTE_D4,
+   NOTE_AS4,NOTE_AS4,NOTE_A4,NOTE_F4,NOTE_G4,NOTE_F4};
+   
+// note durations: 4 = quarter note, 8 = eighth note, etc.:
+int noteDurations[] = {
+  4, 4, 2, 2,2,1,
+  4, 4, 2, 2,2,1,
+  4, 4, 2, 2,4,4,2,1, 
+  4, 4, 2, 2,2,1};
+
+
+void setup()
+{
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  delay(300);
+  pinMode(SEL, INPUT);
+  pinMode(SW1, INPUT);
+  pinMode(SW2, INPUT);
+  pinMode(BUZZ, OUTPUT);
+  Serial.println("Welcome to the Educational BoosterPack MKII Production Test:");
+
+  tmp006.begin(TMP006_CFG_8SAMPLE);  // Takes 8 averaged samples for measurement
+//  opt3001.begin(); 
+}
+
+
+
+void loop()
+{
+  int16_t i;
+  // put your main code here, to run repeatedly:
+  
+  //Test out the joystick
+  Serial.print("Push joystick all the way to the right.");
+  while(analogRead(JOY_X)<4094);
+  Serial.println(" > Passed!");
+  Serial.print("Push joystick all the way to the left.");
+  while(analogRead(JOY_X)>0);
+  Serial.println(" > Passed!");
+  Serial.print("Push joystick all the way to the top.");
+  while(analogRead(JOY_Y)<4094);
+  Serial.println(" > Passed!");
+  Serial.print("Push joystick all the way to the bottom.");
+  while(analogRead(JOY_Y)>0);
+  Serial.println(" > Passed!");
+  Serial.print("Click down on the joystick.");
+  while(digitalRead(SEL) == 1);
+  Serial.println(" > Passed!");
+
+  
+  //Test out the microphone
+  Serial.print("Rub on the microphone.");
+  while(analogRead(MIC) > 100);
+  Serial.println(" > Passed!");
+
+  //Test out button 1
+  Serial.print("Press button S1.");
+  while(digitalRead(SW1) == 1);
+  Serial.println(" > Passed!");
+
+  //Test out button 2
+  Serial.print("Press button S2.");
+  while(digitalRead(SW2) == 1);
+  Serial.println(" > Passed!");
+  
+  //Test out buzzer
+  Serial.println("Press button S1 & S2 at the same time to run the buzzer test.");
+  while(digitalRead(SW2) == 1 || digitalRead(SW1) == 1);
+  Serial.println("Playing melody.");
+  for (int thisNote = 0; thisNote < 26; thisNote++) {
+    // to calculate the note duration, take one second 
+    // divided by the note type.
+    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+    int noteDuration = 1000/noteDurations[thisNote];
+    tone(BUZZ, melody[thisNote],noteDuration);
+    int pauseBetweenNotes = noteDuration + 50;      //delay between pulse
+    delay(pauseBetweenNotes>>2);
+    noTone(BUZZ);                // stop the tone playing
+  }
+  Serial.print("Press SW1 if you heard the melody.");
+  while(digitalRead(SW1) == 1);
+  Serial.println(" > Passed!");
+  
+  
+  //Test out 3-axis analog accelerometer
+  // 1200 ~ -1G / 2000 ~ 0G / 2800 ~ +1G
+  Serial.print("Lay LaunchPad flat on table.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2100 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) < 2700);
+  Serial.println(" > Passed!");
+  
+  Serial.print("Tilt LaunchPad all the way to the left.");
+  while(analogRead(ACC_X) > 1350 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) > 2100 || analogRead(ACC_Z) < 1900);
+  Serial.println(" > Passed!");
+
+  Serial.print("Lay LaunchPad flat on table.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2100 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) < 2700);
+  Serial.println(" > Passed!");
+
+  Serial.print("Tilt LaunchPad all the way to the right.");
+  while(analogRead(ACC_X) < 2650 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) > 2100 || analogRead(ACC_Z) < 1900);
+  Serial.println(" > Passed!");
+
+  Serial.print("Lay LaunchPad flat on table.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2100 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) < 2700);
+  Serial.println(" > Passed!");
+
+  Serial.print("Tilt LaunchPad away from you.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2000 || analogRead(ACC_Y) < 2600 || analogRead(ACC_Z) < 1900 || analogRead(ACC_Z) > 2100);
+  Serial.println(" > Passed!");
+  
+  Serial.print("Lay LaunchPad flat on table.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2100 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) < 2700);
+  Serial.println(" > Passed!");
+
+  Serial.print("Tilt LaunchPad towards you.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2100 || analogRead(ACC_Y) > 1450 || analogRead(ACC_Z) < 1900 || analogRead(ACC_Z) > 2100);
+  Serial.println(" > Passed!");
+  
+  Serial.print("Lay LaunchPad flat on table.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2100 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) < 2700);
+  Serial.println(" > Passed!");
+  
+  Serial.print("Flip LaunchPad upside down so display is facing the surface of table.");
+  while(analogRead(ACC_X) < 1900 || analogRead(ACC_X) > 2100 || analogRead(ACC_Y) > 2100 || analogRead(ACC_Y) < 1900 || analogRead(ACC_Z) > 1300);
+  Serial.println(" > Passed!");
+  
+  //TEST TMP006 TEMP SENSOR
+  Serial.println("Press SW1 to test the TMP006.");
+  while(digitalRead(SW1) == 1);
+  float temp = tmp006.readObjTempC();
+  Serial.print("Temp Reading = ");
+  Serial.print(temp);
+  Serial.println("*C    ");    
+
+
+  
+  //TEST OPT3001 LIGHT SENSOR
+  //To be enabled once OPT3001 is added to future Edu BP MK II Rev.
+  // Serial.println("Cover the light sensor to test the OPT3001.");
+  // while(opt3001.readResult() > 30);
+  // Serial.println("Shine flashlight onto the light sensor ");
+  // while(opt3001.readResult() < 1000);
+  
+  // Serial.println("OPT3001 testing successful!");
+  
+  //TEST RGB LED
+  Serial.println("Press SW1 to test the RGB LED.");
+  while(digitalRead(SW1) == 1);
+  i = 0;
+  int brightness = 0;
+  int fadeAmount = 5;
+  
+  for(brightness = 0; brightness<255; brightness+=fadeAmount){
+    analogWrite(RGB_RED, brightness);    
+    // wait for 30 milliseconds to see the dimming effect    
+    delay(10); 
+  }
+  for(brightness = 255; brightness>=0; brightness-=fadeAmount){
+    analogWrite(RGB_RED, brightness);    
+    // wait for 30 milliseconds to see the dimming effect    
+    delay(10); 
+  }  
+  for(brightness = 0; brightness<255; brightness+=fadeAmount){
+    analogWrite(RGB_GRN, brightness);    
+    // wait for 30 milliseconds to see the dimming effect    
+    delay(10); 
+  }
+  for(brightness = 255; brightness>=0; brightness-=fadeAmount){
+    analogWrite(RGB_GRN, brightness);    
+    // wait for 30 milliseconds to see the dimming effect    
+    delay(10); 
+  }  
+  for(brightness = 0; brightness<255; brightness+=fadeAmount){
+    analogWrite(RGB_BLU, brightness);    
+    // wait for 30 milliseconds to see the dimming effect    
+    delay(10); 
+  }
+  for(brightness = 255; brightness>=0; brightness-=fadeAmount){
+    analogWrite(RGB_BLU, brightness);    
+    // wait for 30 milliseconds to see the dimming effect    
+    delay(10); 
+  }
+  
+    Serial.println("*** LCD_screen test");
+    Serial.println("(All times in ms)");
+    
+    myScreen.begin();
+    Serial.println(myScreen.WhoAmI());
+    Serial.print(myScreen.screenSizeX(), DEC);
+    Serial.print("x");
+    Serial.println(myScreen.screenSizeY(), DEC);
+    
+    myScreen.setFontSize(myScreen.fontMax());
+    myScreen.clear(darkGrayColour);
+    
+    protocolSquare(300);
+    protocolSquare(200);
+    protocolSquare(100);
+    protocolSquare(50);
+    delay(2000);
+    
+    protocolText();
+    delay(2000);
+    
+    if (myScreen.isReadable()) {
+        protocolCopyPaste(1);
+        delay(2000);
+    }
+    delay(2000);
+	
+    myScreen.clear();
+    Serial.println("---");
+    Serial.println();
+
+
+  Serial.println("ALL TEST SUCCESSFUL!");
+  while(1);
+}
+
+

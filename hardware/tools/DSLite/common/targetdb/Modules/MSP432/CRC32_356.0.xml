@@ -1,0 +1,22 @@
+<module id="CRC32" HW_revision="356.0">
+    <register id="CRC32DI" width="16" offset="0x0" internal="0" description="Data Input for CRC32 Signature Computation">
+    </register>
+    <register id="CRC32DIRB" width="16" offset="0x4" internal="0" description="Data In Reverse for CRC32 Computation">
+    </register>
+    <register id="CRC32INIRES_LO" width="16" offset="0x8" internal="0" description="CRC32 Initialization and Result, lower 16 bits">
+    </register>
+    <register id="CRC32INIRES_HI" width="16" offset="0xA" internal="0" description="CRC32 Initialization and Result, upper 16 bits">
+    </register>
+    <register id="CRC32RESR_LO" width="16" offset="0xC" internal="0" description="CRC32 Result Reverse, lower 16 bits">
+    </register>
+    <register id="CRC32RESR_HI" width="16" offset="0xE" internal="0" description="CRC32 Result Reverse, Upper 16 bits">
+    </register>
+    <register id="CRC16DI" width="16" offset="0x10" internal="0" description="Data Input for CRC16 computation">
+    </register>
+    <register id="CRC16DIRB" width="16" offset="0x14" internal="0" description="CRC16 Data In Reverse">
+    </register>
+    <register id="CRC16INIRES" width="16" offset="0x18" internal="0" description="CRC16 Initialization and Result register">
+    </register>
+    <register id="CRC16RESR" width="16" offset="0x1E" internal="0" description="CRC16 Result Reverse">
+    </register>
+</module>

@@ -1,0 +1,1 @@
+dpinst_64_eng.exe /SW /SA /path ccs_base/emulation/windows/xds110_drivers

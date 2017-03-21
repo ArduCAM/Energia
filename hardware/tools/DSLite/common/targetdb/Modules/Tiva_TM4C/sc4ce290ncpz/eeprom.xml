@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="EEPROM" HW_revision="" XML_version="1.0" description="EEPROM register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="EEPROM_EESIZE" width="32" description="EEPROM Size Information" id="EEPROM_EESIZE" offset="0x00000000" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="Number of 32-Bit Words" id="EEPROM_EESIZE_WORDCNT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="26" width="11" end="16" rwaccess="R" description="Number of 16-Word Blocks" id="EEPROM_EESIZE_BLKCNT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEBLOCK" width="32" description="EEPROM Current Block" id="EEPROM_EEBLOCK" offset="0x00000004" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Current Block" id="EEPROM_EEBLOCK_BLOCK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEOFFSET" width="32" description="EEPROM Current Offset" id="EEPROM_EEOFFSET" offset="0x00000008" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Current Address Offset" id="EEPROM_EEOFFSET_OFFSET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EERDWR" width="32" description="EEPROM Read-Write" id="EEPROM_EERDWR" offset="0x00000010" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="EEPROM Read or Write Data" id="EEPROM_EERDWR_VALUE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EERDWRINC" width="32" description="EEPROM Read-Write with Increment" id="EEPROM_EERDWRINC" offset="0x00000014" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="EEPROM Read or Write Data with Increment" id="EEPROM_EERDWRINC_VALUE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEDONE" width="32" description="EEPROM Done Status" id="EEPROM_EEDONE" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="EEPROM Working" id="EEPROM_EEDONE_WORKING" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Working on an Erase" id="EEPROM_EEDONE_WKERASE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Working on a Copy" id="EEPROM_EEDONE_WKCOPY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Write Without Permission" id="EEPROM_EEDONE_NOPERM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Write Busy" id="EEPROM_EEDONE_WRBUSY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EESUPP" width="32" description="EEPROM Support Control and Status" id="EEPROM_EESUPP" offset="0x0000001C" >
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Erase Must Be Retried" id="EEPROM_EESUPP_ERETRY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Programming Must Be Retried" id="EEPROM_EESUPP_PRETRY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEUNLOCK" width="32" description="EEPROM Unlock" id="EEPROM_EEUNLOCK" offset="0x00000020" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="EEPROM Unlock" id="EEPROM_EEUNLOCK_UNLOCK" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEPROT" width="32" description="EEPROM Protection" id="EEPROM_EEPROT" offset="0x00000030" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Protection Control" id="EEPROM_EEPROT_PROT" resetval="" >
+            <bitenum id="EEPROM_EEPROT_PROT_RWNPW" value="0x00000000" token="" description="This setting is the default. If there is no password, the block is not protected and is readable and writable"/>
+            <bitenum id="EEPROM_EEPROT_PROT_RWPW" value="0x00000001" token="" description="If there is a password, the block is readable or writable only when unlocked"/>
+            <bitenum id="EEPROM_EEPROT_PROT_RONPW" value="0x00000002" token="" description="If there is no password, the block is readable, not writable"/>
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Access Control" id="EEPROM_EEPROT_ACC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEPASS0" width="32" description="EEPROM Password" id="EEPROM_EEPASS0" offset="0x00000034" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Password" id="EEPROM_EEPASS0_PASS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEPASS1" width="32" description="EEPROM Password" id="EEPROM_EEPASS1" offset="0x00000038" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Password" id="EEPROM_EEPASS1_PASS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEPASS2" width="32" description="EEPROM Password" id="EEPROM_EEPASS2" offset="0x0000003C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Password" id="EEPROM_EEPASS2_PASS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEINT" width="32" description="EEPROM Interrupt" id="EEPROM_EEINT" offset="0x00000040" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Interrupt Enable" id="EEPROM_EEINT_INT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEHIDE0" width="32" description="EEPROM Block Hide 0" id="EEPROM_EEHIDE0" offset="0x00000050" >
+        <bitfield range="" begin="31" width="31" end="1" rwaccess="RW" description="Hide Block" id="EEPROM_EEHIDE0_HN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEHIDE1" width="32" description="EEPROM Block Hide 1" id="EEPROM_EEHIDE1" offset="0x00000054" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Hide Block" id="EEPROM_EEHIDE1_HN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEHIDE2" width="32" description="EEPROM Block Hide 2" id="EEPROM_EEHIDE2" offset="0x00000058" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Hide Block" id="EEPROM_EEHIDE2_HN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_EEDBGME" width="32" description="EEPROM Debug Mass Erase" id="EEPROM_EEDBGME" offset="0x00000080" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Mass Erase" id="EEPROM_EEDBGME_ME" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Erase Key" id="EEPROM_EEDBGME_KEY" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="EEPROM_PP" width="32" description="EEPROM Peripheral Properties" id="EEPROM_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="15" width="16" end="0" rwaccess="R" description="EEPROM Size" id="EEPROM_PP_SIZE" resetval="" >
+            <bitenum id="EEPROM_PP_SIZE_64" value="0x00000000" token="" description="64 bytes of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_128" value="0x00000001" token="" description="128 bytes of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_256" value="0x00000003" token="" description="256 bytes of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_512" value="0x00000007" token="" description="512 bytes of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_1K" value="0x0000000F" token="" description="1 KB of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_2K" value="0x0000001F" token="" description="2 KB of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_3K" value="0x0000003F" token="" description="3 KB of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_4K" value="0x0000007F" token="" description="4 KB of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_5K" value="0x000000FF" token="" description="5 KB of EEPROM"/>
+            <bitenum id="EEPROM_PP_SIZE_6K" value="0x000001FF" token="" description="6 KB of EEPROM"/>
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register_ids id="TMS192C2000" XML_version="2.0">
+
+    <register_id id="CALC_PID"                   value="0x00058000" address="0" page="0"/>
+    <register_id id="CALC_COUNT"                 value="0x00058004" address="0" page="0"/>
+    <register_id id="CALC_CTRL"                  value="0x00058008" address="0" page="0"/>
+    <register_id id="CALC_TEST"                  value="0x0005800c" address="0" page="0"/>
+    <register_id id="CALC_MODE"                  value="0x00058010" address="0" page="0"/>
+    <register_id id="CALC_FWDQ_RND_INTRA"        value="0x00058014" address="0" page="0"/>
+    <register_id id="CALC_FWDQ_RND_INTER"        value="0x00058018" address="0" page="0"/>
+    <register_id id="CALC_VP7_MB_FEATURE_DATA_3" value="0x0005801c" address="0" page="0"/>
+    <register_id id="CALC_FWDQ_RND_INTRA_DC"     value="0x00058020" address="0" page="0"/>	
+    <register_id id="CALC_FWDQ_RND_INTER_DC"     value="0x00058024" address="0" page="0"/>
+
+    <register_id id="DBG_CAP"  value="0x00062080" address="0" page="0"/>
+    <register_id id="DBG_CNTL" value="0x00062084" address="0" page="0"/>
+
+    <register_id id="SYNCBOX_REVISION" value="0x00062000" address="0" page="0"/>
+    <register_id id="SYSCONFIG"        value="0x00062010" address="0" page="0"/>
+    <register_id id="RXMESSAGE"        value="0x00062040" address="0" page="0"/>
+    <register_id id="NODEIDENTIFIER"   value="0x00062044" address="0" page="0"/>
+    <register_id id="ERRORMSGDEST"     value="0x00062048" address="0" page="0"/>
+    <register_id id="ERRORLOG"         value="0x0006204c" address="0" page="0"/>
+    <register_id id="ASYNCEVENTACKREQ" value="0x00062050" address="0" page="0"/>
+    <register_id id="PARAMADDR_MOD"    value="0x00062054" address="0" page="0"/>
+    <register_id id="STATUS"           value="0x00062060" address="0" page="0"/>
+
+</register_ids>

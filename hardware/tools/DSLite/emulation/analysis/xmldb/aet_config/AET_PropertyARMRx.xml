@@ -1,0 +1,1024 @@
+<?xml version="1.0"?>
+<!-- This file defines a job the AET can support for a specific ISA. -->
+
+<?CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments"?>
+<AET>
+    <JOB_MAJOR_V>1</JOB_MAJOR_V>
+    <JOB_MINOR_V>0</JOB_MINOR_V>
+
+
+<!--*****************************************************************************-->
+<!--                       FIRST LEVEL OF FUNCTION LIST                          -->
+<!-- This property presents all the supported functions to UBM and has a default -->
+<!-- value of Breakpoint. Every time UBM creates a operation and calls           -->
+<!-- Operation::GetProperties()this property will be returned.                   -->
+<!-- The menu item showed by UBM will be look like:                              -->
+<!--                                                                             -->
+<!--     Type | Breakpoint         |                                             -->
+<!--          | Context Breakpoint         |                                             -->
+<!--          | Watchpoint         |                                             -->
+<!--          | Trace              |                                             -->
+<!--                                                                             -->
+<!-- For different device different set of functions will be listed              -->
+<!-- Mapping of The Fields:                                                      -->
+<!--    NAME         - IProperty::GetName()                                      -->
+<!--    DESCRIPTION  - IProperty::GetDescription()                               -->
+<!--    ALLOWEDLIST  - IStringProperty::GetAllowedValues()                       -->
+<!-- Other definitions:                                                          -->
+<!--    ALLOWEDITEM  - defines an item of allowed values                         -->
+<!--    ALLOWED_KEY  - defines the child key when this allowed value is selected -->
+<!--    ALLOWED_HALT - defines if the function halts CPU                         -->
+<!--    ALLOWED_STRING - allowed string value                                    -->
+<!-- Every time a allowed value is selected as the value of StringProperty, the  -->
+<!-- CHILDKEY will be changed. The new CHILDKEY will be used to update the child -->
+<!-- property of the StringProperty                                              -->
+<!--*****************************************************************************-->
+	<PROPERTY_STRING>                                           
+      <NAME>Type</NAME>                                         
+ 	  <DESCRIPTION>Display all the AET functions</DESCRIPTION>	
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>CONTEXT BP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Context Breakpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWWP</ALLOWED_KEY>
+			<ALLOWED_HALT>TRUE</ALLOWED_HALT>
+			<ALLOWED_STRING>Watchpoint</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>COUNT EVT</ALLOWED_KEY>
+			<ALLOWED_STRING>Count Event</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE</ALLOWED_KEY>
+			<ALLOWED_STRING>Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--****************************************************************************************-->
+<!--                            Event hierarchy for Trace Setting                           -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                            Option of Standard or Event Trace                -->
+<!--        Action                                                               -->
+<!--        What to Trace                                                        -->
+<!--                                                                             -->
+<!-- ALLOWD_SAMELEVEL - It is a second key used by some other property that      -->
+<!--                    will use this key to put itself at the same level of     -->
+<!--                    this property instead of as the child of a property.     -->
+<!--=============================================================================-->
+
+<!--=============================================================================-->
+<!--                          Actions for Standard Trace                         -->
+<!-- The options of the action is depended on the trace type. This property      -->
+<!-- is put at the same level of Trace Type.                                     -->
+<!--         Action                                                              -->
+<!--           |--> Trace On                                                     -->
+<!--           |--> Start Trace                                                  -->
+<!--           |--> End Trace                                                    -->
+<!--           |--> Trace in Range                                               -->
+<!--           |--> Don't Trace in Range                                         -->
+<!--           |--> Trace Variable                                               -->
+<!--           |--> Insert Trace Marker                                          -->
+<!--           |--> End All Trace                                                -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Actions</NAME>	
+ 	  <DESCRIPTION>Trace action list</DESCRIPTION>	
+	  <KEYITEM>
+		  <KEYNAME>TRACE</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE ON DATA</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace On</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE LOCATION</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Start Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE LOCATION</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>END TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>End Trace</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE RANGE</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE DATA</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Don't Trace in Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>TRACE MEM LOCATION</ALLOWED_KEY>
+			<ALLOWED_SAMELEVEL_KEY>TRACE VARIABLE</ALLOWED_SAMELEVEL_KEY>
+			<ALLOWED_STRING>Trace Variable</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+
+<!--=============================================================================-->
+<!--                         Wrapper of What to Trace List                       -->
+<!--        Action  | Trace On      |                                            -->
+<!--        What to Trace (for Trace On)                                         -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>What to Trace</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR ALL</CHILDKEY>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>What to Trace</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE VARIABLE</KEYNAME>	
+		  <KEYNUMBER>10</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA ONLY</CHILDKEY>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>What to End</NAME>	
+ 	  <DESCRIPTION>Data steams to trace</DESCRIPTION>	
+	  <VALUE>(Select data to trace)</VALUE>		
+	  <KEYITEM>
+		  <KEYNAME>END TRACE DATA</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <EDITABLE>FALSE</EDITABLE>
+	  <CHILDKEY>TRACE DATA FOR ALL</CHILDKEY>
+	</PROPERTY_STRING>
+	
+	<PROPERTY_BOOL>
+	  <NAME>Program Address</NAME>	
+ 	  <DESCRIPTION>Include program address in trace steam</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Data</NAME>	
+ 	  <DESCRIPTION>Include Data Bus</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA FOR ALL</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE DATA ONLY</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+<!--****************************************************************************************-->
+<!--                                Properties for PC Access.                               -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                           PC Address Value                                  -->
+<!-- This location will be the child property for defining a location. There are -->
+<!-- some new fields defined by this unit.                                       -->
+<!--    KEYNAME   - defines the key of the unit. Parent unit will use this key   -->
+<!--                to attach sub properties.                                    -->
+<!--    KEYNUMBER - defines the position of this property in the sub property    -->
+<!--                list.                                                        -->
+<!--    ENUMVALUE - defines the enum value of the signal or action.              -->
+<!--    VALUE     - default value of the address                                 -->
+<!--    PAGE      - default page number                                          -->
+<!--                                                                             -->
+<!-- This unit defines a location property that will attach to the property      -->
+<!-- associated with the child key HWBP, HWAP, TRACE LOCATION.                   -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE LOCATION</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--****************************************************************************************-->
+<!--                                Properties for Memory Access                            -->
+<!--****************************************************************************************-->
+
+<!--=============================================================================-->
+<!--                           Memory Address                                    -->
+<!-- Address for point memory access.                                            -->
+<!--                                                                             -->
+<!--     Type             | Watchpoint      |                                    -->
+<!--       Location Type  | Point           |                                    -->
+<!--                      | Range           |                                    -->
+<!--          Location    | 0x00000000      |                                    -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Location Type</NAME>	
+ 	  <DESCRIPTION>Options of watch point at a point or in a range</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP AT POINT</ALLOWED_KEY>
+			<ALLOWED_STRING>Point</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_KEY>HWBP IN RANGE</ALLOWED_KEY>
+			<ALLOWED_STRING>Range</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_LOCATION>
+	  <NAME>Location</NAME>	
+ 	  <DESCRIPTION>Reference value of data memory location</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWBP AT POINT</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                          Start Location of PC Range                         -->
+<!-- This unit defines the start location of a PC range.                         -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Start Location</NAME>	
+ 	  <DESCRIPTION>Reference value of variable address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP IN RANGE</KEYNAME>	   <!-- Key for range HW watch point -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                          End Location of PC Range                           -->
+<!-- This unit defines the End location of a PC range.                           -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>End Location</NAME>	
+ 	  <DESCRIPTION>Reference value of variable address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP IN RANGE</KEYNAME>	   <!-- Key for range HW watch point -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>4</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+	
+<!--=============================================================================-->
+<!--                         Chained PC Address Value 1                          -->
+<!-- This is another unit to define a location with a key of CHAINED BP. The     -->
+<!-- ENUNUMBER indicates it is the first location of a chained BP.               -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>First Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CHAINED BP</KEYNAME>	
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                         Chained PC Address Value 2                          -->
+<!-- This is another unit to define a location with a key of CHAINED BP. The     -->
+<!-- ENUNUMBER indicates it is the second location of a chained BP.              -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Second Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CHAINED BP</KEYNAME>	
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>4</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+	
+<!--=============================================================================-->
+<!--                           Type of Access                                    -->
+<!-- Choice of read or write access. This unit defines the option for HW watch   -->
+<!-- point, data action point, data access count, data trace.                    -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Memory</NAME>	
+ 	  <DESCRIPTION>Data memory write access</DESCRIPTION>		
+  	  <VALUE>Write</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Write</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Read</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Any</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Memory Read</NAME>	
+ 	  <DESCRIPTION>Memory read access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+	<PROPERTY_BOOL>
+	  <NAME>Memory Write</NAME>	
+ 	  <DESCRIPTION>Memory write access</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>1</VALUE>
+	</PROPERTY_BOOL>
+
+
+<!--=============================================================================-->
+<!--                           Access Width                                      -->
+<!-- This unit defines the access width option for HW watch point, data action   -->
+<!-- point, data access count, data trace.                                       -->
+<!--     CHILDKEY - key for the sub properties attached to it.                   -->
+<!--                                                                             -->
+<!--     Type                | Watchpoint      |                                 -->
+<!--       Location Type     | Point           |                                 -->
+<!--                         | Range           |                                 -->
+<!--          Location       | 0x00000000      |                                 -->
+<!--          Memory Access  | Write/Read      |                                 -->
+<!--          Access Width                                                       -->
+<!--               8 bit         X                                               -->
+<!--               16 bit        X                                               -->
+<!--               32 bit        X                                               -->
+<!--                                                                             -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Access Width</NAME>	
+ 	  <DESCRIPTION>Memory access type</DESCRIPTION>	
+  	  <VALUE>32 Bit</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>TRACE MEM LOCATION</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>8 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>16 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>32 Bit</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                          Start Location of PC Range                         -->
+<!-- This unit defines the start location of a PC range.                         -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>Start Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE RANGE</KEYNAME>	   <!-- Key for trace in range    -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>0</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+
+<!--=============================================================================-->
+<!--                          End Location of PC Range                           -->
+<!-- This unit defines the End location of a PC range.                           -->
+<!--=============================================================================-->
+	<PROPERTY_LOCATION>
+	  <NAME>End Location</NAME>	
+ 	  <DESCRIPTION>Reference value of program address</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>TRACE RANGE</KEYNAME>	   <!-- Key for trace in range    -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ENUMVALUE>1</ENUMVALUE>
+	  <VALUE>4</VALUE>
+	  <PAGE>0</PAGE>	
+	</PROPERTY_LOCATION>
+	
+<!--=============================================================================-->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Access Mode</NAME>	
+ 	  <DESCRIPTION>Supervisor access control. The setting to condition on the mode of the processor</DESCRIPTION>	
+  	  <VALUE>32 Bit</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>CONTEXT BP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Any</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Privilege</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>User</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_STRING>
+	  <NAME>Security</NAME>	
+ 	  <DESCRIPTION>Secure state access contorl. The setting to condition on the security state of the processor</DESCRIPTION>	
+  	  <VALUE>32 Bit</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>CONTEXT BP</KEYNAME>	
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Any</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Secure</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Non-secure</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Match Context</NAME>	
+ 	  <DESCRIPTION>Qualifier breakpoint with context ID</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>7</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <CHILDKEY>CONTEXT VALUE</CHILDKEY>	
+	</PROPERTY_BOOL>
+
+	<PROPERTY_INTEGER>
+	  <NAME>Context ID</NAME>	
+ 	  <DESCRIPTION>Value of the context ID</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>CONTEXT VALUE</KEYNAME>	      
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <KEYITEM>
+		  <KEYNAME>CONTEXT BP</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <VALUE>0</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_STRING>
+	  <NAME>Range Mask</NAME>	
+ 	  <DESCRIPTION>Data memory write access</DESCRIPTION>		
+  	  <VALUE>Write</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>HWBP</KEYNAME>	
+		  <KEYNUMBER>5</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>HWWP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+ 	  <KEYITEM>
+		  <KEYNAME>CONTEXT BP</KEYNAME>	
+		  <KEYNUMBER>6</KEYNUMBER>	
+	  </KEYITEM>
+	  <KEYITEM>
+		  <KEYNAME>CONTEXT VALUE</KEYNAME>	      
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>None</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x800</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x00000007</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x803</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0000000F</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x804</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0000001F</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x805</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0000003F</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x806</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0000007F</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x807</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x000000FF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x808</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x000001FF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x809</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x000003FF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80A</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x000007FF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80B</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x00000FFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80C</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x00001FFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80D</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x00003FFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80E</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x00007FFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80F</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0000FFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x810</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0001FFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x811</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0003FFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x812</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0007FFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x813</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x000FFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x814</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x001FFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x815</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x003FFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x816</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x007FFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x817</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x00FFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x818</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x01FFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x819</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x03FFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x81A</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x07FFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x81B</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x0FFFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x81C</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x1FFFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x81D</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x3FFFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x81E</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>0x7FFFFFFF</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x81F</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+<!--=============================================================================-->
+<!--                      Not Editable Counter Value                             -->
+<!--=============================================================================-->
+	<PROPERTY_INTEGER>
+	  <NAME>Current Count</NAME>	
+ 	  <DESCRIPTION>Value of the count</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>1</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <DISPLAYTYPE>DEC</DISPLAYTYPE>
+	  <RANGELO>0</RANGELO>
+	  <RANGEHI>0xFFFFFFFF</RANGEHI>
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_INTEGER>
+
+	<PROPERTY_BOOL>
+	  <NAME>Overflow</NAME>	
+ 	  <DESCRIPTION>Overflow status</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>2</KEYNUMBER>	
+	  </KEYITEM>
+  	  <VALUE>0</VALUE>
+	  <EDITABLE>FALSE</EDITABLE>	
+	</PROPERTY_BOOL>
+
+	<PROPERTY_STRING>
+	  <NAME>Event to Count</NAME>	
+ 	  <DESCRIPTION>The list of the events for 32 bit mode.</DESCRIPTION>		
+  	  <VALUE>0</VALUE>
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT</KEYNAME>	      <!-- Key of sub property for Count Event       -->
+		  <KEYNUMBER>3</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Clock Cycles</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80010000</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>SW Increment</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000000</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ICache Miss</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000001</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DCache Miss</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000003</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DCache Access</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000004</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DRead Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000006</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>DWrite Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000007</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Instruction Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000008</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Dual Instruction Excuted</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000005E</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Exception Taken</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000009</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Exception Return Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000000A</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Change to ContextID Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000000B</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Software Change of PC</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000000C</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>B,BL and(or) BLX Immediate Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000000D</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Procedure Return Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000000E</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Unaligned Access Executed</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000000F</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Branch Mispredicted(not predicted)</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000010</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Branches</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000012</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Instruction Buf. Full Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000040</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Data Dependency Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000041</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Data Cache Write-back</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000042</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>External Memory Request</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000043</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>LSU Busy Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000044</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Store Buf. Forced to Drain</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000045</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Cycles of Disabled FIQ</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000046</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Cycles of Disabled IRQ</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000047</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ETMEXTOUT0</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000048</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ETMEXTOUT1</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000049</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Instruction Cache Tag ECC Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000004A</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Instruction Cache Data ECC Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000004B</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Data Cache Tag ECC Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000004C</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Data Cache Data ECC Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000004D</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TCM Error from Prefetch Unit</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000004E</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TCM Error from Load or Store Unit</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000004F</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Store Buffer Merge</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000050</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Store Buf. Full LSU Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000051</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Store Queue Full LSU Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000052</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Integer Divide Instruction</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000053</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Integer Divide Stall</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000054</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Linefill Initialization</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000055</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Resource Shortage Linefill Failure</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000056</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Non-cacheable Access on AXI Bus</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000057</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Store Buffer on Two Slots in Same Cache Line</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000059</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Dual Issue Case A(branch)</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000005A</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Dual Issue Case B1,B2,F2,F2D</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000005B</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Dual Issue Other Case</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000005C</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Double Precision Floating Point Instruction</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000005D</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Data Cache Data RAM Fatal ECC Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000060</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Data Cache Tag or Dirty RAM Fatal ECC Error</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000061</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Processor Livelock</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000062</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ATCM Multi-bit ECC ERROR</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000063</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ATCM Multi-bit ECC ERROR</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000064</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>B0TCM Multi-bit ECC ERROR</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000065</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>B1TCM Multi-bit ECC ERROR</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000066</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>ATCM Multi-bit ECC ERROR</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000067</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>B0TCM Single-bit ECC ERROR</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000068</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>B1TCM Single-bit ECC ERROR</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x80000069</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TCM Correctable ECC ERROR Reported by Load(Store)Unit</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000006A</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TCM Correctable ECC ERROR Reported by Prefetch Unit</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000006B</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TCM Fatal ECC ERROR Reported by AXI Slave Interface</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000006C</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>TCM Correctable ECC ERROR Reported by AXI Slave Interface</ALLOWED_STRING>
+			<ALLOWED_ENUM>0x8000006D</ALLOWED_ENUM>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+		
+<!--=============================================================================-->
+<!--                         Auto or Manual Reset Option                         -->
+<!--=============================================================================-->
+	<PROPERTY_STRING>
+	  <NAME>Reset Option</NAME>	
+ 	  <DESCRIPTION>Auto or manual reset after each halt</DESCRIPTION>		
+	  <KEYITEM>
+		  <KEYNAME>COUNT EVT x</KEYNAME>	
+		  <KEYNUMBER>4</KEYNUMBER>	
+	  </KEYITEM>
+	  <ALLOWEDLIST>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Manual</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+		  <ALLOWEDITEM>
+			<ALLOWED_STRING>Auto</ALLOWED_STRING>
+		  </ALLOWEDITEM>
+	  </ALLOWEDLIST>
+	</PROPERTY_STRING>
+
+	<PROPERTY_BOOL>
+	  <NAME>Resource Check</NAME>	
+ 	  <DESCRIPTION>Resource check flag</DESCRIPTION>		
+  	  <VALUE>0</VALUE>
+	</PROPERTY_BOOL>
+
+</AET>

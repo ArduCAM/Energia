@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<drivers id="ICEPICK_C">
+	<isa Type="ICEPICK_C" ProcID="0x3C000805">
+		<driver file="NONE">
+			<connectionType Type="LM_ICDI"/>
+		</driver>
+	</isa>
+</drivers>

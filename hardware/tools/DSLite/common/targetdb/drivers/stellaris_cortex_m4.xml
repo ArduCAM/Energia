@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<drivers id="CORTEX_M4">
+	<isa Type="CORTEX_M4" ProcID="0x75803800">
+		<driver file="../../../DebugServer/drivers/stellaris_emu.dvr">
+			<property Type="stringfield" Value="1000000" id="JTAG Frequency (Hz)" />
+			<connectionType Type="LM_ICDI"/>
+		</driver>
+	</isa>
+</drivers>

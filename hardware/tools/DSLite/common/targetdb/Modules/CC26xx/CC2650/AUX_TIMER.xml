@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AUX_TIMER" HW_revision="" XML_version="1.0" description="AUX Timer
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="T0CFG" width="32" description="Timer 0 Configuration
+" id="T0CFG" offset="0x0">
+      <bitfield range="" begin="31" width="18" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Source count polarity for timer 0" id="TICK_SRC_POL" resetval="0x0">
+         <bitenum id="FALL" value="1" token="Count on falling edges of TICK_SRC" description="Count on falling edges of TICK_SRC"/>
+         <bitenum id="RISE" value="0" token="Count on rising edges of TICK_SRC" description="Count on rising edges of TICK_SRC"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RW" description="Selected tick source for timer 0" id="TICK_SRC" resetval="0x0">
+         <bitenum id="ADC_IRQ" value="31" token="Selects ADC_IRQ" description="Selects ADC_IRQ"/>
+         <bitenum id="MCU_EVENT" value="30" token="Selects MCU_EV" description="Selects MCU_EV"/>
+         <bitenum id="ACLK_REF" value="29" token="Selects ACLK_REF" description="Selects ACLK_REF"/>
+         <bitenum id="AUXIO15" value="28" token="Selects AUXIO15" description="Selects AUXIO15"/>
+         <bitenum id="AUXIO14" value="27" token="Selects AUXIO14" description="Selects AUXIO14"/>
+         <bitenum id="AUXIO13" value="26" token="Selects AUXIO13" description="Selects AUXIO13"/>
+         <bitenum id="AUXIO12" value="25" token="Selects AUXIO12" description="Selects AUXIO12"/>
+         <bitenum id="AUXIO11" value="24" token="Selects AUXIO11" description="Selects AUXIO11"/>
+         <bitenum id="AUXIO10" value="23" token="Selects AUXIO10" description="Selects AUXIO10"/>
+         <bitenum id="AUXIO9" value="22" token="Selects AUXIO9" description="Selects AUXIO9"/>
+         <bitenum id="AUXIO8" value="21" token="Selects AUXIO8" description="Selects AUXIO8"/>
+         <bitenum id="AUXIO7" value="20" token="Selects AUXIO7" description="Selects AUXIO7"/>
+         <bitenum id="AUXIO6" value="19" token="Selects AUXIO6" description="Selects AUXIO6"/>
+         <bitenum id="AUXIO5" value="18" token="Selects AUXIO5" description="Selects AUXIO5"/>
+         <bitenum id="AUXIO4" value="17" token="Selects AUXIO4" description="Selects AUXIO4"/>
+         <bitenum id="AUXIO3" value="16" token="Selects AUXIO3" description="Selects AUXIO3"/>
+         <bitenum id="AUXIO2" value="15" token="Selects AUXIO2" description="Selects AUXIO2"/>
+         <bitenum id="AUXIO1" value="14" token="Selects AUXIO1" description="Selects AUXIO1"/>
+         <bitenum id="AUXIO0" value="13" token="Selects AUXIO0" description="Selects AUXIO0"/>
+         <bitenum id="AON_PROG_WU" value="12" token="Selects AON_PROG_WU" description="Selects AON_PROG_WU"/>
+         <bitenum id="AON_SW" value="11" token="Selects AON_SW" description="Selects AON_SW"/>
+         <bitenum id="OBSMUX1" value="10" token="Selects OBSMUX1" description="Selects OBSMUX1"/>
+         <bitenum id="OBSMUX0" value="9" token="Selects OBSMUX0" description="Selects OBSMUX0"/>
+         <bitenum id="RTC_4KHZ" value="8" token="Selects RTC_4KHZ" description="Selects RTC_4KHZ"/>
+         <bitenum id="ADC_DONE" value="7" token="Selects ADC_DONE" description="Selects ADC_DONE"/>
+         <bitenum id="SMPH_AUTOTAKE_DONE" value="6" token="Selects SMPH_AUTOTAKE_DONE" description="Selects SMPH_AUTOTAKE_DONE"/>
+         <bitenum id="TIMER1_EV" value="5" token="Selects TIMER1_EV" description="Selects TIMER1_EV"/>
+         <bitenum id="TDC_DONE" value="3" token="Selects TDC_DONE" description="Selects TDC_DONE"/>
+         <bitenum id="AUX_COMPB" value="2" token="Selects AUX_COMPB" description="Selects AUX_COMPB"/>
+         <bitenum id="AUX_COMPA" value="1" token="Selects AUX_COMPA" description="Selects AUX_COMPA"/>
+         <bitenum id="RTC_CH2_EV" value="0" token="Selects RTC_CH2_EV" description="Selects RTC_CH2_EV"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Prescaler division ratio is 2^PRE" id="PRE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="2" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Timer 0 mode" id="MODE" resetval="0x0">
+         <bitenum id="TICK" value="1" token="Timer 0 counter increments only on edges of the event set by TICK_SRC. The events are divided by the PRE setting." description="Timer 0 counter increments only on edges of the event set by TICK_SRC. The events are divided by the PRE setting."/>
+         <bitenum id="CLK" value="0" token="Timer 0 increments on every 2^PRE edges of AUX clock" description="Timer 0 increments on every 2^PRE edges of AUX clock"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Timer 0 reload setting" id="RELOAD" resetval="0x0">
+         <bitenum id="CONT" value="1" token="Timer is automatically restarted when target is reached" description="Timer is automatically restarted when target is reached"/>
+         <bitenum id="MAN" value="0" token="Timer has to be restarted manually" description="Timer has to be restarted manually"/>
+      </bitfield>
+   </register>
+   <register acronym="T1CFG" width="32" description="Timer 1 Configuration
+" id="T1CFG" offset="0x4">
+      <bitfield range="" begin="31" width="18" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Source count polarity for timer 1" id="TICK_SRC_POL" resetval="0x0">
+         <bitenum id="FALL" value="1" token="Count on falling edges of TICK_SRC" description="Count on falling edges of TICK_SRC"/>
+         <bitenum id="RISE" value="0" token="Count on rising edges of TICK_SRC" description="Count on rising edges of TICK_SRC"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RW" description="Selected tick source for timer 1" id="TICK_SRC" resetval="0x0">
+         <bitenum id="ADC_IRQ" value="31" token="Selects ADC_IRQ" description="Selects ADC_IRQ"/>
+         <bitenum id="MCU_EVENT" value="30" token="Selects MCU_EV" description="Selects MCU_EV"/>
+         <bitenum id="ACLK_REF" value="29" token="Selects ACLK_REF" description="Selects ACLK_REF"/>
+         <bitenum id="AUXIO15" value="28" token="Selects AUXIO15" description="Selects AUXIO15"/>
+         <bitenum id="AUXIO14" value="27" token="Selects AUXIO14" description="Selects AUXIO14"/>
+         <bitenum id="AUXIO13" value="26" token="Selects AUXIO13" description="Selects AUXIO13"/>
+         <bitenum id="AUXIO12" value="25" token="Selects AUXIO12" description="Selects AUXIO12"/>
+         <bitenum id="AUXIO11" value="24" token="Selects AUXIO11" description="Selects AUXIO11"/>
+         <bitenum id="AUXIO10" value="23" token="Selects AUXIO10" description="Selects AUXIO10"/>
+         <bitenum id="AUXIO9" value="22" token="Selects AUXIO9" description="Selects AUXIO9"/>
+         <bitenum id="AUXIO8" value="21" token="Selects AUXIO8" description="Selects AUXIO8"/>
+         <bitenum id="AUXIO7" value="20" token="Selects AUXIO7" description="Selects AUXIO7"/>
+         <bitenum id="AUXIO6" value="19" token="Selects AUXIO6" description="Selects AUXIO6"/>
+         <bitenum id="AUXIO5" value="18" token="Selects AUXIO5" description="Selects AUXIO5"/>
+         <bitenum id="AUXIO4" value="17" token="Selects AUXIO4" description="Selects AUXIO4"/>
+         <bitenum id="AUXIO3" value="16" token="Selects AUXIO3" description="Selects AUXIO3"/>
+         <bitenum id="AUXIO2" value="15" token="Selects AUXIO2" description="Selects AUXIO2"/>
+         <bitenum id="AUXIO1" value="14" token="Selects AUXIO1" description="Selects AUXIO1"/>
+         <bitenum id="AUXIO0" value="13" token="Selects AUXIO0" description="Selects AUXIO0"/>
+         <bitenum id="AON_PROG_WU" value="12" token="Selects AON_PROG_WU" description="Selects AON_PROG_WU"/>
+         <bitenum id="AON_SW" value="11" token="Selects AON_SW" description="Selects AON_SW"/>
+         <bitenum id="OBSMUX1" value="10" token="Selects OBSMUX1" description="Selects OBSMUX1"/>
+         <bitenum id="OBSMUX0" value="9" token="Selects OBSMUX0" description="Selects OBSMUX0"/>
+         <bitenum id="RTC_4KHZ" value="8" token="Selects RTC_4KHZ" description="Selects RTC_4KHZ"/>
+         <bitenum id="ADC_DONE" value="7" token="Selects ADC_DONE" description="Selects ADC_DONE"/>
+         <bitenum id="SMPH_AUTOTAKE_DONE" value="6" token="Selects SMPH_AUTOTAKE_DONE" description="Selects SMPH_AUTOTAKE_DONE"/>
+         <bitenum id="TIMER0_EV" value="4" token="Selects TIMER0_EV" description="Selects TIMER0_EV"/>
+         <bitenum id="TDC_DONE" value="3" token="Selects TDC_DONE" description="Selects TDC_DONE"/>
+         <bitenum id="AUX_COMPB" value="2" token="Selects AUX_COMPB" description="Selects AUX_COMPB"/>
+         <bitenum id="AUX_COMPA" value="1" token="Selects AUX_COMPA" description="Selects AUX_COMPA"/>
+         <bitenum id="RTC_CH2_EV" value="0" token="Selects RTC_CH2_EV" description="Selects RTC_CH2_EV"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Prescaler division ratio is 2^PRE" id="PRE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="2" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Timer 1 mode" id="MODE" resetval="0x0">
+         <bitenum id="TICK" value="1" token="Timer 1 counter increments only on edges of the event set by TICK_SRC. The events are divided by the PRE setting." description="Timer 1 counter increments only on edges of the event set by TICK_SRC. The events are divided by the PRE setting."/>
+         <bitenum id="CLK" value="0" token="Timer 1 increments on every 2^PRE edges of AUX clock" description="Timer 1 increments on every 2^PRE edges of AUX clock"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Timer 1 reload setting" id="RELOAD" resetval="0x0">
+         <bitenum id="CONT" value="1" token="Timer is automatically restarted when target is reached" description="Timer is automatically restarted when target is reached"/>
+         <bitenum id="MAN" value="0" token="Timer has to be restarted manually" description="Timer has to be restarted manually"/>
+      </bitfield>
+   </register>
+   <register acronym="T0CTL" width="32" description="Timer 0 Control
+
+Run control/status for timer 0
+" id="T0CTL" offset="0x8">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Timer 0 run enable control. The counter restarts when enabling the timer. If T0CFG.RELOAD = 0, the timer is automatically disabled when reaching T0TARGET.VALUE
+
+0: Disable timer 0
+1: Enable timer 0
+" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="T0TARGET" width="32" description="Timer 0 Target
+
+Target counter value for timer 0
+" id="T0TARGET" offset="0xc">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Timer 0 counts from 0 to VALUE. Then gives an event and restarts if configured to do to so in the T0CFG.RELOAD setting. If VALUE is changed while timer 0 is running so that the count becomes higher than VALUE timer 0 will also restart if configured to do so.
+
+If T0CFG.MODE=0,no prescaler is used, and VALUE equals 1, the TIMER0_EV event line will be always set" id="VALUE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="T1TARGET" width="32" description="Timer 1 Target
+
+Target Counter Value Timer 1
+" id="T1TARGET" offset="0x10">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Timer 1 counts from 0 to VALUE. Then gives an event and restarts if configured to do to so in the T1CFG.RELOAD setting. If VALUE is changed while timer 1 is running so that the count becomes higher than VALUE timer 1 will also restart if configured to do so.
+
+If T1CFG.MODE=0,no prescaler is used, and VALUE equals 1, the TIMER1_EV event line will be always set" id="VALUE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="T1CTL" width="32" description="Timer 1 Control
+
+Run Control/Status For Timer 1
+" id="T1CTL" offset="0x14">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Timer 1 run enable control. The counter restarts when enabling the timer. If T1CFG.RELOAD = 0, the timer is automatically disabled when reaching T1TARGET.VALUE
+
+0: Disable timer 1
+1: Enable timer 1
+" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

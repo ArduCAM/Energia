@@ -1,0 +1,88 @@
+<module id="ACCESS_PROTECTION_REGS" HW_revision="" description="ACCESS PROTECTION Registers">
+	<register id="NMAVFLG" width="32" page="1" offset="0x0" internal="0" description="Non-Master Access Violation Flag Register">
+		<bitfield id="CPUREAD" description="Non Master CPU Read Access Violation Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="CPUWRITE" description="Non Master CPU Write Access Violation Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="CPUFETCH" description="Non Master CPU Fetch Access Violation Flag" begin="2" end="2" width="1" rwaccess="R"/>
+		<bitfield id="DMAWRITE" description="Non Master DMA Write Access Violation Flag" begin="3" end="3" width="1" rwaccess="R"/>
+		<bitfield id="CLA1READ" description="Non Master CLA1 Read Access Violation Flag" begin="4" end="4" width="1" rwaccess="R"/>
+		<bitfield id="CLA1WRITE" description="Non Master CLA1 Write Access Violation Flag" begin="5" end="5" width="1" rwaccess="R"/>
+		<bitfield id="CLA1FETCH" description="Non Master CLA1 Fetch Access Violation Flag" begin="6" end="6" width="1" rwaccess="R"/>
+	</register>
+	<register id="NMAVSET" width="32" page="1" offset="0x2" internal="0" description="Non-Master Access Violation Flag Set Register">
+		<bitfield id="CPUREAD" description="Non Master CPU Read Access Violation Flag Set" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPUWRITE" description="Non Master CPU Write Access Violation Flag Set" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPUFETCH" description="Non Master CPU Fetch Access Violation Flag Set" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="DMAWRITE" description="Non Master DMA Write Access Violation Flag Set" begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CLA1READ" description="Non Master CLA1 Read Access Violation Flag Set" begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CLA1WRITE" description="Non Master CLA1 Write Access Violation Flag Set" begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CLA1FETCH" description="Non Master CLA1 Fetch Access Violation Flag Set" begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="NMAVCLR" width="32" page="1" offset="0x4" internal="0" description="Non-Master Access Violation Flag Clear Register">
+		<bitfield id="CPUREAD" description="Non Master CPU Read Access Violation Flag Clear " begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPUWRITE" description="Non Master CPU Write Access Violation Flag Clear " begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPUFETCH" description="Non Master CPU Fetch Access Violation Flag Clear " begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="DMAWRITE" description="Non Master DMA Write Access Violation Flag Clear " begin="3" end="3" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CLA1READ" description="Non Master CLA1 Read Access Violation Flag Clear " begin="4" end="4" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CLA1WRITE" description="Non Master CLA1 Write Access Violation Flag Clear " begin="5" end="5" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CLA1FETCH" description="Non Master CLA1 Fetch Access Violation Flag Clear " begin="6" end="6" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="NMAVINTEN" width="32" page="1" offset="0x6" internal="0" description="Non-Master Access Violation Interrupt Enable Register">
+		<bitfield id="CPUREAD" description="Non Master CPU Read Access Violation Interrupt Enable " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRITE" description="Non Master CPU Write Access Violation Interrupt Enable " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUFETCH" description="Non Master CPU Fetch Access Violation Interrupt Enable " begin="2" end="2" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRITE" description="Non Master DMA Write Access Violation Interrupt Enable " begin="3" end="3" width="1" rwaccess="R/W"/>
+		<bitfield id="CLA1READ" description="Non Master CLA1 Read Access Violation Interrupt Enable " begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="CLA1WRITE" description="Non Master CLA1 Write Access Violation Interrupt Enable " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="CLA1FETCH" description="Non Master CLA1 Fetch Access Violation Interrupt Enable " begin="6" end="6" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="NMCPURDAVADDR" width="32" page="1" offset="0x8" internal="0" description="Non-Master CPU Read Access Violation Address">
+		<bitfield id="NMCPURDAVADDR" description="Non Master CPU read access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="NMCPUWRAVADDR" width="32" page="1" offset="0xa" internal="0" description="Non-Master CPU Write Access Violation Address">
+		<bitfield id="NMCPUWRAVADDR" description="Non Master CPU write access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="NMCPUFAVADDR" width="32" page="1" offset="0xc" internal="0" description="Non-Master CPU Fetch Access Violation Address">
+		<bitfield id="NMCPUFAVADDR" description="Non Master CPU fetch access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="NMDMAWRAVADDR" width="32" page="1" offset="0xe" internal="0" description="Non-Master DMA Write Access Violation Address">
+		<bitfield id="NMDMAWRAVADDR" description="Non Master DMA write access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="NMCLA1RDAVADDR" width="32" page="1" offset="0x10" internal="0" description="Non-Master CLA1 Read Access Violation Address">
+		<bitfield id="NMCLA1RDAVADDR" description="Non Master CLA1 read access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="NMCLA1WRAVADDR" width="32" page="1" offset="0x12" internal="0" description="Non-Master CLA1 Write Access Violation Address">
+		<bitfield id="NMCLA1WRAVADDR" description="Non Master CLA1 write access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="NMCLA1FAVADDR" width="32" page="1" offset="0x14" internal="0" description="Non-Master CLA1 Fetch Access Violation Address">
+		<bitfield id="NMCLA1FAVADDR" description="Non Master CLA1 fetch access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="MAVFLG" width="32" page="1" offset="0x20" internal="0" description="Master Access Violation Flag Register">
+		<bitfield id="CPUFETCH" description="Master CPU Fetch Access Violation Flag" begin="0" end="0" width="1" rwaccess="R"/>
+		<bitfield id="CPUWRITE" description="Master CPU Write Access Violation Flag" begin="1" end="1" width="1" rwaccess="R"/>
+		<bitfield id="DMAWRITE" description="Master DMA Write Access Violation Flag" begin="2" end="2" width="1" rwaccess="R"/>
+	</register>
+	<register id="MAVSET" width="32" page="1" offset="0x22" internal="0" description="Master Access Violation Flag Set Register">
+		<bitfield id="CPUFETCH" description="Master CPU Fetch Access Violation Flag Set" begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPUWRITE" description="Master CPU Write Access Violation Flag Set" begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="DMAWRITE" description="Master DMA Write Access Violation Flag Set" begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="MAVCLR" width="32" page="1" offset="0x24" internal="0" description="Master Access Violation Flag Clear Register">
+		<bitfield id="CPUFETCH" description="Master CPU Fetch Access Violation Flag Clear " begin="0" end="0" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="CPUWRITE" description="Master CPU Write Access Violation Flag Clear " begin="1" end="1" width="1" rwaccess="R=0/W=1"/>
+		<bitfield id="DMAWRITE" description="Master DMA Write Access Violation Flag Clear " begin="2" end="2" width="1" rwaccess="R=0/W=1"/>
+	</register>
+	<register id="MAVINTEN" width="32" page="1" offset="0x26" internal="0" description="Master Access Violation Interrupt Enable Register">
+		<bitfield id="CPUFETCH" description="Master CPU Fetch Access Violation Interrupt Enable " begin="0" end="0" width="1" rwaccess="R/W"/>
+		<bitfield id="CPUWRITE" description="Master CPU Write Access Violation Interrupt Enable " begin="1" end="1" width="1" rwaccess="R/W"/>
+		<bitfield id="DMAWRITE" description="Master DMA Write Access Violation Interrupt Enable " begin="2" end="2" width="1" rwaccess="R/W"/>
+	</register>
+	<register id="MCPUFAVADDR" width="32" page="1" offset="0x28" internal="0" description="Master CPU Fetch Access Violation Address">
+		<bitfield id="MCPUFAVADDR" description="Master CPU fetch access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="MCPUWRAVADDR" width="32" page="1" offset="0x2a" internal="0" description="Master CPU Write Access Violation Address">
+		<bitfield id="MCPUWRAVADDR" description="Master CPU write access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+	<register id="MDMAWRAVADDR" width="32" page="1" offset="0x2c" internal="0" description="Master  DMA Write Access Violation Address">
+		<bitfield id="MDMAWRAVADDR" description="Master DMA write access violation address register. " begin="31" end="0" width="32" rwaccess="R"/>
+	</register>
+</module>

@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<!-- This file defines the on-chip debug resources for a 64127.  It is required.  
+     Don&apos;t make any changes unless you know what you&apos;re doing, and make a backup first. -->
+
+
+<CTOOLS version="1.1.0.0" Copyright="Copyright (c) 2005-2007 Texas Instruments">
+    <ENTITY_NAME>cTools2000</ENTITY_NAME>
+    <NUM_CTOOLS>0</NUM_CTOOLS>
+    <HW_MAJOR_V>2</HW_MAJOR_V>
+    <HW_MINOR_V>1</HW_MINOR_V>
+    <DB_MAJOR_V>1</DB_MAJOR_V>
+    <DB_MINOR_V>0</DB_MINOR_V>
+
+    <ACTION>
+      <GLOBAL_ID>90</GLOBAL_ID>
+      <TYPE>4</TYPE>
+      <ID>1</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>Go To State</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>109</GLOBAL_ID>
+      <TYPE>1</TYPE>
+      <ID>21</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>Halt CPU</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>110</GLOBAL_ID>
+      <TYPE>9</TYPE>
+      <ID>22</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>Drive Pin</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>102</GLOBAL_ID>
+      <TYPE>3</TYPE>
+      <ID>14</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Start Timer</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>103</GLOBAL_ID>
+      <TYPE>3</TYPE>
+      <ID>15</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Stop Timer</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>104</GLOBAL_ID>
+      <TYPE>2</TYPE>
+      <ID>16</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Start Counter</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>105</GLOBAL_ID>
+      <TYPE>2</TYPE>
+      <ID>17</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Stop Counter</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>106</GLOBAL_ID>
+      <TYPE>2</TYPE>
+      <ID>18</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Reload Counter</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>107</GLOBAL_ID>
+      <TYPE>3</TYPE>
+      <ID>19</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Reload Timer</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>111</GLOBAL_ID>
+      <TYPE>2</TYPE>
+      <ID>23</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Increment Counter</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>112</GLOBAL_ID>
+      <TYPE>2</TYPE>
+      <ID>24</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Decrement Counter</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>113</GLOBAL_ID>
+      <TYPE>2</TYPE>
+      <ID>26</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Initialize Counter</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>114</GLOBAL_ID>
+      <TYPE>3</TYPE>
+      <ID>27</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Initialize Timer</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>115</GLOBAL_ID>
+      <TYPE>11</TYPE>
+      <ID>28</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Disable cTOOL</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>91</GLOBAL_ID>
+      <TYPE>5</TYPE>
+      <ID>2</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>Start Trace</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>92</GLOBAL_ID>
+      <TYPE>5</TYPE>
+      <ID>3</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>End Trace</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>118</GLOBAL_ID>
+      <TYPE>5</TYPE>
+      <ID>30</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>End All Trace</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>93</GLOBAL_ID>
+      <TYPE>5</TYPE>
+      <ID>4</ID>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <TEXT>Trigger Receiver</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>119</GLOBAL_ID>
+      <TYPE>5</TYPE>
+      <ID>4</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>Insert Trace Marker</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>94</GLOBAL_ID>
+      <TYPE>5</TYPE>
+      <ID>5</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>Store Sample</TEXT>
+    </ACTION>
+
+    <ACTION>
+      <GLOBAL_ID>95</GLOBAL_ID>
+      <TYPE>5</TYPE>
+      <ID>6</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <TEXT>Don&apos;t Store Sample</TEXT>
+    </ACTION>
+
+    <!-- EQ -->
+    <OPERATOR>
+      <GLOBAL_ID>79</GLOBAL_ID>
+      <TYPE>1</TYPE>
+      <ID>1</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- LT -->
+    <OPERATOR>
+      <GLOBAL_ID>80</GLOBAL_ID>
+      <TYPE>1</TYPE>
+      <ID>2</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- GT -->
+    <OPERATOR>
+      <GLOBAL_ID>81</GLOBAL_ID>
+      <TYPE>1</TYPE>
+      <ID>3</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- LE -->
+    <OPERATOR>
+      <GLOBAL_ID>82</GLOBAL_ID>
+      <TYPE>1</TYPE>
+      <ID>4</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- GE -->
+    <OPERATOR>
+      <GLOBAL_ID>83</GLOBAL_ID>
+      <TYPE>1</TYPE>
+      <ID>5</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- RANGE -->
+    <OPERATOR>
+      <GLOBAL_ID>84</GLOBAL_ID>
+      <TYPE>2</TYPE>
+      <ID>6</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- AND -->
+    <OPERATOR>
+      <GLOBAL_ID>85</GLOBAL_ID>
+      <TYPE>3</TYPE>
+      <ID>7</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- OR -->
+    <OPERATOR>
+      <GLOBAL_ID>86</GLOBAL_ID>
+      <TYPE>3</TYPE>
+      <ID>8</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <!-- NOT -->
+    <OPERATOR>
+      <GLOBAL_ID>87</GLOBAL_ID>
+      <TYPE>3</TYPE>
+      <ID>9</ID>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+    </OPERATOR>
+
+    <INPUT>
+      <GLOBAL_ID>0</GLOBAL_ID>
+      <CLASS>0</CLASS>
+      <CATEGORY>0</CATEGORY>
+      <TYPE>0</TYPE>
+      <ID>0</ID>
+      <SIZEINBITS>0</SIZEINBITS>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>None</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>1</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>1</CATEGORY>
+      <TYPE>1</TYPE>
+      <ID>1</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Program Address</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>6</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>1</TYPE>
+      <ID>6</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Write Address</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>7</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>1</TYPE>
+      <ID>7</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Write Data</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>8</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>1</TYPE>
+      <ID>8</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Read Address</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>9</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>1</TYPE>
+      <ID>9</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Read Data</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>62</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>1</CATEGORY>
+      <TYPE>5</TYPE>
+      <ID>60</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Program Address</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>66</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>5</TYPE>
+      <ID>64</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Write Address</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>67</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>5</TYPE>
+      <ID>65</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Write Data</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>68</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>5</TYPE>
+      <ID>66</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Read Address</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>69</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>5</TYPE>
+      <ID>67</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Read Data</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>117</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>5</TYPE>
+      <ID>74</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Record PC w/Data</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>59</GLOBAL_ID>
+      <CLASS>1</CLASS>
+      <CATEGORY>2</CATEGORY>
+      <TYPE>5</TYPE>
+      <ID>59</ID>
+      <SIZEINBITS>32</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>Time Stamp</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>72</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>7</TYPE>
+      <ID>70</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>State0</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>73</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>7</TYPE>
+      <ID>71</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>State1</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>74</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>7</TYPE>
+      <ID>72</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>State2</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>75</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>7</TYPE>
+      <ID>73</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>NO</UI_DISPLAYABLE>
+      <COUNTABLE>NO</COUNTABLE>
+      <TEXT>State3</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>3000</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>12</CATEGORY>
+      <TYPE>2</TYPE>
+      <ID>10100</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>CPU Clock Cycles</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>56</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>3</TYPE>
+      <ID>56</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>RTDXXmitComplete</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>55</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>3</TYPE>
+      <ID>55</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>RTDXRcvComplete</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>14</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>2</TYPE>
+      <ID>14</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>InterruptAcknowledge</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>23</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>2</TYPE>
+      <ID>23</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>L1DStall</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>33</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>2</TYPE>
+      <ID>33</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>L1IReadMissStall</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>36</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>2</TYPE>
+      <ID>36</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>PipelineStall</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>57</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>4</TYPE>
+      <ID>57</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>ET0</TEXT>
+    </INPUT>
+
+    <INPUT>
+      <GLOBAL_ID>58</GLOBAL_ID>
+      <CLASS>2</CLASS>
+      <CATEGORY>6</CATEGORY>
+      <TYPE>4</TYPE>
+      <ID>58</ID>
+      <SIZEINBITS>1</SIZEINBITS>
+      <UI_DISPLAYABLE>YES</UI_DISPLAYABLE>
+      <COUNTABLE>YES</COUNTABLE>
+      <TEXT>ET1</TEXT>
+    </INPUT>
+
+</CTOOLS>

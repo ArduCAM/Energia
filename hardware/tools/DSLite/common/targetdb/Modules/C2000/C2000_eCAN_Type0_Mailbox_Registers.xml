@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/2 $
+  Checkin $Date: November 5, 2010   14:24:56 $
+  -->
+
+
+<!-- TMS320C2000 eCAN Mailbox Content Registers
+     ================+===========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+
+
+<module id="ECAN_MBX_CONTENT" HW_revision="" XML_version="1" description="eCAN Mailbox Content">
+	<register id="MBX0_MSGID" acronym="MBX0_MSGID" offset="0" page="1" width="32" description="eCAN Mailbox 0 Message Identifier" /> 
+	<register id="MBX0_MSGCTRL" acronym="MBX0_MSGCTRL" offset="2" page="1" width="32" description="eCAN Mailbox 0 Message Control" /> 
+	<register id="MBX0_MDL" acronym="MBX0_MDL" offset="4" page="1" width="32" description="eCAN Mailbox 0 Message Data Low" /> 
+	<register id="MBX0_MDH" acronym="MBX0_MDH" offset="6" page="1" width="32" description="eCAN Mailbox 0 Message Data High" /> 
+	
+	<register id="MBX1_MSGID" acronym="MBX1_MSGID" offset="8" page="1" width="32" description="eCAN Mailbox 1 Message Identifier" /> 
+	<register id="MBX1_MSGCTRL" acronym="MBX1_MSGCTRL" offset="10" page="1" width="32" description="eCAN Mailbox 1 Message Control" /> 
+	<register id="MBX1_MDL" acronym="MBX1_MDL" offset="12" page="1" width="32" description="eCAN Mailbox 1 Message Data Low" /> 
+	<register id="MBX1_MDH" acronym="MBX1_MDH" offset="14" page="1" width="32" description="eCAN Mailbox 1 Message Data High" /> 
+
+	<register id="MBX2_MSGID" acronym="MBX2_MSGID" offset="16" page="1" width="32" description="eCAN Mailbox 2 Message Identifier" /> 
+	<register id="MBX2_MSGCTRL" acronym="MBX2_MSGCTRL" offset="18" page="1" width="32" description="eCAN Mailbox 2 Message Control" /> 
+	<register id="MBX2_MDL" acronym="MBX2_MDL" offset="20" page="1" width="32" description="eCAN Mailbox 2 Message Data Low" /> 
+	<register id="MBX2_MDH" acronym="MBX2_MDH" offset="22" page="1" width="32" description="eCAN Mailbox 2 Message Data High" /> 
+
+	<register id="MBX3_MSGID" acronym="MBX3_MSGID" offset="24" page="1" width="32" description="eCAN Mailbox 3 Message Identifier" /> 
+	<register id="MBX3_MSGCTRL" acronym="MBX3_MSGCTRL" offset="26" page="1" width="32" description="eCAN Mailbox 3 Message Control" /> 
+	<register id="MBX3_MDL" acronym="MBX3_MDL" offset="28" page="1" width="32" description="eCAN Mailbox 3 Message Data Low" /> 
+	<register id="MBX3_MDH" acronym="MBX3_MDH" offset="30" page="1" width="32" description="eCAN Mailbox 3 Message Data High" /> 
+
+	<register id="MBX4_MSGID" acronym="MBX4_MSGID" offset="32" page="1" width="32" description="eCAN Mailbox 4 Message Identifier" /> 
+	<register id="MBX4_MSGCTRL" acronym="MBX4_MSGCTRL" offset="34" page="1" width="32" description="eCAN Mailbox 4 Message Control" /> 
+	<register id="MBX4_MDL" acronym="MBX4_MDL" offset="36" page="1" width="32" description="eCAN Mailbox 4 Message Data Low" /> 
+	<register id="MBX4_MDH" acronym="MBX4_MDH" offset="38" page="1" width="32" description="eCAN Mailbox 4 Message Data High" /> 
+
+	<register id="MBX5_MSGID" acronym="MBX5_MSGID" offset="40" page="1" width="32" description="eCAN Mailbox 5 Message Identifier" /> 
+	<register id="MBX5_MSGCTRL" acronym="MBX5_MSGCTRL" offset="42" page="1" width="32" description="eCAN Mailbox 5 Message Control" /> 
+	<register id="MBX5_MDL" acronym="MBX5_MDL" offset="44" page="1" width="32" description="eCAN Mailbox 5 Message Data Low" /> 
+	<register id="MBX5_MDH" acronym="MBX5_MDH" offset="46" page="1" width="32" description="eCAN Mailbox 5 Message Data High" /> 
+
+	<register id="MBX6_MSGID" acronym="MBX6_MSGID" offset="48" page="1" width="32" description="eCAN Mailbox 6 Message Identifier" /> 
+	<register id="MBX6_MSGCTRL" acronym="MBX6_MSGCTRL" offset="50" page="1" width="32" description="eCAN Mailbox 6 Message Control" /> 
+	<register id="MBX6_MDL" acronym="MBX6_MDL" offset="52" page="1" width="32" description="eCAN Mailbox 6 Message Data Low" /> 
+	<register id="MBX6_MDH" acronym="MBX6_MDH" offset="54" page="1" width="32" description="eCAN Mailbox 6 Message Data High" /> 
+
+	<register id="MBX7_MSGID" acronym="MBX7_MSGID" offset="56" page="1" width="32" description="eCAN Mailbox 7 Message Identifier" /> 
+	<register id="MBX7_MSGCTRL" acronym="MBX7_MSGCTRL" offset="58" page="1" width="32" description="eCAN Mailbox 7 Message Control" /> 
+	<register id="MBX7_MDL" acronym="MBX7_MDL" offset="60" page="1" width="32" description="eCAN Mailbox 7 Message Data Low" /> 
+	<register id="MBX7_MDH" acronym="MBX7_MDH" offset="62" page="1" width="32" description="eCAN Mailbox 7 Message Data High" /> 
+
+	<register id="MBX8_MSGID" acronym="MBX8_MSGID" offset="64" page="1" width="32" description="eCAN Mailbox 8 Message Identifier" /> 
+	<register id="MBX8_MSGCTRL" acronym="MBX8_MSGCTRL" offset="66" page="1" width="32" description="eCAN Mailbox 8 Message Control" /> 
+	<register id="MBX8_MDL" acronym="MBX8_MDL" offset="68" page="1" width="32" description="eCAN Mailbox 8 Message Data Low" /> 
+	<register id="MBX8_MDH" acronym="MBX8_MDH" offset="70" page="1" width="32" description="eCAN Mailbox 8 Message Data High" /> 
+
+	<register id="MBX9_MSGID" acronym="MBX9_MSGID" offset="72" page="1" width="32" description="eCAN Mailbox 9 Message Identifier" /> 
+	<register id="MBX9_MSGCTRL" acronym="MBX9_MSGCTRL" offset="74" page="1" width="32" description="eCAN Mailbox 9 Message Control" /> 
+	<register id="MBX9_MDL" acronym="MBX9_MDL" offset="76" page="1" width="32" description="eCAN Mailbox 9 Message Data Low" /> 
+	<register id="MBX9_MDH" acronym="MBX9_MDH" offset="78" page="1" width="32" description="eCAN Mailbox 9 Message Data High" /> 
+
+	<register id="MBX10_MSGID" acronym="MBX10_MSGID" offset="80" page="1" width="32" description="eCAN Mailbox 10 Message Identifier" /> 
+	<register id="MBX10_MSGCTRL" acronym="MBX10_MSGCTRL" offset="82" page="1" width="32" description="eCAN Mailbox 10 Message Control" /> 
+	<register id="MBX10_MDL" acronym="MBX10_MDL" offset="84" page="1" width="32" description="eCAN Mailbox 10 Message Data Low" /> 
+	<register id="MBX10_MDH" acronym="MBX10_MDH" offset="86" page="1" width="32" description="eCAN Mailbox 10 Message Data High" /> 
+
+	<register id="MBX11_MSGID" acronym="MBX11_MSGID" offset="88" page="1" width="32" description="eCAN Mailbox 11 Message Identifier" /> 
+	<register id="MBX11_MSGCTRL" acronym="MBX11_MSGCTRL" offset="90" page="1" width="32" description="eCAN Mailbox 11 Message Control" /> 
+	<register id="MBX11_MDL" acronym="MBX11_MDL" offset="92" page="1" width="32" description="eCAN Mailbox 11 Message Data Low" /> 
+	<register id="MBX11_MDH" acronym="MBX11_MDH" offset="94" page="1" width="32" description="eCAN Mailbox 11 Message Data High" /> 
+
+	<register id="MBX12_MSGID" acronym="MBX12_MSGID" offset="96" page="1" width="32" description="eCAN Mailbox 12 Message Identifier" /> 
+	<register id="MBX12_MSGCTRL" acronym="MBX12_MSGCTRL" offset="98" page="1" width="32" description="eCAN Mailbox 12 Message Control" /> 
+	<register id="MBX12_MDL" acronym="MBX12_MDL" offset="100" page="1" width="32" description="eCAN Mailbox 12 Message Data Low" /> 
+	<register id="MBX12_MDH" acronym="MBX12_MDH" offset="102" page="1" width="32" description="eCAN Mailbox 12 Message Data High" /> 
+
+	<register id="MBX13_MSGID" acronym="MBX13_MSGID" offset="104" page="1" width="32" description="eCAN Mailbox 13 Message Identifier" /> 
+	<register id="MBX13_MSGCTRL" acronym="MBX13_MSGCTRL" offset="106" page="1" width="32" description="eCAN Mailbox 13 Message Control" /> 
+	<register id="MBX13_MDL" acronym="MBX13_MDL" offset="108" page="1" width="32" description="eCAN Mailbox 13 Message Data Low" /> 
+	<register id="MBX13_MDH" acronym="MBX13_MDH" offset="110" page="1" width="32" description="eCAN Mailbox 13 Message Data High" /> 
+
+	<register id="MBX14_MSGID" acronym="MBX14_MSGID" offset="112" page="1" width="32" description="eCAN Mailbox 14 Message Identifier" /> 
+	<register id="MBX14_MSGCTRL" acronym="MBX14_MSGCTRL" offset="114" page="1" width="32" description="eCAN Mailbox 14 Message Control" /> 
+	<register id="MBX14_MDL" acronym="MBX14_MDL" offset="116" page="1" width="32" description="eCAN Mailbox 14 Message Data Low" /> 
+	<register id="MBX14_MDH" acronym="MBX14_MDH" offset="118" page="1" width="32" description="eCAN Mailbox 14 Message Data High" /> 
+
+	<register id="MBX15_MSGID" acronym="MBX15_MSGID" offset="120" page="1" width="32" description="eCAN Mailbox 15 Message Identifier" /> 
+	<register id="MBX15_MSGCTRL" acronym="MBX15_MSGCTRL" offset="122" page="1" width="32" description="eCAN Mailbox 15 Message Control" /> 
+	<register id="MBX15_MDL" acronym="MBX15_MDL" offset="124" page="1" width="32" description="eCAN Mailbox 15 Message Data Low" /> 
+	<register id="MBX15_MDH" acronym="MBX15_MDH" offset="126" page="1" width="32" description="eCAN Mailbox 15 Message Data High" /> 
+
+	<register id="MBX16_MSGID" acronym="MBX16_MSGID" offset="128" page="1" width="32" description="eCAN Mailbox 16 Message Identifier" /> 
+	<register id="MBX16_MSGCTRL" acronym="MBX16_MSGCTRL" offset="130" page="1" width="32" description="eCAN Mailbox 16 Message Control" /> 
+	<register id="MBX16_MDL" acronym="MBX16_MDL" offset="132" page="1" width="32" description="eCAN Mailbox 16 Message Data Low" /> 
+	<register id="MBX16_MDH" acronym="MBX16_MDH" offset="134" page="1" width="32" description="eCAN Mailbox 16 Message Data High" /> 
+
+	<register id="MBX17_MSGID" acronym="MBX17_MSGID" offset="136" page="1" width="32" description="eCAN Mailbox 17 Message Identifier" /> 
+	<register id="MBX17_MSGCTRL" acronym="MBX17_MSGCTRL" offset="138" page="1" width="32" description="eCAN Mailbox 17 Message Control" /> 
+	<register id="MBX17_MDL" acronym="MBX17_MDL" offset="140" page="1" width="32" description="eCAN Mailbox 17 Message Data Low" /> 
+	<register id="MBX17_MDH" acronym="MBX17_MDH" offset="142" page="1" width="32" description="eCAN Mailbox 17 Message Data High" /> 
+
+	<register id="MBX18_MSGID" acronym="MBX18_MSGID" offset="144" page="1" width="32" description="eCAN Mailbox 18 Message Identifier" /> 
+	<register id="MBX18_MSGCTRL" acronym="MBX18_MSGCTRL" offset="146" page="1" width="32" description="eCAN Mailbox 18 Message Control" /> 
+	<register id="MBX18_MDL" acronym="MBX18_MDL" offset="148" page="1" width="32" description="eCAN Mailbox 18 Message Data Low" /> 
+	<register id="MBX18_MDH" acronym="MBX18_MDH" offset="150" page="1" width="32" description="eCAN Mailbox 18 Message Data High" /> 
+
+	<register id="MBX19_MSGID" acronym="MBX19_MSGID" offset="152" page="1" width="32" description="eCAN Mailbox 19 Message Identifier" /> 
+	<register id="MBX19_MSGCTRL" acronym="MBX19_MSGCTRL" offset="154" page="1" width="32" description="eCAN Mailbox 19 Message Control" /> 
+	<register id="MBX19_MDL" acronym="MBX19_MDL" offset="156" page="1" width="32" description="eCAN Mailbox 19 Message Data Low" /> 
+	<register id="MBX19_MDH" acronym="MBX19_MDH" offset="158" page="1" width="32" description="eCAN Mailbox 19 Message Data High" /> 
+
+	<register id="MBX20_MSGID" acronym="MBX20_MSGID" offset="160" page="1" width="32" description="eCAN Mailbox 20 Message Identifier" /> 
+	<register id="MBX20_MSGCTRL" acronym="MBX20_MSGCTRL" offset="162" page="1" width="32" description="eCAN Mailbox 20 Message Control" /> 
+	<register id="MBX20_MDL" acronym="MBX20_MDL" offset="164" page="1" width="32" description="eCAN Mailbox 20 Message Data Low" /> 
+	<register id="MBX20_MDH" acronym="MBX20_MDH" offset="166" page="1" width="32" description="eCAN Mailbox 20 Message Data High" /> 
+
+	<register id="MBX21_MSGID" acronym="MBX21_MSGID" offset="168" page="1" width="32" description="eCAN Mailbox 21 Message Identifier" /> 
+	<register id="MBX21_MSGCTRL" acronym="MBX21_MSGCTRL" offset="170" page="1" width="32" description="eCAN Mailbox 21 Message Control" /> 
+	<register id="MBX21_MDL" acronym="MBX21_MDL" offset="172" page="1" width="32" description="eCAN Mailbox 21 Message Data Low" /> 
+	<register id="MBX21_MDH" acronym="MBX21_MDH" offset="174" page="1" width="32" description="eCAN Mailbox 21 Message Data High" /> 
+
+	<register id="MBX22_MSGID" acronym="MBX22_MSGID" offset="176" page="1" width="32" description="eCAN Mailbox 22 Message Identifier" /> 
+	<register id="MBX22_MSGCTRL" acronym="MBX22_MSGCTRL" offset="178" page="1" width="32" description="eCAN Mailbox 22 Message Control" /> 
+	<register id="MBX22_MDL" acronym="MBX22_MDL" offset="180" page="1" width="32" description="eCAN Mailbox 22 Message Data Low" /> 
+	<register id="MBX22_MDH" acronym="MBX22_MDH" offset="182" page="1" width="32" description="eCAN Mailbox 22 Message Data High" /> 
+
+	<register id="MBX23_MSGID" acronym="MBX23_MSGID" offset="184" page="1" width="32" description="eCAN Mailbox 23 Message Identifier" /> 
+	<register id="MBX23_MSGCTRL" acronym="MBX23_MSGCTRL" offset="186" page="1" width="32" description="eCAN Mailbox 23 Message Control" /> 
+	<register id="MBX23_MDL" acronym="MBX23_MDL" offset="188" page="1" width="32" description="eCAN Mailbox 23 Message Data Low" /> 
+	<register id="MBX23_MDH" acronym="MBX23_MDH" offset="190" page="1" width="32" description="eCAN Mailbox 23 Message Data High" /> 
+
+	<register id="MBX24_MSGID" acronym="MBX24_MSGID" offset="192" page="1" width="32" description="eCAN Mailbox 24 Message Identifier" /> 
+	<register id="MBX24_MSGCTRL" acronym="MBX24_MSGCTRL" offset="194" page="1" width="32" description="eCAN Mailbox 24 Message Control" /> 
+	<register id="MBX24_MDL" acronym="MBX24_MDL" offset="196" page="1" width="32" description="eCAN Mailbox 24 Message Data Low" /> 
+	<register id="MBX24_MDH" acronym="MBX24_MDH" offset="198" page="1" width="32" description="eCAN Mailbox 24 Message Data High" /> 
+
+	<register id="MBX25_MSGID" acronym="MBX25_MSGID" offset="200" page="1" width="32" description="eCAN Mailbox 25 Message Identifier" /> 
+	<register id="MBX25_MSGCTRL" acronym="MBX25_MSGCTRL" offset="202" page="1" width="32" description="eCAN Mailbox 25 Message Control" /> 
+	<register id="MBX25_MDL" acronym="MBX25_MDL" offset="204" page="1" width="32" description="eCAN Mailbox 25 Message Data Low" /> 
+	<register id="MBX25_MDH" acronym="MBX25_MDH" offset="206" page="1" width="32" description="eCAN Mailbox 25 Message Data High" /> 
+
+	<register id="MBX26_MSGID" acronym="MBX26_MSGID" offset="208" page="1" width="32" description="eCAN Mailbox 26 Message Identifier" /> 
+	<register id="MBX26_MSGCTRL" acronym="MBX26_MSGCTRL" offset="210" page="1" width="32" description="eCAN Mailbox 26 Message Control" /> 
+	<register id="MBX26_MDL" acronym="MBX26_MDL" offset="212" page="1" width="32" description="eCAN Mailbox 26 Message Data Low" /> 
+	<register id="MBX26_MDH" acronym="MBX26_MDH" offset="214" page="1" width="32" description="eCAN Mailbox 26 Message Data High" /> 
+
+	<register id="MBX27_MSGID" acronym="MBX27_MSGID" offset="216" page="1" width="32" description="eCAN Mailbox 27 Message Identifier" /> 
+	<register id="MBX27_MSGCTRL" acronym="MBX27_MSGCTRL" offset="218" page="1" width="32" description="eCAN Mailbox 27 Message Control" /> 
+	<register id="MBX27_MDL" acronym="MBX27_MDL" offset="220" page="1" width="32" description="eCAN Mailbox 27 Message Data Low" /> 
+	<register id="MBX27_MDH" acronym="MBX27_MDH" offset="222" page="1" width="32" description="eCAN Mailbox 27 Message Data High" /> 
+
+	<register id="MBX28_MSGID" acronym="MBX28_MSGID" offset="224" page="1" width="32" description="eCAN Mailbox 28 Message Identifier" /> 
+	<register id="MBX28_MSGCTRL" acronym="MBX28_MSGCTRL" offset="226" page="1" width="32" description="eCAN Mailbox 28 Message Control" /> 
+	<register id="MBX28_MDL" acronym="MBX28_MDL" offset="228" page="1" width="32" description="eCAN Mailbox 28 Message Data Low" /> 
+	<register id="MBX28_MDH" acronym="MBX28_MDH" offset="230" page="1" width="32" description="eCAN Mailbox 28 Message Data High" /> 
+
+	<register id="MBX29_MSGID" acronym="MBX29_MSGID" offset="232" page="1" width="32" description="eCAN Mailbox 29 Message Identifier" /> 
+	<register id="MBX29_MSGCTRL" acronym="MBX29_MSGCTRL" offset="234" page="1" width="32" description="eCAN Mailbox 29 Message Control" /> 
+	<register id="MBX29_MDL" acronym="MBX29_MDL" offset="236" page="1" width="32" description="eCAN Mailbox 29 Message Data Low" /> 
+	<register id="MBX29_MDH" acronym="MBX29_MDH" offset="238" page="1" width="32" description="eCAN Mailbox 29 Message Data High" /> 
+
+	<register id="MBX30_MSGID" acronym="MBX30_MSGID" offset="240" page="1" width="32" description="eCAN Mailbox 30 Message Identifier" /> 
+	<register id="MBX30_MSGCTRL" acronym="MBX30_MSGCTRL" offset="242" page="1" width="32" description="eCAN Mailbox 30 Message Control" /> 
+	<register id="MBX30_MDL" acronym="MBX30_MDL" offset="244" page="1" width="32" description="eCAN Mailbox 30 Message Data Low" /> 
+	<register id="MBX30_MDH" acronym="MBX30_MDH" offset="246" page="1" width="32" description="eCAN Mailbox 30 Message Data High" /> 
+
+	<register id="MBX31_MSGID" acronym="MBX31_MSGID" offset="248" page="1" width="32" description="eCAN Mailbox 31 Message Identifier" /> 
+	<register id="MBX31_MSGCTRL" acronym="MBX31_MSGCTRL" offset="250" page="1" width="32" description="eCAN Mailbox 31 Message Control" /> 
+	<register id="MBX31_MDL" acronym="MBX31_MDL" offset="252" page="1" width="32" description="eCAN Mailbox 31 Message Data Low" /> 
+	<register id="MBX31_MDH" acronym="MBX31_MDH" offset="254" page="1" width="32" description="eCAN Mailbox 31 Message Data High" /> 
+</module>

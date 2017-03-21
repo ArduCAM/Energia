@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  TI File $Revision: /main/4 $
+  Checkin $Date: November 5, 2010   14:50:19 $
+  -->
+
+
+<!-- TMS320C2000 FPU32 Registers
+     ===========================
+     The offsets noted below are based on the base address that is specified in the device file that includes this file 
+     -->
+
+<module id="FPUREG" HW_revision="" XML_version="1" description="Floating-Point Unit Single Precision Registers">
+        <register id="RB" acronym="RB" offset="0" page="1" width="32" description="Repeat Block Register" >
+           <bitfield id="RAS"   width="1"  begin="31" end="31" resetval="0" description="Repeat block shadow active"      range="" rwaccess="R" />
+           <bitfield id="RA"    width="1"  begin="30" end="30" resetval="0" description="Repeat block active"             range="" rwaccess="R" />
+           <bitfield id="RSIZE" width="7"  begin="29" end="23" resetval="0" description="Repeat block size"               range="" rwaccess="R" />        
+           <bitfield id="RE"    width="7"  begin="22" end="16" resetval="0" description="Repeat block end"                range="" rwaccess="R" />
+           <bitfield id="RC"    width="16" begin="15" end="0"  resetval="0" description="Repeat count"                    range="" rwaccess="R" />           
+        </register>
+        <register id="STF" acronym="STF" offset="2" page="1" width="32" description="Floating-Point Status Register" >
+           <bitfield id="SHDWS" width="1" begin="31" end="31" resetval="0" description="Shadow mode status"     range="" rwaccess="RW" />
+           <bitfield id="RND32" width="1" begin="9"  end="9"  resetval="0" description="Rounding mode"          range="" rwaccess="RW" />
+           <bitfield id="TF"    width="1" begin="6"  end="6"  resetval="0" description="Test flag"              range="" rwaccess="RW" />
+           <bitfield id="ZI"    width="1" begin="5"  end="5"  resetval="0" description="Zero integer flag"      range="" rwaccess="RW" />
+           <bitfield id="NI"    width="1" begin="4"  end="4"  resetval="0" description="Negative integer flag"  range="" rwaccess="RW" />
+           <bitfield id="ZF"    width="1" begin="3"  end="3"  resetval="0" description="Zero float flag"        range="" rwaccess="RW" />
+           <bitfield id="NF"    width="1" begin="2"  end="2"  resetval="0" description="Negative flaot flag"    range="" rwaccess="RW" />
+           <bitfield id="LUF"   width="1" begin="1"  end="1"  resetval="0" description="Latched underflow"      range="" rwaccess="RW" />
+           <bitfield id="LVF"   width="1" begin="0"  end="0"  resetval="0" description="Latched overflow"       range="" rwaccess="RW" />        
+        </register>
+   <!-- <register id="R0L" acronym="R0L" offset="16" page="1" width="32" description="" /> -->
+        <register id="R0H" acronym="R0H" offset="18" page="1" width="32" description="" />  
+   <!-- <register id="R1L" acronym="R1L" offset="20" page="1" width="32" description="" /> -->
+        <register id="R1H" acronym="R1H" offset="22" page="1" width="32" description="" />
+   <!-- <register id="R2L" acronym="R2L" offset="24" page="1" width="32" description="" /> -->
+        <register id="R2H" acronym="R2H" offset="26" page="1" width="32" description="" />
+   <!-- <register id="R3L" acronym="R3L" offset="28" page="1" width="32" description="" /> -->
+        <register id="R3H" acronym="R3H" offset="30" page="1" width="32" description="" />
+   <!-- <register id="R4L" acronym="R4L" offset="32" page="1" width="32" description="" /> -->
+        <register id="R4H" acronym="R4H" offset="34" page="1" width="32" description="" />
+   <!-- <register id="R5L" acronym="R5L" offset="36" page="1" width="32" description="" /> -->
+        <register id="R5H" acronym="R5H" offset="38" page="1" width="32" description="" />
+   <!-- <register id="R6L" acronym="R6L" offset="40" page="1" width="32" description="" /> -->
+        <register id="R6H" acronym="R6H" offset="42" page="1" width="32" description="" />
+   <!-- <register id="R7L" acronym="R7L" offset="44" page="1" width="32" description="" /> -->
+        <register id="R7H" acronym="R7H" offset="46" page="1" width="32" description="" />
+</module>

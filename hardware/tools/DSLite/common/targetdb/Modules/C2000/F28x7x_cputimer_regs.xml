@@ -1,0 +1,26 @@
+<module id="CPUTIMER_REGS" HW_revision="" description="CPUTIMER Registers">
+	<register id="TIM" width="32" page="1" offset="0x0" internal="0" description="CPU-Timer, Counter Register">
+		<bitfield id="LSW" description="CPU-Timer Counter Registers" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="MSW" description="CPU-Timer Counter Registers High" begin="31" end="16" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="PRD" width="32" page="1" offset="0x2" internal="0" description="CPU-Timer, Period Register">
+		<bitfield id="LSW" description="CPU-Timer Period Registers" begin="15" end="0" width="16" rwaccess="R/W"/>
+		<bitfield id="MSW" description="CPU-Timer Period Registers High" begin="31" end="16" width="16" rwaccess="R/W"/>
+	</register>
+	<register id="TCR" width="16" page="1" offset="0x4" internal="0" description="CPU-Timer, Control Register">
+		<bitfield id="TSS" description="CPU-Timer stop status bit." begin="4" end="4" width="1" rwaccess="R/W"/>
+		<bitfield id="TRB" description="Timer reload " begin="5" end="5" width="1" rwaccess="R/W"/>
+		<bitfield id="SOFT" description="Emulation modes " begin="10" end="10" width="1" rwaccess="R/W"/>
+		<bitfield id="FREE" description="Emulation modes " begin="11" end="11" width="1" rwaccess="R/W"/>
+		<bitfield id="TIE" description="CPU-Timer Interrupt Enable." begin="14" end="14" width="1" rwaccess="R/W"/>
+		<bitfield id="TIF" description="CPU-Timer Interrupt Flag. " begin="15" end="15" width="1" rwaccess="R/W1toClr"/>
+	</register>
+	<register id="TPR" width="16" page="1" offset="0x6" internal="0" description="CPU-Timer, Prescale Register">
+		<bitfield id="TDDR" description="CPU-Timer Divide-Down." begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="PSC" description="CPU-Timer Prescale Counter." begin="15" end="8" width="8" rwaccess="R"/>
+	</register>
+	<register id="TPRH" width="16" page="1" offset="0x7" internal="0" description="CPU-Timer, Prescale Register High">
+		<bitfield id="TDDRH" description="CPU-Timer Divide-Down." begin="7" end="0" width="8" rwaccess="R/W"/>
+		<bitfield id="PSCH" description="CPU-Timer Prescale Counter." begin="15" end="8" width="8" rwaccess="R"/>
+	</register>
+</module>

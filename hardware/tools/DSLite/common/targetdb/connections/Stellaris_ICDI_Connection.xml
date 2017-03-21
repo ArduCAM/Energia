@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<connection id="Stellaris In-Circuit Debug Interface" class="31040">
+	<connectionType Type="LM_ICDI"/>
+	<property Type="hiddenfield" Value="No" id="dataFileRequired"/>
+</connection>

@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.4" xmlns="">
+    <xsd:element name="Config">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="Libraries"/>
+                <xsd:element ref="Devices" minOccurs="1"/>
+            </xsd:sequence>
+            <xsd:attribute default="0" name="Revision" use="optional">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:length value="1"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="Comment" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Devices">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" ref="Device"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Device">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" name="Revisions">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element maxOccurs="unbounded" minOccurs="1" name="Revision"
+                                type="RevisionType"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Part" maxOccurs="unbounded" form="qualified" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element maxOccurs="unbounded" name="MinorRevision">
+                                <xsd:complexType>
+                                    <xsd:attribute name="RevisionNumber" type="xsd:unsignedByte"/>
+                                    <xsd:attribute name="Description" type="xsd:string"
+                                        use="required"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element maxOccurs="unbounded" minOccurs="1" name="RegisterId">
+                                <xsd:complexType>
+                                    <xsd:attributeGroup ref="RegisterIdAttribute"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="Parameters" type="ParametersType" minOccurs="0"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="Name" type="xsd:ID" use="required"/>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="DefaultPart" maxOccurs="1" form="qualified">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element maxOccurs="unbounded" name="MinorRevision">
+                                <xsd:complexType>
+                                    <xsd:attribute name="RevisionNumber" type="xsd:unsignedByte"/>
+                                    <xsd:attribute name="Description" type="xsd:string"
+                                        use="required"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element maxOccurs="unbounded" minOccurs="0" name="RegisterId">
+                                <xsd:complexType>
+                                    <xsd:attributeGroup ref="RegisterIdAttribute"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="Parameters" type="ParametersType" minOccurs="0"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="Name" type="xsd:ID" use="required"/>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CommonParameters" type="ParametersType"/>
+            </xsd:sequence>
+            <xsd:attribute name="AsicId" use="required">
+                <xsd:simpleType>
+                    <xsd:restriction base="HexType"> </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="DeviceId" use="required" type="HexType"> </xsd:attribute>
+            <xsd:attribute name="Library" type="xsd:IDREF" use="required"/>
+            <xsd:attribute default="0" name="Revision" use="optional">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:nonNegativeInteger"> </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="Comment" type="xsd:string"/>
+            <xsd:attribute form="unqualified" name="SpeedTestMethod">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="default"/>
+                        <xsd:enumeration value="nonRTI"/>
+                        <xsd:enumeration value="RTI"/>
+                        <xsd:enumeration value="DCC"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute default="unknown" form="unqualified" name="CoreType">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="R4_BigEndian"/>
+                        <xsd:enumeration value="R4_LittleEndian"/>
+                        <xsd:enumeration value="M3_BigEndian"/>
+                        <xsd:enumeration value="M3_LittleEndian"/>
+                        <xsd:enumeration value="C28x"/>
+                        <xsd:enumeration value="unknown"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute default="false" name="useDAP" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ParametersType">
+        <xsd:sequence>
+            <xsd:element name="PllFrequency" minOccurs="0" type="FrequenciesType"/>
+            <xsd:element minOccurs="0" name="Initialization" type="InitializationType"/>
+            <xsd:element minOccurs="0" name="MemoryMap" type="MemoryMapType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="FrequenciesType">
+        <xsd:attribute name="Frequency" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:float">
+                    <xsd:minInclusive value="5.0"/>
+                    <xsd:maxInclusive value="24.0"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="fmzpll" name="PllType" use="optional">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="fmzpll"/>
+                    <xsd:enumeration value="fpll"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Comment" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="InitializationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="InitRegisters" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:attribute name="Register" use="required">
+                        <xsd:simpleType>
+                            <xsd:restriction base="HexType">
+                                <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attribute name="Value" use="required">
+                        <xsd:simpleType>
+                            <xsd:restriction base="HexType">
+                                <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attribute name="Comment" type="xsd:string"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="InitCode" type="InitCodeType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="InitCodeType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="Code" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="Comment" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="MemoryMapType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Flash" type="FlashType"/>
+            <xsd:element name="Ram" type="RamType" minOccurs="0"/>
+            <xsd:element name="Peripherals" type="PeripheralsType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="FlashType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="0" name="ProgramFlash">
+                <xsd:complexType>
+                    <xsd:attributeGroup ref="MemoryAttribute"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="ProgramFlashOtp">
+                <xsd:complexType>
+                    <xsd:attributeGroup ref="MemoryAttribute"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="DataFlash">
+                <xsd:complexType>
+                    <xsd:attributeGroup ref="MemoryAttribute"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="DataFlashOtp">
+                <xsd:complexType>
+                    <xsd:attributeGroup ref="MemoryAttribute"/>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="8" minOccurs="1" name="Bank" type="BankType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="BankType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="16" name="Sector" type="RangeType"/>
+            <xsd:element name="Otp" type="RangeType"/>
+        </xsd:sequence>
+        <xsd:attribute name="Number" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte">
+                    <xsd:maxInclusive value="7"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Type" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Program"/>
+                    <xsd:enumeration value="Data"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="ControlRegister" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute default="Master" name="Core">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Master"/>
+                    <xsd:enumeration value="Slave1"/>
+                    <xsd:enumeration value="Slave2"/>
+                    <xsd:enumeration value="Slave3"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Comment" type="xsd:string"/>
+        <xsd:attributeGroup ref="MemoryAttribute"/>
+    </xsd:complexType>
+    <xsd:complexType name="RamType">
+        <xsd:sequence>
+            <xsd:element name="Ram" type="RangeType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="PeripheralsType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="Peripheral">
+                <xsd:complexType>
+                    <xsd:attribute name="Name" type="xsd:string" use="required"/>
+                    <xsd:attribute name="BaseAddress" type="HexType" use="required"/>
+                    <xsd:attribute name="EndAddress" type="HexType" use="required"/>
+                    <xsd:attribute name="Comment" type="xsd:string"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="RangeType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="1" name="Correction" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:attribute name="Type" use="required">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token">
+                                <xsd:enumeration value="FlashEcc"/>
+                                <xsd:enumeration value="FlashParity"/>
+                                <xsd:enumeration value="OtpEcc"/>
+                                <xsd:enumeration value="OtpParity"/>
+                                <xsd:enumeration value="RamEcc"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attributeGroup ref="RangeAttribute"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="Number" use="optional" default="0">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:unsignedByte">
+                    <xsd:maxInclusive value="16"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Type" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                    <xsd:enumeration value="Flash"/>
+                    <xsd:enumeration value="Otp"/>
+                    <xsd:enumeration value="Ram"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attributeGroup ref="RangeAttribute"/>
+        <xsd:attribute name="Comment" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:element name="Libraries">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" name="Library">
+                    <xsd:complexType>
+                        <xsd:attribute name="Name" type="xsd:ID" use="required"/>
+                        <xsd:attribute name="Version" type="xsd:string" use="required"/>
+                        <xsd:attribute name="Technology" type="xsd:string" use="required"/>
+                        <xsd:attribute name="Comment" type="xsd:string"/>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:simpleType name="HexType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="0x[\da-fA-F]{1,8}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:attributeGroup name="RangeAttribute">
+        <xsd:attribute name="StartAddress" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Length" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:attributeGroup name="MemoryAttribute">
+        <xsd:attribute name="StartAddress" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="EndAddress" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CorrectionStartAddress" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CorrectionEndAddress" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:attributeGroup>
+    <xsd:complexType name="RevisionType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="RevisionNumber" type="xsd:nonNegativeInteger" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:attributeGroup name="RegisterIdAttribute">
+        <xsd:attribute name="Address">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{8}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Value" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType">
+                    <xsd:pattern value="0x[\da-fA-F]{4}"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Mask">
+            <xsd:simpleType>
+                <xsd:restriction base="HexType"/>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Comment" type="xsd:string"/>
+    </xsd:attributeGroup>
+</xsd:schema>

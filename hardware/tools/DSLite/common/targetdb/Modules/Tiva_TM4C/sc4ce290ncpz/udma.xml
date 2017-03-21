@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="UDMA" HW_revision="" XML_version="1.0" description="Micro Direct Memory Access register addresses" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="UDMA_STAT" width="32" description="DMA Status" id="UDMA_STAT" offset="0x00000000" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Master Enable Status" id="UDMA_STAT_MASTEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="R" description="Control State Machine Status" id="UDMA_STAT_STATE" resetval="" >
+            <bitenum id="UDMA_STAT_STATE_IDLE" value="0x00000000" token="" description="Idle"/>
+            <bitenum id="UDMA_STAT_STATE_RD_CTRL" value="0x00000010" token="" description="Reading channel controller data"/>
+            <bitenum id="UDMA_STAT_STATE_RD_SRCENDP" value="0x00000020" token="" description="Reading source end pointer"/>
+            <bitenum id="UDMA_STAT_STATE_RD_DSTENDP" value="0x00000030" token="" description="Reading destination end pointer"/>
+            <bitenum id="UDMA_STAT_STATE_RD_SRCDAT" value="0x00000040" token="" description="Reading source data"/>
+            <bitenum id="UDMA_STAT_STATE_WR_DSTDAT" value="0x00000050" token="" description="Writing destination data"/>
+            <bitenum id="UDMA_STAT_STATE_WAIT" value="0x00000060" token="" description="Waiting for uDMA request to clear"/>
+            <bitenum id="UDMA_STAT_STATE_WR_CTRL" value="0x00000070" token="" description="Writing channel controller data"/>
+            <bitenum id="UDMA_STAT_STATE_STALL" value="0x00000080" token="" description="Stalled"/>
+            <bitenum id="UDMA_STAT_STATE_DONE" value="0x00000090" token="" description="Done"/>
+            <bitenum id="UDMA_STAT_STATE_UNDEF" value="0x000000A0" token="" description="Undefined"/>
+        </bitfield>
+        <bitfield range="" begin="20" width="5" end="16" rwaccess="R" description="Available uDMA Channels Minus 1" id="UDMA_STAT_DMACHANS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_CFG" width="32" description="DMA Configuration" id="UDMA_CFG" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="Controller Master Enable" id="UDMA_CFG_MASTEN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_CTLBASE" width="32" description="DMA Channel Control Base Pointer" id="UDMA_CTLBASE" offset="0x00000008" >
+        <bitfield range="" begin="31" width="22" end="10" rwaccess="RW" description="Channel Control Base Address" id="UDMA_CTLBASE_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_ALTBASE" width="32" description="DMA Alternate Channel Control Base Pointer" id="UDMA_ALTBASE" offset="0x0000000C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Alternate Channel Address Pointer" id="UDMA_ALTBASE_ADDR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_WAITSTAT" width="32" description="DMA Channel Wait-on-Request Status" id="UDMA_WAITSTAT" offset="0x00000010" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="R" description="Channel [n] Wait Status" id="UDMA_WAITSTAT_WAITREQ" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_SWREQ" width="32" description="DMA Channel Software Request" id="UDMA_SWREQ" offset="0x00000014" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Channel [n] Software Request" id="UDMA_SWREQ" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_USEBURSTSET" width="32" description="DMA Channel Useburst Set" id="UDMA_USEBURSTSET" offset="0x00000018" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel [n] Useburst Set" id="UDMA_USEBURSTSET_SET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_USEBURSTCLR" width="32" description="DMA Channel Useburst Clear" id="UDMA_USEBURSTCLR" offset="0x0000001C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Channel [n] Useburst Clear" id="UDMA_USEBURSTCLR_CLR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_REQMASKSET" width="32" description="DMA Channel Request Mask Set" id="UDMA_REQMASKSET" offset="0x00000020" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel [n] Request Mask Set" id="UDMA_REQMASKSET_SET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_REQMASKCLR" width="32" description="DMA Channel Request Mask Clear" id="UDMA_REQMASKCLR" offset="0x00000024" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Channel [n] Request Mask Clear" id="UDMA_REQMASKCLR_CLR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_ENASET" width="32" description="DMA Channel Enable Set" id="UDMA_ENASET" offset="0x00000028" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel [n] Enable Set" id="UDMA_ENASET_SET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_ENACLR" width="32" description="DMA Channel Enable Clear" id="UDMA_ENACLR" offset="0x0000002C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Clear Channel [n] Enable Clear" id="UDMA_ENACLR_CLR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_ALTSET" width="32" description="DMA Channel Primary Alternate Set" id="UDMA_ALTSET" offset="0x00000030" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel [n] Alternate Set" id="UDMA_ALTSET_SET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_ALTCLR" width="32" description="DMA Channel Primary Alternate Clear" id="UDMA_ALTCLR" offset="0x00000034" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Channel [n] Alternate Clear" id="UDMA_ALTCLR_CLR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_PRIOSET" width="32" description="DMA Channel Priority Set" id="UDMA_PRIOSET" offset="0x00000038" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel [n] Priority Set" id="UDMA_PRIOSET_SET" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_PRIOCLR" width="32" description="DMA Channel Priority Clear" id="UDMA_PRIOCLR" offset="0x0000003C" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="W" description="Channel [n] Priority Clear" id="UDMA_PRIOCLR_CLR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_ERRCLR" width="32" description="DMA Bus Error Clear" id="UDMA_ERRCLR" offset="0x0000004C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="uDMA Bus Error Status" id="UDMA_ERRCLR_ERRCLR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_CHASGN" width="32" description="DMA Channel Assignment" id="UDMA_CHASGN" offset="0x00000500" >
+        <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Channel [n] Assignment Select" id="UDMA_CHASGN" resetval="" >
+            <bitenum id="UDMA_CHASGN_PRIMARY" value="0x00000000" token="" description="Use the primary channel assignment"/>
+            <bitenum id="UDMA_CHASGN_SECONDARY" value="0x00000001" token="" description="Use the secondary channel assignment"/>
+        </bitfield>
+    </register>
+    <register acronym="UDMA_CHMAP0" width="32" description="DMA Channel Map Select 0" id="UDMA_CHMAP0" offset="0x00000510" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="uDMA Channel 0 Source Select" id="UDMA_CHMAP0_CH0SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="uDMA Channel 1 Source Select" id="UDMA_CHMAP0_CH1SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="uDMA Channel 2 Source Select" id="UDMA_CHMAP0_CH2SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="uDMA Channel 3 Source Select" id="UDMA_CHMAP0_CH3SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="uDMA Channel 4 Source Select" id="UDMA_CHMAP0_CH4SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="uDMA Channel 5 Source Select" id="UDMA_CHMAP0_CH5SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="uDMA Channel 6 Source Select" id="UDMA_CHMAP0_CH6SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="uDMA Channel 7 Source Select" id="UDMA_CHMAP0_CH7SEL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_CHMAP1" width="32" description="DMA Channel Map Select 1" id="UDMA_CHMAP1" offset="0x00000514" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="uDMA Channel 8 Source Select" id="UDMA_CHMAP1_CH8SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="uDMA Channel 9 Source Select" id="UDMA_CHMAP1_CH9SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="uDMA Channel 10 Source Select" id="UDMA_CHMAP1_CH10SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="uDMA Channel 11 Source Select" id="UDMA_CHMAP1_CH11SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="uDMA Channel 12 Source Select" id="UDMA_CHMAP1_CH12SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="uDMA Channel 13 Source Select" id="UDMA_CHMAP1_CH13SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="uDMA Channel 14 Source Select" id="UDMA_CHMAP1_CH14SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="uDMA Channel 15 Source Select" id="UDMA_CHMAP1_CH15SEL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_CHMAP2" width="32" description="DMA Channel Map Select 2" id="UDMA_CHMAP2" offset="0x00000518" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="uDMA Channel 16 Source Select" id="UDMA_CHMAP2_CH16SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="uDMA Channel 17 Source Select" id="UDMA_CHMAP2_CH17SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="uDMA Channel 18 Source Select" id="UDMA_CHMAP2_CH18SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="uDMA Channel 19 Source Select" id="UDMA_CHMAP2_CH19SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="uDMA Channel 20 Source Select" id="UDMA_CHMAP2_CH20SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="uDMA Channel 21 Source Select" id="UDMA_CHMAP2_CH21SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="uDMA Channel 22 Source Select" id="UDMA_CHMAP2_CH22SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="uDMA Channel 23 Source Select" id="UDMA_CHMAP2_CH23SEL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="UDMA_CHMAP3" width="32" description="DMA Channel Map Select 3" id="UDMA_CHMAP3" offset="0x0000051C" >
+        <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="uDMA Channel 24 Source Select" id="UDMA_CHMAP3_CH24SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="uDMA Channel 25 Source Select" id="UDMA_CHMAP3_CH25SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="uDMA Channel 26 Source Select" id="UDMA_CHMAP3_CH26SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="uDMA Channel 27 Source Select" id="UDMA_CHMAP3_CH27SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="uDMA Channel 28 Source Select" id="UDMA_CHMAP3_CH28SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="uDMA Channel 29 Source Select" id="UDMA_CHMAP3_CH29SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="uDMA Channel 30 Source Select" id="UDMA_CHMAP3_CH30SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="uDMA Channel 31 Source Select" id="UDMA_CHMAP3_CH31SEL" resetval="" >
+        </bitfield>
+    </register>
+</module>

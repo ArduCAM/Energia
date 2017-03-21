@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpu id="TMS192C2007" isa="hidden" HW_revision="1.0" XML_version="1.0" description="CLA Accelerator">
+    <register id="PC" acronym="PC" width="16" description="Program Counter register"/>
+    <instance href="..\Modules\ihwa\cla_notvisible.xml" id="" xml="cla_notvisible.xml" xmlpath="..\Modules\" HW_revision="1.0" description="" requestor="TMS192C2007" baseaddr="0" size="00" accessnumbytes="4" permissions="p"/>
+</cpu>

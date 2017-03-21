@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Nodes -->
+	<node id="FlashProgrammerNode">
+		<name>Flash Settings</name>
+		<children>
+			<child>FlashSettingsGroup</child>
+			<child>FlashDownloadSettingGroup</child>
+			<child>FlashEraseGroup</child>
+			<child>FlashBlankCheckGroup</child>
+			<child>FlashChecksumGroup</child>
+			<child>FlashC28SecurityGroup</child>
+			<child>FlashM3Z1SecurityGroup</child>
+			<child>FlashM3Z2SecurityGroup</child>
+			<child>FlashM3OTPGroup</child>
+		</children>
+	</node>
+
+	<!-- Groups -->
+	<group id="FlashSettingsGroup">
+		<name>Device Settings</name>
+		<children>
+			<child>FlashOSCCLK</child>
+			<child>FlashSPLLIMULT</child>
+			<child>FlashSYSDIVSEL</child>
+			<child>FlashM3SSDIVSEL</child>
+			<child>FlashBackupClock</child>
+		</children>
+	</group>
+	
+	<group id="FlashDownloadSettingGroup">
+		<name>Download Settings</name>
+		<children>
+			<child>FlashDownloadSetting</child>
+			<child>FlashBlankCheckToggle</child>
+			<child>FlashVerifySetting</child>
+			<child>FlashAutoECCSetting</child>
+		</children>
+	</group>
+	
+	<group id="FlashEraseGroup">
+		<name>Erase Settings</name>
+		<children>
+			<child>FlashEraseSelection</child>
+			<child>FlashC28Bank0Sector13</child>
+			<child>FlashC28Bank0Sector12</child>
+			<child>FlashC28Bank0Sector11</child>
+			<child>FlashC28Bank0Sector10</child>
+			<child>FlashC28Bank0Sector9</child>
+			<child>FlashC28Bank0Sector8</child>
+			<child>FlashC28Bank0Sector7</child>
+			<child>FlashC28Bank0Sector6</child>
+			<child>FlashC28Bank0Sector5</child>
+			<child>FlashC28Bank0Sector4</child>
+			<child>FlashC28Bank0Sector3</child>
+			<child>FlashC28Bank0Sector2</child>
+			<child>FlashC28Bank0Sector1</child>
+			<child>FlashC28Bank0Sector0</child>
+			<child>FlashM3Bank0Sector13</child>
+			<child>FlashM3Bank0Sector12</child>
+			<child>FlashM3Bank0Sector11</child>
+			<child>FlashM3Bank0Sector10</child>
+			<child>FlashM3Bank0Sector9</child>
+			<child>FlashM3Bank0Sector8</child>
+			<child>FlashM3Bank0Sector7</child>
+			<child>FlashM3Bank0Sector6</child>
+			<child>FlashM3Bank0Sector5</child>
+			<child>FlashM3Bank0Sector4</child>
+			<child>FlashM3Bank0Sector3</child>
+			<child>FlashM3Bank0Sector2</child>
+			<child>FlashM3Bank0Sector1</child>
+			<child>FlashM3Bank0Sector0</child>
+			<child>FlashEraseButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashBlankCheckGroup">
+		<name>Blank Check Settings</name>
+		<children>
+			<child>FlashBlankCheckButton</child>
+		</children>
+	</group>
+			
+	<group id="FlashChecksumGroup">
+		<name>Checksum</name>
+		<children>
+			<child>FlashChecksum</child>
+			<child>FlashOTPChecksum</child>
+			<child>FlashCalChecksumButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashC28SecurityGroup">
+		<name>Security Settings</name>
+		<children>
+			<child>FlashC28PasswordGroup1</child>
+			<child>FlashC28PasswordGroup2</child>
+			<child>FlashC28PasswordGroup3</child>
+			<child>FlashC28PasswordProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashC28PasswordGroup1">
+		<name>CSM PSWDs/KEYs</name>
+		<children>
+			<child>FlashC28Z1CSMKEY0</child>
+			<child>FlashC28Z1CSMKEY1</child>
+			<child>FlashC28Z1CSMKEY2</child>
+			<child>FlashC28Z1CSMKEY3</child>
+			<child>FlashC28Z1CSMKEYProgramButton</child>
+			<child>FlashC28PasswordLockButton</child>
+			<child>FlashC28PasswordUnlockButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashC28PasswordGroup2">
+		<name>ECSLs</name>
+		<children>
+			<child>FlashC28Z1ECSLKEY0</child>
+			<child>FlashC28Z1ECSLKEY1</child>
+			<child>FlashC28Z1ECSLKEYProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashC28PasswordGroup3">
+		<name>EXEONLY</name>
+		<children>
+			<child>FlashC28Z1EXEONLY</child>
+			<child>FlashC28Z1EXEONLYProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z1SecurityGroup">
+		<name>Security Settings - Zone 1</name>
+		<children>
+			<child>FlashM3Z1PasswordGroup1</child>
+			<child>FlashM3Z1PasswordGroup2</child>
+			<child>FlashM3Z1PasswordGroup3</child>
+			<child>FlashM3Z1PasswordGroup4</child>
+			<child>FlashM3Z1PasswordProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z2SecurityGroup">
+		<name>Security Settings - Zone 2</name>
+		<children>
+			<child>FlashM3Z2PasswordGroup1</child>
+			<child>FlashM3Z2PasswordGroup2</child>
+			<child>FlashM3Z2PasswordGroup3</child>
+			<child>FlashM3Z2PasswordGroup4</child>
+			<child>FlashM3Z2PasswordProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z1PasswordGroup1">
+		<name>CSM PSWDs/KEYs</name>
+		<children>
+			<child>FlashM3Z1CSMKEY0</child>
+			<child>FlashM3Z1CSMKEY1</child>
+			<child>FlashM3Z1CSMKEY2</child>
+			<child>FlashM3Z1CSMKEY3</child>
+			<child>FlashM3Z1CSMKEYProgramButton</child>
+			<child>FlashM3Z1PasswordLockButton</child>
+			<child>FlashM3Z1PasswordUnlockButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z1PasswordGroup2">
+		<name>ECSLs</name>
+		<children>
+			<child>FlashM3Z1ECSLKEY0</child>
+			<child>FlashM3Z1ECSLKEY1</child>
+			<child>FlashM3Z1ECSLKEYProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z1PasswordGroup3">
+		<name>GRABSECT/GRABRAM</name>
+		<children>
+			<child>FlashM3Z1GRABSECT</child>
+			<child>FlashM3Z1GRABRAM</child>
+			<child>FlashM3Z1GRABProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z1PasswordGroup4">
+		<name>EXEONLY</name>
+		<children>
+			<child>FlashM3Z1EXEONLY</child>
+			<child>FlashM3Z1EXEONLYProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z2PasswordGroup1">
+		<name>PSWDs/KEYs</name>
+		<children>
+			<child>FlashM3Z2CSMKEY0</child>
+			<child>FlashM3Z2CSMKEY1</child>
+			<child>FlashM3Z2CSMKEY2</child>
+			<child>FlashM3Z2CSMKEY3</child>
+			<child>FlashM3Z2CSMKEYProgramButton</child>
+			<child>FlashM3Z2PasswordLockButton</child>
+			<child>FlashM3Z2PasswordUnlockButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z2PasswordGroup2">
+		<name>ECSLs</name>
+		<children>
+			<child>FlashM3Z2ECSLKEY0</child>
+			<child>FlashM3Z2ECSLKEY1</child>
+			<child>FlashM3Z2ECSLKEYProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3Z2PasswordGroup3">
+		<name>GRABSECT/GRABRAM</name>
+		<children>
+			<child>FlashM3Z2GRABSECT</child>
+			<child>FlashM3Z2GRABRAM</child>
+			<child>FlashM3Z2GRABProgramButton</child>
+		</children>
+	</group>
+
+	<group id="FlashM3Z2PasswordGroup4">
+		<name>EXEONLY</name>
+		<children>
+			<child>FlashM3Z2EXEONLY</child>
+			<child>FlashM3Z2EXEONLYProgramButton</child>
+		</children>
+	</group>
+	
+	<group id="FlashM3OTPGroup">
+		<name>OTP Programming</name>
+		<children>
+			<child>FlashM3OTPText</child>
+			<child>FlashM3OTPSECLOCK</child>
+			<child>FlashM3Z2FlashStartAddr</child>
+			<child>FlashM3EMACID1</child>
+			<child>FlashM3EMACID2</child>
+			<child>FlashM3CustMainOscFreq</child>
+			<child>FlashM3OTPProgramButton</child>
+		</children>
+	</group>
+	
+	<!-- Properties -->
+	<property id="FlashBackupClock">
+		<target>generic</target>
+		<name>Backup/Restore clock register settings during Flash operations</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashOSCCLK">
+		<target>generic</target>
+		<name>OSCCLK (MHz)</name>
+		<valueType>Numeric</valueType>
+		<defaultValue>20</defaultValue>
+		<lower>2</lower>
+		<upper>100</upper>
+	</property>
+	
+	<property id="FlashSPLLIMULT">
+		<target>generic</target>
+		<name>System PLLCR Integer Multiplier (SPLLIMULT)</name>
+		<valueType>Numeric</valueType>
+		<defaultValue>12</defaultValue>
+		<lower>0</lower>
+		<upper>127</upper>
+	</property>
+	
+	<property id="FlashSYSDIVSEL">
+		<target>generic</target>
+		<name>System Clock Divide Select (SYSDIVSEL)</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0 [/1]</value>
+			<value>1 [/2]</value>
+			<value>2 [/4]</value>
+			<value>3 [/8]</value>
+		</values>
+		<defaultValue>1 [/2]</defaultValue>
+	</property>
+	
+	<property id="FlashM3SSDIVSEL">
+		<target>TMS470REX</target>
+		<name>M3 Sub-System Clock Divide Select (M3SSDIVSEL)</name>
+		<valueType>StringList</valueType>
+		<values>
+			<value>0 [/1]</value>
+			<value>1 [/2]</value>
+			<value>2 [/4]</value>
+		</values>
+		<defaultValue>0 [/1]</defaultValue>
+	</property>
+	
+	<property id="FlashAutoECCSetting">
+		<target>generic</target>
+		<name>Auto ECC Generation</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashDownloadSetting">
+		<target>generic</target>
+		<name></name>
+		<valueType>ChoiceList</valueType>
+		<values>
+			<value>Erase and Program</value>
+			<value>Program Only</value>
+			<value>Load RAM Only</value>
+			<value>Verify Only</value>
+		</values>
+		<defaultValue>Erase and Program</defaultValue>
+	</property>
+	
+	<property id="FlashBlankCheckToggle">
+		<target>generic</target>
+		<name>Perform Blank Check before loading data to Flash memory</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>0</defaultValue>
+	</property>
+	
+	<property id="FlashVerifySetting">
+		<target>generic</target>
+		<name>Verify Flash after Program</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+	</property>
+	
+	<property id="FlashEraseSelection">
+		<target>generic</target>
+		<name></name>
+		<valueType>ChoiceList</valueType>
+		<values>
+			<value>Entire Flash</value>
+			<value>Necessary Sectors Only (for Program Load)</value>
+			<value>Selected Sectors Only</value>
+		</values>
+		<defaultValue>Entire Flash</defaultValue>
+	</property>
+	
+	<property id="FlashC28Bank0Sector13">
+		<target>TMS320C28XX</target>
+		<name>Sector A (0x13E000 - 0x13FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector12">
+		<target>TMS320C28XX</target>
+		<name>Sector B (0x13C000 - 0x13DFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector11">
+		<target>TMS320C28XX</target>
+		<name>Sector C (0x13A000 - 0x13BFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector10">
+		<target>TMS320C28XX</target>
+		<name>Sector D (0x138000 - 0x139FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector9">
+		<target>TMS320C28XX</target>
+		<name>Sector E (0x130000 - 0x137FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector8">
+		<target>TMS320C28XX</target>
+		<name>Sector F (0x128000 - 0x12FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector7">
+		<target>TMS320C28XX</target>
+		<name>Sector G (0x120000 - 0x127FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector6">
+		<target>TMS320C28XX</target>
+		<name>Sector H (0x118000 - 0x11FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector5">
+		<target>TMS320C28XX</target>
+		<name>Sector I (0x110000 - 0x117FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector4">
+		<target>TMS320C28XX</target>
+		<name>Sector J (0x108000 - 0x10FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector3">
+		<target>TMS320C28XX</target>
+		<name>Sector K (0x106000 - 0x107FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector2">
+		<target>TMS320C28XX</target>
+		<name>Sector L (0x104000 - 0x105FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector1">
+		<target>TMS320C28XX</target>
+		<name>Sector M (0x102000 - 0x103FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashC28Bank0Sector0">
+		<target>TMS320C28XX</target>
+		<name>Sector N (0x100000 - 0x101FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashEraseButton">
+		<target>generic</target>
+		<name>Erase Flash</name>
+		<valueType>Button</valueType>
+		<disableIf>
+			<property id="FlashEraseSelection">Necessary Sectors Only (for Program Load)</property>
+		</disableIf>
+		<action>DPActiveDebugSession.flash.performOperation("Erase")</action>
+	</property>
+	
+	<!--
+	<property id="FlashChecksum">
+		<target>generic</target>
+		<name>Flash Checksum:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+		<readOnly>1</readOnly>
+	</property>
+	
+	<property id="FlashOTPChecksum">
+		<target>generic</target>
+		<name>OTP Checksum:</name>
+		<valueType>String</valueType>
+		<defaultValue></defaultValue>
+		<readOnly>1</readOnly>
+	</property>
+	
+	<property id="FlashCalChecksumButton">
+		<target>generic</target>
+		<name>Calculate Checksum</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("CalculateChecksum")</action>
+	</property>
+	-->
+	
+	<property id="FlashC28Z1CSMKEY0">
+		<target>TMS320C28XX</target>
+		<name>C28X-Z1-CSMPSWD0/KEY0 (32 bits)(0x13FFF8) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashC28Z1CSMKEY1">
+		<target>TMS320C28XX</target>
+		<name>C28X-Z1-CSMPSWD1/KEY1 (32 bits)(0x13FFFA) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashC28Z1CSMKEY2">
+		<target>TMS320C28XX</target>
+		<name>C28X-Z1-CSMPSWD2/KEY2 (32 bits)(0x13FFFC) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashC28Z1CSMKEY3">
+		<target>TMS320C28XX</target>
+		<name>C28X-Z1-CSMPSWD3/KEY3 (32 bits)(0x13FFFE) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashC28Z1CSMKEYProgramButton">
+		<target>TMS320C28XX</target>
+		<name>Program Password</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1CSMProgram")</action>
+	</property>
+	
+	<property id="FlashC28PasswordLockButton">
+		<target>TMS320C28XX</target>
+		<name>Lock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1CSMLock")</action>
+	</property>
+	
+	<property id="FlashC28PasswordUnlockButton">
+		<target>TMS320C28XX</target>
+		<name>Unlock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1CSMUnlock")</action>
+	</property>
+	
+	<property id="FlashC28Z1ECSLKEY0">
+		<target>TMS320C28XX</target>
+		<name>C28X-Z1-ECSLPSWD0 (32 bits)(0x13FFF4) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashC28Z1ECSLKEY1">
+		<target>TMS320C28XX</target>
+		<name>C28X-Z1-ECSLPSWD1 (32 bits)(0x13FFF6) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashC28Z1ECSLKEYProgramButton">
+		<target>TMS320C28XX</target>
+		<name>Program ECSLs</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1ECSLProgram")</action>
+	</property>
+	
+	<property id="FlashC28Z1EXEONLY">
+		<target>TMS320C28XX</target>
+		<name>C28X-Z1-EXEONLY (16 bits)(0x13FFF2) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFF</defaultValue>
+	</property>
+	
+	<property id="FlashC28Z1EXEONLYProgramButton">
+		<target>TMS320C28XX</target>
+		<name>Program EXEONLY</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1EXEONLYProgram")</action>
+	</property>
+	
+	<property id="FlashC28PasswordProgramButton">
+		<target>TMS320C28XX</target>
+		<name>Program All Security Settings</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1ProgramAll")</action>
+	</property>
+	
+	<property id="FlashM3Bank0Sector13">
+		<target>TMS470REX</target>
+		<name>Sector A (0x2F8000 - 0x2FFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector12">
+		<target>TMS470REX</target>
+		<name>Sector B (0x2F0000 - 0x2F7FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector11">
+		<target>TMS470REX</target>
+		<name>Sector C (0x2E8000 - 0x2EFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector10">
+		<target>TMS470REX</target>
+		<name>Sector D (0x2E0000 - 0x2E7FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector9">
+		<target>TMS470REX</target>
+		<name>Sector E (0x2C0000 - 0x2DFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector8">
+		<target>TMS470REX</target>
+		<name>Sector F (0x2A0000 - 0x2BFFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector7">
+		<target>TMS470REX</target>
+		<name>Sector G (0x280000 - 0x29FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector6">
+		<target>TMS470REX</target>
+		<name>Sector H (0x260000 - 0x27FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector5">
+		<target>TMS470REX</target>
+		<name>Sector I (0x240000 - 0x25FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector4">
+		<target>TMS470REX</target>
+		<name>Sector J (0x220000 - 0x23FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector3">
+		<target>TMS470REX</target>
+		<name>Sector K (0x218000 - 0x21FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector2">
+		<target>TMS470REX</target>
+		<name>Sector L (0x210000 - 0x217FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector1">
+		<target>TMS470REX</target>
+		<name>Sector M (0x208000 - 0x20FFFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Bank0Sector0">
+		<target>TMS470REX</target>
+		<name>Sector N (0x200000 - 0x207FFF)</name>
+		<valueType>Boolean</valueType>
+		<defaultValue>1</defaultValue>
+		<enableIf>
+			<property id="FlashEraseSelection">Selected Sectors Only</property>
+		</enableIf>
+	</property>
+	
+	<property id="FlashM3Z1CSMKEY0">
+		<target>TMS470REX</target>
+		<name>M3-Z1-CSMPSWD0/KEY0 (32 bits)(0x200000) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1CSMKEY1">
+		<target>TMS470REX</target>
+		<name>M3-Z1-CSMPSWD1/KEY1 (32 bits)(0x200004) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1CSMKEY2">
+		<target>TMS470REX</target>
+		<name>M3-Z1-CSMPSWD2/KEY2 (32 bits)(0x200008) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1CSMKEY3">
+		<target>TMS470REX</target>
+		<name>M3-Z1-CSMPSWD3/KEY3 (32 bits)(0x20000C) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1CSMKEYProgramButton">
+		<target>TMS470REX</target>
+		<name>Program Password</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1CSMProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z1PasswordLockButton">
+		<target>TMS470REX</target>
+		<name>Lock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1CSMLock")</action>
+	</property>
+	
+	<property id="FlashM3Z1PasswordUnlockButton">
+		<target>TMS470REX</target>
+		<name>Unlock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1CSMUnlock")</action>
+	</property>
+	
+	<property id="FlashM3Z1ECSLKEY0">
+		<target>TMS470REX</target>
+		<name>M3-Z1-ECSLPSWD0 (32 bits)(0x200010) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1ECSLKEY1">
+		<target>TMS470REX</target>
+		<name>M3-Z1-ECSLPSWD1 (32 bits)(0x200014) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1ECSLKEYProgramButton">
+		<target>TMS470REX</target>
+		<name>Program ECSLs</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1ECSLProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z1GRABSECT">
+		<target>TMS470REX</target>
+		<name>M3-Z1-GRABSECT (32 bits)(0x200018) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1GRABRAM">
+		<target>TMS470REX</target>
+		<name>M3-Z1-GRABRAM (32 bits)(0x20001C) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1GRABProgramButton">
+		<target>TMS470REX</target>
+		<name>Program GRABSECT/GRABRAM</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1GRABProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z1EXEONLY">
+		<target>TMS470REX</target>
+		<name>M3-Z1-EXEONLY (32 bits)(0x200020) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z1EXEONLYProgramButton">
+		<target>TMS470REX</target>
+		<name>Program EXEONLY</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1EXEONLYProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z1PasswordProgramButton">
+		<target>TMS470REX</target>
+		<name>Program All Zone 1 Settings</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z1ProgramAll")</action>
+	</property>
+	
+	<property id="FlashM3Z2CSMKEY0">
+		<target>TMS470REX</target>
+		<name>M3-Z2-CSMPSWD0/KEY0 (32 bits)(0x2FFFF0) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2CSMKEY1">
+		<target>TMS470REX</target>
+		<name>M3-Z2-CSMPSWD1/KEY1 (32 bits)(0x2FFFF4) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2CSMKEY2">
+		<target>TMS470REX</target>
+		<name>M3-Z2-CSMPSWD2/KEY2 (32 bits)(0x2FFFF8) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2CSMKEY3">
+		<target>TMS470REX</target>
+		<name>M3-Z2-CSMPSWD3/KEY3 (32 bits)(0x2FFFFC) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2CSMKEYProgramButton">
+		<target>TMS470REX</target>
+		<name>Program Password</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z2CSMProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z2PasswordLockButton">
+		<target>TMS470REX</target>
+		<name>Lock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z2CSMLock")</action>
+	</property>
+	
+	<property id="FlashM3Z2PasswordUnlockButton">
+		<target>TMS470REX</target>
+		<name>Unlock</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z2CSMUnlock")</action>
+	</property>
+	
+	<property id="FlashM3Z2ECSLKEY0">
+		<target>TMS470REX</target>
+		<name>M3-Z2-ECSLPSWD0 (32 bits)(0x2FFFE8) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2ECSLKEY1">
+		<target>TMS470REX</target>
+		<name>M3-Z2-ECSLPSWD1 (32 bits)(0x2FFFEC) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2ECSLKEYProgramButton">
+		<target>TMS470REX</target>
+		<name>Program ECSLs</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z2ECSLProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z2GRABSECT">
+		<target>TMS470REX</target>
+		<name>M3-Z2-GRABSECT (32 bits)(0x2FFFE4) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2GRABRAM">
+		<target>TMS470REX</target>
+		<name>M3-Z2-GRABRAM (32 bits)(0x2FFFE0) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2GRABProgramButton">
+		<target>TMS470REX</target>
+		<name>Program GRABSECT/GRABRAM</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z2GRABProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z2EXEONLY">
+		<target>TMS470REX</target>
+		<name>M3-Z2-EXEONLY (32 bits)(0x2FFFDC) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2EXEONLYProgramButton">
+		<target>TMS470REX</target>
+		<name>Program EXEONLY</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z2EXEONLYProgram")</action>
+	</property>
+	
+	<property id="FlashM3Z2PasswordProgramButton">
+		<target>TMS470REX</target>
+		<name>Program All Zone 2 Settigns</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("Z2ProgramAll")</action>
+	</property>
+	
+	<property id="FlashM3OTPText">
+		<target>TMS470REX</target>
+		<name>Enter values for the fields you wish to program and leave any of the fields as default to skip.
+Warning: Programming the OTPSEC field can permanently disable the JTAG.</name>
+		<valueType>Text</valueType>
+	</property>
+	
+	<property id="FlashM3OTPSECLOCK">
+		<target>TMS470REX</target>
+		<name>OTPSECLOCK (32 bits)(0x681000) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3Z2FlashStartAddr">
+		<target>TMS470REX</target>
+		<name>Z2_FLASH_START_ADDR (32 bits)(0x68100C) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3EMACID1">
+		<target>TMS470REX</target>
+		<name>EMACID[31:0] (32 bits)(0x681010) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3EMACID2">
+		<target>TMS470REX</target>
+		<name>EMACID[63:32] (32 bits)(0x681014) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3CustMainOscFreq">
+		<target>TMS470REX</target>
+		<name>CUSTOMER_MAIN_OSC_FREQ (32 bits)(0x68101C) : 0x</name>
+		<valueType>String</valueType>
+		<defaultValue>FFFFFFFF</defaultValue>
+	</property>
+	
+	<property id="FlashM3OTPProgramButton">
+		<target>TMS470REX</target>
+		<name>Program</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("OTPProgram")</action>
+	</property>
+	
+	<property id="FlashBlankCheckButton">
+		<target>generic</target>
+		<name>Blank Check</name>
+		<valueType>Button</valueType>
+		<action>DPActiveDebugSession.flash.performOperation("BlankCheck")</action>
+	</property>
+
+	
+	<!-- fin -->
+</PropertyList>

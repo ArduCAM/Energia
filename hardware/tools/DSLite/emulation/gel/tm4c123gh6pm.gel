@@ -1,0 +1,122 @@
+/* tm4c123gh6pm.gel
+ *
+ * Revisions:
+ *  June-10-2014 3rd revision
+ *
+ * This is derived from revision 15071 of the TivaWare Library.
+ *
+ */
+
+menuitem "StartUp"
+
+hotmenu StartUp()
+{
+    /* Load the CortexM3_util.gel file */
+    GEL_LoadGel("$(GEL_file_dir)/CortexM3_util.gel");
+
+    GEL_MapOff();
+    GEL_MapReset();
+    GEL_MapOn();
+    memorymap_init();
+}
+
+OnTargetConnect()
+{
+}
+
+memorymap_init()
+{
+    /*
+     * Syntax for GEL_MapAddStr.
+     * GEL_MapAddStr(address, page, length, "attribute", waitstate);
+
+    Basic Attribute Types           Derived Attribute Types
+    String      Description         String      Description
+    R           Read                NONE        No memory/protected
+    W           Write               RAM         Read and write
+    P           Port                ROM         Read only
+    EX          External            WOM         Write only
+    EM          Emulator            INPORT      Port read only
+    PR          Programmable        OUTPORT     Port write only
+    ER          Erasable            IOPORT      Port read and write
+    DA          Dual access         SARAM       Single access RAM
+    ASn         Access size         DARAM       Dual access RAM
+    SHnC        Shared              FLASH       Flash ROM
+    CACHE       Cache               EXRAM       External RAM
+    TX          Text                EXROM       External ROM
+    MN          Monitor             EPROM       Erasable write-able EPROM
+    SA          Single access       MONITOR     Monitor ROM
+    FL          Flash               PRAM        Program RAM
+    MR          Memory mapped       PROM        Program ROM
+    NULL        NULL                NULL        NULL
+
+    */
+
+    GEL_MapAddStr(0x00000000, 0, 0x00040000, "R", 0);  /* Flash */
+    GEL_MapAddStr(0x01000000, 0, 0x00008c00, "R", 0);  /* ROM */
+    GEL_MapAddStr(0x20000000, 0, 0x00008000, "R|W", 0);  /* SRAM */
+    GEL_MapAddStr(0x40000000, 0, 0x00001000, "R|W", 0);  /* WATCHDOG0 */
+    GEL_MapAddStr(0x40001000, 0, 0x00001000, "R|W", 0);  /* WATCHDOG1 */
+    GEL_MapAddStr(0x40004000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTA */
+    GEL_MapAddStr(0x40005000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTB */
+    GEL_MapAddStr(0x40006000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTC */
+    GEL_MapAddStr(0x40007000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTD */
+    GEL_MapAddStr(0x40008000, 0, 0x00001000, "R|W", 0);  /* SSI0 */
+    GEL_MapAddStr(0x40009000, 0, 0x00001000, "R|W", 0);  /* SSI1 */
+    GEL_MapAddStr(0x4000A000, 0, 0x00001000, "R|W", 0);  /* SSI2 */
+    GEL_MapAddStr(0x4000B000, 0, 0x00001000, "R|W", 0);  /* SSI3 */
+    GEL_MapAddStr(0x4000C000, 0, 0x00001000, "R|W", 0);  /* UART0 */
+    GEL_MapAddStr(0x4000D000, 0, 0x00001000, "R|W", 0);  /* UART1 */
+    GEL_MapAddStr(0x4000E000, 0, 0x00001000, "R|W", 0);  /* UART2 */
+    GEL_MapAddStr(0x4000F000, 0, 0x00001000, "R|W", 0);  /* UART3 */
+    GEL_MapAddStr(0x40010000, 0, 0x00001000, "R|W", 0);  /* UART4 */
+    GEL_MapAddStr(0x40011000, 0, 0x00001000, "R|W", 0);  /* UART5 */
+    GEL_MapAddStr(0x40012000, 0, 0x00001000, "R|W", 0);  /* UART6 */
+    GEL_MapAddStr(0x40013000, 0, 0x00001000, "R|W", 0);  /* UART7 */
+    GEL_MapAddStr(0x40020000, 0, 0x00001000, "R|W", 0);  /* I2C0 */
+    GEL_MapAddStr(0x40021000, 0, 0x00001000, "R|W", 0);  /* I2C1 */
+    GEL_MapAddStr(0x40022000, 0, 0x00001000, "R|W", 0);  /* I2C2 */
+    GEL_MapAddStr(0x40023000, 0, 0x00001000, "R|W", 0);  /* I2C3 */
+    GEL_MapAddStr(0x40024000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTE */
+    GEL_MapAddStr(0x40025000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTF */
+    GEL_MapAddStr(0x40028000, 0, 0x00001000, "R|W", 0);  /* PWM0 */
+    GEL_MapAddStr(0x40029000, 0, 0x00001000, "R|W", 0);  /* PWM1 */
+    GEL_MapAddStr(0x4002C000, 0, 0x00001000, "R|W", 0);  /* QEI0 */
+    GEL_MapAddStr(0x4002D000, 0, 0x00001000, "R|W", 0);  /* QEI1 */
+    GEL_MapAddStr(0x40030000, 0, 0x00001000, "R|W", 0);  /* TIMER0 */
+    GEL_MapAddStr(0x40031000, 0, 0x00001000, "R|W", 0);  /* TIMER1 */
+    GEL_MapAddStr(0x40032000, 0, 0x00001000, "R|W", 0);  /* TIMER2 */
+    GEL_MapAddStr(0x40033000, 0, 0x00001000, "R|W", 0);  /* TIMER3 */
+    GEL_MapAddStr(0x40034000, 0, 0x00001000, "R|W", 0);  /* TIMER4 */
+    GEL_MapAddStr(0x40035000, 0, 0x00001000, "R|W", 0);  /* TIMER5 */
+    GEL_MapAddStr(0x40036000, 0, 0x00001000, "R|W", 0);  /* WTIMER0 */
+    GEL_MapAddStr(0x40037000, 0, 0x00001000, "R|W", 0);  /* WTIMER1 */
+    GEL_MapAddStr(0x40038000, 0, 0x00001000, "R|W", 0);  /* ADC0 */
+    GEL_MapAddStr(0x40039000, 0, 0x00001000, "R|W", 0);  /* ADC1 */
+    GEL_MapAddStr(0x4003C000, 0, 0x00001000, "R|W", 0);  /* COMP */
+    GEL_MapAddStr(0x40040000, 0, 0x00001000, "R|W", 0);  /* CAN0 */
+    GEL_MapAddStr(0x40041000, 0, 0x00001000, "R|W", 0);  /* CAN1 */
+    GEL_MapAddStr(0x4004C000, 0, 0x00001000, "R|W", 0);  /* WTIMER2 */
+    GEL_MapAddStr(0x4004D000, 0, 0x00001000, "R|W", 0);  /* WTIMER3 */
+    GEL_MapAddStr(0x4004E000, 0, 0x00001000, "R|W", 0);  /* WTIMER4 */
+    GEL_MapAddStr(0x4004F000, 0, 0x00001000, "R|W", 0);  /* WTIMER5 */
+    GEL_MapAddStr(0x40050000, 0, 0x00001000, "R|W", 0);  /* USB0 */
+    GEL_MapAddStr(0x40058000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTA AHB */
+    GEL_MapAddStr(0x40059000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTB AHB */
+    GEL_MapAddStr(0x4005A000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTC AHB */
+    GEL_MapAddStr(0x4005B000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTD AHB */
+    GEL_MapAddStr(0x4005C000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTE AHB */
+    GEL_MapAddStr(0x4005D000, 0, 0x00001000, "R|W", 0);  /* GPIO PORTF AHB */
+    GEL_MapAddStr(0x400AF000, 0, 0x00001000, "R|W", 0);  /* EEPROM */
+    GEL_MapAddStr(0x400F9000, 0, 0x00001000, "R|W", 0);  /* SYSEXC */
+    GEL_MapAddStr(0x400FC000, 0, 0x00001000, "R|W", 0);  /* HIB */
+    GEL_MapAddStr(0x400FD000, 0, 0x00001000, "R|W", 0);  /* FLASH CTRL */
+    GEL_MapAddStr(0x400FE000, 0, 0x00001000, "R|W", 0);  /* SYSCTL */
+    GEL_MapAddStr(0x400FF000, 0, 0x00001000, "R|W", 0);  /* UDMA */
+    GEL_MapAddStr(0x60000000, 0, 0x80000000, "R|W", 0);  /* EPI Window (if Enabled) */
+    GEL_MapAddStr(0xE000E000, 0, 0x00001000, "R|W", 0);  /* NVIC */
+
+    GEL_TextOut("\nMemory Map Initialization Complete\n");
+
+}
+

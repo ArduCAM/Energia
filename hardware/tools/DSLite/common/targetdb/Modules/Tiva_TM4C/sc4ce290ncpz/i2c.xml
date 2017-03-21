@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is derived from revision 15071 of the TivaWare Library. -->
+<module id="I2C0" HW_revision="" XML_version="1.0" description="I2C register offsets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+    <register acronym="I2C_MSA" width="32" description="I2C Master Slave Address" id="I2C_MSA" offset="0x00000000" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive not send" id="I2C_MSA_RS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="7" end="1" rwaccess="RW" description="I2C Slave Address" id="I2C_MSA_SA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MCS" width="32" description="I2C Master Control/Status" id="I2C_MCS" offset="0x00000004" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Master Enable" id="I2C_MCS_RUN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Busy" id="I2C_MCS_BUSY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Error" id="I2C_MCS_ERROR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Generate START" id="I2C_MCS_START" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Acknowledge Address" id="I2C_MCS_ADRACK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Generate STOP" id="I2C_MCS_STOP" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Data Acknowledge Enable" id="I2C_MCS_ACK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Acknowledge Data" id="I2C_MCS_DATACK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Arbitration Lost" id="I2C_MCS_ARBLST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="High-Speed Enable" id="I2C_MCS_HS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="I2C Idle" id="I2C_MCS_IDLE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Quick Command" id="I2C_MCS_QCMD" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Burst Enable" id="I2C_MCS_BURST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Bus Busy" id="I2C_MCS_BUSBSY" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clock Timeout Error" id="I2C_MCS_CLKTO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="DMA TX Active Status" id="I2C_MCS_ACTDMATX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="DMA RX Active Status" id="I2C_MCS_ACTDMARX" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MDR" width="32" description="I2C Master Data" id="I2C_MDR" offset="0x00000008" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="This byte contains the data transferred during a transaction" id="I2C_MDR_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MTPR" width="32" description="I2C Master Timer Period" id="I2C_MTPR" offset="0x0000000C" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Timer Period" id="I2C_MTPR_TPR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="High-Speed Enable" id="I2C_MTPR_HS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="Glitch Suppression Pulse Width" id="I2C_MTPR_PULSEL" resetval="" >
+            <bitenum id="I2C_MTPR_PULSEL_BYPASS" value="0x00000000" token="" description="Bypass"/>
+            <bitenum id="I2C_MTPR_PULSEL_1" value="0x00010000" token="" description="1 clock"/>
+            <bitenum id="I2C_MTPR_PULSEL_2" value="0x00020000" token="" description="2 clocks"/>
+            <bitenum id="I2C_MTPR_PULSEL_3" value="0x00030000" token="" description="3 clocks"/>
+            <bitenum id="I2C_MTPR_PULSEL_4" value="0x00040000" token="" description="4 clocks"/>
+            <bitenum id="I2C_MTPR_PULSEL_8" value="0x00050000" token="" description="8 clocks"/>
+            <bitenum id="I2C_MTPR_PULSEL_16" value="0x00060000" token="" description="16 clocks"/>
+            <bitenum id="I2C_MTPR_PULSEL_31" value="0x00070000" token="" description="31 clocks"/>
+        </bitfield>
+    </register>
+    <register acronym="I2C_MIMR" width="32" description="I2C Master Interrupt Mask" id="I2C_MIMR" offset="0x00000010" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Master Interrupt Mask" id="I2C_MIMR_IM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Clock Timeout Interrupt Mask" id="I2C_MIMR_CLKIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Receive DMA Interrupt Mask" id="I2C_MIMR_DMARXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Transmit DMA Interrupt Mask" id="I2C_MIMR_DMATXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Address/Data NACK Interrupt Mask" id="I2C_MIMR_NACKIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="START Detection Interrupt Mask" id="I2C_MIMR_STARTIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="STOP Detection Interrupt Mask" id="I2C_MIMR_STOPIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Arbitration Lost Interrupt Mask" id="I2C_MIMR_ARBLOSTIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Transmit FIFO Request Interrupt Mask" id="I2C_MIMR_TXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Receive FIFO Request Interrupt Mask" id="I2C_MIMR_RXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Transmit FIFO Empty Interrupt Mask" id="I2C_MIMR_TXFEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Receive FIFO Full Interrupt Mask" id="I2C_MIMR_RXFFIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MRIS" width="32" description="I2C Master Raw Interrupt Status" id="I2C_MRIS" offset="0x00000014" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Master Raw Interrupt Status" id="I2C_MRIS_RIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Clock Timeout Raw Interrupt Status" id="I2C_MRIS_CLKRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Receive DMA Raw Interrupt Status" id="I2C_MRIS_DMARXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Transmit DMA Raw Interrupt Status" id="I2C_MRIS_DMATXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Address/Data NACK Raw Interrupt Status" id="I2C_MRIS_NACKRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="START Detection Raw Interrupt Status" id="I2C_MRIS_STARTRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="STOP Detection Raw Interrupt Status" id="I2C_MRIS_STOPRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="Arbitration Lost Raw Interrupt Status" id="I2C_MRIS_ARBLOSTRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="Transmit Request Raw Interrupt Status" id="I2C_MRIS_TXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="Receive FIFO Request Raw Interrupt Status" id="I2C_MRIS_RXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="Transmit FIFO Empty Raw Interrupt Status" id="I2C_MRIS_TXFERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="Receive FIFO Full Raw Interrupt Status" id="I2C_MRIS_RXFFRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MMIS" width="32" description="I2C Master Masked Interrupt Status" id="I2C_MMIS" offset="0x00000018" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Masked Interrupt Status" id="I2C_MMIS_MIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Clock Timeout Masked Interrupt Status" id="I2C_MMIS_CLKMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Receive DMA Interrupt Status" id="I2C_MMIS_DMARXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Transmit DMA Interrupt Status" id="I2C_MMIS_DMATXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Address/Data NACK Interrupt Mask" id="I2C_MMIS_NACKMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="START Detection Interrupt Mask" id="I2C_MMIS_STARTMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="STOP Detection Interrupt Mask" id="I2C_MMIS_STOPMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="Arbitration Lost Interrupt Mask" id="I2C_MMIS_ARBLOSTMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="Transmit Request Interrupt Mask" id="I2C_MMIS_TXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="R" description="Receive FIFO Request Interrupt Mask" id="I2C_MMIS_RXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="R" description="Transmit FIFO Empty Interrupt Mask" id="I2C_MMIS_TXFEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="R" description="Receive FIFO Full Interrupt Mask" id="I2C_MMIS_RXFFMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MICR" width="32" description="I2C Master Interrupt Clear" id="I2C_MICR" offset="0x0000001C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="Master Interrupt Clear" id="I2C_MICR_IC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="Clock Timeout Interrupt Clear" id="I2C_MICR_CLKIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="W" description="Receive DMA Interrupt Clear" id="I2C_MICR_DMARXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="W" description="Transmit DMA Interrupt Clear" id="I2C_MICR_DMATXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="Address/Data NACK Interrupt Clear" id="I2C_MICR_NACKIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="W" description="START Detection Interrupt Clear" id="I2C_MICR_STARTIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="W" description="STOP Detection Interrupt Clear" id="I2C_MICR_STOPIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="W" description="Arbitration Lost Interrupt Clear" id="I2C_MICR_ARBLOSTIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="W" description="Transmit FIFO Request Interrupt Clear" id="I2C_MICR_TXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="9" width="1" end="9" rwaccess="W" description="Receive FIFO Request Interrupt Clear" id="I2C_MICR_RXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="10" width="1" end="10" rwaccess="W" description="Transmit FIFO Empty Interrupt Clear" id="I2C_MICR_TXFEIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="11" width="1" end="11" rwaccess="W" description="Receive FIFO Full Interrupt Clear" id="I2C_MICR_RXFFIC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MCR" width="32" description="I2C Master Configuration" id="I2C_MCR" offset="0x00000020" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Loopback" id="I2C_MCR_LPBK" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="I2C Master Function Enable" id="I2C_MCR_MFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="I2C Slave Function Enable" id="I2C_MCR_SFE" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MCLKOCNT" width="32" description="I2C Master Clock Low Timeout Count" id="I2C_MCLKOCNT" offset="0x00000024" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="I2C Master Count" id="I2C_MCLKOCNT_CNTL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MBMON" width="32" description="I2C Master Bus Monitor" id="I2C_MBMON" offset="0x0000002C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="I2C SCL Status" id="I2C_MBMON_SCL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="I2C SDA Status" id="I2C_MBMON_SDA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MBLEN" width="32" description="I2C Master Burst Length" id="I2C_MBLEN" offset="0x00000030" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="I2C Burst Length" id="I2C_MBLEN_CNTL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_MBCNT" width="32" description="I2C Master Burst Count" id="I2C_MBCNT" offset="0x00000034" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="R" description="I2C Master Burst Count" id="I2C_MBCNT_CNTL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SOAR" width="32" description="I2C Slave Own Address" id="I2C_SOAR" offset="0x00000800" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="I2C Slave Own Address" id="I2C_SOAR_OAR" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SCSR" width="32" description="I2C Slave Control/Status" id="I2C_SCSR" offset="0x00000804" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Device Active" id="I2C_SCSR_DA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Receive Request" id="I2C_SCSR_RREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="TX FIFO Enable" id="I2C_SCSR_TXFIFO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Transmit Request" id="I2C_SCSR_TREQ" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="First Byte Received" id="I2C_SCSR_FBR" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="RX FIFO Enable" id="I2C_SCSR_RXFIFO" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="OAR2 Address Matched" id="I2C_SCSR_OAR2SEL" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Quick Command Status" id="I2C_SCSR_QCMDST" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Quick Command Read / Write" id="I2C_SCSR_QCMDRW" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="R" description="DMA TX Active Status" id="I2C_SCSR_ACTDMATX" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="R" description="DMA RX Active Status" id="I2C_SCSR_ACTDMARX" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SDR" width="32" description="I2C Slave Data" id="I2C_SDR" offset="0x00000808" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Data for Transfer" id="I2C_SDR_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SIMR" width="32" description="I2C Slave Interrupt Mask" id="I2C_SIMR" offset="0x0000080C" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Data Interrupt Mask" id="I2C_SIMR_DATAIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Start Condition Interrupt Mask" id="I2C_SIMR_STARTIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Stop Condition Interrupt Mask" id="I2C_SIMR_STOPIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Receive DMA Interrupt Mask" id="I2C_SIMR_DMARXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Transmit DMA Interrupt Mask" id="I2C_SIMR_DMATXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Transmit FIFO Request Interrupt Mask" id="I2C_SIMR_TXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Receive FIFO Request Interrupt Mask" id="I2C_SIMR_RXIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Transmit FIFO Empty Interrupt Mask" id="I2C_SIMR_TXFEIM" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Receive FIFO Full Interrupt Mask" id="I2C_SIMR_RXFFIM" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SRIS" width="32" description="I2C Slave Raw Interrupt Status" id="I2C_SRIS" offset="0x00000810" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Data Raw Interrupt Status" id="I2C_SRIS_DATARIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Start Condition Raw Interrupt Status" id="I2C_SRIS_STARTRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Stop Condition Raw Interrupt Status" id="I2C_SRIS_STOPRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Receive DMA Raw Interrupt Status" id="I2C_SRIS_DMARXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Transmit DMA Raw Interrupt Status" id="I2C_SRIS_DMATXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Transmit Request Raw Interrupt Status" id="I2C_SRIS_TXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="Receive FIFO Request Raw Interrupt Status" id="I2C_SRIS_RXRIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="Transmit FIFO Empty Raw Interrupt Status" id="I2C_SRIS_TXFERIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="Receive FIFO Full Raw Interrupt Status" id="I2C_SRIS_RXFFRIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SMIS" width="32" description="I2C Slave Masked Interrupt Status" id="I2C_SMIS" offset="0x00000814" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="Data Masked Interrupt Status" id="I2C_SMIS_DATAMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="Start Condition Masked Interrupt Status" id="I2C_SMIS_STARTMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="Stop Condition Masked Interrupt Status" id="I2C_SMIS_STOPMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="R" description="Receive DMA Masked Interrupt Status" id="I2C_SMIS_DMARXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="R" description="Transmit DMA Masked Interrupt Status" id="I2C_SMIS_DMATXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="R" description="Transmit FIFO Request Interrupt Mask" id="I2C_SMIS_TXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="R" description="Receive FIFO Request Interrupt Mask" id="I2C_SMIS_RXMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="R" description="Transmit FIFO Empty Interrupt Mask" id="I2C_SMIS_TXFEMIS" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="R" description="Receive FIFO Full Interrupt Mask" id="I2C_SMIS_RXFFMIS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SICR" width="32" description="I2C Slave Interrupt Clear" id="I2C_SICR" offset="0x00000818" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="W" description="Data Interrupt Clear" id="I2C_SICR_DATAIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="W" description="Start Condition Interrupt Clear" id="I2C_SICR_STARTIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="W" description="Stop Condition Interrupt Clear" id="I2C_SICR_STOPIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="3" width="1" end="3" rwaccess="W" description="Receive DMA Interrupt Clear" id="I2C_SICR_DMARXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="4" width="1" end="4" rwaccess="W" description="Transmit DMA Interrupt Clear" id="I2C_SICR_DMATXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="5" width="1" end="5" rwaccess="W" description="Transmit Request Interrupt Mask" id="I2C_SICR_TXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="6" width="1" end="6" rwaccess="W" description="Receive Request Interrupt Mask" id="I2C_SICR_RXIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="W" description="Transmit FIFO Empty Interrupt Mask" id="I2C_SICR_TXFEIC" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="8" width="1" end="8" rwaccess="W" description="Receive FIFO Full Interrupt Mask" id="I2C_SICR_RXFFIC" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SOAR2" width="32" description="I2C Slave Own Address 2" id="I2C_SOAR2" offset="0x0000081C" >
+        <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="I2C Slave Own Address 2" id="I2C_SOAR2_OAR2" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="I2C Slave Own Address 2 Enable" id="I2C_SOAR2_OAR2EN" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_SACKCTL" width="32" description="I2C Slave ACK Control" id="I2C_SACKCTL" offset="0x00000820" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="I2C Slave ACK Override Enable" id="I2C_SACKCTL_ACKOEN" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="I2C Slave ACK Override Value" id="I2C_SACKCTL_ACKOVAL" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_FIFODATA" width="32" description="I2C FIFO Data" id="I2C_FIFODATA" offset="0x00000F00" >
+        <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="I2C TX FIFO Write Data Byte" id="I2C_FIFODATA_DATA" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_FIFOCTL" width="32" description="I2C FIFO Control" id="I2C_FIFOCTL" offset="0x00000F04" >
+        <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="TX FIFO Trigger" id="I2C_FIFOCTL_TXTRIG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="DMA TX Channel Enable" id="I2C_FIFOCTL_DMATXENA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="TX FIFO Flush" id="I2C_FIFOCTL_TXFLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="TX Control Assignment" id="I2C_FIFOCTL_TXASGNMT" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="RX FIFO Trigger" id="I2C_FIFOCTL_RXTRIG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="DMA RX Channel Enable" id="I2C_FIFOCTL_DMARXENA" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="RX FIFO Flush" id="I2C_FIFOCTL_RXFLUSH" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="RX Control Assignment" id="I2C_FIFOCTL_RXASGNMT" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_FIFOSTATUS" width="32" description="I2C FIFO Status" id="I2C_FIFOSTATUS" offset="0x00000F08" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="TX FIFO Empty" id="I2C_FIFOSTATUS_TXFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="1" width="1" end="1" rwaccess="R" description="TX FIFO Full" id="I2C_FIFOSTATUS_TXFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="2" width="1" end="2" rwaccess="R" description="TX FIFO Below Trigger Level" id="I2C_FIFOSTATUS_TXBLWTRIG" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="16" width="1" end="16" rwaccess="R" description="RX FIFO Empty" id="I2C_FIFOSTATUS_RXFE" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="17" width="1" end="17" rwaccess="R" description="RX FIFO Full" id="I2C_FIFOSTATUS_RXFF" resetval="" >
+        </bitfield>
+        <bitfield range="" begin="18" width="1" end="18" rwaccess="R" description="RX FIFO Above Trigger Level" id="I2C_FIFOSTATUS_RXABVTRIG" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_PP" width="32" description="I2C Peripheral Properties" id="I2C_PP" offset="0x00000FC0" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="High-Speed Capable" id="I2C_PP_HS" resetval="" >
+        </bitfield>
+    </register>
+    <register acronym="I2C_PC" width="32" description="I2C Peripheral Configuration" id="I2C_PC" offset="0x00000FC4" >
+        <bitfield range="" begin="0" width="1" end="0" rwaccess="R" description="High-Speed Capable" id="I2C_PC_HS" resetval="" >
+        </bitfield>
+    </register>
+</module>
