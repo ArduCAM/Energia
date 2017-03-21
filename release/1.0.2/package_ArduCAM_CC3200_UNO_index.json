@@ -1,0 +1,276 @@
+{
+  "packages": [
+    {
+      "name": "ArduCAM_CC3200_UNO",
+      "maintainer": "ArduCAM",
+      "websiteURL": "http://www.arducam.com",
+      "email": "admin@arducam.com",
+      "help": {
+               "online": "http://www.arducam.com"
+              },
+      "platforms": [
+        
+        {
+          "name": "ArduCAM_CC3200_UNO",
+          "architecture": "ArduCAM_CC3200_UNO",
+          "version": "1.0.2",
+          "category": "Energia",
+          "url": "http://www.arducam.com/downloads/CC3200_UNO/releases/1.0.2/ArduCAM_CC3200_UNO.zip",
+          "archiveFileName": "ArduCAM_CC3200_UNO.zip",
+          "checksum": "SHA-256:91D583DD8DD2F95732479851808B2291FB73300E5F7564C02C686C20DD719B6D",
+          "size": "2473984",
+          "boards": [
+            {"name": "ArduCAM_CC3200_UNO"},
+            {"name": "CC3200-LAUNCHXL"},
+            {"name": "RedBearLab CC3200"},
+            {"name": "RedBearLab WiFi Mini"},
+            {"name": "RedBearLab WiFi Micro"}
+          ],
+          "toolsDependencies": [
+            {
+
+              "packager":"ArduCAM_CC3200_UNO",
+              "name":"arm-none-eabi-gcc",
+              "version":"4.8.4-20140725"
+            },
+            {
+              "packager":"ArduCAM_CC3200_UNO",
+              "name":"dslite",
+              "version":"6.2.1.1594"
+            },
+            {
+              "packager":"ArduCAM_CC3200_UNO",
+              "name":"cc3200prog",
+              "version":"1.1.4"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "name":"msp430-gcc",
+          "version":"4.6.3",
+          "systems":
+          [
+            {
+              "host":"i686-mingw32",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/windows/msp430-gcc-4.6.3-i686-mingw32.zip",
+              "archiveFileName":"msp430-gcc-4.6.3-i686-mingw32.zip",
+              "checksum":"SHA-256:5e3722f6651e33991a199f7a7f3182a3ad0d5ddb5eff199e8c27d1fd269132d2",
+              "size":"47733038"
+            },
+            {
+              "host":"x86_64-apple-darwin",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/macosx/msp430-gcc-4.6.3-i386-apple-darwin11.tar.bz2",
+              "archiveFileName":"msp430-gcc-4.6.3-i386-apple-darwin11.tar.bz2",
+              "checksum":"SHA-256:b919d80880603b55c64b9095eb80d4005e82d7428b0d7ded3864c200cb4f847c",
+              "size":"32357793"
+            },
+            {
+              "host": "x86_64-linux-gnu",
+              "url": "https://s3.amazonaws.com/energiaUS/tools/linux64/msp430-gcc-4.6.3-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "archiveFileName": "msp430-gcc-4.6.3-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "size": "87607164",
+              "checksum": "SHA-256:453832be5150f45a830ea5b0336a911f22fd7553f668a1e93a5c9e58f65f9f7f"
+            }
+          ]
+        },
+        {
+          "name": "arm-none-eabi-gcc",
+          "version": "4.8.4-20140725",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "archiveFileName": "gcc-arm-none-eabi-4.8.4-20140725-windows.tar.gz",
+              "url": "https://s3.amazonaws.com/energiaUS/tools/windows/gcc-arm-none-eabi-4.8.4-20140725-windows.tar.gz",
+              "checksum": "SHA-256:2ab5a6ad2a32f976d17b7ef9222623e6f9881be908047cb05730ccd89eb79a1d",
+              "size": "82014307"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://s3.amazonaws.com/energiaUS/tools/macosx/gcc-arm-none-eabi-4.8.4-20140725-mac.tar.bz2",
+              "archiveFileName": "gcc-arm-none-eabi-4.8.4-20140725-mac.tar.bz2",
+              "checksum": "SHA-256:66c9261fdd6d646931dfe940e8daf38d3b11cfba8a7e714c7a3811146b6dc9c7",
+              "size": "52518522"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://s3.amazonaws.com/energiaUS/tools/linux64/gcc-arm-none-eabi-4.8.4-20140725-x86_64-pc-linux-gnu.tar.bz2",
+              "archiveFileName": "gcc-arm-none-eabi-4.8.4-20140725-x86_64-pc-linux-gnu.tar.bz2",
+              "checksum": "SHA-256:00636c299e7a420212cdc1643d5c52d3e82eb66c8ce0e4693327cd1e936b52db",
+              "size": "68654066"
+            }
+          ]
+        },
+        {
+          "name":"ino2cpp",
+          "version":"1.0.2",
+          "systems":
+          [
+           {
+              "host":"i686-mingw32",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/ino2cpp-1.0.2.tar.bz2",
+              "archiveFileName":"ino2cpp-1.0.2.tar.bz2",
+              "checksum":"SHA-256:6f63041767f4f15b1da7b62aa3086e6912f9e05b19bfdf512d573bcc9ac7c9a5",
+              "size":"484493"
+            },
+            {
+              "host":"x86_64-apple-darwin",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/ino2cpp-1.0.2.tar.bz2",
+              "archiveFileName":"ino2cpp-1.0.2.tar.bz2",
+              "checksum":"SHA-256:6f63041767f4f15b1da7b62aa3086e6912f9e05b19bfdf512d573bcc9ac7c9a5",
+              "size":"484493"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/ino2cpp-1.0.2.tar.bz2",
+              "archiveFileName":"ino2cpp-1.0.2.tar.bz2",
+              "checksum":"SHA-256:6f63041767f4f15b1da7b62aa3086e6912f9e05b19bfdf512d573bcc9ac7c9a5",
+              "size":"484493"
+            }
+          ]
+        },
+        {
+          "name":"dslite",
+          "version":"7.1.0.1917",
+          "systems":
+          [
+           {
+              "host":"i686-mingw32",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/windows/dslite-7.1.0.1917-i686-mingw32.zip",
+              "archiveFileName":"dslite-7.1.0.1917-mingw32.zip",
+              "checksum":"SHA-256:e8ef665bfeaa9264a98771ea89d14f977e8e448116372f6883bb74dc703424a8",
+              "size":"36225191"
+            },
+            {
+              "host":"x86_64-apple-darwin",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/macosx/dslite-7.1.0.1917-x86_64-apple-darwin.tar.bz2",
+              "archiveFileName":"dslite-7.1.0.1917-x86_64-apple-darwin.tar.bz2",
+              "checksum":"SHA-256:629fe0c3c5f066b9dd62e065ac8ba80c5fd260d15d6fe32006e200b9a58343ac",
+              "size":"15384479"
+            },
+            {
+              "host":"x86_64-pc-linux-gnu",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/linux64/dslite-7.1.0.1917-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "archiveFileName":"dslite-7.1.0.1917-x86_64-pc-linux-gnu.tar.bz2",
+              "checksum":"SHA-256:89fa13bec5e5504ccaef25a7d87464cf784c14870e66d7e149b8308839ab83de",
+              "size":"17793290"
+            }
+          ]
+        },
+        {
+          "name":"dslite",
+          "version":"6.2.1.1624",
+          "systems":
+          [
+           {
+              "host":"i686-mingw32",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/windows/dslite-6.2.1.1624-i686-mingw32.zip",
+              "archiveFileName":"dslite-6.2.1.1624-i686-mingw32.zip",
+              "checksum":"SHA-256:fd673ea66fcd8051d91a0138dcddaf0b3104ca1c6b2e0eab0de8b2080ff70094",
+              "size":"34948605"
+            },
+            {
+              "host":"x86_64-apple-darwin",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/macosx/dslite-6.2.1.1624-x86_64-apple-darwin.tar.bz2",
+              "archiveFileName":"dslite-6.2.1.1624-x86_64-apple-darwin.tar.bz2",
+              "checksum":"SHA-256:0a89afb99973ec2b4cf23be277ccc66cb2dc53fdd894924aa871b0e9882011e3",
+              "size":"15312608"
+            },
+            {
+              "host":"x86_64-pc-linux-gnu",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/linux64/dslite-6.2.1.1624-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "archiveFileName":"dslite-6.2.1.1624-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "checksum":"SHA-256:401d9edd1956b87a7b89f162456a8444b2ac73d3d972f8f2231a150a7e384503",
+              "size":"17995725"
+            }
+          ]
+        },
+        {
+          "name":"dslite",
+          "version":"6.2.1.1594",
+          "systems":
+          [
+           {
+              "host":"i686-mingw32",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/windows/dslite-6.2.1.1594-i686-mingw32.zip",
+              "archiveFileName":"dslite-6.2.1.1594-i686-mingw32.zip",
+              "checksum":"SHA-256:aa523ddddbb23fb93fd2705990a10021b3b1ad6553d6149159fc9c0f68b56824",
+              "size":"33819921"
+            },
+            {
+              "host":"x86_64-apple-darwin",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/macosx/dslite-6.2.1.1594-x86_64-apple-darwin.tar.bz2",
+              "archiveFileName":"dslite-6.2.1.1594-x86_64-apple-darwin.tar.bz2",
+              "checksum":"SHA-256:f872f284b090d9c635812ef588645c498eadd1dc8ab8d867b54895d57ddf0127",
+              "size":"14735532"
+            },
+            {
+              "host":"x86_64-pc-linux-gnu",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/linux64/dslite-6.2.1.1594-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "archiveFileName":"dslite-6.2.1.1594-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "checksum":"SHA-256:dfa17d2c26699e1480a13bd7f2941541417c59276ee38d30848e4606e1fba33b",
+              "size":"20539172"
+            }
+          ]
+        },
+        {
+          "name":"mspdebug",
+          "version":"0.22",
+          "systems":
+          [
+           {
+              "host":"i686-mingw32",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/windows/mspdebug-0.22.zip",
+              "archiveFileName":"mspdebug-0.22.zip",
+              "checksum":"SHA-256:e4d061b5cb1de2e17dc7f4fb5c3c6bd8c6f7a3ea013fa16e2332b408440236ec",
+              "size":"201798"
+            },
+            {
+              "host":"x86_64-apple-darwin",
+              "url":"http://www.energia.nu/tools/mspdebug-0.22-x86_64-apple-darwin.tar.bz2",
+              "archiveFileName":"mspdebug-0.22--x86_64-apple-darwin.tar.bz2",
+              "checksum":"SHA-256:efc469b4771367bd5e420eb7d6f36551df8da36dd130d2bbf184131b6876111e",
+              "size":"9891660"
+            },
+            {
+              "host":"x86_64-pc-linux-gnu",
+              "url":"http://www.energia.nu/tools/mspdebug-0.22-x86_64-apple-darwin.tar.bz2",
+              "archiveFileName":"mspdebug-0.22--x86_64-apple-darwin.tar.bz2",
+              "checksum":"SHA-256:efc469b4771367bd5e420eb7d6f36551df8da36dd130d2bbf184131b6876111e",
+              "size":"9891660"
+            }
+          ]
+        },
+        {
+          "name":"cc3200prog",
+          "version":"1.1.4",
+          "systems":
+          [
+           {
+              "host":"i686-mingw32",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/windows/cc3200prog-1.1.4-i686-mingw32.zip",
+              "archiveFileName":"cc3200prog-1.1.4-i686-mingw32.zip",
+              "checksum":"SHA-256:9701cf08a34c727355261eec502dfa44386b34b2d9cde863eb20c347d7a24f97",
+              "size":"400542"
+            },
+            {
+              "host":"x86_64-apple-darwin",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/macosx/cc3200prog-1.1.4-x86_64-apple-darwin.tar.bz2",
+              "archiveFileName":"cc3200prog-1.1.4-x86_64-apple-darwin.tar.bz2",
+              "checksum":"SHA-256:1d499a54ad083869fcc54da60ec4d55f03011fe3bb3d45dd75b5e687694befdd",
+              "size":"164785"
+            },
+            {
+              "host":"x86_64-pc-linux-gnu",
+              "url":"https://s3.amazonaws.com/energiaUS/tools/linux64/cc3200prog-1.1.4-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "archiveFileName":"cc3200prog-1.1.4-i386-x86_64-pc-linux-gnu.tar.bz2",
+              "checksum":"SHA-256:892a1ba158ee184451597cd8d1aad32f293dc4279e59deace08e2a67c6b93707",
+              "size":"134860"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
